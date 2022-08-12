@@ -1,0 +1,22 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+use GuzzleHttp\Client;
+
+if (!function_exists('token')) {  
+    function token(){
+        $client = new Client();
+        $request = $client->request('POST', 'http://103.158.196.31/serverArc/', [
+            'form_params' => [
+                'app_id' => 'gutam',
+                'passwd' => '12345'
+            ]
+        ]);
+        $response = $request->getBody();
+        $data = json_decode($response, true);
+
+        $result = $data['data']['token'];
+
+        return $result;
+  }
+}
