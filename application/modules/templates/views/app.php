@@ -66,7 +66,7 @@
 
 
         <style>
-            #mapG20Dashboard { height: 400px; width: 100% } 
+            #mapG20Dashboard { height: 550px; width: 100% } 
             #overlay{	
                 position: fixed;
                 top: 0;
@@ -538,21 +538,21 @@
                 <!-- End Page-content -->
 
 
-                <footer class="footer">
+                <!-- <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <!-- <script>document.write(new Date().getFullYear())</script> © K3I. -->
+                                 <script>document.write(new Date().getFullYear())</script> © K3I. 
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
                                     <script>document.write(new Date().getFullYear())</script> © K3I.
-                                    <!-- Design & Develop by <a href="#!" class="text-decoration-underline">Themesbrand</a> -->
+                                    Design & Develop by <a href="#!" class="text-decoration-underline">Themesbrand</a> 
                                 </div>
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
             </div>
             <!-- end main content-->
 
