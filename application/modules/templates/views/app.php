@@ -231,6 +231,47 @@
             box-shadow: 0 0 1px 2px #2d99d3;
             animation-delay: 1.1s;
         }
+
+
+        .material-textfield {
+            position: relative;  
+        }
+
+        .labelmui {
+            position: absolute;
+            font-size: 1rem;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: gray;
+            padding: 0 0.3rem;
+            margin: 0 0.5rem;
+            transition: .1s ease-out;
+            transform-origin: left top;
+            pointer-events: none;
+        }
+        input {
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid gray;
+            border-radius: 5px;  
+            padding: 1rem 0.7rem;
+            color: gray;
+            transition: 0.1s ease-out;
+        }
+        input:focus {
+            border-color: #6200EE;  
+        }
+        input:focus + .labelmui {
+            color: #6200EE;
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
+        input:not(:placeholder-shown) + .labelmui {
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
     </style>
 
     <!-- JAVASCRIPT -->

@@ -5,6 +5,12 @@
     <div class="col-md-12">
         <div id="ChartTrialBalance"></div>
     </div>
+    <div class="col-md-12">
+        <div class="material-textfield mb-3">
+            <input style="width: 100%;" name="username" placeholder="Nama pengguna atau alamat email" type="text">
+            <label class="labelmui">Nama pengguna atau alamat email</label>
+        </div>
+    </div>
 </div>
 
 <script>
