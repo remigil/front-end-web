@@ -321,11 +321,11 @@
                             </span>
                         </a>
                     </div>
-
-                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 10px;" id="vertical-menu-btn">
-                        <i class="fa fa-fw fa-bars"></i>
+ 
+                    <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
+                        <i style="margin-left: -11px;" class="fa fa-fw fas fa-angle-left"></i>
                     </button>
-                    <h5 style="display: flex;align-items: center;margin-left: -15px;margin-top: 6px;"><?php echo $title; ?></h5>
+                    <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
                 </div>
 
 

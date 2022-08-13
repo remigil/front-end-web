@@ -11,9 +11,25 @@
             <label class="labelmui">Nama pengguna atau alamat email</label>
         </div>
     </div>
+    <div class="col-12">
+        <form action="#" class="dropzone">
+            <div class="fallback">
+                <input name="file" type="file" multiple="multiple">
+            </div>
+            <div class="dz-message needsclick">
+                <div class="mb-3">
+                    <i class="display-4 text-muted bx bx-cloud-upload"></i>
+                </div>
+
+                <h5>Drop files here or click to upload.</h5>
+            </div>
+        </form> 
+    </div>
 </div>
 
 <script>
+     
+
     $(document).ready(function() {
         // alert('oke');
 
