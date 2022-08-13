@@ -11,6 +11,41 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo base_url();?>assets/logo-k3i.png">
 
+        <!-- twitter-bootstrap-wizard css -->
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/libs/twitter-bootstrap-wizard/prettify.css">
+
+        <!-- datepicker css -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+
+        <!-- select2 css -->
+        <link href="<?php echo base_url();?>assets/admin/css/select2.min.css" rel="stylesheet" />
+        
+        <!-- dropify js -->  
+        <link href="<?php echo base_url();?>assets/admin/css/dropify.css" rel="stylesheet" type="text/css" /> 
+
+        <!-- choices css -->
+        <link href="<?php echo base_url();?>assets/admin/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+
+
+        <!-- Sweet Alert-->
+        <link href="<?php echo base_url();?>assets/admin/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- dropzone css -->
+        <link href="<?php echo base_url();?>assets/admin/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- DataTables -->
+        <link href="<?php echo base_url();?>assets/admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="<?php echo base_url();?>assets/admin/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
+
+        <!-- plugin css -->
+        <link href="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+        <!-- glightbox css -->
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/libs/glightbox/css/glightbox.min.css">
+
         <!-- plugin css -->
         <link href="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
 
@@ -667,14 +702,86 @@
         <!-- pace js -->
         <script src="<?php echo base_url();?>assets/admin/libs/pace-js/pace.min.js"></script>
 
+        <!-- choices js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+        <!-- dropify js --> 
+        <script src="<?php echo base_url();?>assets/admin/js/pages/dropify.js"></script>
+        <!-- <script src="<?php echo base_url();?>assets/admin/js/pages/dropify.min.js"></script> -->
+
+        <!-- Modal js -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/modal.init.js"></script>
+
+        <!-- form mask -->
+        <script src="<?php echo base_url();?>assets/admin/libs/imask/imask.min.js"></script>
+
+        <!-- form mask init -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/form-mask.init.js"></script> 
+
+        <!-- dropzone js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
+
+        <!-- glightbox js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
+
+        <!-- lightbox init -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/lightbox.init.js"></script>
+
+        <!-- Required datatable js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Buttons examples -->
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/jszip/jszip.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+        <!-- Responsive examples -->
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
         <!-- apexcharts -->
         <script src="<?php echo base_url();?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
 
         <!-- Plugins js-->
         <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+        
         <!-- dashboard init -->
         <script src="<?php echo base_url();?>assets/admin/js/pages/dashboard.init.js"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/sweetalert.init.js"></script>
+
+        <!-- pristine js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/pristinejs/pristine.min.js"></script>
+
+        <!-- form validation -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/form-validation.init.js"></script>
+
+        <!-- init js -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/form-advanced.init.js"></script> 
+
+        <!-- datepicker js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- select2 js -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/select2.min.js"></script>
+
+        <!-- twitter-bootstrap-wizard js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
+
+        <!-- form wizard init -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/form-wizard.init.js"></script>
 
         <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
 
