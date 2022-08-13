@@ -2,6 +2,9 @@
     <div class="col-md-12">
         <div id="mapG20Dashboard"></div>
     </div>
+    <div class="col-md-12">
+        <div id="ChartTrialBalance"></div>
+    </div>
 </div>
 
 <script>
@@ -9,6 +12,87 @@
         // alert('oke');
 
         // $("#overlay").fadeIn(300);  
+        var options = {
+        series: [
+            {
+                name: 'Opening Balance Debit',
+                type: 'line',
+                data: [10,20,30,50]
+            }, 
+            {
+                name: 'Opening Balance Credit',
+                type: 'line',
+                data: [10,20,30,50]
+            }, 
+            {
+                name: 'Movement Debit',
+                type: 'line',
+                data: [10,20,30,50]
+            }, 
+            {
+                name: 'Movement Credit',
+                type: 'line',
+                data: [10,20,30,50]
+            }, 
+            {
+                name: 'End Balance Debit',
+                type: 'line',
+                data: [10,20,30,50]
+            }, 
+            {
+                name: 'End Balance Credit',
+                type: 'line',
+                data: [10,20,30,50]
+            }
+        ],
+        chart: {
+            height: 350,
+            type: 'line',
+            stacked: false,
+            zoom: {
+                enabled: true,
+                type: 'x',  
+                autoScaleYaxis: false,  
+                zoomedArea: {
+                    fill: {
+                    color: '#90CAF9',
+                    opacity: 0.4
+                    },
+                    stroke: {
+                    color: '#0D47A1',
+                    opacity: 0.4,
+                    width: 1
+                    }
+                }
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            width: [4, 4, 4, 4, 4, 4]
+        }, 
+        xaxis: {
+            categories: [2022,2023,2024,2025],
+        },
+            
+        tooltip: {
+            fixed: {
+                enabled: true,
+                position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+                offsetY: 30,
+                offsetX: 60
+            },
+        },
+        legend: {
+            horizontalAlign: 'center',
+            offsetX: 40
+        }
+    };
+
+    var ChartTrialBalance = new ApexCharts(document.querySelector("#ChartTrialBalance"), options);
+
+    ChartTrialBalance.render();
 
 
 
