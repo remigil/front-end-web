@@ -182,13 +182,6 @@
             }  
         </style>
 
-        <?php echo $css ?>
-
-
-
-
-
-        
         <!-- JAVASCRIPT -->
         <script src="<?php echo base_url();?>assets/admin/libs/jquery/jquery.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -196,24 +189,8 @@
         <script src="<?php echo base_url();?>assets/admin/libs/simplebar/simplebar.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/libs/node-waves/waves.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/libs/feather-icons/feather.min.js"></script>
-        <!-- pace js -->
-        <script src="<?php echo base_url();?>assets/admin/libs/pace-js/pace.min.js"></script>
 
-        <!-- apexcharts -->
-        <script src="<?php echo base_url();?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
-
-        <!-- Plugins js-->
-        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- dashboard init -->
-        <script src="<?php echo base_url();?>assets/admin/js/pages/dashboard.init.js"></script>
-
-        <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
-
-        <!-- Leaflet -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
+        <?php echo $css ?>
     </head>
 
     <body>
@@ -658,7 +635,27 @@
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div> 
+        <div class="rightbar-overlay"></div>
+
+        
+        <!-- pace js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/pace-js/pace.min.js"></script>
+
+        <!-- apexcharts -->
+        <script src="<?php echo base_url();?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
+
+        <!-- Plugins js-->
+        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- dashboard init -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/dashboard.init.js"></script>
+
+        <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
+
+        <!-- Leaflet -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
 
         <?php echo $js ?>
         

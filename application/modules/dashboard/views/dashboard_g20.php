@@ -6,7 +6,7 @@
 
 <script>
   $(document).ready(function() { 
-    alert('oke');
+    // alert('oke');
 
     // $("#overlay").fadeIn(300);  
 
