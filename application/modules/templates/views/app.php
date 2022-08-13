@@ -29,11 +29,200 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 
+
+        <style>
+            #mapG20Dashboard { height: 400px; width: 100% } 
+            #overlay{	
+                position: fixed;
+                top: 0;
+                z-index: 3000;
+                width: 100%;
+                height:100%;
+                display: none;
+                background: rgba(0,0,0,0.6);
+            } 
+            .loading {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                font: 14px arial;
+            }
+            .spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px #ddd solid;
+                border-top: 4px #2e93e6 solid;
+                border-radius: 50%;
+                animation: sp-anime 0.8s infinite linear;
+            }
+            @keyframes sp-anime {
+                100% { 
+                    transform: rotate(360deg); 
+                }
+            }
+            .is-hide{
+                display:none;
+            }
+
+
+            .switch {
+            display: block;
+            margin-top: 10px;
+            }
+            .switch h3 {
+            font-weight: 400;
+            padding-bottom: 6px;
+            }
+            .switch input[type=checkbox] {
+            display: none;
+            }
+            .switch input[type=checkbox]:checked + label {
+            background-color: #2f7df9;
+            }
+            .switch input[type=checkbox]:checked + label:after {
+            left: 26px;
+            }
+            .switch label {
+            transition: all 200ms ease-in-out;
+            display: inline-block;
+            position: relative;
+            height: 15px;
+            width: 40px;
+            border-radius: 40px;
+            cursor: pointer;
+            background-color: #ddd;
+            color: transparent;
+            }
+            .switch label:after {
+            transition: all 200ms ease-in-out;
+            content: " ";
+            position: absolute;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background-color: white;
+            top: 0px;
+            left: 0px;
+            right: auto;
+            box-shadow: 1px 1px 1px gray;
+            }
+            .switch.colored input[type=checkbox]:checked + label {
+            background-color: #55c946;
+            }
+            .switch.colored label {
+            background-color: #ff4949;
+            } 
+
+            /* Counter-productive?
+            .location-pin {
+            display: inline-block;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            }*/
+
+            .location-pin img {
+            width: 46px;
+            height: 46px;
+            margin: -26px 0 0 -13px;
+            z-index: 10;
+            position: absolute;
+            border-radius: 50%;
+            background: #3f51b5;
+            }
+
+            .pin {
+            width: 50px;
+            height: 50px;
+            border-radius: 50% 50% 50% 0;
+            background: #3f51b5;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -43px 0 0 -30px;
+            }
+
+            .pin:after {
+            content: '';
+            width: 26px;
+            height: 26px;
+            margin: 2px 0 0 2px;
+            position: absolute;
+            border-radius: 50%;
+            }
+
+            .pulse {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: 15px 0px 0px -12px;
+            transform: rotateX(55deg);
+            z-index: -2;
+            }
+
+            .pulse:after {
+            content: "";
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            margin: -16px 0 0 -13px;
+            animation: pulsate 2.5s ease-out;
+            animation-iteration-count: infinite;
+            opacity: 0;
+            background: rgba(94, 190, 255, 0.5);
+            box-shadow: 0 0 1px 2px #2d99d3;
+            animation-delay: 1.1s;
+            }  
+        </style>
+
         <?php echo $css ?>
+
+
+
+
+
+        
+        <!-- JAVASCRIPT -->
+        <script src="<?php echo base_url();?>assets/admin/libs/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/simplebar/simplebar.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/node-waves/waves.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/feather-icons/feather.min.js"></script>
+        <!-- pace js -->
+        <script src="<?php echo base_url();?>assets/admin/libs/pace-js/pace.min.js"></script>
+
+        <!-- apexcharts -->
+        <script src="<?php echo base_url();?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
+
+        <!-- Plugins js-->
+        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- dashboard init -->
+        <script src="<?php echo base_url();?>assets/admin/js/pages/dashboard.init.js"></script>
+
+        <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
+
+        <!-- Leaflet -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
     </head>
 
     <body>
-
+    <div id="overlay">
+        <div class="loading"> 
+            <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+            <p style="color: white; font-size: 15px; margin-left: 3px;">Please Wait</p>
+        </div> 
+    </div>
     <!-- <body data-layout="horizontal"> -->
 
         <!-- Begin page -->
@@ -469,33 +658,7 @@
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- JAVASCRIPT -->
-        <script src="<?php echo base_url();?>assets/admin/libs/jquery/jquery.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/node-waves/waves.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/feather-icons/feather.min.js"></script>
-        <!-- pace js -->
-        <script src="<?php echo base_url();?>assets/admin/libs/pace-js/pace.min.js"></script>
-
-        <!-- apexcharts -->
-        <script src="<?php echo base_url();?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
-
-        <!-- Plugins js-->
-        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- dashboard init -->
-        <script src="<?php echo base_url();?>assets/admin/js/pages/dashboard.init.js"></script>
-
-        <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
-
-        <!-- Leaflet -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
+        <div class="rightbar-overlay"></div> 
 
         <?php echo $js ?>
         
