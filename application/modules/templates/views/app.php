@@ -67,7 +67,7 @@
 
     <style>
         #mapG20Dashboard {
-            height: 550px;
+            height: 700px;
             width: 100%
         }
 
@@ -302,30 +302,59 @@
             <div class="navbar-header">
                 <div class="d-flex">
                     <!-- LOGO -->
-                    <div class="navbar-brand-box">
-                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                            </span>
-                        </a>
+                    <div class="navbar-brand-box" >
+                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark" >
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+                                    
+                                </span>
+                            </a>
 
-                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
-                            <span class="logo-sm">
-                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                            </span>
-                        </a>
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+                            
+                                </span>
+                            </a>
+                        <?php } else { ?>
+                            a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                </span>
+                            </a>
+
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                </span>
+                            </a>
+                        <?php } ?>
                     </div>
  
                     <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
                         <i style="margin-left: -11px;" class="fa fa-fw fas fa-angle-left"></i>
                     </button>
-                    <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+                    <?php if ($this->uri->segment(1) == "dashboard") { ?>
+                        <div>
+                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p >
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;">K3I KORLANTAS POLRI</h3>
+                        </div>
+                    <?php } else { ?>
+                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+                    <?php } ?>
                 </div>
 
 
@@ -463,7 +492,38 @@
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
                             </li>
-
+                            <li>
+                                <a href="<?php echo base_url(); ?>instruksi">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Instruksi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Operasi</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Jadwal Kegiatan</a></li>
+                                    <li><a href="<?php echo base_url();?>vip" data-key="t-register">Data VIP</a></li> 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Laporan</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url();?>laporan/petugas" data-key="t-login">Petugas</a></li>
+                                    <li><a href="<?php echo base_url();?>laporan/operasi" data-key="t-register">Operasi</a></li> 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>troublespot">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Troublespot</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>zoom">
@@ -471,15 +531,7 @@
                                     <span data-key="t-dashboard">Zoom</span>
                                 </a>
                             </li>
-
-                            <li class="menu-title mt-2" data-key="t-components">Konfigurasi</li>
-
-                            <li>
-                                <a href="<?php echo base_url(); ?>akun">
-                                    <i data-feather="box"></i>
-                                    <span data-key="t-dashboard">Akun</span>
-                                </a>
-                            </li>
+ 
                         <?php } else { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
