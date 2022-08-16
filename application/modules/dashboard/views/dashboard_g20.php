@@ -8,7 +8,8 @@
                             <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;"></i>
                         </div>
                         <div class="col-md-6">
-                            <p style="margin: 6px;">Telusuri Peta</p>
+                            <input type="text" placeholder="Telusuri Peta" name="search">
+                            <!-- <p style="margin: 6px;">Telusuri Peta</p> -->
                         </div>
                         <div class="col-md-3">
                             <i class="fa fa-fw fas fa-search" style="margin: 10px;"></i>
@@ -16,61 +17,63 @@
                     </div>
                 </div>
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 248px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -18px;">
-                        <div class="row" style="margin-left: 0px;overflow-x: scroll;height: 580px;scrollbar-width: thin;position: relative;">
+                    <div style="width: 248px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
+                        <div class="row" style="margin-left: 0px;overflow-x: scroll;height: 480px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
-                                <div class="col-md-12 mt-4">
-                                    <p style="font-size: 17px;">PENUGASAN</p>
+                                <div class="col-md-12 mt-2">
+                                    <p style="font-size: 17px;">OPERASI</p>
                                 </div>
-                                <div class="col-md-12 mt-3">
-                                    <label  class="form-label" for="titiklokasikeberangkatan">Titik Lokasi Keberangkatan</label>
-                                    <input type="text" style="height: 15px;" class="form-input" name="tikke" placeholder="test"> 
+                                <div class="col-md-12 ms-2">
+                                    <input type="checkbox" name="polres" id="polres" class="form-input" >  
+                                    <span>Polres</span> 
+                                </div>   
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="tur" id="tur" class="form-input" >  
+                                    <span>Turjawali</span> 
                                 </div> 
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="titiklokasitujuan">Titik Lokasi Tujuan</label>
-                                    <input type="text" style="height: 15px;" class="form-input" name="tiktu" placeholder="test2">
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="vip" id="vip" class="form-input" >  
+                                    <span>VIP</span> 
+                                </div> 
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="cctv" id="cctv" class="form-input" >  
+                                    <span>CCTV</span> 
+                                </div>  
+
+                                <div class="dropdown-divider"></div>
+                                <div class="col-md-12">
+                                    <p style="font-size: 17px;">Laporan</p>
                                 </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="namavip">Nama VIP</label>
-                                    <input type="text" class="form-input" name="nama_vip" placeholder="test2">
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="panic" id="panic" class="form-input" >  
+                                    <span>Panic Button</span> 
+                                </div>   
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="operasi" id="operasi" class="form-input" >  
+                                    <span>Operasi</span> 
+                                </div>   
+
+                                <div class="dropdown-divider"></div>
+                                <div class="col-md-12 ">
+                                    <p style="font-size: 17px;">Location Of Interest</p>
                                 </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="negaravip">Negara Kedatangan VIP</label>
-                                    <input type="text" readonly class="form-input" name="negara_vip" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3">  
-                                    <div class="mb-3" style="z-index: 9999">
-                                        <label for="choices-multiple-default" class="form-label font-size-13 text-muted">Turjawali</label>
-                                        <select class="form-control" data-trigger
-                                            name="choices-multiple-default" id="choices-multiple-default"
-                                            placeholder="This is a placeholder" multiple>
-                                            <option value="Falcon 1" selected>Falcon 1</option>
-                                            <option value="Falcon 2">Falcon 2</option>
-                                            <option value="Falcon 3">Falcon 3</option>
-                                            <option value="Falcon 4" disabled>Falcon 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="kendaraan">Kendaraan</label>
-                                    <input type="text" class="form-input" name="kendaraan" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="turjawali">Deskripsi Penugasan</label>
-                                    <textarea name="deskripsi" class="form-input" placeholder="test2" cols="25" rows="7"></textarea> 
-                                </div>
-                                <div class="col-md-12  mt-3 mb-3"> 
-                                    <div style="display: flex;text-align: center;align-content: end;float: inline-end;margin-right: 10px;">
-                                        <button class="btn btn-primary" type="submit">Kirim</button>
-                                    </div>
-                                </div>
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="panic" id="panic" class="form-input" >  
+                                    <span>Fasilitas Umum</span> 
+                                </div>   
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <input type="checkbox" name="operasi" id="operasi" class="form-input" >  
+                                    <span>Public Event</span> 
+                                </div>   
+                                <div class="dropdown-divider"></div>
+ 
                             </form>
                         </div>
                     </div>
                     <!-- item-->
                 </div>
             </div> 
-            <select class="form-select" name="sebaran" style="margin: 10px;">
+            <!-- <select class="form-select" name="sebaran" style="margin: 10px;">
                 <option selected value="">Titik Sebaran</option>
                 <option value="Polres">Polres</option>
                 <option value="Turjawali">Turjawali</option>
@@ -80,7 +83,7 @@
                 <option value="Fasilitas Umum">Fasilitas Umum</option>
                 <option value="Public Event">Public Event</option>
                 <option value="Kecelakaan">Kecelakaan</option>
-            </select>
+            </select> -->
         </div>
         <div id="mapG20Dashboard"></div>
     </div>

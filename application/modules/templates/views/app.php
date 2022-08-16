@@ -265,7 +265,7 @@
             transform-origin: left top;
             pointer-events: none;
         }
-        input {
+        .material-textfield  input {
             font-size: 1rem;
             outline: none;
             border: 1px solid gray;
@@ -274,15 +274,44 @@
             color: gray;
             transition: 0.1s ease-out;
         }
-        input:focus {
+        .material-textfield  input:focus {
             border-color: #6200EE;  
         }
-        input:focus + .labelmui {
+        .material-textfield  input:focus + .labelmui {
             color: #6200EE;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
-        input:not(:placeholder-shown) + .labelmui {
+        .material-textfield  input:not(:placeholder-shown) + .labelmui {
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
+
+
+
+        .material-selectfield {
+            position: relative;  
+        } 
+        .material-selectfield  select {
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid gray;
+            border-radius: 5px;  
+            padding: 1rem 0.7rem;
+            color: gray;
+            transition: 0.1s ease-out;
+            width: 100%;
+            background-color: transparent;
+        }
+        .material-selectfield  select:focus {
+            border-color: #6200EE;  
+        }
+        .material-selectfield  select:focus + .labelmui {
+            color: #6200EE;
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
+        .material-selectfield  select:not(:placeholder-shown) + .labelmui {
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
