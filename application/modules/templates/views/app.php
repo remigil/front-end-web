@@ -4,12 +4,18 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | K3I</title>
+    <title><?php echo $title; ?> | K3I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+
+    <?php if ($this->session->userdata['role'] == 'G20') { ?>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-g20.svg">
+    <?php } else { ?>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+    <?php } ?>
 
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
@@ -65,9 +71,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
     <style>
         #mapG20Dashboard {
             height: 700px;
+            width: 100%
+        }
+
+        #mapG20Troublespot {
+            height: 500px;
             width: 100%
         }
 
@@ -272,6 +286,15 @@
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
+
+        .judulheader {
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            padding: 14px;
+            font-size: 15px;
+            margin-top: -19px;
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -345,7 +368,11 @@
                     </div>
  
                     <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
-                        <i style="margin-left: -11px;" class="fa fa-fw fas fa-angle-left"></i>
+                        <div id="changeicon">
+                            <input type="text" id="statusicon" name="statusicon" value="right" hidden> 
+                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i> 
+                            <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
+                        </div>
                     </button>
                     <?php if ($this->uri->segment(1) == "dashboard") { ?>
                         <div>
@@ -505,6 +532,8 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Jadwal Kegiatan</a></li>
+                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Data Kendaraan</a></li>
+                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Data Anggota</a></li> 
                                     <li><a href="<?php echo base_url();?>vip" data-key="t-register">Data VIP</a></li> 
                                 </ul>
                             </li>
@@ -514,7 +543,7 @@
                                     <span data-key="t-authentication">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url();?>laporan/petugas" data-key="t-login">Petugas</a></li>
+                                    <li><a href="<?php echo base_url();?>laporan/panic" data-key="t-login">Panic Button</a></li>
                                     <li><a href="<?php echo base_url();?>laporan/operasi" data-key="t-register">Operasi</a></li> 
                                 </ul>
                             </li>
@@ -523,6 +552,17 @@
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Troublespot</span>
                                 </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Fasilitas Umum</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url();?>fasum/list" data-key="t-login">Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url();?>fasum/listKategori" data-key="t-register">Kategori</a></li> 
+                                </ul>
                             </li>
 
                             <li>
@@ -631,7 +671,7 @@
         <!-- ============================================================== -->
         <div class="main-content">
 
-            <div class="page-content">
+            <div class="page-content" style="background-color: #f5f3f4;">
                 <div class="container-fluid">
 
                     <!-- Page Content-->
@@ -877,6 +917,9 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
     <?php echo $js ?>
 
     <script>
@@ -884,9 +927,31 @@
         var topbar = localStorage.getItem('data-topbar');
         var layoutMode = localStorage.getItem('data-layout-mode');
         $(document).ready(function() {
+            if($("#statusicon").val() == 'left'){
+                $("#iconright").show();
+                $("#iconleft").hide();
+                $("#statusicon").val('right');
+            }else{
+                $("#iconright").hide();
+                $("#iconleft").show(); 
+                $("#statusicon").val('left');
+            }
+
             document.body.setAttribute('data-sidebar-size', sidebar);
             document.body.setAttribute('data-topbar', topbar)
             document.body.setAttribute("data-layout-mode", layoutMode);
+        });
+
+        $("#vertical-menu-btn").on("click",function(event){
+            if($("#statusicon").val() == 'left'){
+                $("#iconright").show();
+                $("#iconleft").hide();
+                $("#statusicon").val('right');
+            }else{
+                $("#iconright").hide();
+                $("#iconleft").show(); 
+                $("#statusicon").val('left');
+            }
         });
     </script>
 </body>

@@ -1,105 +1,168 @@
-<div class="row">
+<div class="judulheader">
+    <span><?php echo $title;?></span>
+</div>
+<div class="row mt-3"> 
     <div class="col-md-12">
-        <div style="display:flex;z-index: 999;position: absolute;">
-            <div class="dropdown d-inline-block">
-                <div style="cursor: pointer; display:flex; width:250px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="row" style="margin-left: 0px;">
-                        <div class="col-md-3">
-                            <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;"></i>
-                        </div>
-                        <div class="col-md-6">
-                            <p style="margin: 6px;">Telusuri Peta</p>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="fa fa-fw fas fa-search" style="margin: 10px;"></i>
-                        </div>
+        <div class="card" style="padding: 20px;">
+            <div class="row mb-3" style="width: 95%;"> 
+                <div class="col-md-4">
+                    <label for="waktu">Waktu</label>
+                    <div id="reportrange" class="pull-right" style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                        <span></span> <b class="caret"></b>
                     </div>
+                    <input hidden type="date" id="startdate" name="startdate">
+                    <input hidden type="date" id="enddate" name="enddate">
                 </div>
-                <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 248px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -18px;">
-                        <div class="row" style="margin-left: 0px;overflow-x: scroll;height: 580px;scrollbar-width: thin;position: relative;">
-                            <form class="form" method="POST" enctype="multipart/form-data"> 
-                                <div class="col-md-12 mt-4">
-                                    <p style="font-size: 17px;">PENUGASAN</p>
-                                </div>
-                                <div class="col-md-12 mt-3">
-                                    <label  class="form-label" for="titiklokasikeberangkatan">Titik Lokasi Keberangkatan</label>
-                                    <input type="text" style="height: 15px;" class="form-input" name="tikke" placeholder="test"> 
-                                </div> 
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="titiklokasitujuan">Titik Lokasi Tujuan</label>
-                                    <input type="text" style="height: 15px;" class="form-input" name="tiktu" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="namavip">Nama VIP</label>
-                                    <input type="text" class="form-input" name="nama_vip" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="negaravip">Negara Kedatangan VIP</label>
-                                    <input type="text" readonly class="form-input" name="negara_vip" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3">  
-                                    <div class="mb-3" style="z-index: 9999">
-                                        <label for="choices-multiple-default" class="form-label font-size-13 text-muted">Turjawali</label>
-                                        <select class="form-control" data-trigger
-                                            name="choices-multiple-default" id="choices-multiple-default"
-                                            placeholder="This is a placeholder" multiple>
-                                            <option value="Falcon 1" selected>Falcon 1</option>
-                                            <option value="Falcon 2">Falcon 2</option>
-                                            <option value="Falcon 3">Falcon 3</option>
-                                            <option value="Falcon 4" disabled>Falcon 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="kendaraan">Kendaraan</label>
-                                    <input type="text" class="form-input" name="kendaraan" placeholder="test2">
-                                </div>
-                                <div class="col-md-12  mt-3"> 
-                                    <label  class="form-label" for="turjawali">Deskripsi Penugasan</label>
-                                    <textarea name="deskripsi" class="form-input" placeholder="test2" cols="25" rows="7"></textarea> 
-                                </div>
-                                <div class="col-md-12  mt-3 mb-3"> 
-                                    <div style="display: flex;text-align: center;align-content: end;float: inline-end;margin-right: 10px;">
-                                        <button class="btn btn-primary" type="submit">Kirim</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- item-->
+    
+                <div class="col-md-3">
+                    <label for="permasalahan">Jenis Permasalahan</label>
+                    <select class="form-select" name="sebaran">
+                        <option selected value="">Jenis Permasalahan</option>
+                        <option value="Polres">Polres</option>
+                        <option value="Turjawali">Turjawali</option>
+                        <option value="Operasi">Operasi</option>
+                        <option value="CCTV">CCTV</option>
+                        <option value="Titik Laporan">Titik Laporan</option>
+                        <option value="Fasilitas Umum">Fasilitas Umum</option>
+                        <option value="Public Event">Public Event</option>
+                        <option value="Kecelakaan">Kecelakaan</option>
+                    </select>
                 </div>
-            </div> 
-            <select class="form-select" name="sebaran" style="margin: 10px;">
-                <option selected value="">Titik Sebaran</option>
-                <option value="Polres">Polres</option>
-                <option value="Turjawali">Turjawali</option>
-                <option value="Operasi">Operasi</option>
-                <option value="CCTV">CCTV</option>
-                <option value="Titik Laporan">Titik Laporan</option>
-                <option value="Fasilitas Umum">Fasilitas Umum</option>
-                <option value="Public Event">Public Event</option>
-                <option value="Kecelakaan">Kecelakaan</option>
-            </select>
+    
+                <div class="col-md-3"> 
+                    <label for="polda">Polda</label>
+                    <select class="form-select" name="polda">
+                        <option selected value="">Polda Metro Jaya</option>
+                        <option value="Polres">Polres</option>
+                        <option value="Turjawali">Turjawali</option>
+                        <option value="Operasi">Operasi</option>
+                        <option value="CCTV">CCTV</option>
+                        <option value="Titik Laporan">Titik Laporan</option>
+                        <option value="Fasilitas Umum">Fasilitas Umum</option>
+                        <option value="Public Event">Public Event</option>
+                        <option value="Kecelakaan">Kecelakaan</option>
+                    </select>
+                </div>
+            </div>
+            <div id="mapG20Troublespot"></div> 
+            <div>
+                <div class="mt-3 mb-3" style="display: flex;text-align: center;align-content: end;float: inline-end;">
+                    <button class="btn btn-primary" style="width: 200px;">Tampilkan</button>
+                </div>
+            </div>
         </div>
-        <div id="mapG20Dashboard"></div>
+    </div> 
+    <div class="col-md-12 mt-5">
+        <div class="card" style="padding: 20px;">
+            <table id="dataTables-example" class="table table-striped table-bordered dt-responsive  nowrap w-100">
+                <thead>
+                    <tr>
+                        <th>No</th> 
+                        <th>Nama Polres</th>
+                        <th>Lokasi Kejadian</th>
+                        <th>Waktu Pengkajian</th> 
+                        <th>Informasi Lebih Lanjut</th> 
+                    </tr>
+                </thead>  
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Bali</td>
+                        <td>Nusa dua</td>
+                        <td>5 Jam</td>
+                        <td style="text-align: center;">
+                            <a href="<?php echo base_url();?>troublespot/detail/1" style="width: 55%" class="btn btn-primary">Detail</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
     </div>
 </div>
   
 
 
 <script>
-  $(document).ready(function() { 
-    // alert('oke');
+    $(function() {
 
-    // $("#overlay").fadeIn(300);  
+        var start = moment().subtract(29, 'days');
+        var end = moment();
 
-    // $('#telusuri-peta').on("click",function(event){
-        // var id = $(this).data("id");
-        // alert('oke');
-    // });  
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#startdate').val(start.format('YYYY-MM-DD'));
+            $('#enddate').val(end.format('YYYY-MM-DD'));
+        }
 
-    $("#turjawali").select2();
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Hari Ini': [moment(), moment()],
+            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+            }
+        }, cb);
+
+        cb(start, end);     
+
+    });
+  $(document).ready(function() {  
+
+    $('#dataTables-example').DataTable({ 
+        processing: true,
+    });
      
 
     var initialCenter = [-8.451740, 115.089643];
@@ -126,7 +189,7 @@
     }); 
 
     // StART MAP SECTION
-    var mapContainer = L.map('mapG20Dashboard', {
+    var mapContainer = L.map('mapG20Troublespot', {
         maxZoom: 20,
         minZoom: 1,
         zoomSnap: 0.25,
