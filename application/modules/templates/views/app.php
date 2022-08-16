@@ -248,7 +248,7 @@
 
 
         .material-textfield {
-            position: relative;  
+            position: relative;
         }
 
         .labelmui {
@@ -265,25 +265,29 @@
             transform-origin: left top;
             pointer-events: none;
         }
-        .material-textfield  input {
+
+        .material-textfield input {
             font-size: 1rem;
             outline: none;
             border: 1px solid gray;
-            border-radius: 5px;  
+            border-radius: 5px;
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
             height: 40px;
         }
-        .material-textfield  input:focus {
-            border-color: #6200EE;  
+
+        .material-textfield input:focus {
+            border-color: #6200EE;
         }
-        .material-textfield  input:focus + .labelmui {
+
+        .material-textfield input:focus+.labelmui {
             color: #6200EE;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
-        .material-textfield  input:not(:placeholder-shown) + .labelmui {
+
+        .material-textfield input:not(:placeholder-shown)+.labelmui {
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
@@ -291,28 +295,32 @@
 
 
         .material-selectfield {
-            position: relative;  
-        } 
-        .material-selectfield  select {
+            position: relative;
+        }
+
+        .material-selectfield select {
             font-size: 1rem;
             outline: none;
             border: 1px solid gray;
-            border-radius: 5px;  
+            border-radius: 5px;
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
             width: 100%;
             background-color: transparent;
         }
-        .material-selectfield  select:focus {
-            border-color: #6200EE;  
+
+        .material-selectfield select:focus {
+            border-color: #6200EE;
         }
-        .material-selectfield  select:focus + .labelmui {
+
+        .material-selectfield select:focus+.labelmui {
             color: #6200EE;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
-        .material-selectfield  select:not(:placeholder-shown) + .labelmui {
+
+        .material-selectfield select:not(:placeholder-shown)+.labelmui {
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
@@ -355,15 +363,15 @@
             <div class="navbar-header">
                 <div class="d-flex">
                     <!-- LOGO -->
-                    <div class="navbar-brand-box" >
+                    <div class="navbar-brand-box">
                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark" >
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
                                 </span>
                                 <span class="logo-lg">
                                     <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
-                                    
+
                                 </span>
                             </a>
 
@@ -373,17 +381,17 @@
                                 </span>
                                 <span class="logo-lg">
                                     <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
-                            
+
                                 </span>
                             </a>
                         <?php } else { ?>
                             a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                                </span>
+                            <span class="logo-sm">
+                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                            </span>
                             </a>
 
                             <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
@@ -396,17 +404,17 @@
                             </a>
                         <?php } ?>
                     </div>
- 
+
                     <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
                         <div id="changeicon">
-                            <input type="text" id="statusicon" name="statusicon" value="right" hidden> 
-                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i> 
+                            <input type="text" id="statusicon" name="statusicon" value="right" hidden>
+                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
                             <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                         </div>
                     </button>
                     <?php if ($this->uri->segment(1) == "dashboard") { ?>
                         <div>
-                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p >
+                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                             <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;">K3I KORLANTAS POLRI</h3>
                         </div>
                     <?php } else { ?>
@@ -561,10 +569,11 @@
                                     <span data-key="t-authentication">Operasi</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Jadwal Kegiatan</a></li>
-                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Data Kendaraan</a></li>
-                                    <li><a href="<?php echo base_url();?>jadwal" data-key="t-login">Data Anggota</a></li> 
-                                    <li><a href="<?php echo base_url();?>vip" data-key="t-register">Data VIP</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>operasi/Kegiatan" data-key="t-login">Jadwal Kegiatan</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Akun" data-key="t-login">Akun</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VIP</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -573,8 +582,8 @@
                                     <span data-key="t-authentication">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url();?>laporan/panic" data-key="t-login">Panic Button</a></li>
-                                    <li><a href="<?php echo base_url();?>laporan/operasi" data-key="t-register">Operasi</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>laporan/panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/operasi" data-key="t-register">Operasi</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -590,8 +599,8 @@
                                     <span data-key="t-authentication">Fasilitas Umum</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url();?>fasum/list" data-key="t-login">Fasilitas Umum</a></li>
-                                    <li><a href="<?php echo base_url();?>fasum/listKategori" data-key="t-register">Kategori</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>fasum/list" data-key="t-login">Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url(); ?>fasum/listKategori" data-key="t-register">Kategori</a></li>
                                 </ul>
                             </li>
 
@@ -601,7 +610,7 @@
                                     <span data-key="t-dashboard">Zoom</span>
                                 </a>
                             </li>
- 
+
                         <?php } else { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -957,13 +966,13 @@
         var topbar = localStorage.getItem('data-topbar');
         var layoutMode = localStorage.getItem('data-layout-mode');
         $(document).ready(function() {
-            if($("#statusicon").val() == 'left'){
+            if ($("#statusicon").val() == 'left') {
                 $("#iconright").show();
                 $("#iconleft").hide();
                 $("#statusicon").val('right');
-            }else{
+            } else {
                 $("#iconright").hide();
-                $("#iconleft").show(); 
+                $("#iconleft").show();
                 $("#statusicon").val('left');
             }
 
@@ -972,14 +981,14 @@
             document.body.setAttribute("data-layout-mode", layoutMode);
         });
 
-        $("#vertical-menu-btn").on("click",function(event){
-            if($("#statusicon").val() == 'left'){
+        $("#vertical-menu-btn").on("click", function(event) {
+            if ($("#statusicon").val() == 'left') {
                 $("#iconright").show();
                 $("#iconleft").hide();
                 $("#statusicon").val('right');
-            }else{
+            } else {
                 $("#iconright").hide();
-                $("#iconleft").show(); 
+                $("#iconleft").show();
                 $("#statusicon").val('left');
             }
         });
