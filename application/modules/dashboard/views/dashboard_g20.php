@@ -3,17 +3,14 @@
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:250px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="row" style="margin-left: 0px;">
-                        <div class="col-md-3">
-                            <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;"></i>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" placeholder="Telusuri Peta" name="search">
-                            <!-- <p style="margin: 6px;">Telusuri Peta</p> -->
-                        </div>
-                        <div class="col-md-3">
-                            <i class="fa fa-fw fas fa-search" style="margin: 10px;"></i>
-                        </div>
+                    <div class="row" style="margin-left: 0px;"> 
+                        <div class="col-md-12">
+                            <div style="display: flex;">
+                                <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
+                                <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 247px;padding-left: 50px;"> 
+                                <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                            </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
@@ -66,6 +63,27 @@
                                     <span>Public Event</span> 
                                 </div>   
                                 <div class="dropdown-divider"></div>
+
+                                <!-- <div class="material-textfield">
+                                    <input style="width: 100%;" placeholder="Pilih Tanggal" name="password" type="password">
+                                    <label class="labelmui">Tanggal</label>
+                                </div> -->
+
+                                <div class="col-md-12 mt-3 ms-2">
+                                    <label for="waktu">Tanggal</label>
+                                    <div id="reportrange" class="pull-right" style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <span style="font-size: 10px;"></span> <b class="caret"></b>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input hidden type="date" id="startdate" name="startdate">
+                                    <input hidden type="date" id="enddate" name="enddate">
+                                </div>  
  
                             </form>
                         </div>
@@ -92,6 +110,35 @@
 
 
 <script>
+    $(function() {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#startdate').val(start.format('YYYY-MM-DD'));
+            $('#enddate').val(end.format('YYYY-MM-DD'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Hari Ini': [moment(), moment()],
+            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+            }
+        }, cb);
+
+        cb(start, end);     
+
+    });
   $(document).ready(function() { 
     // alert('oke');
 

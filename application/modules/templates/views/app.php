@@ -273,6 +273,7 @@
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
+            height: 40px;
         }
         .material-textfield  input:focus {
             border-color: #6200EE;  
