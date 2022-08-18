@@ -582,8 +582,8 @@
                                     <span data-key="t-authentication">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>laporan/panic" data-key="t-login">Panic Button</a></li>
-                                    <li><a href="<?php echo base_url(); ?>laporan/operasi" data-key="t-register">Operasi</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
                                 </ul>
                             </li>
                             <li>

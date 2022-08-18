@@ -31,9 +31,8 @@
                         <td>Made</td>
                         <td>1783-17</td>
                         <td>Putin</td>
-                        <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog "></i></button>
-                            <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahAkun"><i class="mdi mdi-pencil"></i></button>
-                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadAkun"><i class="mdi mdi-file-upload"></i></button> -->
+                        <td>
+                            <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog "></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -43,9 +42,8 @@
                         <td>Ketut</td>
                         <td>1793-07</td>
                         <td>Jokowi</td>
-                        <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog   "></i></button>
-                            <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahAkun"><i class="mdi mdi-pencil"></i></button>
-                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadAkun"><i class="mdi mdi-file-upload"></i></button> -->
+                        <td>
+                            <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog   "></i></button>
                         </td>
                     </tr>
                 </tbody>

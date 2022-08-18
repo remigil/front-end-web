@@ -36,7 +36,7 @@
                         <td>081356410675</td>
                         <td>Active</td>
                         <td>
-                            <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
                         <td>089570294300</td>
                         <td>Inactive</td>
                         <td>
-                            <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>
