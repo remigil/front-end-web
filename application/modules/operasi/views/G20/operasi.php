@@ -11,7 +11,7 @@
     <div class="card-body">
         <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahRencanaOperasi">Tambah Rencana Operasi</button>
 
-        <table id="datatable" class="table dt-responsive  nowrap w-100">
+        <table id="datatable" class="table dt-responsive w-100">
             <thead>
                 <tr>
                     <th>Nama Operasi</th>
@@ -67,6 +67,6 @@
 
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable(); 
+        $('#datatable').DataTable();
     });
 </script>

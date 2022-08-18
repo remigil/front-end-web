@@ -3,58 +3,46 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Jadwal Kegiatan</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Panic Button</li>
     </ol>
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahKegiatan">Tambah Kegiatan</button>
     <div class="card mt-3">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kegiatan</th>
-                        <th>Status</th>
-                        <th>Nama VIP</th>
-                        <th>Tanggal</th>
-                        <th>Waktu Mulai</th>
-                        <th>Waktu Selesai</th>
-                        <th>Petugas</th>
-                        <th>Alamat Tujuan</th>
+                        <th>Nama Petugas Pelapor</th>
+                        <th>Kategori Laporan</th>
+                        <th>Deskripsi</th>
+                        <th>Waktu Insiden</th>
+                        <th>No. Telepon</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Makan Siang Nusa Dua</td>
-                        <td>Selesai</td>
-                        <td>Joe Biden</td>
-                        <td>01 Juli 2022</td>
-                        <td>08:00 WITA</td>
-                        <td>11:00 WITA</td>
-                        <td>Falcon 1</td>
-                        <td>Resto Kuta</td>
+                        <td>Hendri</td>
+                        <td>Kecelakaan</td>
+                        <td>-</td>
+                        <td>01 Juli 2022 07:06</td>
+                        <td class="text-primary">+62 895 1234 564</td>
                         <td>
-                            <a href="<?= base_url('operasi/Kegiatan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-
-                            <!-- <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingKegiatan"><i class="mdi mdi-cog "></i></button> -->
+                            <a href="<?= base_url('laporan/Panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Makan Malam Nusa Dua</td>
-                        <td>Berjalan</td>
-                        <td>Joe Biden</td>
-                        <td>01 Juli 2022</td>
-                        <td>08:00 WITA</td>
-                        <td>11:00 WITA</td>
-                        <td>Falcon 2</td>
-                        <td>Resto Kuta</td>
+                        <td>Putu</td>
+                        <td>Kemacetan</td>
+                        <td>-</td>
+                        <td>01 Juli 2022 07:06</td>
+                        <td class="text-primary">+62 895 1234 564</td>
                         <td>
-                            <a href="<?= base_url('operasi/Kegiatan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/Panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>

@@ -11,7 +11,7 @@
     <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahKendaraan">Tambah Kendaraan</button>
     <div class="card mt-3">
         <div class="card-body">
-            <table id="datatable" class="table dt-responsive  nowrap w-100">
+            <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
                         <th>No</th>
