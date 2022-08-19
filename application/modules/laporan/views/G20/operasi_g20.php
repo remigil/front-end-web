@@ -3,7 +3,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Panic Button</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Operasi</li>
     </ol>
 </nav>
 <!-- </div> -->
@@ -17,7 +17,7 @@
                         <th>Nama Petugas Pelapor</th>
                         <th>Kategori</th>
                         <th>Deskripsi</th>
-                        <th>Waktu Insiden</th>
+                        <th>Waktu</th>
                         <th>No. Telepon</th>
                         <th>Aksi</th>
                     </tr>

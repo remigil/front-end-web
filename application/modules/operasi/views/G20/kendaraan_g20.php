@@ -3,7 +3,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Data Kendaraan</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Kendaraan</li>
     </ol>
 </nav>
 <!-- </div> -->
@@ -29,9 +29,8 @@
                         <td>Sepeda Motor</td>
                         <td>Honda Goidwing</td>
                         <td>Polres Bandung</td>
-                        <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingKendaraan"><i class="mdi mdi-cog "></i></button>
-                            <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahKendaraan"><i class="mdi mdi-pencil"></i></button>
-                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadKendaraan"><i class="mdi mdi-file-upload"></i></button> -->
+                        <td>
+                            <a href="<?= base_url('operasi/Kendaraan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
@@ -40,9 +39,8 @@
                         <td>Mobil</td>
                         <td>Mitsubishi Lancer</td>
                         <td>Polresta Denpasar</td>
-                        <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingKendaraan"><i class="mdi mdi-cog   "></i></button>
-                            <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahKendaraan"><i class="mdi mdi-pencil"></i></button>
-                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadKendaraan"><i class="mdi mdi-file-upload"></i></button> -->
+                        <td>
+                            <a href="<?= base_url('operasi/Kendaraan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -129,57 +127,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- <div class="modal fade UbahKendaraan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
-                        <label class="labelmui">Rencana</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaoperaso" placeholder="" type="text">
-                        <label class="labelmui">Subjek</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade UploadKendaraan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Upload</h5>
-            </div>
-            <div class="modal-body">
-                <form action="#" class="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file">
-                    </div>
-                    <div class="dz-message needsclick">
-                        <div class="mb-3">
-                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                        </div>
-                        <h5>Drop files here or click to upload.</h5>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 
 <script>

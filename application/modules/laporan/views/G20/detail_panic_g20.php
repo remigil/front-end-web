@@ -17,8 +17,7 @@
                     <p class="fs-4 fw-bold">DETAIL LAPORAN PANIC BUTTON</p>
                 </div>
                 <div class="col-md-6">
-
-                    <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <button type="button" class=" btn btn-primary waves-effect float-end" data-bs-toggle="modal" data-bs-target=".BuatInstruksi" style="width: 35%;">Buat Instruksi <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
 
@@ -31,8 +30,10 @@
                                 <p>KATEGORI LAPORAN</p>
                                 <p>DESKRIPSI</p>
                                 <p>WAKTU INSIDEN</p>
+                                <p>NOMOR LAPORAN</p>
                             </div>
                             <div class="ms-3">
+                                <p>:</p>
                                 <p>:</p>
                                 <p>:</p>
                                 <p>:</p>
@@ -43,27 +44,62 @@
                                 <p>Kecelekaan</p>
                                 <p>-</p>
                                 <p>01 Juli 2022 07:06 AM</p>
+                                <p>+62 895 124 564</p>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="rounded" style="background-color: grey; height:23vh; width: 70vh;">
-                            </div>
+                            <div class="rounded float-end" style="background-color: grey; height:27vh; width: 60vh;"></div>
                         </div>
+                        <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-        <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
-
-        <div class="col-12 mt-3">
-            <a href="<?= base_url('laporan/Operasi'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
-
+            <div class="col-12 mt-3">
+                <a href="<?= base_url('laporan/Operasi'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade BuatInstruksi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Buat Instruksi</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="material-selectfield mb-3">
+                        <select name="" id="" class="form-select">
+                            <option value="">Pilih Tim</option>
+                            <option value="">Rusia</option>
+                            <option value="">Amerikat Serikat</option>
+                            <option value="">Indonesia</option>
+                        </select>
+                        <label class="labelmui">Tim</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="" placeholder="" type="text">
+                        <label class="labelmui">Subjek</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="" placeholder="" type="text">
+                        <label class="labelmui">Instruksi</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="" placeholder="" type="text">
+                        <label class="labelmui">Lokasi</label>
+                    </div>
+                    <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
+                    <div class="col-md-6 float-end">
+                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

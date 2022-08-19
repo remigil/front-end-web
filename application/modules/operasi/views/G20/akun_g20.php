@@ -16,10 +16,10 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Akun</th>
+                        <th>VIP</th>
                         <th>Polres</th>
                         <th>Ketua TIM</th>
                         <th>No. Kendaraan</th>
-                        <th>VIP</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -27,23 +27,23 @@
                     <tr>
                         <td>1</td>
                         <td>Patroli Bali 1</td>
+                        <td>Putin</td>
                         <td>Polresta Denpasar</td>
                         <td>Made</td>
                         <td>1783-17</td>
-                        <td>Putin</td>
                         <td>
-                            <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog "></i></button>
+                            <a href="<?= base_url('operasi/Akun/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Patroli Bali 1</td>
+                        <td>Jokowi</td>
                         <td>Polres Bandung</td>
                         <td>Ketut</td>
                         <td>1793-07</td>
-                        <td>Jokowi</td>
                         <td>
-                            <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".SettingAkun"><i class="mdi mdi-cog   "></i></button>
+                            <a href="<?= base_url('operasi/Akun/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -176,7 +176,4 @@
 
 
 <script>
-    $(document).ready(function() {
-        $('#datatable').DataTable();
-    });
 </script>

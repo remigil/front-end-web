@@ -66,4 +66,31 @@ class Kegiatan extends MY_Controller
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+    public function Edit()
+    {
+
+        // $headers = [
+        //     'Token' => $this->session->userdata['token'],    
+        // ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Operasi";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "operasi/G20/edit_kegiatan_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "operasi/Korlantas/edit_kegiatan_korlantas";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "operasi/Kapolda/edit_kegiatan_kapolda";
+        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "operasi/Polres/edit_kegiatan_polres";
+        }
+
+
+
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
 }

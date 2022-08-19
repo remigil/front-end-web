@@ -3,8 +3,8 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item">Jadwal Kegiatan</li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Jadwal Kegiatan</li>
+        <li class="breadcrumb-item">Daftar Instruksi</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Instruksi</li>
     </ol>
 </nav>
 
@@ -13,30 +13,32 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="fs-4 fw-bold">DETAIL JADWAL KEGIATAN</p>
+                    <p class="fs-4 fw-bold">DETAIL INSTRUKSI</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Kegiatan/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?= base_url('instruksi/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
-
             <div class="card">
-                <div class="card-body">
+                <div class="card-body text-black">
                     <div class="row">
                         <div class="col-2">
-                            <p>KEGIATAN</p>
-                            <p>VIP</p>
                             <p>TIM</p>
+                            <p>VIP</p>
+                            <p>SUBJEK</p>
+                            <p>INSTRUKSI</p>
                         </div>
                         <div class="col-1">
                             <p>:</p>
                             <p>:</p>
                             <p>:</p>
+                            <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p>Makan Siang Di Nusa Dua</p>
-                            <p>Joe Biden</p>
-                            <p>Falcon 1</p>
+                            <p>Kijang 1</p>
+                            <p>Putin</p>
+                            <p>Pengawalan</p>
+                            <p>Pengawalan VIP</p>
                         </div>
                         <div class="col-2">
                             <p>TANGGAL</p>
@@ -58,14 +60,15 @@
             </div>
 
 
-            <div class="">
-                <p class="fs-4 fw-bold">PETA LOKASI</p>
+
+            <div class="col-md-6">
+                <p class="fs-4 fw-bold text-black">PETA LOKASI</p>
             </div>
             <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
 
-
             <div class="col-12 mt-3">
-                <a href="<?= base_url('operasi/Kegiatan'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+                <a href="<?= base_url('instruksi'); ?>"><button class="btn btn-sm btn-primary float-end w-25" style="height:5vh ;">Kembali</button></a>
+
             </div>
         </div>
     </div>

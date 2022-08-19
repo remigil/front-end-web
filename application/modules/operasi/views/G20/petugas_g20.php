@@ -9,51 +9,54 @@
 <!-- </div> -->
 <div class="page">
     <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahPetugas">Tambah Petugas</button>
-    <div class="card mt-3">
-        <div class="card-body">
-            <table id="datatable" class="table dt-responsive">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>NRP</th>
-                        <th>Nama Petugas</th>
-                        <th>Pangkat</th>
-                        <th>Strukturan</th>
-                        <th>Dalam PAM</th>
-                        <th>No. Handphone</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>73060169</td>
-                        <td>Juni Sutopo</td>
-                        <td>AIPTU</td>
-                        <td style="width:20%">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
-                        <td>SDA</td>
-                        <td>081356410675</td>
-                        <td>Active</td>
-                        <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>73060169</td>
-                        <td>Zaenal Arifin</td>
-                        <td>AIPTU</td>
-                        <td style="width:20%">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
-                        <td>SDA</td>
-                        <td>089570294300</td>
-                        <td>Inactive</td>
-                        <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="col-12">
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <table id="datatable" class="table dt-responsive w-100">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NRP</th>
+                            <th>Nama Petugas</th>
+                            <th>Pangkat</th>
+                            <th style="width:20% ;">Strukturan</th>
+                            <th>Dalam PAM</th>
+                            <th>No. Handphone</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>73060169</td>
+                            <td>Juni Sutopo</td>
+                            <td>AIPTU</td>
+                            <td style="width :20%;">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
+                            <td>SDA</td>
+                            <td>081356410675</td>
+                            <td>Active</td>
+                            <td>
+                                <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>73060169</td>
+                            <td>Zaenal Arifin</td>
+                            <td>AIPTU</td>
+                            <td style="width :20%;">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
+                            <td>SDA</td>
+                            <td>089570294300</td>
+                            <td>Inactive</td>
+                            <td>
+                                <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
@@ -74,12 +77,12 @@
                 </div>
                 <form action="">
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NRP" placeholder="" type="text">
-                        <label class="labelmui">NRP</label>
-                    </div>
-                    <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="NamaPetugas" placeholder="" type="text">
                         <label class="labelmui">Nama Petugas</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="NRP" placeholder="" type="text">
+                        <label class="labelmui">NRP</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select class="form-select">
@@ -118,7 +121,7 @@
                             <option value="">Active</option>
                             <option value="">Inactive</option>
                         </select>
-                        <!-- <label class="labelmui">Status</label> -->
+                        <label class="labelmui">Status</label>
                     </div>
                     <div class="col-md-6 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
@@ -128,97 +131,9 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade SettingPetugas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Petugas</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NRP" placeholder="" type="text">
-                        <label class="labelmui">NRP</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NamaPetugas" placeholder="" type="text">
-                        <label class="labelmui">Nama Petugas</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Pangkat" placeholder="" type="text">
-                        <label class="labelmui">Pangkat</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="nohp" placeholder="" type="text">
-                        <label class="labelmui">No. Handphone</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- <div class="modal fade UbahPetugas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
-                        <label class="labelmui">Rencana</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaoperaso" placeholder="" type="text">
-                        <label class="labelmui">Subjek</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade UploadPetugas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Upload</h5>
-            </div>
-            <div class="modal-body">
-                <form action="#" class="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file">
-                    </div>
-                    <div class="dz-message needsclick">
-                        <div class="mb-3">
-                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                        </div>
-                        <h5>Drop files here or click to upload.</h5>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable({
-            scrollX: true,
-        });
+        $('#datatable').DataTable();
     });
 </script>

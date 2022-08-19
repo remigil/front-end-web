@@ -3,7 +3,6 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item">Operasi</li>
         <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Operasi</li>
     </ol>
 </nav>
@@ -30,11 +29,13 @@
                             <div class="row text-primary">
                                 <div class="col-2">
                                     <p>NAMA PETUGAS PELAPOR</p>
-                                    <p>OPERASI</p>
+                                    <p>KATEGORI LAPORAN</p>
                                     <p>DESKRIPSI</p>
-                                    <p>PERKIRAAN WAKTU URAI</p>
+                                    <p>WAKTU</p>
+                                    <p>NOMOR TELEPON</p>
                                 </div>
                                 <div class="col-1">
+                                    <p>:</p>
                                     <p>:</p>
                                     <p>:</p>
                                     <p>:</p>
@@ -42,19 +43,23 @@
                                 </div>
                                 <div class="col-3">
                                     <p>Made</p>
-                                    <p>PENGAWALAN</p>
+                                    <p>Operasi</p>
                                     <p>-</p>
                                     <p>01 Juli 2022 07:06 AM</p>
+                                    <p>+62 895 1234 564</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="rounded float-end" style="background-color: grey; height:27vh; width: 60vh;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
                 </div>
             </div>
 
 
 
-            <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
 
             <div class="col-12 mt-3">
                 <a href="<?= base_url('laporan/Operasi'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
