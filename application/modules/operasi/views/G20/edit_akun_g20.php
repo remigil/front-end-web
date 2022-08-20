@@ -28,13 +28,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text">
+                                    <input style="width: 100%;" name="namaAkun" value="<?php echo $data['getDetail']['data']['name_account'];?>" placeholder="Nama Akun" type="text">
                                     <label class="labelmui">Nama Akun</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="" placeholder="" type="text">
+                                    <input style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">
                                     <label class="labelmui">Ketua Tim</label>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                     <select name="polres" class="form-select">
                                         <option selected value="">Pilih Polres</option> 
                                         <?php foreach($data['getPolres'] as $row): ?>
-                                            <option value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['name_polres'] == $row['name_polres'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">Polres</label>
@@ -54,24 +54,18 @@
                                     <select name="id_vip" class="form-select">
                                         <option selected value="">Pilih VIP</option> 
                                         <?php foreach($data['getVip'] as $row): ?>
-                                            <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['vip'] == $row['name_vip'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">VIP</label>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text">
-                                    <label class="labelmui">Ketua Team</label>
-                                </div> 
-                            </div>
+                            </div> 
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
                                     <select name="id_kendaraan" class="form-select">
                                         <option selected value="">Pilih No Kendaraan</option> 
                                         <?php foreach($data['getVehicle'] as $row): ?>
-                                            <option value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['no_vehicle'] == $row['no_vehicle'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">No Kendaraan</label>
@@ -87,3 +81,77 @@
         </div>
     </div>
 </div>
+
+
+
+
+<script>
+    $(document).ready(function() {
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Akun/storeEdit",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() {  
+                            window.location.href = "<?php echo base_url();?>operasi/Akun";
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
+    });
+
+    $("#delete").on('click', function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault();  
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/Akun/delete",
+            method: "POST",
+            data: {
+                "id": $(this).data("id"),
+            },
+            dataType: 'JSON',
+            // contentType: false,
+            // processData: false,  
+            success: function (data) {
+                $("#overlay").fadeOut(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'success'
+                    ).then(function() {  
+                        window.location.href = "<?php echo base_url();?>operasi/Akun";
+                    }); 
+                }else{
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'error'
+                    ).then(function() { 
+                    });
+                } 
+            }
+        }); 
+    });
+</script>

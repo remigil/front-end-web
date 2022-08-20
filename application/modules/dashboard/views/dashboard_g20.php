@@ -102,7 +102,7 @@
 </div>
   
 
-
+<script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
 <script>
     $(function() {
 
@@ -133,18 +133,35 @@
         cb(start, end);     
 
     });
+
+
+    let app_url = '<%-app_url%>' 
+    let path = '<%-path%>'
+    
+    let data = [];  
+    let connected = false; 
+    var socket = io('http://10.10.3.63:3001', {
+    query: {
+        token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJWVEpHYzJSSFZtdFlNU3RWTDJodWIxRnFjbFZMZW5wUmNHcEdUSGRIUzJnMVptMWlUelowYmtGV1JUMCIsIm5ycF91c2VyIjoiVlRKR2MyUkhWbXRZTVRoNmVIVnhNWFZ5TkcxRk1XdFZZa1ZKTkRCVWNWQjNUakJZWWs4M1NWbHZkejAiLCJvZmZpY2VyIjoiVlRKR2MyUkhWbXRZTVN0VFQwYzRNVzh3UVhOamNtWkNMeXQyTmxSdVlsaE1SRm94Umpodk9XTnVhejAiLCJ0aW1lc3RhbXAiOjE2NjA5ODc0NDksImlhdCI6MTY2MDk4NzQ0OSwiZXhwIjoxNjYwOTkxMDQ5LCJhdWQiOiJHMjAiLCJpc3MiOiJLb3JsYW50YXNQb2xyaSIsInN1YiI6IkszSUcyMCJ9.vapdm1lwH-ifw72nfFtCE39XmNFg0N46CvaDFvafp-A2jidKC2_Nn_rwZCTy_I5BI3Usb1028Bwx6kZbXg3WoQ",
+        user_nrp: "3232912480",
+        type: "operator", //['admin', 'kakor', 'operator'],
+    }
+    });
+    var markerArray = new Array();
+    var patrolArray = new Array();
+
+
   $(document).ready(function() { 
     // alert('oke');
-
+    
     // $("#overlay").fadeIn(300);  
 
     // $('#telusuri-peta').on("click",function(event){
         // var id = $(this).data("id");
         // alert('oke');
-    // });  
+    // });   
 
-    $("#turjawali").select2();
-     
+    $("#turjawali").select2(); 
 
     var initialCenter = [-8.451740, 115.089643];
     var initialZoom = 9.65;
@@ -200,59 +217,155 @@
     }).addTo(mapContainer);
 
 
+   
+    socket.on("connected", function(resSocket){
+        console.log(socket.id);
+        console.log(resSocket);
+        console.log('ido1');
+    });
+    // socket.emit("trackingUser", {
+    //     lat: 1234,
+    //     lon: 1234234
+    // })
+    socket.on('from server', function(ress) { 
+        console.log('ido2');
+        var id = ress.id_user;
+        console.log(ress) 
 
-    
-    // L.Routing.control({
+        for (let i = 0; i < ress.length; i++) { 
+            if(markerArray[id] != null){ 
+              markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                  className: 'location-pin',
+                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  iconSize: [30, 30],
+                  //iconAnchor: [18, 30]
+                  iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                  <div class="text-center" style="width: 300px;">
+                      <div class="card-block">
+                          <a class="avatar avatar-lg" href="javascript:void(0)">
+                              <img src="-" alt="Logo">
+                          </a>
+                          <h4 class="profile-user">-</h4>
+                          <h5 class="profile-user">-</h5>
+                      </div> 
+                  </div>
+              `).update();  
+            }else{ 
+              markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                  className: 'location-pin',
+                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  iconSize: [30, 30],
+                  //iconAnchor: [18, 30]
+                  iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                  <div class="text-center" style="width: 300px;">
+                      <div class="card-block">
+                          <a class="avatar avatar-lg" href="javascript:void(0)">
+                              <img src="-" alt="Logo">
+                          </a>
+                          <h4 class="profile-user">-</h4>
+                          <h5 class="profile-user">-</h5>
+                      </div> 
+                  </div>
+              `).addTo(mapContainer);    
+            }
+        }
+    }) 
+    socket.on('sendToAdmin', function(ress) { 
+        var id = ress.id_user;
+        console.log('ido3');
+        console.log(ress);
+        
+        for (let i = 0; i < ress.length; i++) { 
+            console.log(ress[i].id_user);
+            if(markerArray[id] != null){ 
+              markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                  className: 'location-pin',
+                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  iconSize: [30, 30],
+                  //iconAnchor: [18, 30]
+                  iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                  <div class="text-center" style="width: 300px;">
+                      <div class="card-block">
+                          <a class="avatar avatar-lg" href="javascript:void(0)">
+                              <img src="-" alt="Logo">
+                          </a>
+                          <h4 class="profile-user">-</h4>
+                          <h5 class="profile-user">-</h5>
+                      </div> 
+                  </div>
+              `).update();  
+            }else{ 
+              markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                  className: 'location-pin',
+                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  iconSize: [30, 30],
+                  //iconAnchor: [18, 30]
+                  iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                  <div class="text-center" style="width: 300px;">
+                      <div class="card-block">
+                          <a class="avatar avatar-lg" href="javascript:void(0)">
+                              <img src="-" alt="Logo">
+                          </a>
+                          <h4 class="profile-user">-</h4>
+                          <h5 class="profile-user">-</h5>
+                      </div> 
+                  </div>
+              `).addTo(mapContainer);    
+            }
+
+        }
+    });
+ 
+
+  
+    // var control = L.Routing.control({
     //     waypoints: [
     //         L.latLng(-8.451740, 115.089643),
     //         L.latLng(-8.551740, 115.077643),
     //         L.latLng(-8.551740, 115.289643),
-    //     ]
-    // }).addTo(mapContainer);  
-    var control = L.Routing.control({
-        waypoints: [
-            L.latLng(-8.451740, 115.089643),
-            L.latLng(-8.551740, 115.077643),
-            L.latLng(-8.551740, 115.289643),
-        ],
-        router: new L.Routing.osrmv1({
-            language: 'en',
-            profile: 'car'
-        }),
-        geocoder: L.Control.Geocoder.nominatim({})
-    }).addTo(mapContainer);
+    //     ],
+    //     router: new L.Routing.osrmv1({
+    //         language: 'en',
+    //         profile: 'car'
+    //     }),
+    //     geocoder: L.Control.Geocoder.nominatim({})
+    // }).addTo(mapContainer);
 
 
-    function createButton(label, container) {
-        var btn = L.DomUtil.create('button', '', container);
-        btn.setAttribute('type', 'button');
-        btn.innerHTML = label;
-        return btn;
-    }
+    // function createButton(label, container) {
+    //     var btn = L.DomUtil.create('button', '', container);
+    //     btn.setAttribute('type', 'button');
+    //     btn.innerHTML = label;
+    //     return btn;
+    // }
 
-    mapContainer.on('click', function(e) {
-        var container = L.DomUtil.create('div'),
-            startBtn = createButton('Start from this location', container),
-            destBtn = createButton('Go to this location', container);
+    // mapContainer.on('click', function(e) {
+    //     var container = L.DomUtil.create('div'),
+    //         startBtn = createButton('Start from this location', container),
+    //         destBtn = createButton('Go to this location', container);
 
-        L.DomEvent.on(startBtn, 'click', function() {
-            control.spliceWaypoints(0, 1, e.latlng);
-            mapContainer.closePopup();
-        });
-        L.DomEvent.on(destBtn, 'click', function() {
-            control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-            mapContainer.closePopup();
-        });
-        L.popup()
-            .setContent(container)
-            .setLatLng(e.latlng)
-            .openOn(mapContainer);
-    });
+    //     L.DomEvent.on(startBtn, 'click', function() {
+    //         control.spliceWaypoints(0, 1, e.latlng);
+    //         mapContainer.closePopup();
+    //     });
+    //     L.DomEvent.on(destBtn, 'click', function() {
+    //         control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+    //         mapContainer.closePopup();
+    //     });
+    //     L.popup()
+    //         .setContent(container)
+    //         .setLatLng(e.latlng)
+    //         .openOn(mapContainer);
+    // });
 
-    mapContainer.doubleClickZoom.disable();
-    mapContainer.on('dblclick', function(e) { 
-        alert(e.latlng);
-    }); 
+    // mapContainer.doubleClickZoom.disable();
+    // mapContainer.on('dblclick', function(e) { 
+    //     alert(e.latlng);
+    // }); 
  
 
     // mapContainer.on('pm:create', (e) => {

@@ -24,40 +24,7 @@
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Makan Siang Nusa Dua</td>
-                        <td>Joe Biden</td>
-                        <td>Falcon 1</td>
-                        <td>Resto Kuta</td>
-                        <td>01 Juli 2022</td>
-                        <td>08:00 - 11:00 WITA</td>
-                        <td>
-                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('operasi/Kegiatan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Makan Siang Nusa Dua</td>
-                        <td>Putin</td>
-                        <td>Falcon 2</td>
-                        <td>Resto Kuta</td>
-                        <td>01 Juli 2022</td>
-                        <td>08:00 - 11:00 WITA</td>
-                        <td class="text-center ms-auto">
-                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('operasi/Kegiatan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-
-                </tbody>
+                </thead> 
             </table>
         </div>
 
@@ -74,52 +41,63 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form class="form" method="post" enctype="multipart/form-data"> 
                     <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Kegiatan</label>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
+                                <label class="labelmui">Kegiatan</label>
+                            </div>
                         </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">VIP</label>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
+                                <label class="labelmui">VIP</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="material-selectfield mb-3 col-6">
-                            <select name="" id="">
-                                <option value="">Tim 1</option>
-                                <option value="">Tim 2</option>
-                                <option value="">Tim 3</option>
-                                <option value="">Tim 4</option>
-                            </select>
-                            <label class="labelmui">Tim</label>
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select name="" id="">
+                                    <option value="">Tim 1</option>
+                                    <option value="">Tim 2</option>
+                                    <option value="">Tim 3</option>
+                                    <option value="">Tim 4</option>
+                                </select>
+                                <label class="labelmui">Tim</label>
+                            </div>
                         </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="date">
-                            <label class="labelmui">Tanggal</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Mulai</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Selesai</label>
-                        </div>
-                        <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Alamat</label>
+                        <div class="col-md6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="date">
+                                <label class="labelmui">Tanggal</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
-
-                            <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="startDate" id="startDate" placeholder="" type="text">
+                                <label class="labelmui">Waktu Mulai</label>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="endDate" id="endDate" placeholder="" type="text">
+                                <label class="labelmui">Waktu Selesai</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
+                                <label class="labelmui">Alamat</label>
+                            </div>
+                        </div>
+                        <div class="col-12"> 
+                            <div class="mt-3" id="mapG20Kegiatan"></div>
+                        </div>
+                    </div> 
 
                     <div class="col-md-6 mt-3 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
@@ -133,8 +111,111 @@
 
 
 <script>
-    $(document).ready(function() {
-        $('#datatable').DataTable();
+    $(document).ready(function() { 
+        $("#startDate").clockpicker({
+            autoclose: true
+        });
+
+        var userDataTable = $('#datatable').DataTable({ 
+
+            responsive: true, 
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete : function (settings, json) { },
+
+            retrieve : true,
+
+            processing : true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax : {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url();?>operasi/Kegiatan/serverSideTable',
+
+                data: function(data){
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function (xhr, settings) {
+                    
+                },
+
+                "dataSrc": function (result) { 
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [ 
+
+                { data: 'id'}, 
+                { data: 'kegiatan'},
+                { data: 'namaVip'}, 
+                { data: 'account'},  
+                { data: 'alamat'},   
+                { data: 'tanggal'},  
+                { data: 'waktu'},  
+                { data: 'status'}, 
+                { data: 'action' , orderable : false }
+
+            ],
+
+            order: [[ 0, "DESC" ]],
+
+            drawCallback : function(settings){
+
+                $("#overlay").fadeOut(300); 
+
+            }   
+
+        });   
+
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -159,7 +240,7 @@
         });
 
         // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
+        var mapContainer = L.map('mapG20Kegiatan', {
             maxZoom: 19,
             minZoom: 1,
             zoomControl: false,
@@ -277,6 +358,44 @@
 
 
 
+
+
+
+
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Kegiatan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $(".TambahKegiatan").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
 
     });
 </script>
