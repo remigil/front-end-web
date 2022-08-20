@@ -140,7 +140,7 @@ class Akun extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']['name']);
+        // echo json_encode($data['getDetail']['data']);
         // die;
 
         $page_content["data"] = $data;
@@ -171,6 +171,21 @@ class Akun extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
+
+        $getVip = guzzle_request('GET', 'vip', [  
+            'headers' => $headers 
+        ]);
+        $data['getVip'] = $getVip['data']['data'];
+
+        $getVehicle = guzzle_request('GET', 'vehicle', [  
+            'headers' => $headers 
+        ]);
+        $data['getVehicle'] = $getVehicle['data']['data'];
+
+        $getPolres = guzzle_request('GET', 'polres', [  
+            'headers' => $headers 
+        ]);
+        $data['getPolres'] = $getPolres['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

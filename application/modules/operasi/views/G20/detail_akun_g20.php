@@ -16,7 +16,7 @@
                     <p class="fs-4 fw-bold">DETAIL AKUN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Akun/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?= base_url('operasi/Akun/Edit/'.$data['getDetail']['data']['id'].''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
 
@@ -38,11 +38,11 @@
                             <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p>Patroli Bali 1</p>
-                            <p>Putin</p>
-                            <p>Polresta Denpasar</p>
-                            <p>Made</p>
-                            <p>1783-17</p>
+                            <p><?php echo $data['getDetail']['data']['name_account'];?></p> 
+                            <p><?php echo ($data['getDetail']['data']['vip'] == null ? '-' : $data['getDetail']['data']['vip']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['name_polres'] == null ? '-' : $data['getDetail']['data']['name_polres']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['leader_team'] == null ? '-' : $data['getDetail']['data']['leader_team']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['no_vehicle'] == null ? '-' : $data['getDetail']['data']['no_vehicle']);?></p>
                         </div>
                     </div>
                 </div>
