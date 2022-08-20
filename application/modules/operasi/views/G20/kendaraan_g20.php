@@ -21,29 +21,7 @@
                         <th>Kepemilikan</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1783-07</td>
-                        <td>Sepeda Motor</td>
-                        <td>Honda Goidwing</td>
-                        <td>Polres Bandung</td>
-                        <td>
-                            <a href="<?= base_url('operasi/Kendaraan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1785-01</td>
-                        <td>Mobil</td>
-                        <td>Mitsubishi Lancer</td>
-                        <td>Polresta Denpasar</td>
-                        <td>
-                            <a href="<?= base_url('operasi/Kendaraan/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                </tbody>
+                </thead> 
             </table>
         </div>
 
@@ -60,13 +38,13 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form class="form" method="post" enctype="multipart/form-data"> 
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NoKendaraan" placeholder="" type="text">
+                        <input style="width: 100%;" name="noKendaraan" placeholder="" type="text">
                         <label class="labelmui">No Kendaraan</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select class="form-select">
+                        <select class="form-select" name="jenisKendaraan">
                             <option selected>Pilih Jenis Kendaraan</option>
                             <option value="">Mobil</option>
                             <option value="">Motor</option>
@@ -74,14 +52,14 @@
                         <label class="labelmui">Jenis Kendaraan</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Merek" placeholder="" type="text">
+                        <input style="width: 100%;" name="merek" placeholder="" type="text">
                         <label class="labelmui">Merek</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select class="form-select">
+                        <select class="form-select" name="kepemilikan">
                             <option selected>Pilih Kepemilikan</option>
-                            <option value="">Polres Bandung</option>
-                            <option value="">Polresta Denpasar</option>
+                            <option value="Polres">Polres</option>
+                            <option value="Polresta">Polresta</option>
                         </select>
                         <label class="labelmui">Kepemilikan</label>
                     </div>
@@ -94,7 +72,7 @@
     </div>
 </div>
 
-<div class="modal fade SettingKendaraan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- <div class="modal fade SettingKendaraan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -102,21 +80,21 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form class="formDetail" method="post" enctype="multipart/form-data"> 
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NoKendaraan" placeholder="" type="text">
+                        <input style="width: 100%;" placeholder="" type="text">
                         <label class="labelmui">No Kendaraan</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="JenisKendaraan" placeholder="" type="text">
+                        <input style="width: 100%;"  placeholder="" type="text">
                         <label class="labelmui">Jenis Kendaraan</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Merek" placeholder="" type="text">
+                        <input style="width: 100%;" placeholder="" type="text">
                         <label class="labelmui">Merek</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Kepemilikan" placeholder="" type="text">
+                        <input style="width: 100%;" placeholder="" type="text">
                         <label class="labelmui">Kepemilikan</label>
                     </div>
                     <div class="col-md-6 float-end">
@@ -126,11 +104,148 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable();
+        // $('#datatable').DataTable();
+        var userDataTable = $('#datatable').DataTable({ 
+
+            responsive: true, 
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete : function (settings, json) { },
+
+            retrieve : true,
+
+            processing : true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax : {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url();?>operasi/kendaraan/serverSideTable',
+
+                data: function(data){
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function (xhr, settings) {
+                     
+                },
+
+                "dataSrc": function (result) { 
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [ 
+
+                { data: 'id'}, 
+
+                { data: 'noKendaraan'},
+
+                { data: 'jenisKendaraan'}, 
+
+                { data: 'merek'},
+
+                { data: 'kepemilikan'},  
+
+                { data: 'action' , orderable : false }
+
+            ],
+
+            order: [[ 0, "DESC" ]],
+
+            drawCallback : function(settings){
+
+                $("#overlay").fadeOut(300); 
+
+            }   
+
+        }); 
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Kendaraan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $(".TambahKendaraan").modal('hide');
+                            userDataTable.draw();
+                            // window.location.href = "<?php echo base_url();?>operasi/Kendaraan";
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
+
     });
 </script>

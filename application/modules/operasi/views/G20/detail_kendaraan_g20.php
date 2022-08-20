@@ -15,7 +15,7 @@
                     <p class="fs-4 fw-bold">DETAIL KENDARAAN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Kendaraan/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?php echo base_url()?>operasi/Kendaraan/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
 
@@ -35,10 +35,10 @@
                             <p>:</p>
                         </div>
                         <div class="col-3 text-black">
-                            <p>1783-07</p>
-                            <p>Sepeda Motor</p>
-                            <p>Honda Goldwing</p>
-                            <p>Polres Bandung</p>
+                            <p><?php echo $data['getDetail']['data']['no_vehicle'];?></p>
+                            <p><?php echo ($data['getDetail']['data']['type_vehicle'] == null ? '-' : $data['getDetail']['data']['type_vehicle']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['brand_vehicle'] == null ? '-' : $data['getDetail']['data']['brand_vehicle']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['ownership_vehicle'] == null ? '-' : $data['getDetail']['data']['ownership_vehicle']);?></p>
                         </div>
                     </div>
                 </div>

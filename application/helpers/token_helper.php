@@ -6,10 +6,10 @@ use GuzzleHttp\Client;
 if (!function_exists('token')) {  
     function token(){
         $client = new Client();
-        $request = $client->request('POST', 'http://103.158.196.31/serverArc/', [
+        $request = $client->request('POST', 'http://localhost:3001/v1/', [
             'form_params' => [
-                'app_id' => 'gutam',
-                'passwd' => '12345'
+                'username' => 'admin',
+                'password' => '1legalitas!!'
             ]
         ]);
         $response = $request->getBody();

@@ -26,35 +26,7 @@
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>73060169</td>
-                            <td>Juni Sutopo</td>
-                            <td>AIPTU</td>
-                            <td style="width :20%;">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
-                            <td>SDA</td>
-                            <td>081356410675</td>
-                            <td>Active</td>
-                            <td>
-                                <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>73060169</td>
-                            <td>Zaenal Arifin</td>
-                            <td>AIPTU</td>
-                            <td style="width :20%;">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</td>
-                            <td>SDA</td>
-                            <td>089570294300</td>
-                            <td>Inactive</td>
-                            <td>
-                                <a href="<?= base_url('operasi/Petugas/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                            </td>
-                        </tr>
-                    </tbody>
+                    </thead> 
                 </table>
             </div>
         </div>
@@ -72,58 +44,71 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="col-12">
-                    <div class="kotak mb-4 rounded" style="margin-left:270px; height: 200px; width:200px; background:grey; "></div>
-                </div>
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NamaPetugas" placeholder="" type="text">
-                        <label class="labelmui">Nama Petugas</label>
+                <form class="form row" method="post" enctype="multipart/form-data"> 
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"> 
+                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                     </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NRP" placeholder="" type="text">
-                        <label class="labelmui">NRP</label>
+                    <div class="col-md-4"></div>
+                    
+                    <div class="col-md-12">
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="namapetugas" placeholder="" type="text">
+                            <label class="labelmui">Nama Petugas</label>
+                        </div>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select class="form-select">
-                            <option selected>Pilih Pangkat</option>
-                            <option value="">AIPTU</option>
-                            <option value="">AIPDA</option>
-                            <option value="">BRIPKA</option>
-                            <option value="">BRIGADIR</option>
-                            <option value="">BRIPTU</option>
-                        </select>
-                        <label class="labelmui">Pangkat</label>
+                    <div class="col-md-12">
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="nrp" placeholder="" type="text">
+                            <label class="labelmui">NRP</label>
+                        </div>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select class="form-select">
-                            <option selected>Pilih Strukturan</option>
-                            <option value="">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
-                            <option value="">BA DITLANTAS POLDA BANTEN</option>
-                            <option value="">BA DITLANTAS POLDA JABAR</option>
-                            <option value="">BA DITLANTAS POLDA JATENG</option>
-                            <option value="">BA DITLANTAS POLDA JATIM</option>
-                            <option value="">BA DITLANTAS POLDA BALI</option>
-                        </select>
-                        <label class="labelmui">Strukturan</label>
+                    <div class="col-md-12">
+                        <div class="material-selectfield mb-3">
+                            <select name="pangkat" class="form-select">
+                                <option selected>Pilih Pangkat</option>
+                                <option value="AIPTU">AIPTU</option>
+                                <option value="AIPDA">AIPDA</option>
+                                <option value="BRIPKA">BRIPKA</option>
+                                <option value="BRIGADIR">BRIGADIR</option>
+                                <option value="BRIPTU">BRIPTU</option>
+                            </select>
+                            <label class="labelmui">Pangkat</label>
+                        </div>
                     </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="nohp" placeholder="" type="text">
-                        <label class="labelmui">Dalam PAM</label>
+                    <div class="col-md-12">
+                        <div class="material-selectfield mb-3">
+                            <select name="struktural" class="form-select">
+                                <option selected>Pilih Strukturan</option>
+                                <option value="BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
+                                <option value="BA DITLANTAS POLDA">BA DITLANTAS POLDA</option> 
+                            </select>
+                            <label class="labelmui">Strukturan</label>
+                        </div>
                     </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="nohp" placeholder="" type="text">
-                        <label class="labelmui">No. Handphone</label>
+                    <div class="col-md-12">
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="pam" placeholder="" type="text">
+                            <label class="labelmui">Dalam PAM</label>
+                        </div>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select class="form-select">
-                            <option selected>Pilih Status</option>
-                            <option value="">Active</option>
-                            <option value="">Inactive</option>
-                        </select>
-                        <label class="labelmui">Status</label>
+                    <div class="col-md-12">
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="noHp" placeholder="" type="text">
+                            <label class="labelmui">No. Handphone</label>
+                        </div>
                     </div>
-                    <div class="col-md-6 float-end">
+                    <div class="col-md-12">
+                        <div class="material-selectfield mb-3">
+                            <select name="status" class="form-select">
+                                <option selected>Pilih Status</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                            <label class="labelmui">Status</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
                     </div>
                 </form>
@@ -132,8 +117,143 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable();
+        $('.dropify').dropify();
+
+        var userDataTable = $('#datatable').DataTable({ 
+
+            responsive: true, 
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete : function (settings, json) { },
+
+            retrieve : true,
+
+            processing : true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax : {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url();?>operasi/Petugas/serverSideTable',
+
+                data: function(data){
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function (xhr, settings) {
+                    
+                },
+
+                "dataSrc": function (result) { 
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [ 
+
+                { data: 'id'}, 
+                { data: 'namapetugas'},
+                { data: 'nrp'}, 
+                { data: 'pangkat'},
+                { data: 'struktural'},  
+                { data: 'pam'},  
+                { data: 'noHp'},  
+                { data: 'status'},     
+                { data: 'action' , orderable : false }
+
+            ],
+
+            order: [[ 0, "DESC" ]],
+
+            drawCallback : function(settings){
+
+                $("#overlay").fadeOut(300); 
+
+            }   
+
+        });   
+        
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Petugas/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $(".TambahPetugas").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
     });
 </script>

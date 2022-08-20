@@ -21,29 +21,7 @@
                         <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Putin</td>
-                        <td>Russia</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>
-                            <a href="<?= base_url('operasi/Vip/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Joe Biden</td>
-                        <td>Amerika Serikat</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>
-                            <a href="<?= base_url('operasi/Vip/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                </tbody>
+                </thead> 
             </table>
         </div>
 
@@ -60,31 +38,31 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form class="form" method="post" enctype="multipart/form-data"> 
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NamaVIP" placeholder="" type="text">
+                        <input style="width: 100%;" name="namaVIP" placeholder="" type="text">
                         <label class="labelmui">Nama VIP</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="" id="" class="form-select">
+                        <select name="asalNegara" class="form-select">
                             <option value="">Pilih Negara Kedatangan</option>
-                            <option value="">Rusia</option>
-                            <option value="">Amerikat Serikat</option>
-                            <option value="">Indonesia</option>
+                            <option value="Rusia">Rusia</option>
+                            <option value="Amerikat Serikat">Amerikat Serikat</option>
+                            <option value="Indonesia">Indonesia</option>
                         </select>
                         <label class="labelmui">Negara Kedatangan</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="" id="" class="form-select">
+                        <select name="jabatan" class="form-select">
                             <option value="">Pilih Jabatan</option>
-                            <option value="">Presiden</option>
-                            <option value="">Wakil Presiden</option>
-                            <option value="">Menteri Pertahanan</option>
+                            <option value="Presiden">Presiden</option>
+                            <option value="Wakil Presiden">Wakil Presiden</option>
+                            <option value="Menteri Pertahanan">Menteri Pertahanan</option>
                         </select>
                         <label class="labelmui">Jabatan</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Keterangan" placeholder="" type="text">
+                        <input style="width: 100%;" name="keterangan" placeholder="" type="text">
                         <label class="labelmui">Keterangan</label>
                     </div>
                     <div class="col-md-6 float-end">
@@ -121,6 +99,140 @@
 
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable();
+        var userDataTable = $('#datatable').DataTable({ 
+
+            responsive: true, 
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete : function (settings, json) { },
+
+            retrieve : true,
+
+            processing : true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax : {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url();?>operasi/Vip/serverSideTable',
+
+                data: function(data){
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function (xhr, settings) {
+                    
+                },
+
+                "dataSrc": function (result) { 
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [ 
+
+                { data: 'id'}, 
+
+                { data: 'namaVIP'},
+
+                { data: 'asalNegara'}, 
+
+                { data: 'jabatan'},
+
+                { data: 'keterangan'},  
+
+                { data: 'action' , orderable : false }
+
+            ],
+
+            order: [[ 0, "DESC" ]],
+
+            drawCallback : function(settings){
+
+                $("#overlay").fadeOut(300); 
+
+            }   
+
+        });   
+        
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Vip/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $(".TambahVIP").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
     });
 </script>

@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12"> 
 
-    <a href='#' id='export'>Export Features</a>
+    <!-- <a href='#' id='export'>Export Features</a> -->
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -199,13 +199,61 @@
         position: 'bottomright'
     }).addTo(mapContainer);
 
-    L.Routing.control({
+
+
+    
+    // L.Routing.control({
+    //     waypoints: [
+    //         L.latLng(-8.451740, 115.089643),
+    //         L.latLng(-8.551740, 115.077643),
+    //         L.latLng(-8.551740, 115.289643),
+    //     ]
+    // }).addTo(mapContainer);  
+    var control = L.Routing.control({
         waypoints: [
             L.latLng(-8.451740, 115.089643),
             L.latLng(-8.551740, 115.077643),
             L.latLng(-8.551740, 115.289643),
-        ]
-    }).addTo(mapContainer); 
+        ],
+        router: new L.Routing.osrmv1({
+            language: 'en',
+            profile: 'car'
+        }),
+        geocoder: L.Control.Geocoder.nominatim({})
+    }).addTo(mapContainer);
+
+
+    function createButton(label, container) {
+        var btn = L.DomUtil.create('button', '', container);
+        btn.setAttribute('type', 'button');
+        btn.innerHTML = label;
+        return btn;
+    }
+
+    mapContainer.on('click', function(e) {
+        var container = L.DomUtil.create('div'),
+            startBtn = createButton('Start from this location', container),
+            destBtn = createButton('Go to this location', container);
+
+        L.DomEvent.on(startBtn, 'click', function() {
+            control.spliceWaypoints(0, 1, e.latlng);
+            mapContainer.closePopup();
+        });
+        L.DomEvent.on(destBtn, 'click', function() {
+            control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+            mapContainer.closePopup();
+        });
+        L.popup()
+            .setContent(container)
+            .setLatLng(e.latlng)
+            .openOn(mapContainer);
+    });
+
+    mapContainer.doubleClickZoom.disable();
+    mapContainer.on('dblclick', function(e) { 
+        alert(e.latlng);
+    }); 
+ 
 
     // mapContainer.on('pm:create', (e) => {
     //     e.layer.setStyle({ pmIgnore: false });
@@ -225,92 +273,89 @@
  
 
 
-    // Initialise the FeatureGroup to store editable layers
-    var featureGroup = new L.FeatureGroup();
-    mapContainer.addLayer(featureGroup);
+    // // Initialise the FeatureGroup to store editable layers
+    // var featureGroup = new L.FeatureGroup();
+    // mapContainer.addLayer(featureGroup);
 
-    // define custom marker
-    var MyCustomMarker = L.Icon.extend({
-    options: {
-        shadowUrl: null,
-        iconAnchor: new L.Point(12, 12),
-        iconSize: new L.Point(24, 24),
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-    }
-    });
+    // // define custom marker
+    // var MyCustomMarker = L.Icon.extend({
+    // options: {
+    //     shadowUrl: null,
+    //     iconAnchor: new L.Point(12, 12),
+    //     iconSize: new L.Point(24, 24),
+    //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+    // }
+    // });
 
-    var drawPluginOptions = {
-        position: 'bottomleft',
-        draw: {
-            polyline: {
-                shapeOptions: {
-                    color: '#f357a1',
-                    weight: 10
-                }
-            },
-            polygon: {
-                allowIntersection: false, // Restricts shapes to simple polygons
-                drawError: {
-                    color: '#e1e100', // Color the shape will turn when intersects
-                    message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
-                },
-                shapeOptions: {
-                    color: '#bada55'
-                }
-            },
-            circle: true, // Turns off this drawing tool
-            rectangle: {
-                shapeOptions: {
-                    clickable: false
-                }
-            },
-            marker: {
-                icon: new MyCustomMarker()
-            }
-        },
-        edit: {
-            featureGroup: featureGroup, //REQUIRED!!
-            remove: false
-        }
-    };
-
-
-
-    // Initialise the draw control and pass it the FeatureGroup of editable layers
-    var drawControl = new L.Control.Draw(drawPluginOptions);
-    mapContainer.addControl(drawControl);
-
-
-    var featureGroup = new L.FeatureGroup();
-    mapContainer.addLayer(featureGroup);
+    // var drawPluginOptions = {
+    //     position: 'bottomleft',
+    //     draw: {
+    //         polyline: {
+    //             shapeOptions: {
+    //                 color: '#f357a1',
+    //                 weight: 10
+    //             }
+    //         },
+    //         polygon: {
+    //             allowIntersection: false, // Restricts shapes to simple polygons
+    //             drawError: {
+    //                 color: '#e1e100', // Color the shape will turn when intersects
+    //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
+    //             },
+    //             shapeOptions: {
+    //                 color: '#bada55'
+    //             }
+    //         },
+    //         circle: true, // Turns off this drawing tool
+    //         rectangle: {
+    //             shapeOptions: {
+    //                 clickable: false
+    //             }
+    //         },
+    //         marker: {
+    //             icon: new MyCustomMarker()
+    //         }
+    //     },
+    //     edit: {
+    //         featureGroup: featureGroup, //REQUIRED!!
+    //         remove: false
+    //     }
+    // };
 
 
 
-
-    mapContainer.on('draw:created', function(e) {
-    var type = e.layerType,
-        layer = e.layer;
-
-    if (type === 'marker') {
-        layer.bindPopup('A popup!');
-    }
-
-    featureGroup.addLayer(layer);
-    });
-
-    document.getElementById('export').onclick = function(e) {
-        // Extract GeoJson from featureGroup
-        var data = featureGroup.toGeoJSON();
-
-        // Stringify the GeoJson
-        var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-
-        // Create export
-        document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-        document.getElementById('export').setAttribute('download','data.geojson');
-    }
+    // // Initialise the draw control and pass it the FeatureGroup of editable layers
+    // var drawControl = new L.Control.Draw(drawPluginOptions);
+    // mapContainer.addControl(drawControl);
 
 
+    // var featureGroup = new L.FeatureGroup();
+    // mapContainer.addLayer(featureGroup); 
+
+    // mapContainer.on('draw:created', function(e) {
+    // var type = e.layerType,
+    //     layer = e.layer;
+
+    // if (type === 'marker') {
+    //     layer.bindPopup('A popup!');
+    // }
+
+    // featureGroup.addLayer(layer);
+    // });
+
+    // document.getElementById('export').onclick = function(e) {
+    //     // Extract GeoJson from featureGroup
+    //     var data = featureGroup.toGeoJSON();
+
+    //     // Stringify the GeoJson
+    //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+
+    //     // Create export
+    //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+    //     document.getElementById('export').setAttribute('download','data.geojson');
+    // }
+
+    
 
     // var arrayData = $.grep(data, function (element, index) {
     //     return element.coordinate != null && element.coordinate != '';

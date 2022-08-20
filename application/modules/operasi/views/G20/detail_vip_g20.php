@@ -14,7 +14,7 @@
                     <p class="fs-4 fw-bold">DETAIL VIP</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Vip/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?php echo base_url()?>operasi/Vip/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
             <div class="card">
@@ -35,10 +35,10 @@
                                     <p>:</p>
                                 </div>
                                 <div class="col-3">
-                                    <p>PUTIN</p>
-                                    <p>Rusia</p>
-                                    <p>Presiden</p>
-                                    <p>-</p>
+                                    <p><?php echo $data['getDetail']['data']['name_vip'];?></p>
+                                    <p><?php echo ($data['getDetail']['data']['country_arrival_vip'] == null ? '-' : $data['getDetail']['data']['country_arrival_vip']);?></p>
+                                    <p><?php echo ($data['getDetail']['data']['position_vip'] == null ? '-' : $data['getDetail']['data']['position_vip']);?></p>
+                                    <p><?php echo ($data['getDetail']['data']['description_vip'] == null ? '-' : $data['getDetail']['data']['description_vip']);?></p>
                                 </div>
                             </div>
                         </div>
