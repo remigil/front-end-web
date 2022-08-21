@@ -71,6 +71,10 @@ class Akun extends MY_Controller
         $input      = $this->input->post(); 
         $dummy = [
             [
+                'name' => 'id_account',
+                'contents' => str_replace(' ', '', $input['namaAkun']),
+            ],
+            [
                 'name' => 'name_account',
                 'contents' => $input['namaAkun'],
             ],
@@ -206,6 +210,10 @@ class Akun extends MY_Controller
         if($input['oldPassword'] == $input['password']){
             $dummy = [
                 [
+                    'name' => 'id_account',
+                    'contents' => str_replace(' ', '', $input['namaAkun']),
+                ],
+                [
                     'name' => 'name_account',
                     'contents' => $input['namaAkun'],
                 ],
@@ -228,6 +236,10 @@ class Akun extends MY_Controller
             ];
         }else{
             $dummy = [
+                [
+                    'name' => 'id_account',
+                    'contents' => str_replace(' ', '', $input['namaAkun']),
+                ],
                 [
                     'name' => 'name_account',
                     'contents' => $input['namaAkun'],
