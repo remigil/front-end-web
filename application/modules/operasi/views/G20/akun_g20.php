@@ -75,6 +75,10 @@
                         </select>
                         <label class="labelmui">No Kendaraan</label>
                     </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="password" placeholder="Password" type="password">
+                        <label class="labelmui">Password</label>
+                    </div> 
                     <div class="col-md-6 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
                     </div>

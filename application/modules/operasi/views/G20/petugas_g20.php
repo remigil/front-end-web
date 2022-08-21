@@ -82,6 +82,7 @@
                                 <option selected>Pilih Strukturan</option>
                                 <option value="BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
                                 <option value="BA DITLANTAS POLDA">BA DITLANTAS POLDA</option> 
+                                <option value="Korlantas">Korlantas</option> 
                             </select>
                             <label class="labelmui">Strukturan</label>
                         </div>

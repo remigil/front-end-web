@@ -47,7 +47,7 @@
                         <select name="asalNegara" class="form-select">
                             <option value="">Pilih Negara Kedatangan</option>
                             <option value="Rusia">Rusia</option>
-                            <option value="Amerikat Serikat">Amerikat Serikat</option>
+                            <option value="Amerika Serikat">Amerika Serikat</option>
                             <option value="Indonesia">Indonesia</option>
                         </select>
                         <label class="labelmui">Negara Kedatangan</label>

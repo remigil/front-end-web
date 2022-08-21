@@ -46,8 +46,8 @@
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="jenisKendaraan">
                             <option selected>Pilih Jenis Kendaraan</option>
-                            <option value="">Mobil</option>
-                            <option value="">Motor</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Sepeda Motor">Sepeda Motor</option>
                         </select>
                         <label class="labelmui">Jenis Kendaraan</label>
                     </div>

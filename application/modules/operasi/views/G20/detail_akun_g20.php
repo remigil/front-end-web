@@ -39,10 +39,10 @@
                         </div>
                         <div class="col-3">
                             <p><?php echo $data['getDetail']['data']['name_account'];?></p> 
-                            <p><?php echo ($data['getDetail']['data']['vip'] == null ? '-' : $data['getDetail']['data']['vip']);?></p>
-                            <p><?php echo ($data['getDetail']['data']['name_polres'] == null ? '-' : $data['getDetail']['data']['name_polres']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['vips']['name_vip'] == null ? '-' : $data['getDetail']['data']['vips']['name_vip']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['polres']['name_polres'] == null ? '-' : $data['getDetail']['data']['polres']['name_polres']);?></p>
                             <p><?php echo ($data['getDetail']['data']['leader_team'] == null ? '-' : $data['getDetail']['data']['leader_team']);?></p>
-                            <p><?php echo ($data['getDetail']['data']['no_vehicle'] == null ? '-' : $data['getDetail']['data']['no_vehicle']);?></p>
+                            <p><?php echo ($data['getDetail']['data']['vehicle']['no_vehicle'] == null ? '-' : $data['getDetail']['data']['vehicle']['no_vehicle']);?></p>
                         </div>
                     </div>
                 </div>

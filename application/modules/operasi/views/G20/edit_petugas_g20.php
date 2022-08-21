@@ -42,6 +42,7 @@
                                         <option <?php echo ($data['getDetail']['data']['structural_officer'] == null ? 'selected' : '');?> value="">Pilih Strukturan</option>
                                         <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI' ? 'selected' : '');?> value="BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
                                         <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'BA DITLANTAS POLDA' ? 'selected' : '');?> value="BA DITLANTAS POLDA">BA DITLANTAS POLDA</option> 
+                                        <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'Korlantas' ? 'selected' : '');?> value="Korlantas">Korlantas</option> 
                                     </select>
                                     <label class="labelmui">Strukturan</label>
                                 </div>

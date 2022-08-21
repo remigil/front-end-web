@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <a href="<?= base_url('operasi/Kendaraan'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+                <a href="<?= base_url('operasi/Kendaraan'); ?>" class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</a>
             </div>
         </div>
     </div>

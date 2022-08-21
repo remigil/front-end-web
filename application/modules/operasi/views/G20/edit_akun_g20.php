@@ -43,7 +43,7 @@
                                     <select name="polres" class="form-select">
                                         <option selected value="">Pilih Polres</option> 
                                         <?php foreach($data['getPolres'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['name_polres'] == $row['name_polres'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['polres']['name_polres'] == $row['name_polres'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">Polres</label>
@@ -54,7 +54,7 @@
                                     <select name="id_vip" class="form-select">
                                         <option selected value="">Pilih VIP</option> 
                                         <?php foreach($data['getVip'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['vip'] == $row['name_vip'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['vips']['name_vip'] == $row['name_vip'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">VIP</label>
@@ -65,17 +65,24 @@
                                     <select name="id_kendaraan" class="form-select">
                                         <option selected value="">Pilih No Kendaraan</option> 
                                         <?php foreach($data['getVehicle'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['no_vehicle'] == $row['no_vehicle'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
+                                            <option <?php echo ($data['getDetail']['data']['vehicle']['no_vehicle'] == $row['no_vehicle'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
                                         <?php endforeach; ?> 
                                     </select>
                                     <label class="labelmui">No Kendaraan</label>
                                 </div>
                             </div> 
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input hidden type="text" name="oldPassword" value="<?php echo $data['getDetail']['data']['password'];?>">
+                                    <input style="width: 100%;" name="password" value="<?php echo $data['getDetail']['data']['password'];?>" type="password">
+                                    <label class="labelmui">Password</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('operasi/Akun'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</button></a>
+                    <a href="<?= base_url('operasi/Akun'); ?>" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</a>
                 </div>
             </form>
         </div>

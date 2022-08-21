@@ -105,7 +105,7 @@ class M_vip extends CI_Model {
 
             ]
 
-        ]);  
+        ]);   
 
         $no=1;
 

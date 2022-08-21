@@ -31,12 +31,25 @@ class Kegiatan extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/kegiatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/kegiatan_polres";
-        }
+        } 
 
+        $getVip = guzzle_request('GET', 'vip', [  
+            'headers' => $headers 
+        ]); 
+        $data['getVip'] = $getVip['data']['data'];
+        $getOfficer = guzzle_request('GET', 'officer', [  
+            'headers' => $headers 
+        ]); 
+        $data['getOfficer'] = $getOfficer['data']['data'];
 
+        // $getAccount = guzzle_request('GET', 'account', [  
+        //     'headers' => $headers 
+        // ]); 
+        // $data['getAccount'] = $getAccount['data']['data'];
+        // echo json_encode($data['getAccount']);
+        // die;
 
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
@@ -55,21 +68,37 @@ class Kegiatan extends MY_Controller
         $input      = $this->input->post(); 
         $dummy = [
             [
-                'name' => 'name_kegiatan',
-                'contents' => $input['namakegiatan'],
+                'name' => 'activity',
+                'contents' => $input['kegiatan'],
             ],
             [
-                'name' => 'country_arrival_kegiatan',
-                'contents' => $input['asalNegara'],
+                'name' => 'id_vip',
+                'contents' => $input['id_akun'],
             ],
             [
-                'name' => 'position_kegiatan',
+                'name' => 'id_account',
                 'contents' => $input['jabatan'],
             ],
             [
-                'name' => 'description_kegiatan',
+                'name' => 'date_schedule',
                 'contents' => $input['keterangan'],
-            ]
+            ],
+            [
+                'name' => 'start_time',
+                'contents' => $input['keterangan'],
+            ],
+            [
+                'name' => 'end_time',
+                'contents' => $input['keterangan'],
+            ],
+            [
+                'name' => 'coordinate_schedule',
+                'contents' => $input['keterangan'],
+            ],
+            [
+                'name' => 'status_schedule',
+                'contents' => $input['keterangan'],
+            ] 
         ];
 
         $data = guzzle_request('POST', 'schedule/add', [ 

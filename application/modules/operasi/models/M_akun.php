@@ -105,7 +105,7 @@ class M_akun extends CI_Model {
 
             ]
 
-        ]);  
+        ]);   
 
         $no=1;
 
@@ -115,9 +115,9 @@ class M_akun extends CI_Model {
             $row ['id']	=  $no++; 
             $row ['namaAkun']	= $field['name_account']; 
             $row ['ketuaTeam']	= $field['leader_team'];  
-            $row ['polres']	= $field['name_polres'];  
-            $row ['noKendaraan']   	= $field['no_vehicle'];
-            $row ['vip']   	= $field['vip'];   
+            $row ['polres']	= $field['polres']['name_polres'];  
+            $row ['noKendaraan']   	= $field['vehicle']['no_vehicle'];
+            $row ['vip']   	= $field['vips']['name_vip'];   
             $row ['action']         = ' 
                 <a href="'.base_url().'operasi/akun/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 

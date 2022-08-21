@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('operasi/Vip'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</button></a>
+                    <a href="<?= base_url('operasi/Vip'); ?>" class="btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</a>
                 </div>
             </form>
         </div>

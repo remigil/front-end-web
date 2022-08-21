@@ -50,9 +50,9 @@
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
                                     <select class="form-select" name="kepemilikan">
-                                        <option value="">Pilih Kepemilikan</option>
-                                        <option value="Polres">Polres</option>
-                                        <option value="Polresta">Polresta</option>
+                                        <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == null ? 'selected' : '');?>  value="">Pilih Kepemilikan</option>
+                                        <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == 'Polres' ? 'selected' : '');?> value="Polres">Polres</option>
+                                        <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == 'Polresta' ? 'selected' : '');?> value="Polresta">Polresta</option>
                                     </select>
                                     <label class="labelmui">Kepemilikan</label>
                                 </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                    <a href="<?= base_url('operasi/Kendaraan'); ?>"><button class="btn btn-sm btn-primary float-end w-25" style="height:5vh ;">Kembali</button></a>
+                    <a href="<?= base_url('operasi/Kendaraan'); ?>" class="btn btn-sm btn-primary float-end w-25">Kembali</a>
                 </div>
             </form> 
         </div>
