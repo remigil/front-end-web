@@ -253,21 +253,28 @@
                     for (let i = 0; i < ress.length; i++) { 
                         id = ress.id_user; 
 
+                        var jenis = '';
+                        if(ress[i].type_vehicle != 'Sepeda Motor'){
+                            jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                        }else{
+                            jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                        }
+
                         if(markerArray[id] != null){ 
                         markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                             className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`,
+                            html: jenis,
                             iconSize: [30, 30],
                             //iconAnchor: [18, 30]
                             iconAnchor: [10, 33]
                             }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;">
-                                <div class="card-block  text-center align-center float-center"> 
-                                    <div class="avatar-xl me-3">
-                                        <img src="<?php echo base_url();?>assets/admin/images/users/avatar-2.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                    </div>
-                                </div> 
+                            <div class="text-center" style="width: 300px;"> 
                                 <div class="row mt-3">
+                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                        <div class="avatar-xl me-3">
+                                            <img src="<?php echo base_url();?>assets/admin/images/users/avatar-2.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
@@ -352,19 +359,97 @@
                         }else{ 
                         markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                             className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`,
+                            html: jenis,
                             iconSize: [30, 30],
                             //iconAnchor: [18, 30]
                             iconAnchor: [10, 33]
                             }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;">
-                                <div class="card-block">
-                                    <a class="avatar avatar-lg" href="javascript:void(0)">
-                                        <img src="<?php echo base_url();?>assets/admin/images/mobil.png" alt="Logo" style="width: 200px;border-radius: 10px;">
-                                    </a>
-                                    <h4 class="profile-user">-</h4>
-                                    <h5 class="profile-user">-</h5>
-                                </div> 
+                            <div class="text-center" style="width: 300px;"> 
+                                <div class="row mt-3">
+                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                        <div class="avatar-xl me-3">
+                                            <img src="<?php echo base_url();?>assets/admin/images/users/avatar-2.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">Nama Akun</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].name_account}</p>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                    <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">Ketua Tim</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].name_team}</p>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">VIP</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].vip}</p>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">NRP</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].nrp_user}</p>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">No Kendaraan</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].no_vehicle}</p>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                        <div class="row text-start">
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;font-weight: bold;">Jenis Kendaraan</p>  
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p style="font-size: 13px;"> : </p>
+                                            </div>
+                                            <div class="col-md-5 col-6">
+                                                <p style="font-size: 13px;">${ress[i].type_vehicle}</p>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                </div>
                             </div>
                         `).addTo(mapContainer);    
                         }
