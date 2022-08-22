@@ -18,15 +18,13 @@
     <?php } ?>
 
     <!-- twitter-bootstrap-wizard css -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
 
     <!-- datepicker css -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/libs/flatpickr/flatpickr.min.css">
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
 
     <!-- select2 css -->
     <link href="<?php echo base_url(); ?>assets/admin/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.7/select2-bootstrap.min.css">
 
     <!-- dropify js -->
     <link href="<?php echo base_url(); ?>assets/admin/css/dropify.css" rel="stylesheet" type="text/css" />
@@ -70,23 +68,23 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" /> 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" /> 
-    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/clockpicker.css">
+
 
     <style>
         #mapG20Dashboard {
             height: 700px;
-            width: 100%;
+            width: 100%
         }
- 
+
         #mapG20Troublespot {
             height: 500px;
-            width: 100%;
+            width: 100%
         }
 
         #overlay {
@@ -253,6 +251,7 @@
 
         .material-textfield {
             position: relative;
+            margin: 1vh 2.7vh 3vh 2.7vh;
         }
 
         .labelmui {
@@ -271,22 +270,23 @@
         }
 
         .material-textfield input {
-            font-size: 1rem;
+            font-size: 0.9rem;
             outline: none;
-            border: 1px solid gray;
-            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 10px;
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
-            height: 40px;
+            width: 100%;
+            height: 48px;
         }
 
         .material-textfield input:focus {
-            border-color: #6200EE;
+            border-color: #003A91;
         }
 
         .material-textfield input:focus+.labelmui {
-            color: #6200EE;
+            color: #003A91;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
@@ -300,26 +300,27 @@
 
         .material-selectfield {
             position: relative;
+            margin: 1vh 2.7vh 3vh 2.7vh;
         }
 
         .material-selectfield select {
-            font-size: 1rem;
+            font-size: 0.9rem;
             outline: none;
-            border: 1px solid gray;
-            border-radius: 5px;
-            padding: 1rem 0.7rem;
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 10px;
             color: gray;
             transition: 0.1s ease-out;
             width: 100%;
+            height: 48px;
             background-color: transparent;
         }
 
         .material-selectfield select:focus {
-            border-color: #6200EE;
+            border-color: #003A91;
         }
 
         .material-selectfield select:focus+.labelmui {
-            color: #6200EE;
+            color: #003A91;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
@@ -337,20 +338,19 @@
             font-size: 15px;
             margin-top: -19px;
         }
+
+        /* .modalposisi {
+            margin-left: 10vh;
+        } */
     </style>
 
     <!-- JAVASCRIPT -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/simplebar/simplebar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/node-waves/waves.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/feather-icons/feather.min.js"></script>
-    
-
 
     <?php echo $css ?>
 </head>
@@ -885,13 +885,13 @@
     <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
     <!-- Modal js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script>
 
     <!-- form mask -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
 
     <!-- form mask init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script>
 
     <!-- dropzone js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
@@ -928,26 +928,25 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
 
     <!-- dashboard init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script>
 
     <!-- Sweet Alerts js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- Sweet alert init js-->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script>
 
     <!-- pristine js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
 
     <!-- form validation -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script>
 
     <!-- init js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script>
 
     <!-- datepicker js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/flatpickr/flatpickr.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 
     <!-- select2 js -->
     <script src="<?php echo base_url(); ?>assets/admin/js/pages/select2.min.js"></script>
@@ -966,15 +965,13 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
- 
+
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
 
     <?php echo $js ?>
 
