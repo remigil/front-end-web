@@ -98,28 +98,27 @@
 
 <!-- Login 2 start -->
 <div class="login-2 login-background" style="background-image: url(<?php echo base_url()?>assets/bg-login.png)"> 
+  <?php $error = $this->session->flashdata('error'); if ($error) {?> 
+    <div class="alert dark alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close btn" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      WARNING : <?php echo $error?>
+    </div> 
+  <?php } ?>
     <div class="login-2-inner">
         <div class="container">
-            <div class="row login-box">
-                <div class="col-lg-8 align-self-center pad-0 form-info">
-                    <?php $error = $this->session->flashdata('error'); 
-                      if ($error) {?>
-                      <div class="alert dark alert-warning alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                        WARNING : <?php echo $error?>
-                      </div>
-                    <?php } ?>
-                    <div class="form-section align-self-center">
-                        <div class="logo-2 logo">
+            <div class="row login-box"> 
+                <div class="col-lg-8 align-self-center pad-0 form-info"> 
+                    <div class="form-section align-self-center"> 
+                        <!-- <div class="logo-2 logo">
                             <a href="login-2.html">
-                                <img src="<?php echo base_url();?>assets/login/img/logos/logo-2.png" alt="logo">
+                                <img src="<?php echo base_url();?>assets/login/img/logos/logo-2.png">
                             </a>
-                        </div>
+                        </div> -->
                         <div>
-                          <img src="<?php echo base_url();?>assets/logo-main.png" alt="logo">
-                        </div>
+                          <img src="<?php echo base_url();?>assets/logo-main.png">
+                        </div> 
                         <!-- <div class="btn-section clearfix">
                             <a href="login-2.html" class="link-btn active btn-1 active-bg">Login</a>
                             <a href="register-2.html" class="link-btn btn-2 default-bg">Register</a>

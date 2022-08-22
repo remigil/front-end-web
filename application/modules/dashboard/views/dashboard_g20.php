@@ -100,6 +100,93 @@
         <div id="mapG20Dashboard"></div>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Instruksi</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+                <form class="form" method="post" enctype="multipart/form-data"> 
+                    
+                    <div class="row">  
+
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="id_account[]" id="id_account" style="height: 200px;" multiple> 
+                                    <?php foreach($data['getAccount'] as $row): ?>
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_account'];?></option> 
+                                    <?php endforeach; ?> 
+                                </select>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="date" id="datepicker" class="form-control" value="<?= date('Y-m-d') ?>" type="date" >
+                                <label class="labelmui">Tanggal</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="id_vip[]" id="id_vip" style="height: 200px" multiple> 
+                                    <?php foreach($data['getVip'] as $row): ?>
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
+                                    <?php endforeach; ?> 
+                                </select>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">VIP</label>
+                            </div>
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required type="text" name="startTime" class="form-control" id="startTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
+                                <label class="labelmui">Waktu Mulai</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="subjek" placeholder="" type="text">
+                                <label class="labelmui">Subjek</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
+                                <label class="labelmui">Waktu Selesai</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
+                                <label class="labelmui">Instruksi</label>
+                            </div>
+                        </div>
+                         
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 500px"></div>
+                        </div>
+                    </div>   
+
+                    <div class="col-md-6 mt-3 float-end">
+                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
   
 
 <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
@@ -155,7 +242,7 @@
         }
     });
     var markerArray = new Array();
-    var patrolArray = new Array();
+    var markerJadwal = new Array();
 
 
   $(document).ready(function() { 
@@ -165,7 +252,7 @@
 
 
     serverSideGet();
-    
+    serverSideGetJadwal();
 
 
     var initialCenter = [-8.451740, 115.089643];
@@ -236,7 +323,7 @@
 
 
     function serverSideGet(){
-
+        $("#overlay").fadeIn(300);  
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>dashboard/getTracking", 
@@ -278,78 +365,78 @@
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Nama Akun</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].name_account}</p>
+                                                <p style="font-size: 12px;">${ress[i].name_account}</p>
                                             </div>
                                         </div> 
                                     </div> 
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Ketua Tim</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].name_team}</p>
+                                                <p style="font-size: 12px;">${ress[i].name_team}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">VIP</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">VIP</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].vip}</p>
+                                                <p style="font-size: 12px;">${ress[i].vip}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">NRP</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">NRP</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].nrp_user}</p>
+                                                <p style="font-size: 12px;">${ress[i].nrp_user}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">No Kendaraan</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].no_vehicle}</p>
+                                                <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12 mb-3" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Jenis Kendaraan</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].type_vehicle}</p>
+                                                <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
                                             </div>
                                         </div> 
                                     </div>  
@@ -374,78 +461,78 @@
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Nama Akun</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].name_account}</p>
+                                                <p style="font-size: 12px;">${ress[i].name_account}</p>
                                             </div>
                                         </div> 
                                     </div> 
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Ketua Tim</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].name_team}</p>
+                                                <p style="font-size: 12px;">${ress[i].name_team}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">VIP</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">VIP</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].vip}</p>
+                                                <p style="font-size: 12px;">${ress[i].vip}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">NRP</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">NRP</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].nrp_user}</p>
+                                                <p style="font-size: 12px;">${ress[i].nrp_user}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">No Kendaraan</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].no_vehicle}</p>
+                                                <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
                                             </div>
                                         </div> 
                                     </div>  
                                     <div class="col-md-12 col-12 mb-3" style="height: 30px;">
                                         <div class="row text-start">
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;font-weight: bold;">Jenis Kendaraan</p>  
+                                                <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
                                             </div>
                                             <div class="col-md-2">
-                                                <p style="font-size: 13px;"> : </p>
+                                                <p style="font-size: 12px;"> : </p>
                                             </div>
                                             <div class="col-md-5 col-6">
-                                                <p style="font-size: 13px;">${ress[i].type_vehicle}</p>
+                                                <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
                                             </div>
                                         </div> 
                                     </div>  
@@ -455,18 +542,109 @@
                         }
                     }
 
-                }else{
-
-                     
-
+                }else{ 
                     $("#overlay").fadeOut(300);  
                 } 
             },
             error: function () { 
                 console.log("gagal connect");
             } 
-        });
+        }); 
+    }
 
+
+    function serverSideGetJadwal(){
+        $("#overlay").fadeIn(300);  
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getJadwal", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                console.log(ress);
+                $("#overlay").fadeOut(300);
+                
+                if(ress.length > 0){ 
+                    var id; 
+                    for (let i = 0; i < ress.length; i++) { 
+                        console.log(ress[i].coordinate_schedule);
+                        id = ress[i].coordinate_schedule; 
+                        var cordinateJadwal = ress[i].coordinate_schedule;
+                        var latlongJadwal =  cordinateJadwal.split(',');
+                        var latitudeJadwal = parseFloat(latlongJadwal[0]);
+                        var longitudeJadwal = parseFloat(latlongJadwal[1]);
+
+                        markerJadwal[id] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                            // className: 'location-pin',
+                            html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
+                            iconSize: [10, 10],
+                            iconAnchor: [5, 20]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                                <div class="text-center" style="width: 260px; height: 140px"> 
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5">
+                                                    <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p style="font-size: 12px;">${ress[i].activity}</p>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5">
+                                                    <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5">
+                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5">
+                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p style="font-size: 12px;">${ress[i].address_schedule}</p>
+                                                </div>
+                                            </div> 
+                                        </div>   
+                                    </div>
+                                </div>
+                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                    }
+                }
+            }
+        });
     }
 
     
@@ -523,41 +701,205 @@
         
         for (let i = 0; i < ress.length; i++) { 
             console.log(ress[i].id_user);
+
+            var jenis = '';
+            if(ress[i].type_vehicle != 'Sepeda Motor'){
+                jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+            }else{
+                jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+            }
+
             if(markerArray[id] != null){ 
               markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                   className: 'location-pin',
-                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  html: jenis,
                   iconSize: [30, 30],
                   //iconAnchor: [18, 30]
                   iconAnchor: [10, 33]
                 }) }).bindPopup(`
-                  <div class="text-center" style="width: 300px;">
-                      <div class="card-block">
-                          <a class="avatar avatar-lg" href="javascript:void(0)">
-                              <img src="-" alt="Logo">
-                          </a>
-                          <h4 class="profile-user">-</h4>
-                          <h5 class="profile-user">-</h5>
-                      </div> 
-                  </div>
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].vip}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                        </div>
+                    </div>
               `).update();  
             }else{ 
               markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                   className: 'location-pin',
-                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                  html: jenis,
                   iconSize: [30, 30],
                   //iconAnchor: [18, 30]
                   iconAnchor: [10, 33]
                 }) }).bindPopup(`
-                  <div class="text-center" style="width: 300px;">
-                      <div class="card-block">
-                          <a class="avatar avatar-lg" href="javascript:void(0)">
-                              <img src="-" alt="Logo">
-                          </a>
-                          <h4 class="profile-user">-</h4>
-                          <h5 class="profile-user">-</h5>
-                      </div> 
-                  </div>
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].vip}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                        </div>
+                    </div>
               `).addTo(mapContainer);    
             }
 
@@ -566,50 +908,9 @@
  
 
   
-    // var control = L.Routing.control({
-    //     waypoints: [
-    //         L.latLng(-8.451740, 115.089643),
-    //         L.latLng(-8.551740, 115.077643),
-    //         L.latLng(-8.551740, 115.289643),
-    //     ],
-    //     router: new L.Routing.osrmv1({
-    //         language: 'en',
-    //         profile: 'car'
-    //     }),
-    //     geocoder: L.Control.Geocoder.nominatim({})
-    // }).addTo(mapContainer);
+    
 
-
-    // function createButton(label, container) {
-    //     var btn = L.DomUtil.create('button', '', container);
-    //     btn.setAttribute('type', 'button');
-    //     btn.innerHTML = label;
-    //     return btn;
-    // }
-
-    // mapContainer.on('click', function(e) {
-    //     var container = L.DomUtil.create('div'),
-    //         startBtn = createButton('Start from this location', container),
-    //         destBtn = createButton('Go to this location', container);
-
-    //     L.DomEvent.on(startBtn, 'click', function() {
-    //         control.spliceWaypoints(0, 1, e.latlng);
-    //         mapContainer.closePopup();
-    //     });
-    //     L.DomEvent.on(destBtn, 'click', function() {
-    //         control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-    //         mapContainer.closePopup();
-    //     });
-    //     L.popup()
-    //         .setContent(container)
-    //         .setLatLng(e.latlng)
-    //         .openOn(mapContainer);
-    // });
-
-    // mapContainer.doubleClickZoom.disable();
-    // mapContainer.on('dblclick', function(e) { 
-    //     alert(e.latlng);
-    // }); 
+    
  
 
     // mapContainer.on('pm:create', (e) => {
@@ -712,95 +1013,135 @@
     //     document.getElementById('export').setAttribute('download','data.geojson');
     // }
 
-    
+ 
+    mapContainer.doubleClickZoom.disable();
+    mapContainer.on('dblclick', function(e) { 
+        $('#myModal').modal('show');
+    }); 
 
-    // var arrayData = $.grep(data, function (element, index) {
-    //     return element.coordinate != null && element.coordinate != '';
-    // });
-    // console.log(arrayData); 
 
-    // for (let i = 0; i < arrayData.length; i++) { 
-    //     var cordinate = arrayData[i].coordinate;
-    //     var latlong =  cordinate.split(',');
-    //     var latitude = parseFloat(latlong[0]);
-    //     var longitude = parseFloat(latlong[1]);
-    //     // console.log({a:latitude , b:longitude});
+ 
+    $('#myModal').on('shown.bs.modal', function() {
+        $('#startTime').clockpicker({
+            autoclose: true
+        });
+        $('#endTime').clockpicker({
+            autoclose: true
+        });
+ 
+        new Choices('#id_vip', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
 
-    //     markerClusterGroup.addLayer(
-    //         L.marker([latitude,longitude], {
-    //             icon
-    //         }).bindPopup(`
-    //             <div class="text-center" style="width: 300px;">
-    //                 <div class="card-block">
-    //                     <a class="avatar avatar-lg" href="javascript:void(0)">
-    //                         <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-    //                     </a>
-    //                     <h4 class="profile-user">${arrayData[i].group_name}</h4>
-    //                 </div>
-    //                 <div class="row ">
-    //                     <div class="col-md-12 col-12" style="margin-top: -15px;">
-    //                         <div class="row text-left">
-    //                             <div class="col-md-4 col-4">
-    //                                 <h5 class="profile-job">Location :</h5>  
-    //                             </div>
-    //                             <div class="col-md-8 col-8">
-    //                                 <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-    //                             </div>
-    //                         </div> 
-    //                     </div> 
-    //                     <div class="col-md-12 col-12" style="margin-top: -15px;">
-    //                         <div class="row text-left">
-    //                             <div class="col-md-4 col-4">
-    //                                 <h5 class="profile-job">POC :</h5>  
-    //                             </div>
-    //                             <div class="col-md-8 col-8">
-    //                                 <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-    //                             </div>
-    //                         </div> 
-    //                     </div>  
-    //                     <div class="col-md-12 col-12" style="margin-top: -15px;">
-    //                         <div class="row text-left">
-    //                             <div class="col-md-4 col-4">
-    //                                 <h5 class="profile-job">Demand :</h5>  
-    //                             </div>
-    //                             <div class="col-md-8 col-8">
-    //                                 <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-    //                             </div>
-    //                         </div> 
-    //                     </div>  
-    //                 </div>
-    //                 <div class="card-footer">
-    //                     <div class="row no-space">
-    //                         <div class="col-4" style="display: grid">
-    //                             <span>Participant/s</span>
-    //                             <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
-    //                         </div>
-    //                         <div class="col-4" style="display: grid">
-    //                             <span>Threat Level</span> 
-    //                             ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-    //                             ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-    //                             ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                             ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-    //                         </div>
-    //                         <div class="col-4" style="display: grid">
-    //                             <span>Event Date</span> 
-    //                             <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         `)
-    //     ); 
-    // }   
-    // mapContainer.addLayer(markerClusterGroup);
+        new Choices('#id_account', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+        
+
+
+        $('[name=cordinate]').val('-8.451740, 115.089643');
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerInstruksi = L.map('mapG20Kegiatan', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerInstruksi);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerInstruksi);
+        
+        // mapContainerInstruksi.invalidateSize(); 
+        
+        var control = L.Routing.control({
+            waypoints: [
+                L.latLng(-8.451740, 115.089643),
+                L.latLng(-8.551740, 115.077643),
+                L.latLng(-8.551740, 115.289643),
+            ],
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerInstruksi);
+
+
+        function createButton(label, container) {
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerInstruksi.on('click', function(e) {
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container),
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {
+                control.spliceWaypoints(0, 1, e.latlng);
+                mapContainerInstruksi.closePopup();
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
+                control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerInstruksi.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerInstruksi);
+        });
+    });
+
+ 
     mapContainer.setView(initialCenter, initialZoom); 
 
 

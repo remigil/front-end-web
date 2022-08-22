@@ -43,6 +43,10 @@ class Login extends MX_Controller {
 
                 $data_session['role']       = 'G20';
                 $data_session['full_name']       = 'G20';  
+            }else{
+                $this->session->set_flashdata('error','Username atau password tidak sesuai!');
+                redirect('login');
+                die;
             }
 
 
