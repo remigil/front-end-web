@@ -272,7 +272,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                         <div class="avatar-xl me-3">
-                                            <img src="<?php echo base_url();?>assets/user.png" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                            <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12" style="height: 30px;">
@@ -368,7 +368,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                         <div class="avatar-xl me-3">
-                                            <img src="<?php echo base_url();?>assets/user.png" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                            <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12" style="height: 30px;">
