@@ -64,9 +64,9 @@
                         </div> 
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="id_officer[]" id="id_officer" style="height: 200px" multiple> 
-                                    <?php foreach($data['getOfficer'] as $row): ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_officer'];?></option> 
+                                <select required name="id_account[]" id="id_account" style="height: 200px;" multiple> 
+                                    <?php foreach($data['getAccount'] as $row): ?>
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_account'];?></option> 
                                     <?php endforeach; ?> 
                                 </select>
                                 <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
@@ -156,7 +156,7 @@
             },
         });
 
-        new Choices('#id_officer', {
+        new Choices('#id_account', {
             searchEnabled: true,
             removeItemButton: true,
             removeItems: true,
@@ -257,7 +257,7 @@
                 { data: 'id'}, 
                 { data: 'kegiatan'},
                 { data: 'namaVip'}, 
-                { data: 'officer'},  
+                { data: 'account'},  
                 { data: 'alamat'},   
                 { data: 'tanggal'},  
                 { data: 'waktu'},  
@@ -297,7 +297,7 @@
                         '',
                         'success'
                         ).then(function() { 
-                            $(".TambahKegiatan").modal('hide');
+                            $("#myModal").modal('hide');
                             userDataTable.draw(); 
                         }); 
                     }else{

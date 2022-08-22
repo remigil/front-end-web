@@ -114,8 +114,10 @@ class M_kegiatan extends CI_Model {
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
             $row ['kegiatan']	= $field['activity']; 
-            $row ['namaVip']	= $field['vips']['name_vip'];  
-            $row ['officer']   	= $field['officer'][0]['name_officer'];
+            
+            $row ['namaVip']	= $field['vips'][0]['name_vip'];  
+            $row ['account']   	= $field['accounts'][0]['name_account'];
+
             $row ['alamat']   	= $field['address_schedule'];  
             $row ['tanggal']   	= $field['date_schedule'];
             $row ['waktu']   	= ''.$field['start_time'].'-'.$field['end_time'].' WITA';

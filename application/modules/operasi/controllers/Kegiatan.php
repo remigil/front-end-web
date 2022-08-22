@@ -36,16 +36,12 @@ class Kegiatan extends MY_Controller
         $getVip = guzzle_request('GET', 'vip', [  
             'headers' => $headers 
         ]); 
-        $data['getVip'] = $getVip['data']['data'];
-        $getOfficer = guzzle_request('GET', 'officer', [  
+        $data['getVip'] = $getVip['data']['data']; 
+
+        $getAccount = guzzle_request('GET', 'account', [  
             'headers' => $headers 
         ]); 
-        $data['getOfficer'] = $getOfficer['data']['data'];
-
-        // $getAccount = guzzle_request('GET', 'account', [  
-        //     'headers' => $headers 
-        // ]); 
-        // $data['getAccount'] = $getAccount['data']['data'];
+        $data['getAccount'] = $getAccount['data']['data'];
         // echo json_encode($data['getAccount']);
         // die;
 
@@ -73,34 +69,39 @@ class Kegiatan extends MY_Controller
             ],
             [
                 'name' => 'id_vip',
-                'contents' => $input['id_akun'],
+                'contents' => implode(",",$input['id_vip']),
             ],
             [
                 'name' => 'id_account',
-                'contents' => $input['jabatan'],
+                'contents' => implode(",",$input['id_account']),
             ],
             [
                 'name' => 'date_schedule',
-                'contents' => $input['keterangan'],
+                'contents' => $input['date'],
             ],
             [
                 'name' => 'start_time',
-                'contents' => $input['keterangan'],
+                'contents' => $input['startTime'],
             ],
             [
                 'name' => 'end_time',
-                'contents' => $input['keterangan'],
+                'contents' => $input['endTime'],
+            ],
+            [
+                'name' => 'address_schedule',
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'coordinate_schedule',
-                'contents' => $input['keterangan'],
+                'contents' => $input['cordinate'],
             ],
             [
                 'name' => 'status_schedule',
-                'contents' => $input['keterangan'],
+                'contents' => '1',
             ] 
         ];
 
+        
         $data = guzzle_request('POST', 'schedule/add', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
@@ -181,6 +182,16 @@ class Kegiatan extends MY_Controller
         ]);
         $data['getDetail'] = $getDetail['data'];
 
+        $getVip = guzzle_request('GET', 'vip', [  
+            'headers' => $headers 
+        ]); 
+        $data['getVip'] = $getVip['data']['data']; 
+
+        $getAccount = guzzle_request('GET', 'account', [  
+            'headers' => $headers 
+        ]); 
+        $data['getAccount'] = $getAccount['data']['data'];
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -194,21 +205,41 @@ class Kegiatan extends MY_Controller
         $input      = $this->input->post(); 
         $dummy = [
             [
-                'name' => 'name_kegiatan',
-                'contents' => $input['namakegiatan'],
+                'name' => 'activity',
+                'contents' => $input['kegiatan'],
             ],
             [
-                'name' => 'country_arrival_kegiatan',
-                'contents' => $input['asalNegara'],
+                'name' => 'id_vip',
+                'contents' => implode(",",$input['id_vip']),
             ],
             [
-                'name' => 'position_kegiatan',
-                'contents' => $input['jabatan'],
+                'name' => 'id_account',
+                'contents' => implode(",",$input['id_account']),
             ],
             [
-                'name' => 'description_kegiatan',
-                'contents' => $input['keterangan'],
-            ]
+                'name' => 'date_schedule',
+                'contents' => $input['date'],
+            ],
+            [
+                'name' => 'start_time',
+                'contents' => $input['startTime'],
+            ],
+            [
+                'name' => 'end_time',
+                'contents' => $input['endTime'],
+            ],
+            [
+                'name' => 'address_schedule',
+                'contents' => $input['address'],
+            ],
+            [
+                'name' => 'coordinate_schedule',
+                'contents' => $input['cordinate'],
+            ],
+            [
+                'name' => 'status_schedule',
+                'contents' => '1',
+            ] 
         ];
 
         $data = guzzle_request('PUT', 'schedule/edit/'.$input['id'].'', [ 

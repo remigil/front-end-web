@@ -16,7 +16,7 @@
                     <p class="fs-4 fw-bold">DETAIL JADWAL KEGIATAN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= base_url('operasi/Kegiatan/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?php echo base_url()?>operasi/Kegiatan/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                 </div>
             </div>
 
@@ -34,9 +34,17 @@
                             <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p>Makan Siang Di Nusa Dua</p>
-                            <p>Joe Biden</p>
-                            <p>Falcon 1</p>
+                            <p><?php echo $data['getDetail']['data']['activity'];?></p>
+                            <p>
+                                <?php foreach($data['getDetail']['data']['vips'] as $row): ?>
+                                    <?php echo $row['name_vip'];?>,
+                                <?php endforeach; ?> 
+                            </p>  
+                            <p>
+                                <?php foreach($data['getDetail']['data']['accounts'] as $row): ?>
+                                    <?php echo $row['name_account'];?>,
+                                <?php endforeach; ?> 
+                            </p>  
                         </div>
                         <div class="col-2">
                             <p>TANGGAL</p>
@@ -49,9 +57,9 @@
                             <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p>10 November 2022</p>
-                            <p>08:00 - 11:00 WITA</p>
-                            <p>Hotel Nusa Dua</p>
+                            <p><?php echo format_indo($data['getDetail']['data']['date_schedule']);?></p>
+                            <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
+                            <p><?php echo $data['getDetail']['data']['address_schedule'];?></p>
                         </div>
                     </div>
                 </div>
