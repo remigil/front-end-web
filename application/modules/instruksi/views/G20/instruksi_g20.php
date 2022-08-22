@@ -81,40 +81,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="" placeholder="" type="text">
-                                <label class="labelmui">VIP</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="" placeholder="" type="text">
-                                <label class="labelmui">Subjek</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="" placeholder="" type="text">
-                                <label class="labelmui">Instruksi</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="" placeholder="" type="text">
-                                <label class="labelmui">Lokasi</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
                                 <input style="width: 100%;" name="" placeholder="" type="date">
                                 <label class="labelmui">Tanggal</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="" placeholder="" type="text">
+                                <label class="labelmui">VIP</label>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input style="width: 100%;" name="" placeholder="" type="time">
@@ -123,10 +99,38 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="" placeholder="" type="text">
+                                <label class="labelmui">Subjek</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
                                 <input style="width: 100%;" name="" placeholder="" type="time">
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="" placeholder="" type="text">
+                                <label class="labelmui">Instruksi</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Awal</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6 float-end">
+                            <div class="material-textfield mb-3 ">
+                                <input style="width: 100%;" name="" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Tujuan</label>
+                            </div>
+                        </div>
+
+
+
                     </div>
                     <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
 
