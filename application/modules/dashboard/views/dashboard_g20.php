@@ -43,10 +43,18 @@
                                     <div class="col-md-6">
                                         <input type="checkbox" name="polres" id="polres" class="form-input" >  
                                         <span>Polres</span> 
-                                    </div>   
+                                    </div> 
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="tur" id="tur" class="form-input" >  
+                                        <input type="checkbox" name="instruksi" id="instruksi" class="form-input" >  
+                                        <span>Instruksi</span> 
+                                    </div>  
+                                    <div class="col-md-6 mt-3">
+                                        <input type="checkbox" name="turjawali" id="turjawali" class="form-input" >  
                                         <span>Turjawali</span> 
+                                    </div>  
+                                    <div class="col-md-6 mt-3">
+                                        <input type="checkbox" checked name="jadwal" id="jadwal" class="form-input" >  
+                                        <span>Jadwal Kegiatan</span> 
                                     </div> 
                                     <div class="col-md-6 mt-3">
                                         <input type="checkbox" name="vip" id="vip" class="form-input" >  
@@ -75,12 +83,12 @@
                                         <p style="font-size: 17px;">Location Of Interest</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="panic" id="panic" class="form-input" >  
+                                        <input type="checkbox" name="fasilitas" id="fasilitas" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
                                     </div>   
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="operasi" id="operasi" class="form-input" >  
-                                        <span>Public Event</span> 
+                                        <input type="checkbox" name="troublespot" id="troublespot" class="form-input" >  
+                                        <span>Trouble Spot</span> 
                                     </div>   
                                     <!-- <div class="dropdown-divider"></div> -->
     
@@ -247,8 +255,7 @@
 
   $(document).ready(function() { 
     // alert('oke');
-     
-    $("#turjawali").select2(); 
+      
 
 
     serverSideGet();
@@ -571,7 +578,7 @@
                     var id; 
                     for (let i = 0; i < ress.length; i++) { 
                         console.log(ress[i].coordinate_schedule);
-                        id = ress[i].coordinate_schedule; 
+                        id = i; 
                         var cordinateJadwal = ress[i].coordinate_schedule;
                         var latlongJadwal =  cordinateJadwal.split(',');
                         var latitudeJadwal = parseFloat(latlongJadwal[0]);
@@ -645,8 +652,19 @@
                 }
             }
         });
-    }
 
+    }
+    
+    $("#jadwal").on("change", function (e) {
+        if($(this).is(':checked')){ 
+            serverSideGetJadwal();
+        }else{ 
+            for (let i = 0; i < markerJadwal.length; i++) { 
+                mapContainer.removeLayer(markerJadwal[i]);
+            }
+        }
+        
+    });
     
 
     socket.on('from server', function(ress) { 
