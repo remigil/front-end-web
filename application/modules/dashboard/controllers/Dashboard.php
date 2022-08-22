@@ -29,12 +29,42 @@ class Dashboard extends MY_Controller {
             $page_content["page"] = "dashboard/dashboard_view";
         }
 
-        
+        // $getTrack = guzzle_requestTracking('GET', 'getMe?date='.date('Y-m-d').'', [  
+        //     'headers' => $headers 
+        // ]);
+        // $data['getTrack'] = $getTrack['data']; 
  
 		
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     } 
+
+    public function getTracking()
+
+	{  
+
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post();
+
+        // if($input["status"]){
+        //     $status = '&filterField[]=status&filterValue[]='.$input["status"].'';
+        // }else{
+        //     $status = '';
+        // } 
+
+
+        $url = 'getMe?date=2022-08-22'; 
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);  
+
+		echo json_encode($getMe);
+
+	}
+
  
 
 }
