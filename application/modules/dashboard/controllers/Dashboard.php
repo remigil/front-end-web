@@ -65,9 +65,11 @@ class Dashboard extends MY_Controller {
         // }else{
         //     $status = '';
         // } 
+        // print_r(date('Y-m-d'));
+        // die;
 
 
-        $url = 'getMe?date=2022-08-22'; 
+        $url = 'getMe?date='.date('Y-m-d').''; 
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);  

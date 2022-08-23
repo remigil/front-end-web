@@ -718,7 +718,7 @@
         console.log(ress);
         
         for (let i = 0; i < ress.length; i++) { 
-            console.log(ress[i].id_user);
+            // console.log(ress[i].id_user);
 
             var jenis = '';
             if(ress[i].type_vehicle != 'Sepeda Motor'){
