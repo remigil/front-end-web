@@ -22,7 +22,7 @@
                         <th>No. Kendaraan</th>
                         <th>Aksi</th>
                     </tr>
-                </thead> 
+                </thead>
             </table>
         </div>
 
@@ -39,106 +39,45 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="form" method="post" enctype="multipart/form-data"> 
+                <form class="form" method="post" enctype="multipart/form-data">
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text">
                         <label class="labelmui">Nama Akun</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="id_vip" class="form-select">
-                            <option selected value="">Pilih VIP</option> 
-                            <?php foreach($data['getVip'] as $row): ?>
-                                <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
-                            <?php endforeach; ?> 
+                            <option selected value="">Pilih VIP</option>
+                            <?php foreach ($data['getVip'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <label class="labelmui">VIP</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="polres" class="form-select">
-                            <option selected value="">Pilih Polres</option> 
-                            <?php foreach($data['getPolres'] as $row): ?>
-                                <option value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
-                            <?php endforeach; ?> 
+                            <option selected value="">Pilih Polres</option>
+                            <?php foreach ($data['getPolres'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polres']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <label class="labelmui">Polres</label>
                     </div>
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text">
                         <label class="labelmui">Ketua Team</label>
-                    </div> 
+                    </div>
                     <div class="material-selectfield mb-3">
                         <select name="id_kendaraan" class="form-select">
-                            <option selected value="">Pilih No Kendaraan</option> 
-                            <?php foreach($data['getVehicle'] as $row): ?>
-                                <option value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
-                            <?php endforeach; ?> 
+                            <option selected value="">Pilih No Kendaraan</option>
+                            <?php foreach ($data['getVehicle'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <label class="labelmui">No Kendaraan</label>
                     </div>
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="password" placeholder="Password" type="password">
                         <label class="labelmui">Password</label>
-                    </div> 
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="modal fade SettingAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Akun</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NoAkun" placeholder="" type="text">
-                        <label class="labelmui">No Akun</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="JenisAkun" placeholder="" type="text">
-                        <label class="labelmui">Jenis Akun</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Merek" placeholder="" type="text">
-                        <label class="labelmui">Merek</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Kepemilikan" placeholder="" type="text">
-                        <label class="labelmui">Kepemilikan</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<!-- <div class="modal fade UbahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
-                        <label class="labelmui">Rencana</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaoperaso" placeholder="" type="text">
-                        <label class="labelmui">Subjek</label>
                     </div>
                     <div class="col-md-6 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
@@ -149,36 +88,11 @@
     </div>
 </div>
 
-
-<div class="modal fade UploadAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Upload</h5>
-            </div>
-            <div class="modal-body">
-                <form action="#" class="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file">
-                    </div>
-                    <div class="dz-message needsclick">
-                        <div class="mb-3">
-                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                        </div>
-                        <h5>Drop files here or click to upload.</h5>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
- 
 <script>
     $(document).ready(function() {
-        var userDataTable = $('#datatable').DataTable({ 
+        var userDataTable = $('#datatable').DataTable({
 
-            responsive: true, 
+            responsive: true,
 
             scrollX: true,
 
@@ -192,23 +106,23 @@
 
             },
 
-            initComplete : function (settings, json) { },
+            initComplete: function(settings, json) {},
 
-            retrieve : true,
+            retrieve: true,
 
-            processing : true,
+            processing: true,
 
             serverSide: true,
 
             serverMethod: 'POST',
 
-            ajax : {
+            ajax: {
 
                 dataType: 'json',
 
-                url: '<?php echo base_url();?>operasi/Akun/serverSideTable',
+                url: '<?php echo base_url(); ?>operasi/Akun/serverSideTable',
 
-                data: function(data){
+                data: function(data) {
 
                     $("#overlay").fadeIn(300);
 
@@ -236,11 +150,11 @@
 
                 },
 
-                beforeSend: function (xhr, settings) {
-                    
+                beforeSend: function(xhr, settings) {
+
                 },
 
-                "dataSrc": function (result) { 
+                "dataSrc": function(result) {
 
                     result.iTotalRecords = result.iTotalRecords;
 
@@ -252,62 +166,78 @@
 
             },
 
-            columns: [ 
+            columns: [
 
-                { data: 'id'},  
-                { data: 'namaAkun'}, 
-                { data: 'vip'},   
-                { data: 'polres'}, 
-                { data: 'ketuaTeam'}, 
-                { data: 'noKendaraan'},
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'namaAkun'
+                },
+                {
+                    data: 'vip'
+                },
+                {
+                    data: 'polres'
+                },
+                {
+                    data: 'ketuaTeam'
+                },
+                {
+                    data: 'noKendaraan'
+                },
 
 
-                { data: 'action' , orderable : false }
+                {
+                    data: 'action',
+                    orderable: false
+                }
 
             ],
 
-            order: [[ 0, "DESC" ]],
+            order: [
+                [0, "DESC"]
+            ],
 
-            drawCallback : function(settings){
+            drawCallback: function(settings) {
 
-                $("#overlay").fadeOut(300); 
+                $("#overlay").fadeOut(300);
 
-            }   
+            }
 
-        });   
-        
+        });
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-            var formData = new FormData($('.form')[0]); 
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url();?>operasi/Akun/store",
+                url: "<?php echo base_url(); ?>operasi/Akun/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
                 contentType: false,
-                processData: false,  
-                success: function (data) {
+                processData: false,
+                success: function(data) {
                     $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
+                    if (data['status'] == true) {
                         Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() { 
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
                             $(".TambahAkun").modal('hide');
-                            userDataTable.draw(); 
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
+                            userDataTable.draw();
                         });
-                    } 
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
                 }
-            }); 
+            });
         });
     });
 </script>

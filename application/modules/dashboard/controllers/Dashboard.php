@@ -1,60 +1,61 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends MY_Controller {
+class Dashboard extends MY_Controller
+{
 
-    public function __construct(){
-        parent::__construct(); 
+    public function __construct()
+    {
+        parent::__construct();
         $this->load->helper("logged_helper");
-    } 
-	
-	public function index()
-	{
-		
-		$headers = [
-            'Authorization' => $this->session->userdata['token'],    
+    }
+
+    public function index()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Dashboard";  
-		
-        if($this->session->userdata['role'] == 'G20'){
+        $page_content["title"] = "Dashboard";
+
+        if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-            
 
-            $getVip = guzzle_request('GET', 'vip', [  
-                'headers' => $headers 
-            ]); 
-            $data['getVip'] = $getVip['data']['data']; 
+            $getVip = guzzle_request('GET', 'vip', [
+                'headers' => $headers
+            ]);
+            $data['getVip'] = $getVip['data']['data'];
 
-            $getAccount = guzzle_request('GET', 'account', [  
-                'headers' => $headers 
-            ]); 
-            $data['getAccount'] = $getAccount['data']['data']; 
-    
-            
+            $getAccount = guzzle_request('GET', 'account', [
+                'headers' => $headers
+            ]);
+            $data['getAccount'] = $getAccount['data']['data'];
+
+
             $page_content["data"] = $data;
-        }else if($this->session->userdata['role'] == 'Korlantas'){
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "dashboard/dashboard_view";
 
             $page_content["data"] = '';
-        }else if($this->session->userdata['role'] == 'Kapolda'){
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/dashboard_view";
 
             $page_content["data"] = '';
-        }else if($this->session->userdata['role'] == 'Polres'){
+        } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
 
             $page_content["data"] = '';
         }
-        
-        $this->templates->loadTemplate($page_content);
-    } 
 
-    public function getTracking() 
-	{   
-        $headers = [ 
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function getTracking()
+    {
+        $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
 
@@ -69,31 +70,29 @@ class Dashboard extends MY_Controller {
         // die;
 
 
-        $url = 'getMe?date='.date('Y-m-d').''; 
+        $url = 'getMe?date=' . date('Y-m-d') . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
-        ]);  
+        ]);
 
-		echo json_encode($getMe); 
-	}
+        echo json_encode($getMe);
+    }
 
-    public function getJadwal() 
-	{   
-        $headers = [ 
+    public function getJadwal()
+    {
+        $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
 
         // $input = $this->input->post(); 
 
 
-        $url = 'schedule'; 
+        $url = 'schedule';
         $getJadwal = guzzle_request('GET', $url, [
             'headers' => $headers
-        ]);  
-        $data['getJadwal'] = $getJadwal['data']; 
+        ]);
+        $data['getJadwal'] = $getJadwal['data'];
 
-		echo json_encode($data['getJadwal']); 
-	}
- 
-
+        echo json_encode($data['getJadwal']);
+    }
 }

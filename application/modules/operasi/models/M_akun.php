@@ -1,39 +1,40 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_akun extends CI_Model {
+class M_akun extends CI_Model
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
         parent::__construct();
 
         $this->load->helper('guzzle_request_helper');
-
     }
 
-    public function get_datatables($postData=null)
+    public function get_datatables($postData = null)
 
-    {   
+    {
 
-        $draw = $postData['draw']; 
+        $draw = $postData['draw'];
 
         $rowperpage = $postData['length']; // Rows display per page  
 
         $columnName = $postData['columns']; // Column name 
 
-		$page = $postData['page']; 
+        $page = $postData['page'];
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue']; 
+        $orderValue = $postData['orderValue'];
 
-        $orderFieldRess =  $columnName[$orderField]['data']; 
+        $orderFieldRess =  $columnName[$orderField]['data'];
 
-       
-        $data = array(); 
+
+        $data = array();
 
 
         $search = $postData['search']['value'];
@@ -42,27 +43,25 @@ class M_akun extends CI_Model {
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-		// $filter_status = $postData['filterStatus'];
+        // $filter_status = $postData['filterStatus'];
 
-		// $filter_name = $postData['filterName'];
+        // $filter_name = $postData['filterName'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+        // $filter_poc_name = $postData['filterPocName'];
 
-		// $filter_phone = $postData['filterPhone'];
+        // $filter_phone = $postData['filterPhone'];
 
-		// $filter_threat = $postData['filterThreat']; 
+        // $filter_threat = $postData['filterThreat']; 
 
- 
 
-        if($search){
 
-            $searchData = '&search='.$search.'';
+        if ($search) {
 
-        }else{
+            $searchData = '&search=' . $search . '';
+        } else {
 
             $searchData = '';
-
-        } 
+        }
 
         // if($filter_threat){
 
@@ -95,35 +94,34 @@ class M_akun extends CI_Model {
         // } 
 
 
-        $url = 'account?length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'account?length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
 
-                'Authorization' => $this->session->userdata['token'] 
+                'Authorization' => $this->session->userdata['token']
 
             ]
 
-        ]);   
+        ]);
 
-        $no=1;
+        $no = 1;
 
-		foreach  ($result['data']['data'] as $field) { 
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['namaAkun']	= $field['name_account']; 
-            $row ['ketuaTeam']	= $field['leader_team'];  
-            $row ['polres']	= $field['polres']['name_polres'];  
-            $row ['noKendaraan']   	= $field['vehicle']['no_vehicle'];
-            $row ['vip']   	= $field['vips']['name_vip'];   
-            $row ['action']         = ' 
-                <a href="'.base_url().'operasi/akun/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
-            '; 
+        foreach ($result['data']['data'] as $field) {
+            $row = array();
+            // $row ['id']	=  $field['id']; 
+            $row['id']    =  $no++;
+            $row['namaAkun']    = $field['name_account'];
+            $row['ketuaTeam']    = $field['leader_team'];
+            $row['polres']    = $field['polres']['name_polres'];
+            $row['noKendaraan']       = $field['vehicle']['no_vehicle'];
+            $row['vip']       = $field['vips']['name_vip'];
+            $row['action']         = ' 
+                <a href="' . base_url() . 'operasi/akun/Detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+            ';
 
             $data[] = $row;
-
         }
 
 
@@ -143,9 +141,5 @@ class M_akun extends CI_Model {
 
 
         return $response;
-
     }
-
-  
-
 }

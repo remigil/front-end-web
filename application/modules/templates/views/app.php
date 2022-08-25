@@ -73,6 +73,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/clockpicker.css">
 
@@ -257,33 +258,39 @@
 
         .labelmui {
             position: absolute;
-            font-size: 1rem;
+            font-size: 14px;
             left: 0px;
             top: 50%;
             transform: translateY(-50%);
             background-color: white;
-            color: gray;
+            color: #4E4E4E;
             padding: 0 0.3rem;
             margin: 0 0.5rem;
             transition: .1s ease-out;
             transform-origin: left top;
             pointer-events: none;
+            font-family: 'Open Sans';
+            font-weight: bold;
         }
 
         .material-textfield input {
             font-size: 0.9rem;
             outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.23);
-            border-radius: 10px;
+            border: 1px solid #D4D4D4;
+            border-radius: 5px;
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
             width: 100%;
             height: 48px;
+            color: #D5D5D4;
+            font-family: 'Open Sans';
         }
 
         .material-textfield input:focus {
             border-color: #003A91;
+            color: #7E7E7E;
+
         }
 
         .material-textfield input:focus+.labelmui {
@@ -308,12 +315,14 @@
             font-size: 0.9rem;
             outline: none;
             border: 1px solid rgba(0, 0, 0, 0.23);
-            border-radius: 10px;
+            border-radius: 5px;
             color: gray;
             transition: 0.1s ease-out;
             width: 100%;
             height: 48px;
             background-color: transparent;
+            font-family: 'Open Sans';
+
         }
 
         .material-selectfield select:focus {
@@ -425,13 +434,13 @@
                                 </span>
                             </a>
                         <?php } else { ?>
-                            a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                            </span>
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                </span>
                             </a>
 
                             <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
@@ -639,8 +648,8 @@
                                     <span data-key="t-authentication">Fasilitas Umum</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>fasum/list" data-key="t-login">Fasilitas Umum</a></li>
-                                    <li><a href="<?php echo base_url(); ?>fasum/listKategori" data-key="t-register">Kategori</a></li>
+                                    <li><a href="<?php echo base_url(); ?>fasum/ListFasum" data-key="t-login">Data Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url(); ?>fasum/KategoriFasum" data-key="t-register">Kategori Fasilitas Umum</a></li>
                                 </ul>
                             </li>
 
@@ -659,7 +668,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Operasi</span>
                                 </a>
@@ -725,6 +734,12 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="<?php echo base_url(); ?>tripon">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Trip On</span>
+                                </a>
+                            </li>
                             <li class="menu-title mt-2" data-key="t-components">Konfigurasi</li>
 
                             <li>

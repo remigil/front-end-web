@@ -24,7 +24,7 @@ class operasi extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/operasi";
+            $page_content["page"] = "operasi/Korlantas/operasi";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {

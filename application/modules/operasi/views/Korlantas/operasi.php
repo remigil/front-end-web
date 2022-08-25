@@ -8,32 +8,36 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="card-body">
-        <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahRencanaOperasi">Tambah Rencana Operasi</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahRencanaOperasi">Tambah Rencana Operasi</button>
+    <div class="card">
 
-        <table id="datatable" class="table dt-responsive w-100">
-            <thead>
-                <tr>
-                    <th>Nama Operasi</th>
-                    <th>Jenis Operasi</th>
-                    <th>Tanggal Mulai</th>
-                    <th>Tanggal Akhir</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th>Nama Operasi</th>
+                        <th>Jenis Operasi</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Akhir</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
 
 
-            <tbody>
-                <tr>
-                    <td>OPERASI KESELAMATAN 2022</td>
-                    <td>OPERASI KESELAMATAN</td>
-                    <td>2022-06-13</td>
-                    <td>2022-06-26</td>
-                    <td>Ini Aksi</td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    <tr>
+                        <td>OPERASI KESELAMATAN 2022</td>
+                        <td>OPERASI KESELAMATAN</td>
+                        <td>2022-06-13</td>
+                        <td>2022-06-26</td>
+                        <td><a href="<?= base_url('operasi/operasi/Detail') ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
+        </div>
     </div>
 </div>
 <!-- End Page -->

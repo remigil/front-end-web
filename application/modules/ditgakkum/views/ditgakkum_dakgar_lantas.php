@@ -10,6 +10,7 @@
     }
 
     .item-card {
+        height: 94px;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -211,19 +212,391 @@
     <hr>
 </section>
 
-<section>
+<section class="shadow-sm mt-5">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Bar Chart</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
                 </div>
-                <div class="card-body">
-
-                    <canvas id="bar" height="300" data-colors='["rgba(41, 181, 125, 0.8)", "rgba(41, 181, 125, 0.9)"]'></canvas>
-
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="chart" style="width: 100vw"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<section class="shadow-sm mt-5">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - VALIDASI PETUGAS</h4>
+                </div>
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="chart2" style="width: 100vw"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shadow-sm mt-5">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - KONFIRMASI MASYARAKAT</h4>
+                </div>
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="chart3" style="width: 100vw"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shadow-sm mt-5">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - ODOL</h4>
+                </div>
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                    <div class="main-chart">
+                        <div id="chart4" style="width: 100vw"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shadow-sm mt-5">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <table id="datatable" class="table dt-responsive  nowrap w-100">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Kepada</th>
+                                <th>Subjek</th>
+                                <th>Judul Instruksi</th>
+                                <th>Deskripsi</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jabar</td>
+                                <td>Pesan</td>
+                                <td>Pesan 1</td>
+                                <td>Harap Hati-hati</td>
+                                <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".LihatInstruksi"><i class="mdi mdi-eye"></i></button>
+                                    <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahInstruksi"><i class="mdi mdi-pencil"></i></button>
+                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadInstruksi"><i class="mdi mdi-file-upload"></i></button> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jatim</td>
+                                <td>Amanat</td>
+                                <td>Amanat 1</td>
+                                <td>Harap Jalankan Operasi</td>
+                                <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".LihatInstruksi"><i class="mdi mdi-eye"></i></button>
+                                    <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahInstruksi"><i class="mdi mdi-pencil"></i></button>
+                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadInstruksi"><i class="mdi mdi-file-upload"></i></button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function() {
+
+        $('#datatable').DataTable();
+
+        // Capture Kamera
+        var options_capture_camera = {
+            series: [{
+                name: 'JUMLAH CAPTURE CAMERA',
+                data: [25061, 2113, 7832, 8076, 1387, 2119, 106, 235, 1052, 1262, 7810],
+                color: '#11347A'
+            }, ],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -25
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'NTT'],
+            },
+            yaxis: {
+                title: {
+                    text: ''
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+                markers: {
+                    fillColors: ['#11347A']
+                }
+            }
+        };
+
+        var capture_camera = new ApexCharts(document.querySelector(" #chart"), options_capture_camera);
+        capture_camera.render();
+
+
+        // Validasi petugas
+        var options_validasi_petugas = {
+            series: [{
+                name: 'Total',
+                type: 'column',
+                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                color: "#11347A"
+            }, {
+                name: 'Statis',
+                type: 'column',
+                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                color: "#3CA55C"
+            }, {
+                name: 'Mobile',
+                type: 'column',
+                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                color: "#E8D42F"
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                stacked: false
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -15
+            },
+
+            stroke: {
+                show: true,
+                width: [1, 1, 4, 4],
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+            },
+            yaxis: [{
+                axisTicks: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                    color: '#008FFB'
+                },
+                labels: {
+                    style: {
+                        colors: '#008FFB',
+                    }
+                },
+                tooltip: {
+                    enable: false
+                }
+            }, ],
+        };
+
+        var validasi_petugas = new ApexCharts(document.querySelector("#chart2"), options_validasi_petugas);
+        validasi_petugas.render();
+
+
+        // Konfirmasi masyrakat
+        var options_konfirmasi_petugas = {
+            series: [{
+                name: 'Total',
+                type: 'column',
+                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                color: "#11347A"
+            }, {
+                name: 'Posko',
+                type: 'column',
+                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                color: "#3CA55C"
+            }, {
+                name: 'Online',
+                type: 'column',
+                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                color: "#E8D42F"
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                stacked: false
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -15
+            },
+            stroke: {
+                width: [1, 1, 4]
+            },
+            xaxis: {
+                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+            },
+            yaxis: [{
+                axisTicks: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                    color: '#008FFB'
+                },
+                labels: {
+                    style: {
+                        colors: '#008FFB',
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                }
+            }, ],
+        };
+
+        var konfirmasi_masyarakat = new ApexCharts(document.querySelector("#chart3"), options_konfirmasi_petugas);
+        konfirmasi_masyarakat.render();
+
+
+        // ODOL
+        var options_odol = {
+            series: [{
+                name: 'PREMTIF',
+                type: 'column',
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                color: "#11347A",
+            }, {
+                name: 'PREVENTIF',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                type: "column",
+                color: "#3CA55C",
+            }, {
+                name: '227',
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
+                color: "#E8D42F"
+            }, {
+                name: '307',
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
+                color: "#CB2D3E"
+            }],
+            chart: {
+                type: 'line',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -15
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
+            },
+            yaxis: {
+                title: {
+                    text: '$ (thousands)'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+
+        };
+
+        var odol = new ApexCharts(document.querySelector("#chart4"), options_odol);
+        odol.render();
+
+
+
+    })
+</script>
