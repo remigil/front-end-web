@@ -1,7 +1,13 @@
+
 <div class="row">
     <div class="col-md-12"> 
 
     <!-- <a href='#' id='export'>Export Features</a> -->
+        <div style="top: 50px;right: 10px;position: relative;z-index: 999;text-align: end;"> 
+            <a href="javascript:void(0)" class="btn" style="background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
+            </a> 
+        </div>
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,7 +115,60 @@
     </div>
 </div>
 
-
+ 
+<!-- Modal -->
+<div class="modal right fade" id="myModalFilter" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+    
+        <!-- Modal content-->
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header bg-primary">
+                <h4 class="modal-title text-white" id="myLargeModalLabel">Filters Map</h4>
+                <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                Jadwal Kegiatan
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="list-group" id="listJadwal"> 
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Rencana Pengamanan
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                                single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer raw denim
+                                aesthetic synth nesciunt you probably haven't heard of them accusamus labore.</div>
+                        </div>
+                    </div> 
+                </div><!-- end accordion -->
+            </div>
+        </div>
+      
+    </div>
+</div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -251,6 +310,7 @@
     });
     var markerArray = new Array();
     var markerJadwal = new Array();
+    var routingJadwal = new Array();
 
 
   $(document).ready(function() { 
@@ -314,8 +374,8 @@
     L.control.zoom({
         position: 'bottomright'
     }).addTo(mapContainer);
-
-
+    
+    mapContainer.doubleClickZoom.disable();
    
     socket.on("connected", function(resSocket){
         console.log(socket.id);
@@ -1032,12 +1092,91 @@
     // }
 
  
-    mapContainer.doubleClickZoom.disable();
+    
+
+    $('#myModalFilter').on('shown.bs.modal', function() { 
+
+        let countlist = 0;
+        let list = ""; 
+        var data = []; 
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getJadwal", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                // console.log(result['test']);
+                countlist = 0;
+                list = "";
+                var status = ""; 
+                ress.forEach(el => {
+                    if(el.status_schedule == 1){
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                        </div>`;
+                    }else{
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                        </div>
+                        `;
+                    }
+                    countlist += 1;
+                    list += `<a class="list-group-item text-start" style="display: flex;"
+                    id="listJadwalClick${countlist}"   
+                    data-alamat="${el.address_schedule}"  
+                    data-cordarray="${el.coordinate_schedule}"
+                    href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.activity}</a>`;
+                    $('#listJadwal').html(list); 
+                }); 
+ 
+                for (let i = 0; i < ress.length; i++){ 
+                    $(`#listJadwalClick${i+1}`).click(function(){   
+
+                        console.log(routingJadwal);
+                        if(routingJadwal.length != 0){
+                            mapContainer.removeLayer(routingJadwal[0]);
+                            mapContainer.removeControl(routingJadwal[0]);
+                            console.log('kehapus');
+                        }
+                          
+                        var dataCord = $(this).data('cordarray').split(" / "); 
+                        var obj = {}; 
+                        data = [];
+                        for (let ii = 0; ii < dataCord.length; ii++){ 
+                            var latlong =  dataCord[ii].split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+                            obj = {}; 
+                            obj = L.latLng(latitude, longitude);
+                            data.push(obj);   
+                        } 
+
+                        routingJadwal[0] = L.Routing.control({
+                            waypoints: data,
+                            router: new L.Routing.osrmv1({
+                                language: 'en',
+                                profile: 'car'
+                            }),
+                            geocoder: L.Control.Geocoder.nominatim({})
+                        }).addTo(mapContainer);
+                        console.log(routingJadwal);
+                    });
+                } 
+            }
+        });
+    });
+
+
+
+    
     mapContainer.on('dblclick', function(e) { 
         $('#myModal').modal('show');
     }); 
-
-
  
     $('#myModal').on('shown.bs.modal', function() {
         $('#startTime').clockpicker({

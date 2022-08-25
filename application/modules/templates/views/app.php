@@ -340,9 +340,39 @@
             margin-top: -19px;
         }
 
-        /* .modalposisi {
-            margin-left: 10vh;
-        } */
+        .modal.right.fade.in .modal-dialog {
+        right:0 !important;
+        transform: translateX(-50%);
+        }
+        .modal.right .modal-content {
+        height:100%;
+        overflow:auto;
+        border-radius:0;
+        }
+        .modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+        }
+        .modal.right.fade.in .modal-dialog {
+        transform: translateX(0%);
+        }
+        .modal.right.fade .modal-dialog {
+        right: 0;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+        }
+        
+        
+        .modal.right .modal-header {background-color:#50caff; color:#fff}
+        .modal.right .modal-header::after {content:""; display:inline-block;}
+        .modal.right .close {text-shadow:none; opacity:1; color:#ff4d4d; font-size:26px}
     </style>
 
     <!-- JAVASCRIPT -->
@@ -965,7 +995,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
