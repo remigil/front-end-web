@@ -281,8 +281,56 @@
     </div>
 </section>
 
+<section class="shadow-sm mt-5">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <table id="datatable" class="table dt-responsive  nowrap w-100">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Kepada</th>
+                                <th>Subjek</th>
+                                <th>Judul Instruksi</th>
+                                <th>Deskripsi</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jabar</td>
+                                <td>Pesan</td>
+                                <td>Pesan 1</td>
+                                <td>Harap Hati-hati</td>
+                                <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".LihatInstruksi"><i class="mdi mdi-eye"></i></button>
+                                    <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahInstruksi"><i class="mdi mdi-pencil"></i></button>
+                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadInstruksi"><i class="mdi mdi-file-upload"></i></button> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jatim</td>
+                                <td>Amanat</td>
+                                <td>Amanat 1</td>
+                                <td>Harap Jalankan Operasi</td>
+                                <td><button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".LihatInstruksi"><i class="mdi mdi-eye"></i></button>
+                                    <!-- <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target=".UbahInstruksi"><i class="mdi mdi-pencil"></i></button>
+                            <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target=".UploadInstruksi"><i class="mdi mdi-file-upload"></i></button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <script>
     $(document).ready(function() {
+
+        $('#datatable').DataTable();
 
         // Capture Kamera
         var options_capture_camera = {
@@ -483,32 +531,31 @@
 
 
         // ODOL
-        var options_konfirmasi_petugas = {
+        var options_odol = {
             series: [{
                 name: 'PREMTIF',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
-                color: "#11347A"
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                color: "#11347A",
             }, {
-                name: 'PRE-VENTIF',
-                type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
-                color: "#3CA55C"
+                name: 'PREVENTIF',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                type: "column",
+                color: "#3CA55C",
             }, {
                 name: '227',
-                type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
                 color: "#E8D42F"
             }, {
                 name: '307',
-                type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
                 color: "#CB2D3E"
             }],
             chart: {
-                height: 350,
                 type: 'line',
-                stacked: false
+                height: 350
             },
             plotOptions: {
                 bar: {
@@ -525,35 +572,31 @@
                 style: {
                     colors: ['#333']
                 },
-                offsetY: -8
+                offsetY: -15
             },
             stroke: {
-                width: [1, 1, 4]
+                show: true,
+                width: 2,
+                colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
             },
-            yaxis: [{
-                axisTicks: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                    color: '#008FFB'
-                },
-                labels: {
-                    style: {
-                        colors: '#008FFB',
-                    }
-                },
-                tooltip: {
-                    enabled: false
+            yaxis: {
+                title: {
+                    text: '$ (thousands)'
                 }
-            }, ],
+            },
+            fill: {
+                opacity: 1
+            },
+
         };
 
-        var konfirmasi_masyarakat = new ApexCharts(document.querySelector("#chart4"), options_konfirmasi_petugas);
-        konfirmasi_masyarakat.render();
+        var odol = new ApexCharts(document.querySelector("#chart4"), options_odol);
+        odol.render();
+
+
 
     })
 </script>
