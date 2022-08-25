@@ -21,32 +21,40 @@ class Login extends MX_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $data_session  = array(); 
-        $data_session['logged']       = 1;
-
-        if($username == 'Korlantas'){ 
-            
-            $data_session['role']       = 'Korlantas';
-            $data_session['full_name']       = 'Korlantas'; 
-        }else if($username == 'Kapolda'){
-
-            $data_session['role']       = 'Kapolda';
-            $data_session['full_name']       = 'Kapolda'; 
-        }else if($username == 'Polres'){
-
-            $data_session['role']       = 'Polres';
-            $data_session['full_name']       = 'Polres';  
-        }else if($username == 'G20'){
-
-            $data_session['role']       = 'G20';
-            $data_session['full_name']       = 'G20';  
-        }
-
-        $this->session->set_userdata($data_session);  
-        redirect(base_url('dashboard'));
+        
  
-        // $response = $this->m_login->auth($username,$password);
-        // if ($response['user']['message'] == 'success') {  
+        $response = $this->m_login->auth($username,$password);
+        if ($response['user']['isSuccess'] == true) {  
+            $data_session  = array(); 
+
+            if($username == 'Korlantas'){ 
+                
+                $data_session['role']       = 'Korlantas';
+                $data_session['full_name']       = 'Korlantas'; 
+            }else if($username == 'Kapolda'){
+
+                $data_session['role']       = 'Kapolda';
+                $data_session['full_name']       = 'Kapolda'; 
+            }else if($username == 'Polres'){
+
+                $data_session['role']       = 'Polres';
+                $data_session['full_name']       = 'Polres';  
+            }else if($username == 'G20'){
+
+                $data_session['role']       = 'G20';
+                $data_session['full_name']       = 'G20';  
+            }else{
+                $this->session->set_flashdata('error','Username atau password tidak sesuai!');
+                redirect('login');
+                die;
+            }
+
+
+            $data_session['token']       = $response['user']['data']['accessToken']; 
+            $data_session['logged']       = 1;
+
+            $this->session->set_userdata($data_session);  
+            redirect(base_url('dashboard'));
         //         $user = $response['user']['data'][0]; 
 
         //         $area = '';
@@ -106,10 +114,10 @@ class Login extends MX_Controller {
         //             redirect(base_url('home'));
         //         }
                    
-        // }else{
-        //     $this->session->set_flashdata('error',$response['user']['message']);
-        //     redirect('login');
-        // } 
+        }else{
+            $this->session->set_flashdata('error',$response['user']['message']);
+            redirect('login');
+        } 
     } 
     
     public function logout()

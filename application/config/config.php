@@ -29,7 +29,7 @@ $config['modules_locations'] = array(
 @$config['base_url']  = ((isset($_SERVER['HTTPS'])&& $_SERVER['HTTPS'] =="on") ? "https" : "http");
 @$config['base_url'] .= "://" .$_SERVER['HTTP_HOST'];
 @$config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-// $config['base_url'] = "http://103.158.196.31/k3i/";
+// $config['base_url'] = "http://k3ig20korlantas.id/korlantas-web/";
 
 /*
 |--------------------------------------------------------------------------
@@ -386,8 +386,8 @@ $config['encryption_key'] = 'dashboardojkrusday';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 1800;
-$config['sess_save_path'] = APPPATH . 'cache/session/';
-// $config['sess_save_path'] = sys_get_temp_dir();
+// $config['sess_save_path'] = APPPATH . 'cache/session/';
+$config['sess_save_path'] = sys_get_temp_dir();
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

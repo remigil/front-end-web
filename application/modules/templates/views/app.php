@@ -4,12 +4,18 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | K3I</title>
+    <title><?php echo $title; ?> | K3I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+
+    <?php if ($this->session->userdata['role'] == 'G20') { ?>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-g20.svg">
+    <?php } else { ?>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+    <?php } ?>
 
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
@@ -63,11 +69,22 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/clockpicker.css">
 
 
     <style>
         #mapG20Dashboard {
-            height: 550px;
+            height: 700px;
+            width: 100%
+        }
+
+        #mapG20Troublespot {
+            height: 500px;
             width: 100%
         }
 
@@ -234,7 +251,8 @@
 
 
         .material-textfield {
-            position: relative;  
+            position: relative;
+            margin: 1vh 2.7vh 3vh 2.7vh;
         }
 
         .labelmui {
@@ -251,27 +269,80 @@
             transform-origin: left top;
             pointer-events: none;
         }
-        input {
-            font-size: 1rem;
+
+        .material-textfield input {
+            font-size: 0.9rem;
             outline: none;
-            border: 1px solid gray;
-            border-radius: 5px;  
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 10px;
             padding: 1rem 0.7rem;
             color: gray;
             transition: 0.1s ease-out;
+            width: 100%;
+            height: 48px;
         }
-        input:focus {
-            border-color: #6200EE;  
+
+        .material-textfield input:focus {
+            border-color: #003A91;
         }
-        input:focus + .labelmui {
-            color: #6200EE;
+
+        .material-textfield input:focus+.labelmui {
+            color: #003A91;
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
-        input:not(:placeholder-shown) + .labelmui {
+
+        .material-textfield input:not(:placeholder-shown)+.labelmui {
             top: 0;
             transform: translateY(-50%) scale(.9);
         }
+
+
+
+        .material-selectfield {
+            position: relative;
+            margin: 1vh 2.7vh 3vh 2.7vh;
+        }
+
+        .material-selectfield select {
+            font-size: 0.9rem;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 10px;
+            color: gray;
+            transition: 0.1s ease-out;
+            width: 100%;
+            height: 48px;
+            background-color: transparent;
+        }
+
+        .material-selectfield select:focus {
+            border-color: #003A91;
+        }
+
+        .material-selectfield select:focus+.labelmui {
+            color: #003A91;
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
+
+        .material-selectfield select:not(:placeholder-shown)+.labelmui {
+            top: 0;
+            transform: translateY(-50%) scale(.9);
+        }
+
+        .judulheader {
+            background-color: white;
+            width: 100%;
+            height: 50px;
+            padding: 14px;
+            font-size: 15px;
+            margin-top: -19px;
+        }
+
+        /* .modalposisi {
+            margin-left: 10vh;
+        } */
     </style>
 
     <!-- JAVASCRIPT -->
@@ -303,29 +374,62 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                            </span>
-                        </a>
+                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
 
-                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                </span>
+                            </a>
+
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+
+                                </span>
+                            </a>
+                        <?php } else { ?>
+                            a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
                             </span>
                             <span class="logo-lg">
                                 <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
                             </span>
-                        </a>
+                            </a>
+
+                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                </span>
+                            </a>
+                        <?php } ?>
                     </div>
- 
+
                     <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
-                        <i style="margin-left: -11px;" class="fa fa-fw fas fa-angle-left"></i>
+                        <div id="changeicon">
+                            <input type="text" id="statusicon" name="statusicon" value="right" hidden>
+                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
+                            <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
+                        </div>
                     </button>
-                    <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+                    <?php if ($this->uri->segment(1) == "dashboard") { ?>
+                        <div>
+                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;">K3I KORLANTAS POLRI</h3>
+                        </div>
+                    <?php } else { ?>
+                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+                    <?php } ?>
                 </div>
 
 
@@ -463,7 +567,52 @@
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>instruksi">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Instruksi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Operasi</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>operasi/Kegiatan" data-key="t-login">Jadwal Kegiatan</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Akun" data-key="t-login">Akun</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VIP</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Laporan</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>troublespot">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Troublespot</span>
+                                </a>
+                            </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Fasilitas Umum</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>fasum/list" data-key="t-login">Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url(); ?>fasum/listKategori" data-key="t-register">Kategori</a></li>
+                                </ul>
+                            </li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>zoom">
@@ -472,14 +621,6 @@
                                 </a>
                             </li>
 
-                            <li class="menu-title mt-2" data-key="t-components">Konfigurasi</li>
-
-                            <li>
-                                <a href="<?php echo base_url(); ?>akun">
-                                    <i data-feather="box"></i>
-                                    <span data-key="t-dashboard">Akun</span>
-                                </a>
-                            </li>
                         <?php } else { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -579,7 +720,7 @@
         <!-- ============================================================== -->
         <div class="main-content">
 
-            <div class="page-content">
+            <div class="page-content" style="background-color: #f5f3f4;">
                 <div class="container-fluid">
 
                     <!-- Page Content-->
@@ -824,6 +965,16 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
 
     <?php echo $js ?>
 
@@ -832,9 +983,31 @@
         var topbar = localStorage.getItem('data-topbar');
         var layoutMode = localStorage.getItem('data-layout-mode');
         $(document).ready(function() {
+            if ($("#statusicon").val() == 'left') {
+                $("#iconright").show();
+                $("#iconleft").hide();
+                $("#statusicon").val('right');
+            } else {
+                $("#iconright").hide();
+                $("#iconleft").show();
+                $("#statusicon").val('left');
+            }
+
             document.body.setAttribute('data-sidebar-size', sidebar);
             document.body.setAttribute('data-topbar', topbar)
             document.body.setAttribute("data-layout-mode", layoutMode);
+        });
+
+        $("#vertical-menu-btn").on("click", function(event) {
+            if ($("#statusicon").val() == 'left') {
+                $("#iconright").show();
+                $("#iconleft").hide();
+                $("#statusicon").val('right');
+            } else {
+                $("#iconright").hide();
+                $("#iconleft").show();
+                $("#statusicon").val('left');
+            }
         });
     </script>
 </body>
