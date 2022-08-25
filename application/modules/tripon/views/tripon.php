@@ -35,6 +35,15 @@
             <button class=" mt-3 btn btn-primary float-end"> Tampilkan </button>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">Column Chart</h4>
+        </div>
+        <div class="card-body">
+            <div id="column_chart" data-colors='["#2ab57d", "#5156be", "#fd625e"]' class="apex-charts" dir="ltr"></div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <table id="tripon" class="table table-striped dt-responsive  nowrap w-100">
@@ -226,6 +235,8 @@
 
 <script>
     $(document).ready(function() {
+
+
         $('#tripon').DataTable();
 
 

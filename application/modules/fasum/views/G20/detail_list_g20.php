@@ -3,209 +3,62 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Operasi</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Data Fasilitas Umum</li>
     </ol>
 </nav>
-<!-- </div> -->
+
 <div class="page">
-    <div class="card mt-3">
+    <div class="card">
         <div class="card-body">
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Petugas Pelapor</th>
-                        <th>Kategori</th>
-                        <th>Deskripsi</th>
-                        <th>Waktu</th>
-                        <th>No. Telepon</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Made</td>
-                        <td>Operasi</td>
-                        <td>-</td>
-                        <td>01 Juli 2022 07:06</td>
-                        <td class="text-primary">+62 895 1234 564</td>
-                        <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Doni</td>
-                        <td>Patroli</td>
-                        <td>-</td>
-                        <td>01 Juli 2022 07:06</td>
-                        <td class="text-primary">+62 895 1234 564</td>
-                        <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-</div>
-<!-- End Page -->
-
-
-<div class="modal fade TambahKegiatan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Kegiatan</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="fs-4 fw-bold">DETAIL DATA FASILITAS UMUM</p>
+                </div>
+                <div class="col-md-6">
+                    <a href="<?= base_url('fasum/ListFasum/Edit'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
+                    <!-- <a href="<?= base_url('operasi/Akun/Edit/' . $data['getDetail']['data']['id'] . ''); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button> -->
+                </div>
             </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Kegiatan</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">VIP</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-md-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Tim yang ditugaskan</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-md-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="date">
-                            <label class="labelmui">Tanggal</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-md-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Mulai</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-md-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Akhir</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-md-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Lokasi Tujuan</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div style="height: 25vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-6 mt-3 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>NAMA FASILITAS</p>
+                            <p>KONTAK</p>
+                            <p>JAM BUKA</p>
+                            <p>ALAMAT</p>
+                        </div>
+                        <div class="col-md-1">
+                            <p>:</p>
+                            <p>:</p>
+                            <p>:</p>
+                            <p>:</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>RSU SANGLAH</p>
+                            <p>(0361) 227912</p>
+                            <p>24 JAM</p>
+                            <p>Jalan Raya Kec Kuta</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="<?php echo ""; ?> alt="">
+                            <!-- <img src=" <?php echo ($data['getDetail']['data']['photo_officer'] != null ? '' . urlApi() . 'public/uploads/officer/' . $data['getDetail']['data']['photo_officer'] . '' : ''); ?>" alt=""> -->
+                        </div>
                     </div>
-                </form>
+                    <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-3">
+                <a href="<?= base_url('fasum/ListFasum'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
             </div>
         </div>
     </div>
 </div>
-
-<!-- <div class="modal fade SettingKegiatan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Kegiatan</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                        <label class="labelmui">No Kegiatan</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                        <label class="labelmui">Jenis Kegiatan</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Merek" placeholder="" type="text">
-                        <label class="labelmui">Merek</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="Kepemilikan" placeholder="" type="text">
-                        <label class="labelmui">Kepemilikan</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<!-- <div class="modal fade UbahKegiatan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
-                        <label class="labelmui">Rencana</label>
-                    </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaoperaso" placeholder="" type="text">
-                        <label class="labelmui">Subjek</label>
-                    </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade UploadKegiatan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Upload</h5>
-            </div>
-            <div class="modal-body">
-                <form action="#" class="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file">
-                    </div>
-                    <div class="dz-message needsclick">
-                        <div class="mb-3">
-                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                        </div>
-                        <h5>Drop files here or click to upload.</h5>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 
 <script>
     $(document).ready(function() {
-
-        $('#datatable').DataTable({
-            scrollX: true,
-        });
-
-
 
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
