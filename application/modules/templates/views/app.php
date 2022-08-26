@@ -609,7 +609,7 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>instruksi">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Instruksi</span>
+                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
                                 </a>
                             </li>
                             <li>
@@ -660,6 +660,17 @@
                                 </a>
                             </li>
 
+
+                            <li class="menu-title mt-2" data-key="t-components">User Management</li> 
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>user/operator">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Operator</span>
+                                </a>
+                            </li>
+
+
                         <?php } else { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -676,7 +687,7 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>instruksi">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Instruksi</span>
+                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
                                 </a>
                             </li>
 

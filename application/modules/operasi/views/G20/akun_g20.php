@@ -16,8 +16,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Akun</th>
-                        <th>Akun</th>
-                        <th>Polres</th>
+                        <th>VIP</th>
+                        <!-- <th>Polres</th> -->
                         <th>Ketua TIM</th>
                         <th>No. Kendaraan</th>
                         <th>Aksi</th>
@@ -177,9 +177,9 @@
                 {
                     data: 'vip'
                 },
-                {
-                    data: 'polres'
-                },
+                // {
+                //     data: 'polres'
+                // },
                 {
                     data: 'ketuaTeam'
                 },

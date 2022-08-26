@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_kegiatan extends CI_Model {
+class M_operator extends CI_Model {
 
 
     public function __construct(){
@@ -95,7 +95,7 @@ class M_kegiatan extends CI_Model {
         // } 
 
 
-        $url = 'schedule?length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'operation-profile?length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -113,27 +113,44 @@ class M_kegiatan extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['kegiatan']	= $field['activity']; 
-            
-            // $row ['namaVip']	= $field['vips'][0]['name_vip'];  
-            // $row ['account']   	= $field['accounts'][0]['name_account'];
 
-            $row ['alamat']   	= $field['address_schedule'];  
-            $row ['tanggal']   	= $field['date_schedule'];
-            $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
-            if($field['status_schedule'] == 1){
-                $row ['status'] = '
-                    <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
-                ';
+            if($field['banner'] != null || $field['banner'] != ''){
+                $banner = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }else{
-                $row ['status'] = '
-                    <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
-                ';
-            } 
+                $banner = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }
+            $row ['banner']	= $banner;  
+
+            $row ['name_operation']	= $field['name_operation']; 
+
+            if($field['document_sprint'] != null || $field['document_sprint'] != ''){
+                $sprint = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }else{
+                $sprint = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }
+            $row ['document_sprint']	= $sprint;  
+
+            if($field['background_image'] != null || $field['background_image'] != ''){
+                $bg = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }else{
+                $bg = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }
+            $row ['background_image']	= $bg;  
+
+            if($field['logo'] != null || $field['logo'] != ''){
+                $logo = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }else{
+                $logo = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+            }
+            $row ['logo']	= $logo; 
+
+            $row ['date']	= ''.format_indo($field['date_start_operation']).' to '.format_indo($field['date_end_operation']).''; 
             $row ['action']         = ' 
-                <a href="'.base_url().'operasi/Kegiatan/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                <a href="'.base_url().'user/operator/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 
-            $data[] = $row; 
+
+            $data[] = $row;
+
         }
 
 

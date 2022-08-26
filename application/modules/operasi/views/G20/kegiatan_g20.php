@@ -16,8 +16,8 @@
                     <tr>
                         <th>No</th>
                         <th>Kegiatan</th>
-                        <th>Nama VIP</th>
-                        <th>Tim</th>
+                        <!-- <th>Nama VIP</th>
+                        <th>Tim</th> -->
                         <th>Alamat Tujuan</th>
                         <th>Tanggal</th>
                         <th>Waktu</th>
@@ -103,7 +103,7 @@
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div>
-                        <!-- <div class="col-md-12">
+                        <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input style="width: 100%;" name="address" placeholder="" type="text" required>
                                 <label class="labelmui">Alamat</label>
@@ -115,7 +115,7 @@
                             <input style="width: 100%;" name="cordinate" placeholder="" type="text">
                                 <label class="labelmui">Coordinate</label>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
@@ -256,8 +256,8 @@
 
                 { data: 'id'}, 
                 { data: 'kegiatan'},
-                { data: 'namaVip'}, 
-                { data: 'account'},  
+                // { data: 'namaVip'}, 
+                // { data: 'account'},  
                 { data: 'alamat'},   
                 { data: 'tanggal'},  
                 { data: 'waktu'},  

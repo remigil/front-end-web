@@ -95,4 +95,22 @@ class Dashboard extends MY_Controller
 
         echo json_encode($data['getJadwal']);
     }
+
+    public function getRenpam()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'schedule';
+        $getJadwal = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getJadwal'] = $getJadwal['data'];
+
+        echo json_encode($data['getJadwal']);
+    }
 }

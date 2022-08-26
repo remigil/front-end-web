@@ -128,7 +128,7 @@
             </div>
             <div class="modal-body">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
+                    <div class="accordion-item" id="jadwalKegiatan">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
@@ -316,7 +316,13 @@
   $(document).ready(function() { 
     // alert('oke');
       
-
+    // var arrayContoh = [ 
+    //     {-8.551740, 115.077643},
+    //     {-8.451740, 115.089643},
+    //     {-8.458519301130188,115.14931575647383},
+    //     {-8.452198812821242,115.09396433830263},
+    //     {-8.5068977,115.2622931},
+    // ];
 
     serverSideGet();
     serverSideGetJadwal();
@@ -722,6 +728,7 @@
             for (let i = 0; i < markerJadwal.length; i++) { 
                 mapContainer.removeLayer(markerJadwal[i]);
             }
+
         }
         
     });
@@ -1129,42 +1136,47 @@
                     list += `<a class="list-group-item text-start" style="display: flex;"
                     id="listJadwalClick${countlist}"   
                     data-alamat="${el.address_schedule}"  
-                    data-cordarray="${el.coordinate_schedule}"
+                    data-cord="${el.coordinate_schedule}"
                     href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.activity}</a>`;
                     $('#listJadwal').html(list); 
                 }); 
  
                 for (let i = 0; i < ress.length; i++){ 
                     $(`#listJadwalClick${i+1}`).click(function(){   
+                        var latlong =  $(this).data('cord').split(',');
+                        var latitude = parseFloat(latlong[0]);
+                        var longitude = parseFloat(latlong[1]); 
+                        mapContainer.flyTo([latitude, longitude], 17); 
 
-                        console.log(routingJadwal);
-                        if(routingJadwal.length != 0){
-                            mapContainer.removeLayer(routingJadwal[0]);
-                            mapContainer.removeControl(routingJadwal[0]);
-                            console.log('kehapus');
-                        }
+
+                        // console.log(routingJadwal);
+                        // if(routingJadwal.length != 0){
+                        //     mapContainer.removeLayer(routingJadwal[0]);
+                        //     mapContainer.removeControl(routingJadwal[0]);
+                        //     console.log('kehapus');
+                        // }
                           
-                        var dataCord = $(this).data('cordarray').split(" / "); 
-                        var obj = {}; 
-                        data = [];
-                        for (let ii = 0; ii < dataCord.length; ii++){ 
-                            var latlong =  dataCord[ii].split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
-                            obj = {}; 
-                            obj = L.latLng(latitude, longitude);
-                            data.push(obj);   
-                        } 
+                        // var dataCord = $(this).data('cordarray').split(" / "); 
+                        // var obj = {}; 
+                        // data = [];
+                        // for (let ii = 0; ii < dataCord.length; ii++){ 
+                        //     var latlong =  dataCord[ii].split(',');
+                        //     var latitude = parseFloat(latlong[0]);
+                        //     var longitude = parseFloat(latlong[1]); 
+                        //     obj = {}; 
+                        //     obj = L.latLng(latitude, longitude);
+                        //     data.push(obj);   
+                        // } 
 
-                        routingJadwal[0] = L.Routing.control({
-                            waypoints: data,
-                            router: new L.Routing.osrmv1({
-                                language: 'en',
-                                profile: 'car'
-                            }),
-                            geocoder: L.Control.Geocoder.nominatim({})
-                        }).addTo(mapContainer);
-                        console.log(routingJadwal);
+                        // routingJadwal[0] = L.Routing.control({
+                        //     waypoints: data,
+                        //     router: new L.Routing.osrmv1({
+                        //         language: 'en',
+                        //         profile: 'car'
+                        //     }),
+                        //     geocoder: L.Control.Geocoder.nominatim({})
+                        // }).addTo(mapContainer);
+                        // console.log(routingJadwal);
                     });
                 } 
             }
