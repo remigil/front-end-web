@@ -115,32 +115,32 @@ class M_operator extends CI_Model {
             $row ['id']	=  $no++; 
 
             if($field['banner'] != null || $field['banner'] != ''){
-                $banner = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $banner = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }else{
-                $banner = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $banner = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }
             $row ['banner']	= $banner;  
 
             $row ['name_operation']	= $field['name_operation']; 
 
             if($field['document_sprint'] != null || $field['document_sprint'] != ''){
-                $sprint = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $sprint = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }else{
-                $sprint = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $sprint = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }
             $row ['document_sprint']	= $sprint;  
 
             if($field['background_image'] != null || $field['background_image'] != ''){
-                $bg = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $bg = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }else{
-                $bg = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $bg = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }
             $row ['background_image']	= $bg;  
 
             if($field['logo'] != null || $field['logo'] != ''){
-                $logo = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $logo = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }else{
-                $logo = '<img class="rounded-circle avatar-xl" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
+                $logo = '<img class="rounded-circle avatar-sm" alt="200x200" src="'.base_url().'assets/no_image.png" data-holder-rendered="true">';
             }
             $row ['logo']	= $logo; 
 
