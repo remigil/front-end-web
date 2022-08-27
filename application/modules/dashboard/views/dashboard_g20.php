@@ -416,7 +416,7 @@
 
                 if (ress.length > 0) {    
                     for (let i = 0; i < ress.length; i++) { 
-                        id = ress[i].nrp_user; 
+                        id = ress[i].id_user; 
 
                         var jenis = '';
                         if(ress[i].type_vehicle != 'Sepeda Motor'){
@@ -741,7 +741,7 @@
 
     socket.on('from server', function(ress) { 
         console.log('ido2');
-        var id = ress[i].nrp_user;
+        var id = ress[i].id_user;
         console.log(ress) 
 
         for (let i = 0; i < ress.length; i++) { 
@@ -785,7 +785,7 @@
         }
     }) 
     socket.on('sendToAdmin', function(ress) { 
-        var id = ress[i].nrp_user;
+        var id = ress[i].id_user;
         console.log('ido3');
         console.log(ress);
         
