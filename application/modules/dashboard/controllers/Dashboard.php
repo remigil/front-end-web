@@ -57,17 +57,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ];
-
-        // $input = $this->input->post();
-
-        // if($input["status"]){
-        //     $status = '&filterField[]=status&filterValue[]='.$input["status"].'';
-        // }else{
-        //     $status = '';
-        // } 
-        // print_r(date('Y-m-d'));
-        // die;
+        ]; 
 
 
         $url = 'getMe?date=' . date('Y-m-d') . '';

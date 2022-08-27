@@ -41,11 +41,11 @@
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text">
+                        <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text" required>
                         <label class="labelmui">Nama Akun</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="officers[]" id="officers" style="height: 200px" multiple> 
+                        <select name="officers[]" id="officers" style="height: 200px" multiple required> 
                             <?php foreach ($data['getOfficer'] as $row) : ?>
                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
                             <?php endforeach; ?>
@@ -53,11 +53,11 @@
                         <label class="labelmui">Petugas</label>
                     </div> 
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text">
+                        <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text" required>
                         <label class="labelmui">Ketua Team</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="id_kendaraan" class="form-select">
+                        <select name="id_kendaraan" class="form-select" required>
                             <option selected value="">Pilih No Kendaraan</option>
                             <?php foreach ($data['getVehicle'] as $row) : ?>
                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
@@ -66,7 +66,7 @@
                         <label class="labelmui">No Kendaraan</label>
                     </div>
                     <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="password" placeholder="Password" type="password">
+                        <input style="width: 100%;" name="password" placeholder="Password" type="password" required>
                         <label class="labelmui">Password</label>
                     </div>
                     <div class="col-md-6 float-end">

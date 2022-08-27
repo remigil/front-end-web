@@ -28,30 +28,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="namaAkun" value="<?php echo $data['getDetail']['data']['name_account'];?>" placeholder="Nama Akun" type="text">
+                                    <input required style="width: 100%;" name="namaAkun" value="<?php echo $data['getDetail']['data']['name_account'];?>" placeholder="Nama Akun" type="text">
                                     <label class="labelmui">Nama Akun</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">
+                                    <input required style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">
                                     <label class="labelmui">Ketua Tim</label>
                                 </div>
-                            </div> 
-                            <!-- <div class="col-md-6">
-                                <div class="material-selectfield mb-3">
-                                    <select name="id_vip" class="form-select">
-                                        <option selected value="">Pilih VIP</option> 
-                                        <?php foreach($data['getVip'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['vips']['name_vip'] == $row['name_vip'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
-                                        <?php endforeach; ?> 
-                                    </select>
-                                    <label class="labelmui">VIP</label>
-                                </div>
-                            </div>  -->
+                            </div>  
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="officers[]" id="officers" style="height: 200px" multiple> 
+                                    <select required name="officers[]" id="officers" style="height: 200px" multiple> 
                                         <?php foreach ($data['getOfficer'] as $row) : ?>
                                             <option 
                                             <?php foreach ($data['getDetail']['data']['officer'] as $rowSelect) : ?>
@@ -65,7 +54,7 @@
                             </div> 
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="id_kendaraan" class="form-select">
+                                    <select required name="id_kendaraan" class="form-select">
                                         <option selected value="">Pilih No Kendaraan</option> 
                                         <?php foreach($data['getVehicle'] as $row): ?>
                                             <option <?php echo ($data['getDetail']['data']['vehicle']['no_vehicle'] == $row['no_vehicle'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
