@@ -44,24 +44,14 @@
                         <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text">
                         <label class="labelmui">Nama Akun</label>
                     </div>
-                    <!-- <div class="material-selectfield mb-3">
-                        <select name="id_vip" class="form-select">
-                            <option selected value="">Pilih VIP</option>
-                            <?php foreach ($data['getVip'] as $row) : ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?></option>
+                    <div class="material-selectfield mb-3">
+                        <select name="officers[]" id="officers" style="height: 200px" multiple> 
+                            <?php foreach ($data['getOfficer'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <label class="labelmui">VIP</label>
-                    </div> -->
-                    <div class="material-selectfield mb-3">
-                        <select name="polres" class="form-select">
-                            <option selected value="">Pilih Polres</option>
-                            <?php foreach ($data['getPolres'] as $row) : ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polres']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <label class="labelmui">Polres</label>
-                    </div>
+                    </div> 
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text">
                         <label class="labelmui">Ketua Team</label>
@@ -90,6 +80,17 @@
 
 <script>
     $(document).ready(function() {
+        
+        new Choices('#officers', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
         var userDataTable = $('#datatable').DataTable({
 
             responsive: true,

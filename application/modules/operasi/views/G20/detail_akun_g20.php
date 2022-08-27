@@ -23,25 +23,50 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-2">
-                            <p>NAMA AKUN</p>
-                            <p>VIP</p>
-                            <p>POLRES</p>
-                            <p>KETUA TIM</p>
+                        <div class="col-3">
+                            <p>NAMA AKUN</p>  
+                        </div>
+                        <div class="col-1">
+                            <p>:</p> 
+                        </div>
+                        <div class="col-8">
+                            <p><?php echo $data['getDetail']['data']['name_account'];?></p>  
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"> 
+                            <p>PETUGAS</p> 
+                        </div>
+                        <div class="col-1">
+                            <p>:</p> 
+                        </div>
+                        <div class="col-8"> 
+                            <ul>
+                                <?php foreach ($data['getDetail']['data']['officer'] as $row) : ?>
+                                    <li><?php echo $row['name_officer']; ?></li> 
+                                <?php endforeach; ?>
+                            </ul> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"> 
+                            <p>KETUA TIM</p> 
+                        </div>
+                        <div class="col-1">
+                            <p>:</p> 
+                        </div>
+                        <div class="col-8"> 
+                            <p><?php echo ($data['getDetail']['data']['leader_team'] == null ? '-' : $data['getDetail']['data']['leader_team']);?></p> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"> 
                             <p>NO. KENDARAAN</p>
                         </div>
                         <div class="col-1">
-                            <p>:</p>
-                            <p>:</p>
-                            <p>:</p>
-                            <p>:</p>
-                            <p>:</p>
+                            <p>:</p> 
                         </div>
-                        <div class="col-3">
-                            <p><?php echo $data['getDetail']['data']['name_account'];?></p> 
-                            <p><?php echo ($data['getDetail']['data']['vips']['name_vip'] == null ? '-' : $data['getDetail']['data']['vips']['name_vip']);?></p>
-                            <p><?php echo ($data['getDetail']['data']['polres']['name_polres'] == null ? '-' : $data['getDetail']['data']['polres']['name_polres']);?></p>
-                            <p><?php echo ($data['getDetail']['data']['leader_team'] == null ? '-' : $data['getDetail']['data']['leader_team']);?></p>
+                        <div class="col-8">
                             <p><?php echo ($data['getDetail']['data']['vehicle']['no_vehicle'] == null ? '-' : $data['getDetail']['data']['vehicle']['no_vehicle']);?></p>
                         </div>
                     </div>

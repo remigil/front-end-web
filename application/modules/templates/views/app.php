@@ -617,8 +617,6 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title" data-key="t-menu">Menu</li>
-
 
                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                             <li>
@@ -700,85 +698,108 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Laporan</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <span data-key="t-email">Ditgakkum</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('Ditgakkum/DakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/GarlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/LakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/Turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <span data-key="t-email">Ditkamsel</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('Ditkamsel/DikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
+                                            <li><a href="<?= base_url('Ditkamsel/Penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <span data-key="t-email">Ditregident</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('Ditregident/Sim') ?>" data-key="t-inbox">SIM</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Stnk') ?>" data-key="t-read-email">STNK</a></li>
+                                            <li><a href="<?= base_url('Diregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="apps-calendar.html">
+                                            <span data-key="t-calendar">TripOn</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="apps-chat.html">
+                                            <span data-key="t-chat">TroubleSpot</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Input Data</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">TroubleSpot</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Operasi</span>
+                                    <span data-key="t-dashboard">Rencana Operasi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi/renpam">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
+                                    <span data-key="t-dashboard">Berita</span>
                                 </a>
                             </li>
-
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Laporan</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="auth-login.html" data-key="t-login">Kemacetan</a></li>
-                                    <li><a href="auth-register.html" data-key="t-register">Pelanggaran</a></li>
-                                    <li><a href="auth-recoverpw.html" data-key="t-recover-password">Kecelakaan</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span data-key="t-pages">Ditgakkum</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="pages-starter.html" data-key="t-starter-page">Strukture Organisasi</a></li>
-                                    <li><a href="pages-maintenance.html" data-key="t-maintenance">Data Dakgar Lantas</a></li>
-                                    <li><a href="pages-comingsoon.html" data-key="t-coming-soon">Gar Lantas Konvensional</a></li>
-                                    <li><a href="pages-timeline.html" data-key="t-timeline">Timeline</a></li>
-                                    <li><a href="pages-faqs.html" data-key="t-faqs">Teguran</a></li>
-                                    <li><a href="pages-pricing.html" data-key="t-pricing">Kecelakaan Lalu Lintas</a></li>
-                                    <li><a href="pages-404.html" data-key="t-error-404">Data Turjawali</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="briefcase"></i>
-                                    <span data-key="t-components">Ditkamsel</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="ui-alerts.html" data-key="t-alerts">Strukture Organisasi</a></li>
-                                    <li><a href="ui-buttons.html" data-key="t-buttons">Dikmas Lantas</a></li>
-                                    <li><a href="ui-cards.html" data-key="t-cards">Penyebaran/Pemasangan</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="gift"></i>
-                                    <span data-key="t-ui-elements">Diregident</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="extended-lightbox.html" data-key="t-lightbox">Strukture Organisasi</a></li>
-                                    <li><a href="extended-rangeslider.html" data-key="t-range-slider">SIM</a></li>
-                                    <li><a href="extended-sweet-alert.html" data-key="t-sweet-alert">STNK</a></li>
-                                    <li><a href="extended-session-timeout.html" data-key="t-session-timeout">BPKB</a></li>
-                                    <li><a href="extended-rating.html" data-key="t-rating">RANMOR</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="<?php echo base_url(); ?>tripon">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Trip On</span>
+                                    <span data-key="t-dashboard">Dokumen Peraturan</span>
                                 </a>
                             </li>
-                            <li class="menu-title mt-2" data-key="t-components">Konfigurasi</li>
-
                             <li>
-                                <a href="<?php echo base_url(); ?>akun">
-                                    <i data-feather="box"></i>
-                                    <span data-key="t-dashboard">Akun</span>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Management Pengguna</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun K3I</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun Masyarakat</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Master Data</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polda</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polres</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Petugas Nasional</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Kendaraan Nasional</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Samsat</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">SIM Keliling</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">CCTV</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Fasilitas Umum</a></li>
+                                </ul>
                             </li>
                         <?php } ?>
                     </ul>

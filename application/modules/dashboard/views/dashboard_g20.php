@@ -1243,6 +1243,7 @@
                             }),
                             geocoder: L.Control.Geocoder.nominatim({})
                         }).addTo(mapContainer);
+                        routingRenpam[i].hide();
                         console.log(routingRenpam);
                     });
                 } 
