@@ -52,7 +52,7 @@
                                 <label class="labelmui">Kegiatan</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select required name="id_vip[]" id="id_vip" style="height: 200px" multiple> 
                                     <?php foreach($data['getVip'] as $row): ?>
@@ -71,7 +71,7 @@
                                 </select>
                                 <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="col-md-6">
                             <div class="material-selectfield mb-3">
@@ -146,25 +146,25 @@
             autoclose: true
         });
  
-        new Choices('#id_vip', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
+        // new Choices('#id_vip', {
+        //     searchEnabled: true,
+        //     removeItemButton: true,
+        //     removeItems: true,
+        //     itemSelectText: '',
+        //     classNames: {
+        //         containerOuter: 'choices select-choices',
+        //     },
+        // });
 
-        new Choices('#id_account', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
+        // new Choices('#id_account', {
+        //     searchEnabled: true,
+        //     removeItemButton: true,
+        //     removeItems: true,
+        //     itemSelectText: '',
+        //     classNames: {
+        //         containerOuter: 'choices select-choices',
+        //     },
+        // });
 
         // $( ".select2-single" ).select2({
         // placeholder: 'Select a State…',

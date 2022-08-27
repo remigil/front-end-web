@@ -105,12 +105,12 @@ class Dashboard extends MY_Controller
         // $input = $this->input->post(); 
 
 
-        $url = 'schedule';
-        $getJadwal = guzzle_request('GET', $url, [
+        $url = 'renpam';
+        $getRenpam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
-        $data['getJadwal'] = $getJadwal['data'];
+        $data['getRenpam'] = $getRenpam['data'];
 
-        echo json_encode($data['getJadwal']);
+        echo json_encode($data['getRenpam']);
     }
 }

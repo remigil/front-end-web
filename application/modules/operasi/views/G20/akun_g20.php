@@ -18,7 +18,7 @@
                         <th>Nama Akun</th>
                         <th>VIP</th>
                         <!-- <th>Polres</th> -->
-                        <th>Ketua TIM</th>
+                        <!-- <th>Ketua TIM</th> -->
                         <th>No. Kendaraan</th>
                         <th>Aksi</th>
                     </tr>
@@ -44,7 +44,7 @@
                         <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text">
                         <label class="labelmui">Nama Akun</label>
                     </div>
-                    <div class="material-selectfield mb-3">
+                    <!-- <div class="material-selectfield mb-3">
                         <select name="id_vip" class="form-select">
                             <option selected value="">Pilih VIP</option>
                             <?php foreach ($data['getVip'] as $row) : ?>
@@ -52,7 +52,7 @@
                             <?php endforeach; ?>
                         </select>
                         <label class="labelmui">VIP</label>
-                    </div>
+                    </div> -->
                     <div class="material-selectfield mb-3">
                         <select name="polres" class="form-select">
                             <option selected value="">Pilih Polres</option>
@@ -174,9 +174,9 @@
                 {
                     data: 'namaAkun'
                 },
-                {
-                    data: 'vip'
-                },
+                // {
+                //     data: 'vip'
+                // },
                 // {
                 //     data: 'polres'
                 // },

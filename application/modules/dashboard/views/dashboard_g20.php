@@ -156,11 +156,14 @@
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                             data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body text-muted">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer raw denim
-                                aesthetic synth nesciunt you probably haven't heard of them accusamus labore.</div>
+                            <div class="accordion-body text-muted">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="list-group" id="listRenpam"> 
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
                         </div>
                     </div> 
                 </div><!-- end accordion -->
@@ -311,6 +314,7 @@
     var markerArray = new Array();
     var markerJadwal = new Array();
     var routingJadwal = new Array();
+    var routingRenpam = new Array();
 
 
   $(document).ready(function() { 
@@ -1181,7 +1185,71 @@
                 } 
             }
         });
+
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getRenpam", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                // console.log(result['test']);
+                countlist = 0;
+                list = "";
+                var status = ""; 
+                var route = []; 
+                ress.forEach(el => {
+                    route.push(el.route);
+                    if(el.status_renpam == 1){
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                        </div>`;
+                    }else{
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                        </div>
+                        `;
+                    }
+ 
+                    countlist += 1;
+                    list += `<a class="list-group-item text-start" style="display: flex;"
+                    id="listRenpamClick${countlist}"   
+                    data-cord=${JSON.stringify(el.route)} 
+                    href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}</a>`;
+                    $('#listRenpam').html(list); 
+                });  
+
+                 
+
+                for (let i = 0; i < ress.length; i++){ 
+                    $(`#listRenpamClick${i+1}`).click(function(){    
+
+                        console.log(routingRenpam);
+                        if(routingRenpam.length != 0){
+                            mapContainer.removeLayer(routingRenpam[0]);
+                            mapContainer.removeControl(routingRenpam[0]);
+                            console.log('kehapus');
+                        } 
+
+                        routingRenpam[0] = L.Routing.control({
+                            waypoints: route[i],
+                            router: new L.Routing.osrmv1({
+                                language: 'en',
+                                profile: 'car'
+                            }),
+                            geocoder: L.Control.Geocoder.nominatim({})
+                        }).addTo(mapContainer);
+                        console.log(routingRenpam);
+                    });
+                } 
+            }
+        });
     });
+
 
 
 
@@ -1318,4 +1386,7 @@
 
  
   });
+
+
+    
 </script> 

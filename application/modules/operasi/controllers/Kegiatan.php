@@ -67,14 +67,14 @@ class Kegiatan extends MY_Controller
                 'name' => 'activity',
                 'contents' => $input['kegiatan'],
             ],
-            [
-                'name' => 'id_vip',
-                'contents' => implode(",",$input['id_vip']),
-            ],
-            [
-                'name' => 'id_account',
-                'contents' => implode(",",$input['id_account']),
-            ],
+            // [
+            //     'name' => 'id_vip',
+            //     'contents' => implode(",",$input['id_vip']),
+            // ],
+            // [
+            //     'name' => 'id_account',
+            //     'contents' => implode(",",$input['id_account']),
+            // ],
             [
                 'name' => 'date_schedule',
                 'contents' => $input['date'],
@@ -150,7 +150,7 @@ class Kegiatan extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']['name']);
+        // echo json_encode($data['getDetail']['data']);
         // die;
 
         $page_content["data"] = $data;
@@ -208,14 +208,14 @@ class Kegiatan extends MY_Controller
                 'name' => 'activity',
                 'contents' => $input['kegiatan'],
             ],
-            [
-                'name' => 'id_vip',
-                'contents' => implode(",",$input['id_vip']),
-            ],
-            [
-                'name' => 'id_account',
-                'contents' => implode(",",$input['id_account']),
-            ],
+            // [
+            //     'name' => 'id_vip',
+            //     'contents' => implode(",",$input['id_vip']),
+            // ],
+            // [
+            //     'name' => 'id_account',
+            //     'contents' => implode(",",$input['id_account']),
+            // ],
             [
                 'name' => 'date_schedule',
                 'contents' => $input['date'],

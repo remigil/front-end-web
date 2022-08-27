@@ -607,7 +607,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>instruksi">
+                                <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Rencana Pengamanan</span>
                                 </a>
@@ -685,7 +685,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>instruksi">
+                                <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Rencana Pengamanan</span>
                                 </a>
