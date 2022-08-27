@@ -250,10 +250,14 @@
             animation-delay: 1.1s;
         }
 
-
         .material-textfield {
             position: relative;
             margin: 1vh 2.7vh 3vh 2.7vh;
+        }
+
+        .material-btnfield {
+            position: relative;
+            margin: -2vh 2.7vh 2vh 2.7vh;
         }
 
         .labelmui {
@@ -350,38 +354,55 @@
         }
 
         .modal.right.fade.in .modal-dialog {
-        right:0 !important;
-        transform: translateX(-50%);
+            right: 0 !important;
+            transform: translateX(-50%);
         }
+
         .modal.right .modal-content {
-        height:100%;
-        overflow:auto;
-        border-radius:0;
+            height: 100%;
+            overflow: auto;
+            border-radius: 0;
         }
+
         .modal.right .modal-dialog {
-        position: fixed;
-        margin: auto;
-        height: 100%;
-        -webkit-transform: translate3d(0%, 0, 0);
-        -ms-transform: translate3d(0%, 0, 0);
-        -o-transform: translate3d(0%, 0, 0);
-        transform: translate3d(0%, 0, 0);
+            position: fixed;
+            margin: auto;
+            height: 100%;
+            -webkit-transform: translate3d(0%, 0, 0);
+            -ms-transform: translate3d(0%, 0, 0);
+            -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
         }
+
         .modal.right.fade.in .modal-dialog {
-        transform: translateX(0%);
+            transform: translateX(0%);
         }
+
         .modal.right.fade .modal-dialog {
-        right: 0;
-        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-        transition: opacity 0.3s linear, right 0.3s ease-out;
+            right: 0;
+            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
         }
-        
-        
-        .modal.right .modal-header {background-color:#50caff; color:#fff}
-        .modal.right .modal-header::after {content:""; display:inline-block;}
-        .modal.right .close {text-shadow:none; opacity:1; color:#ff4d4d; font-size:26px}
+
+
+        .modal.right .modal-header {
+            background-color: #50caff;
+            color: #fff
+        }
+
+        .modal.right .modal-header::after {
+            content: "";
+            display: inline-block;
+        }
+
+        .modal.right .close {
+            text-shadow: none;
+            opacity: 1;
+            color: #ff4d4d;
+            font-size: 26px
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -661,7 +682,7 @@
                             </li>
 
 
-                            <li class="menu-title mt-2" data-key="t-components">User Management</li> 
+                            <li class="menu-title mt-2" data-key="t-components">User Management</li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>user/operator">
