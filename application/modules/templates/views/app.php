@@ -250,10 +250,14 @@
             animation-delay: 1.1s;
         }
 
-
         .material-textfield {
             position: relative;
             margin: 1vh 2.7vh 3vh 2.7vh;
+        }
+
+        .material-btnfield {
+            position: relative;
+            margin: -2vh 2.7vh 2vh 2.7vh;
         }
 
         .labelmui {
