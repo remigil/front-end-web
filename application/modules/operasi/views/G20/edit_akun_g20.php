@@ -37,19 +37,8 @@
                                     <input style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">
                                     <label class="labelmui">Ketua Tim</label>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="material-selectfield mb-3">
-                                    <select name="polres" class="form-select">
-                                        <option selected value="">Pilih Polres</option> 
-                                        <?php foreach($data['getPolres'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['polres']['name_polres'] == $row['name_polres'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['name_polres'];?></option> 
-                                        <?php endforeach; ?> 
-                                    </select>
-                                    <label class="labelmui">Polres</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                            </div> 
+                            <!-- <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
                                     <select name="id_vip" class="form-select">
                                         <option selected value="">Pilih VIP</option> 
@@ -59,6 +48,20 @@
                                     </select>
                                     <label class="labelmui">VIP</label>
                                 </div>
+                            </div>  -->
+                            <div class="col-md-6">
+                                <div class="material-selectfield mb-3">
+                                    <select name="officers[]" id="officers" style="height: 200px" multiple> 
+                                        <?php foreach ($data['getOfficer'] as $row) : ?>
+                                            <option 
+                                            <?php foreach ($data['getDetail']['data']['officer'] as $rowSelect) : ?>
+                                                <?php echo ($rowSelect['name_officer'] == $row['name_officer'] ? 'selected' : '');?>  
+                                            <?php endforeach; ?>
+                                            value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <label class="labelmui">VIP</label>
+                                </div> 
                             </div> 
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
@@ -94,6 +97,16 @@
 
 <script>
     $(document).ready(function() {
+        new Choices('#officers', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 

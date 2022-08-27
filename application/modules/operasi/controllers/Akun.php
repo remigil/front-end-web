@@ -34,20 +34,20 @@ class Akun extends MY_Controller
         }
 
 
-        $getVip = guzzle_request('GET', 'vip', [  
+        $getOfficer = guzzle_request('GET', 'officer', [  
             'headers' => $headers 
         ]);
-        $data['getVip'] = $getVip['data']['data'];
+        $data['getOfficer'] = $getOfficer['data']['data'];
 
         $getVehicle = guzzle_request('GET', 'vehicle', [  
             'headers' => $headers 
         ]);
         $data['getVehicle'] = $getVehicle['data']['data'];
 
-        $getPolres = guzzle_request('GET', 'polres', [  
-            'headers' => $headers 
-        ]);
-        $data['getPolres'] = $getPolres['data']['data']; 
+        // $getPolres = guzzle_request('GET', 'polres', [  
+        //     'headers' => $headers 
+        // ]);
+        // $data['getPolres'] = $getPolres['data']['data']; 
 
         // echo json_encode($data['getVip']['data']); 
         // die;
@@ -69,39 +69,50 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'id_account',
-                'contents' => str_replace(' ', '', $input['namaAkun']),
-            ],
-            [
-                'name' => 'name_account',
-                'contents' => $input['namaAkun'],
-            ],
-            [
-                'name' => 'leader_team',
-                'contents' => $input['ketuaTeam'],
-            ],
-            [
-                'name' => 'polres_id',
-                'contents' => $input['polres'],
-            ],
-            [
-                'name' => 'id_vehicle',
-                'contents' => $input['id_kendaraan'],
-            ],
-            // [
-            //     'name' => 'id_vip',
-            //     'contents' => $input['id_vip'],
-            // ],
-            [
-                'name' => 'password',
-                'contents' => $input['password'],
-            ]
-        ];
+        // $dummy = [
+        //     [
+        //         'name' => 'id_account',
+        //         'contents' => str_replace(' ', '', $input['namaAkun']),
+        //     ],
+        //     [
+        //         'name' => 'name_account',
+        //         'contents' => $input['namaAkun'],
+        //     ],
+        //     [
+        //         'name' => 'leader_team',
+        //         'contents' => $input['ketuaTeam'],
+        //     ],
+        //     [
+        //         'name' => 'polres_id',
+        //         'contents' => $input['polres'],
+        //     ],
+        //     [
+        //         'name' => 'id_vehicle',
+        //         'contents' => $input['id_kendaraan'],
+        //     ], 
+        //     [
+        //         'name' => 'password',
+        //         'contents' => $input['password'],
+        //     ]
+        // ];
+
+        // $data = guzzle_request('POST', 'account/add', [ 
+        //     'multipart' => $dummy, 
+        //     'headers' => $headers 
+        // ]);
+
+        $dummy = array(); 
+        $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
+        $dummy ['name_account']	= $input['namaAkun']; 
+        $dummy ['leader_team']	= $input['ketuaTeam']; 
+        $dummy ['id_vehicle']	= $input['id_kendaraan']; 
+        $dummy ['password']	= $input['password']; 
+        $dummy ['officers']	= json_encode($input['officers']); 
+        // echo json_encode($dummy);
+        // die;
 
         $data = guzzle_request('POST', 'account/add', [ 
-            'multipart' => $dummy, 
+            'form_params' => $dummy, 
             'headers' => $headers 
         ]);
 
@@ -178,22 +189,17 @@ class Akun extends MY_Controller
         $getDetail = guzzle_request('GET', 'account/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
-        $data['getDetail'] = $getDetail['data'];
+        $data['getDetail'] = $getDetail['data']; 
 
-        $getVip = guzzle_request('GET', 'vip', [  
+        $getOfficer = guzzle_request('GET', 'officer', [  
             'headers' => $headers 
         ]);
-        $data['getVip'] = $getVip['data']['data'];
+        $data['getOfficer'] = $getOfficer['data']['data'];
 
         $getVehicle = guzzle_request('GET', 'vehicle', [  
             'headers' => $headers 
         ]);
-        $data['getVehicle'] = $getVehicle['data']['data'];
-
-        $getPolres = guzzle_request('GET', 'polres', [  
-            'headers' => $headers 
-        ]);
-        $data['getPolres'] = $getPolres['data']['data'];
+        $data['getVehicle'] = $getVehicle['data']['data']; 
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -207,64 +213,19 @@ class Akun extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
         
-        if($input['oldPassword'] == $input['password']){
-            $dummy = [
-                [
-                    'name' => 'id_account',
-                    'contents' => str_replace(' ', '', $input['namaAkun']),
-                ],
-                [
-                    'name' => 'name_account',
-                    'contents' => $input['namaAkun'],
-                ],
-                [
-                    'name' => 'leader_team',
-                    'contents' => $input['ketuaTeam'],
-                ],
-                [
-                    'name' => 'polres_id',
-                    'contents' => $input['polres'],
-                ],
-                [
-                    'name' => 'id_vehicle',
-                    'contents' => $input['id_kendaraan'],
-                ] 
-            ];
-        }else{
-            $dummy = [
-                [
-                    'name' => 'id_account',
-                    'contents' => str_replace(' ', '', $input['namaAkun']),
-                ],
-                [
-                    'name' => 'name_account',
-                    'contents' => $input['namaAkun'],
-                ],
-                [
-                    'name' => 'leader_team',
-                    'contents' => $input['ketuaTeam'],
-                ],
-                [
-                    'name' => 'polres_id',
-                    'contents' => $input['polres'],
-                ],
-                [
-                    'name' => 'id_vehicle',
-                    'contents' => $input['id_kendaraan'],
-                ],
-                // [
-                //     'name' => 'id_vip',
-                //     'contents' => $input['id_vip'],
-                // ],
-                [
-                    'name' => 'password',
-                    'contents' => $input['password'],
-                ]
-            ];
+        $dummy = array(); 
+        $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
+        $dummy ['name_account']	= $input['namaAkun']; 
+        $dummy ['leader_team']	= $input['ketuaTeam']; 
+        $dummy ['id_vehicle']	= $input['id_kendaraan']; 
+        $dummy ['officers']	= json_encode($input['officers']); 
+        
+        if($input['oldPassword'] != $input['password']){
+            $dummy ['password']	= $input['password']; 
         }
 
         $data = guzzle_request('PUT', 'account/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
+            'form_params' => $dummy, 
             'headers' => $headers 
         ]);
 
