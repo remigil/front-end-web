@@ -102,12 +102,7 @@
                             </div>
                         </div>
                          
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
-                                <label class="labelmui">Coordinate</label>
-                            </div>
-                        </div>
+                        <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
 
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
@@ -334,35 +329,15 @@
 
             mapContainerInstruksi.on('click', function(e) {
                 var container = L.DomUtil.create('div'),
-                    startBtn = createButton('Start from this location', container),
+                    startBtn = createButton('Start from this location', container), 
                     destBtn = createButton('Go to this location', container);
 
-                L.DomEvent.on(startBtn, 'click', function() { 
-                    // obj = {}; 
-                    // obj = L.latLng(e.latlng);
-                    // arrayWaypoint.push(obj);   
-                    // console.log(arrayWaypoint);
- 
-                    // obj = {};  
-                    // obj = `${e.latlng.lat}, ${e.latlng.lng}`;
-                    // arrayWaypoint.push(obj);   
-                    // console.log(arrayWaypoint);
-                    // console.log('start'); 
-
-                    
-                    // $('#ruteawal').attr('value', arrayWaypoint);
+                L.DomEvent.on(startBtn, 'click', function() {  
 
                     control.spliceWaypoints(0, 1, e.latlng);
                     mapContainerInstruksi.closePopup();
-                });
-                L.DomEvent.on(destBtn, 'click', function() {
-                    // obj = {};  
-                    // obj = `${e.latlng.lat}, ${e.latlng.lng}`;
-                    // arrayWaypoint.push(obj);      
-                    // console.log(arrayWaypoint); 
-                    // console.log('end'); 
- 
-                    // $('#ruteawal').attr('value', arrayWaypoint);
+                }); 
+                L.DomEvent.on(destBtn, 'click', function() { 
 
                     control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
                     mapContainerInstruksi.closePopup();

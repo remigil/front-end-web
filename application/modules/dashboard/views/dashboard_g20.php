@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" style="margin-top: -40px;">
     <div class="col-md-12"> 
 
     <!-- <a href='#' id='export'>Export Features</a> -->
@@ -1229,13 +1229,13 @@
                     $(`#listRenpamClick${i+1}`).click(function(){    
 
                         console.log(routingRenpam);
-                        if(routingRenpam.length != 0){
-                            mapContainer.removeLayer(routingRenpam[0]);
-                            mapContainer.removeControl(routingRenpam[0]);
-                            console.log('kehapus');
-                        } 
+                        // if(routingRenpam.length != 0){
+                        //     mapContainer.removeLayer(routingRenpam[0]);
+                        //     mapContainer.removeControl(routingRenpam[0]);
+                        //     console.log('kehapus');
+                        // } 
 
-                        routingRenpam[0] = L.Routing.control({
+                        routingRenpam[i] = L.Routing.control({
                             waypoints: route[i],
                             router: new L.Routing.osrmv1({
                                 language: 'en',

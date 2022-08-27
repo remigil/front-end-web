@@ -3,8 +3,8 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item">Jadwal Kegiatan</li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Jadwal Kegiatan</li>
+        <li class="breadcrumb-item">Rencana Pengamanan</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Detail Rencana Pengamanan</li>
     </ol>
 </nav>
 
@@ -13,10 +13,10 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="fs-4 fw-bold">DETAIL JADWAL KEGIATAN</p>
+                    <p class="fs-4 fw-bold">DETAIL RENCANA PENGAMANAN</p>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?php echo base_url()?>operasi/Kegiatan/Edit/<?php echo $data['getDetail']['data']['id'];?>"> 
+                    <a href="<?php echo base_url()?>operasi/Renpam/Edit/<?php echo $data['getDetail']['data']['id'];?>"> 
                         <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
                     </a>
                 </div>
@@ -26,7 +26,8 @@
                 <div class="card-body">
                     <div class="row"> 
                         <div class="col-2">
-                            <p>KEGIATAN</p> 
+                            <p>SUBJEK</p> 
+                            <p>INSTRUKSI</p>
                             <p>TANGGAL</p>
                             <p>WAKTU</p>
                             <p>LOKASI</p>
@@ -38,10 +39,11 @@
                             <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p><?php echo $data['getDetail']['data']['activity'];?></p> 
-                            <p><?php echo format_indo($data['getDetail']['data']['date_schedule']);?></p>
+                            <p><?php echo $data['getDetail']['data']['type_renpam'];?></p> 
+                            <p><?php echo $data['getDetail']['data']['name_renpam'];?></p> 
+                            <p><?php echo format_indo($data['getDetail']['data']['date']);?></p>
                             <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
-                            <p><?php echo $data['getDetail']['data']['address_schedule'];?></p>
+                            <p><?php echo $data['getDetail']['data']['schedule']['address_schedule'];?></p>
                         </div>
                     </div>
                 </div>
@@ -51,17 +53,19 @@
             <div class="">
                 <p class="fs-4 fw-bold">PETA LOKASI</p>
             </div>
-            <div style="height: 50vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
+            <div style="height: 90vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
 
 
             <div class="col-12 mt-3">
-                <a href="<?= base_url('operasi/Kegiatan'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+                <a href="<?= base_url('operasi/Renpam'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
             </div>
         </div>
     </div>
 </div>
 
 <script>
+    var routingRenpam = new Array();
+
     $(document).ready(function() {
 
         var initialCenter = [-8.451740, 115.089643];
@@ -95,19 +99,17 @@
             zoomControl: false,
             layers: [googleStreet]
         }).setView(initialCenter, initialZoom); 
+  
+        var route = '<?php echo json_encode($data['getDetail']['data']['route'])?>';  
+        routingRenpam[0] = L.Routing.control({
+            waypoints: JSON.parse(route),
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainer); 
 
-        var cords = "<?php echo $data['getDetail']['data']['coordinate_schedule'];?>";
-        var latlongJadwal =  cords.split(',');
-        var latitudeJadwal = parseFloat(latlongJadwal[0]);
-        var longitudeJadwal = parseFloat(latlongJadwal[1]); 
-        // console.log({a:latitudeJadwal , b:longitudeJadwal});
-
-        L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({ 
-                html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
-                iconSize: [10, 10],
-                iconAnchor: [5, 20]
-            }) 
-        }).addTo(mapContainer);  
 
         var baseMaps = {
             "Google Map Street": googleStreet,
@@ -117,7 +119,7 @@
         };
         var overlayMaps = {};
         L.control.layers(baseMaps, overlayMaps, {
-            position: 'topright'
+            position: 'topleft'
         }).addTo(mapContainer);
         L.control.zoom({
             position: 'bottomleft'

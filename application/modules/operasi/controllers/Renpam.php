@@ -135,11 +135,12 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Polres/detail_renpam_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'renpam/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']);
+        $data['getRoute'] = $getDetail['data']['data']['route'];
+        // echo json_encode($data['getRoute']);
         // die;
 
         $page_content["data"] = $data;
@@ -166,7 +167,7 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_renpam_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'renpam/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
@@ -231,7 +232,7 @@ class Renpam extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('PUT', 'schedule/edit/'.$input['id'].'', [ 
+        $data = guzzle_request('PUT', 'renpam/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -269,7 +270,7 @@ class Renpam extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('DELETE', 'schedule/delete', [ 
+        $data = guzzle_request('DELETE', 'renpam/delete', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
