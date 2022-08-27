@@ -50,7 +50,7 @@
                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <label class="labelmui">VIP</label>
+                        <label class="labelmui">Petugas</label>
                     </div> 
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text">
