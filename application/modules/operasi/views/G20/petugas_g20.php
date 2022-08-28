@@ -17,8 +17,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NRP</th>
                             <th>Nama Petugas</th>
+                            <th>NRP</th>
                             <th>Pangkat</th>
                             <th style="width:20% ;">Strukturan</th>
                             <th>Dalam PAM</th>

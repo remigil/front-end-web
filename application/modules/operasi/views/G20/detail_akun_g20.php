@@ -43,7 +43,7 @@
                         <div class="col-8"> 
                             <ul>
                                 <?php foreach ($data['getDetail']['data']['officer'] as $row) : ?>
-                                    <li><?php echo $row['name_officer']; ?></li> 
+                                    <li><?php echo $row['name_officer']; ?>  ( <?php echo $row['nrp_officer']; ?> )</li> 
                                 <?php endforeach; ?>
                             </ul> 
                         </div>

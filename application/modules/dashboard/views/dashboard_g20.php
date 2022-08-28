@@ -1,5 +1,5 @@
 <!-- <button id="cekarrayTrack">cek marker tracking</button> -->
-<div class="row" style="margin-top: -40px;">
+<div class="row">
     <div class="col-md-12"> 
 
     <!-- <a href='#' id='export'>Export Features</a> -->
@@ -47,7 +47,7 @@
                                         <p style="font-size: 17px;">OPERASI</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="polres" id="polres" class="form-input" >  
+                                        <input type="checkbox" checked name="polres" id="polres" class="form-input" >  
                                         <span>Polres</span> 
                                     </div> 
                                     <div class="col-md-6">
@@ -315,6 +315,7 @@
     var markerJadwal = new Array();
     var markerCCTV = new Array();
     var markerFasum = new Array();
+    var markerPolres = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
 
@@ -334,6 +335,7 @@
     serverSideGetJadwal();
     serverSideGetCCTV(); 
     serverSideGetFasum();
+    serverSideGetPolres();
 
 
     var initialCenter = [-8.451740, 115.089643];
@@ -651,88 +653,163 @@
                 console.log(ress);
                 $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){ 
-                    var id; 
-                    for (let i = 0; i < ress.length; i++) { 
-                        console.log(ress[i].coordinate_schedule);
-                        id = i; 
+                if(ress.length > 0){  
+                    for (let i = 0; i < ress.length; i++) {   
+                        
                         var cordinateJadwal = ress[i].coordinate_schedule;
                         var latlongJadwal =  cordinateJadwal.split(',');
                         var latitudeJadwal = parseFloat(latlongJadwal[0]);
                         var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                        if(ress[i].coordinate_schedule != null){
 
-                        markerJadwal[ress[i].id_officer] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
-                            iconSize: [10, 10],
-                            iconAnchor: [5, 20]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                                <div class="text-center" style="width: 300px;"> 
-                                    <div class="row mt-3"> 
-                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                            <div class="avatar-xl me-3">
-                                                <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                            markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3"> 
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
                                             </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>Jadwal Kegiatan</h5> 
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-1">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].activity}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].address_schedule}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
                                         </div>
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <h5>Jadwal Kegiatan</h5> 
-                                        </div>
-                                        <div class="col-md-12 col-12 mt-1">
-                                            <div class="row text-start">
-                                                <div class="col-md-5">
-                                                    <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p style="font-size: 12px;">${ress[i].activity}</p>
-                                                </div>
-                                            </div> 
-                                        </div> 
-                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5">
-                                                    <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5">
-                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5">
-                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p style="font-size: 12px;">${ress[i].address_schedule}</p>
-                                                </div>
-                                            </div> 
-                                        </div>   
                                     </div>
-                                </div>
-                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        
+                        }else{ 
+
+                            markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3"> 
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>Jadwal Kegiatan</h5> 
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-1">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].activity}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p style="font-size: 12px;">${ress[i].address_schedule}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
+                                        </div>
+                                    </div>
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        }
                     }
                 }
             }
@@ -749,7 +826,7 @@
             for (let i = 0; i < markerJadwal.length; i++) { 
                 mapContainer.removeLayer(markerJadwal[i]);
             }
-
+            markerJadwal = new Array();
         } 
     });
     
@@ -1250,32 +1327,56 @@
                 console.log(ress);
                 $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){ 
-                    var id; 
+                if(ress.length > 0){  
                     for (let i = 0; i < ress.length; i++) {  
-                        id = i;  
-                        var latitudeCCTV = parseFloat(ress[i].lat_cctv);
-                        var longitudeCCTV = parseFloat(ress[i].lng_cctv);
 
-                        markerCCTV[ress[i].id_officer] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="margin-top: -10px;margin-left: -10px;">`,
-                            iconSize: [10, 10],
-                            iconAnchor: [5, 20]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div style="width: 300px;">
-                                <div class="row">
-                                    <div class="col-md-12" style="text-align: center;">
-                                        <h5>${ress[i].address_cctv}</h5>
+                        if(ress[i].lat_cctv != null || ress[i].lng_cctv != null){
+
+                            id = i;  
+                            var latitudeCCTV = parseFloat(ress[i].lat_cctv);
+                            var longitudeCCTV = parseFloat(ress[i].lng_cctv);
+
+                            markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div style="width: 300px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <h5>${ress[i].address_cctv}</h5>
+                                        </div>
+                                        <div class="col-md-12"> 
+                                            <img style="width: 300px;" src="${ress[i].link_cctv}" />
+                                        </div> 
                                     </div>
-                                    <div class="col-md-12"> 
-                                        <img style="width: 300px;" src="${ress[i].link_cctv}" />
-                                    </div> 
                                 </div>
-                            </div>
-                                 
-                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                                    
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+
+                        }else{
+                            markerCCTV[i] = L.marker([-8.451740, 115.089643], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div style="width: 300px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <h5>${ress[i].address_cctv}</h5>
+                                        </div>
+                                        <div class="col-md-12"> 
+                                            <img style="width: 300px;" src="${ress[i].link_cctv}" />
+                                        </div> 
+                                    </div>
+                                </div>
+                                    
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        }
                     }
                 }
             }
@@ -1290,14 +1391,14 @@
         }else{ 
             for (let i = 0; i < markerCCTV.length; i++) { 
                 mapContainer.removeLayer(markerCCTV[i]);
-            }
-
+            } 
+            markerCCTV = new Array();  
         } 
     });
 
 
 
-    function serverSideGetFasum(){
+    function serverSideGetFasum(){ 
         $("#overlay").fadeIn(300);   
         $.ajax({
             type : "POST",
@@ -1311,15 +1412,10 @@
                 console.log(ress);
                 $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){ 
-                    var id; 
+                if(ress.length > 0){  
                     var logoMarker = '';
                     var logoBody = '';
                     for (let i = 0; i < ress.length; i++) {  
-                        id = i;  
-                        var latitudeFasum = parseFloat(ress[i].fasum_lat);
-                        var longitudeFasum = parseFloat(ress[i].fasum_lng);
-
                         if(ress[i].fasum_type == 1){
                             logoMarker = `hotel.png`;
                             logoBody = `hotel.png`;
@@ -1345,80 +1441,159 @@
                             logoMarker = `rumah sakit umum.png`;
                             logoBody = `rumah sakit umum.png`;
                         }
+                        if(ress[i].fasum_lat != null || ress[i].fasum_lng != null){ 
 
-                        markerFasum[ress[i].id_officer] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="margin-top: -10px;margin-left: -10px;">`,
-                            iconSize: [10, 10],
-                            iconAnchor: [5, 20]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                                <div class="text-center" style="width: 300px;"> 
-                                    <div class="row mt-3">
-                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                            <div class="avatar-xl me-3">
-                                                <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                            var latitudeFasum = parseFloat(ress[i].fasum_lat);
+                            var longitudeFasum = parseFloat(ress[i].fasum_lng); 
+                            markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
                                             </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>Fasilitas Umum</h5>
+                                                <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_name}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_address}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
                                         </div>
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <h5>Fasilitas Umum</h5>
-                                            <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+                                    </div> 
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        }else{ 
+
+                            markerFasum[i] = L.marker([-8.451740, 115.089643], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>Fasilitas Umum</h5>
+                                                <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_name}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_address}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
                                         </div>
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].fasum_name}</p>
-                                                </div>
-                                            </div> 
-                                        </div> 
-                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].fasum_address}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-6 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
-                                                </div>
-                                            </div> 
-                                        </div>   
-                                    </div>
-                                </div> 
-                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                                    </div> 
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        }
                     }
                 }
             }
@@ -1428,13 +1603,206 @@
 
 
     $("#fasum").on("change", function (e) {
-        if($(this).is(':checked')){ 
+        if($(this).is(':checked')){  
             serverSideGetFasum();
         }else{ 
             for (let i = 0; i < markerFasum.length; i++) { 
                 mapContainer.removeLayer(markerFasum[i]);
             }
+            markerFasum = new Array();  
+        } 
+    });
 
+
+
+    function serverSideGetPolres(){
+        $("#overlay").fadeIn(300);   
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getPolres", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                console.log(ress);
+                $("#overlay").fadeOut(300);
+                
+                if(ress.length > 0){  
+                    var logoMarker = '';
+                    var logoBody = '';
+                    for (let i = 0; i < ress.length; i++) {  
+
+                        if(ress[i].latitude != null || ress[i].longitude != null){ 
+                            var latitudePolres = parseFloat(ress[i].latitude);
+                            var longitudePolres = parseFloat(ress[i].longitude); 
+    
+                            markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>${ress[i].name_polres}</h5> 
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].address}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].code_satpas}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
+                                        </div>
+                                    </div> 
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                        }else{
+
+                            markerPolres[i] = L.marker([-8.451740, 115.089643], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <h5>${ress[i].name_polres}</h5> 
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].address}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].code_satpas}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
+                                                    </div>
+                                                </div> 
+                                            </div>   
+                                        </div>
+                                    </div> 
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+
+                        }
+
+                    }
+                }
+            }
+        }); 
+    }
+
+
+
+    $("#polres").on("change", function (e) {
+        if($(this).is(':checked')){ 
+            serverSideGetPolres();
+        }else{ 
+            for (let i = 0; i < markerPolres.length; i++) { 
+                mapContainer.removeLayer(markerPolres[i]);
+            }
+            markerPolres = new Array();  
         } 
     });
 
@@ -1568,15 +1936,15 @@
 
 
 
-    $('#cekarrayTrack').on('click', function(e) { 
-        console.log(markerArray);
-    });
+    
+    
+    
+    
+});
 
-
-
- 
-  });
-
+$('#cekarrayTrack').on('click', function(e) { 
+    console.log(markerFasum);
+});
 
     
 </script> 

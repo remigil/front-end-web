@@ -104,6 +104,24 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getFasum']);
     }
 
+    public function getPolres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'polres';
+        $getPolres = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getPolres'] = $getPolres['data'];
+
+        echo json_encode($data['getPolres']);
+    }
+
     public function getJadwal()
     {
         $headers = [
