@@ -1,4 +1,4 @@
-
+<button id="cekarrayTrack">cek marker tracking</button>
 <div class="row" style="margin-top: -40px;">
     <div class="col-md-12"> 
 
@@ -412,30 +412,32 @@
                 "status" : '1',
             }, 
             dataType : "JSON",
-            success : function(result){ 
-                var id;
+            success : function(result){  
                 let ress = result['data']; 
                 console.log(result['data']);
                 console.log('get Controller');
 
                 if (ress.length > 0) {    
-                    for (let i = 0; i < ress.length; i++) { 
-                        id = ress[i].id_user; 
+                    for (let i = 0; i < ress.length; i++) {  
 
                         var jenis = '';
-                        if(ress[i].type_vehicle != 'Sepeda Motor'){
-                            jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                        if(ress[i].type_vehicle == 'Sepeda Motor'){
+                            // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                            jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="margin-top: -10px;margin-left: -10px;">`;
+                        }else if(ress[i].type_vehicle == 'Mobil'){
+                            jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="margin-top: -10px;margin-left: -10px;">`;
                         }else{
-                            jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                            // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                            jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="margin-top: -10px;margin-left: -10px;">`;
                         }
 
-                        if(markerArray[id] != null){ 
-                            markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                className: 'location-pin',
+                        if(markerArray[ress[i].id_officer] != null){ 
+                            markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                // className: 'location-pin',
                                 html: jenis,
-                                iconSize: [30, 30],
-                                //iconAnchor: [18, 30]
-                                iconAnchor: [10, 33]
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
                                 }) }).bindPopup(`
                                 <div class="text-center" style="width: 300px;"> 
                                     <div class="row mt-3">
@@ -526,12 +528,12 @@
                                 </div>
                             `).update();  
                         }else{ 
-                            markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                className: 'location-pin',
+                            markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                // className: 'location-pin',
                                 html: jenis,
-                                iconSize: [30, 30],
-                                //iconAnchor: [18, 30]
-                                iconAnchor: [10, 33]
+                                iconSize: [10, 10],
+                                iconAnchor: [5, 20]
+                                // iconAnchor: [10, 33]
                                 }) }).bindPopup(`
                                 <div class="text-center" style="width: 300px;"> 
                                     <div class="row mt-3">
@@ -659,7 +661,7 @@
                         var latitudeJadwal = parseFloat(latlongJadwal[0]);
                         var longitudeJadwal = parseFloat(latlongJadwal[1]);
 
-                        markerJadwal[id] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                        markerJadwal[ress[i].id_officer] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
                             // className: 'location-pin',
                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
                             iconSize: [10, 10],
@@ -737,6 +739,8 @@
         });
 
     }
+
+
     
     $("#jadwal").on("change", function (e) {
         if($(this).is(':checked')){ 
@@ -751,13 +755,12 @@
     
 
     socket.on('from server', function(ress) { 
-        console.log('ido2');
-        var id = ress[i].id_user;
+        console.log('ido2'); 
         console.log(ress) 
 
-        for (let i = 0; i < ress.length; i++) { 
-            if(markerArray[id] != null){ 
-              markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+        for (let i = 0; i < ress.length; i++) {  
+            if(markerArray[ress[i].id_officer] != null){ 
+              markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                   className: 'location-pin',
                   html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
                   iconSize: [30, 30],
@@ -775,7 +778,7 @@
                   </div>
               `).update();  
             }else{ 
-              markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+              markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                   className: 'location-pin',
                   html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
                   iconSize: [30, 30],
@@ -796,27 +799,29 @@
         }
     }) 
     socket.on('sendToAdmin', function(ress) { 
-        var id = ress[i].id_user;
         console.log('ido3');
-        console.log(ress);
-        
-        for (let i = 0; i < ress.length; i++) { 
-            // console.log(ress[i].id_user);
+        console.log(ress); 
+
+        for (let i = 0; i < ress.length; i++) {  
 
             var jenis = '';
-            if(ress[i].type_vehicle != 'Sepeda Motor'){
-                jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+            if(ress[i].type_vehicle == 'Sepeda Motor'){
+                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="margin-top: -10px;margin-left: -10px;">`;
+            }else if(ress[i].type_vehicle == 'Mobil'){
+                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="margin-top: -10px;margin-left: -10px;">`;
             }else{
-                jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="margin-top: -10px;margin-left: -10px;">`;
             }
 
-            if(markerArray[id] != null){ 
-              markerArray[id].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                  className: 'location-pin',
-                  html: jenis,
-                  iconSize: [30, 30],
-                  //iconAnchor: [18, 30]
-                  iconAnchor: [10, 33]
+            if(markerArray[ress[i].id_officer] != null){ 
+              markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                //   className: 'location-pin',
+                html: jenis,
+                iconSize: [10, 10],
+                iconAnchor: [5, 20]
+                // iconAnchor: [10, 33]
                 }) }).bindPopup(`
                     <div class="text-center" style="width: 300px;"> 
                         <div class="row mt-3">
@@ -907,12 +912,12 @@
                     </div>
               `).update();  
             }else{ 
-              markerArray[id] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                  className: 'location-pin',
-                  html: jenis,
-                  iconSize: [30, 30],
-                  //iconAnchor: [18, 30]
-                  iconAnchor: [10, 33]
+              markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                //   className: 'location-pin',
+                html: jenis,
+                iconSize: [10, 10],
+                iconAnchor: [5, 20]
+                // iconAnchor: [10, 33]
                 }) }).bindPopup(`
                     <div class="text-center" style="width: 300px;"> 
                         <div class="row mt-3">
@@ -1252,7 +1257,7 @@
                         var latitudeCCTV = parseFloat(ress[i].lat_cctv);
                         var longitudeCCTV = parseFloat(ress[i].lng_cctv);
 
-                        markerCCTV[id] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                        markerCCTV[ress[i].id_officer] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
                             // className: 'location-pin',
                             html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="margin-top: -10px;margin-left: -10px;">`,
                             iconSize: [10, 10],
@@ -1341,7 +1346,7 @@
                             logoBody = `rumah sakit umum.png`;
                         }
 
-                        markerFasum[id] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                        markerFasum[ress[i].id_officer] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                             // className: 'location-pin',
                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="margin-top: -10px;margin-left: -10px;">`,
                             iconSize: [10, 10],
@@ -1561,6 +1566,11 @@
  
     mapContainer.setView(initialCenter, initialZoom); 
 
+
+
+    $('#cekarrayTrack').on('click', function(e) { 
+        console.log(markerArray);
+    });
 
 
 
