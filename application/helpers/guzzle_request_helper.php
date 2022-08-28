@@ -15,7 +15,7 @@ if (!function_exists('guzzle_request')) {
      */
     function guzzle_request($method, $uri, $body){
         $client = new Client();
-        $request = $client->request($method,'http://k3ig20korlantas:3001/v1/'.$uri,$body);
+        $request = $client->request($method,'http://localhost:3001/v1/'.$uri,$body);
         $response = $request->getBody();
         $data = json_decode($response, true);
 
@@ -23,7 +23,7 @@ if (!function_exists('guzzle_request')) {
     }
 
     function urlApi(){
-        return 'http://k3ig20korlantas:3001/v1/';
+        return 'http://localhost:3001/v1/';
     }
 }
 

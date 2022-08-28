@@ -86,6 +86,24 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getCCTV']);
     }
 
+    public function getFasum()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'fasum';
+        $getFasum = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getFasum'] = $getFasum['data'];
+
+        echo json_encode($data['getFasum']);
+    }
+
     public function getJadwal()
     {
         $headers = [

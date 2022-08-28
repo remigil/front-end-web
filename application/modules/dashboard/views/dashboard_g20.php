@@ -89,7 +89,7 @@
                                         <p style="font-size: 17px;">Location Of Interest</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="fasilitas" id="fasilitas" class="form-input" >  
+                                        <input type="checkbox" checked name="fasum" id="fasum" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
                                     </div>   
                                     <div class="col-md-6">
@@ -314,6 +314,7 @@
     var markerArray = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
+    var markerFasum = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
 
@@ -331,7 +332,8 @@
 
     serverSideGet();
     serverSideGetJadwal();
-    serverSideGetCCTV();
+    serverSideGetCCTV(); 
+    serverSideGetFasum();
 
 
     var initialCenter = [-8.451740, 115.089643];
@@ -664,9 +666,17 @@
                             iconAnchor: [5, 20]
                             // iconAnchor: [10, 33]
                             }) }).bindPopup(`
-                                <div class="text-center" style="width: 260px; height: 140px"> 
+                                <div class="text-center" style="width: 300px;"> 
                                     <div class="row mt-3"> 
-                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                            <div class="avatar-xl me-3">
+                                                <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12 mt-3">
+                                            <h5>Jadwal Kegiatan</h5> 
+                                        </div>
+                                        <div class="col-md-12 col-12 mt-1">
                                             <div class="row text-start">
                                                 <div class="col-md-5">
                                                     <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
@@ -679,7 +689,7 @@
                                                 </div>
                                             </div> 
                                         </div> 
-                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
                                             <div class="row text-start">
                                                 <div class="col-md-5">
                                                     <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
@@ -692,7 +702,7 @@
                                                 </div>
                                             </div> 
                                         </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
                                             <div class="row text-start">
                                                 <div class="col-md-5">
                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
@@ -705,7 +715,7 @@
                                                 </div>
                                             </div> 
                                         </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
+                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
                                             <div class="row text-start">
                                                 <div class="col-md-5">
                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
@@ -1275,6 +1285,149 @@
         }else{ 
             for (let i = 0; i < markerCCTV.length; i++) { 
                 mapContainer.removeLayer(markerCCTV[i]);
+            }
+
+        } 
+    });
+
+
+
+    function serverSideGetFasum(){
+        $("#overlay").fadeIn(300);   
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getFasum", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                console.log(ress);
+                $("#overlay").fadeOut(300);
+                
+                if(ress.length > 0){ 
+                    var id; 
+                    var logoMarker = '';
+                    var logoBody = '';
+                    for (let i = 0; i < ress.length; i++) {  
+                        id = i;  
+                        var latitudeFasum = parseFloat(ress[i].fasum_lat);
+                        var longitudeFasum = parseFloat(ress[i].fasum_lng);
+
+                        if(ress[i].fasum_type == 1){
+                            logoMarker = `hotel.png`;
+                            logoBody = `hotel.png`;
+                        }else if(ress[i].fasum_type == 2){
+                            logoMarker = `rumah ibadah.png`;
+                            logoBody = `rumah ibadah.png`;
+                        }else if(ress[i].fasum_type == 3){
+                            logoMarker = `pom bensin.png`;
+                            logoBody = `pom bensin.png`;
+                        }else if(ress[i].fasum_type == 4){
+                            logoMarker = `no_image.png`;
+                            logoBody = `no_image.png`;
+                        }else if(ress[i].fasum_type == 5){
+                            logoMarker = `rumah makan.png`;
+                            logoBody = `rumah makan.png`;
+                        }else if(ress[i].fasum_type == 6){
+                            logoMarker = `no_image.png`;
+                            logoBody = `no_image.png`;
+                        }else if(ress[i].fasum_type == 7){
+                            logoMarker = `damkar.png`;
+                            logoBody = `damkar.png`;
+                        }else if(ress[i].fasum_type == 8){
+                            logoMarker = `rumah sakit umum.png`;
+                            logoBody = `rumah sakit umum.png`;
+                        }
+
+                        markerFasum[id] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                            // className: 'location-pin',
+                            html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="margin-top: -10px;margin-left: -10px;">`,
+                            iconSize: [10, 10],
+                            iconAnchor: [5, 20]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;"> 
+                                    <div class="row mt-3">
+                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                            <div class="avatar-xl me-3">
+                                                <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12 mt-3">
+                                            <h5>Fasilitas Umum</h5>
+                                            <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+                                        </div>
+                                        <div class="col-md-12 col-12 mt-3">
+                                            <div class="row text-start">
+                                                <div class="col-md-5 col-6">
+                                                    <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <p style="font-size: 12px;">${ress[i].fasum_name}</p>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5 col-6">
+                                                    <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <p style="font-size: 12px;">${ress[i].fasum_address}</p>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5 col-6">
+                                                    <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                            <div class="row text-start">
+                                                <div class="col-md-5 col-6">
+                                                    <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p style="font-size: 12px;"> : </p>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
+                                                </div>
+                                            </div> 
+                                        </div>   
+                                    </div>
+                                </div> 
+                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                    }
+                }
+            }
+        }); 
+    }
+
+
+
+    $("#fasum").on("change", function (e) {
+        if($(this).is(':checked')){ 
+            serverSideGetFasum();
+        }else{ 
+            for (let i = 0; i < markerFasum.length; i++) { 
+                mapContainer.removeLayer(markerFasum[i]);
             }
 
         } 
