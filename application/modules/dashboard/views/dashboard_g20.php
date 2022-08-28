@@ -67,7 +67,7 @@
                                         <span>VIP</span> 
                                     </div> 
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" name="cctv" id="cctv" class="form-input" >  
+                                        <input type="checkbox" checked name="cctv" id="cctv" class="form-input" >  
                                         <span>CCTV</span> 
                                     </div>  
     
@@ -313,6 +313,7 @@
     });
     var markerArray = new Array();
     var markerJadwal = new Array();
+    var markerCCTV = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
 
@@ -330,6 +331,7 @@
 
     serverSideGet();
     serverSideGetJadwal();
+    serverSideGetCCTV();
 
 
     var initialCenter = [-8.451740, 115.089643];
@@ -734,8 +736,7 @@
                 mapContainer.removeLayer(markerJadwal[i]);
             }
 
-        }
-        
+        } 
     });
     
 
@@ -1153,35 +1154,7 @@
                         var longitude = parseFloat(latlong[1]); 
                         mapContainer.flyTo([latitude, longitude], 17); 
 
-
-                        // console.log(routingJadwal);
-                        // if(routingJadwal.length != 0){
-                        //     mapContainer.removeLayer(routingJadwal[0]);
-                        //     mapContainer.removeControl(routingJadwal[0]);
-                        //     console.log('kehapus');
-                        // }
-                          
-                        // var dataCord = $(this).data('cordarray').split(" / "); 
-                        // var obj = {}; 
-                        // data = [];
-                        // for (let ii = 0; ii < dataCord.length; ii++){ 
-                        //     var latlong =  dataCord[ii].split(',');
-                        //     var latitude = parseFloat(latlong[0]);
-                        //     var longitude = parseFloat(latlong[1]); 
-                        //     obj = {}; 
-                        //     obj = L.latLng(latitude, longitude);
-                        //     data.push(obj);   
-                        // } 
-
-                        // routingJadwal[0] = L.Routing.control({
-                        //     waypoints: data,
-                        //     router: new L.Routing.osrmv1({
-                        //         language: 'en',
-                        //         profile: 'car'
-                        //     }),
-                        //     geocoder: L.Control.Geocoder.nominatim({})
-                        // }).addTo(mapContainer);
-                        // console.log(routingJadwal);
+ 
                     });
                 } 
             }
@@ -1229,12 +1202,7 @@
                 for (let i = 0; i < ress.length; i++){ 
                     $(`#listRenpamClick${i+1}`).click(function(){    
 
-                        console.log(routingRenpam);
-                        // if(routingRenpam.length != 0){
-                        //     mapContainer.removeLayer(routingRenpam[0]);
-                        //     mapContainer.removeControl(routingRenpam[0]);
-                        //     console.log('kehapus');
-                        // } 
+                        console.log(routingRenpam); 
 
                         routingRenpam[i] = L.Routing.control({
                             waypoints: route[i],
@@ -1253,7 +1221,64 @@
     });
 
 
+    function serverSideGetCCTV(){
+        $("#overlay").fadeIn(300);  
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getCCTV", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                console.log(ress);
+                $("#overlay").fadeOut(300);
+                
+                if(ress.length > 0){ 
+                    var id; 
+                    for (let i = 0; i < ress.length; i++) {  
+                        id = i;  
+                        var latitudeCCTV = parseFloat(ress[i].lat_cctv);
+                        var longitudeCCTV = parseFloat(ress[i].lng_cctv);
 
+                        markerCCTV[id] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                            // className: 'location-pin',
+                            html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="margin-top: -10px;margin-left: -10px;">`,
+                            iconSize: [10, 10],
+                            iconAnchor: [5, 20]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                            <div style="width: 300px;">
+                                <div class="row">
+                                    <div class="col-md-12" style="text-align: center;">
+                                        <h5>${ress[i].address_cctv}</h5>
+                                    </div>
+                                    <div class="col-md-12"> 
+                                        <img style="width: 300px;" src="${ress[i].link_cctv}" />
+                                    </div> 
+                                </div>
+                            </div>
+                                 
+                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                    }
+                }
+            }
+        }); 
+    }
+
+
+
+    $("#cctv").on("change", function (e) {
+        if($(this).is(':checked')){ 
+            serverSideGetCCTV();
+        }else{ 
+            for (let i = 0; i < markerCCTV.length; i++) { 
+                mapContainer.removeLayer(markerCCTV[i]);
+            }
+
+        } 
+    });
 
     
     mapContainer.on('dblclick', function(e) { 

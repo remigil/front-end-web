@@ -68,6 +68,24 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function getCCTV()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'cctv';
+        $getCCTV = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getCCTV'] = $getCCTV['data'];
+
+        echo json_encode($data['getCCTV']);
+    }
+
     public function getJadwal()
     {
         $headers = [
