@@ -10,7 +10,7 @@ if (!isset($this->session->userdata['logged'])){
     ];
 
     $client = new \GuzzleHttp\Client();
-    $request = $client->request('POST','http://localhost:3001/v1/auth/validate_login',[
+    $request = $client->request('POST','http://k3ig20korlantas:3001/v1/auth/validate_login',[
         'headers' => $headers 
     ]);
     $response = $request->getBody();
