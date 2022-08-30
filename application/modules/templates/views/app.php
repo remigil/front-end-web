@@ -730,7 +730,7 @@
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li><a href="<?= base_url('Ditregident/Sim') ?>" data-key="t-inbox">SIM</a></li>
                                             <li><a href="<?= base_url('Ditregident/Stnk') ?>" data-key="t-read-email">STNK</a></li>
-                                            <li><a href="<?= base_url('Diregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
                                             <li><a href="<?= base_url('Ditregident/Ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
                                         </ul>
                                     </li>

@@ -6,7 +6,6 @@
         </ol>
     </nav>
 </section>
-
 <section class="shadow-sm">
     <div class="card rounded">
         <div class="card-header card-headline">
@@ -22,29 +21,69 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="item-card blue-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Baru</h4>
+                    <div class="card-body blue-card">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6">
+                                <h4 class="text-light fw-light">Mobil Penumpang</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="text-center blue-card-text">538</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card red-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Ganti Pemilik</h4>
+                    <div class="card-body red-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 rounded">
+                                <h4 class="text-light d-inline fw-light">Mobil Barang</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="red-card-text">928</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card green-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">RUBENTINA</h4>
+                    <div class="card-body green-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Mobil Bus</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="green-card-text text-center">45</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card yellow-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Jumlah</h4>
+                    <div class="card-body yellow-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Ransus</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="yellow-card-text text-center">380</h1>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="card-body orange-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Sepeda Motor</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="orange-card-text text-center">145</h1>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
                         <h2 class="text-center">5 RANGKING RANMOR TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
-                        <table class="table table-bordered border-primary">
+                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
                             <thead class="table-primary">
                                 <tr class="text-white">
                                     <th scope="col">No</th>
-                                    <th scope="col">Polda</th>
+                                    <th scope="col">POLDA</th>
                                     <th scope="col">Mobil Penumpang</th>
                                     <th scope="col">Mobil Barang</th>
                                     <th scope="col">Mobil Bus</th>
@@ -56,47 +95,47 @@
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
+                                    <td>65</td>
+                                    <td>8</td>
                                     <td>2</td>
                                     <td>94</td>
-                                    <td>87</td>
+                                    <td>94</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
+                                    <td>Jawa Tengah</td>
+                                    <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
-                                    <td>94</td>
-                                    <td>87</td>
+                                    <td>35</td>
+                                    <td>35</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>87</td>
-                                    <td>94</td>
+                                    <td>Jawa Timur</td>
+                                    <td>43</td>
+                                    <td>24</td>
+                                    <td>1</td>
+                                    <td>18</td>
+                                    <td>18</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                    <td>87</td>
+                                    <td>Sulawesi Selatan</td>
+                                    <td>31</td>
+                                    <td>21</td>
+                                    <td>6</td>
+                                    <td>3</td>
+                                    <td>3</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
+                                    <td>Bali</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
                                     <td>2</td>
-                                    <td>94</td>
-                                    <td>87</td>
+                                    <td>2</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -106,61 +145,55 @@
         </div>
     </div>
 </section>
-
-
 <section>
-    <div class="col-6">
-        <h4>Wilayah</h4>
-        <form action="">
-            <div class="row">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ffffff;color:black; width:350px">
+            Filter<i class="fas fa-filter" style="float: right;"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <div class="row text-center m-3">
                 <div class="col-md-6">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Polda</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <h6>Wilayah</h6>
+                    <div class="form-group">
+                        <select class="form-select">
+                            <option>Polda</option>
+                            <option>Semua Polda</option>
+                            <option>Aceh</option>
+                            <option>Sumatera Utara</option>
+                            <option>Sumatera Selatan</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-1">
+                        <select class="form-select">
+                            <option>Polres</option>
+                            <option>Semua Polres</option>
+                            <option>Jakarta Pusat</option>
+                            <option>Jakarta Utara</option>
+                            <option>Jakata Barat</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Polda</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <h6>Waktu</h6>
+                    <div class="form-group">
+                        <select class="form-select">
+                            <option>Pilih Waktu</option>
+                            <option>Tahun</option>
+                            <option>Bulan</option>
+                            <option>Customize</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-1">
+                        <input class="form-control" type="date" value="">
+                    </div>
+                    <div class="form-group mt-1">
+                        <input class="form-control" type="date" value="">
+                    </div>
                 </div>
+                <button class="btn btn-primary mt-2" type="button">Tampilkan</button>
             </div>
-        </form>
+        </ul>
     </div>
-    <hr>
-</section>
-
-<section>
-    <div class="col-12">
-        <h4>Waktu</h4>
-        <form action="">
-            <div class="row">
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Customize</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <input type="date" placeholder="Tanggal mulai" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="col-md-3">
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary table-head form-control">Tampilkan</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <hr>
 </section>
 
 <section class="shadow-sm mt-5">
@@ -190,10 +223,12 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Polda</th>
-                                <th>Baru</th>
-                                <td>Ganti Pemilik</td>
-                                <td>RUBENTINA</td>
+                                <th>POLDA</th>
+                                <th>Mobil Penumpang</th>
+                                <td>Mobil Barang</td>
+                                <td>Mobil Bus</td>
+                                <td>Ransus</td>
+                                <td>Sepeda Motor</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -203,6 +238,8 @@
                                 <td>11012</td>
                                 <td>5932</td>
                                 <td>78</td>
+                                <td>78</td>
+                                <td>78</td>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -210,6 +247,9 @@
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>59</td>
+                                <td>59</td>
+                                <td>78</td>
+
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -217,12 +257,16 @@
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>592</td>
+                                <td>592</td>
+                                <td>592</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>JABAR</td>
                                 <td>2896</td>
                                 <td>1860</td>
+                                <td>532</td>
+                                <td>532</td>
                                 <td>532</td>
                             </tr>
                         </tbody>
@@ -259,10 +303,11 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Tahun</th>
-                                <th>Baru</th>
-                                <th>Ganti Pemilik</th>
-                                <th>RUBENTINA</th>
+                                <th>Bulan</th>
+                                <th>Mobil Penumpang</th>
+                                <th>Mobil Barang</th>
+                                <th>Mobil Bus</th>
+                                <th>Sepeda Motor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -272,12 +317,14 @@
                                 <td>11012</td>
                                 <td>5932</td>
                                 <td>6127</td>
+                                <td>6127</td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>Januari</td>
                                 <td>2896</td>
                                 <td>1860</td>
+                                <td>617</td>
                                 <td>617</td>
                             </tr>
                             <tr>
@@ -286,12 +333,14 @@
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>8787</td>
+                                <td>8787</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Maret</td>
                                 <td>2896</td>
                                 <td>1860</td>
+                                <td>778</td>
                                 <td>778</td>
                             </tr>
                         </tbody>
@@ -311,21 +360,31 @@
         //    STNK
         var options_stnk = {
             series: [{
-                    name: 'Baru',
+                    name: 'Mobil Penumpang',
                     type: 'column',
                     data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
                     color: "#003A91"
                 }, {
-                    name: 'Ganti Pemilik',
+                    name: 'Mobil Barang',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#CB2D3E"
                 },
                 {
-                    name: 'RUBENTINA',
+                    name: 'Mobil Bus',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#E8D42F"
+                },{
+                    name: 'Ransus',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#3CA55C"
+                },{
+                    name: 'Ransus',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#11617A"
                 },
             ],
             chart: {
@@ -336,18 +395,11 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '100%',
+                    columnWidth: '40%',
                     dataLabels: {
                         position: 'top'
                     }
                 },
-            },
-            dataLabels: {
-                enabled: true,
-                style: {
-                    colors: ['#333']
-                },
-                offsetY: -15
             },
 
             stroke: {
@@ -382,21 +434,33 @@
         // STNK TAHUN
         var options_stnk_tahun = {
             series: [{
-                name: 'Baru',
-                type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
-                color: "#003A91"
-            }, {
-                name: 'Ganti Pemilik',
-                type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
-                color: "#CB2D3E"
-            }, {
-                name: 'RUBENTINA',
-                type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
-                color: "#E8D42F"
-            }, ],
+                    name: 'Mobil Penumpang',
+                    type: 'column',
+                    data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#003A91"
+                }, {
+                    name: 'Mobil Barang',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#CB2D3E"
+                },
+                {
+                    name: 'Mobil Bus',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#E8D42F"
+                },{
+                    name: 'Ransus',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#3CA55C"
+                },{
+                    name: 'Ransus',
+                    type: 'column',
+                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    color: "#11617A"
+                },
+            ],
             chart: {
                 height: 350,
                 type: 'line',
@@ -405,18 +469,11 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '100%',
+                    columnWidth: '40%',
                     dataLabels: {
                         position: 'top'
                     }
                 },
-            },
-            dataLabels: {
-                enabled: true,
-                style: {
-                    colors: ['#333']
-                },
-                offsetY: -15
             },
 
             stroke: {

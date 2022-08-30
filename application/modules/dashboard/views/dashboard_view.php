@@ -1,251 +1,770 @@
-<div class="row">
-    <div class="col-md-12">
-        <div id="mapG20Dashboard"></div>
-    </div>
-    <div class="col-md-12">
-        <div id="ChartTrialBalance"></div>
-    </div>
-    <div class="col-md-12">
-        <div class="material-textfield mb-3">
-            <input style="width: 100%;" name="username" placeholder="Nama pengguna atau alamat email" type="text">
-            <label class="labelmui">Nama pengguna atau alamat email</label>
-        </div>
-    </div>
-    <div class="col-12"> 
-        <input type="file" name="file" class="dropify" data-allowed-file-extensions="pdf" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
-    </div>
-</div>
-
-<script> 
-    $(document).ready(function() { 
-        $('.dropify').dropify();
-  
-        var options = {
-        series: [
-            {
-                name: 'Opening Balance Debit',
-                type: 'line',
-                data: [10,20,30,50]
-            }, 
-            {
-                name: 'Opening Balance Credit',
-                type: 'line',
-                data: [10,20,30,50]
-            }, 
-            {
-                name: 'Movement Debit',
-                type: 'line',
-                data: [10,20,30,50]
-            }, 
-            {
-                name: 'Movement Credit',
-                type: 'line',
-                data: [10,20,30,50]
-            }, 
-            {
-                name: 'End Balance Debit',
-                type: 'line',
-                data: [10,20,30,50]
-            }, 
-            {
-                name: 'End Balance Credit',
-                type: 'line',
-                data: [10,20,30,50]
-            }
-        ],
-        chart: {
-            height: 350,
-            type: 'line',
-            stacked: false,
-            zoom: {
-                enabled: true,
-                type: 'x',  
-                autoScaleYaxis: false,  
-                zoomedArea: {
-                    fill: {
-                    color: '#90CAF9',
-                    opacity: 0.4
-                    },
-                    stroke: {
-                    color: '#0D47A1',
-                    opacity: 0.4,
-                    width: 1
-                    }
-                }
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            width: [4, 4, 4, 4, 4, 4]
-        }, 
-        xaxis: {
-            categories: [2022,2023,2024,2025],
-        },
-            
-        tooltip: {
-            fixed: {
-                enabled: true,
-                position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-                offsetY: 30,
-                offsetX: 60
-            },
-        },
-        legend: {
-            horizontalAlign: 'center',
-            offsetX: 40
-        }
-    };
-
-    var ChartTrialBalance = new ApexCharts(document.querySelector("#ChartTrialBalance"), options);
-
-    ChartTrialBalance.render();
-
-
-
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
-            minZoom: 1,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);
-
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-
-        var arrayData = $.grep(data, function(element, index) {
-            return element.coordinate != null && element.coordinate != '';
-        });
-        // console.log(arrayData); 
-
-        for (let i = 0; i < arrayData.length; i++) {
-            var cordinate = arrayData[i].coordinate;
-            var latlong = cordinate.split(',');
-            var latitude = parseFloat(latlong[0]);
-            var longitude = parseFloat(latlong[1]);
-            // console.log({a:latitude , b:longitude});
-
-            markerClusterGroup.addLayer(
-                L.marker([latitude, longitude], {
-                    icon
-                }).bindPopup(`
-                <div class="text-center" style="width: 300px;">
-                    <div class="card-block">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-                        </a>
-                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Location :</h5>  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <div class="row">
+        <div class="col-lg-12">
+            <div>
+                <h4>Statistik Nasional</h4>
+            </div>
+            <div class="row">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#11617A">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-3 col-sm-8">
+                                            <h4 class="text-wrap fw-light text-light">Dakgar Lantas</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <img src="<?= base_url('assets/dashboard/icon-dakgarlantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">POC :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Demand :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                    </div>
-                    <div class="card-footer">
-                        <div class="row no-space">
-                            <div class="col-4" style="display: grid">
-                                <span>Participant/s</span>
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
                             </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Threat Level</span> 
-                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#11347A">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-6 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-garlantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Event Date</span> 
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#CB2D3E">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/iconlakalantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#F06619">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">Data Turjagwali</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-dataturjagwali.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#7A113D">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">Dikmas Lantas</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-dikmaslantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#2C117A">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <img src="<?= base_url('assets/dashboard/icon-penyebaran.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#7A113D">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">SIM</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-sim.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#10A9FF">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">STNK</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-stnk.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#F06619">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">BPKB</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-bpkb.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#3CA55C">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-5 col-sm-6">
+                                            <h4 class="text-wrap fw-light text-light">RANMOR</h4>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <img src="<?= base_url('assets/dashboard/icon-ranmor.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            `)
-            );
-        }
-        mapContainer.addLayer(markerClusterGroup);
-        mapContainer.setView(initialCenter, initialZoom);
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h5>DIREKTORAT LANTAS NASIONAL</h5>
+        </div>
+        <div class="col-md-7">
+            <div class="mt-2">
+                <div class="card shadow-sm">
+                    <div class="text-center mt-5">
+                        <h5>DITGAKKUM NASIONAL</h5>
+                    </div>
+                    <div>
+                        <div class="main-chart">
+                            <div id="chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="mt-2 mb-3">
+                <div class="card shadow-sm">
+                    <div class="mt-5 text-center">
+                        <h5>Top 5 Polda Tertinggi</h5>
+                    </div>
+                    <div class="mt-2">
+                        <div class="card ms-4 me-4 mx-1 my-1">
+                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">1. JABAR</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-sm-4">
+                                        <h5 class="fw-bold p-0 m-0">165</h5>
+                                        <p class="p-0 m-0">Kemacematan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">55</h5>
+                                        <p class="p-0 m-0">Pelanggaran</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">45</h5>
+                                        <p class="p-0 m-0">Kecelakaan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">264</h5>
+                                        <p class="p-0 m-0">Total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ms-4 me-4 mx-1 my-1">
+                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">2. JATENG</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">165</h5>
+                                        <p class="p-0 m-0">Kemacematan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">55</h5>
+                                        <p class="p-0 m-0">Pelanggaran</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">45</h5>
+                                        <p class="p-0 m-0">Kecelakaan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">264</h5>
+                                        <p class="p-0 m-0">Total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ms-4 me-4 mx-1 my-1">
+                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">3. METRO JAYA</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">165</h5>
+                                        <p class="p-0 m-0">Kemacematan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">55</h5>
+                                        <p class="p-0 m-0">Pelanggaran</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">45</h5>
+                                        <p class="p-0 m-0">Kecelakaan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">264</h5>
+                                        <p class="p-0 m-0">Total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ms-4 me-4 mx-1 my-1">
+                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">4. JATIM</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">165</h5>
+                                        <p class="p-0 m-0">Kemacematan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">55</h5>
+                                        <p class="p-0 m-0">Pelanggaran</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">45</h5>
+                                        <p class="p-0 m-0">Kecelakaan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">264</h5>
+                                        <p class="p-0 m-0">Total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card ms-4 me-4 mx-1 my-1">
+                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">5. BANTEN</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">165</h5>
+                                        <p class="p-0 m-0">Kemacematan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">55</h5>
+                                        <p class="p-0 m-0">Pelanggaran</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">45</h5>
+                                        <p class="p-0 m-0">Kecelakaan</p>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h5 class="fw-bold p-0 m-0">264</h5>
+                                        <p class="p-0 m-0">Total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="text-center mt-5">
+                    <h5>DITKAMSEL NASIONAL</h5>
+                </div>
+                <div>
+                    <div class="main-chart">
+                        <div id="chart2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                        <h5>DATA TRIPON HARIAN</h5>
+                        <p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <div class="main-chart">
+                            <div id="chart3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                        <h5>DATA TRIPON HARIAN</h5>
+                        <p class="fw-bold" style="text-transform:capitalize">Per Status Perjalanan</p>
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <div class="main-chart m-0 p-0">
+                            <div id="chart4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="text-center mt-5">
+                    <h5>DITREGIDENT NASIONAL</h5>
+                </div>
+                <div>
+                    <div class="main-chart">
+                        <div id="chart5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-center text-uppercase m-3 p-0">
+                    <h5>TroubleSpot Terkini</h5>
+                </div>
+                <div class="card-body">
+                    <div style="overflow-y: scroll; height:545px">
+                        <table class="table dt-responsive text-center table-bordered">
+                            <thead class="table-primary" style="vertical-align : middle;text-align:center;">
+                                <tr>
+                                    <th>Daerah</th>
+                                    <th>Lokasi</th>
+                                    <th>Waktu Pengkajian</th>
+                                </tr>
+                            </thead>
+                            <tbody style="overflow:scroll;">
+                                <tr>
+                                    <td>Jakarta</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>5 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jawa Barat</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>4 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jawa Tengah</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>3 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bali</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>3 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Surabaya</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>4 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sumatera</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>3 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bogor</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>3 Jam</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Depok</td>
+                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
+                                    <td>
+                                        <h5>3 Jam</h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'topright'
-        }).addTo(mapContainer);
-        L.control.zoom({
-            position: 'bottomleft'
-        }).addTo(mapContainer);
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
 
 
+        $(document).ready(function() {
+            var options_ditgakkum = {
+                series: [{
+                    name: 'Data Dakgar Lantas',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    color: "#003A91"
+                }, {
+                    name: 'Kecelakaan Lalu Lintas',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'Gar Lantas',
+                    type: 'column',
+                    data: [89, 678, 21, 345, 78, 65, 34, 91, 87, 11],
+                    color: "#E8D42F"
+                }, {
+                    name: 'Data Turjagwali',
+                    type: 'column',
+                    data: [890, 171, 212, 124, 65, 321, 121, 111, 123, 34],
+                    color: "#3CA55C"
+                }],
+                chart: {
+                    height: 625,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditgakkum = new ApexCharts(document.querySelector("#chart"), options_ditgakkum);
+            ditgakkum.render();
 
 
-    });
-</script>
+            var options_ditkamsel = {
+                series: [{
+                    name: 'Dikmas Lantas',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99, 100, 123, 134],
+                    color: "#003A91"
+                }, {
+                    name: 'Penyabaran/Pemasangan',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16, 89, 156, 165],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 555,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditkamsel = new ApexCharts(document.querySelector("#chart2"), options_ditkamsel);
+            ditkamsel.render();
+
+            var options_tripon_kendaraan = {
+                series: [87, 60],
+                chart: {
+                    width: 380,
+                    type: 'pie',
+                },
+                labels: ['Mobil Pribadi', 'Motor'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+
+            var tripon_kendaraan = new ApexCharts(document.querySelector("#chart3"), options_tripon_kendaraan);
+            tripon_kendaraan.render();
+
+
+            var options_triopon_kedatangan = {
+                series: [{
+                    name: 'Keberangkatan',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99, 100, 123, 134],
+                    color: "#003A91"
+                }, {
+                    name: 'Kedatangan',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16, 89, 156, 165],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 200,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Jakarta', 'Bandung', 'Bogor', 'Semarang', 'Malang', 'Surabaya', 'Depok', 'Bekasi', 'Lampung', 'Bali', 'Kediri', 'Purwakarta', 'Kepulauan Seribu'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var kedatangan = new ApexCharts(document.querySelector("#chart4"), options_triopon_kedatangan);
+            kedatangan.render();
+
+            var options_ditregident = {
+                series: [{
+                    name: 'SIM',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99, 100, 123, 134],
+                    color: "#003A91"
+                }, {
+                    name: 'STNK',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16, 89, 156, 165],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'BPKB',
+                    type: 'column',
+                    data: [90, 111, 178, 16, 89, 27, 34, 100, 23, 98, 75, 151, 158],
+                    color: "#E8D42F"
+                }, {
+                    name: 'RANMOR',
+                    type: 'column',
+                    data: [95, 128, 195, 617, 516, 99, 39, 89, 17, 78, 89, 126, 165],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 555,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditregident = new ApexCharts(document.querySelector("#chart5"), options_ditregident);
+            ditregident.render();
+
+        })
+    </script>
