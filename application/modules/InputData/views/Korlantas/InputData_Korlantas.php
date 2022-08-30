@@ -2,44 +2,187 @@
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
-        <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
+        <li class="breadcrumb-item ">Input Data</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page"><a href="#"><?= $title; ?></a></li>
     </ol>
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahRencanaOperasi">Tambah Rencana Operasi</button>
+
     <div class="card">
 
         <div class="card-body">
+            <div class="col-md-12">
+                <div class="row d-flex">
+                    <div class="col-md-3">
+                        <div class="material-selectfield mb-3">
+                            <select name="" id="">
+                                <!-- <select name="" id=""  multiple required> -->
+                                <option value="">Jawa Barat</option>
+                                <option value="">Jawa Tengah</option>
+                                <option value="">Jawa Timur</option>
+                            </select>
+                            <label class="labelmui">Polda</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="material-selectfield mb-3">
+                            <select name="" id="">
+                                <!-- <select name="" id=""  multiple required> -->
+                                <option value="">Jawa Barat</option>
+                                <option value="">Jawa Tengah</option>
+                                <option value="">Jawa Timur</option>
+                            </select>
+                            <label class="labelmui">Polda</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="material-selectfield mb-3">
+                            <select name="" id="">
+                                <!-- <select name="" id=""  multiple required> -->
+                                <option value="">Jawa Barat</option>
+                                <option value="">Jawa Tengah</option>
+                                <option value="">Jawa Timur</option>
+                            </select>
+                            <label class="labelmui">Polda</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="material-selectfield mb-3">
+                            <select name="" id="">
+                                <!-- <select name="" id=""  multiple required> -->
+                                <option value="">Jawa Barat</option>
+                                <option value="">Jawa Tengah</option>
+                                <option value="">Jawa Timur</option>
+                            </select>
+                            <label class="labelmui">Polda</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
+            <table id="datatable" class="table table-bordered dt-responsive w-100">
+                <thead class="bg-primary text-white">
                     <tr>
-                        <th>Nama Operasi</th>
-                        <th>Jenis Operasi</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Akhir</th>
-                        <th>Aksi</th>
+                        <th>No</th>
+                        <th>Polres</th>
+                        <th>Jumlah Data</th>
+                        <th>Pengaturan</th>
+                        <th>Penjagaan</th>
+                        <th>Pengawalan</th>
+                        <th>Patroli</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>OPERASI KESELAMATAN 2022</td>
-                        <td>OPERASI KESELAMATAN</td>
-                        <td>2022-06-13</td>
-                        <td>2022-06-26</td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailRencanaOperasi"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UploadRencanaOperasi"><i class="mdi mdi-file-upload "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusRencanaOperasi"><i class="mdi mdi-trash-can-outline "></i></button>
-                        </td>
+                        <td>1</td>
+                        <td>Polres Metro Jaksel</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Polres Metro Jakpus</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Polres Metro Jakut</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Polres Metro Jaktim</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Polres Metro Jakbar</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Polresta Tanggerang</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Polresta Tanggerang Selatan</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Polresta Bekasi Kota</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Polres Bekasi</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Polresta Depok</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Polresta Bogor</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+
                 </tbody>
             </table>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
+                <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
 
+            </div>
         </div>
+
     </div>
 </div>
 <!-- End Page -->
@@ -165,7 +308,7 @@
                         <label for="" class="labelmui">Nama Operasi</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="" id="">
+                        <select class="form-select" name="" id="">
                             <!-- <select name="" id=""  multiple required> -->
                             <option value="">Jawa Barat</option>
                             <option value="">Jawa Tengah</option>
@@ -213,13 +356,19 @@
                 </form>
             </div>
         </div><!-- /.modal-content -->
+
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        $('#datatable').DataTable({
+            scrollY: "450px",
+            scrollCollapse: true,
+            paging: false,
+            bInfo: false
+        });
     });
 
 

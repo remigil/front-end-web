@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
@@ -13,17 +13,19 @@ if (!function_exists('guzzle_request')) {
      * 
      * return array data
      */
-    function guzzle_request($method, $uri, $body){
+    function guzzle_request($method, $uri, $body)
+    {
         $client = new Client();
-        $request = $client->request($method,'http://k3ig20korlantas:3001/v1/'.$uri,$body);
+        $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body);
         $response = $request->getBody();
         $data = json_decode($response, true);
 
         return $data;
     }
 
-    function urlApi(){
-        return 'http://k3ig20korlantas:3001/v1/';
+    function urlApi()
+    {
+        return 'http://k3ig20korlantas.id:3001/v1/';
     }
 }
 
@@ -36,12 +38,13 @@ if (!function_exists('guzzle_requestTracking')) {
      * 
      * return array data
      */
-    function guzzle_requestTracking($method, $uri, $body){
+    function guzzle_requestTracking($method, $uri, $body)
+    {
         $client = new Client();
-        $request = $client->request($method,'http://k3ig20korlantas.id:3001/track-location/'.$uri,$body);
+        $request = $client->request($method, 'http://k3ig20korlantas.id:3001/track-location/' . $uri, $body);
         $response = $request->getBody();
         $data = json_decode($response, true);
 
         return $data;
-    } 
+    }
 }

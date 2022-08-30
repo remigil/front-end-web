@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class operasi extends MY_Controller
+class TroubleSpot extends MY_Controller
 {
 
     public function __construct()
@@ -19,16 +19,16 @@ class operasi extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Trouble Spot";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/operasi";
+            $page_content["page"] = "InputData/Korlantas/TroubleSpot_Korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "InputData/Kapolda/TroubleSpotta_Kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "InputData/Polres/TroubleSpotata_Polres";
         }
 
 

@@ -15,66 +15,28 @@
                     <input class="form-control" type="date" name="waktu" id="waktu">
                 </div>
                 <div class="col-md-3 ">
-                    <label class="form-label">Kendaraan</label>
+                    <label class="form-label">Jenis Permasalahan</label>
                     <select class="form-select">
-                        <option>Semua Kendaraan</option>
-                        <option>Kendaraan 1</option>
-                        <option>Kendaraan 2</option>
+                        <option>Semua Permasalahan</option>
+                        <option>Permaslahan 1</option>
+                        <option>Permaslahan 2</option>
                     </select>
                 </div>
                 <div class="col-md-3 ">
-                    <label class="form-label">Titik</label>
+                    <label class="form-label">Polda</label>
                     <select class="form-select">
-                        <option>Titik Kemacetan</option>
-                        <option>Large Kemacetan</option>
-                        <option>Small Kemacetan</option>
+                        <option>Polda Metro Jaya</option>
+                        <option>Jakarta Pusat</option>
+                        <option>Jakarta Utara</option>
+                        <option>Jakarta Barat</option>
+                        <option>Jakarta Selatan</option>
                     </select>
                 </div>
             </div>
-            <div class="mt-3" id="mapG20Dashboard"></div>
+            <div class="mt-3" id="mapG20Dashboard" style="width: 100%; height:50vh;"></div>
             <button class=" mt-3 btn btn-primary float-end"> Tampilkan </button>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-body">
-            <div class="main-chart" style="overflow:hidden; overflow-x:scroll">
-                <div id="chart4" style="width: 100vw"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header bg-primary ">
-            <h5 class="modal-title text-white">Filter</h5>
-        </div>
-        <div class="card-body">
-            <form action="">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="material-textfield">
-                            <input style="width: 100%;" name="" placeholder="" type="text">
-                            <label class="labelmui">Kota Awal</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="material-textfield">
-                            <input style="width: 100%;" name="" placeholder="" type="text">
-                            <label class="labelmui">Kota Tujuan</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="material-btnfield">
-                            <button type="button" class="btn btn-primary" style="width:100%;" onclick="BtnFilter()">Terapkan</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="col-sm-12" id="FilterTripOn"></div>
-
 
     <div class="card">
         <div class="card-body">
@@ -82,32 +44,29 @@
                 <thead>
                     <tr class="text-center">
                         <th>No</th>
-                        <th>No Polisi Kendaraan</th>
-                        <th>Nama Pengemudi</th>
-                        <th>Jenis Kendaraan</th>
-                        <th>Merk Kendaraan</th>
+                        <th>Nama Polres</th>
+                        <th>Lokasi Kejadian</th>
+                        <th>Waktu Pengkajian</th>
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>F 4464 AAD</td>
-                        <td>Bintang</td>
-                        <td>Mobil Pribadi</td>
-                        <td>Yamaha</td>
+                        <td>Polres Metro Jakarta Pusat</td>
+                        <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
+                        <td>5 jam</td>
                         <td class="text-center">
-                            <a href="<?= base_url('Tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('TroubleSpot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>F 4464 AAD</td>
-                        <td>Bintang</td>
-                        <td>Mobil Pribadi</td>
-                        <td>Yamaha</td>
+                        <td>Polres Metro Jakarta Utara</td>
+                        <td>RS St. Carolus - Salemba, Jalan Salemba Raya, RT.3/RW.5, Paseban, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta</td>
+                        <td>6 jam</td>
                         <td class="text-center">
-                            <a href="<?= base_url('Tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('TroubleSpot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -124,56 +83,6 @@
     $(document).ready(function() {
         $('#tripon').DataTable();
 
-        var keberangkatan = {
-            series: [{
-                name: 'Keberangkatan',
-                type: 'column',
-                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
-                color: "#003A91",
-            }, {
-                name: 'Kedatangan',
-                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
-                type: "column",
-                color: "#CB2D3E",
-            }],
-            chart: {
-                type: 'line',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'circle',
-                    dataLabels: {
-                        position: 'top'
-                    }
-                },
-            },
-            dataLabels: {
-                enabled: true,
-                style: {
-                    colors: ['#333']
-                },
-                offsetY: -15
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['DKI JAKARTA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
-            },
-
-            fill: {
-                opacity: 1
-            },
-
-        };
-
-        var keberangkatan2 = new ApexCharts(document.querySelector("#chart4"), keberangkatan);
-        keberangkatan2.render();
 
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
