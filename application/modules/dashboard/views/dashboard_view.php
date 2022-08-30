@@ -8,140 +8,140 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#11617A">
+                            <div class="card" style="border-radius: 5px !important; background-color:#11617A">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-3 col-sm-8">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Dakgar Lantas</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <img src="<?= base_url('assets/dashboard/icon-dakgarlantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-dakgarlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#11347A">
+                            <div class="card" style="border-radius: 5px !important; background-color:#11347A">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-6 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-garlantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-garlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#CB2D3E">
+                            <div class="card" style="border-radius: 5px !important; background-color:#CB2D3E">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-8 col-lg-7 col-md-5 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/iconlakalantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/iconlakalantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#F06619">
+                            <div class="card" style="border-radius: 5px !important; background-color:#F06619">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-5 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Data Turjagwali</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-dataturjagwali.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-dataturjagwali.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#7A113D">
+                            <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Dikmas Lantas</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-dikmaslantas.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-dikmaslantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#2C117A">
+                            <div class="card" style="border-radius: 5px !important; background-color:#2C117A">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-9 col-lg-8 col-md-6 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-3">
-                                            <img src="<?= base_url('assets/dashboard/icon-penyebaran.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-penyebaran.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#7A113D">
-                                <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                            <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
+                                <div class=" card-body">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">SIM</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-sim.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-sim.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#10A9FF">
+                            <div class="card" style="border-radius: 5px !important; background-color:#10A9FF">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">STNK</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-stnk.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-stnk.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#F06619">
+                            <div class="card" style="border-radius: 5px !important; background-color:#F06619">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">BPKB</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-bpkb.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-bpkb.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="card card-h-100" style="border-radius: 5px !important; background-color:#3CA55C">
+                            <div class="card" style="border-radius: 5px !important; background-color:#3CA55C">
                                 <div class="card-body">
-                                    <div class="row justify-content-between align-items-center">
-                                        <div class="col-md-5 col-sm-6">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-xxl-6 col-xl-7 col-lg-5 col-md-5 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">RANMOR</h4>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <img src="<?= base_url('assets/dashboard/icon-ranmor.svg') ?>" style="background-color: #00000080; padding:10px;" alt="">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                            <img src="<?= base_url('assets/dashboard/icon-ranmor.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -435,8 +435,24 @@
 
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            breakpoints: {
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                }
+            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
