@@ -322,7 +322,6 @@
 
 
     function BtnFilter() {
-        console.log('asdasd');
         $('#FilterTripOn').html(`<div class="card">
         <div class="card-body">
             <table class="table table-bordered text-center fw-bold">
