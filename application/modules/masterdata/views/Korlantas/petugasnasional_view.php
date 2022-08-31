@@ -34,9 +34,15 @@
                         <td>089570190000</td>
                         <td>Bripda</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPetugas"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPetugas"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPetugas"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -47,9 +53,15 @@
                         <td>081370190000</td>
                         <td>Bharaka</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPetugas"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPetugas"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPetugas"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -60,9 +72,15 @@
                         <td>085670190002</td>
                         <td>Briptu</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPetugas"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPetugas"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPetugas"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

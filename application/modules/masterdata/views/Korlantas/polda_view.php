@@ -29,9 +29,15 @@
                         <td>Jl. Jend. Sudirman No.Kav. 55, RT.5/RW.3, Senayan, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190, Telp. 021-5708013
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolda"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolda"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolda"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -39,9 +45,15 @@
                         <td>Jawa Barat</td>
                         <td>Soekarno-Hatta St No.839 Babakan Penghulu, Cinambo Bandung Timur, Telp. 022-7810532 / 7800029</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolda"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolda"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolda"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -49,9 +61,15 @@
                         <td>Jawa Tengah</td>
                         <td>Jl Pahlawan No 1 Semarang, Telp. 024-8440765 8440705 8440615</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolda"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolda"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolda"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

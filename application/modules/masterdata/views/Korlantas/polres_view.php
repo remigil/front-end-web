@@ -30,9 +30,15 @@
                         <td>Metro Jaya</td>
                         <td>JL. DAAN MOGOT KM 11 JAKARTA BARAT </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolres"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolres"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolres"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -41,9 +47,15 @@
                         <td>Metro Jaya</td>
                         <td>JL. DAAN MOGOT NO. 52 SUKASARI TANGERANG KOTA</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolres"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolres"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolres"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -52,9 +64,15 @@
                         <td>Jawa Barat</td>
                         <td>JL. JAWA NO 1 BANDUNG</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailPolres"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahPolres"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusPolres"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

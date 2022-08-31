@@ -32,9 +32,15 @@
                         <td>Mitshubishi Lancer</td>
                         <td>POLRES</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailKendaraan"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahKendaraan"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusKendaraan"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -44,9 +50,15 @@
                         <td>Honda Goldwing</td>
                         <td>POLDdA</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailKendaraan"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahKendaraan"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusKendaraan"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
 
