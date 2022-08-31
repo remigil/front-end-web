@@ -190,13 +190,13 @@
 
                 { data: 'id'}, 
 
-                { data: 'noKendaraan'},
+                { data: 'no_vehicle'},
 
-                { data: 'jenisKendaraan'}, 
+                { data: 'type_vehicle'}, 
 
-                { data: 'merek'},
+                { data: 'brand_vehicle'},
 
-                { data: 'kepemilikan'},  
+                { data: 'ownership_vehicle'},  
 
                 { data: 'action' , orderable : false }
 

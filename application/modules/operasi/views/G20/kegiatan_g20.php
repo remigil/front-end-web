@@ -258,13 +258,13 @@
             columns: [ 
 
                 { data: 'id'}, 
-                { data: 'kegiatan'},
+                { data: 'activity'},
                 // { data: 'namaVip'}, 
                 // { data: 'account'},  
-                { data: 'alamat'},   
-                { data: 'tanggal'},  
-                { data: 'waktu'},  
-                { data: 'status'}, 
+                { data: 'address_schedule'},   
+                { data: 'date_schedule'},  
+                { data: 'waktu', orderable : false },  
+                { data: 'status_schedule'}, 
                 { data: 'action' , orderable : false }
 
             ],

@@ -113,10 +113,10 @@ class M_vip extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['namaVIP']	= $field['name_vip']; 
-            $row ['asalNegara']	= $field['country_arrival_vip'];  
-            $row ['jabatan']   	= $field['position_vip'];
-            $row ['keterangan']   	= $field['description_vip'];  
+            $row ['name_vip']	= $field['name_vip']; 
+            $row ['country_arrival_vip']	= $field['country_arrival_vip'];  
+            $row ['position_vip']   	= $field['position_vip'];
+            $row ['description_vip']   	= $field['description_vip'];  
             $row ['action']         = ' 
                 <a href="'.base_url().'operasi/Vip/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 
