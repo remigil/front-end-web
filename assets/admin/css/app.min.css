@@ -205,6 +205,132 @@
   background: linear-gradient(175.42deg, #DDE0F3 11.63%, #F2DDDE 101.04%);
   border-bottom: 1px solid var(--bs-border-color);
 }
+
+/* CSS START CUSTOM */
+
+
+.card-headline {
+        background: linear-gradient(90deg, #9C9FB0 0.72%, #DBDDEA 100%) !important;
+        border-radius: 10px 10px 0px 0px !important;
+        color: white;
+    }
+
+    .card {
+        border-radius: 10px 10px 0px 0px !important;
+    }
+
+    .item-card {
+        height: 94px;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        padding: 20px 10px 20px 5px !important;
+        gap: 20px !important;
+    }
+
+    .blue-card {
+        background: linear-gradient(90deg, #11347A 0%, #003A91 89.58%) !important;
+        border-radius: 5px !important;
+    }
+
+    .blue-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#11347A
+    }
+
+    .red-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#CB2D3E
+    }
+
+    .red-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#CB2D3E
+    }
+
+     .green-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#3CA55C
+    }
+
+
+    .yellow-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#E8D42F
+    }
+
+
+    .red-card {
+        background: linear-gradient(90deg, #CB2D3E 0%, #ED171D 100%) !important;
+        border-radius: 5px !important;
+    }
+
+    .green-card {
+        background: linear-gradient(90deg, #3CA55C 0%, #B5AC49 100%) !important;
+        border-radius: 5px !important;
+
+    }
+
+    .yellow-card {
+        background: linear-gradient(90deg, #F09819 0%, #E8D42F 100%) !important;
+        border-radius: 5px !important;
+    }
+
+    
+    .orange-card-text{
+      background-color: white;
+      opacity: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 40px;
+      color:#E8D42F
+    }
+
+    .orange-card {
+        background: linear-gradient(90deg, #EE3900 0%, #E8D42F 100%) !important;
+        border-radius: 5px !important;
+    }
+
+    .top-five-headline {
+        background: #CED6FF !important;
+        border-radius: 5px !important;
+        padding: 10px !important;
+    }
+
+    .table-head {
+        background: #003A91 !important;
+        border-radius: 5px 5px 0px 0px !important;
+        text-align: center !important;
+    }
+
+/* END CSS CUSTOM */
+
 .navbar-header {
   display: -webkit-box;
   display: -ms-flexbox;

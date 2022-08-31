@@ -6,7 +6,6 @@
         </ol>
     </nav>
 </section>
-
 <section class="shadow-sm">
     <div class="card rounded">
         <div class="card-header card-headline">
@@ -22,75 +21,104 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="item-card blue-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Total Laka</h4>
+                    <div class="card-body blue-card">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6">
+                                <h4 class="text-light fw-light">Total laka</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="text-center blue-card-text">706</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card red-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Meninggal Dunia</h4>
+                    <div class="card-body red-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 rounded">
+                                <h4 class="text-light d-inline fw-light">Meninggal Dunia</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="red-card-text">56</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card green-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Luka Berat</h4>
+                    <div class="card-body green-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Luka Berat</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="green-card-text text-center">401</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card yellow-card m-2">
-                        <h4 class="text-light ps-2 d-inline fw-light">Luka Ringan</h4>
+                    <div class="card-body yellow-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Luka Ringan</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="yellow-card-text text-center">385</h1>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
                         <h2 class="text-center">5 RANGKING LAKA LANTAS TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
-                        <table class="table table-bordered border-primary">
-                            <thead>
-                                <tr class="table-head text-white">
+                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
+                            <thead class="table-primary">
+                                <tr class="text-white">
                                     <th scope="col">No</th>
                                     <th scope="col">Polda</th>
-                                    <th scope="col">Total Laka</th>
-                                    <th scope="col">Meninggal Dunia</th>
-                                    <th scope="col">Luka Berat</th>
-                                    <th scope="col">Luka Ringan</th>
+                                    <th scope="col">TOTAL LAKA</th>
+                                    <th scope="col">KORBAN MD</th>
+                                    <th scope="col">KORBAN LB</th>
+                                    <th scope="col">KORBAN LR</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
+                                    <td>65</td>
+                                    <td>8</td>
                                     <td>2</td>
                                     <td>94</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
+                                    <td>Jawa Tengah</td>
+                                    <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
-                                    <td>94</td>
+                                    <td>35</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>94</td>
+                                    <td>Jawa Timur</td>
+                                    <td>43</td>
+                                    <td>24</td>
+                                    <td>1</td>
+                                    <td>18</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>94</td>
+                                    <td>Sulawesi Selatan</td>
+                                    <td>31</td>
+                                    <td>21</td>
+                                    <td>6</td>
+                                    <td>3</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
+                                    <td>Bali</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
                                     <td>2</td>
-                                    <td>94</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -100,63 +128,56 @@
         </div>
     </div>
 </section>
-
-
 <section>
-    <div class="col-6">
-        <h4>Wilayah</h4>
-        <form action="">
-            <div class="row">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ffffff;color:black; width:350px">
+            Filter<i class="fas fa-filter" style="float: right;"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <div class="row text-center m-3">
                 <div class="col-md-6">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Polda</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <h6>Wilayah</h6>
+                    <div class="form-group">
+                        <select class="form-select">
+                            <option>Polda</option>
+                            <option>Semua Polda</option>
+                            <option>Aceh</option>
+                            <option>Sumatera Utara</option>
+                            <option>Sumatera Selatan</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-1">
+                        <select class="form-select">
+                            <option>Polres</option>
+                            <option>Semua Polres</option>
+                            <option>Jakarta Pusat</option>
+                            <option>Jakarta Utara</option>
+                            <option>Jakata Barat</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Polda</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <h6>Waktu</h6>
+                    <div class="form-group">
+                        <select class="form-select">
+                            <option>Pilih Waktu</option>
+                            <option>Tahun</option>
+                            <option>Bulan</option>
+                            <option>Customize</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-1">
+                        <input class="form-control" type="date" value="">
+                    </div>
+                    <div class="form-group mt-1">
+                        <input class="form-control" type="date" value="">
+                    </div>
                 </div>
+                <button class="btn btn-primary mt-2" type="button">Tampilkan</button>
             </div>
-        </form>
+        </ul>
     </div>
-    <hr>
 </section>
-
-<section>
-    <div class="col-12">
-        <h4>Waktu</h4>
-        <form action="">
-            <div class="row">
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Customize</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <input type="date" placeholder="Tanggal mulai" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="col-md-3">
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary table-head form-control">Tampilkan</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <hr>
-</section>
-
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
@@ -173,8 +194,6 @@
         </div>
     </div>
 </section>
-
-
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">

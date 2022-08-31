@@ -24,11 +24,11 @@ class Tripon extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "tripon/tripon";
+            $page_content["page"] = "tripon/Korlantas/tripon";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "tripon/Kapolda/tripon";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "tripon/Polres/tripon";
         }
 
 
@@ -47,11 +47,11 @@ class Tripon extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "tripon/tripondetail";
+            $page_content["page"] = "tripon/Korlantas/tripondetail";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "tripon/Kapolda/tripondetail";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "tripon/Polres/tripondetail";
         }
 
 

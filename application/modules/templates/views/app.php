@@ -730,17 +730,17 @@
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li><a href="<?= base_url('Ditregident/Sim') ?>" data-key="t-inbox">SIM</a></li>
                                             <li><a href="<?= base_url('Ditregident/Stnk') ?>" data-key="t-read-email">STNK</a></li>
-                                            <li><a href="<?= base_url('Diregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
                                             <li><a href="<?= base_url('Ditregident/Ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="apps-calendar.html">
+                                        <a href="<?= base_url('tripon') ?>">
                                             <span data-key="t-calendar">TripOn</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="apps-chat.html">
+                                        <a href="<?= base_url('troublespot') ?>">
                                             <span data-key="t-chat">TroubleSpot</span>
                                         </a>
                                     </li>
@@ -753,24 +753,24 @@
                                     <span data-key="t-apps">Input Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Laporan Harian</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">TroubleSpot</a></li>
+                                    <li><a href="<?= base_url('InputData/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="<?= base_url('InputData/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi/operasi">
+                                <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Rencana Operasi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi/operasi">
+                                <a href="<?php echo base_url('berita'); ?>">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Berita</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi/operasi">
+                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Dokumen Peraturan</span>
                                 </a>
@@ -781,8 +781,8 @@
                                     <span data-key="t-apps">Management Pengguna</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun K3I</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun Masyarakat</a></li>
+                                    <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
+                                    <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -791,15 +791,21 @@
                                     <span data-key="t-apps">Master Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polda</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polres</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Petugas Nasional</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Kendaraan Nasional</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Samsat</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">SIM Keliling</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">CCTV</a></li>
-                                    <li><a href="apps-email-read.html" data-key="t-read-email">Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/samsat'); ?>" data-key="t-read-email">Samsat</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('zoom'); ?>">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Zoom</span>
+                                </a>
                             </li>
                         <?php } ?>
                     </ul>
