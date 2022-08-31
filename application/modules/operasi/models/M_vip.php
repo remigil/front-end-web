@@ -95,7 +95,7 @@ class M_vip extends CI_Model {
         // } 
 
 
-        $url = 'vip?length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'vip?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 

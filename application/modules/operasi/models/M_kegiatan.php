@@ -95,7 +95,7 @@ class M_kegiatan extends CI_Model {
         // } 
 
 
-        $url = 'schedule?length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'schedule?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 

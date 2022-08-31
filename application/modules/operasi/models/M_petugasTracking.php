@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_petugas extends CI_Model {
+class M_petugasTracking extends CI_Model {
 
 
     public function __construct(){
@@ -26,11 +26,14 @@ class M_petugas extends CI_Model {
 
 		$page = $postData['page']; 
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];  
 
         $orderValue = $postData['orderValue']; 
 
         $orderFieldRess =  $columnName[$orderField]['data']; 
+
+        // print_r($adjustOrderField);
+        // die;
 
        
         $data = array(); 
@@ -95,7 +98,7 @@ class M_petugas extends CI_Model {
         // } 
 
 
-        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'track-notif?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -113,19 +116,17 @@ class M_petugas extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['namapetugas']	= $field['name_officer']; 
-            $row ['nrp']	= $field['nrp_officer'];  
-            $row ['pangkat']   	= $field['rank_officer'];
-            $row ['struktural']   	= $field['structural_officer'];  
-            $row ['pam']   	= $field['pam_officer']; 
-            $row ['noHp']   	= $field['phone_officer']; 
-            if($field['status_officer'] == 1){
-                $row ['status']   	= 'Active'; 
-            }else{
-                $row ['status']   	= 'Inactive'; 
-            } 
+            $row ['nrp_user']	= $field['nrp_user']; 
+            // $row ['token_fcm']	= $field['token_fcm'];  
+            // $row ['token_track']   	= $field['token_track']; 
+            $row ['device_user']   	= $field['device_user'];   
             $row ['action']         = ' 
-                <a href="'.base_url().'operasi/Petugas/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                <div class="btn-group dropdown" style="">
+                    <button class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-cog "></i></button>
+                    <div class="dropdown-menu"> 
+                        <a class="dropdown-item hapus" data-id="'.$field['id'].'" href="javascript:void(0)"><i class="fa fas fa-trash-alt" style="color: red;"></i> &nbsp; Hapus</a>
+                    </div>
+                </div>
             '; 
 
             $data[] = $row;

@@ -3,7 +3,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item">Detail Petugas</li>
+        <li class="breadcrumb-item">Detail Petugas Tracking</li>
         <li class="breadcrumb-item active fw-bold" aria-current="page">Edit</li>
     </ol>
 </nav>
@@ -15,7 +15,7 @@
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="fs-4 fw-bold">EDIT PETUGAS</p>
+                        <p class="fs-4 fw-bold">Edit Petugas Tracking</p>
                     </div>
                     <div class="col-md-6">
                         <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
@@ -24,16 +24,11 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="row mt-5">
-                            <div class="col-md-4 mb-3"></div>
-                            <div class="col-md-4 mb-3">
-                                <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  />
-                            </div>
-                            <div class="col-md-4 mb-3"></div>
+                        <div class="row mt-5"> 
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="namapetugas" value="<?php echo $data['getDetail']['data']['name_officer'];?>" type="text">
-                                    <label class="labelmui">Nama Petugas</label>
+                                    <input style="width: 100%;" name="namapetugasTracking" value="<?php echo $data['getDetail']['data']['name_officer'];?>" type="text">
+                                    <label class="labelmui">Nama PetugasTracking</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -92,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <a href="<?= base_url('operasi/Petugas'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</button></a>
+                    <a href="<?= base_url('operasi/PetugasTracking'); ?>"> <button type="button" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</button></a>
                 </div>
             </form>
         </div>
@@ -108,7 +103,7 @@
             e.preventDefault(); 
             var formData = new FormData($('.form')[0]); 
             $.ajax({
-                url: "<?php echo base_url();?>operasi/Petugas/storeEdit",
+                url: "<?php echo base_url();?>operasi/PetugasTracking/storeEdit",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -122,7 +117,7 @@
                         '',
                         'success'
                         ).then(function() {  
-                            window.location.href = "<?php echo base_url();?>operasi/Petugas";
+                            window.location.href = "<?php echo base_url();?>operasi/PetugasTracking";
                         }); 
                     }else{
                         Swal.fire(
@@ -141,7 +136,7 @@
         $("#overlay").fadeIn(300);
         e.preventDefault();  
         $.ajax({
-            url: "<?php echo base_url();?>operasi/Petugas/delete",
+            url: "<?php echo base_url();?>operasi/PetugasTracking/delete",
             method: "POST",
             data: {
                 "id": $(this).data("id"),
@@ -157,7 +152,7 @@
                     '',
                     'success'
                     ).then(function() {  
-                        window.location.href = "<?php echo base_url();?>operasi/Petugas";
+                        window.location.href = "<?php echo base_url();?>operasi/PetugasTracking";
                     }); 
                 }else{
                     Swal.fire(
