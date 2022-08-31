@@ -30,10 +30,15 @@
                         <td>2022-06-13</td>
                         <td>2022-06-26</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".DetailRencanaOperasi"><i class="mdi mdi-eye "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi"><i class="mdi mdi-pencil-outline "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".UploadRencanaOperasi"><i class="mdi mdi-file-upload "></i></button>
-                            <button type="button" class="btn btn-sm btn-primary waves-effect" id="HapusRencanaOperasi"><i class="mdi mdi-trash-can-outline "></i></button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailRencanaOperasi">
+                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi">
+                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                            </button>
+                            <button style="background-color:transparent ; border:none" id="HapusRencanaOperasi">
+                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -86,6 +91,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Logo</label>
+                    </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Background Image</label>
+                    </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Banner</label>
+                    </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
@@ -136,9 +153,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Logo</label>
+                    </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Background Image</label>
+                    </div>
+                    <div class="material-textfield">
+                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Banner</label>
+                    </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
+
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -196,25 +226,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-<div class="modal fade UploadRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title w-100 text-center" id="myLargeModalLabel">Upload File</h5>
-            </div>
-            <div class="modal-body">
-
-                <form action="" class="form">
-                    <div class="col-md-12">
-                        <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                    </div>
-                    <button type="submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 100%; letter-spacing: 2px;">UPLOAD FILE</button>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();

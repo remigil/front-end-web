@@ -10,9 +10,7 @@
 <div class="page">
     <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahKendaraan">Tambah Kendaraan</button>
     <div class="card">
-
         <div class="card-body">
-
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
