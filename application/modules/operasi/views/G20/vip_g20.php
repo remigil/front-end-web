@@ -179,13 +179,13 @@
 
                 { data: 'id'}, 
 
-                { data: 'namaVIP'},
+                { data: 'name_vip'},
 
-                { data: 'asalNegara'}, 
+                { data: 'country_arrival_vip'}, 
 
-                { data: 'jabatan'},
+                { data: 'position_vip'},
 
-                { data: 'keterangan'},  
+                { data: 'description_vip'},  
 
                 { data: 'action' , orderable : false }
 

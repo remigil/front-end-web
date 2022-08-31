@@ -113,10 +113,10 @@ class M_kendaraan extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['noKendaraan']	= $field['no_vehicle']; 
-            $row ['jenisKendaraan']	= $field['type_vehicle'];  
-            $row ['merek']   	= $field['brand_vehicle'];
-            $row ['kepemilikan']   	= $field['ownership_vehicle'];  
+            $row ['no_vehicle']	= $field['no_vehicle']; 
+            $row ['type_vehicle']	= $field['type_vehicle'];  
+            $row ['brand_vehicle']   	= $field['brand_vehicle'];
+            $row ['ownership_vehicle']   	= $field['ownership_vehicle'];  
             $row ['action']         = ' 
                 <a href="'.base_url().'operasi/Kendaraan/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 

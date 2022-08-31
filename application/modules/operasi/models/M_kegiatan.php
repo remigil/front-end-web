@@ -113,20 +113,20 @@ class M_kegiatan extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['kegiatan']	= $field['activity']; 
+            $row ['activity']	= $field['activity']; 
             
             // $row ['namaVip']	= $field['vips'][0]['name_vip'];  
             // $row ['account']   	= $field['accounts'][0]['name_account'];
 
-            $row ['alamat']   	= $field['address_schedule'];  
-            $row ['tanggal']   	= $field['date_schedule'];
+            $row ['address_schedule']   	= $field['address_schedule'];  
+            $row ['date_schedule']   	= $field['date_schedule'];
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
             if($field['status_schedule'] == 1){
-                $row ['status'] = '
+                $row ['status_schedule'] = '
                     <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
                 ';
             }else{
-                $row ['status'] = '
+                $row ['status_schedule'] = '
                     <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
                 ';
             } 

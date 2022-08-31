@@ -202,13 +202,13 @@
             columns: [ 
 
                 { data: 'id'}, 
-                { data: 'namapetugas'},
-                { data: 'nrp'}, 
-                { data: 'pangkat'},
-                { data: 'struktural'},  
-                { data: 'pam'},  
-                { data: 'noHp'},  
-                { data: 'status'},     
+                { data: 'name_officer'},
+                { data: 'nrp_officer'}, 
+                { data: 'rank_officer'},
+                { data: 'structural_officer'},  
+                { data: 'pam_officer'},  
+                { data: 'phone_officer'},  
+                { data: 'status_officer'},     
                 { data: 'action' , orderable : false }
 
             ],

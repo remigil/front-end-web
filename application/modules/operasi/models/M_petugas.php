@@ -113,16 +113,16 @@ class M_petugas extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['namapetugas']	= $field['name_officer']; 
-            $row ['nrp']	= $field['nrp_officer'];  
-            $row ['pangkat']   	= $field['rank_officer'];
-            $row ['struktural']   	= $field['structural_officer'];  
-            $row ['pam']   	= $field['pam_officer']; 
-            $row ['noHp']   	= $field['phone_officer']; 
+            $row ['name_officer']	= $field['name_officer']; 
+            $row ['nrp_officer']	= $field['nrp_officer'];  
+            $row ['rank_officer']   	= $field['rank_officer'];
+            $row ['structural_officer']   	= $field['structural_officer'];  
+            $row ['pam_officer']   	= $field['pam_officer']; 
+            $row ['phone_officer']   	= $field['phone_officer']; 
             if($field['status_officer'] == 1){
-                $row ['status']   	= 'Active'; 
+                $row ['status_officer']   	= 'Active'; 
             }else{
-                $row ['status']   	= 'Inactive'; 
+                $row ['status_officer']   	= 'Inactive'; 
             } 
             $row ['action']         = ' 
                 <a href="'.base_url().'operasi/Petugas/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
