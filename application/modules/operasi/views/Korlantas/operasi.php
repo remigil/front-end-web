@@ -30,9 +30,10 @@
                         <td>2022-06-13</td>
                         <td>2022-06-26</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailRencanaOperasi">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
+                            <a href="RencanaOperasi/Detail"> <button style="background-color:transparent ; border:none">
+                                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                                </button></a>
+
                             <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
@@ -175,56 +176,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-<div class="modal fade DetailRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="fw-bold ms-4"> Identitas Operasi</p>
-                <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Operasi</label>
-                    </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Mulai</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Selesai</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">KEMBALI</button>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <script>
     $(document).ready(function() {
