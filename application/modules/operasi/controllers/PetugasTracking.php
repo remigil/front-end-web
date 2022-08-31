@@ -9,7 +9,7 @@ class PetugasTracking extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('operasi/m_petugasTracking'); 
+        $this->load->model('operasi/m_petugas_tracking'); 
     }
 
     public function index()
@@ -43,7 +43,7 @@ class PetugasTracking extends MY_Controller
     public function serverSideTable() 
     {  
         $postData = $this->input->post();   
-        $data = $this->m_petugasTracking->get_datatables($postData);  
+        $data = $this->m_petugas_tracking->get_datatables($postData);  
 		echo json_encode($data); 
     }
 

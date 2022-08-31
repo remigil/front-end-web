@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_petugasTracking extends CI_Model {
+class M_petugas_tracking extends CI_Model {
 
 
     public function __construct(){
