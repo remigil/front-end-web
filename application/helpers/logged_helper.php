@@ -9,14 +9,9 @@ if (!isset($this->session->userdata['logged'])) {
         'Authorization' => $this->session->userdata['token'],
     ];
 
-    $client = new \GuzzleHttp\Client();
-<<<<<<< HEAD
+    $client = new \GuzzleHttp\Client(); 
     $request = $client->request('POST','http://localhost:3001/v1/auth/validate_login',[
-        'headers' => $headers 
-=======
-    $request = $client->request('POST', 'http://k3ig20korlantas.id:3001/v1/auth/validate_login', [
-        'headers' => $headers
->>>>>>> b6fae5d2c8c1931328236c6cadf30f24e5f595d8
+        'headers' => $headers  
     ]);
     $response = $request->getBody();
     $cek = json_decode($response, true);
