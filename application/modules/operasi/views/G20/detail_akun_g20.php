@@ -34,6 +34,17 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-3">
+                            <p>PHONE AKUN</p>  
+                        </div>
+                        <div class="col-1">
+                            <p>:</p> 
+                        </div>
+                        <div class="col-8">
+                            <p><?php echo $data['getDetail']['data']['phone_account'];?></p>  
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-3"> 
                             <p>PETUGAS</p> 
                         </div>

@@ -62,44 +62,94 @@ class Kegiatan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'activity',
-                'contents' => $input['kegiatan'],
-            ],
-            // [
-            //     'name' => 'id_vip',
-            //     'contents' => implode(",",$input['id_vip']),
-            // ],
-            // [
-            //     'name' => 'id_account',
-            //     'contents' => implode(",",$input['id_account']),
-            // ],
-            [
-                'name' => 'date_schedule',
-                'contents' => $input['date'],
-            ],
-            [
-                'name' => 'start_time',
-                'contents' => $input['startTime'],
-            ],
-            [
-                'name' => 'end_time',
-                'contents' => $input['endTime'],
-            ],
-            [
-                'name' => 'address_schedule',
-                'contents' => $input['address'],
-            ],
-            [
-                'name' => 'coordinate_schedule',
-                'contents' => $input['cordinate'],
-            ],
-            [
-                'name' => 'status_schedule',
-                'contents' => '1',
-            ] 
-        ];
+
+
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
+            $dummy = [
+                [
+                    'name' => 'activity',
+                    'contents' => $input['kegiatan'],
+                ],
+                // [
+                //     'name' => 'id_vip',
+                //     'contents' => implode(",",$input['id_vip']),
+                // ],
+                // [
+                //     'name' => 'id_account',
+                //     'contents' => implode(",",$input['id_account']),
+                // ],
+                [
+                    'name' => 'date_schedule',
+                    'contents' => $input['date'],
+                ],
+                [
+                    'name' => 'start_time',
+                    'contents' => $input['startTime'],
+                ],
+                [
+                    'name' => 'end_time',
+                    'contents' => $input['endTime'],
+                ],
+                [
+                    'name' => 'address_schedule',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'coordinate_schedule',
+                    'contents' => $input['cordinate'],
+                ],
+                [
+                    'name' => 'status_schedule',
+                    'contents' => '1',
+                ], 
+                [
+                    'name' => 'photo_schedule',
+                    'contents' => fopen($path,'r'),
+                    'filename' => $filename
+                ] 
+            ];
+        }else{
+            $dummy = [
+                [
+                    'name' => 'activity',
+                    'contents' => $input['kegiatan'],
+                ],
+                // [
+                //     'name' => 'id_vip',
+                //     'contents' => implode(",",$input['id_vip']),
+                // ],
+                // [
+                //     'name' => 'id_account',
+                //     'contents' => implode(",",$input['id_account']),
+                // ],
+                [
+                    'name' => 'date_schedule',
+                    'contents' => $input['date'],
+                ],
+                [
+                    'name' => 'start_time',
+                    'contents' => $input['startTime'],
+                ],
+                [
+                    'name' => 'end_time',
+                    'contents' => $input['endTime'],
+                ],
+                [
+                    'name' => 'address_schedule',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'coordinate_schedule',
+                    'contents' => $input['cordinate'],
+                ],
+                [
+                    'name' => 'status_schedule',
+                    'contents' => '1',
+                ]
+            ];
+        }
 
         
         $data = guzzle_request('POST', 'schedule/add', [ 
@@ -203,44 +253,92 @@ class Kegiatan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'activity',
-                'contents' => $input['kegiatan'],
-            ],
-            // [
-            //     'name' => 'id_vip',
-            //     'contents' => implode(",",$input['id_vip']),
-            // ],
-            // [
-            //     'name' => 'id_account',
-            //     'contents' => implode(",",$input['id_account']),
-            // ],
-            [
-                'name' => 'date_schedule',
-                'contents' => $input['date'],
-            ],
-            [
-                'name' => 'start_time',
-                'contents' => $input['startTime'],
-            ],
-            [
-                'name' => 'end_time',
-                'contents' => $input['endTime'],
-            ],
-            [
-                'name' => 'address_schedule',
-                'contents' => $input['address'],
-            ],
-            [
-                'name' => 'coordinate_schedule',
-                'contents' => $input['cordinate'],
-            ],
-            [
-                'name' => 'status_schedule',
-                'contents' => '1',
-            ] 
-        ];
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
+            $dummy = [
+                [
+                    'name' => 'activity',
+                    'contents' => $input['kegiatan'],
+                ],
+                // [
+                //     'name' => 'id_vip',
+                //     'contents' => implode(",",$input['id_vip']),
+                // ],
+                // [
+                //     'name' => 'id_account',
+                //     'contents' => implode(",",$input['id_account']),
+                // ],
+                [
+                    'name' => 'date_schedule',
+                    'contents' => $input['date'],
+                ],
+                [
+                    'name' => 'start_time',
+                    'contents' => $input['startTime'],
+                ],
+                [
+                    'name' => 'end_time',
+                    'contents' => $input['endTime'],
+                ],
+                [
+                    'name' => 'address_schedule',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'coordinate_schedule',
+                    'contents' => $input['cordinate'],
+                ],
+                [
+                    'name' => 'status_schedule',
+                    'contents' => '1',
+                ], 
+                [
+                    'name' => 'photo_schedule',
+                    'contents' => fopen($path,'r'),
+                    'filename' => $filename
+                ] 
+            ];
+        }else{
+            $dummy = [
+                [
+                    'name' => 'activity',
+                    'contents' => $input['kegiatan'],
+                ],
+                // [
+                //     'name' => 'id_vip',
+                //     'contents' => implode(",",$input['id_vip']),
+                // ],
+                // [
+                //     'name' => 'id_account',
+                //     'contents' => implode(",",$input['id_account']),
+                // ],
+                [
+                    'name' => 'date_schedule',
+                    'contents' => $input['date'],
+                ],
+                [
+                    'name' => 'start_time',
+                    'contents' => $input['startTime'],
+                ],
+                [
+                    'name' => 'end_time',
+                    'contents' => $input['endTime'],
+                ],
+                [
+                    'name' => 'address_schedule',
+                    'contents' => $input['address'],
+                ],
+                [
+                    'name' => 'coordinate_schedule',
+                    'contents' => $input['cordinate'],
+                ],
+                [
+                    'name' => 'status_schedule',
+                    'contents' => '1',
+                ]
+            ];
+        }
 
         $data = guzzle_request('PUT', 'schedule/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 

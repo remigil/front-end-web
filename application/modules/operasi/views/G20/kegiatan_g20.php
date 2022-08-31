@@ -46,6 +46,9 @@
                 <form class="form" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">  
+                        <div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
+                        </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="kegiatan" placeholder="" type="text">
@@ -365,6 +368,7 @@
         $('#myModal').on('shown.bs.modal', function() {
             mapContainer.invalidateSize();
 
+            $('.dropify').dropify();
 
 
 
