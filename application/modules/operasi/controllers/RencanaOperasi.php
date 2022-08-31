@@ -37,4 +37,31 @@ class RencanaOperasi extends MY_Controller
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+    public function Detail()
+    {
+
+        // $headers = [
+        //     'Token' => $this->session->userdata['token'],    
+        // ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Operasi";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "operasi/Korlantas/detail_operasi";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "dashboard/Kapolda/detail_operasi";
+        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "dashboard/Polres/detail_operasi";
+        }
+
+
+
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
 }
