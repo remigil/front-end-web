@@ -109,7 +109,7 @@ class M_petugasTracking extends CI_Model {
             ]
 
         ]);   
-
+ 
         $no=1;
 
 		foreach  ($result['data']['data'] as $field) { 
