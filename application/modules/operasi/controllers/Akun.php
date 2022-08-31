@@ -104,6 +104,7 @@ class Akun extends MY_Controller
         $dummy = array(); 
         $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
         $dummy ['name_account']	= $input['namaAkun']; 
+        $dummy ['phone_account']	= $input['phone_account']; 
         $dummy ['leader_team']	= $input['ketuaTeam']; 
         $dummy ['id_vehicle']	= $input['id_kendaraan']; 
         $dummy ['password']	= $input['password']; 
@@ -216,6 +217,7 @@ class Akun extends MY_Controller
         $dummy = array(); 
         $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
         $dummy ['name_account']	= $input['namaAkun']; 
+        $dummy ['phone_account']	= $input['phone_account']; 
         $dummy ['leader_team']	= $input['ketuaTeam']; 
         $dummy ['id_vehicle']	= $input['id_kendaraan']; 
         $dummy ['officers']	= json_encode($input['officers']); 

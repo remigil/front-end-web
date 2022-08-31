@@ -16,6 +16,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Akun</th>
+                        <th>Phone Akun</th>
                         <th>VIP</th>
                         <!-- <th>Polres</th> -->
                         <!-- <th>Ketua TIM</th> -->
@@ -43,6 +44,10 @@
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text" required>
                         <label class="labelmui">Nama Akun</label>
+                    </div>
+                    <div class="material-textfield mb-3">
+                        <input style="width: 100%;" name="phone_account" placeholder="Phone Akun" type="text" required>
+                        <label class="labelmui">Phone Akun</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="officers[]" id="officers" style="height: 200px" multiple required> 
@@ -173,19 +178,20 @@
                     data: 'id'
                 },
                 {
-                    data: 'namaAkun'
+                    data: 'name_account'
                 },
                 // {
                 //     data: 'vip'
                 // },
-                // {
-                //     data: 'polres'
-                // },
                 {
-                    data: 'ketuaTeam'
+                    data: 'phone_account'
                 },
                 {
-                    data: 'noKendaraan'
+                    data: 'leader_team'
+                },
+                {
+                    data: 'vehicle',
+                    orderable: false
                 },
 
 
