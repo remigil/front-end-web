@@ -14,6 +14,7 @@
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Tim</th>
                         <th>VIP</th>
                         <th>Subjek</th>
@@ -200,14 +201,14 @@
 
             columns: [ 
 
-                // { data: 'id'}, 
+                { data: 'id'}, 
                 { data: 'accounts', orderable : false },
                 { data: 'vips', orderable : false }, 
                 { data: 'type_renpam'},  
                 { data: 'name_renpam'},   
                 { data: 'lokasi'},  
                 { data: 'date'},  
-                { data: 'waktu'}, 
+                { data: 'waktu', orderable : false}, 
                 { data: 'action' , orderable : false }
 
             ],

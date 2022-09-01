@@ -95,7 +95,11 @@ class M_renpam extends CI_Model {
         // } 
 
 
-        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.''.$searchData.'';
+        // if($orderFieldRess == ''){
+            
+        // }
+
+        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -107,13 +111,15 @@ class M_renpam extends CI_Model {
 
         ]);   
 
+        // print_r($url);
+        // die;
+
         $no=1;
- 
 
 		foreach  ($result['data']['data'] as $field) { 
             $row = array();   
 			// $row ['id']	=  $field['id']; 
-            // $row ['id']	=  $no++; 
+            $row ['id']	=  $no++; 
             if($field['accounts'] != null){
                 $accounts = '';
                 foreach  ($field['accounts'] as $fieldAccount) { 
