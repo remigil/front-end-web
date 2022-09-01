@@ -708,10 +708,10 @@
                                             <span data-key="t-email">Ditgakkum</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('Ditgakkum/DakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
-                                            <li><a href="<?= base_url('Ditgakkum/GarlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
-                                            <li><a href="<?= base_url('Ditgakkum/LakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
-                                            <li><a href="<?= base_url('Ditgakkum/Turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/dakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/garlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/lakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -719,8 +719,8 @@
                                             <span data-key="t-email">Ditkamsel</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('Ditkamsel/DikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
-                                            <li><a href="<?= base_url('Ditkamsel/Penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
+                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
+                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -728,10 +728,10 @@
                                             <span data-key="t-email">Ditregident</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('Ditregident/Sim') ?>" data-key="t-inbox">SIM</a></li>
-                                            <li><a href="<?= base_url('Ditregident/Stnk') ?>" data-key="t-read-email">STNK</a></li>
-                                            <li><a href="<?= base_url('Ditregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
-                                            <li><a href="<?= base_url('Ditregident/Ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
+                                            <li><a href="<?= base_url('ditregident/sim') ?>" data-key="t-inbox">SIM</a></li>
+                                            <li><a href="<?= base_url('ditregident/stnk') ?>" data-key="t-read-email">STNK</a></li>
+                                            <li><a href="<?= base_url('ditregident/bpkb') ?>" data-key="t-read-email">BPKB</a></li>
+                                            <li><a href="<?= base_url('ditregident/ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -753,8 +753,8 @@
                                     <span data-key="t-apps">Input Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('InputData/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
-                                    <li><a href="<?= base_url('InputData/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
+                                    <li><a href="<?= base_url('inputData/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="<?= base_url('inputData/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
                             <li>

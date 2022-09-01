@@ -29,33 +29,29 @@
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
+                                <option value="">Satker Mabes 1</option>
+                                <option value="">Satker Mabes 2</option>
+                                <option value="">Satker Mabes 3</option>
                             </select>
-                            <label class="labelmui">Polda</label>
+                            <label class="labelmui">Satker Mabes</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
+                                <option value="">Laporan 1</option>
+                                <option value="">Laporan 2</option>
+                                <option value="">Laporan 3</option>
                             </select>
-                            <label class="labelmui">Polda</label>
+                            <label class="labelmui">Jenis Laporan</label>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="material-selectfield mb-3">
-                            <select name="" id="">
-                                <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
-                            </select>
-                            <label class="labelmui">Polda</label>
+                        <div class="material-textfield mb-3">
+                            <input type="date" name="" id="" style="width:100% ;">
+
+                            <label class="labelmui">Tanggal Input</label>
                         </div>
                     </div>
                 </div>
