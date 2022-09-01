@@ -201,8 +201,8 @@
             columns: [ 
 
                 // { data: 'id'}, 
-                { data: 'tim'},
-                { data: 'vip'}, 
+                { data: 'accounts', orderable : false },
+                { data: 'vips', orderable : false }, 
                 { data: 'type_renpam'},  
                 { data: 'name_renpam'},   
                 { data: 'lokasi'},  
