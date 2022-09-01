@@ -753,8 +753,8 @@
                                     <span data-key="t-apps">Input Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputData/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
-                                    <li><a href="<?= base_url('inputData/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
+                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
                             <li>

@@ -35,7 +35,7 @@
                             <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
                         </td>
                         <td>
-                            <a href="<?= base_url('laporan/Panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
                             <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
                         </td>
                         <td>
-                            <a href="<?= base_url('laporan/Panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>

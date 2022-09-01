@@ -31,7 +31,7 @@
                         <td>01 Juli 2022 07:06</td>
                         <td class="text-primary">+62 895 1234 564</td>
                         <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                     <tr>
@@ -42,7 +42,7 @@
                         <td>01 Juli 2022 07:06</td>
                         <td class="text-primary">+62 895 1234 564</td>
                         <td>
-                            <a href="<?= base_url('laporan/Operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                            <a href="<?= base_url('laporan/operasi/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                         </td>
                     </tr>
                 </tbody>

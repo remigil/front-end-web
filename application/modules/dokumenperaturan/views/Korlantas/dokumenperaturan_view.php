@@ -212,9 +212,6 @@
                         <input type="text" name="" id="" style="width:100% ;">
                         <label for="" class="labelmui">Tahun</label>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->

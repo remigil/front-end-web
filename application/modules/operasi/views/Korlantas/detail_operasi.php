@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <p class="fs-5 fw-bold text-primary">Identitas Operasi</p>
-                    <table class="table table-borderless">
+                    <table class="table table-borderless" style="width:90% ;">
                         <tr>
                             <td>Nama Operasi</td>
                             <td>:</td>
@@ -42,20 +42,20 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7" style="margin-left:-4vh ;">
                     <p class="fs-5 fw-bold text-primary">Aset Operasi</p>
                     <div class="row d-flex">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <p class="fw-bold">Logo Operasi</p>
-                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" class="rounded">
+                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" height="124px" width="124px" class="rounded">
                         </div>
-                        <div class="col-md-3 ms-5">
+                        <div class="col-md-4">
                             <p class="fw-bold">Background Operasi</p>
-                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" class="rounded">
+                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" height="124px" width="170px" class="rounded">
                         </div>
-                        <div class="col-md-5 ">
+                        <div class="col-md-4 ">
                             <p class="fw-bold">Banner Operasi</p>
-                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" class="rounded">
+                            <img src=<?= base_url('assets/image-default.png'); ?> alt="" height="124px" width="246px" class="rounded">
                         </div>
                     </div>
                 </div>

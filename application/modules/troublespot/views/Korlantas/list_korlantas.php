@@ -40,7 +40,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table id="tripon" class="table table-striped dt-responsive  nowrap w-100">
+            <table id="tripon" class="table table-striped dt-responsive w-100">
                 <thead>
                     <tr class="text-center">
                         <th>No</th>
@@ -57,7 +57,7 @@
                         <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
                         <td>5 jam</td>
                         <td class="text-center">
-                            <a href="<?= base_url('TroubleSpot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('troublespot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +66,7 @@
                         <td>RS St. Carolus - Salemba, Jalan Salemba Raya, RT.3/RW.5, Paseban, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta</td>
                         <td>6 jam</td>
                         <td class="text-center">
-                            <a href="<?= base_url('TroubleSpot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('troublespot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                 </tbody>

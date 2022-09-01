@@ -14,8 +14,8 @@
                 <div class="col-md-5">
                     <p class="fs-4 fw-bold">DETAIL DATA TROUBLESPOT</p>
                 </div>
-                <div class="col-md-2"></div>
-                <div class="col-md-5">
+                <!-- <div class="col-md-1"></div> -->
+                <div class="col-md-7">
                     <!-- ini belum -->
                     <div class="border fw-bold rounded">
                         <div class="ms-3 mt-2 mb-2">

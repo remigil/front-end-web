@@ -97,7 +97,7 @@
                         <td>Mobil Pribadi</td>
                         <td>Yamaha</td>
                         <td class="text-center">
-                            <a href="<?= base_url('Tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                     <tr>
@@ -107,7 +107,7 @@
                         <td>Mobil Pribadi</td>
                         <td>Yamaha</td>
                         <td class="text-center">
-                            <a href="<?= base_url('Tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+                            <a href="<?= base_url('tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
                         </td>
                     </tr>
                 </tbody>

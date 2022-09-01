@@ -166,9 +166,6 @@
                         <input type="file" name="" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">Foto Berita</label>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
