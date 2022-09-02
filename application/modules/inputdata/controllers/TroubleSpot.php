@@ -24,11 +24,11 @@ class TroubleSpot extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "InputData/Korlantas/TroubleSpot_Korlantas";
+            $page_content["page"] = "inputdata/Korlantas/TroubleSpot_Korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "InputData/Kapolda/TroubleSpotta_Kapolda";
+            $page_content["page"] = "inputdata/Kapolda/TroubleSpotta_Kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "InputData/Polres/TroubleSpotata_Polres";
+            $page_content["page"] = "inputdata/Polres/TroubleSpotata_Polres";
         }
 
 

@@ -24,11 +24,11 @@ class LaporanHarian extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "InputData/Korlantas/InputData_Korlantas";
+            $page_content["page"] = "inputdata/Korlantas/InputData_Korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "InputData/Kapolda/InputData_Kapolda";
+            $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "InputData/Polres/InputData_Polres";
+            $page_content["page"] = "inputdata/Polres/InputData_Polres";
         }
 
 
