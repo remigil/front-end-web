@@ -791,14 +791,14 @@
                                     <span data-key="t-apps">Master Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url('masterdata/polda'); ?>" data-key="t-read-email">Polda</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/polres'); ?>" data-key="t-read-email">Polres</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/samsat'); ?>" data-key="t-read-email">Samsat</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/cctv'); ?>" data-key="t-read-email">CCTV</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Samsat'); ?>" data-key="t-read-email">Samsat</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
                                 </ul>
                             </li>
                             <li>
