@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class simkeliling extends MY_Controller
+class Simkeliling extends MY_Controller
 {
 
     public function __construct()

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class cctv extends MY_Controller
+class Cctv extends MY_Controller
 {
 
     public function __construct()

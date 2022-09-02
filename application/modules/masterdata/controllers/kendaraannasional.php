@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class kendaraannasional extends MY_Controller
+class Kendaraannasional extends MY_Controller
 {
 
     public function __construct()

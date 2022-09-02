@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class fasilitasumum extends MY_Controller
+class Fasilitasumum extends MY_Controller
 {
 
     public function __construct()
