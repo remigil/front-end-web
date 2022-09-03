@@ -30,13 +30,13 @@
                         <td>Metro Jaya</td>
                         <td>JL. DAAN MOGOT KM 11 JAKARTA BARAT </td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolres">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolres">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPolres">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -47,13 +47,13 @@
                         <td>Metro Jaya</td>
                         <td>JL. DAAN MOGOT NO. 52 SUKASARI TANGERANG KOTA</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolres">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolres">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPolres">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -64,13 +64,13 @@
                         <td>Jawa Barat</td>
                         <td>JL. JAWA NO 1 BANDUNG</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolres">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolres">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPolres">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>

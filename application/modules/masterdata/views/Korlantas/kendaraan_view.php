@@ -30,13 +30,13 @@
                         <td>Mitshubishi Lancer</td>
                         <td>POLRES</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailKendaraan">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahKendaraan">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusKendaraan">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -48,13 +48,13 @@
                         <td>Honda Goldwing</td>
                         <td>POLDdA</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailKendaraan">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahKendaraan">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusKendaraan">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>

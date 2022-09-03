@@ -34,13 +34,13 @@
                         <td>089570190000</td>
                         <td>Bripda</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -53,13 +53,13 @@
                         <td>081370190000</td>
                         <td>Bharaka</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -72,13 +72,13 @@
                         <td>085670190002</td>
                         <td>Briptu</td>
                         <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
                                 <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
+                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
                                 <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                             </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
+                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
                                 <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                             </button>
                         </td>
@@ -300,27 +300,9 @@
                                 <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">NRP</label>
                             </div>
-                            <div class="row mb-4">
-                                <div class="material-textfield">
-                                    <input type="hidden" name="" id="">
-                                    <label for="" class="labelmui">Jenis Kelamin</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class="form-check-input" type="radio" name="jk" id="laki-laki" checked>
-                                        <label class="form-check-label" for="laki-laki">
-                                            Laki - laki
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 ">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class="form-check-input" type="radio" name="jk" id="perempuan">
-                                        <label class="form-check-label" for="perempuan">
-                                            Perempuan
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="material-textfield">
+                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">Jenis Kelamin</label>
                             </div>
                             <div class="material-textfield">
                                 <input type="date" name="" id="" style="width:105%; margin-bottom:-2vh">
@@ -334,27 +316,10 @@
                                 <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
-                            <div class="row mb-3">
-                                <div class="material-textfield">
-                                    <input type="hidden" name="" id="">
-                                    <label for="" class="labelmui">Status</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
-                                        <label class="form-check-label" for="active">
-                                            ACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
-                                        <label class="form-check-label" for="inactive">
-                                            INACTIVE
-                                        </label>
-                                    </div>
-                                </div>
+
+                            <div class="material-textfield">
+                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">Jenis Kelamin</label>
                             </div>
                         </div>
                     </div>
