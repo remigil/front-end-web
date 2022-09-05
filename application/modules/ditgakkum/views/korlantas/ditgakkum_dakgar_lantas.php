@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
-                        <h2 class="text-center">5 RANGKING DAKGAR LANTAS TERTINGGI</h2>
+                        <h2 class="text-center">10 RANGKING DAKGAR LANTAS TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
@@ -117,6 +117,46 @@
                                     <td>Bali</td>
                                     <td>22</td>
                                     <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Banten</td>
+                                    <td>11</td>
+                                    <td>7</td>
+                                    <td>17</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Riau</td>
+                                    <td>16</td>
+                                    <td>7</td>
+                                    <td>10</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>DI Yogyakarta</td>
+                                    <td>18</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9</th>
+                                    <td>Nusa Tenggara Barat</td>
+                                    <td>14</td>
+                                    <td>7</td>
+                                    <td>15</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td>Lampung</td>
+                                    <td>22</td>
+                                    <td>10</td>
                                     <td>5</td>
                                     <td>2</td>
                                 </tr>
@@ -323,6 +363,96 @@
                             </tr>
                             <tr>
                                 <td>3</td>
+                                <td>Jawa Timur</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Jawa Tengah</td>
+                                <td>67621</td>
+                                <td>2213</td>
+                                <td>18131</td>
+                                <td>3312</td>
+                                <td>8126</td>
+                                <td>1213</td>
+                                <td>3421</td>
+                                <td>7221</td>
+                                <td>4223</td>
+                                <td>212</td>
+                                <td>34134</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Riau</td>
+                                <td>67135</td>
+                                <td>2111</td>
+                                <td>1821</td>
+                                <td>33316</td>
+                                <td>8176</td>
+                                <td>5123</td>
+                                <td>1123</td>
+                                <td>72412</td>
+                                <td>4211</td>
+                                <td>2121</td>
+                                <td>3474</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Banten</td>
+                                <td>67625</td>
+                                <td>2123</td>
+                                <td>1279</td>
+                                <td>3986</td>
+                                <td>1992</td>
+                                <td>1278</td>
+                                <td>1213</td>
+                                <td>7242</td>
+                                <td>8217</td>
+                                <td>1878</td>
+                                <td>34193</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td></td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Jawa Timur</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
                                 <td>Jawa Timur</td>
                                 <td>67645</td>
                                 <td>2100</td>
