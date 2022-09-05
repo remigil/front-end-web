@@ -20,8 +20,8 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card-body blue-card">
+                <div class="col-md-3">
+                    <div class="card-body blue-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6">
                                 <h4 class="text-light fw-light">Baru</h4>
@@ -31,6 +31,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card-body red-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 rounded">
@@ -41,6 +43,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card-body green-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
@@ -51,6 +55,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card-body yellow-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
@@ -63,107 +69,6 @@
                     </div>
 
                 </div>
-                <div class="col-md-8">
-                    <div class="top-five-headline">
-                        <h2 class="text-center">10 RANGKING BPKB TERTINGGI</h2>
-                    </div>
-                    <div class="mt-5 " style="overflow-y: scroll; height:325px">
-                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
-                            <thead class="table-primary">
-                                <tr class="text-white">
-                                    <th scope="col">No</th>
-                                    <th scope="col">POLRES</th>
-                                    <th scope="col">Baru</th>
-                                    <th scope="col">Perpanjangan</th>
-                                    <th scope="col">RUBENTINA</th>
-                                    <th scope="col">Jumlah</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>POLRESTABES BANDUNG</td>
-                                    <td>65</td>
-                                    <td>8</td>
-                                    <td>73</td>
-                                    <td>73</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>POLRESTA BOGOR</td>
-                                    <td>15</td>
-                                    <td>32</td>
-                                    <td>47</td>
-                                    <td>47</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>POLRES BOGOR</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>67</td>
-                                    <td>67</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>POLRESTA SUKABUMI</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>52</td>
-                                    <td>52</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>POLRES CIANJUR</td>
-                                    <td>21</td>
-                                    <td>17</td>
-                                    <td>38</td>
-                                    <td>38</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>POLRES PURWAKARTA</td>
-                                    <td>25</td>
-                                    <td>12</td>
-                                    <td>37</td>
-                                    <td>37</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>POLRES KARAWANG</td>
-                                    <td>16</td>
-                                    <td>12</td>
-                                    <td>28</td>
-                                    <td>28</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>POLRES SUBANG</td>
-                                    <td>24</td>
-                                    <td>10</td>
-                                    <td>34</td>
-                                    <td>34</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>POLRES CIMAHI</td>
-                                    <td>11</td>
-                                    <td>4</td>
-                                    <td>15</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>POLRESTA SUKABUMI</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>29</td>
-                                    <td>29</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -175,21 +80,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <div class="row text-center m-3">
-                <div class="col-md-6">
-                    <h6>Wilayah</h6>
-                    <div class="form-group mt-1">
-                        <select class="form-select">
-                            <option>Polres</option>
-                            <option>Semua Polres</option>
-                            <option>POLRESTABES BANDUNG</option>
-                            <option>POLRESTA BOGOR</option>
-                            <option>POLRES BOGOR</option>
-                            <option>POLRESTA SUKABUMI</option>
-                            <option>POLRES SUKABUMI</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h6>Waktu</h6>
                     <div class="form-group">
                         <select class="form-select">
@@ -238,7 +129,6 @@
                     <table id="tb_bpkb" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th>No</th>
                                 <th>Polres</th>
                                 <th>Baru</th>
                                 <td>Ganti Pemilik</td>
@@ -247,82 +137,18 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
+                                <td>Total</td>
                                 <td>11012</td>
                                 <td>5932</td>
                                 <td>78</td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>POLRESTABES BANDUNG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>59</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>POLRESTA BOGOR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>592</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
                                 <td>POLRES BOGOR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>532</td>
                             </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>POLRESTA SUKABUMI</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>POLRES SUKABUMI</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>POLRES CIANJUR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>POLRES PURWAKARTA</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>POLRES KARAWANG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>POLRES SUBANG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>POLRES CIMAHI</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -411,18 +237,18 @@
             series: [{
                     name: 'Baru',
                     type: 'column',
-                    data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#003A91"
                 }, {
                     name: 'Ganti Pemilik',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#CB2D3E"
                 },
                 {
                     name: 'RUBENTINA',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#E8D42F"
                 },
             ],
@@ -453,7 +279,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['POLRESTABES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRESTA SUKABUMI', 'POLRES SUKABUMI', 'POLRES CIANJUR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES CIMAHI'],
+                categories: ['POLRES BOGOR'],
             },
             yaxis: [{
                 axisTicks: {

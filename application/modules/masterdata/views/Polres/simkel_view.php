@@ -133,7 +133,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Samsat</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Sim Keliling</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -142,7 +142,7 @@
                         <form action="">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Samsat</label>
+                                <label for="nama_akun">Nama Sim Keliling</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
@@ -162,6 +162,9 @@
                                         <label for="nama_akun">Jam Tutup</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                             </div>
                         </form>
                     </div>

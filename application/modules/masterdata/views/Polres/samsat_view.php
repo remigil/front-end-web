@@ -163,6 +163,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                            </div>
                         </form>
                     </div>
                 </div>
