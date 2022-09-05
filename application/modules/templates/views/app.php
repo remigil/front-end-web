@@ -69,7 +69,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" /> -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/leaflet-routing-machine.css" />
+
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
@@ -77,6 +80,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/clockpicker.css">
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> 
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY&callback=initMap&v=weekly"
+      defer
+    ></script>
 
     <style>
         #mapG20Dashboard {
@@ -708,10 +716,10 @@
                                             <span data-key="t-email">Ditgakkum</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditgakkum/dakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/garlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/lakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/DakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/GarlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/LakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
+                                            <li><a href="<?= base_url('Ditgakkum/Turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -719,8 +727,8 @@
                                             <span data-key="t-email">Ditkamsel</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
-                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
+                                            <li><a href="<?= base_url('Ditkamsel/DikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
+                                            <li><a href="<?= base_url('Ditkamsel/Penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -728,19 +736,19 @@
                                             <span data-key="t-email">Ditregident</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditregident/sim') ?>" data-key="t-inbox">SIM</a></li>
-                                            <li><a href="<?= base_url('ditregident/stnk') ?>" data-key="t-read-email">STNK</a></li>
-                                            <li><a href="<?= base_url('ditregident/bpkb') ?>" data-key="t-read-email">BPKB</a></li>
-                                            <li><a href="<?= base_url('ditregident/ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Sim') ?>" data-key="t-inbox">SIM</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Stnk') ?>" data-key="t-read-email">STNK</a></li>
+                                            <li><a href="<?= base_url('Diregident/Bpkb') ?>" data-key="t-read-email">BPKB</a></li>
+                                            <li><a href="<?= base_url('Ditregident/Ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('tripon') ?>">
+                                        <a href="apps-calendar.html">
                                             <span data-key="t-calendar">TripOn</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('troublespot') ?>">
+                                        <a href="apps-chat.html">
                                             <span data-key="t-chat">TroubleSpot</span>
                                         </a>
                                     </li>
@@ -753,24 +761,24 @@
                                     <span data-key="t-apps">Input Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
-                                    <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Rencana Operasi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('berita'); ?>">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Berita</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                <a href="<?php echo base_url(); ?>operasi/operasi">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Dokumen Peraturan</span>
                                 </a>
@@ -781,8 +789,8 @@
                                     <span data-key="t-apps">Management Pengguna</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
-                                    <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun K3I</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Akun Masyarakat</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -791,21 +799,15 @@
                                     <span data-key="t-apps">Master Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url('masterdata/polda'); ?>" data-key="t-read-email">Polda</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/polres'); ?>" data-key="t-read-email">Polres</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/samsat'); ?>" data-key="t-read-email">Samsat</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/cctv'); ?>" data-key="t-read-email">CCTV</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polda</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Polres</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Petugas Nasional</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Kendaraan Nasional</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Samsat</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">SIM Keliling</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">CCTV</a></li>
+                                    <li><a href="apps-email-read.html" data-key="t-read-email">Fasilitas Umum</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('zoom'); ?>">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Zoom</span>
-                                </a>
                             </li>
                         <?php } ?>
                     </ul>
@@ -990,13 +992,13 @@
     <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
     <!-- Modal js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
 
     <!-- form mask -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
 
     <!-- form mask init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
 
     <!-- dropzone js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
@@ -1005,7 +1007,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
 
     <!-- lightbox init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
 
     <!-- Required datatable js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -1033,22 +1035,22 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
 
     <!-- dashboard init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
 
     <!-- Sweet Alerts js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- Sweet alert init js-->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
 
     <!-- pristine js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
 
     <!-- form validation -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
 
     <!-- init js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
 
     <!-- datepicker js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
@@ -1079,6 +1081,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
+     
 
     <?php echo $js ?>
 
