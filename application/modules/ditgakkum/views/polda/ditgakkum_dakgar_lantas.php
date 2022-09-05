@@ -183,9 +183,9 @@
                         <select class="form-select">
                             <option>Polres</option>
                             <option>Semua Polres</option>
-                            <option>Jakarta Pusat</option>
-                            <option>Jakarta Utara</option>
-                            <option>Jakata Barat</option>
+                            <option>POLRESTABES BANDUNG</option>
+                            <option>POLRESTA BOGOR</option>
+                            <option>POLRESTA SUKABUMI</option>
                         </select>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th rowspan="2">No</th>
-                                <th rowspan="2">Polda</th>
+                                <th rowspan="2">POLRES</th>
                                 <th rowspan="2">Jumlah Capture Camera</th>
                                 <th colspan="3">JUMLAH VALIDASI PETUGAS</th>
                                 <th colspan="3">JUMLAH KONFIRMASI MASYARAKAT</th>
@@ -325,7 +325,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Metro Jaya</td>
+                                <td>POLRESTABES BANDUNG</td>
                                 <td>67645</td>
                                 <td>2100</td>
                                 <td>1846</td>
@@ -340,7 +340,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Jawa Barat</td>
+                                <td>POLRESTA BOGOR</td>
                                 <td>67645</td>
                                 <td>2100</td>
                                 <td>1846</td>
@@ -355,7 +355,7 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>Jawa Timur</td>
+                                <td>POLRES BOGOR</td>
                                 <td>67645</td>
                                 <td>2100</td>
                                 <td>1846</td>
@@ -454,7 +454,7 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th rowspan="2">No</th>
-                                <th rowspan="2">Polda</th>
+                                <th rowspan="2">BULAN</th>
                                 <th rowspan="2">Jumlah Capture Camera</th>
                                 <th colspan="3">JUMLAH VALIDASI PETUGAS</th>
                                 <th colspan="3">JUMLAH KONFIRMASI MASYARAKAT</th>
@@ -582,7 +582,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'NTT'],
+                categories: ['POLRESTABES BANDUNG', 'POLRESTA BOGOR', 'POLRESTA SUKABUMI', 'POLRES SUKABUMI', 'POLRES CIANJUR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES INDRAMAYU', 'POLRES KUNINGAN', 'POLRES CIMAHI'],
             },
             yaxis: {
                 title: {
@@ -652,7 +652,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: ['POLRESTABES BANDUNG', 'POLRES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES INDRAMAYU', 'POLRES KUNINGAN', 'POLRES CIMAHI'],
             },
             yaxis: [{
                 axisTicks: {
@@ -721,7 +721,7 @@
                 width: [1, 1, 4]
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: ['POLRESTABES BANDUNG', 'POLRES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES INDRAMAYU', 'POLRES KUNINGAN', 'POLRES CIMAHI'],
             },
             yaxis: [{
                 axisTicks: {
@@ -796,7 +796,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
+                categories: ['POLRESTABES BANDUNG', 'POLRES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES INDRAMAYU', 'POLRES KUNINGAN', 'POLRES CIMAHI'],
             },
             yaxis: {
                 title: {
