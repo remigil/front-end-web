@@ -18,6 +18,7 @@
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
+                                <option value="">Metro Jaya</option>
                                 <option value="">Jawa Barat</option>
                                 <option value="">Jawa Tengah</option>
                                 <option value="">Jawa Timur</option>
@@ -29,9 +30,9 @@
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Satker Mabes 1</option>
-                                <option value="">Satker Mabes 2</option>
-                                <option value="">Satker Mabes 3</option>
+                                <option value="">Ditgakkum</option>
+                                <option value="">Ditkamsel</option>
+                                <option value="">Ditregident</option>
                             </select>
                             <label class="labelmui">Satker Mabes</label>
                         </div>
@@ -40,9 +41,16 @@
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Laporan 1</option>
-                                <option value="">Laporan 2</option>
-                                <option value="">Laporan 3</option>
+                                <option value="">Data Dakgar Lantas</option>
+                                <option value="">Pelanggaran Konvensional</option>
+                                <option value="">Kecelakaan Lalu Lintas</option>
+                                <option value="">Turjagwali</option>
+                                <option value="">Dikmaslantas</option>
+                                <option value="">Penyebaran / Pemasangan</option>
+                                <option value="">SIM</option>
+                                <option value="">BPKB</option>
+                                <option value="">RANMOR</option>
+                                <option value="">STNK</option>
                             </select>
                             <label class="labelmui">Jenis Laporan</label>
                         </div>

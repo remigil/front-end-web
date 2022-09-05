@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class polres extends MY_Controller
+class Polda extends MY_Controller
 {
 
     public function __construct()
@@ -19,16 +19,16 @@ class polres extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Polres";
+        $page_content["title"] = "Polda";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "masterdata/Korlantas/polres_view";
+            $page_content["page"] = "masterdata/Korlantas/polda_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "masterdata/Kapolda/polres_view";
+            $page_content["page"] = "masterdata/Kapolda/polda_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "masterdata/Polres/polres_view";
+            $page_content["page"] = "masterdata/Polres/polda_view";
         }
 
 

@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
-                        <h2 class="text-center">5 RANGKING RANMOR TERTINGGI</h2>
+                        <h2 class="text-center">10 RANGKING RANMOR TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
@@ -136,6 +136,51 @@
                                     <td>5</td>
                                     <td>2</td>
                                     <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Banten</td>
+                                    <td>25</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>19</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Riau</td>
+                                    <td>23</td>
+                                    <td>18</td>
+                                    <td>11</td>
+                                    <td>12</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>DI Yogyakarta</td>
+                                    <td>23</td>
+                                    <td>18</td>
+                                    <td>11</td>
+                                    <td>12</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>Nusa Tenggara Barat</td>
+                                    <td>22</td>
+                                    <td>17</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td>Lampung</td>
+                                    <td>21</td>
+                                    <td>15</td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>5</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -375,12 +420,12 @@
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#E8D42F"
-                },{
+                }, {
                     name: 'Ransus',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#3CA55C"
-                },{
+                }, {
                     name: 'Ransus',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
@@ -449,12 +494,12 @@
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#E8D42F"
-                },{
+                }, {
                     name: 'Ransus',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                     color: "#3CA55C"
-                },{
+                }, {
                     name: 'Ransus',
                     type: 'column',
                     data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],

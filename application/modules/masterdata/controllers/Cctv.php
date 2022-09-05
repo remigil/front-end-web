@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class kendaraannasional extends MY_Controller
+class Cctv extends MY_Controller
 {
 
     public function __construct()
@@ -19,16 +19,16 @@ class kendaraannasional extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Kendaraan";
+        $page_content["title"] = "CCTV";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "masterdata/Korlantas/kendaraan_view";
+            $page_content["page"] = "masterdata/Korlantas/cctv_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "masterdata/Kapolda/kendaraan_view";
+            $page_content["page"] = "masterdata/Kapolda/cctv_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "masterdata/Polres/kendaraan_view";
+            $page_content["page"] = "masterdata/Polres/cctv_view";
         }
 
 

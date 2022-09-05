@@ -24,9 +24,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Berita 1</td>
-                        <td>Isi Berita 1</td>
+                <tr>
+                        <td>Polrid Tegaskan Perubahan Warna Plat Hitam Jadi Putih Gratis</td>
+                        <td>Korps Lalu Lintas ( Korlantas ) segera merealisasikan perubahan warna dari hitam menjadi putih pada Tanda Nomor Kendaraan Bermotor (TNKB) atau pelat nomor kendaraan . Dirregident Korlantas Polri Brigjen Yusri Yunus mengatakan tidak mengungkapkan kapan mulai dilaksanakan, tapi perubahan warna itu akan dilakukan secepatnya</td>
                         <td>Jamal</td>
                         <td>Sabtu, 2022-08-20</td>
                         <td>
@@ -42,8 +42,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Berita 2</td>
-                        <td>Isi Berita 2</td>
+                        <td>Jadwal Uji Coba Ganjil Genap di Tol Jakarta-Cikampek</td>
+                        <td>Korps Polisi Lalu Lintas ( Korlantas ) bakal melaksanakan uji coba penerapan rekayasa lalu lintas ganjil-genap di ruas Tol Jakarta-Cikampek pada Senin, 25 April 2022 besok. Hal ini dilakukan untuk, keamanan, dan kelancaran pelaksanaan mudik Lebaran 2022.</td>
                         <td>Asep</td>
                         <td>Sabtu, 2022-08-20</td>
                         <td>
@@ -59,8 +59,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Berita 3</td>
-                        <td>Isi Berita 3</td>
+                        <td>Kakorlantas Akan Amati Terus Jalur Mudik</td>
+                        <td>Kepala Korps Lalu Lintas (Kakorlantas) Polri Irjen Pol Firman Shantyabudi menegaskan pihaknya akan terus mengamati situasi mengenai arus mudik menjelang Hari Raya Idul Fitri 1443 Hijriyah. Hal tersebut diungkapkannya saat meninjau beberapa titik jalur mudik di Jalan Tol Jakarta-Cikampek.</td>
                         <td>Ujang</td>
                         <td>Sabtu, 2022-08-20</td>
                         <td>

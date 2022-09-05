@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class samsat extends MY_Controller
+class Petugasnasional extends MY_Controller
 {
 
     public function __construct()
@@ -19,16 +19,16 @@ class samsat extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Samsat";
+        $page_content["title"] = "Petugas Nasional";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "masterdata/Korlantas/samsat_view";
+            $page_content["page"] = "masterdata/Korlantas/petugasnasional_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "masterdata/Kapolda/samsat_view";
+            $page_content["page"] = "masterdata/Kapolda/petugasnasional_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "masterdata/Polres/samsat_view";
+            $page_content["page"] = "masterdata/Polres/petugasnasional_view";
         }
 
 

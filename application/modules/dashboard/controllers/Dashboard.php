@@ -41,12 +41,15 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
 
             $page_content["data"] = '';
+            // } else if ($this->session->userdata['role'] == 'Kapolda') {
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+
+            $page_content["page"] = "dashboard/Kapolda/dashboard_view";
 
             $page_content["data"] = '';
+            // } else if ($this->session->userdata['role'] == 'Polres') {
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "dashboard/Polres/dashboard_view";
 
             $page_content["data"] = '';
         }
@@ -59,7 +62,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
 
         $url = 'getMe?date=' . date('Y-m-d') . '';
