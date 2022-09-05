@@ -394,7 +394,7 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Tahun</th>
+                                <th>Bulan</th>
                                 <th>Penluh</th>
                                 <th>Media Cetak</th>
                                 <th>Media Elektronik</th>
