@@ -405,7 +405,7 @@
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
+			<div class="col-md-5">
 				<p style="color: white;">Peta Ke Korlantas Polri </p> 
 				<div style="background-color: white; border: 1px solid black; border-radius: 10px;">
 					<h5 class="headline centered margin-top-20" style="font-weight: bold;">Dapatkan arah Transportasi Umum ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h5>
@@ -413,45 +413,53 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 col-sm-6 ">
+			<div class="col-md-3">
 				<h4>Tentang Korlantas</h4>
 				<ul class="footer-links">
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Add Listing</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Strukture Organisasi</a></li>
+					<li><a href="#">Profile Pejabat</a></li>
+					<li><a href="#">Visi dan Misi</a></li>
+					<li><a href="#">Sejarah Porlantas</a></li>
+					<li><a href="#">Sitemap</a></li> 
 				</ul> 
 				<div class="clearfix"></div>
 			</div>		
-			<div class="col-md-4 col-sm-6 ">
+			<div class="col-md-4">
 				<h4>Layanan</h4>  
-				<ul class="footer-links">
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Our Partners</a></li>
-					<li><a href="#">How It Works</a></li>
-					<li><a href="#">Contact</a></li>
+				<ul class="footer-links"> 
+					<li><a href="#">SIGNAL (Samsat Digital Nasional)</a></li>
+					<li><a href="#">SINAR (SIM Nasional Presisi)</a></li>
+					<li><a href="#">SIM Internasional</a></li>
+					<li><a href="#">NTMC</a></li>
+					<li><a href="#">IRSMS</a></li>
+					<li><a href="#">E-TILANG</a></li>
+					<li><a href="#">ERI</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>	
 
-			<div class="col-md-3  col-sm-12">
-				<h4>Contact Us</h4>
+			<div class="col-md-3">
+				<h4>Info Kontak</h4>
 				<div class="text-widget">
-					<span>12345 Little Lonsdale St, Melbourne</span> <br>
-					Phone: <span>(123) 123-456 </span><br>
-					E-Mail:<span> <a href="#"><span class="__cf_email__" data-cfemail="244b42424d474164415c45495448410a474b49">[email&#160;protected]</span></a> </span><br>
+					<span>
+						Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri
+						Jl. MT Haryono Kav. 37 – 38,
+						Jakarta 12770
+						Call Center : 1-500-669
+						SMS center : 9119
+					</span>
 				</div>
 
+			</div>
+
+			<div class="col-md-3"> 
+				<h4>Social Media</h4>
 				<ul class="social-icons margin-top-20">
 					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
 					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
 				</ul>
-
 			</div>
 
 		</div>

@@ -32,12 +32,12 @@
                                     <label class="labelmui">Nama Akun</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input required style="width: 100%;" name="phone_account" value="<?php echo $data['getDetail']['data']['phone_account'];?>" placeholder="Phone Akun" type="text">
                                     <label class="labelmui">Phone Akun</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input required style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">

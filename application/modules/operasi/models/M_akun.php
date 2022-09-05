@@ -113,7 +113,7 @@ class M_akun extends CI_Model
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
             $row['name_account']    = $field['name_account'];
-            $row['phone_account']    = $field['phone_account'];
+            // $row['phone_account']    = $field['phone_account'];
             $row['leader_team']    = $field['leader_team'];
             // $row['polres']    = $field['polres']['name_polres'];
             $row['vehicle']       = $field['vehicle']['no_vehicle'];
