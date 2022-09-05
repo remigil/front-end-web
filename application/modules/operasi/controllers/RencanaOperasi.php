@@ -46,7 +46,7 @@ class RencanaOperasi extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Rencana Operasi";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
