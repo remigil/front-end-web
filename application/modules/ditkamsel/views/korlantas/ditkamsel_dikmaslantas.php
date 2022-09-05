@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
-                        <h2 class="text-center">5 RANGKING DIKMAS LANTAS TERTINGGI</h2>
+                        <h2 class="text-center">10 RANGKING DIKMAS LANTAS TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
@@ -82,7 +82,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Jawa Barat</td>
+                                    <td>Metro Jaya</td>
                                     <td>65</td>
                                     <td>8</td>
                                     <td>2</td>
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Tengah</td>
+                                    <td>Jawa Barat</td>
                                     <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
@@ -106,7 +106,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Sulawesi Selatan</td>
+                                    <td>Jawa Tengah</td>
                                     <td>31</td>
                                     <td>21</td>
                                     <td>6</td>
@@ -114,6 +114,46 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
+                                    <td>Sumatra barat</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+								<tr>
+                                    <th scope="row">6</th>
+                                    <td>Sumatra Selatan</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+								<tr>
+                                    <th scope="row">7</th>
+                                    <td>Kalimantan Utara</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+								<tr>
+                                    <th scope="row">8</th>
+                                    <td>Kalimantan Tengah</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+								<tr>
+                                    <th scope="row">9</th>
+                                    <td>Sulawesi barat</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+								<tr>
+                                    <th scope="row">10</th>
                                     <td>Bali</td>
                                     <td>22</td>
                                     <td>7</td>
@@ -141,18 +181,32 @@
                         <select class="form-select">
                             <option>Polda</option>
                             <option>Semua Polda</option>
-                            <option>Aceh</option>
-                            <option>Sumatera Utara</option>
-                            <option>Sumatera Selatan</option>
+							<option>Metro Jaya</option>
+							<option>Jawa Barat</option>
+							<option>Jawa Tengah</option>
+							<option>Jawa Timur</option>
+							<option>Sumatra Barat</option>
+							<option>Sumatra Selatan</option>
+							<option>Kalimantan Utara</option>
+							<option>Kalimantan Tengah</option>
+							<option>Sulawesi barat</option>
+							<option>Bali</option>
                         </select>
                     </div>
                     <div class="form-group mt-1">
                         <select class="form-select">
-                            <option>Polres</option>
+							<option>Polres</option>
                             <option>Semua Polres</option>
-                            <option>Jakarta Pusat</option>
-                            <option>Jakarta Utara</option>
-                            <option>Jakata Barat</option>
+                            <option>POLRESTABES BANDUNG</option>
+							<option>POLRESTA BOGOR</option>
+							<option>POLRES BOGOR</option>
+							<option>POLRESTA SUKABUMI</option>
+							<option>POLRES SUKABUMI</option>
+							<option>POLRES CIANJUR</option>
+							<option>POLRES PURWAKARTAPURWAKARTA</option>
+							<option>POLRES KARAWANG</option>
+							<option>POLRES SUBANG</option>
+							<option>POLRES CIMAHI</option>
                         </select>
                     </div>
                 </div>
@@ -226,7 +280,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>METRO JAYA</td>
+                                <td>Metro Jaya</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -251,6 +305,61 @@
                                 <td>931</td>
                                 <td>1875</td>
                             </tr>
+							<tr>
+                                <td>4</td>
+                                <td>JATIM</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>5</td>
+                                <td>SUMBAR</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>6</td>
+                                <td>SUMSEL</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>7</td>
+                                <td>KALUT</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>8</td>
+                                <td>KALTENG</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>9</td>
+                                <td>SULBAR</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							
                         </tbody>
                     </table>
                 </div>
@@ -330,6 +439,61 @@
                                 <td>931</td>
                                 <td>1875</td>
                             </tr>
+							<tr>
+                                <td>4</td>
+                                <td>April</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>5</td>
+                                <td>Mei</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>6</td>
+                                <td>Juni</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>7</td>
+                                <td>Juli</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>8</td>
+                                <td>Agustus</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>9</td>
+                                <td>September</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>

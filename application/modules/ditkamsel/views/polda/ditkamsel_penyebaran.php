@@ -72,7 +72,7 @@
                             <thead class="table-primary">
                                 <tr class="text-white">
                                     <th scope="col">No</th>
-                                    <th scope="col">POLDA</th>
+                                    <th scope="col">POLRES</th>
                                     <th scope="col">Spanduk</th>
                                     <th scope="col">Leaflet</th>
                                     <th scope="col">Sticker</th>
@@ -82,7 +82,7 @@
                             <tbody>
 							<tr>
                                     <th scope="row">1</th>
-                                    <td>Metro Jaya</td>
+                                    <td>POLRESTABES BANDUNG</td>
                                     <td>65</td>
                                     <td>8</td>
                                     <td>2</td>
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
+                                    <td>POLRESTA BOGOR</td>
                                     <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
@@ -98,7 +98,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
+                                    <td>POLRES BOGOR</td>
                                     <td>43</td>
                                     <td>24</td>
                                     <td>1</td>
@@ -106,7 +106,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Jawa Tengah</td>
+                                    <td>POLRESTA SUKABUMI</td>
                                     <td>31</td>
                                     <td>21</td>
                                     <td>6</td>
@@ -114,7 +114,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Sumatra barat</td>
+                                    <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -122,7 +122,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">6</th>
-                                    <td>Sumatra Selatan</td>
+                                    <td>POLRES CIANJUR</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -130,7 +130,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">7</th>
-                                    <td>Kalimantan Utara</td>
+                                    <td>POLRES PURWAKARTA</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -138,7 +138,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">8</th>
-                                    <td>Kalimantan Tengah</td>
+                                    <td>POLRES KARAWANG</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -146,7 +146,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">9</th>
-                                    <td>Sulawesi barat</td>
+                                    <td>POLRES SUBANG</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -154,7 +154,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">10</th>
-                                    <td>Bali</td>
+                                    <td>POLRES CIMAHI</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -177,36 +177,14 @@
             <div class="row text-center m-3">
                 <div class="col-md-6">
                     <h6>Wilayah</h6>
-                    <div class="form-group">
-                        <select class="form-select">
-						<option>Polda</option>
-							<option>Semua Polda</option>
-							<option>Metro Jaya</option>
-							<option>Jawa Barat</option>
-							<option>Jawa Tengah</option>
-							<option>Jawa Timur</option>
-							<option>Sumatra Barat</option>
-							<option>Sumatra Selatan</option>
-							<option>Kalimantan Utara</option>
-							<option>Kalimantan Tengah</option>
-							<option>Sulawesi barat</option>
-							<option>Bali</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group mt-1">
                         <select class="form-select">
-						<option>Polres</option>
-							<option>Semua Polres</option>
-                            <option>POLRESTABES BANDUNG</option>
-							<option>POLRESTA BOGOR</option>
-							<option>POLRES BOGOR</option>
-							<option>POLRESTA SUKABUMI</option>
-							<option>POLRES SUKABUMI</option>
-							<option>POLRES CIANJUR</option>
-							<option>POLRES PURWAKARTAPURWAKARTA</option>
-							<option>POLRES KARAWANG</option>
-							<option>POLRES SUBANG</option>
-							<option>POLRES CIMAHI</option>
+                            <option>Polres</option>
+                            <option>Semua Polres</option>
+                            <option>Jakarta Pusat</option>
+                            <option>Jakarta Utara</option>
+                            <option>Jakata Barat</option>
                         </select>
                     </div>
                 </div>
@@ -260,7 +238,7 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Polda</th>
+                                <th>Polres</th>
                                 <th>Spanduk</th>
                                 <th>Leaflet</th>
                                 <th>Stiker</th>
@@ -280,7 +258,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Metro Jaya</td>
+                                <td>POLRESTABES BANDUNG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -289,7 +267,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>JATENG</td>
+                                <td>POLRESTA BOGOR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -298,7 +276,7 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>JABAR</td>
+                                <td>POLRES BOGOR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -307,7 +285,16 @@
                             </tr>
 							<tr>
                                 <td>4</td>
-                                <td>JATIM</td>
+                                <td>POLRESTA SUKABUMI</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>3</td>
+                                <td>POLRES CIANJUR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -316,7 +303,7 @@
                             </tr>
 							<tr>
                                 <td>5</td>
-                                <td>SUMBAR</td>
+                                <td>POLRES PURWAKARTA</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -325,7 +312,7 @@
                             </tr>
 							<tr>
                                 <td>6</td>
-                                <td>SUMSEL</td>
+                                <td>POLRES KARAWANG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -334,7 +321,7 @@
                             </tr>
 							<tr>
                                 <td>7</td>
-                                <td>KALUT</td>
+                                <td>POLRES SUBANG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -343,7 +330,7 @@
                             </tr>
 							<tr>
                                 <td>8</td>
-                                <td>KALTENG</td>
+                                <td>POLRES CIMAHI</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -352,7 +339,7 @@
                             </tr>
 							<tr>
                                 <td>9</td>
-                                <td>SULBAR</td>
+                                <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -561,7 +548,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: ['POLRESTABES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRESTA SUKABUMI', 'POLRES SUKABUMI', 'POLRES CIANJUR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES CIMAHI'],
             },
             yaxis: [{
                 axisTicks: {

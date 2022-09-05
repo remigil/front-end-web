@@ -24,27 +24,27 @@
                     <div class="card-body blue-card">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6">
-                                <h4 class="text-light fw-light">Spanduk</h4>
+                                <h4 class="text-light fw-light">Media Cetak</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">296</h1>
+                                <h1 class="text-center blue-card-text">283</h1>
                             </div>
                         </div>
                     </div>
                     <div class="card-body red-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 rounded">
-                                <h4 class="text-light d-inline fw-light">Leafflet</h4>
+                                <h4 class="text-light d-inline fw-light">Media Elektronik</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">160</h1>
+                                <h1 class="red-card-text">860</h1>
                             </div>
                         </div>
                     </div>
                     <div class="card-body green-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
-                                <h4 class="text-light fw-light">Sticker</h4>
+                                <h4 class="text-light fw-light">Media Sosial</h4>
                             </div>
                             <div class="col-md-6">
                                 <h1 class="green-card-text text-center">324</h1>
@@ -54,10 +54,10 @@
                     <div class="card-body yellow-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
-                                <h4 class="text-light fw-light">Bilboard</h4>
+                                <h4 class="text-light fw-light">Laka Langgar</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">91</h1>
+                                <h1 class="yellow-card-text text-center">931</h1>
                             </div>
                         </div>
                     </div>
@@ -65,24 +65,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="top-five-headline">
-                        <h2 class="text-center">10 RANGKING PENYEBARAN DAN PEMASANGAN TERTINGGI</h2>
+                        <h2 class="text-center">10 RANGKING DIKMAS LANTAS TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
                             <thead class="table-primary">
                                 <tr class="text-white">
                                     <th scope="col">No</th>
-                                    <th scope="col">POLDA</th>
-                                    <th scope="col">Spanduk</th>
-                                    <th scope="col">Leaflet</th>
-                                    <th scope="col">Sticker</th>
-                                    <th scope="col">Bilboard</th>
+                                    <th scope="col">POLRES</th>
+                                    <th scope="col">Media Cetak</th>
+                                    <th scope="col">Media Elektronik</th>
+                                    <th scope="col">Media Sosial</th>
+                                    <th scope="col">Laka Langgar</th>
                                 </tr>
                             </thead>
                             <tbody>
-							<tr>
+                                <tr>
                                     <th scope="row">1</th>
-                                    <td>Metro Jaya</td>
+                                    <td>POLRESTABES BANDUNG</td>
                                     <td>65</td>
                                     <td>8</td>
                                     <td>2</td>
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
+                                    <td>POLRESTA BOGOR</td>
                                     <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
@@ -98,7 +98,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
+                                    <td>POLRES BOGOR</td>
                                     <td>43</td>
                                     <td>24</td>
                                     <td>1</td>
@@ -106,7 +106,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Jawa Tengah</td>
+                                    <td>POLRESTA SUKABUMI</td>
                                     <td>31</td>
                                     <td>21</td>
                                     <td>6</td>
@@ -114,7 +114,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Sumatra barat</td>
+                                    <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -122,7 +122,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">6</th>
-                                    <td>Sumatra Selatan</td>
+                                    <td>POLRES CIANJUR</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -130,7 +130,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">7</th>
-                                    <td>Kalimantan Utara</td>
+                                    <td>POLRES PURWAKARTA</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -138,7 +138,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">8</th>
-                                    <td>Kalimantan Tengah</td>
+                                    <td>POLRES KARAWANG</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -146,7 +146,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">9</th>
-                                    <td>Sulawesi barat</td>
+                                    <td>POLRES SUBANG</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -154,7 +154,7 @@
                                 </tr>
 								<tr>
                                     <th scope="row">10</th>
-                                    <td>Bali</td>
+                                    <td>POLRES CIMAHI</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -177,26 +177,11 @@
             <div class="row text-center m-3">
                 <div class="col-md-6">
                     <h6>Wilayah</h6>
-                    <div class="form-group">
-                        <select class="form-select">
-						<option>Polda</option>
-							<option>Semua Polda</option>
-							<option>Metro Jaya</option>
-							<option>Jawa Barat</option>
-							<option>Jawa Tengah</option>
-							<option>Jawa Timur</option>
-							<option>Sumatra Barat</option>
-							<option>Sumatra Selatan</option>
-							<option>Kalimantan Utara</option>
-							<option>Kalimantan Tengah</option>
-							<option>Sulawesi barat</option>
-							<option>Bali</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group mt-1">
                         <select class="form-select">
 						<option>Polres</option>
-							<option>Semua Polres</option>
+                            <option>Semua Polres</option>
                             <option>POLRESTABES BANDUNG</option>
 							<option>POLRESTA BOGOR</option>
 							<option>POLRES BOGOR</option>
@@ -238,11 +223,11 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Seluruh Indonesia</h4>
+                    <h4 class="card-title mb-0">Data Dikmas Lantas Seluruh Indonesia</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart"></div>
+                        <div id="chart" style="width: 100vw"></div>
                     </div>
                 </div>
             </div>
@@ -256,16 +241,16 @@
         <div class="col-xl-12">
             <div class="card mt-3">
                 <div class="card-body">
-                    <table id="tb_penyebaran" class="table dt-responsive table-bordered nowrap w-100">
+                    <table id="tb_dikmaslantas" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Polda</th>
-                                <th>Spanduk</th>
-                                <th>Leaflet</th>
-                                <th>Stiker</th>
-                                <th>Bilboard</th>
-                                <td>JEMENSOSPREK</td>
+                                <th>Polres</th>
+                                <th>Penluh</th>
+                                <th>Media Cetak</th>
+                                <th>Media Elektronik</th>
+                                <th>Media Sosial</th>
+                                <td>Laka & Langgar</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -280,7 +265,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Metro Jaya</td>
+                                <td>POLRESTABES BANDUNG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -289,7 +274,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>JATENG</td>
+                                <td>POLRESTA BOGOR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -298,7 +283,7 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>JABAR</td>
+                                <td>POLRES BOGOR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -307,7 +292,16 @@
                             </tr>
 							<tr>
                                 <td>4</td>
-                                <td>JATIM</td>
+                                <td>POLRESTA SUKABUMI</td>
+                                <td>2896</td>
+                                <td>1860</td>
+                                <td>324</td>
+                                <td>931</td>
+                                <td>1875</td>
+                            </tr>
+							<tr>
+                                <td>3</td>
+                                <td>POLRES CIANJUR</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -316,7 +310,7 @@
                             </tr>
 							<tr>
                                 <td>5</td>
-                                <td>SUMBAR</td>
+                                <td>POLRES PURWAKARTA</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -325,7 +319,7 @@
                             </tr>
 							<tr>
                                 <td>6</td>
-                                <td>SUMSEL</td>
+                                <td>POLRES KARAWANG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -334,7 +328,7 @@
                             </tr>
 							<tr>
                                 <td>7</td>
-                                <td>KALUT</td>
+                                <td>POLRES SUBANG</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -343,7 +337,7 @@
                             </tr>
 							<tr>
                                 <td>8</td>
-                                <td>KALTENG</td>
+                                <td>POLRES CIMAHI</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -352,7 +346,7 @@
                             </tr>
 							<tr>
                                 <td>9</td>
-                                <td>SULBAR</td>
+                                <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
                                 <td>2896</td>
                                 <td>1860</td>
                                 <td>324</td>
@@ -369,14 +363,14 @@
 
 <section class="shadow-sm mt-5">
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Tahun 2021</h4>
+                    <h4 class="card-title mb-0">Data Dikmas Lantas Tahun 2021</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart1"></div>
+                        <div id="chart2" style="width: 100vw"></div>
                     </div>
                 </div>
             </div>
@@ -389,16 +383,16 @@
         <div class="col-xl-12">
             <div class="card mt-3">
                 <div class="card-body">
-                    <table id="tb_penyebaran_tahun" class="table dt-responsive table-bordered nowrap w-100">
+                    <table id="tb_dikmaslantas_tahun" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
                                 <th>Tahun</th>
-                                <th>Spanduk</th>
-                                <th>Leaflet</th>
-                                <th>Stiker</th>
-                                <th>Bilboard</th>
-                                <td>JEMENSOSPREK</td>
+                                <th>Penluh</th>
+                                <th>Media Cetak</th>
+                                <th>Media Elektronik</th>
+                                <th>Media Sosial</th>
+                                <td>Laka & Langgar</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -503,36 +497,31 @@
 
 <script>
     $(document).ready(function() {
-        $('#tb_penyebaran').DataTable()
-        $('#tb_penyebaran_tahun').DataTable()
+        $('#tb_dikmaslantas').DataTable()
+        $('#tb_dikmaslantas_tahun').DataTable()
 
-        // Dikmas penyebaran
-        var options_penyebaran = {
+        // Dikmas Lantas
+        var options_dikmas_lantas = {
             series: [{
-                name: 'Spanduk',
+                name: 'Media Cetak',
                 type: 'column',
                 data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
                 color: "#11347A"
             }, {
-                name: 'Leaflet',
+                name: 'Media Elektronik',
                 type: 'column',
                 data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                 color: "#CB2D3E"
             }, {
-                name: 'Stiker',
+                name: 'Media Sosial',
                 type: 'column',
                 data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
                 color: "#E8D42F"
             }, {
-                name: 'Billboard',
+                name: 'Laka langgar',
                 type: 'column',
                 data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
                 color: "#3CA55C"
-            }, {
-                name: 'JEMENSOSPREK',
-                type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
-                color: "#11617A"
             }],
             chart: {
                 height: 350,
@@ -543,6 +532,7 @@
                 bar: {
                     horizontal: false,
                     columnWidth: '55%',
+                    endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
                     }
@@ -558,10 +548,11 @@
 
             stroke: {
                 show: true,
+                width: [1, 1, 4, 4],
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: ['POLRESTABES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRESTA SUKABUMI', 'POLRES SUKABUMI', 'POLRES CIANJUR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES CIMAHI'],
             },
             yaxis: [{
                 axisTicks: {
@@ -582,36 +573,31 @@
             }, ],
         };
 
-        var penyebaran = new ApexCharts(document.querySelector("#chart"), options_penyebaran);
-        penyebaran.render();
+        var dikmas_lantas = new ApexCharts(document.querySelector("#chart"), options_dikmas_lantas);
+        dikmas_lantas.render();
 
-        // Dikmas penyebaran Tahun
-        var options_penyebaran_tahun = {
+        // Dikmas Lantas Tahun 2021
+        var options_dikmas_lantas_tahun = {
             series: [{
-                name: 'Spanduk',
+                name: 'Media Cetak',
                 type: 'column',
                 data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
                 color: "#11347A"
             }, {
-                name: 'Leaflet',
+                name: 'Media Elektronik',
                 type: 'column',
                 data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
                 color: "#CB2D3E"
             }, {
-                name: 'Stiker',
+                name: 'Media Sosial',
                 type: 'column',
                 data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
                 color: "#E8D42F"
             }, {
-                name: 'Billboard',
+                name: 'Laka langgar',
                 type: 'column',
                 data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
                 color: "#3CA55C"
-            }, {
-                name: 'JEMENSOSPREK',
-                type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
-                color: "#69B8DB"
             }],
             chart: {
                 height: 350,
@@ -622,6 +608,7 @@
                 bar: {
                     horizontal: false,
                     columnWidth: '55%',
+                    endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
                     }
@@ -637,10 +624,11 @@
 
             stroke: {
                 show: true,
+                width: [1, 1, 4, 4],
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober','November','Desember'],
             },
             yaxis: [{
                 axisTicks: {
@@ -661,7 +649,7 @@
             }, ],
         };
 
-        var penyebaran_tahun = new ApexCharts(document.querySelector("#chart1"), options_penyebaran_tahun);
-        penyebaran_tahun.render();
+        var dikmas_lantas_tahun = new ApexCharts(document.querySelector("#chart2"), options_dikmas_lantas_tahun);
+        dikmas_lantas_tahun.render();
     })
 </script>
