@@ -134,7 +134,23 @@
 			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
 		</div>
 
-		<div class="col-md-12">
+		<div class="col-md-12"> 
+            <div style="display:flex;z-index: 999;position: absolute;">
+                <div class="dropdown d-inline-block">
+                    <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="row" style="margin-left: 0px;"> 
+                            <div class="col-md-12">
+                                <div style="display: flex;">
+                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
+                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                     
+                </div>  
+            </div>  
             <div id="map" style="height: 500px;"></div>
 		</div>
 		  
@@ -439,32 +455,52 @@
                     <div class="logo-slick-carousel dot-navigation">
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-01.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt="">
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-02.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt="">
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-03.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt="">
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-04.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt="">
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-05.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="">
                         </div>		
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-06.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/instan.png" alt="">
                         </div>	
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/images/logo-07.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt="">
                         </div>
+
+                        <div class="item">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="">
+                        </div>      
 
 
                     </div>
@@ -480,6 +516,8 @@
 <!-- Container / End -->
 
   
+
+
 
 
 <script>
