@@ -10,6 +10,7 @@
 
 	<!-- CSS
 	================================================== -->
+	<link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/main-color.css" id="colors">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
