@@ -151,7 +151,7 @@
                         <tbody>
                             <tr>
                                 <td style="border-right:none">Total</td>
-                                <td class="hide"></td>
+                                <!-- <td class="hide"></td> -->
                                 <td>11012</td>
                                 <td>5932</td>
                                 <td>78</td>
@@ -250,18 +250,18 @@
             series: [{
                     name: 'Baru',
                     type: 'column',
-                    data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#003A91"
                 }, {
                     name: 'Perpanjangan',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#CB2D3E"
                 },
                 {
                     name: 'RUBENTINA',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: [607],
                     color: "#E8D42F"
                 },
             ],
@@ -292,7 +292,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['POLRESTABES BANDUNG', 'POLRESTA BOGOR', 'POLRES BOGOR', 'POLRESTA SUKABUMI', 'POLRES SUKABUMI', 'POLRES CIANJUR', 'POLRES PURWAKARTA', 'POLRES KARAWANG', 'POLRES SUBANG', 'POLRES CIMAHI'],
+                categories: ['POLRES BOGOR'],
             },
             yaxis: [{
                 axisTicks: {
