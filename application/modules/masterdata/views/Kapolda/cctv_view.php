@@ -68,69 +68,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>CCTV Jakarta 1</td>
-                        <td>127.0.0.1</td>
-                        <td>Jakarta Selatan</td>
-                        <td>-0,12332141</td>
-                        <td>116,2454234</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>CCTV Jakarta 2</td>
-                        <td>127.0.0.1</td>
-                        <td>Jakarta Utara</td>
-                        <td>-0,12332141</td>
-                        <td>116,2454234</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>CCTV Bekasi 1</td>
-                        <td>127.0.0.1</td>
-                        <td>Bekasi</td>
-                        <td>-0,12332141</td>
-                        <td>116,2454234</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
 

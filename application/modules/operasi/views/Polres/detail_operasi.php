@@ -60,8 +60,8 @@
                     </div>
                 </div>
             </div>
-            <hr class="mt-5" style="height:5px;border-width:0;color:gray;background-color:gray">
-            <div class="row">
+            <!-- <hr class="mt-5" style="height:5px;border-width:0;color:gray;background-color:gray"> -->
+            <!-- <div class="row">
                 <div class="col-md-5 mt-4">
                     <p class="fs-4 fw-bold text-primary">Identitas Operasi</p>
                 </div>
@@ -131,8 +131,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="col-md-12 ">
+            </div> -->
+            <div class="col-md-12 mt-5">
                 <a href="<?= base_url('operasi/RencanaOperasi'); ?>"><button class="btn btn-primary float-end" style="width:15%; letter-spacing:2px">KEMBALI</button></a>
 
             </div>

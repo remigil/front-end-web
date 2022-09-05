@@ -69,15 +69,7 @@
                         <input type="text" name="" id="" style="width:100% ;">
                         <label for="" class="labelmui">Nama Operasi</label>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
