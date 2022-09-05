@@ -1,8 +1,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+	<!-- Slider Statistik -->
+
     <div class="row">
         <div class="col-lg-12">
             <div>
-                <h4>Statistik Nasional</h4>
+                <h4>Statistik Bogor</h4>
             </div>
             <div class="row">
                 <div class="swiper mySwiper">
@@ -152,15 +155,18 @@
             </div>
         </div>
     </div>
+
+<!-- end slider statistik  -->
+
     <div class="row">
         <div>
-            <h5>DIREKTORAT LANTAS NASIONAL</h5>
+            <h5>DIREKTORAT LANTAS</h5>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="mt-2">
                 <div class="card shadow-sm">
                     <div class="text-center mt-5">
-                        <h5>DITGAKKUM NASIONAL</h5>
+                        <h5>lAPORAN DITGAKKUM POLRES BOGOR</h5>
                     </div>
                     <div>
                         <div class="main-chart">
@@ -170,255 +176,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="mt-2 mb-3" style="overflow-y: scroll; height:730px">
-                <div class="card shadow-sm">
-                    <div class="mt-5 text-center">
-                        <h5>Top 10 Polres Tertinggi</h5>
-                    </div>
-                    <div class="mt-2">
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">1. Polrestabes Bandung</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-4">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">2. Polresta Bandung</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">3. Polresta Bogor Kota</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">4. Polresta Cirebon</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">5. Polres Bogor</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">6. Polres Sumedang</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">7. Polres Garut</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">8. Polres Tasikmalaya</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">9. Polres Karawang</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">10. Polres Majalengka</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <div class="row">
         <div class="col-md-7">
             <div class="card shadow-sm">
                 <div class="text-center mt-5">
-                    <h5>DITKAMSEL NASIONAL</h5>
+                    <h5>LAPORAN DITKAMSEL POLRES BOGOR</h5>
                 </div>
                 <div>
                     <div class="main-chart">
@@ -460,7 +224,7 @@
         <div class="col-md-7">
             <div class="card shadow-sm">
                 <div class="text-center mt-5">
-                    <h5>DITREGIDENT NASIONAL</h5>
+                    <h5>LAPORAN DITREGIDENT POLRES BOGOR</h5>
                 </div>
                 <div>
                     <div class="main-chart">
@@ -486,61 +250,13 @@
                             </thead>
                             <tbody style="overflow:scroll;">
                                 <tr>
-                                    <td>Polrestabes Bandung</td>
-                                    <td>Jl. Merdeka No.18-21, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117</td>
-                                    <td>
-                                        <h5>5 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Polresta Bandung</td>
-                                    <td>Jl. Bhayangkara No.1, Soreang, Kec. Soreang, Kabupaten Bandung, Jawa Barat 40239</td>
-                                    <td>
-                                        <h5>4 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Polresta Bogor Kota</td>
-                                    <td>Jl. Raya Jakarta-Bogor No.22, RT.03/RW.05, Kedunghalang, Kec. Bogor Utara, Kota Bogor, Jawa Barat</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Polresta Cirebon</td>
-                                    <td>Jl. R.Dewi Sartika No.1, Tukmudal, Kec. Sumber, Kabupaten Cirebon, Jawa Barat 45611</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>Polres Bogor</td>
                                     <td>Jl. Masjid Sirojul Munir No.35, Tengah, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16914</td>
                                     <td>
                                         <h5>4 Jam</h5>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Polres Indramayu</td>
-                                    <td>Jl. Gatot Subroto, Kepandean, Kec. Indramayu, Kabupaten Indramayu, Jawa Barat 45213</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Polres Cirebon Kota</td>
-                                    <td>Jl. Veteran No.5, Kebonbaru, Kec. Kejaksan, Kota Cirebon, Jawa Barat 45116</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Polres Kuningan</td>
-                                    <td>Jl. RE Martadinata No.526, Ancaran, Kec. Kuningan, Kabupaten Kuningan, Jawa Barat 45511</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -582,22 +298,22 @@
                 series: [{
                     name: 'Data Dakgar Lantas',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    data: [706],
                     color: "#003A91"
                 }, {
                     name: 'Kecelakaan Lalu Lintas',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    data: [65],
                     color: "#CB2D3E"
                 }, {
                     name: 'Gar Lantas',
                     type: 'column',
-                    data: [89, 678, 21, 345, 78, 65, 34, 91, 87, 11],
+                    data: [89],
                     color: "#E8D42F"
                 }, {
                     name: 'Data Turjagwali',
                     type: 'column',
-                    data: [890, 171, 212, 124, 65, 321, 121, 111, 123, 34],
+                    data: [890],
                     color: "#3CA55C"
                 }],
                 chart: {
@@ -633,7 +349,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                    categories: ['POLRES BOGOR'],
                 },
                 yaxis: [{
                     axisTicks: {
@@ -662,12 +378,12 @@
                 series: [{
                     name: 'Dikmas Lantas',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    data: [706],
                     color: "#003A91"
                 }, {
                     name: 'Penyabaran/Pemasangan',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    data: [65],
                     color: "#3CA55C"
                 }, ],
                 chart: {
@@ -703,7 +419,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                    categories: ['POLRES BOGOR'],
                 },
                 yaxis: [{
                     axisTicks: {
@@ -755,12 +471,12 @@
                 series: [{
                     name: 'Keberangkatan',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    data: [706],
                     color: "#003A91"
                 }, {
                     name: 'Kedatangan',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    data: [65],
                     color: "#3CA55C"
                 }, ],
                 chart: {
@@ -796,7 +512,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['BANDUNG', 'BANDUNG', 'BOGOR KOTA', 'CIREBON', 'BOGOR', 'SUMEDANG', 'GARUT', 'TASIKMALAYA', 'KARAWANG', 'MAJALENGKA'],
+                    categories: ['BOGOR'],
                 },
                 yaxis: [{
                     axisTicks: {
@@ -824,22 +540,22 @@
                 series: [{
                     name: 'SIM',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    data: [706],
                     color: "#003A91"
                 }, {
                     name: 'STNK',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    data: [65],
                     color: "#CB2D3E"
                 }, {
                     name: 'BPKB',
                     type: 'column',
-                    data: [90, 111, 178, 16, 89, 27, 34, 100, 23, 98],
+                    data: [90],
                     color: "#E8D42F"
                 }, {
                     name: 'RANMOR',
                     type: 'column',
-                    data: [95, 128, 195, 617, 516, 99, 39, 89, 17, 78],
+                    data: [95],
                     color: "#3CA55C"
                 }, ],
                 chart: {
@@ -876,7 +592,7 @@
                 },
                 xaxis: {
                     // categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
-                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                    categories: ['POLRES BOGOR'],
                 },
                 yaxis: [{
                     axisTicks: {

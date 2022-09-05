@@ -114,7 +114,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - Tahun 2021</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS BOGOR - Tahun 2021</h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">

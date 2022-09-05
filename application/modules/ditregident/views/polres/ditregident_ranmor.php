@@ -59,7 +59,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+				<div class="col-md-2"></div>
+                <div class="col-md-4">
                     <div class="card-body yellow-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
@@ -71,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card-body orange-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
