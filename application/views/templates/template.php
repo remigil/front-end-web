@@ -467,7 +467,10 @@
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="copyrights">© 2019 <?php echo $title ?>. All Rights Reserved.</div>
+				<div class="copyrights">
+					<img src="<?php echo base_url();?>assets/logo-k3i.png" alt="" width="50"> <br>
+					Korps Lalu Lintas Kepolisian Negara Republik Indonesia <br>
+					© 2021 Pusat Kendali, Koordinasi, Komunikasi, dan Informasi Korlantas Polri</div>
 			</div>
 		</div>
 
