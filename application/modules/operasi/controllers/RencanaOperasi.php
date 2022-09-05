@@ -26,9 +26,9 @@ class RencanaOperasi extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "operasi/Korlantas/operasi";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "operasi/Kapolda/operasi";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "operasi/Polres/operasi";
         }
 
 
