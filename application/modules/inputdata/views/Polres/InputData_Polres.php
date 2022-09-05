@@ -18,12 +18,14 @@
                         <div class="material-selectfield mb-3">
                             <select name="" id="">
                                 <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Metro Jaya</option>
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
+                                <!-- <option value="">SEMUA POLRES</option>
+                                <option value="">POLRESTABES BANDUNG</option> -->
+                                <option value="">POLRESTA BOGOR</option>
+                                <!-- <option value="">POLRES BOGOR</option>
+                                <option value="">POLRESTA SUKABUMI</option>
+                                <option value="">POLRES CIANJUR</option> -->
                             </select>
-                            <label class="labelmui">Polda</label>
+                            <label class="labelmui">Polres</label>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -78,27 +80,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>POLRESTABES BANDUNG</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr> -->
                     <tr>
                         <td>1</td>
-                        <td>Polres Metro Jaksel</td>
+                        <td>POLRESTA BOGOR</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Polres Metro Jakpus</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>3</td>
-                        <td>Polres Metro Jakut</td>
+                        <td>POLRES BOGOR</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -107,7 +109,7 @@
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Polres Metro Jaktim</td>
+                        <td>POLRESTA SUKABUMI</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -116,7 +118,7 @@
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>Polres Metro Jakbar</td>
+                        <td>POLRES SUKABUMI</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -125,7 +127,7 @@
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>Polresta Tanggerang</td>
+                        <td>POLRES CIANJUR</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -134,7 +136,7 @@
                     </tr>
                     <tr>
                         <td>7</td>
-                        <td>Polresta Tanggerang Selatan</td>
+                        <td>POLRES PURWAKARTAPURWAKARTA</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -143,7 +145,7 @@
                     </tr>
                     <tr>
                         <td>8</td>
-                        <td>Polresta Bekasi Kota</td>
+                        <td>POLRES KARAWANG</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -152,7 +154,7 @@
                     </tr>
                     <tr>
                         <td>9</td>
-                        <td>Polres Bekasi</td>
+                        <td>POLRES SUBANG</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -161,23 +163,13 @@
                     </tr>
                     <tr>
                         <td>10</td>
-                        <td>Polresta Depok</td>
+                        <td>POLRES CIMAHI</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>Polresta Bogor</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-
+                    </tr> -->
                 </tbody>
             </table>
             <div class="col-md-12">

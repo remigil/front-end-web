@@ -775,24 +775,29 @@
                                     <span data-key="t-dashboard">Dokumen Peraturan</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Management Pengguna</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
-                                    <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
-                                </ul>
-                            </li>
+                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <i data-feather="grid"></i>
+                                        <span data-key="t-apps">Management Pengguna</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
+                                        <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-apps">Master Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <?php } ?>
                                     <li><a href="<?php echo base_url('masterdata/Petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
                                     <li><a href="<?php echo base_url('masterdata/Kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
                                     <li><a href="<?php echo base_url('masterdata/Samsat'); ?>" data-key="t-read-email">Samsat</a></li>
