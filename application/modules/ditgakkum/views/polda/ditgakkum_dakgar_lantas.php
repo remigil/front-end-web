@@ -72,7 +72,7 @@
                             <thead class="table-primary">
                                 <tr class="text-white">
                                     <th scope="col">No</th>
-                                    <th scope="col">POLDA</th>
+                                    <th scope="col">POLRES</th>
                                     <th scope="col">Capture Camera</th>
                                     <th scope="col">Validasi Petugas</th>
                                     <th scope="col">Konfirmasi Masyarakat</th>
@@ -82,7 +82,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Jawa Barat</td>
+                                    <td>POLRESTABES BANDUNG</td>
                                     <td>86</td>
                                     <td>42</td>
                                     <td>2</td>
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jawa Tengah</td>
+                                    <td>POLRESTA BOGOR</td>
                                     <td>75</td>
                                     <td>42</td>
                                     <td>2</td>
@@ -98,7 +98,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
+                                    <td>POLRES BOGOR</td>
                                     <td>43</td>
                                     <td>24</td>
                                     <td>1</td>
@@ -106,7 +106,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Sulawesi Selatan</td>
+                                    <td>POLRESTA SUKABUMI</td>
                                     <td>31</td>
                                     <td>21</td>
                                     <td>6</td>
@@ -114,7 +114,47 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Bali</td>
+                                    <td>POLRES SUKABUMI</td>
+                                    <td>22</td>
+                                    <td>7</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>POLRES CIANJUR</td>
+                                    <td>86</td>
+                                    <td>42</td>
+                                    <td>2</td>
+                                    <td>94</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>POLRES PURWAKARTA</td>
+                                    <td>75</td>
+                                    <td>42</td>
+                                    <td>2</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>POLRES KARAWANG</td>
+                                    <td>43</td>
+                                    <td>24</td>
+                                    <td>1</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9</th>
+                                    <td>POLRES SUBANG</td>
+                                    <td>31</td>
+                                    <td>21</td>
+                                    <td>6</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td>POLRES CIMAHI</td>
                                     <td>22</td>
                                     <td>7</td>
                                     <td>5</td>
@@ -138,15 +178,7 @@
             <div class="row text-center m-3">
                 <div class="col-md-6">
                     <h6>Wilayah</h6>
-                    <div class="form-group">
-                        <select class="form-select">
-                            <option>Polda</option>
-                            <option>Semua Polda</option>
-                            <option>Aceh</option>
-                            <option>Sumatera Utara</option>
-                            <option>Sumatera Selatan</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group mt-1">
                         <select class="form-select">
                             <option>Polres</option>
