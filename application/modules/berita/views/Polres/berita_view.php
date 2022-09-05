@@ -24,8 +24,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Polri Tegaskan Perubahan Warna Plat Hitam Jadi Putih Gratis</td>
+                <tr>
+                        <td>Polrid Tegaskan Perubahan Warna Plat Hitam Jadi Putih Gratis</td>
                         <td>Korps Lalu Lintas ( Korlantas ) segera merealisasikan perubahan warna dari hitam menjadi putih pada Tanda Nomor Kendaraan Bermotor (TNKB) atau pelat nomor kendaraan . Dirregident Korlantas Polri Brigjen Yusri Yunus mengatakan tidak mengungkapkan kapan mulai dilaksanakan, tapi perubahan warna itu akan dilakukan secepatnya</td>
                         <td>Jamal</td>
                         <td>Sabtu, 2022-08-20</td>
