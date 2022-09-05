@@ -20,8 +20,8 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card-body blue-card">
+                <div class="col-md-3">
+                    <div class="card-body blue-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6">
                                 <h4 class="text-light fw-light">Spanduk</h4>
@@ -31,17 +31,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body red-card mt-2">
+                </div>
+				<div class="col-md-3">
+				<div class="card-body red-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 rounded">
-                                <h4 class="text-light d-inline fw-light">Leafflet</h4>
+                                <h4 class="text-light d-inline fw-light">Leaflet</h4>
                             </div>
                             <div class="col-md-6">
                                 <h1 class="red-card-text">160</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body green-card mt-2">
+				</div>
+				<div class="col-md-3">
+				<div class="card-body green-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
                                 <h4 class="text-light fw-light">Sticker</h4>
@@ -51,7 +55,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body yellow-card mt-2">
+				</div>
+				<div class="col-md-3">
+				<div class="card-body yellow-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
                                 <h4 class="text-light fw-light">Bilboard</h4>
@@ -61,109 +67,8 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-md-8">
-                    <div class="top-five-headline">
-                        <h2 class="text-center">10 RANGKING PENYEBARAN DAN PEMASANGAN TERTINGGI</h2>
-                    </div>
-                    <div class="mt-5">
-                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
-                            <thead class="table-primary">
-                                <tr class="text-white">
-                                    <th scope="col">No</th>
-                                    <th scope="col">POLRES</th>
-                                    <th scope="col">Spanduk</th>
-                                    <th scope="col">Leaflet</th>
-                                    <th scope="col">Sticker</th>
-                                    <th scope="col">Bilboard</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-							<tr>
-                                    <th scope="row">1</th>
-                                    <td>POLRESTABES BANDUNG</td>
-                                    <td>65</td>
-                                    <td>8</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>POLRESTA BOGOR</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>POLRES BOGOR</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>POLRESTA SUKABUMI</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">6</th>
-                                    <td>POLRES CIANJUR</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">7</th>
-                                    <td>POLRES PURWAKARTA</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">8</th>
-                                    <td>POLRES KARAWANG</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">9</th>
-                                    <td>POLRES SUBANG</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">10</th>
-                                    <td>POLRES CIMAHI</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+				</div>
+                
             </div>
         </div>
     </div>
@@ -175,20 +80,8 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <div class="row text-center m-3">
-                <div class="col-md-6">
-                    <h6>Wilayah</h6>
-                    
-                    <div class="form-group mt-1">
-                        <select class="form-select">
-                            <option>Polres</option>
-                            <option>Semua Polres</option>
-                            <option>Jakarta Pusat</option>
-                            <option>Jakarta Utara</option>
-                            <option>Jakata Barat</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
+                
+                <div class="col-md-12">
                     <h6>Waktu</h6>
                     <div class="form-group">
                         <select class="form-select">
@@ -211,155 +104,14 @@
     </div>
 </section>
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Jawa barat</h4>
-                </div>
-                <div class="card-body">
-                    <div class="main-chart">
-                        <div id="chart"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <table id="tb_penyebaran" class="table dt-responsive table-bordered nowrap w-100">
-                        <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
-                            <tr>
-                                <th>No</th>
-                                <th>Polres</th>
-                                <th>Spanduk</th>
-                                <th>Leaflet</th>
-                                <th>Stiker</th>
-                                <th>Bilboard</th>
-                                <td>JEMENSOSPREK</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>POLRESTABES BANDUNG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>POLRESTA BOGOR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>POLRES BOGOR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>4</td>
-                                <td>POLRESTA SUKABUMI</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>3</td>
-                                <td>POLRES CIANJUR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>5</td>
-                                <td>POLRES PURWAKARTA</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>6</td>
-                                <td>POLRES KARAWANG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>7</td>
-                                <td>POLRES SUBANG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>8</td>
-                                <td>POLRES CIMAHI</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>9</td>
-                                <td>POLRES SUKABUMI (PALABUHAN RATU)</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Jawa barat Tahun 2021</h4>
+                    <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Polres Bogor Tahun 2021</h4>
                 </div>
                 <div class="card-body">
                     <div class="main-chart">
@@ -380,7 +132,7 @@
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
                                 <th>No</th>
-                                <th>Bulan</th>
+                                <th>Tahun</th>
                                 <th>Spanduk</th>
                                 <th>Leaflet</th>
                                 <th>Stiker</th>
