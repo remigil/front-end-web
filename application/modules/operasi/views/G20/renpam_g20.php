@@ -90,12 +90,13 @@
                                 <label class="labelmui">Subjek</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6"></div>
+                        <!-- <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
@@ -317,6 +318,7 @@
                     language: 'en',
                     profile: 'car'
                 }),
+                showAlternatives: true,
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainerInstruksi);
 

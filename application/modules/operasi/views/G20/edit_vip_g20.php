@@ -47,9 +47,27 @@
                                 <div class="material-selectfield mb-3">
                                     <select name="asalNegara" class="form-select">
                                         <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == null ? 'selected' : '');?> value="">Pilih Negara Kedatangan</option>
-                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Rusia" ? 'selected' : '');?> value="Rusia">Rusia</option>
+                                         
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Afrika Selatan" ? 'selected' : '');?> value="Afrika Selatan">Afrika Selatan</option>
                                         <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Amerika Serikat" ? 'selected' : '');?> value="Amerika Serikat">Amerika Serikat</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Arab Saudi" ? 'selected' : '');?> value="Arab Saudi">Arab Saudi</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Argentina" ? 'selected' : '');?> value="Argentina">Argentina</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Australia" ? 'selected' : '');?> value="Australia">Australia</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Brasil" ? 'selected' : '');?> value="Brasil">Brasil</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "China" ? 'selected' : '');?> value="China">China</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "India" ? 'selected' : '');?> value="India">India</option>
                                         <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Indonesia" ? 'selected' : '');?> value="Indonesia">Indonesia</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Inggris" ? 'selected' : '');?> value="Inggris">Inggris</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Italia" ? 'selected' : '');?> value="Italia">Italia</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Jepang" ? 'selected' : '');?> value="Jepang">Jepang</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Jerman" ? 'selected' : '');?> value="Jerman">Jerman</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Kanada" ? 'selected' : '');?> value="Kanada">Kanada</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Meksiko" ? 'selected' : '');?> value="Meksiko">Meksiko</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Korea Selatan" ? 'selected' : '');?> value="Korea Selatan">Korea Selatan</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Rusia" ? 'selected' : '');?> value="Rusia">Rusia</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Perancis" ? 'selected' : '');?> value="Perancis">Perancis</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Turki" ? 'selected' : '');?> value="Turki">Turki</option>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == "Uni Eropa" ? 'selected' : '');?> value="Uni Eropa">Uni Eropa</option>
                                     </select>
                                     <label class="labelmui">Negara Kedatangan</label>
                                 </div>

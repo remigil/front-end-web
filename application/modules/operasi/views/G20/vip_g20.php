@@ -45,10 +45,27 @@
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="asalNegara" class="form-select">
-                            <option value="">Pilih Negara Kedatangan</option>
-                            <option value="Rusia">Rusia</option>
+                            <option value="">Pilih Negara Kedatangan</option> 
+                            <option value="Afrika Selatan">Afrika Selatan</option>
                             <option value="Amerika Serikat">Amerika Serikat</option>
+                            <option value="Arab Saudi">Arab Saudi</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="China">China</option>
+                            <option value="India">India</option>
                             <option value="Indonesia">Indonesia</option>
+                            <option value="Inggris">Inggris</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Jepang">Jepang</option>
+                            <option value="Jerman">Jerman</option>
+                            <option value="Kanada">Kanada</option>
+                            <option value="Meksiko">Meksiko</option>
+                            <option value="Korea Selatan">Korea Selatan</option>
+                            <option value="Rusia">Rusia</option>
+                            <option value="Perancis">Perancis</option>
+                            <option value="Turki">Turki</option>
+                            <option value="Uni Eropa">Uni Eropa</option>
                         </select>
                         <label class="labelmui">Negara Kedatangan</label>
                     </div>

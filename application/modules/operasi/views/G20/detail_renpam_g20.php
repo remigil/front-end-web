@@ -107,6 +107,7 @@
                 language: 'en',
                 profile: 'car'
             }),
+            routeWhileDragging: false,
             geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainer); 
 

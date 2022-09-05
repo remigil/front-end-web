@@ -33,6 +33,7 @@ class Dashboard extends MY_Controller
                 'headers' => $headers
             ]);
             $data['getAccount'] = $getAccount['data']['data'];
+ 
 
 
             $page_content["data"] = $data;
@@ -51,6 +52,7 @@ class Dashboard extends MY_Controller
         }
 
         $this->templates->loadTemplate($page_content);
+        // $this->load->view('dashboard/dashboard_g20',);
     }
 
     public function getTracking()

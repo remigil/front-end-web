@@ -24,7 +24,7 @@ class Welcome extends MX_Controller {
 	 */
 	public function index()
 	{
-		return redirect('login');
+		// return redirect('login');
 	}
 	public function error()
 	{

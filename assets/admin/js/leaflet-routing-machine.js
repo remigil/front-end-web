@@ -20448,6 +20448,7 @@
 								routeWhileDragging: false,
 								addWaypoints: true,
 								reverseWaypoints: true,
+								showAlternatives: true,
 								addButtonClassName: "",
 								language: "en",
 								createGeocoderElement: function (wp, i, nWps, plan) {
