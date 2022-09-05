@@ -1,18 +1,20 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends MX_Controller {
+class Login extends MX_Controller
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('login/m_login');
     }
     public function index()
-    { 
+    {
         if (isset($this->session->userdata['logged'])) {
             redirect('/dashboard');
-        } else { 
+        } else {
             $this->load->view('login_view');
         }
     }
@@ -21,108 +23,112 @@ class Login extends MX_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        
- 
-        $response = $this->m_login->auth($username,$password);
-        if ($response['user']['isSuccess'] == true) {  
-            $data_session  = array(); 
 
-            if($username == 'Korlantas'){ 
-                
+
+        $response = $this->m_login->auth($username, $password);
+        if ($response['user']['isSuccess'] == true) {
+            $data_session  = array();
+
+            if ($username == 'Korlantas') {
+
                 $data_session['role']       = 'Korlantas';
-                $data_session['full_name']       = 'Korlantas'; 
-            }else if($username == 'Kapolda'){
+                $data_session['full_name']       = 'Korlantas';
+            } else if ($username == 'Kapolda Jawa Barat') {
+                // } else if ($username == 'Kapolda ') {
 
                 $data_session['role']       = 'Kapolda';
-                $data_session['full_name']       = 'Kapolda'; 
-            }else if($username == 'Polres'){
+                $data_session['provinsi']       = 'Jawa Barat';
+                $data_session['full_name']       = 'Kapolda';
+            } else if ($username == 'Polres Bogor') {
+                // } else if ($username == 'Polres') {
 
                 $data_session['role']       = 'Polres';
-                $data_session['full_name']       = 'Polres';  
-            }else if($username == 'G20'){
+                $data_session['kota']       = 'Bogor';
+                $data_session['full_name']       = 'Polres';
+            } else if ($username == 'G20') {
 
                 $data_session['role']       = 'G20';
-                $data_session['full_name']       = 'G20';  
-            }else{
-                $this->session->set_flashdata('error','Username atau password tidak sesuai!');
+                $data_session['full_name']       = 'G20';
+            } else {
+                $this->session->set_flashdata('error', 'Username atau password tidak sesuai!');
                 redirect('login');
                 die;
             }
 
 
-            $data_session['token']       = $response['user']['data']['accessToken']; 
+            $data_session['token']       = $response['user']['data']['accessToken'];
             $data_session['logged']       = 1;
 
-            $this->session->set_userdata($data_session);  
+            $this->session->set_userdata($data_session);
             redirect(base_url('dashboard'));
-        //         $user = $response['user']['data'][0]; 
+            //         $user = $response['user']['data'][0]; 
 
-        //         $area = '';
-        //         for ($i = 0 ; $i < count($user['monitored_area']) ; $i++) { 
-        //             $area .= ''.$user['monitored_area'][$i]['region_id'].',';
-        //         }
-        //         $monitoredArea = substr($area,0,-1); 
+            //         $area = '';
+            //         for ($i = 0 ; $i < count($user['monitored_area']) ; $i++) { 
+            //             $area .= ''.$user['monitored_area'][$i]['region_id'].',';
+            //         }
+            //         $monitoredArea = substr($area,0,-1); 
 
-        //         $data_session = [
-        //             'token' => $response['token'],
-                     
-        //             'id' => $user['id'],
-        //             'user_id' => $user['user_id'],
-        //             'access' => $user['access'],
-        //             'browser_type' => $user['browser_type'],
+            //         $data_session = [
+            //             'token' => $response['token'],
 
-        //             'id_user' => $user['id_user'],
-        //             'id_type' => $user['id_type'],
-        //             'first_name' => $user['first_name'],
-        //             'last_name' => $user['last_name'],
-        //             'alias' => $user['alias'], 
-        //             'pob' => $user['pob'],
-        //             'dob' => $user['dob'],
-        //             'sex' => $user['sex'],
-        //             'status' => $user['status'],
-        //             'location' => $user['location'], 
-        //             'department' => $user['department'],
-        //             'company' => $user['company'],
-        //             'company_name' => $user['company_name'],
-        //             'company_phone' => $user['company_phone'],
-        //             'company_email' => $user['company_email'],
-        //             'company_coordinate' => $user['company_coordinate'],
-        //             'validity_date' => $user['validity_date'],
-        //             'phone1' => $user['phone1'],
-        //             'phone2' => $user['phone2'],
-        //             'phone3' => $user['phone3'],
-        //             'email' => $user['email'], 
-        //             'access_level' => $user['access_level'],
-        //             // 'access_level' => '2',
-        //             'photo' => $user['photo'],
-        //             'notes' => $user['notes'],  
-                    
-        //             'id_levelLogin' => $user['id_levelLogin'],
-        //             'login_level' => $user['login_level'],
-        //             'login_note' => $user['login_note'],
-        //             'monitored_area' => $monitoredArea,
-        //             'logged' => 1
-        //         ]; 
+            //             'id' => $user['id'],
+            //             'user_id' => $user['user_id'],
+            //             'access' => $user['access'],
+            //             'browser_type' => $user['browser_type'],
 
-        //         $this->session->set_userdata($data_session); 
-                 
-        //         if($user['login_level'] == 0 || $user['login_level'] == 1){
-        //             redirect(base_url('dashboard'));
-        //         }elseif($user['login_level'] == 2){
-        //             redirect(base_url('company/dashboard'));
-        //         }elseif($user['login_level'] == 3){
-        //             redirect(base_url('home'));
-        //         }
-                   
-        }else{
-            $this->session->set_flashdata('error',$response['user']['message']);
+            //             'id_user' => $user['id_user'],
+            //             'id_type' => $user['id_type'],
+            //             'first_name' => $user['first_name'],
+            //             'last_name' => $user['last_name'],
+            //             'alias' => $user['alias'], 
+            //             'pob' => $user['pob'],
+            //             'dob' => $user['dob'],
+            //             'sex' => $user['sex'],
+            //             'status' => $user['status'],
+            //             'location' => $user['location'], 
+            //             'department' => $user['department'],
+            //             'company' => $user['company'],
+            //             'company_name' => $user['company_name'],
+            //             'company_phone' => $user['company_phone'],
+            //             'company_email' => $user['company_email'],
+            //             'company_coordinate' => $user['company_coordinate'],
+            //             'validity_date' => $user['validity_date'],
+            //             'phone1' => $user['phone1'],
+            //             'phone2' => $user['phone2'],
+            //             'phone3' => $user['phone3'],
+            //             'email' => $user['email'], 
+            //             'access_level' => $user['access_level'],
+            //             // 'access_level' => '2',
+            //             'photo' => $user['photo'],
+            //             'notes' => $user['notes'],  
+
+            //             'id_levelLogin' => $user['id_levelLogin'],
+            //             'login_level' => $user['login_level'],
+            //             'login_note' => $user['login_note'],
+            //             'monitored_area' => $monitoredArea,
+            //             'logged' => 1
+            //         ]; 
+
+            //         $this->session->set_userdata($data_session); 
+
+            //         if($user['login_level'] == 0 || $user['login_level'] == 1){
+            //             redirect(base_url('dashboard'));
+            //         }elseif($user['login_level'] == 2){
+            //             redirect(base_url('company/dashboard'));
+            //         }elseif($user['login_level'] == 3){
+            //             redirect(base_url('home'));
+            //         }
+
+        } else {
+            $this->session->set_flashdata('error', $response['user']['message']);
             redirect('login');
-        } 
-    } 
-    
+        }
+    }
+
     public function logout()
     {
         $this->session->sess_destroy();
-		redirect(base_url('login'));
+        redirect(base_url('login'));
     }
 }
