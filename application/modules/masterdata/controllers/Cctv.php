@@ -58,11 +58,11 @@ class Cctv extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "masterdata/G20/cctv_viewgrid";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "masterdata/Korlantas/cctv_view";
+            $page_content["page"] = "masterdata/Korlantas/cctv_viewgrid";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "masterdata/Kapolda/cctv_view";
+            $page_content["page"] = "masterdata/Kapolda/cctv_viewgrid";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "masterdata/Polres/cctv_view";
+            $page_content["page"] = "masterdata/Polres/cctv_viewgrid";
         }
  
 

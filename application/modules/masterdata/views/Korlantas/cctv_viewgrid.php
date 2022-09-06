@@ -19,44 +19,51 @@
             <div>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url()?>masterdata/cctv" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
+                        <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
+                        <a class="nav-link active" href="<?php echo base_url()?>masterdata/cctv/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
                     </li>
                 </ul>
             </div> 
-        </div>
-
+        </div> 
     </div>
+
+    <div class="col-md-6">
+        <div class="form-floating mb-3">
+           
+            <select class="form-select" name="kategoriFilter" style="height: 50px;">
+                <option selected value="">Pilih Kategori CCTV</option>
+                <option value="CCTV MAINROAD">CCTV MAINROAD</option>
+                <option value="CCTV GERBANG">CCTV GERBANG</option>
+                <option value="CCTV RAMP">CCTV RAMP</option>
+                <option value="CCTV ETHLE">CCTV ETHLE</option>
+                <option value="BALISATUDATA">BALI SATU DATA</option>
+                <option value="CCTV">CCTV</option> 
+            </select>
+            <label for="kategoriFilter">Filter CCTV</label>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
+                    <label for="searchFilter">Search</label>
+                </div>
+            </div> 
+        </div> 
+    </div>
+
 </div>
 <!-- end row -->
+ 
+<div class="row" id="listCCTV">
 
-<!-- </div> -->
-<div class="page">  
-    <div class="card">
+     
 
-        <div class="card-body">
-
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Type</th>
-                        <th>Alamat IP</th>
-                        <th>Alamat</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead> 
-            </table>
-
-        </div>
-    </div>
 </div>
-<!-- End Page -->
 
 
 <!-- ADD Modals -->
@@ -124,192 +131,94 @@
         </div>
     </div>
 </div>
-
-<!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Akun</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="nama" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="provinsi" placeholder="isi nama samsat">
-                                <label for="nama_akun">Provinsi</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="username" placeholder="isi nama samsat">
-                                <label for="nama_akun">Username</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="alamat" placeholder="isi nama samsat">
-                                <label for="nama_akun">Alamat IP</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="kota" placeholder="isi nama samsat">
-                                <label for="nama_akun">Kota</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="password" placeholder="isi nama samsat">
-                                <label for="nama_akun">Password</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="latitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="longitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Longitude</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
+ 
 <script>
     $(document).ready(function() { 
 
-        var userDataTable = $('#datatable').DataTable({
+        serverSideGetCCTV(); 
 
-            responsive: true,
-
-            scrollX: true,
-
-            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-            // buttons: ["excel", "csv", "pdf"],
-
-            oLanguage: {
-
-                sSearch: 'Search:'
-
-            },
-
-            initComplete: function(settings, json) {},
-
-            retrieve: true,
-
-            processing: true,
-
-            serverSide: true,
-
-            serverMethod: 'POST',
-
-            ajax: {
-
-                dataType: 'json',
-
-                url: '<?php echo base_url(); ?>masterdata/cctv/serverSideTable',
-
-                data: function(data) {
-
-                    $("#overlay").fadeIn(300);
-
-                    // console.log(data);
-
-                    // data.filterTgl = $('[name=event_date]').val();
-
-                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
-
-                    // data.filterStatus = $('[name=status]').val();
-
-                    // data.filterName = $('[name=group_name]').val();
-
-                    // data.filterPocName = $('[name=group_poc_name]').val();
-
-                    // data.filterPhone = $('[name=poc_phone]').val();
-
-                    // data.filterThreat = $('[name=threat_level]').val();
-
-                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-                    data.page = Number(data.start / data.length) + 1
-
-                },
-
-                beforeSend: function(xhr, settings) {
-
-                },
-
-                "dataSrc": function(result) {
-
-                    result.iTotalRecords = result.iTotalRecords;
-
-                    result.iTotalDisplayRecords = result.iTotalRecords;
-
-                    return result.aaData;
-
-                }
-
-            },
-
-            columns: [
-
-                {
-                    data: 'id'
-                },
-                {
-                    data: 'type_cctv'
-                }, 
-                {
-                    data: 'ip_cctv'
-                },
-                {
-                    data: 'address_cctv'
-                }, 
-                {
-                    data: 'lat_cctv'
-                }, 
-                {
-                    data: 'lng_cctv'
-                }, 
-                {
-                    data: 'status_cctv'
-                }, 
-                {
-                    data: 'action',
-                    orderable: false
-                }
-
-            ],
-
-            order: [
-                [0, "DESC"]
-            ],
-
-            drawCallback: function(settings) {
-
-                $("#overlay").fadeOut(300);
-
-            }
-
+        
+        
+        let countlistCCTV = 0;
+        let listCCTV = ""; 
+        $('[name=kategoriFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
         });
+        $('[name=searchFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
+        });
+        function serverSideGetCCTV(){
+            $("#overlay").fadeIn(300); 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>masterdata/cctv/getCCTV", 
+                data : {
+                    "kategoriFilter" : $('[name=kategoriFilter]').val(),
+                    "searchFilter": $('[name=searchFilter]').val(),
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    let ressData = result['data'];
+                    let ress = ressData.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });   
+                    // console.log(ress);
+                    
+                    $("#overlay").fadeOut(300);
+                    if(ress.length > 0){   
+                        countlistCCTV = 0;
+                        listCCTV = "";
 
+                        ress.forEach(el => {
+                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 230px; height: 250.25px;"></iframe>`;
+                            }else{
+                                resource = `<img style="width: 230px;" src="${el.link_cctv}" />`;
+                            }
+                            countlistCCTV += 1;
+                            listCCTV += `
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <div class="dropdown text-end">
+                                                <a class="text-muted dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                                </a>
+                                                
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Edit</a> 
+                                                    <a class="dropdown-item" href="#">Hapus</a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mb-4">
+                                                <div class="col-md-12">
+                                                ${resource}
+                                                </div>
+                                            </div>
+                                            <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
+                                            <p class="text-muted mb-2">${el.address_cctv}</p>
+                                            
+                                        </div> 
+                                    </div> 
+                                </div>
+                            `;
+                            $('#listCCTV').html(listCCTV); 
+                        });  
+                        
+                    }else{
+                        listCCTV = "";
+                        $('#listCCTV').html(listCCTV); 
+                    }
+                }
+            });
+        } 
 
 
         $('[name=cordinate]').val('-8.451740, 115.089643');
@@ -456,7 +365,7 @@
                         'success'
                         ).then(function() { 
                             $("#addModal").modal('hide');
-                            userDataTable.draw(); 
+                            // userDataTable.draw(); 
                         }); 
                     }else{
                         Swal.fire(
