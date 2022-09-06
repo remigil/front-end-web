@@ -680,13 +680,28 @@
                             </li>
 
 
-                            <li class="menu-title mt-2" data-key="t-components">User Management</li>
+                            <li class="menu-title mt-2" data-key="t-components">Management System</li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>user/operator">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Operator</span>
                                 </a>
+                            </li>
+ 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Master Data</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <?php } ?> 
+                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
+                                </ul>
                             </li>
 
 
