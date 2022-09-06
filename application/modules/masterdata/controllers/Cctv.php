@@ -77,10 +77,24 @@ class Cctv extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        $input = $this->input->post();  
+
+        if($input['kategoriFilter']){
+            $kategoriFilter = '&filter[]=type_cctv&filterSearch[]='.$input['kategoriFilter'].'';
+        }else{
+            $kategoriFilter = '';
+        }
+
+        if($input['searchFilter']){
+            $searchData = '?search='.$input['searchFilter'].'';
+        }else{
+            $searchData = '?search';
+        } 
 
 
-        $url = 'cctv';
+        $url = 'cctv'.$searchData.''.$kategoriFilter.'';
+        // print_r($url);
+        // die;
         $getCCTV = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);

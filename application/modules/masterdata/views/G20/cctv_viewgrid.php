@@ -32,18 +32,16 @@
     <div class="col-md-6">
         <div class="form-floating mb-3">
            
-            <select class="form-select" name="kategori" style="height: 50px;">
+            <select class="form-select" name="kategoriFilter" style="height: 50px;">
                 <option selected value="">Pilih Kategori CCTV</option>
-                <option value="Polres">Polres</option>
-                <option value="Turjawali">Turjawali</option>
-                <option value="Operasi">Operasi</option>
-                <option value="CCTV">CCTV</option>
-                <option value="Titik Laporan">Titik Laporan</option>
-                <option value="Fasilitas Umum">Fasilitas Umum</option>
-                <option value="Public Event">Public Event</option>
-                <option value="Kecelakaan">Kecelakaan</option>
+                <option value="CCTV MAINROAD">CCTV MAINROAD</option>
+                <option value="CCTV GERBANG">CCTV GERBANG</option>
+                <option value="CCTV RAMP">CCTV RAMP</option>
+                <option value="CCTV ETHLE">CCTV ETHLE</option>
+                <option value="BALISATUDATA">BALI SATU DATA</option>
+                <option value="CCTV">CCTV</option> 
             </select>
-            <label for="kategori">Filter CCTV</label>
+            <label for="kategoriFilter">Filter CCTV</label>
         </div>
     </div>
 
@@ -139,13 +137,30 @@
 
         serverSideGetCCTV(); 
 
+        
+        
+        let countlistCCTV = 0;
+        let listCCTV = ""; 
+        $('[name=kategoriFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
+        });
+        $('[name=searchFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
+        });
         function serverSideGetCCTV(){
             $("#overlay").fadeIn(300); 
             $.ajax({
                 type : "POST",
                 url : "<?php echo base_url();?>masterdata/cctv/getCCTV", 
                 data : {
-                    "status" : '1',
+                    "kategoriFilter" : $('[name=kategoriFilter]').val(),
+                    "searchFilter": $('[name=searchFilter]').val(),
                 }, 
                 dataType : "JSON",
                 success : function(result){  
@@ -154,8 +169,7 @@
                         return e.lat_cctv != null && e.lng_cctv != null;
                     });   
                     // console.log(ress);
-                    let countlistCCTV = 0;
-                    let listCCTV = ""; 
+                    
                     $("#overlay").fadeOut(300);
                     if(ress.length > 0){   
                         countlistCCTV = 0;
@@ -191,13 +205,7 @@
                                             <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
                                             <p class="text-muted mb-2">${el.address_cctv}</p>
                                             
-                                        </div>
-
-                                        <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-outline-light text-truncate"><i class="uil uil-user me-1"></i> Profile</button>
-                                            <button type="button" class="btn btn-outline-light text-truncate"><i class="uil uil-envelope-alt me-1"></i> Message</button>
-
-                                        </div>
+                                        </div> 
                                     </div> 
                                 </div>
                             `;
@@ -210,7 +218,7 @@
                     }
                 }
             });
-        }
+        } 
 
 
         $('[name=cordinate]').val('-8.451740, 115.089643');
