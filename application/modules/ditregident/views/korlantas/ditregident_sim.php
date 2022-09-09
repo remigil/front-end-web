@@ -223,7 +223,7 @@
                     <table id="tb_sim" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th>No</th>
+                                <th width="50px">No</th>
                                 <th>Polda</th>
                                 <th>Baru</th>
                                 <td>Perpanjangan</td>
@@ -287,7 +287,7 @@
                     <table id="tb_sim_tahun" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th>No</th>
+                                <th width="50px">No</th>
                                 <th>Tahun</th>
                                 <th>Baru</th>
                                 <th>Perpanjangan</th>
@@ -353,7 +353,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '100%',
+                    columnWidth: '70%',
                     dataLabels: {
                         position: 'top'
                     }
@@ -417,7 +417,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '100%',
+                    columnWidth: '70%',
                     dataLabels: {
                         position: 'top'
                     }
