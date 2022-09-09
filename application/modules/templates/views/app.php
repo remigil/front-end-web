@@ -192,9 +192,9 @@
             }*/
 
         .location-pin img {
-            width: 46px;
-            height: 46px;
-            margin: -26px 0 0 -13px;
+            width: 20px;
+            height: 20px;
+            margin: -13px 0 0 -13px;
             z-index: 10;
             position: absolute;
             border-radius: 50%;
@@ -202,15 +202,15 @@
         }
 
         .pin {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             border-radius: 50% 50% 50% 0;
             background: #3f51b5;
             position: absolute;
             transform: rotate(-45deg);
             left: 50%;
             top: 50%;
-            margin: -43px 0 0 -30px;
+            margin: -20px 0 0 -20px;
         }
 
         .pin:after {
@@ -406,12 +406,17 @@
     </style>
 
     <!-- JAVASCRIPT -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+ 
     <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/simplebar/simplebar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/node-waves/waves.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/feather-icons/feather.min.js"></script>
+
+
 
     <?php echo $css ?>
 </head>
@@ -1010,13 +1015,13 @@
     <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
     <!-- Modal js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
 
     <!-- form mask -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
 
     <!-- form mask init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
 
     <!-- dropzone js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
@@ -1025,7 +1030,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
 
     <!-- lightbox init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
 
     <!-- Required datatable js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -1053,22 +1058,22 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
 
     <!-- dashboard init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
 
     <!-- Sweet Alerts js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- Sweet alert init js-->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
 
     <!-- pristine js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
 
     <!-- form validation -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
 
     <!-- init js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
 
     <!-- datepicker js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
@@ -1081,7 +1086,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
 
     <!-- form wizard init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
 
     <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
 

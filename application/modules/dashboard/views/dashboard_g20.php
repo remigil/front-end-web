@@ -47,27 +47,27 @@
                                         <p style="font-size: 17px;">OPERASI</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="polres" id="polres" class="form-input" >  
+                                        <input type="checkbox" checked name="filter" value="polres" id="polres" class="form-input" >  
                                         <span>Polres</span> 
                                     </div> 
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="instruksi" id="instruksi" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="instruksi" id="instruksi" class="form-input" >  
                                         <span>Instruksi</span> 
                                     </div>  
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" name="turjawali" id="turjawali" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="turjawali" id="turjawali" class="form-input" >  
                                         <span>Turjawali</span> 
                                     </div>  
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" checked name="jadwal" id="jadwal" class="form-input" >  
+                                        <input type="checkbox" checked name="filter" value="jadwal_kegiatan" id="jadwal" class="form-input" >  
                                         <span>Jadwal Kegiatan</span> 
                                     </div> 
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" name="vip" id="vip" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="vip" id="vip" class="form-input" >  
                                         <span>VIP</span> 
                                     </div> 
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" checked name="cctv" id="cctv" class="form-input" >  
+                                        <input type="checkbox" checked name="filter" value="cctv" id="cctv" class="form-input" >  
                                         <span>CCTV</span> 
                                     </div>  
     
@@ -76,11 +76,11 @@
                                         <p style="font-size: 17px;">Laporan</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="panic" id="panic" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="panic_button" id="panic" class="form-input" >  
                                         <span>Panic Button</span> 
                                     </div>   
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="operasi" id="operasi" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="operasi" id="operasi" class="form-input" >  
                                         <span>Operasi</span> 
                                     </div>   
     
@@ -89,11 +89,11 @@
                                         <p style="font-size: 17px;">Location Of Interest</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="fasum" id="fasum" class="form-input" >  
+                                        <input type="checkbox" checked name="filter" value="fasum" id="fasum" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
                                     </div>   
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="troublespot" id="troublespot" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
                                         <span>Trouble Spot</span> 
                                     </div>   
                                     <!-- <div class="dropdown-divider"></div> -->
@@ -318,6 +318,7 @@
     var markerPolres = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
+    var arrayFilter = [];
 
 
   $(document).ready(function() { 
@@ -331,19 +332,13 @@
     //     {-8.5068977,115.2622931},
     // ];
 
-    serverSideGet();
-    serverSideGetJadwal();
-    serverSideGetCCTV(); 
-    serverSideGetFasum();
-    serverSideGetPolres();
 
 
     var initialCenter = [-8.451740, 115.089643];
     var initialZoom = 9.65;
     var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'] 
     });
     var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
         maxZoom: 20,
@@ -415,9 +410,10 @@
             }, 
             dataType : "JSON",
             success : function(result){  
+                $("#overlay").fadeOut(300); 
                 let ress = result['data']; 
-                console.log(result['data']);
-                console.log('get Controller');
+                // console.log(result['data']);
+                // console.log('get Controller');
 
                 if (ress.length > 0) {    
                     for (let i = 0; i < ress.length; i++) {  
@@ -638,126 +634,6 @@
         }); 
     }
 
-
-    function serverSideGetJadwal(){
-        $("#overlay").fadeIn(300);  
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getJadwal", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ressData = result['data'];
-                $("#overlay").fadeOut(300);
-
-                let ress = ressData.filter(function (e) {
-                    return e.coordinate_schedule != null;
-                });   
-                
-                if(ress.length > 0){  
-                    for (let i = 0; i < ress.length; i++) {   
-                        
-                        var cordinateJadwal = ress[i].coordinate_schedule;
-                        var latlongJadwal =  cordinateJadwal.split(',');
-                        var latitudeJadwal = parseFloat(latlongJadwal[0]);
-                        var longitudeJadwal = parseFloat(latlongJadwal[1]);
-                         
-
-                            markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-3">
-                                                <h5>Jadwal Kegiatan</h5> 
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-1">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5">
-                                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p style="font-size: 12px;">${ress[i].activity}</p>
-                                                    </div>
-                                                </div> 
-                                            </div> 
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5">
-                                                        <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5">
-                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p style="font-size: 12px;">${ress[i].address_schedule}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>   
-                                        </div>
-                                    </div>
-                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                         
-                    }
-                }
-            }
-        });
-
-    }
-
-
-    
-    $("#jadwal").on("change", function (e) {
-        if($(this).is(':checked')){ 
-            serverSideGetJadwal();
-        }else{ 
-            for (let i = 0; i < markerJadwal.length; i++) { 
-                mapContainer.removeLayer(markerJadwal[i]);
-            }
-            markerJadwal = new Array();
-        } 
-    });
-    
 
     socket.on('from server', function(ress) { 
         console.log('ido2'); 
@@ -1016,113 +892,533 @@
 
         }
     });
+
+    var centerMap = mapContainer.getCenter();
+    var centerLat = centerMap['lat'];
+    var centerLng = centerMap['lng'];  
+
+
+    serverSideGet();
+    serverSideFilter();
+    // serverSideGetJadwal();
+    // serverSideGetCCTV(); 
+    // serverSideGetFasum();
+    // serverSideGetPolres();
+
+
+    mapContainer.on('dragend',function(e){ 
+        var ada = mapContainer.getCenter();
+        centerLat = ada['lat'];
+        centerLng = ada['lng'];   
+        serverSideFilter();
+    });
+
+    function serverSideFilter(){
+        $("#overlay").fadeIn(300);   
+        arrayFilter = [];
+        $("input:checkbox[name=filter]:checked").each(function(){
+            arrayFilter.push($(this).val());
+        });  
+
+        for (let i = 0; i < markerJadwal.length; i++) { 
+            mapContainer.removeLayer(markerJadwal[i]);
+        }
+        markerJadwal = new Array();
+
+        for (let i = 0; i < markerCCTV.length; i++) { 
+            mapContainer.removeLayer(markerCCTV[i]);
+        } 
+        markerCCTV = new Array();  
+
+        for (let i = 0; i < markerFasum.length; i++) { 
+            mapContainer.removeLayer(markerFasum[i]);
+        }
+        markerFasum = new Array();  
+
+        for (let i = 0; i < markerPolres.length; i++) { 
+            mapContainer.removeLayer(markerPolres[i]);
+        }
+        markerPolres = new Array(); 
+
+        // console.log(`${centerLat},${centerLng}`);        
+
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getFilter", 
+            data : {
+                "filter" : arrayFilter.toString(),
+                "radius" : 15000,
+                "coordinate" : `${centerLat},${centerLng}`,
+                "type" : null, 
+            }, 
+            dataType : "JSON",
+            success : function(result){  
+                $("#overlay").fadeOut(300); 
+                var ressTurjawali = result['data']['turjawali'];
+                var ressPolres = result['data']['polres'];
+                var ressCctv = result['data']['cctv'];
+                var ressLaporan = result['data']['titik_laporan'];
+                var ressFasum = result['data']['fasum'];
+                var ressTroublespot = result['data']['troublespot'];
+                var ressSchedule = result['data']['jadwal_kegiatan'];
+                var ressOperasi = result['data']['operasi'];
+                // console.log(result);
+
+                if(ressTurjawali && ressTurjawali.length > 0){  
+                    var filterTurjawali = ressTurjawali.filter(function (e) {
+                        return e.latitude != null && e.longitude != null;
+                    }); 
+                }
+                if(ressPolres && ressPolres.length > 0){  
+                    var filterpolres = ressPolres.filter(function (e) {
+                        return e.latitude != null && e.longitude != null;
+                    }); 
+
+                    if(filterpolres.length > 0){  
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < filterpolres.length; i++) {  
+    
+                                var latitudePolres = parseFloat(filterpolres[i].latitude);
+                                var longitudePolres = parseFloat(filterpolres[i].longitude); 
+        
+                                markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${filterpolres[i].name_polres}</h5> 
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${filterpolres[i].address}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div> 
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${filterpolres[i].code_satpas}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+
+                        }
+                    }
+                }
+                if(ressCctv && ressCctv.length > 0){  
+                    var filterCctv = ressCctv.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });  
+
+                    if(filterCctv.length > 0){  
+                        for (let i = 0; i < filterCctv.length; i++) {     
+                            id = i;  
+                            var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
+                            var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
+
+                            var resource = '';
+                            if(filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+                            }else{
+                                resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
+                            }
+
+                            markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div style="width: 300px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <h5>${filterCctv[i].address_cctv}</h5>
+                                        </div>
+                                        <div class="col-md-12"> 
+                                            ${resource}
+                                        </div> 
+                                    </div>
+                                </div>
+                                    
+                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                        }
+                    }
+                } 
+                if(ressLaporan && ressLaporan.length > 0){  
+                    var filterLaporan = ressLaporan.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });   
+                }
+                if(ressFasum && ressFasum.length > 0){ 
+                    var filterFasum = ressFasum.filter(function (e) {
+                        return e.geometry.location.lat != null && e.geometry.location.lng != null;
+                    }); 
+
+                    if(filterFasum.length > 0){  
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < filterFasum.length; i++) {  
+                            // if(filterFasum[i].fasum_type == 1){
+                            //     logoMarker = `hotel.png`;
+                            //     logoBody = `hotel.png`;
+                            // }else if(filterFasum[i].fasum_type == 2){
+                            //     logoMarker = `rumah ibadah.png`;
+                            //     logoBody = `rumah ibadah.png`;
+                            // }else if(filterFasum[i].fasum_type == 3){
+                            //     logoMarker = `pom bensin.png`;
+                            //     logoBody = `pom bensin.png`;
+                            // }else if(filterFasum[i].fasum_type == 4){
+                            //     logoMarker = `rest_area.png`;
+                            //     logoBody = `rest_area.png`;
+                            // }else if(filterFasum[i].fasum_type == 5){
+                            //     logoMarker = `rumah makan.png`;
+                            //     logoBody = `rumah makan.png`;
+                            // }else if(filterFasum[i].fasum_type == 6){
+                            //     logoMarker = `wisata.png`;
+                            //     logoBody = `wisata.png`;
+                            // }else if(filterFasum[i].fasum_type == 7){
+                            //     logoMarker = `damkar.png`;
+                            //     logoBody = `damkar.png`;
+                            // }else if(filterFasum[i].fasum_type == 8){
+                            //     logoMarker = `rumah sakit umum.png`;
+                            //     logoBody = `rumah sakit umum.png`;
+                            // }
+                            
+                                var latitudeFasum = parseFloat(filterFasum[i].geometry.location.lat);
+                                var longitudeFasum = parseFloat(filterFasum[i].geometry.location.lng); 
+                                markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                    className: 'location-pin',
+                                    html: `<img style="background-color:${filterFasum[i].icon_background_color};" src="${filterFasum[i].icon}"><div class="pin" style="background-color:${filterFasum[i].icon_background_color}"></div>`,
+                                    iconSize: [5, 5],
+                                    //iconAnchor: [18, 30]
+                                    iconAnchor: [5, 10]
+
+                                    }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="${filterFasum[i].icon}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>Fasilitas Umum</h5>
+                                                    <span style="font-size: 14px;">- ${filterFasum[i].name} -</span>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${filterFasum[i].name}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>     
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+                        }
+                    }
+                }  
+                if(ressTroublespot && ressTroublespot.length > 0){ 
+                    var filterTroublespot = ressTroublespot.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    }); 
+                }   
+                if(ressSchedule && ressSchedule.length > 0){  
+                    var filterSchedule = ressSchedule.filter(function (e) {
+                        return e.coordinate_schedule != null;
+                    });   
+                    // console.log(filterSchedule); 
+                    if(filterSchedule.length > 0){  
+                        for (var i = 0; i < filterSchedule.length; i++) {   
+                            
+                            var cordinateJadwal = filterSchedule[i].coordinate_schedule;
+                            var latlongJadwal =  cordinateJadwal.split(',');
+                            var latitudeJadwal = parseFloat(latlongJadwal[0]);
+                            var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                            
+
+                                markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>Jadwal Kegiatan</h5> 
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-1">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5">
+                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div> 
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5">
+                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div>
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+                        }
+                    }
+                }   
+                if(ressOperasi && ressOperasi.length > 0){ 
+                    var filterOperasi = ressOperasi.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });   
+                } 
+
+
+
+
+            }
+        });
+    }
+
+    $("[name=filter]").on("change", function (e) { 
+        serverSideFilter();
+    });
+
+    
+
+
+    // function serverSideGetJadwal(){
+    //     $("#overlay").fadeIn(300);  
+    //     $.ajax({
+    //         type : "POST",
+    //         url : "<?php echo base_url();?>dashboard/getJadwal", 
+    //         data : {
+    //             "status" : '1',
+    //         }, 
+    //         dataType : "JSON",
+    //         success : function(result){ 
+    //             let ressData = result['data'];
+    //             $("#overlay").fadeOut(300);
+
+    //             let ress = ressData.filter(function (e) {
+    //                 return e.coordinate_schedule != null;
+    //             });   
+                
+    //             if(ress.length > 0){  
+    //                 for (let i = 0; i < ress.length; i++) {   
+                        
+    //                     var cordinateJadwal = ress[i].coordinate_schedule;
+    //                     var latlongJadwal =  cordinateJadwal.split(',');
+    //                     var latitudeJadwal = parseFloat(latlongJadwal[0]);
+    //                     var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                         
+
+    //                         markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+    //                             // className: 'location-pin',
+    //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+    //                             iconSize: [5, 5],
+    //                             iconAnchor: [5, 10]
+    //                             // iconAnchor: [10, 33]
+    //                             }) }).bindPopup(`
+    //                                 <div class="text-center" style="width: 300px;"> 
+    //                                     <div class="row mt-3"> 
+    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+    //                                             <div class="avatar-xl me-3">
+    //                                                 <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+    //                                             </div>
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-3">
+    //                                             <h5>Jadwal Kegiatan</h5> 
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-1">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].activity}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div> 
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].address_schedule}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>   
+    //                                     </div>
+    //                                 </div>
+    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                         
+    //                 }
+    //             }
+    //         }
+    //     });
+
+    // }
+
+
+    
+    // $("#jadwal").on("change", function (e) {
+    //     if($(this).is(':checked')){ 
+    //         serverSideGetJadwal();
+    //     }else{ 
+    //         for (let i = 0; i < markerJadwal.length; i++) { 
+    //             mapContainer.removeLayer(markerJadwal[i]);
+    //         }
+    //         markerJadwal = new Array();
+    //     } 
+    // });
+    
+
  
 
   
     
-
-    
- 
-
-    // mapContainer.on('pm:create', (e) => {
-    //     e.layer.setStyle({ pmIgnore: false });
-    //     L.PM.reInitLayer(e.layer);
-    // });
-    // mapContainer.pm.addControls({  
-    //     position: 'bottomleft',  
-    //     drawCircle: true,  
-    // });  
-
-    // mapContainer.on('pm:drawstart', ({ workingLayer }) => {
-    // workingLayer.on('pm:vertexadded', (e) => {
-    //     console.log(e);
-    // });
-    // });
-
- 
-
-
-    // // Initialise the FeatureGroup to store editable layers
-    // var featureGroup = new L.FeatureGroup();
-    // mapContainer.addLayer(featureGroup);
-
-    // // define custom marker
-    // var MyCustomMarker = L.Icon.extend({
-    // options: {
-    //     shadowUrl: null,
-    //     iconAnchor: new L.Point(12, 12),
-    //     iconSize: new L.Point(24, 24),
-    //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-    // }
-    // });
-
-    // var drawPluginOptions = {
-    //     position: 'bottomleft',
-    //     draw: {
-    //         polyline: {
-    //             shapeOptions: {
-    //                 color: '#f357a1',
-    //                 weight: 10
-    //             }
-    //         },
-    //         polygon: {
-    //             allowIntersection: false, // Restricts shapes to simple polygons
-    //             drawError: {
-    //                 color: '#e1e100', // Color the shape will turn when intersects
-    //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
-    //             },
-    //             shapeOptions: {
-    //                 color: '#bada55'
-    //             }
-    //         },
-    //         circle: true, // Turns off this drawing tool
-    //         rectangle: {
-    //             shapeOptions: {
-    //                 clickable: false
-    //             }
-    //         },
-    //         marker: {
-    //             icon: new MyCustomMarker()
-    //         }
-    //     },
-    //     edit: {
-    //         featureGroup: featureGroup, //REQUIRED!!
-    //         remove: false
-    //     }
-    // };
-
-
-
-    // // Initialise the draw control and pass it the FeatureGroup of editable layers
-    // var drawControl = new L.Control.Draw(drawPluginOptions);
-    // mapContainer.addControl(drawControl);
-
-
-    // var featureGroup = new L.FeatureGroup();
-    // mapContainer.addLayer(featureGroup); 
-
-    // mapContainer.on('draw:created', function(e) {
-    // var type = e.layerType,
-    //     layer = e.layer;
-
-    // if (type === 'marker') {
-    //     layer.bindPopup('A popup!');
-    // }
-
-    // featureGroup.addLayer(layer);
-    // });
-
-    // document.getElementById('export').onclick = function(e) {
-    //     // Extract GeoJson from featureGroup
-    //     var data = featureGroup.toGeoJSON();
-
-    //     // Stringify the GeoJson
-    //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-
-    //     // Create export
-    //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-    //     document.getElementById('export').setAttribute('download','data.geojson');
-    // }
 
  
     
@@ -1241,335 +1537,329 @@
     });
 
 
-    function serverSideGetCCTV(){
-        $("#overlay").fadeIn(300);  
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getCCTV", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ressData = result['data'];
-                let ress = ressData.filter(function (e) {
-                    return e.lat_cctv != null && e.lng_cctv != null;
-                });   
+    // function serverSideGetCCTV(){
+    //     $("#overlay").fadeIn(300);  
+    //     $.ajax({
+    //         type : "POST",
+    //         url : "<?php echo base_url();?>dashboard/getCCTV", 
+    //         data : {
+    //             "status" : '1',
+    //         }, 
+    //         dataType : "JSON",
+    //         success : function(result){ 
+    //             let ressData = result['data'];
+    //             let ress = ressData.filter(function (e) {
+    //                 return e.lat_cctv != null && e.lng_cctv != null;
+    //             });   
                 
-                $("#overlay").fadeOut(300);
+    //             $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){  
-                    for (let i = 0; i < ress.length; i++) {     
-                        id = i;  
-                        var latitudeCCTV = parseFloat(ress[i].lat_cctv);
-                        var longitudeCCTV = parseFloat(ress[i].lng_cctv);
+    //             if(ress.length > 0){  
+    //                 for (let i = 0; i < ress.length; i++) {     
+    //                     id = i;  
+    //                     var latitudeCCTV = parseFloat(ress[i].lat_cctv);
+    //                     var longitudeCCTV = parseFloat(ress[i].lng_cctv);
 
-                        var resource = '';
-                        if(ress[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                            resource = `<iframe id="myIframe" src="${ress[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                        }else{
-                            resource = `<img style="width: 300px;" src="${ress[i].link_cctv}" />`;
-                        }
+    //                     var resource = '';
+    //                     if(ress[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+    //                         resource = `<iframe id="myIframe" src="${ress[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+    //                     }else{
+    //                         resource = `<img style="width: 300px;" src="${ress[i].link_cctv}" />`;
+    //                     }
 
-                        markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div style="width: 300px;">
-                                <div class="row">
-                                    <div class="col-md-12" style="text-align: center;">
-                                        <h5>${ress[i].address_cctv}</h5>
-                                    </div>
-                                    <div class="col-md-12"> 
-                                        ${resource}
-                                    </div> 
-                                </div>
-                            </div>
+    //                     markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+    //                         // className: 'location-pin',
+    //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+    //                         iconSize: [5, 5],
+    //                         iconAnchor: [5, 10]
+    //                         // iconAnchor: [10, 33]
+    //                         }) }).bindPopup(`
+    //                         <div style="width: 300px;">
+    //                             <div class="row">
+    //                                 <div class="col-md-12" style="text-align: center;">
+    //                                     <h5>${ress[i].address_cctv}</h5>
+    //                                 </div>
+    //                                 <div class="col-md-12"> 
+    //                                     ${resource}
+    //                                 </div> 
+    //                             </div>
+    //                         </div>
                                 
-                        `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
-                    }
-                }
-            }
-        }); 
-    }
+    //                     `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+    //                 }
+    //             }
+    //         }
+    //     }); 
+    // } 
+
+    // $("#cctv").on("change", function (e) {
+    //     if($(this).is(':checked')){ 
+    //         serverSideGetCCTV();
+    //     }else{ 
+    //         for (let i = 0; i < markerCCTV.length; i++) { 
+    //             mapContainer.removeLayer(markerCCTV[i]);
+    //         } 
+    //         markerCCTV = new Array();  
+    //     } 
+    // });
 
 
 
-    $("#cctv").on("change", function (e) {
-        if($(this).is(':checked')){ 
-            serverSideGetCCTV();
-        }else{ 
-            for (let i = 0; i < markerCCTV.length; i++) { 
-                mapContainer.removeLayer(markerCCTV[i]);
-            } 
-            markerCCTV = new Array();  
-        } 
-    });
-
-
-
-    function serverSideGetFasum(){ 
-        $("#overlay").fadeIn(300);   
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getFasum", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ressData = result['data'];
-                let ress = ressData.filter(function (e) {
-                    return e.fasum_lat != null && e.fasum_lng != null;
-                });  
-                $("#overlay").fadeOut(300);
+    // function serverSideGetFasum(){ 
+    //     $("#overlay").fadeIn(300);   
+    //     $.ajax({
+    //         type : "POST",
+    //         url : "<?php echo base_url();?>dashboard/getFasum", 
+    //         data : {
+    //             "status" : '1',
+    //         }, 
+    //         dataType : "JSON",
+    //         success : function(result){ 
+    //             let ressData = result['data'];
+    //             let ress = ressData.filter(function (e) {
+    //                 return e.fasum_lat != null && e.fasum_lng != null;
+    //             });  
+    //             $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){  
-                    var logoMarker = '';
-                    var logoBody = '';
-                    for (let i = 0; i < ress.length; i++) {  
-                        if(ress[i].fasum_type == 1){
-                            logoMarker = `hotel.png`;
-                            logoBody = `hotel.png`;
-                        }else if(ress[i].fasum_type == 2){
-                            logoMarker = `rumah ibadah.png`;
-                            logoBody = `rumah ibadah.png`;
-                        }else if(ress[i].fasum_type == 3){
-                            logoMarker = `pom bensin.png`;
-                            logoBody = `pom bensin.png`;
-                        }else if(ress[i].fasum_type == 4){
-                            logoMarker = `rest_area.png`;
-                            logoBody = `rest_area.png`;
-                        }else if(ress[i].fasum_type == 5){
-                            logoMarker = `rumah makan.png`;
-                            logoBody = `rumah makan.png`;
-                        }else if(ress[i].fasum_type == 6){
-                            logoMarker = `wisata.png`;
-                            logoBody = `wisata.png`;
-                        }else if(ress[i].fasum_type == 7){
-                            logoMarker = `damkar.png`;
-                            logoBody = `damkar.png`;
-                        }else if(ress[i].fasum_type == 8){
-                            logoMarker = `rumah sakit umum.png`;
-                            logoBody = `rumah sakit umum.png`;
-                        }
+    //             if(ress.length > 0){  
+    //                 var logoMarker = '';
+    //                 var logoBody = '';
+    //                 for (let i = 0; i < ress.length; i++) {  
+    //                     if(ress[i].fasum_type == 1){
+    //                         logoMarker = `hotel.png`;
+    //                         logoBody = `hotel.png`;
+    //                     }else if(ress[i].fasum_type == 2){
+    //                         logoMarker = `rumah ibadah.png`;
+    //                         logoBody = `rumah ibadah.png`;
+    //                     }else if(ress[i].fasum_type == 3){
+    //                         logoMarker = `pom bensin.png`;
+    //                         logoBody = `pom bensin.png`;
+    //                     }else if(ress[i].fasum_type == 4){
+    //                         logoMarker = `rest_area.png`;
+    //                         logoBody = `rest_area.png`;
+    //                     }else if(ress[i].fasum_type == 5){
+    //                         logoMarker = `rumah makan.png`;
+    //                         logoBody = `rumah makan.png`;
+    //                     }else if(ress[i].fasum_type == 6){
+    //                         logoMarker = `wisata.png`;
+    //                         logoBody = `wisata.png`;
+    //                     }else if(ress[i].fasum_type == 7){
+    //                         logoMarker = `damkar.png`;
+    //                         logoBody = `damkar.png`;
+    //                     }else if(ress[i].fasum_type == 8){
+    //                         logoMarker = `rumah sakit umum.png`;
+    //                         logoBody = `rumah sakit umum.png`;
+    //                     }
                         
-                            var latitudeFasum = parseFloat(ress[i].fasum_lat);
-                            var longitudeFasum = parseFloat(ress[i].fasum_lng); 
-                            markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-3">
-                                                <h5>Fasilitas Umum</h5>
-                                                <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-3">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].fasum_name}</p>
-                                                    </div>
-                                                </div> 
-                                            </div> 
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].fasum_address}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
-                                                    </div>
-                                                </div> 
-                                            </div>   
-                                        </div>
-                                    </div> 
-                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+    //                         var latitudeFasum = parseFloat(ress[i].fasum_lat);
+    //                         var longitudeFasum = parseFloat(ress[i].fasum_lng); 
+    //                         markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+    //                             // className: 'location-pin',
+    //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+    //                             iconSize: [5, 5],
+    //                             iconAnchor: [5, 10]
+    //                             // iconAnchor: [10, 33]
+    //                             }) }).bindPopup(`
+    //                                 <div class="text-center" style="width: 300px;"> 
+    //                                     <div class="row mt-3">
+    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+    //                                             <div class="avatar-xl me-3">
+    //                                                 <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+    //                                             </div>
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-3">
+    //                                             <h5>Fasilitas Umum</h5>
+    //                                             <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-3">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].fasum_name}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div> 
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].fasum_address}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>   
+    //                                     </div>
+    //                                 </div> 
+    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
                          
-                    }
-                }
-            }
-        }); 
-    }
+    //                 }
+    //             }
+    //         }
+    //     }); 
+    // } 
+
+    // $("#fasum").on("change", function (e) {
+    //     if($(this).is(':checked')){  
+    //         serverSideGetFasum();
+    //     }else{ 
+    //         for (let i = 0; i < markerFasum.length; i++) { 
+    //             mapContainer.removeLayer(markerFasum[i]);
+    //         }
+    //         markerFasum = new Array();  
+    //     } 
+    // });
 
 
 
-    $("#fasum").on("change", function (e) {
-        if($(this).is(':checked')){  
-            serverSideGetFasum();
-        }else{ 
-            for (let i = 0; i < markerFasum.length; i++) { 
-                mapContainer.removeLayer(markerFasum[i]);
-            }
-            markerFasum = new Array();  
-        } 
-    });
-
-
-
-    function serverSideGetPolres(){
-        $("#overlay").fadeIn(300);   
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getPolres", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ressData = result['data'];
-                let ress = ressData.filter(function (e) {
-                    return e.latitude != null && e.longitude != null;
-                });  
-                $("#overlay").fadeOut(300);
+    // function serverSideGetPolres(){
+    //     $("#overlay").fadeIn(300);   
+    //     $.ajax({
+    //         type : "POST",
+    //         url : "<?php echo base_url();?>dashboard/getPolres", 
+    //         data : {
+    //             "status" : '1',
+    //         }, 
+    //         dataType : "JSON",
+    //         success : function(result){ 
+    //             let ressData = result['data'];
+    //             let ress = ressData.filter(function (e) {
+    //                 return e.latitude != null && e.longitude != null;
+    //             });  
+    //             $("#overlay").fadeOut(300);
                 
-                if(ress.length > 0){  
-                    var logoMarker = '';
-                    var logoBody = '';
-                    for (let i = 0; i < ress.length; i++) {  
+    //             if(ress.length > 0){  
+    //                 var logoMarker = '';
+    //                 var logoBody = '';
+    //                 for (let i = 0; i < ress.length; i++) {  
  
-                            var latitudePolres = parseFloat(ress[i].latitude);
-                            var longitudePolres = parseFloat(ress[i].longitude); 
+    //                         var latitudePolres = parseFloat(ress[i].latitude);
+    //                         var longitudePolres = parseFloat(ress[i].longitude); 
     
-                            markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-3">
-                                                <h5>${ress[i].name_polres}</h5> 
-                                            </div>
-                                            <div class="col-md-12 col-12 mt-3">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].address}</p>
-                                                    </div>
-                                                </div> 
-                                            </div> 
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Kode</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].code_satpas}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
-                                                    </div>
-                                                </div> 
-                                            </div>  
-                                            <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                <div class="row text-start">
-                                                    <div class="col-md-5 col-6">
-                                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <p style="font-size: 12px;"> : </p>
-                                                    </div>
-                                                    <div class="col-md-6 col-6">
-                                                        <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
-                                                    </div>
-                                                </div> 
-                                            </div>   
-                                        </div>
-                                    </div> 
-                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+    //                         markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+    //                             // className: 'location-pin',
+    //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+    //                             iconSize: [5, 5],
+    //                             iconAnchor: [5, 10]
+    //                             // iconAnchor: [10, 33]
+    //                             }) }).bindPopup(`
+    //                                 <div class="text-center" style="width: 300px;"> 
+    //                                     <div class="row mt-3">
+    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+    //                                             <div class="avatar-xl me-3">
+    //                                                 <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+    //                                             </div>
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-3">
+    //                                             <h5>${ress[i].name_polres}</h5> 
+    //                                         </div>
+    //                                         <div class="col-md-12 col-12 mt-3">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].address}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div> 
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].code_satpas}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>  
+    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+    //                                             <div class="row text-start">
+    //                                                 <div class="col-md-5 col-6">
+    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+    //                                                 </div>
+    //                                                 <div class="col-md-1">
+    //                                                     <p style="font-size: 12px;"> : </p>
+    //                                                 </div>
+    //                                                 <div class="col-md-6 col-6">
+    //                                                     <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
+    //                                                 </div>
+    //                                             </div> 
+    //                                         </div>   
+    //                                     </div>
+    //                                 </div> 
+    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
                         
 
-                    }
-                }
-            }
-        }); 
-    }
+    //                 }
+    //             }
+    //         }
+    //     }); 
+    // } 
 
-
-
-    $("#polres").on("change", function (e) {
-        if($(this).is(':checked')){ 
-            serverSideGetPolres();
-        }else{ 
-            for (let i = 0; i < markerPolres.length; i++) { 
-                mapContainer.removeLayer(markerPolres[i]);
-            }
-            markerPolres = new Array();  
-        } 
-    });
+    // $("#polres").on("change", function (e) {
+    //     if($(this).is(':checked')){ 
+    //         serverSideGetPolres();
+    //     }else{ 
+    //         for (let i = 0; i < markerPolres.length; i++) { 
+    //             mapContainer.removeLayer(markerPolres[i]);
+    //         }
+    //         markerPolres = new Array();  
+    //     } 
+    // });
 
     
     mapContainer.on('dblclick', function(e) { 
@@ -1701,6 +1991,116 @@
 
 
 
+
+
+
+
+
+
+
+
+    
+ 
+
+    // mapContainer.on('pm:create', (e) => {
+    //     e.layer.setStyle({ pmIgnore: false });
+    //     L.PM.reInitLayer(e.layer);
+    // });
+    // mapContainer.pm.addControls({  
+    //     position: 'bottomleft',  
+    //     drawCircle: true,  
+    // });  
+
+    // mapContainer.on('pm:drawstart', ({ workingLayer }) => {
+    // workingLayer.on('pm:vertexadded', (e) => {
+    //     console.log(e);
+    // });
+    // });
+
+ 
+
+
+    // // Initialise the FeatureGroup to store editable layers
+    // var featureGroup = new L.FeatureGroup();
+    // mapContainer.addLayer(featureGroup);
+
+    // // define custom marker
+    // var MyCustomMarker = L.Icon.extend({
+    // options: {
+    //     shadowUrl: null,
+    //     iconAnchor: new L.Point(12, 12),
+    //     iconSize: new L.Point(24, 24),
+    //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+    // }
+    // });
+
+    // var drawPluginOptions = {
+    //     position: 'bottomleft',
+    //     draw: {
+    //         polyline: {
+    //             shapeOptions: {
+    //                 color: '#f357a1',
+    //                 weight: 10
+    //             }
+    //         },
+    //         polygon: {
+    //             allowIntersection: false, // Restricts shapes to simple polygons
+    //             drawError: {
+    //                 color: '#e1e100', // Color the shape will turn when intersects
+    //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
+    //             },
+    //             shapeOptions: {
+    //                 color: '#bada55'
+    //             }
+    //         },
+    //         circle: true, // Turns off this drawing tool
+    //         rectangle: {
+    //             shapeOptions: {
+    //                 clickable: false
+    //             }
+    //         },
+    //         marker: {
+    //             icon: new MyCustomMarker()
+    //         }
+    //     },
+    //     edit: {
+    //         featureGroup: featureGroup, //REQUIRED!!
+    //         remove: false
+    //     }
+    // };
+
+
+
+    // // Initialise the draw control and pass it the FeatureGroup of editable layers
+    // var drawControl = new L.Control.Draw(drawPluginOptions);
+    // mapContainer.addControl(drawControl);
+
+
+    // var featureGroup = new L.FeatureGroup();
+    // mapContainer.addLayer(featureGroup); 
+
+    // mapContainer.on('draw:created', function(e) {
+    // var type = e.layerType,
+    //     layer = e.layer;
+
+    // if (type === 'marker') {
+    //     layer.bindPopup('A popup!');
+    // }
+
+    // featureGroup.addLayer(layer);
+    // });
+
+    // document.getElementById('export').onclick = function(e) {
+    //     // Extract GeoJson from featureGroup
+    //     var data = featureGroup.toGeoJSON();
+
+    //     // Stringify the GeoJson
+    //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+
+    //     // Create export
+    //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+    //     document.getElementById('export').setAttribute('download','data.geojson');
+    // }
     
     
     
