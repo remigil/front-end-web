@@ -71,7 +71,7 @@
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
                             <thead class="table-primary">
                                 <tr class="text-white">
-                                    <th scope="col">No</th>
+                                    <th scope="col" >No</th>
                                     <th scope="col">POLDA</th>
                                     <th scope="col">Baru</th>
                                     <th scope="col">Perpanjangan</th>
@@ -245,7 +245,7 @@
                     <table id="tb_bpkb" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th>No</th>
+                                <th width="50px">No</th>
                                 <th>Polda</th>
                                 <th>Baru</th>
                                 <td>Ganti Pemilik</td>
@@ -314,7 +314,7 @@
                     <table id="tb_bpkb_tahun" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th>No</th>
+                                <th width="50px">No</th>
                                 <th>Tahun</th>
                                 <th>Baru</th>
                                 <th>Ganti Pemilik</th>
@@ -392,7 +392,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '80%',
+                    columnWidth: '40%',
                     dataLabels: {
                         position: 'top'
                     }
@@ -461,7 +461,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '80%',
+                    columnWidth: '40%',
                     dataLabels: {
                         position: 'top'
                     }
