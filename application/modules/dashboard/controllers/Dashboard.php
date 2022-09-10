@@ -82,7 +82,7 @@ class Dashboard extends MY_Controller
         if($input['type']){
             $type = '&type='.$input['type'].'';
         }else{
-            $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall';
+            $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall,gas_station';
         }
         
         $url = 'filter-search'.$radius.''.$filter.''.$coordinate.''.$type.'';

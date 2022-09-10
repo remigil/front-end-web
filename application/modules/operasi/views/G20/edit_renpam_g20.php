@@ -116,7 +116,7 @@
                 <form class="form" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">   
-                        <div class="col-md-12 mt-3">
+                        <div class="col-md-12">
                             <div id="mapG20Alternative1" style="height: 500px"></div>
                         </div>
                     </div>   
@@ -290,53 +290,55 @@
         }); 
 
 
-        $('#myModal').on('shown.bs.modal', function() {
-            var initialCenter = [-8.451740, 115.089643];
-            var initialZoom = 9.65;
-            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
+        
+    }); 
 
-            // StART MAP SECTION
-            var mapContainerInstruksi = L.map('mapG20Alternative1', {
-                maxZoom: 20,
-                minZoom: 1,
-                zoomSnap: 0.25,
-                zoomControl: false,
-                layers: [googleStreet]
-            }).setView(initialCenter, initialZoom);
     
-            var baseMaps = {
-                "Google Map Street": googleStreet,
-                "Google Map Satelite": googleSatelite,
-                "Google Map Hybrid": googleHybrid,
-                "Google Map Terrain": googleTerrain,
-            };
-            var overlayMaps = {};
-            L.control.layers(baseMaps, overlayMaps, {
-                position: 'topleft'
-            }).addTo(mapContainerInstruksi);
-            L.control.zoom({
-                position: 'bottomleft'
-            }).addTo(mapContainerInstruksi);
+    $('#myModal').on('shown.bs.modal', function() { 
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         });
 
-    }); 
+        // StART MAP SECTION
+        var mapContainerInstruksi = L.map('mapG20Alternative1', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerInstruksi);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerInstruksi);
+    });
 </script>

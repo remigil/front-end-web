@@ -1986,8 +1986,7 @@
         });
     });
 
- 
-    mapContainer.setView(initialCenter, initialZoom); 
+  
 
 
 
