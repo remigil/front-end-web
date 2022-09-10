@@ -47,7 +47,7 @@
                                         <p style="font-size: 17px;">OPERASI</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="filter" value="polres" id="polres" class="form-input" >  
+                                        <input type="checkbox"  name="filter" value="polres" id="polres" class="form-input" >  
                                         <span>Polres</span> 
                                     </div> 
                                     <div class="col-md-6">
@@ -59,7 +59,7 @@
                                         <span>Turjawali</span> 
                                     </div>  
                                     <div class="col-md-6 mt-3">
-                                        <input type="checkbox" checked name="filter" value="jadwal_kegiatan" id="jadwal" class="form-input" >  
+                                        <input type="checkbox"  name="filter" value="jadwal_kegiatan" id="jadwal" class="form-input" >  
                                         <span>Jadwal Kegiatan</span> 
                                     </div> 
                                     <div class="col-md-6 mt-3">
@@ -89,7 +89,7 @@
                                         <p style="font-size: 17px;">Location Of Interest</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="filter" value="fasum" id="fasum" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="fasum" id="fasum" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
                                     </div>   
                                     <div class="col-md-6">

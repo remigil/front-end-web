@@ -193,47 +193,25 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'activity',
-                'contents' => $input['renpam'],
-            ],
-            // [
-            //     'name' => 'id_vip',
-            //     'contents' => implode(",",$input['id_vip']),
-            // ],
-            // [
-            //     'name' => 'id_account',
-            //     'contents' => implode(",",$input['id_account']),
-            // ],
-            [
-                'name' => 'date_schedule',
-                'contents' => $input['date'],
-            ],
-            [
-                'name' => 'start_time',
-                'contents' => $input['startTime'],
-            ],
-            [
-                'name' => 'end_time',
-                'contents' => $input['endTime'],
-            ],
-            [
-                'name' => 'address_schedule',
-                'contents' => $input['address'],
-            ],
-            [
-                'name' => 'coordinate_schedule',
-                'contents' => $input['cordinate'],
-            ],
-            [
-                'name' => 'status_schedule',
-                'contents' => '1',
-            ] 
-        ];
+        $dummy = array();  
+
+        // $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
+        // $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
+        $dummy ['name_renpam']	= $input['instruksi']; 
+        $dummy ['type_renpam']	= $input['subjek']; 
+        $dummy ['date']	= $input['date']; 
+        $dummy ['start_time']	= $input['startTime']; 
+        // $dummy ['end_time']	= $input['endTime']; 
+        $dummy ['accounts']	= json_encode($input['id_account']); 
+        $dummy ['vips']	= json_encode($input['id_vip']); 
+        $dummy ['route']	= $input['ruteawal']; 
+        $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+
+        // echo json_encode($dummy);
+        // die;
 
         $data = guzzle_request('PUT', 'renpam/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
+            'form_params' => $dummy, 
             'headers' => $headers 
         ]);
 

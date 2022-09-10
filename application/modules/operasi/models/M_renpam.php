@@ -142,12 +142,18 @@ class M_renpam extends CI_Model {
             if($field['type_renpam'] == 1){
                 $row ['type_renpam']	= 'Patroli'; 
             } else if($field['type_renpam'] == 2){
-                $row ['type_renpam']	= 'Pengawalan';  
+                $row ['type_renpam']	= 'Pengawalan'; 
             } else if($field['type_renpam'] == 3){
                 $row ['type_renpam']	= 'Penjagaan';  
+            } else if($field['type_renpam'] == 4){
+                $row ['type_renpam']	= 'Pengaturan';  
             }
             $row ['name_renpam']	= $field['name_renpam'];   
-            $row ['lokasi']	= $field['schedule']['address_schedule']; 
+            if($field['schedule'] > 0){
+                $row ['lokasi']	= $field['schedule']['address_schedule'];  
+            }else{
+                $row ['lokasi']	= '-'; 
+            }
             $row ['date']	= format_indo($field['date']);  
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
  
