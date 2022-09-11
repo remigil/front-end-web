@@ -169,7 +169,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    // data.filterName = $('[name=group_name]').val();
+                    data.filterSchedule = '';
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
