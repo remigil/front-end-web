@@ -96,6 +96,7 @@ class M_akun extends CI_Model
 
         $url = 'account?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
+
         $result = guzzle_request('GET', $url, [
 
             'headers' => [

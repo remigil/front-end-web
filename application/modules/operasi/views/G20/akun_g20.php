@@ -41,42 +41,71 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="namaAkun" placeholder="Nama Akun" type="text" required>
-                        <label class="labelmui">Nama Akun</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                                <input style="width: 100%; " name="" type="text" required>
+                                <label class="labelmui">Akun</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                                <input style="width: 100%; " name="" type="password" required>
+                                <label class="labelmui">Password</label>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="phone_account" placeholder="Phone Akun" type="text" required>
-                        <label class="labelmui">Phone Akun</label>
-                    </div> -->
-                    <div class="material-selectfield mb-3">
-                        <select name="officers[]" id="officers" style="height: 200px" multiple required> 
-                            <?php foreach ($data['getOfficer'] as $row) : ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <label class="labelmui">Petugas</label>
-                    </div> 
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="ketuaTeam" placeholder="Ketua Team" type="text" required>
-                        <label class="labelmui">Ketua Team</label>
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-2">
+                            <p class="text-center fw-bold" style="font-family:'Open Sans';font-size: 13px;color:#2C3333; ">Ketua Tim</p>
+                        </div>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="id_kendaraan" class="form-select" required>
-                            <option selected value="">Pilih No Kendaraan</option>
-                            <?php foreach ($data['getVehicle'] as $row) : ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <label class="labelmui">No Kendaraan</label>
+                    <div class="row" style="margin-top:-20px">
+                        <div class="col-md-5">
+                            <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+
+                                <select name="officers[]" class="form-select" style="width:100%" id="select1" onchange="getvalue(1)" required>
+                                    <option selected value="">Pilih Petugas</option>
+                                    <?php
+                                    $no = 0;
+                                    foreach ($data['getOfficer'] as $row) : ?>
+                                        <option value="<?php echo $row['name_officer']; ?>" id="ss<?= $no++; ?>"><?php echo $row['name_officer']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">Petugas</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+                                <select name="id_kendaraan" class="form-select" style="width:100%" required>
+                                    <option selected value="">Pilih No Kendaraan</option>
+                                    <?php foreach ($data['getVehicle'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">No Kendaraan</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="form-check">
+                                    <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
+                                <button class=" btn btn-success" type="button" id="addId" onclick="education_fields();"> + </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="material-textfield mb-3">
-                        <input style="width: 100%;" name="password" placeholder="Password" type="password" required>
-                        <label class="labelmui">Password</label>
+                    <div id="education_fields"></div>
+                    <div class="clear"></div>
+                    <div class="col-md-12 mt-2">
+                        <button class="btn btn-primary w-25 float-end">SIMPAN</button>
                     </div>
-                    <div class="col-md-6 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -84,8 +113,144 @@
 </div>
 
 <script>
+    var room = 1;
+
+    function education_fields() {
+        room++;
+        var objTo = document.getElementById('education_fields')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML =
+            '<div class="row" style="margin-top:-10px">' +
+            '<div class="col-md-5">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onclick="getvalue(' + room + ')" required>' +
+            '<option selected value="">Pilih Petugas</option>' +
+            '</select>' +
+            '<label class="labelmui">Petugas</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-4">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="id_kendaraan" class="form-select" style="width:100%" required>' +
+            '<option selected value="">Pilih No </option>' +
+            '<option value="">Kendaraan 1</option></select>' +
+            '<label class="labelmui">No Kendaraan</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-2">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<div class="form-check">' +
+            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-1">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> - </button>' +
+            '</div>' +
+            '</div>' +
+            '<div class="clear"></div>';
+        objTo.appendChild(divtest)
+        return room;
+    }
+    var totalId = [1];
+
+
+
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         dataType: 'json',
+    //         url: '<?php echo base_url(); ?>operasi/Akun/GetPetugas',
+    //         type: "post",
+    //         success: function(response) {
+    //             $.each(response, function(index, data) {
+    //                 $('#select' + tes).append('<option value="' + data['name_officer'] + '">' + data['name_officer'] + '</option>');
+    //             });
+    //         },
+    //         // success: finished(html),
+    //     });
+    // });
+
+
+    $('#addId').click(function() {
+        totalId.push(room);
+        return totalId;
+    })
+
+    function remove_education_fields(rid) {
+        var myIndex = totalId.indexOf(rid);
+        if (myIndex !== -1) {
+            totalId.splice(myIndex, 1);
+        }
+        $('.removeclass' + rid).remove();
+        return totalId;
+    }
+
+
+    function getvalue(id) {
+        var petugasbaru = []
+        // $("select[name='officers[]'] option:selected").each(function() {
+        //     petugasbaru.push($(this).val())
+        // })
+
+        console.log(petugasbaru);
+        // console.log(this.value);
+        $.ajax({
+            dataType: 'json',
+            url: '<?php echo base_url(); ?>operasi/Akun/GetPetugas',
+            type: "post",
+            success: function(response) {
+
+                // let tes = []
+                // let tes = response.filter(function(e) {
+                for (let i = 0; i < response.length; i++) {
+                    petugasbaru.push(response[i])
+                    // return e.name_officer != petugasbaru[i];
+                }
+                // });
+                // console.log(tes);
+
+                // console.log(response);
+
+                $('#select' + id).html(``);
+                // console.log(response);
+                $.each(response, function(index, data) {
+                    $('#select' + id).append('<option onchange="' + id + '" value="' + data['name_officer'] + '">' + data['name_officer'] + '</option>');
+                });
+            },
+            //     // let select = $('#select' + id).find(":selected").val();
+            //     // for (let i = 0; i < totalId.length; i++) {
+            //     //     // let select = $('#select' + totalId[i]).find(":selected").val();
+
+            //     //     console.log('id ke ' + totalId[i] + ' ada ' + select);
+
+            //     //     if (id || totalId[i]) {
+            //     //         // console.log(totalId[i]);
+            //     //         if (select != '') {
+            //     //             $("#select" + totalId[i] + " option[value='" + select + "']").hide();
+            //     //             $("#select" + totalId[i] + " option[value!='" + select + "']").show();
+            //     //         }
+            //     //         // else if (select) {
+            //     //         //     $("#select" + totalId[i] + " option[value='" + select + "']").hide();
+            //     //         // }
+
+            //     //     }
+
+        })
+
+    }
+
+    $('#xxx').change(function() {
+        var id = $(this).children(":selected").attr("id");
+        console.log(id);
+    })
+
+
+
     $(document).ready(function() {
-        
+
         new Choices('#officers', {
             searchEnabled: true,
             removeItemButton: true,

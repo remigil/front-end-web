@@ -9,14 +9,14 @@ class Vip extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('operasi/m_vip'); 
+        $this->load->model('operasi/m_vip');
     }
 
     public function index()
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -40,19 +40,19 @@ class Vip extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-    public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_vip->get_datatables($postData);  
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_vip->get_datatables($postData);
+        echo json_encode($data);
     }
 
-    public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'name_vip',
@@ -72,34 +72,33 @@ class Vip extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('POST', 'vip/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'vip/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function Detail($id)
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -116,8 +115,8 @@ class Vip extends MY_Controller
             $page_content["page"] = "operasi/Polres/detail_vip_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'vip/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'vip/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['name']);
@@ -130,7 +129,7 @@ class Vip extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -147,8 +146,8 @@ class Vip extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_vip_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'vip/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'vip/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
 
@@ -157,12 +156,12 @@ class Vip extends MY_Controller
     }
 
 
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'name_vip',
@@ -182,65 +181,62 @@ class Vip extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('PUT', 'vip/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('PUT', 'vip/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
 
-    public function delete() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ];  
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'id',
                 'contents' => $input['id'],
-            ] 
+            ]
         ];
 
-        $data = guzzle_request('DELETE', 'vip/delete', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('DELETE', 'vip/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil hapus data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal hapus data.',
                 'data' => $data
             );
         }
-        
+
         echo json_encode($res);
-
     }
-
 }

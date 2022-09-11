@@ -9,14 +9,14 @@ class Akun extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('operasi/m_akun'); 
+        $this->load->model('operasi/m_akun');
     }
 
     public function index()
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -34,15 +34,17 @@ class Akun extends MY_Controller
         }
 
 
-        $getOfficer = guzzle_request('GET', 'officer', [  
-            'headers' => $headers 
+        $getOfficer = guzzle_request('GET', 'officer', [
+            'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
 
-        $getVehicle = guzzle_request('GET', 'vehicle', [  
-            'headers' => $headers 
+        $getVehicle = guzzle_request('GET', 'vehicle', [
+            'headers' => $headers
         ]);
+
         $data['getVehicle'] = $getVehicle['data']['data'];
+
 
         // $getPolres = guzzle_request('GET', 'polres', [  
         //     'headers' => $headers 
@@ -56,19 +58,39 @@ class Akun extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-    public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_akun->get_datatables($postData);  
-		echo json_encode($data); 
+    public function GetPetugas()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $getOfficer = guzzle_request('GET', 'officer', [
+            'headers' => $headers
+        ]);
+        $data = $getOfficer['data']['data'];
+        $getpetugas = array_filter($data, function ($get) {
+            $name_officer = $this->input->get('Petugas');
+            return $get['name_officer'] != $name_officer;
+        });
+
+        echo json_encode($getpetugas);
     }
 
-    public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_akun->get_datatables($postData);
+        echo json_encode($data);
+    }
+
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         // $dummy = [
         //     [
         //         'name' => 'id_account',
@@ -101,45 +123,44 @@ class Akun extends MY_Controller
         //     'headers' => $headers 
         // ]);
 
-        $dummy = array(); 
-        $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
-        $dummy ['name_account']	= $input['namaAkun']; 
+        $dummy = array();
+        $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
+        $dummy['name_account']    = $input['namaAkun'];
         // $dummy ['phone_account']	= $input['phone_account']; 
-        $dummy ['leader_team']	= $input['ketuaTeam']; 
-        $dummy ['id_vehicle']	= $input['id_kendaraan']; 
-        $dummy ['password']	= $input['password']; 
-        $dummy ['officers']	= json_encode($input['officers']); 
+        $dummy['leader_team']    = $input['ketuaTeam'];
+        $dummy['id_vehicle']    = $input['id_kendaraan'];
+        $dummy['password']    = $input['password'];
+        $dummy['officers']    = json_encode($input['officers']);
         // echo json_encode($dummy);
         // die;
 
-        $data = guzzle_request('POST', 'account/add', [ 
-            'form_params' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'account/add', [
+            'form_params' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function Detail($id)
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -156,8 +177,8 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Polres/detail_akun_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'account/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'account/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']);
@@ -170,7 +191,7 @@ class Akun extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -187,104 +208,101 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_akun_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'account/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'account/getId/' . $id . '', [
+            'headers' => $headers
         ]);
-        $data['getDetail'] = $getDetail['data']; 
+        $data['getDetail'] = $getDetail['data'];
 
-        $getOfficer = guzzle_request('GET', 'officer', [  
-            'headers' => $headers 
+        $getOfficer = guzzle_request('GET', 'officer', [
+            'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
 
-        $getVehicle = guzzle_request('GET', 'vehicle', [  
-            'headers' => $headers 
+        $getVehicle = guzzle_request('GET', 'vehicle', [
+            'headers' => $headers
         ]);
-        $data['getVehicle'] = $getVehicle['data']['data']; 
+        $data['getVehicle'] = $getVehicle['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
 
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
-        
-        $dummy = array(); 
-        $dummy ['id_account']	= str_replace(' ', '', $input['namaAkun']);
-        $dummy ['name_account']	= $input['namaAkun']; 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $dummy = array();
+        $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
+        $dummy['name_account']    = $input['namaAkun'];
         // $dummy ['phone_account']	= $input['phone_account']; 
-        $dummy ['leader_team']	= $input['ketuaTeam']; 
-        $dummy ['id_vehicle']	= $input['id_kendaraan']; 
-        $dummy ['officers']	= json_encode($input['officers']); 
-        
-        if($input['oldPassword'] != $input['password']){
-            $dummy ['password']	= $input['password']; 
+        $dummy['leader_team']    = $input['ketuaTeam'];
+        $dummy['id_vehicle']    = $input['id_kendaraan'];
+        $dummy['officers']    = json_encode($input['officers']);
+
+        if ($input['oldPassword'] != $input['password']) {
+            $dummy['password']    = $input['password'];
         }
 
-        $data = guzzle_request('PUT', 'account/edit/'.$input['id'].'', [ 
-            'form_params' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('PUT', 'account/edit/' . $input['id'] . '', [
+            'form_params' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
 
-    public function delete() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ];  
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'id',
                 'contents' => $input['id'],
-            ] 
+            ]
         ];
 
-        $data = guzzle_request('DELETE', 'account/delete', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('DELETE', 'account/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil hapus data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal hapus data.',
                 'data' => $data
             );
         }
-        
+
         echo json_encode($res);
-
     }
-
 }
