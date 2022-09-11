@@ -32,6 +32,8 @@ class Berita extends MY_Controller
             $page_content["page"] = "berita/Polres/berita_view";
         }
 
+		
+		
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
@@ -174,7 +176,7 @@ class Berita extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_vip_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'vip/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'news/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];

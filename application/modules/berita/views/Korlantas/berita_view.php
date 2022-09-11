@@ -43,7 +43,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form row" method="post" enctype="multipart/form-data">
+                <form action="" class="form" method="post" enctype="multipart/form-data">
 				<div class="material-selectfield mb-3">
                         <select name="kategoriBerita" id="form-select">
                             <!-- <select name="" id=""  multiple required> -->
@@ -90,17 +90,18 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form" method="post" enctype="multipart/form-data">
+					<input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
 				<div class="material-selectfield mb-3">
                         <select name="" id="">
                             <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Pilih Kategori</option>
-                            <option value="">Berita PPKM</option>
-                            <option value="">Berita Kecelakaan Lalu Lintas</option>
-                            <option value="">Berita Pelanggaran Lalu Lintas</option>
-                            <option value="">Berita Kemacetan Lalu Lintas</option>
-                            <option value="">Berita Satpas</option>
-                            <option value="">Berita ETLE</option>
-                            <option value="">Berita Kontijensi</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == null ? 'selected' : '');?> value="">Pilih Kategori</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '1' ? 'selected' : '');?>value="1">Berita PPKM</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '2' ? 'selected' : '');?>value="2">Berita Kecelakaan Lalu Lintas</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '3' ? 'selected' : '');?>value="3">Berita Pelanggaran Lalu Lintas</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '4' ? 'selected' : '');?>value="4">Berita Kemacetan Lalu Lintas</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '5' ? 'selected' : '');?>value="5">Berita Satpas</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '6' ? 'selected' : '');?>value="6">Berita ETLE</option>
+                            <option <?= ($data['getDetail']['data']['news_category'] == '7' ? 'selected' : '');?>value="7">Berita Kontijensi</option>
                             
                         </select>
                         <label class="labelmui">Kategori Berita</label>
@@ -139,14 +140,14 @@
 				<div class="material-selectfield mb-3">
                         <select name="" id="">
                             <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Pilih Kategori</option>
-                            <option value="">Berita PPKM</option>
-                            <option value="">Berita Kecelakaan Lalu Lintas</option>
-                            <option value="">Berita Pelanggaran Lalu Lintas</option>
-                            <option value="">Berita Kemacetan Lalu Lintas</option>
-                            <option value="">Berita Satpas</option>
-                            <option value="">Berita ETLE</option>
-                            <option value="">Berita Kontijensi</option>
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Berita PPKM</option>
+                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
+                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
+                            <option value="4">Berita Kemacetan Lalu Lintas</option>
+                            <option value="5">Berita Satpas</option>
+                            <option value="6">Berita ETLE</option>
+                            <option value="7">Berita Kontijensi</option>
                             
                         </select>
                         <label class="labelmui">Kategori Berita</label>
@@ -336,16 +337,46 @@
             confirmButtonColor: '#C61318',
             cancelButtonColor: '#003A91',
             cancelButtonText: 'Batal',
-            confirmButtonText: 'Hapus'
+            confirmButtonText: 'Hapus',
+			
         }).then((result) => {
+			
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: "Data berhasil dihapus",
-                    icon: 'success',
-                    confirmButtonColor: '#003A91',
-                    confirmButtonText: 'OK'
-                })
+				$.ajax({
+                url: "<?php echo base_url();?>berita/Berita/delete",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $(".TambahBerita").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+                // Swal.fire({
+                //     title: 'Berhasil',
+                //     text: "Data berhasil dihapus",
+                //     icon: 'success',
+                //     confirmButtonColor: '#003A91',
+                //     confirmButtonText: 'OK'
+                // })
             }
         })
     }

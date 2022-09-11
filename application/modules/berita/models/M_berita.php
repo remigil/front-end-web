@@ -21,7 +21,7 @@ class M_berita extends CI_Model {
         $draw = $postData['draw']; 
 
         $rowperpage = $postData['length']; // Rows display per page  
-		
+		 
         $columnName = $postData['columns']; // Column name 
 
 		$page = $postData['page']; 
@@ -109,12 +109,23 @@ class M_berita extends CI_Model {
         ]);   
 		
         $no=1;
-
+		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
+			
 			if ($field['news_category'] == 1) {
-				$category = "Update Berita PPKM";
+				$category = "Berita PPKM";
 			} else if($field['news_category'] == 2){
-				$category = "Update Berita BMM";
+				$category = "Berita Kecelakaan Lalu Lintas";
+			}else if($field['news_category'] == 3){
+				$category = "Berita Pelanggaran Lalu Lintas";
+			}else if($field['news_category'] == 4){
+				$category = "Berita Kemacetan Lalu Lintas";
+			}else if($field['news_category'] == 5){
+				$category = "Berita Satpas";
+			}else if($field['news_category'] == 6){
+				$category = "Berita ETLE";
+			}else if($field['news_category'] == 7){
+				$category = "Berita Kontjensi";
 			}
             $row = array();   
 			// $row ['id']	=  $field['id']; 
@@ -135,6 +146,7 @@ class M_berita extends CI_Model {
                 <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
                         <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                     </button>
+
             '; 
 
             $data[] = $row;
