@@ -116,7 +116,7 @@
             </div>
             <div class="modal-body"> 
                 <form class="formR" method="post" enctype="multipart/form-data"> 
-                    <input name="schedule_id" id="schedule_id" class="form-control" type="text" >
+                    <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" >
 
                     <div class="row">  
 
@@ -205,7 +205,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
-                <input type="text" id="schedule_id_detail">
+                <input hidden type="text" id="schedule_id_detail">
                 <table id="datatableRD" class="table dt-responsive w-100">
                     <thead>
                         <tr>
