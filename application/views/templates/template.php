@@ -229,7 +229,7 @@
 
 						<li><a  href="#">PROFIL</a>
 							<ul>
-								<li><a href="index-2.html">Sambutan</a></li>
+								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
 								<li><a href="index-2-airbnb.html">Strukture Organisasi</a></li>
 								<li><a href="index-3.html">Profil Pejabat</a></li>
 								<li><a href="index-4.html">Visi dan Misi</a></li>
@@ -286,7 +286,7 @@
 
 						<li><a href="#">MEDIA UPDATE</a>
 							<ul>
-								<li><a href="dashboard.html">Update Berita PPKM</a></li>
+								<li><a href="<?= base_url()?>berita_ppkm">Update Berita PPKM</a></li>
 								<li><a href="dashboard-messages.html">Update Berita Kecelakaan Lalulintas</a></li>
 								<li><a href="dashboard-bookings.html">Update Berita Pelanggaran Lalulintas</a></li>
 								<li><a href="dashboard-wallet.html">Update Berita Kemacetan Lalulintas</a></li>

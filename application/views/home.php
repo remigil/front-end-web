@@ -217,6 +217,7 @@
 
             <div class="row">
                 <div class="col-md-6">
+					
                     <h4>SIGNAL (Samsat Digital Nasional)</h4>
                     <p>SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
                 </div>
