@@ -10,6 +10,7 @@
 
 	<!-- CSS
 	================================================== -->
+	<link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/fe/css/main-color.css" id="colors">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
@@ -228,152 +229,88 @@
 
 						<li><a  href="#">PROFIL</a>
 							<ul>
-								<li><a href="index-2.html">Home 1</a></li>
-								<li><a href="index-2-airbnb.html">Home 2 (Airbnb)</a></li>
-								<li><a href="index-3.html">Home 3</a></li>
-								<li><a href="index-4.html">Home 4</a></li>
-								<li><a href="index-5.html">Home 5</a></li>
-								<li><a href="index-6.html">Home 6</a></li>
+								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
+								<li><a href="index-2-airbnb.html">Strukture Organisasi</a></li>
+								<li><a href="index-3.html">Profil Pejabat</a></li>
+								<li><a href="index-4.html">Visi dan Misi</a></li>
+								<li><a href="index-5.html">Tugas dan Fungsi</a></li>
+								<li><a href="index-6.html">Sejarah POLANTAS</a></li>
 							</ul>
 						</li>
 
 						<li><a href="#">SATKER MABES</a>
-							<ul>
-								<li><a href="#">List Layout</a>
-									<ul>
-										<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-										<li><a href="listings-list-full-width.html">Full Width</a></li>
-										<li><a href="listings-list-full-width-with-map.html">Full Width + Map</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Grid Layout</a>
-									<ul>
-										<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-										<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-										<li><a href="listings-grid-full-width.html">Full Width</a></li>
-										<li><a href="listings-grid-full-width-with-map.html">Full Width + Map</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Half Screen Map</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Single Listings</a>
-									<ul>
-										<li><a href="listings-single-page.html">Single Listing 1</a></li>
-										<li><a href="listings-single-page-2.html">Single Listing 2</a></li>
-										<li><a href="listings-single-page-3.html">Single Listing 3</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Open Street Map</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list-OpenStreetMap.html">Half Screen Map List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1-OpenStreetMap.html">Half Screen Map Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2-OpenStreetMap.html">Half Screen Map Grid Layout 2</a></li>
-										<li><a href="listings-list-full-width-with-map-OpenStreetMap.html">Full Width List</a></li>
-										<li><a href="listings-grid-full-width-with-map-OpenStreetMap.html">Full Width Grid</a></li>
-										<li><a href="listings-single-page-OpenStreetMap.html">Single Listing</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-
-						<li><a href="#">PUBLIKASI</a>
-							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-bookings.html">Bookings</a></li>
-								<li><a href="dashboard-wallet.html">Wallet</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
-							</ul>
-						</li>
-
-						<li><a href="#">INFORMASI PUBLIK</a>
 							<div class="mega-menu mobile-styles three-columns">
 
 									<div class="mega-menu-section">
 										<ul>
-											<li class="mega-menu-headline">Pages #1</li>
-											<li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> User Profile</a></li>
-											<li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> Booking Page</a></li>
-											<li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
-											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> Blog</a></li>
+											<li class="mega-menu-headline">KORLANTAS</li>
+											<li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
+											<li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
+											<li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
+											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
 										</ul>
 									</div>
 		
 									<div class="mega-menu-section">
 										<ul>
-											<li class="mega-menu-headline">Pages #2</li>
-											<li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> Contact</a></li>
-											<li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> Coming Soon</a></li>
-											<li><a href="pages-404.html"><i class="sl sl-icon-close"></i> 404 Page</a></li>
-											<li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> Masonry Filtering</a></li>
+											<li class="mega-menu-headline">FUNGSI LAINNYA</li>
+											<li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> BAHARKAM</a></li>
+											<li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> ASOPS</a></li>
+											<li><a href="pages-404.html"><i class="sl sl-icon-close"></i> DIVTIK</a></li>
+											<li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> BARESKIM</a></li>
 										</ul>
-									</div>
-
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Other</li>
-											<li><a href="pages-elements.html"><i class="sl sl-icon-settings"></i> Elements</a></li>
-											<li><a href="pages-pricing-tables.html"><i class="sl sl-icon-tag"></i> Pricing Tables</a></li>
-											<li><a href="pages-typography.html"><i class="sl sl-icon-pencil"></i> Typography</a></li>
-											<li><a href="pages-icons.html"><i class="sl sl-icon-diamond"></i> Icons</a></li>
-										</ul>
-									</div>
+									</div> 
 									
 							</div>
 						</li>
 
+						<li><a href="#">PUBLIKASI</a>
+							<ul>
+								<li><a href="dashboard.html">Konfersi Pers</a></li>
+								<li><a href="dashboard-messages.html">Kegiatan Kakorlantas</a></li>
+								<li><a href="dashboard-bookings.html">Riset Media Center NTMC</a></li>
+								<li><a href="dashboard-wallet.html">Kegiatan Khusus (PAM PPKM)</a></li> 
+							</ul>
+						</li>
+ 
+
+						<li><a href="#">INFORMASI PUBLIC</a>
+							<ul>
+								<li><a href="dashboard.html">Informasi Setiap Saat</a></li>
+								<li><a href="dashboard-messages.html">Informasi Berkala</a></li>
+								<li><a href="dashboard-bookings.html">Informasi Serta Merta</a></li>
+								<li><a href="dashboard-wallet.html">UU dan Peraturan</a></li> 
+							</ul>
+						</li>
+ 
+
 						<li><a href="#">MEDIA UPDATE</a>
 							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-bookings.html">Bookings</a></li>
-								<li><a href="dashboard-wallet.html">Wallet</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
+								<li><a href="<?= base_url()?>berita_ppkm">Update Berita PPKM</a></li>
+								<li><a href="dashboard-messages.html">Update Berita Kecelakaan Lalulintas</a></li>
+								<li><a href="dashboard-bookings.html">Update Berita Pelanggaran Lalulintas</a></li>
+								<li><a href="dashboard-wallet.html">Update Berita Kemacetan Lalulintas</a></li>
+								<li><a href="dashboard-my-listings.html">Update Berita Satpas</a></li>
+								<li><a href="dashboard-reviews.html">Update Berita ETLE</a></li>
+								<li><a href="dashboard-bookmarks.html">Update Berita Kontijensi (Penanganan Covid-19)</a></li> 
 							</ul>
 						</li>
 
 						<li><a href="#">KONTAK KAMI</a>
 							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-bookings.html">Bookings</a></li>
-								<li><a href="dashboard-wallet.html">Wallet</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
+								<li><a href="dashboard.html">Layanan Chatbot k3i Korlantas</a></li>
+								<li><a href="dashboard-messages.html">Survey Kepuasan</a></li>
+								<li><a href="dashboard-bookings.html">Layanan Pengaduan</a></li>
+								<li><a href="dashboard-wallet.html">Contact Center NTMC</a></li> 
 							</ul>
 						</li>
 
 						<li><a href="#">LAIN - LAIN</a>
 							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-bookings.html">Bookings</a></li>
-								<li><a href="dashboard-wallet.html">Wallet</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
+								<li><a href="dashboard.html">CCTV Streaming</a></li>
+								<li><a href="dashboard-messages.html">Link Pengecekan Status ETLE</a></li>
+								<li><a href="dashboard-bookings.html">Link ke Layanan Polisiku</a></li>
+								<li><a href="dashboard-wallet.html">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
 						</li>
 						

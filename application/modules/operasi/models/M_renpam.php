@@ -44,7 +44,7 @@ class M_renpam extends CI_Model {
 
 		// $filter_status = $postData['filterStatus'];
 
-		// $filter_name = $postData['filterName'];
+		$filter_schedule = $postData['filterSchedule'];
 
 		// $filter_poc_name = $postData['filterPocName'];
 
@@ -64,15 +64,15 @@ class M_renpam extends CI_Model {
 
         } 
 
-        // if($filter_threat){
+        if($filter_schedule){
 
-        //     $threat_level = '&filterField[]=threat_level&filterValue[]='.$filter_threat.'';
+            $schedule_id = '&filter[]=schedule_id&filterSearch[]='.$filter_schedule.'';
 
-        // }else{
+        }else{
 
-        //     $threat_level = '';
+            $schedule_id = '';
 
-        // }
+        }
 
         // if($filter_tgl != ""){
 
@@ -99,7 +99,7 @@ class M_renpam extends CI_Model {
             
         // }
 
-        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''.$schedule_id.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -142,12 +142,18 @@ class M_renpam extends CI_Model {
             if($field['type_renpam'] == 1){
                 $row ['type_renpam']	= 'Patroli'; 
             } else if($field['type_renpam'] == 2){
-                $row ['type_renpam']	= 'Pengawalan';  
+                $row ['type_renpam']	= 'Pengawalan'; 
             } else if($field['type_renpam'] == 3){
                 $row ['type_renpam']	= 'Penjagaan';  
+            } else if($field['type_renpam'] == 4){
+                $row ['type_renpam']	= 'Pengaturan';  
             }
             $row ['name_renpam']	= $field['name_renpam'];   
-            $row ['lokasi']	= $field['schedule']['address_schedule']; 
+            if($field['schedule'] > 0){
+                $row ['lokasi']	= $field['schedule']['address_schedule'];  
+            }else{
+                $row ['lokasi']	= '-'; 
+            }
             $row ['date']	= format_indo($field['date']);  
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
  

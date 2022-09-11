@@ -31,19 +31,7 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/renpam_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/renpam_polres";
-        } 
-        $dummyVip = [
-            [
-                'name' => 'renpam_id',
-                'contents' => '1',
-            ],
-            [
-                'name' => 'vip_id',
-                'contents' => '1',
-            ],
-        ];
-        // echo json_encode($dummyVip);
-        // die;
+        }  
 
         $getVip = guzzle_request('GET', 'vip', [  
             'headers' => $headers 
@@ -86,6 +74,52 @@ class Renpam extends MY_Controller
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
         $dummy ['route']	= $input['ruteawal']; 
+
+        // echo json_encode($dummy);
+        // die; 
+
+        
+        $data = guzzle_request('POST', 'renpam/add', [ 
+            'form_params' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+
+    }
+
+    public function storeFromJadwal() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        $dummy = array();  
+
+        $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
+        $dummy ['schedule_id']	= $input['schedule_id']; 
+        $dummy ['name_renpam']	= $input['instruksiR']; 
+        $dummy ['type_renpam']	= $input['subjekR']; 
+        $dummy ['date']	= $input['dateR']; 
+        $dummy ['start_time']	= $input['startTimeR']; 
+        // $dummy ['end_time']	= $input['endTimeR']; 
+        $dummy ['accounts']	= json_encode($input['id_accountR']); 
+        $dummy ['vips']	= json_encode($input['id_vipR']); 
+        $dummy ['route']	= $input['ruteawalR']; 
 
         // echo json_encode($dummy);
         // die; 
@@ -193,47 +227,26 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'activity',
-                'contents' => $input['renpam'],
-            ],
-            // [
-            //     'name' => 'id_vip',
-            //     'contents' => implode(",",$input['id_vip']),
-            // ],
-            // [
-            //     'name' => 'id_account',
-            //     'contents' => implode(",",$input['id_account']),
-            // ],
-            [
-                'name' => 'date_schedule',
-                'contents' => $input['date'],
-            ],
-            [
-                'name' => 'start_time',
-                'contents' => $input['startTime'],
-            ],
-            [
-                'name' => 'end_time',
-                'contents' => $input['endTime'],
-            ],
-            [
-                'name' => 'address_schedule',
-                'contents' => $input['address'],
-            ],
-            [
-                'name' => 'coordinate_schedule',
-                'contents' => $input['cordinate'],
-            ],
-            [
-                'name' => 'status_schedule',
-                'contents' => '1',
-            ] 
-        ];
+        $dummy = array();  
+
+        // $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
+        // $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
+        $dummy ['name_renpam']	= $input['instruksi']; 
+        $dummy ['type_renpam']	= $input['subjek']; 
+        $dummy ['date']	= $input['date']; 
+        $dummy ['start_time']	= $input['startTime']; 
+        // $dummy ['end_time']	= $input['endTime']; 
+        $dummy ['accounts']	= json_encode($input['id_account']); 
+        $dummy ['vips']	= json_encode($input['id_vip']); 
+        $dummy ['route']	= $input['ruteawal']; 
+        $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+        $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+
+        // echo json_encode($dummy);
+        // die;
 
         $data = guzzle_request('PUT', 'renpam/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
+            'form_params' => $dummy, 
             'headers' => $headers 
         ]);
 

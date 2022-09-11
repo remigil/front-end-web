@@ -1,3 +1,5 @@
+<!-- breadcrunb -->
+
 <section class="shadow-sm">
     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/';">
         <ol class="breadcrumb fs-5">
@@ -6,8 +8,13 @@
         </ol>
     </nav>
 </section>
+
+<!-- end breadcrumb -->
+
+<!-- data statistik -->
 <section class="shadow-sm">
-    <div class="card rounded">
+	<div class="card rounded">
+		<!-- title & last update -->
         <div class="card-header card-headline">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -18,8 +25,10 @@
                 </div>
             </div>
         </div>
+		<!-- end title & last update -->
         <div class="card-body">
-            <div class="row">
+			<div class="row">
+				<!-- statistik -->
                 <div class="col-md-4">
                     <div class="card-body blue-card">
                         <div class="row align-items-center text-center">
@@ -63,6 +72,9 @@
                     </div>
 
                 </div>
+				<!-- end statistik -->
+
+				<!-- rangking statistik -->
                 <div class="col-md-8">
                     <div class="top-five-headline">
                         <h2 class="text-center">10 RANGKING DAKGAR LANTAS TERTINGGI</h2>
@@ -164,11 +176,14 @@
                         </table>
                     </div>
                 </div>
+				<!-- end rangking statistik -->
             </div>
         </div>
     </div>
 </section>
+<!-- end data statistik -->
 
+<!-- filter data -->
 <section>
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ffffff;color:black; width:350px">
@@ -219,7 +234,9 @@
         </ul>
     </div>
 </section>
+<!-- end filter data -->
 
+<!-- chart -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
@@ -286,7 +303,9 @@
         </div>
     </div>
 </section>
+<!-- end chart -->
 
+<!-- tabel data -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
@@ -423,7 +442,7 @@
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td></td>
+                                <td>Bali</td>
                                 <td>67645</td>
                                 <td>2100</td>
                                 <td>1846</td>
@@ -474,7 +493,9 @@
         </div>
     </div>
 </section>
+<!-- end tabel data -->
 
+<!-- chart tahun -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
@@ -542,7 +563,9 @@
         </div>
     </div>
 </section>
+<!-- end chart tahun -->
 
+<!-- tabel data per tahun -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
@@ -632,6 +655,98 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
+							<tr>
+                                <td>4</td>
+                                <td>APRIL</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							<tr>
+                                <td>5</td>
+                                <td>MEI</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							<tr>
+                                <td>6</td>
+                                <td>JUNI</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							<tr>
+                                <td>7</td>
+                                <td>JULI</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							<tr>
+                                <td>8</td>
+                                <td>AGUSTUS</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							<tr>
+                                <td>9</td>
+                                <td>SEPTEMBER</td>
+                                <td>67645</td>
+                                <td>2100</td>
+                                <td>1846</td>
+                                <td>3946</td>
+                                <td>886</td>
+                                <td>583</td>
+                                <td>1469</td>
+                                <td>724212</td>
+                                <td>429941</td>
+                                <td>21</td>
+                                <td>34084</td>
+                            </tr>
+							
+
                         </tbody>
                     </table>
                 </div>
@@ -640,8 +755,9 @@
         </div>
     </div>
 </section>
+<!-- end tabel data per tahun -->
 
-
+<!-- isi chart -->
 <script>
     $(document).ready(function() {
         $('#tb_dakgar_lantas').DataTable()
@@ -657,15 +773,17 @@
                 type: 'bar',
                 height: 350
             },
+			
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '80%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
                     }
                 },
+				
             },
             dataLabels: {
                 enabled: true,
@@ -708,7 +826,7 @@
             series: [{
                 name: 'Total',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: [917, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
                 color: "#11347A"
             }, {
                 name: 'Statis',
@@ -729,10 +847,11 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '40%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
+						
                     }
                 },
             },
@@ -741,7 +860,8 @@
                 style: {
                     colors: ['#333']
                 },
-                offsetY: -15
+                offsetY: -15,
+				
             },
 
             stroke: {
@@ -801,8 +921,11 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '40%',
                     endingShape: 'rounded',
+					padding:{
+						right: 10,
+					},
                     dataLabels: {
                         position: 'top'
                     }
@@ -874,8 +997,9 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '50%',
                     endingShape: 'rounded',
+					
                     dataLabels: {
                         position: 'top'
                     }
@@ -993,7 +1117,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '40%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -1065,7 +1189,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '40%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -1114,20 +1238,25 @@
 
         var options_odol_tahun = {
             series: [{
-                name: 'Total',
+                name: 'PREMTIF',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
-                color: "#11347A"
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                color: "#11347A",
             }, {
-                name: 'Statis',
-                type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
-                color: "#3CA55C"
+                name: 'PREVENTIF',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                type: "column",
+                color: "#3CA55C",
             }, {
-                name: 'Mobile',
-                type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                name: '227',
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
                 color: "#E8D42F"
+            }, {
+                name: '307',
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                type: "column",
+                color: "#CB2D3E"
             }],
             chart: {
                 height: 350,
@@ -1185,3 +1314,4 @@
 
     })
 </script>
+<!-- end isi chart -->

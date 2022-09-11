@@ -192,9 +192,9 @@
             }*/
 
         .location-pin img {
-            width: 46px;
-            height: 46px;
-            margin: -26px 0 0 -13px;
+            width: 20px;
+            height: 20px;
+            margin: -13px 0 0 -13px;
             z-index: 10;
             position: absolute;
             border-radius: 50%;
@@ -202,15 +202,15 @@
         }
 
         .pin {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             border-radius: 50% 50% 50% 0;
             background: #3f51b5;
             position: absolute;
             transform: rotate(-45deg);
             left: 50%;
             top: 50%;
-            margin: -43px 0 0 -30px;
+            margin: -20px 0 0 -20px;
         }
 
         .pin:after {
@@ -406,12 +406,17 @@
     </style>
 
     <!-- JAVASCRIPT -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+ 
     <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/simplebar/simplebar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/node-waves/waves.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/feather-icons/feather.min.js"></script>
+
+
 
     <?php echo $css ?>
 </head>
@@ -661,7 +666,7 @@
                                 </a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="users"></i>
                                     <span data-key="t-authentication">Fasilitas Umum</span>
@@ -670,7 +675,7 @@
                                     <li><a href="<?php echo base_url(); ?>fasum/ListFasum" data-key="t-login">Data Fasilitas Umum</a></li>
                                     <li><a href="<?php echo base_url(); ?>fasum/KategoriFasum" data-key="t-register">Kategori Fasilitas Umum</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li>
                                 <a href="<?php echo base_url(); ?>zoom">
@@ -680,7 +685,7 @@
                             </li>
 
 
-                            <li class="menu-title mt-2" data-key="t-components">User Management</li>
+                            <li class="menu-title mt-2" data-key="t-components">Management System</li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>user/operator">
@@ -689,59 +694,79 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-apps">Master Data</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                    <?php } ?>
+                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                    <!-- <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li> -->
+                                </ul>
+                            </li>
+
 
                         <?php } else { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
-                                    <i data-feather="grid"></i>
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Laporan</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-laporan">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
-                                            <span data-key="t-email">Ditgakkum</span>
+                                            <img src="<?= base_url('assets/sidebar/icon-ditgakkum.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditgakkum">Ditgakkum</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditgakkum/dakgarLantas') ?>" data-key="t-inbox">Data Dakgar Lantas</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/garlantasKonvensional') ?>" data-key="t-read-email">Gar Lantas Konvensional</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/lakaLantas') ?>" data-key="t-read-email">Kecelakan Lalu Lintas</a></li>
-                                            <li><a href="<?= base_url('ditgakkum/turjawali') ?>" data-key="t-read-email">Data Turjagwali</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/dakgarLantas') ?>" data-key="t-dakgar">Data Dakgar Lantas</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/garlantasKonvensional') ?>" data-key="t-garlantas">Gar Lantas Konvensional</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/lakaLantas') ?>" data-key="t-laka">Kecelakan Lalu Lintas</a></li>
+                                            <li><a href="<?= base_url('ditgakkum/turjawali') ?>" data-key="t-turjagwali">Data Turjagwali</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
-                                            <span data-key="t-email">Ditkamsel</span>
+                                            <img src="<?= base_url('assets/sidebar/icon-ditkamsel.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditkamsel">Ditkamsel</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-inbox">Dikmas Lantas</a></li>
-                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-read-email">Penyebaran/Pemasangan</a></li>
+                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-dikmaslantas">Dikmas Lantas</a></li>
+                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-penyebaran">Penyebaran/Pemasangan</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
-                                            <span data-key="t-email">Ditregident</span>
+                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditregident">Ditregident</span>
                                         </a>
                                         <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditregident/sim') ?>" data-key="t-inbox">SIM</a></li>
-                                            <li><a href="<?= base_url('ditregident/stnk') ?>" data-key="t-read-email">STNK</a></li>
-                                            <li><a href="<?= base_url('ditregident/bpkb') ?>" data-key="t-read-email">BPKB</a></li>
-                                            <li><a href="<?= base_url('ditregident/ranmor') ?>" data-key="t-read-email">RANMOR</a></li>
+                                            <li><a href="<?= base_url('ditregident/sim') ?>" data-key="t-sim">SIM</a></li>
+                                            <li><a href="<?= base_url('ditregident/stnk') ?>" data-key="t-stnk">STNK</a></li>
+                                            <li><a href="<?= base_url('ditregident/bpkb') ?>" data-key="t-bpkb">BPKB</a></li>
+                                            <li><a href="<?= base_url('ditregident/ranmor') ?>" data-key="t-ranmor">RANMOR</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="<?= base_url('tripon') ?>">
-                                            <span data-key="t-calendar">TripOn</span>
+                                            <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-tripon">TripOn</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="<?= base_url('troublespot') ?>">
-                                            <span data-key="t-chat">TroubleSpot</span>
+                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-troublespot">TroubleSpot</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -749,8 +774,8 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Input Data</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-inputdata">Input Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
@@ -759,28 +784,28 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Rencana Operasi</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-operasi">Rencana Operasi</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('berita'); ?>">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Berita</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-berita">Berita</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Dokumen Peraturan</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
                                 </a>
                             </li>
                             <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
 
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <i data-feather="grid"></i>
-                                        <span data-key="t-apps">Management Pengguna</span>
+                                        <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-pengguna">Management Pengguna</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
@@ -790,8 +815,8 @@
                             <?php } ?>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Master Data</span>
+                                    <img src="<?= base_url('assets/sidebar/icon-masterdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-masterdata">Master Data</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
@@ -808,7 +833,7 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url('zoom'); ?>">
-                                    <i data-feather="grid"></i>
+                                    <img src="<?= base_url('assets/sidebar/icon-zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Zoom</span>
                                 </a>
                             </li>
@@ -995,13 +1020,13 @@
     <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
     <!-- Modal js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
 
     <!-- form mask -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
 
     <!-- form mask init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
 
     <!-- dropzone js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
@@ -1010,7 +1035,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
 
     <!-- lightbox init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
 
     <!-- Required datatable js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -1038,22 +1063,22 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
 
     <!-- dashboard init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
 
     <!-- Sweet Alerts js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- Sweet alert init js-->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
 
     <!-- pristine js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
 
     <!-- form validation -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
 
     <!-- init js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
 
     <!-- datepicker js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
@@ -1066,7 +1091,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
 
     <!-- form wizard init -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
 
     <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
 

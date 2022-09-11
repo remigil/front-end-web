@@ -43,7 +43,7 @@
                             <p><?php echo $data['getDetail']['data']['name_renpam'];?></p> 
                             <p><?php echo format_indo($data['getDetail']['data']['date']);?></p>
                             <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
-                            <p><?php echo $data['getDetail']['data']['schedule']['address_schedule'];?></p>
+                            <p><?php echo ($data['getDetail']['data']['schedule'] > 0 ? $data['getDetail']['data']['schedule']['address_schedule'] : '-');?></p>
                         </div>
                     </div>
                 </div>

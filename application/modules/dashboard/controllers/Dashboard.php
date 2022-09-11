@@ -58,6 +58,43 @@ class Dashboard extends MY_Controller
         // $this->load->view('dashboard/dashboard_g20',);
     }
 
+    public function getFilter()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $input = $this->input->post(); 
+        if($input['filter']){
+            $filter = '&filter='.$input['filter'].'';
+        }else{
+            $filter = '';
+        }
+        if($input['radius']){
+            $radius = '?radius='.$input['radius'].'';
+        }else{
+            $radius = '?radius=1500';
+        }
+        if($input['coordinate']){
+            $coordinate = '&coordinate='.$input['coordinate'].'';
+        }else{
+            $coordinate = '&coordinate=-8.451740, 115.089643';
+        }
+        if($input['type']){
+            $type = '&type='.$input['type'].'';
+        }else{
+            $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall,gas_station';
+        }
+        
+        $url = 'filter-search'.$radius.''.$filter.''.$coordinate.''.$type.'';
+        // echo json_encode($url);
+        // die;
+        $getMe = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
     public function getTracking()
     {
         $headers = [

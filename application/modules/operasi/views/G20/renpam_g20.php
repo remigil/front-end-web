@@ -86,6 +86,7 @@
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
                                     <option value="3">Penjagaan</option> 
+                                    <option value="4">Pengaturan</option> 
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
@@ -168,7 +169,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    // data.filterName = $('[name=group_name]').val();
+                    data.filterSchedule = '';
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
