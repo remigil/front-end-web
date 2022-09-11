@@ -121,6 +121,25 @@ class M_kegiatan extends CI_Model {
             $row ['address_schedule']   	= $field['address_schedule'];  
             $row ['date_schedule']   	= $field['date_schedule'];
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
+             
+            if($field['renpams']){
+                $row ['renpam']   	= '
+                <div style="position: relative;">
+                    <button class="btn btn-sm btn-success position-relative" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fas fa-user-check"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">'.count($field['renpams']).' <span class="visually-hidden">unread messages</span></span>
+                    </button>
+                
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item addRenpam" data-id="'.$field['id'].'" href="javascript:void(0);"><i class="fa fas fa-user-plus font-size-16 align-middle me-1"></i> Add Renpam</a>
+                        <a class="dropdown-item detailRenpam" data-id="'.$field['renpams'][0]['schedule_id'].'" href="javascript:void(0);"><i class="fa fas fa-user-friends font-size-16 align-middle me-1"></i> Detail Renpam</a>
+                    </div>
+                </div>
+                ';
+            }else{
+                $row ['renpam']   	= '<a href="javascript:void(0);" class="addRenpam" data-id="'.$field['id'].'"><button class="btn btn-sm btn-warning"><i class="fa fas fa-user-plus"></i></button></a>';
+            }
+
             if($field['status_schedule'] == 1){
                 $row ['status_schedule'] = '
                     <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
