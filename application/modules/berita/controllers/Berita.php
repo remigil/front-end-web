@@ -95,10 +95,8 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
-				
-            ];
 
-			// var_dump($dummy);die;
+            ];
         }
 
         $data = guzzle_request('POST', 'news/add', [ 
@@ -122,6 +120,138 @@ class Berita extends MY_Controller
         
         echo json_encode($res);
 
+    }
+
+    public function detailBerita()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_berita');
+
+        $getDetail = guzzle_request('GET', 'news/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data']['data'];
+
+        echo json_encode($data['getDetail']);
+    }
+
+    public function hapusBerita()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $id = $this->input->post('id_berita');
+
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $id,
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'news/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+
+        if ($data['isSuccess'] == true) {
+            $results = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $results = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($results);
+    }
+
+    public function updateBerita()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if ($_FILES['photo']['name']) {
+            $dummy = [
+                [
+                    'name' => 'news_category',
+                    'contents' => $input['category'],
+                ],
+                [
+                    'name' => 'title',
+                    'contents' => $input['title'],
+                ],
+                [
+                    'name' => 'content',
+                    'contents' => $input['content'],
+                ],
+                [
+                    'name' => 'author',
+                    'contents' => $this->session->userdata['full_name'],
+                ],
+
+                [
+                    'name' => 'picture',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ]
+            ];
+        } else {
+            $dummy = [
+                [
+                    'name' => 'news_category',
+                    'contents' => $input['category'],
+                ],
+                [
+                    'name' => 'title',
+                    'contents' => $input['title'],
+                ],
+                [
+                    'name' => 'content',
+                    'contents' => $input['content'],
+                ],
+                [
+                    'name' => 'author',
+                    'contents' => $this->session->userdata['full_name'],
+                ],
+
+            ];
+        }
+        $data = guzzle_request('PUT', 'news/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+        // echo json_encode($data);
+        // die;
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 
     public function Detail($id)
