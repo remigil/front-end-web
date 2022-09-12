@@ -188,6 +188,9 @@
     <div class="col-md-12">
         <div class="card ">
             <div class="card-body">
+                <div class="mb-3" id="titleData">
+                    <h4>Data Rencana Pengamanan</h4> 
+                </div>
                 <table id="datatable" class="table dt-responsive no-warp w-100">
                     <thead>
                         <tr>
@@ -349,24 +352,29 @@
 
         $("#patroli").on('click', function(e) { 
             $("#typeRenpam").val('1');
+            $("#titleData").html(`<h4>Data Patroli</h4> `);
             userDataTable.draw(); 
         }); 
         $("#pengawalan").on('click', function(e) { 
             $("#typeRenpam").val('2');
+            $("#titleData").html(`<h4>Data Pengawalan</h4>`);
             userDataTable.draw(); 
         }); 
         $("#penjagaan").on('click', function(e) { 
             $("#typeRenpam").val('3');
+            $("#titleData").html(`<h4>Data Penjagaan</h4>`);
             userDataTable.draw(); 
         }); 
         $("#pengaturan").on('click', function(e) { 
             $("#typeRenpam").val('4');
+            $("#titleData").html(`<h4>Data Pengaturan</h4>`);
             userDataTable.draw(); 
         }); 
         
 
         $("#refresh").on('click', function(e) { 
             $("#typeRenpam").val('');
+            $("#titleData").html(`<h4>Data Rencana Pengamanan</h4> `);
             userDataTable.draw(); 
         }); 
     });  
