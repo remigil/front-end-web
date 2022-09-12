@@ -230,11 +230,11 @@
 						<li><a  href="#">PROFIL</a>
 							<ul>
 								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
-								<li><a href="index-2-airbnb.html">Strukture Organisasi</a></li>
-								<li><a href="index-3.html">Profil Pejabat</a></li>
-								<li><a href="index-4.html">Visi dan Misi</a></li>
-								<li><a href="index-5.html">Tugas dan Fungsi</a></li>
-								<li><a href="index-6.html">Sejarah POLANTAS</a></li>
+								<li><a href="<?= base_url()?>struktur_organisasi">Strukture Organisasi</a></li>
+								<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
+								<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
+								<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
+								<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
 							</ul>
 						</li>
 
@@ -244,9 +244,9 @@
 									<div class="mega-menu-section">
 										<ul>
 											<li class="mega-menu-headline">KORLANTAS</li>
-											<li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
-											<li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
-											<li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
+											<li><a href="<?= base_url()?>ditgakkum"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
+											<li><a href="<?= base_url()?>ditregident"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
+											<li><a href="<?= base_url()?>ditkamsel"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
 											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
 										</ul>
 									</div>
@@ -287,12 +287,12 @@
 						<li><a href="#">MEDIA UPDATE</a>
 							<ul>
 								<li><a href="<?= base_url()?>berita_ppkm">Update Berita PPKM</a></li>
-								<li><a href="dashboard-messages.html">Update Berita Kecelakaan Lalulintas</a></li>
-								<li><a href="dashboard-bookings.html">Update Berita Pelanggaran Lalulintas</a></li>
-								<li><a href="dashboard-wallet.html">Update Berita Kemacetan Lalulintas</a></li>
-								<li><a href="dashboard-my-listings.html">Update Berita Satpas</a></li>
-								<li><a href="dashboard-reviews.html">Update Berita ETLE</a></li>
-								<li><a href="dashboard-bookmarks.html">Update Berita Kontijensi (Penanganan Covid-19)</a></li> 
+								<li><a href="<?= base_url()?>berita_kecelakaan">Update Berita Kecelakaan Lalulintas</a></li>
+								<li><a href="<?= base_url()?>berita_pelanggaran">Update Berita Pelanggaran Lalulintas</a></li>
+								<li><a href="<?= base_url()?>berita_kemacetan">Update Berita Kemacetan Lalulintas</a></li>
+								<li><a href="<?= base_url()?>berita_satpas">Update Berita Satpas</a></li>
+								<li><a href="<?= base_url()?>berita_etle">Update Berita ETLE</a></li>
+								<li><a href="<?= base_url()?>berita_kontijensi">Update Berita Kontijensi (Penanganan Covid-19)</a></li> 
 							</ul>
 						</li>
 
