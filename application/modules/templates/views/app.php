@@ -709,8 +709,17 @@
                                 </ul>
                             </li>
 
+                        <?php } elseif ($this->session->userdata['role'] == 'Kakor') { ?>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>dashboard">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Dashboard</span>
+                                </a>
+                            </li>
 
                         <?php } else { ?>
+                            
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">

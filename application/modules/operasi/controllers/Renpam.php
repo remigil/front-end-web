@@ -65,12 +65,12 @@ class Renpam extends MY_Controller
         $dummy = array();  
 
         $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
-        $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
+        $dummy ['schedule_id']	= null; 
         $dummy ['name_renpam']	= $input['instruksi']; 
         $dummy ['type_renpam']	= $input['subjek']; 
         $dummy ['date']	= $input['date']; 
         $dummy ['start_time']	= $input['startTime']; 
-        $dummy ['end_time']	= $input['endTime']; 
+        // $dummy ['end_time']	= $input['endTime']; 
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
         $dummy ['route']	= $input['ruteawal']; 
