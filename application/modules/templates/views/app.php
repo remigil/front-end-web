@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
@@ -715,6 +715,20 @@
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>dashboard/peta">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Peta</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">CCTV</span>
                                 </a>
                             </li>
 

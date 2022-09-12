@@ -30,6 +30,8 @@ class Polda extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/polda_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/polda_view";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
 

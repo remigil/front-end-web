@@ -46,7 +46,7 @@ class M_renpam extends CI_Model {
 
 		$filter_schedule = $postData['filterSchedule'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+		$filter_type_renpam = $postData['filterTypeRenpam'];
 
 		// $filter_phone = $postData['filterPhone'];
 
@@ -71,6 +71,16 @@ class M_renpam extends CI_Model {
         }else{
 
             $schedule_id = '';
+
+        }
+
+        if($filter_type_renpam){
+
+            $type_renpam = '&filter[]=type_renpam&filterSearch[]='.$filter_type_renpam.'';
+
+        }else{
+
+            $type_renpam = '';
 
         }
 
@@ -99,7 +109,7 @@ class M_renpam extends CI_Model {
             
         // }
 
-        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''.$schedule_id.'';
+        $url = 'renpam?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''.$schedule_id.''.$type_renpam.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -111,6 +121,8 @@ class M_renpam extends CI_Model {
 
         ]);   
 
+        
+
         // print_r($url);
         // die;
 
@@ -120,6 +132,55 @@ class M_renpam extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
+            if($field['status_renpam'] == 1){
+                $row ['status_renpam'] = '
+                    <div class="rounded-circle m-auto flag" id="flag'.$no.'" data-id="'.$field['id'].'" style="background:green; height:30px; width:30px; color: white; text-align: center;font-size: 20px;cursor: pointer;">
+                        <i class="mdi mdi-eye "></i> 
+                    </div>
+                ';
+            }else{
+                $row ['status_renpam'] = '
+                    <div class="rounded-circle m-auto flag" id="flag'.$no.'" data-id="'.$field['id'].'" style="background:red; height:30px; width:30px; color: white; text-align: center;font-size: 20px;cursor: pointer;">
+                        <i class="mdi mdi-eye "></i> 
+                    </div>
+                ';
+            }  
+            $row ['name_renpam']	= $field['name_renpam']; 
+            $row ['start_time']	= ''.substr($field['start_time'],0,5).' WITA'; 
+            $row ['deligasi']	= '-'; 
+             
+            if($field['route'] != null){
+                $route = '';
+                foreach  ($field['route'] as $fieldRoute) { 
+                    $route .= ''.$fieldRoute['name'].' To ';
+                }
+                $row ['route']	= $route; 
+            }else {
+                $row ['route']	= '-'; 
+            }
+
+            if($field['route_alternatif_1'] != null){
+                $route1 = '';
+                foreach  ($field['route_alternatif_1'] as $fieldRoute1) { 
+                    $route1 .= ''.$fieldRoute1['name'].' To ';
+                }
+                $row ['route_alternatif_1']	= $route1; 
+            }else {
+                $row ['route_alternatif_1']	= '-'; 
+            }
+
+            if($field['route_alternatif_2'] != null){
+                $route2 = '';
+                foreach  ($field['route_alternatif_2'] as $fieldRoute2) { 
+                    $route2 .= ''.$fieldRoute2['name'].' <br> To <br> ';
+                }
+                $row ['route_alternatif_2']	= $route2; 
+            }else {
+                $row ['route_alternatif_2']	= '-'; 
+            } 
+            
+            $row ['note']	= '-';
+
             if($field['accounts'] != null){
                 $accounts = '';
                 foreach  ($field['accounts'] as $fieldAccount) { 
@@ -152,25 +213,40 @@ class M_renpam extends CI_Model {
             if($field['schedule'] > 0){
                 $row ['lokasi']	= $field['schedule']['address_schedule'];  
             }else{
-                $row ['lokasi']	= '-'; 
+                $row ['lokasi']	= '-';  
             }
+            
+            if($field['choose_rute'] == 1){
+                $row ['choose_rute']	= 'Route';  
+            }else if($field['choose_rute'] == 2){
+                $row ['choose_rute']	= 'Alternative';  
+            }else if($field['choose_rute'] == 3){
+                $row ['choose_rute']	= 'Escape';  
+            }else{
+                $row ['choose_rute']	= '-';  
+            }
+
             $row ['date']	= format_indo($field['date']);  
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
  
             $row ['action']         = ' 
                 <a href="'.base_url().'operasi/renpam/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 
+
+            // $row ['lihat']         = ' 
+            // <button class="btn btn-primary flag" id="flag'.$no.'" data-id="'.$field['id'].'" ><i class="mdi mdi-eye "></i></button>  
+            // '; 
             $data[] = $row; 
         }
 
-
+ 
         $response = array(
 
             "draw" => intval($draw),
 
             "iTotalRecords" => $result['data']['recordsTotal'],
 
-            "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
+            "iTotalDisplayRecords" => $result['data']['recordsFiltered'], 
 
             "aaData" => $data,
 

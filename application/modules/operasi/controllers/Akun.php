@@ -31,6 +31,8 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/akun_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
 
@@ -175,6 +177,8 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/detail_akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/detail_akun_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'account/getId/' . $id . '', [
@@ -206,6 +210,8 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/edit_akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/edit_akun_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'account/getId/' . $id . '', [

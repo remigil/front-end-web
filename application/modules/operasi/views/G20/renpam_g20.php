@@ -171,7 +171,7 @@
 
                     data.filterSchedule = '';
 
-                    // data.filterPocName = $('[name=group_poc_name]').val();
+                    data.filterTypeRenpam = '';
 
                     // data.filterPhone = $('[name=poc_phone]').val();
 

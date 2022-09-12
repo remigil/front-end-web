@@ -74,7 +74,7 @@
 }
 
 .leaflet-routing-icon {
-    background-image: url('leaflet.routing.icons.png');
+    background-image: url('https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet.routing.icons.png');
     -webkit-background-size: 240px 20px;
     background-size: 240px 20px;
     background-repeat: no-repeat;
@@ -223,12 +223,14 @@
 
 .leaflet-routing-container-hide .leaflet-routing-collapse-btn {
     position: relative;
-    left: 4px;
-    top: 4px;
+    left: 2px;
+    top: -2px;
     display: block;
     width: 26px;
     height: 23px;
-    background-image: url('routing-icon.png');
+    background-image: url(../../route.png);
+    background-repeat: no-repeat;
+    background-size: 23px 23px;
 }
 
 .leaflet-routing-container-hide .leaflet-routing-collapse-btn:after {

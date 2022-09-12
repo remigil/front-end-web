@@ -18707,7 +18707,7 @@
 								itineraryClassName: "",
 								totalDistanceRoundingSensitivity: -1,
 								show: true,
-								collapsible: undefined,
+								collapsible: true,
 								collapseBtn: function (itinerary) {
 									var collapseBtn = L.DomUtil.create(
 										"span",
@@ -20444,6 +20444,7 @@
 									{ color: "white", opacity: 0.8, weight: 6 },
 									{ color: "red", opacity: 1, weight: 2, dashArray: "7,12" },
 								],
+								collapsible: true,
 								draggableWaypoints: true,
 								routeWhileDragging: false,
 								addWaypoints: true,
@@ -20460,10 +20461,10 @@
 										return L.marker(wp.latLng, {
 											icon: L.divIcon({
 												className: "location-pin",
-												html: `<img src="https://www.pngitem.com/pimgs/m/285-2854427_start-icon-copy-png-download-mail-icon-transparent.png"><div class="pin"></div><div class="pulse"></div>`,
-												iconSize: [30, 30],
+												html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin"></div><div class="pulse"></div>`,
+												iconSize: [5, 5],
 												//iconAnchor: [18, 30]
-												iconAnchor: [10, 33],
+												iconAnchor: [5, 10],
 											}),
 											draggable: this.draggableWaypoints,
 										});
@@ -20471,10 +20472,10 @@
 										return L.marker(wp.latLng, {
 											icon: L.divIcon({
 												className: "location-pin",
-												html: `<img src="https://cdn-icons-png.flaticon.com/512/495/495535.png"><div class="pin"></div><div class="pulse"></div>`,
-												iconSize: [30, 30],
+												html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin"></div><div class="pulse"></div>`,
+												iconSize: [5, 5],
 												//iconAnchor: [18, 30]
-												iconAnchor: [10, 33],
+												iconAnchor: [5, 10],
 											}),
 											draggable: this.draggableWaypoints,
 										});
@@ -20483,7 +20484,16 @@
 										var options = {
 												draggable: this.draggableWaypoints,
 											},
-											marker = L.marker(wp.latLng, options);
+											marker = L.marker(wp.latLng, {
+												icon: L.divIcon({
+													className: "location-pin",
+													html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin"></div><div class="pulse"></div>`,
+													iconSize: [5, 5],
+													//iconAnchor: [18, 30]
+													iconAnchor: [5, 10],
+												}),
+												draggable: this.draggableWaypoints,
+											});
 
 										return marker;
 									}

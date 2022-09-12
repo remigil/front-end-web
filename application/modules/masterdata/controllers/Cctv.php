@@ -22,7 +22,7 @@ class Cctv extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "CCTV";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor') {
             $page_content["page"] = "masterdata/G20/cctv_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "masterdata/Korlantas/cctv_view";
@@ -30,6 +30,8 @@ class Cctv extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/cctv_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/cctv_view";
+        }else{
+            redirect(base_url('dashboard'));
         }
  
 

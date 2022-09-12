@@ -31,7 +31,9 @@ class Kegiatan extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/kegiatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/kegiatan_polres";
-        } 
+        } else{
+            redirect(base_url('dashboard'));
+        }
 
         $getVip = guzzle_request('GET', 'vip', [  
             'headers' => $headers 
@@ -194,6 +196,8 @@ class Kegiatan extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/detail_kegiatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/detail_kegiatan_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
@@ -225,6 +229,8 @@ class Kegiatan extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/edit_kegiatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/edit_kegiatan_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
