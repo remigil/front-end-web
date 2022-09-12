@@ -23,7 +23,7 @@ class Renpam extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "operasi/G20/renpam_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "operasi/Korlantas/renpam_korlantas";
@@ -31,6 +31,8 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/renpam_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/renpam_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }  
 
         $getVip = guzzle_request('GET', 'vip', [  
@@ -159,7 +161,7 @@ class Renpam extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "operasi/G20/detail_renpam_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "operasi/Korlantas/detail_renpam_korlantas";
@@ -167,6 +169,8 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/detail_renpam_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/detail_renpam_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'renpam/getId/'.$id.'', [  
@@ -191,7 +195,7 @@ class Renpam extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "operasi/G20/edit_renpam_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "operasi/Korlantas/edit_renpam_korlantas";
@@ -199,6 +203,8 @@ class Renpam extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/edit_renpam_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/edit_renpam_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
         $getDetail = guzzle_request('GET', 'renpam/getId/'.$id.'', [  

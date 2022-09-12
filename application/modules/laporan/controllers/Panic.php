@@ -22,7 +22,7 @@ class Panic extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Laporan";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "laporan/G20/panic_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "laporan/Korlantas/panic_korlantas";
@@ -30,6 +30,8 @@ class Panic extends MY_Controller
             $page_content["page"] = "laporan/Kapolda/panic_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "laporan/Polres/panic_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
 
@@ -50,7 +52,7 @@ class Panic extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Operasi";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "laporan/G20/detail_panic_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "laporan/Korlantas/detail_panic_korlantas";
@@ -58,6 +60,8 @@ class Panic extends MY_Controller
             $page_content["page"] = "laporan/Kapolda/detail_panic_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "laporan/Polres/detail_panic_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
 

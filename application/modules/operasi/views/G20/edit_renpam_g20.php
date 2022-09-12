@@ -380,10 +380,10 @@
         mapContainerRenpam.invalidateSize(); 
 
         var routeDataAlternative1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1'])?>';  
-        var resAlternative1 = JSON.parse(routeDataAlternative1);
-        console.log(resAlternative1);
-        if(resAlternative1.length > 0){
-            arrayWaypoint = resAlternative1
+        var resAlternative1 = JSON.parse(routeDataAlternative1); 
+        if(routeDataAlternative1 != 'null' && resAlternative1.length > 0){
+            arrayWaypoint = resAlternative1;
+            console.log('ada json');
         }
 
         var routeAlternative1 = L.Routing.control({
@@ -487,8 +487,8 @@
 
         var routeDataAlternative2 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_2'])?>';  
         var resAlternative2 = JSON.parse(routeDataAlternative2);
-        console.log(resAlternative2);
-        if(resAlternative2.length > 0){
+        // console.log(resAlternative2);
+        if(routeDataAlternative2 != 'null' && resAlternative2.length > 0){
             arrayWaypoint = resAlternative2
         }
 

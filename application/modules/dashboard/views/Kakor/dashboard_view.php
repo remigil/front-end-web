@@ -322,7 +322,7 @@
                 { data: 'route', orderable : false}, 
                 { data: 'route_alternatif_1' , orderable : false }, 
                 { data: 'route_alternatif_2' , orderable : false }, 
-                { data: 'choose_rute' , orderable : false },  
+                { data: 'choose_rute'},  
                 { data: 'note' , orderable : false }
                 // { data: 'lihat' , orderable : false }
 
@@ -473,9 +473,9 @@
                     language: 'en',
                     profile: 'car'
                 }),
-                lineOptions: {
-                    styles: [{color: 'red', opacity: 1, weight: 2, zIndex: 2056}]
-                },
+                // lineOptions: {
+                //     styles: [{color: 'red', opacity: 1, weight: 3, zIndex: 2056}]
+                // },
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainerRenpam); 
             
@@ -493,7 +493,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "gray", opacity: 0.8, weight: 2, dashArray: "5,12"}]
+                    styles: [{color: "gray", opacity: 0.8, weight: 3, dashArray: "5,12"}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {
@@ -554,7 +554,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "gray", opacity: 0.8, weight: 2, dashArray: "5,12"}]
+                    styles: [{color: "green", opacity: 0.8, weight: 3, dashArray: "5,12"}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {

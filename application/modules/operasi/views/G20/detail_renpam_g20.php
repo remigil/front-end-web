@@ -53,7 +53,7 @@
             <div class="">
                 <p class="fs-4 fw-bold">PETA LOKASI</p>
             </div>
-            <div style="height: 90vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
+            <div style="height: 110vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
 
 
             <div class="col-12 mt-3">
@@ -65,6 +65,8 @@
 
 <script>
     var routingRenpam = new Array();
+    var routingRenpam1 = new Array();
+    var routingRenpam2 = new Array();
 
     $(document).ready(function() {
 
@@ -101,15 +103,142 @@
         }).setView(initialCenter, initialZoom); 
   
         var route = '<?php echo json_encode($data['getDetail']['data']['route'])?>';  
-        routingRenpam[0] = L.Routing.control({
-            waypoints: JSON.parse(route),
-            router: new L.Routing.osrmv1({
-                language: 'en',
-                profile: 'car'
-            }),
-            routeWhileDragging: false,
-            geocoder: L.Control.Geocoder.nominatim({})
-        }).addTo(mapContainer); 
+        if(route != 'null'){ 
+            routingRenpam[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                routeWhileDragging: false,
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer); 
+        }
+
+        var route1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1'])?>'; 
+        if(route1 != 'null'){
+            routingRenpam1[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route1),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                lineOptions: {
+                    styles: [{color: "gray", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                },
+                createMarker: function(i, wp, nWps) {
+                    if (i === 0 || i === nWps + 1) {
+                        // here change the starting and ending icons
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else if (i === nWps - 1) {
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else {
+                        // here change all the others
+                        var options = {
+                                draggable: this.draggableWaypoints,
+                            },
+                            marker = L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+
+                        return marker;
+                    }
+                },
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer);
+        }
+
+        var route2 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_2'])?>'; 
+        if(route2 != 'null'){
+            routingRenpam2[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route2),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                lineOptions: {
+                    styles: [{color: "green", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                },
+                createMarker: function(i, wp, nWps) {
+                    if (i === 0 || i === nWps + 1) {
+                        // here change the starting and ending icons
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else if (i === nWps - 1) {
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else {
+                        // here change all the others
+                        var options = {
+                                draggable: this.draggableWaypoints,
+                            },
+                            marker = L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+
+                        return marker;
+                    }
+                },
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer);
+        }
 
 
         var baseMaps = {

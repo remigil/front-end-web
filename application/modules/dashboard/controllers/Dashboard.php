@@ -52,7 +52,7 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Polres/dashboard_view";
 
             $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'Kakor') {
+        } else if ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
             $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
             $getRenpam = guzzle_request('GET', 'renpam', [

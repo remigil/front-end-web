@@ -709,7 +709,7 @@
                                 </ul>
                             </li>
 
-                        <?php } elseif ($this->session->userdata['role'] == 'Kakor') { ?>
+                        <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') { ?>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -724,11 +724,28 @@
                                     <span data-key="t-dashboard">Peta</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Laporan</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
+                                </ul>
+                            </li>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">CCTV</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>operasi/renpam">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
                                 </a>
                             </li>
 
