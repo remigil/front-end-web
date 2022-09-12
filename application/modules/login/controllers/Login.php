@@ -26,41 +26,30 @@ class Login extends MX_Controller
 
 
         $response = $this->m_login->auth($username, $password);
+        // print_r($response);
+        // die;
         if ($response['user']['isSuccess'] == true) {
-            $data_session  = array();
-
-            if ($username == 'Korlantas') {
-
-                $data_session['role']       = 'Korlantas';
-                $data_session['full_name']       = 'Korlantas';
-            } else if ($username == 'Kapolda Jawa Barat') {
-                // } else if ($username == 'Kapolda ') {
-
-                $data_session['role']       = 'Kapolda';
-                $data_session['provinsi']       = 'Jawa Barat';
-                $data_session['full_name']       = 'Kapolda';
-            } else if ($username == 'Polres Bogor') {
-                // } else if ($username == 'Polres') {
-
-                $data_session['role']       = 'Polres';
-                $data_session['kota']       = 'Bogor';
-                $data_session['full_name']       = 'Polres';
-            } else if ($username == 'G20') {
-
-                $data_session['role']       = 'G20';
-                $data_session['full_name']       = 'G20';
+            
+            if ($response['user']['data']['status_verifikasi'] == 1) { 
+                $data_session  = array();
+                $data_session['role']       = $response['user']['data']['user_role']['name'];
+                $data_session['operation_id']       = $response['user']['data']['operation_id'];
+                $data_session['polda']       = 'Jawa Barat';
+                $data_session['polres']       = 'Bogor';
+                $data_session['full_name']       = $username;
+                $data_session['token']       = $response['token'];
+                $data_session['logged']       = 1; 
+    
+                $this->session->set_userdata($data_session);
+                redirect(base_url('dashboard'));
             } else {
-                $this->session->set_flashdata('error', 'Username atau password tidak sesuai!');
+                $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');
                 die;
             }
 
 
-            $data_session['token']       = $response['user']['data']['accessToken'];
-            $data_session['logged']       = 1;
 
-            $this->session->set_userdata($data_session);
-            redirect(base_url('dashboard'));
             //         $user = $response['user']['data'][0]; 
 
             //         $area = '';

@@ -15,11 +15,11 @@ class M_login extends CI_Model {
         $authLogin = [
             [
                 'name' => 'username',
-                'contents' => $this->app_id,
+                'contents' => $username,
             ],
             [
                 'name' => 'password',
-                'contents' => $this->passwd,
+                'contents' => $password,
             ]
         ];
         $data = guzzle_request('POST','auth/login',[
@@ -27,27 +27,27 @@ class M_login extends CI_Model {
         ]);
         $token = $data['data']['accessToken'];
 
-        // if($token){
-        //     $parts = [
-        //         [
-        //             'name' => 'user_name',
-        //             'contents' => $username,
-        //         ],
-        //         [
-        //             'name' => 'password',
-        //             'contents' => $password,
-        //         ]
-        //     ];
-        //     $user = guzzle_request('POST', 'login/authLogin', [
-        //         'multipart' => $parts, 
-        //         'headers' => [
-        //             'Token' => $token
-        //         ]
-        //     ]); 
-        // }
+        if($token){
+            // $parts = [
+            //     [
+            //         'name' => 'user_name',
+            //         'contents' => $username,
+            //     ],
+            //     [
+            //         'name' => 'password',
+            //         'contents' => $password,
+            //     ]
+            // ];
+            $user = guzzle_request('GET', 'user/logged-user', [
+                // 'multipart' => $parts, 
+                'headers' => [
+                    'Authorization' => $token
+                ]
+            ]); 
+        }
 
         $data['token'] = $token;
-        $data['user'] = $data;
+        $data['user'] = $user;
         return $data;
     }
 }
