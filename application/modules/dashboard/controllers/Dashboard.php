@@ -21,7 +21,7 @@ class Dashboard extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Dashboard";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "dashboard/dashboard_g20";
 
             $getVip = guzzle_request('GET', 'vip', [

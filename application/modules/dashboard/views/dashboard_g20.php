@@ -181,7 +181,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
-                <form class="form" method="post" enctype="multipart/form-data"> 
+            <form class="formR" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">  
 
@@ -218,18 +218,25 @@
                                 <label class="labelmui">Waktu Mulai</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="subjek" placeholder="" type="text">
+                        <div class="col-md-6"> 
+                            <div class="material-selectfield mb-3">
+                                <select name="subjek" class="form-select">
+                                    <option selected value="">Pilih Subjek</option> 
+                                    <option value="1">Patroli</option> 
+                                    <option value="2">Pengawalan</option> 
+                                    <option value="3">Penjagaan</option> 
+                                    <option value="4">Pengaturan</option> 
+                                </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6"></div>
+                        <!-- <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
@@ -237,12 +244,7 @@
                             </div>
                         </div>
                          
-                        <div class="col-md-6" style="display: none;">
-                            <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
-                                <label class="labelmui">Coordinate</label>
-                            </div>
-                        </div>
+                        <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
 
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
@@ -1866,6 +1868,7 @@
         $('#myModal').modal('show');
     }); 
  
+    let arrayWaypoint = [];
     $('#myModal').on('shown.bs.modal', function() {
         $('#startTime').clockpicker({
             autoclose: true
@@ -1946,15 +1949,12 @@
         // mapContainerInstruksi.invalidateSize(); 
         
         var control = L.Routing.control({
-            waypoints: [
-                L.latLng(-8.451740, 115.089643),
-                L.latLng(-8.551740, 115.077643),
-                L.latLng(-8.551740, 115.289643),
-            ],
+            waypoints: arrayWaypoint,
             router: new L.Routing.osrmv1({
                 language: 'en',
                 profile: 'car'
             }),
+            showAlternatives: true,
             geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerInstruksi);
 
@@ -1968,14 +1968,16 @@
 
         mapContainerInstruksi.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container),
+                startBtn = createButton('Start from this location', container), 
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {
+            L.DomEvent.on(startBtn, 'click', function() {  
+
                 control.spliceWaypoints(0, 1, e.latlng);
                 mapContainerInstruksi.closePopup();
-            });
-            L.DomEvent.on(destBtn, 'click', function() {
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
                 control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerInstruksi.closePopup();
             });
@@ -1983,6 +1985,47 @@
                 .setContent(container)
                 .setLatLng(e.latlng)
                 .openOn(mapContainerInstruksi);
+        });
+
+
+
+        $(".formR").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+
+            var routeArray = new Array();
+            routeArray = control.getWaypoints();
+            $('#ruteawal').val(JSON.stringify(routeArray)); 
+
+            var formData = new FormData($('.formR')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Renpam/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $("#myModal").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
         });
     });
 

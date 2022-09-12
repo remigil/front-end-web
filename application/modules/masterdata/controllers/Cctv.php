@@ -22,7 +22,7 @@ class Cctv extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "CCTV";
 
-        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "masterdata/G20/cctv_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "masterdata/Korlantas/cctv_view";
@@ -57,7 +57,7 @@ class Cctv extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Thumbnail CCTV";
 
-        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor'  || $this->session->userdata['role'] == 'PJU') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor'  || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "masterdata/G20/cctv_viewgrid";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "masterdata/Korlantas/cctv_viewgrid";

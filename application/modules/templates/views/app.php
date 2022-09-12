@@ -709,19 +709,12 @@
                                 </ul>
                             </li>
 
-                        <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') { ?>
+                        <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="<?php echo base_url(); ?>dashboard/peta">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Peta</span>
                                 </a>
                             </li>
                             <li>
@@ -734,6 +727,15 @@
                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
                                 </ul>
                             </li>
+                            <?php if($this->session->userdata['role'] != 'Operator'){?>
+                            <li>
+                                <a href="<?php echo base_url(); ?>dashboard/peta">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Peta</span>
+                                </a>
+                            </li>
+                            <?php } ?>
+                            
 
                             <li>
                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
