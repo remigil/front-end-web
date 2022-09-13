@@ -64,21 +64,15 @@
                     <div class="row" style="margin-top:-20px">
                         <div class="col-md-5">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
-
-                                <select name="officers[]" class="form-select" style="width:100%" id="select1" onchange="getvalue(1)" required>
+                                <select name="officers[]" class="form-select" style="width:100%" id="select1" onchange="getvalue(1)" onclick="getOption(1)" required>
                                     <option selected value="">Pilih Petugas</option>
-                                    <?php
-                                    $no = 0;
-                                    foreach ($data['getOfficer'] as $row) : ?>
-                                        <option value="<?php echo $row['name_officer']; ?>" id="ss<?= $no++; ?>"><?php echo $row['name_officer']; ?></option>
-                                    <?php endforeach; ?>
                                 </select>
                                 <label class="labelmui">Petugas</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
-                                <select name="id_kendaraan" class="form-select" style="width:100%" required>
+                                <select name="id_kendaraan" class="form-select" style="width:100%" id="kendaraan" required>
                                     <option selected value="">Pilih No Kendaraan</option>
                                     <?php foreach ($data['getVehicle'] as $row) : ?>
                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
@@ -113,10 +107,51 @@
 </div>
 
 <script>
+    var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
+    var PetugasOrigin = JSON.parse(Petugas)
+    var Petugasbaru = JSON.parse(Petugas);
+    let PetugasUntukSelectLain = []
+    let PetugasChoose = [];
+
+    var Kendaraan = '<?php echo json_encode($data['getVehicle']) ?>'
+    var KendaraanBaru = JSON.parse(Kendaraan);
+    let listkendaraan = '';
+    listkendaraan += `<option value ="">Pilih Kendaraan</option>`
+    for (let i = 0; i < KendaraanBaru.length; i++) {
+        listkendaraan += `<option value ="${KendaraanBaru[i]['id']}">${KendaraanBaru[i]['no_vehicle']}</option>`;
+    }
+    $('#select' + room).html(listkendaraan);
+
+
+
+
     var room = 1;
+
+    function getOption(no) {
+        let select = $('#select' + no).find(":selected").val();
+        let list = '';
+        if (select == '') {
+            list += ` <option selected value="">Pilih Petugas</option>`
+        } else {
+            if (select) {
+                for (let i = 0; i < PetugasUntukSelectLain.length; i++) {
+                    // const element = PetugasUntukSelectLain[i];
+                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer}</option>`
+                }
+            }
+
+        }
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+        }
+        $('#select' + no).html(list);
+    }
+
+
 
     function education_fields() {
         room++;
+        check()
         var objTo = document.getElementById('education_fields')
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + room);
@@ -125,8 +160,8 @@
             '<div class="row" style="margin-top:-10px">' +
             '<div class="col-md-5">' +
             '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onclick="getvalue(' + room + ')" required>' +
-            '<option selected value="">Pilih Petugas</option>' +
+            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
+            ' <option selected value="">Pilih Petugas</option>' +
             '</select>' +
             '<label class="labelmui">Petugas</label>' +
             '</div>' +
@@ -134,8 +169,14 @@
             '<div class="col-md-4">' +
             '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
             '<select name="id_kendaraan" class="form-select" style="width:100%" required>' +
-            '<option selected value="">Pilih No </option>' +
-            '<option value="">Kendaraan 1</option></select>' +
+            '<option selected value="">Pilih No Kendaraan</option>' +
+            '<?php foreach ($data['getVehicle'] as $row) : ?>' +
+            '<option value="<?php echo $row['id']; ?>">' +
+            '<?php echo $row['no_vehicle']; ?> </option>' +
+            '<?php endforeach; ?>' +
+
+
+            '</select>' +
             '<label class="labelmui">No Kendaraan</label>' +
             '</div>' +
             '</div>' +
@@ -152,26 +193,17 @@
             '</div>' +
             '</div>' +
             '<div class="clear"></div>';
+
         objTo.appendChild(divtest)
+        list = ''
+        list += `<option value ="">Pilih Petugas</option>`
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+        }
+        $('#select' + room).html(list);
         return room;
     }
     var totalId = [1];
-
-
-
-    // $(document).ready(function() {
-    //     $.ajax({
-    //         dataType: 'json',
-    //         url: '<?php echo base_url(); ?>operasi/Akun/GetPetugas',
-    //         type: "post",
-    //         success: function(response) {
-    //             $.each(response, function(index, data) {
-    //                 $('#select' + tes).append('<option value="' + data['name_officer'] + '">' + data['name_officer'] + '</option>');
-    //             });
-    //         },
-    //         // success: finished(html),
-    //     });
-    // });
 
 
     $('#addId').click(function() {
@@ -189,67 +221,35 @@
     }
 
 
+
+
     function getvalue(id) {
-        var petugasbaru = []
-        // $("select[name='officers[]'] option:selected").each(function() {
-        //     petugasbaru.push($(this).val())
-        // })
-
-        console.log(petugasbaru);
-        // console.log(this.value);
-        $.ajax({
-            dataType: 'json',
-            url: '<?php echo base_url(); ?>operasi/Akun/GetPetugas',
-            type: "post",
-            success: function(response) {
-
-                // let tes = []
-                // let tes = response.filter(function(e) {
-                for (let i = 0; i < response.length; i++) {
-                    petugasbaru.push(response[i])
-                    // return e.name_officer != petugasbaru[i];
-                }
-                // });
-                // console.log(tes);
-
-                // console.log(response);
-
-                $('#select' + id).html(``);
-                // console.log(response);
-                $.each(response, function(index, data) {
-                    $('#select' + id).append('<option onchange="' + id + '" value="' + data['name_officer'] + '">' + data['name_officer'] + '</option>');
-                });
-            },
-            //     // let select = $('#select' + id).find(":selected").val();
-            //     // for (let i = 0; i < totalId.length; i++) {
-            //     //     // let select = $('#select' + totalId[i]).find(":selected").val();
-
-            //     //     console.log('id ke ' + totalId[i] + ' ada ' + select);
-
-            //     //     if (id || totalId[i]) {
-            //     //         // console.log(totalId[i]);
-            //     //         if (select != '') {
-            //     //             $("#select" + totalId[i] + " option[value='" + select + "']").hide();
-            //     //             $("#select" + totalId[i] + " option[value!='" + select + "']").show();
-            //     //         }
-            //     //         // else if (select) {
-            //     //         //     $("#select" + totalId[i] + " option[value='" + select + "']").hide();
-            //     //         // }
-
-            //     //     }
-
-        })
-
+        PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())
+        Petugasbaru = Petugasbaru.filter((petugas) => petugas.id != $('#select' + id).val())
+        list = ''
+        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer}</option>`
+        PetugasChoose.push(PetugasUntukSelectLain);
+        return PetugasChoose
     }
 
-    $('#xxx').change(function() {
-        var id = $(this).children(":selected").attr("id");
-        console.log(id);
-    })
 
-
-
+    function check() {
+        console.log({
+            petugasLama: Petugasbaru.length,
+            petugasBaru: PetugasChoose.length,
+            petugasLain: PetugasUntukSelectLain.length
+        })
+    }
     $(document).ready(function() {
+
+        // $('#select1').change(() => {
+        //     console.log({
+        //         ['select1']: $('#select1').val()
+        //     })
+        //     console.log(Petugasbaru.length)
+        //     PetugasChoose.push(Petugasbaru.filter((petugas) => petugas.id == $('#select1').val()))
+        //     PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id != $('#select1').val())
+        // })
 
         new Choices('#officers', {
             searchEnabled: true,
