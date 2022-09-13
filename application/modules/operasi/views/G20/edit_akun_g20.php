@@ -14,6 +14,15 @@
         <div class="card-body">
             <form class="form" method="post" enctype="multipart/form-data">
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="fs-4 fw-bold">EDIT AKUN</p>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
+                        <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end" style="width: 25%;">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
@@ -49,7 +58,7 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <label class="labelmui">Petugas<?= $no?></label>
+                                <label class="labelmui">Petugas</label>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -65,24 +74,23 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <label class="labelmui">No Kendaraan<?= $no++?></label>
+                                <label class="labelmui">No Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="position-absolute top-50 start-50 translate-middle">
-                                <div class="form-check">
-                                    <input
-                                    <?php $ketua = $data['getDetail']['data']['officer']['name_officer']; $filter = array_filter($data['getDetail']['data']['officers'], fn($n) => $n['name_officer'] == $ketua);  ?>
-                                    style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="<?= $no ?>" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <div class="form-check"> 
+                                    <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="<?= $no ?>" type="radio" name="flexRadioDefault" id="flexRadioDefault<?= $no ?>">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-1">
                             <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
-                                <button class=" btn btn-danger" type="button" id="deleteId" onclick="deletePetugas();"> - </button>
+                                <button class=" btn btn-danger" type="button" id="deleteId" onclick="deletePetugas('<?= $row['id']?>');"> - </button>
                             </div>
                         </div>
                     </div>
+                    <?php $no++?>
                 <?php endforeach; ?>
 
                 <div class="row" style="margin-top:-20px">
@@ -91,7 +99,7 @@
                             <select name="officers[]" class="form-select" style="width:100%" id="select<?= count($data['getDetail']['data']['officers']) + 1;?>" onchange="getvalue(<?= count($data['getDetail']['data']['officers']) + 1;?>)" onclick="getOption(<?= count($data['getDetail']['data']['officers']) + 1;?>)" required>
                                 <option selected value="">Pilih Petugas</option>
                             </select>
-                            <label class="labelmui">Petugas<?= count($data['getDetail']['data']['officers']) + 1;?></label>
+                            <label class="labelmui">Petugas</label>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -108,7 +116,7 @@
                     <div class="col-md-2">
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <div class="form-check">
-                                <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="<?= count($data['getDetail']['data']['officers']) + 1;?>" type="radio" name="flexRadioDefault" id="flexRadioDefault<?= count($data['getDetail']['data']['officers']) + 1;?>">
                             </div>
                         </div>
                     </div>
@@ -129,17 +137,68 @@
     </div>
 </div>
 
-
-
+ 
 
 <script>
-var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
-    var PetugasOrigin = JSON.parse(Petugas)
+    var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
+    var PetugasOrigin = JSON.parse(Petugas);
     var Petugasbaru = JSON.parse(Petugas);
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
+    
+    
+    // EDIIT
+    var dataGetId = '<?php echo json_encode($data['getDetail']['data'])?>';
+    var parseGet = JSON.parse(dataGetId);;
+    // console.log(parseGet['officer']);
+    
+    for (let i = 0; i < parseGet['officers'].length; i++) { 
+        console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
+        if(parseGet['officer']['name_officer'] == parseGet['officers'][i]['name_officer']){
+            $(`#flexRadioDefault${i+1}`).prop('checked',true);
+        }
+    }
+    
+    // $(`#flexRadioDefault2`).prop('checked',true);
 
+    function deletePetugas(idOffice){
+        console.log({a:parseGet['id'],b:idOffice});
+        // e.preventDefault();  
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/Akun/deleteAccountPetugas",
+            method: "POST",
+            data: {
+                "account_id": parseGet['id'],
+                "officer_id":idOffice,
+            },
+            dataType: 'JSON',
+            // contentType: false,
+            // processData: false,  
+            success: function (data) {
+                $("#overlay").fadeIn(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() {  
+                            window.location.href = `<?php echo base_url();?>operasi/Akun/Edit/${parseGet['id']}`;
+                    }); 
 
+                    $("#overlay").fadeOut(300);
+                }else{
+                    Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                    });
+
+                    $("#overlay").fadeOut(300);
+                } 
+            }
+        }); 
+    }
 
 
     var room = 1;
@@ -200,7 +259,7 @@ var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
             '<div class="col-md-2">' +
             '<div class="position-absolute top-50 start-50 translate-middle">' +
             '<div class="form-check">' +
-            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault1">' +
+            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault' + room + '">' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -260,6 +319,7 @@ var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
 
 
     $(document).ready(function() {
+        
         new Choices('#officers', {
             searchEnabled: true,
             removeItemButton: true,

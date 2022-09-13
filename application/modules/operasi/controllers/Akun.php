@@ -294,6 +294,46 @@ class Akun extends MY_Controller
     }
 
 
+    public function deleteAccountPetugas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $input      = $this->input->post();
+        $dummy = [
+            [
+                'name' => 'account_id',
+                'contents' => $input['account_id'],
+            ],
+            [
+                'name' => 'officer_id',
+                'contents' => $input['officer_id'],
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'account-officer/delete2param', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
+
     public function delete()
     {
         $headers = [
