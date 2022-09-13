@@ -319,6 +319,7 @@
             type: "Admin"
         }
     });
+    console.log(socket);
     var markerArray = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
@@ -689,7 +690,7 @@
             }
         // }
     }) 
-    socket.on('sendToAdmin', function(ress) { 
+    socket.on('sendToAdminMobile', function(ress) { 
         console.log('ido3');
         console.log(ress); 
 

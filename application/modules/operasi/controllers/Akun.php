@@ -129,12 +129,16 @@ class Akun extends MY_Controller
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
         $dummy['name_account']    = $input['namaAkun'];
         // $dummy ['phone_account']	= $input['phone_account']; 
-        $dummy['leader_team']    = $input['ketuaTeam'];
-        $dummy['id_vehicle']    = $input['id_kendaraan'];
+        // $dummy['leader_team']    = $input['ketuaTeam'];
+        // $dummy['id_vehicle']    = $input['id_kendaraan'];
+        // $dummy['officers']    = json_encode($input['officers']);
         $dummy['password']    = $input['password'];
-        $dummy['officers']    = json_encode($input['officers']);
-        // echo json_encode($dummy);
-        // die;
+        $dummy['officers'] = json_encode($input['officers']);
+        $dummy['id_kendaraan'] = json_encode($input['id_kendaraan']);
+        $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
+        echo json_encode($dummy);
+        die;
+
 
         $data = guzzle_request('POST', 'account/add', [
             'form_params' => $dummy,
