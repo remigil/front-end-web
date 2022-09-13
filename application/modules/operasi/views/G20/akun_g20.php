@@ -17,9 +17,9 @@
                         <th>No</th>
                         <th>Nama Akun</th>
                         <!-- <th>Phone Akun</th> -->
-                        <th>VIP</th>
                         <!-- <th>Polres</th> -->
-                        <!-- <th>Ketua TIM</th> -->
+                        <th>Ketua TIM</th>
+                        <th>Petugas</th>
                         <th>No. Kendaraan</th>
                         <th>Aksi</th>
                     </tr>
@@ -336,6 +336,9 @@
                     data: 'leader_team'
                 },
                 {
+                    data: 'officers'
+                },
+                {
                     data: 'vehicle',
                     orderable: false
                 },
@@ -360,40 +363,40 @@
 
         });
  
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            console.log(formData);
+            $.ajax({
+                url: "<?php echo base_url(); ?>operasi/Akun/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahAkun").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    } 
+                }
+            });
+        });
     });
  
 
-    $(".form").submit(function(e) {
-        $("#overlay").fadeIn(300);
-        e.preventDefault();
-        var formData = new FormData($('.form')[0]);
-        console.log(formData);
-        $.ajax({
-            url: "<?php echo base_url(); ?>operasi/Akun/store",
-            method: "POST",
-            data: formData,
-            dataType: 'JSON',
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $("#overlay").fadeOut(300);
-                if (data['status'] == true) {
-                    Swal.fire(
-                        `${data['message']}`,
-                        '',
-                        'success'
-                    ).then(function() {
-                        $(".TambahAkun").modal('hide');
-                        userDataTable.draw();
-                    });
-                } else {
-                    Swal.fire(
-                        `${data['message']}`,
-                        '',
-                        'error'
-                    ).then(function() {});
-                } 
-            }
-        });
-    });
 </script>

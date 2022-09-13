@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-8"> 
                             <ul>
-                                <?php foreach ($data['getDetail']['data']['officer'] as $row) : ?>
+                                <?php foreach ($data['getDetail']['data']['officers'] as $row) : ?>
                                     <li><?php echo $row['name_officer']; ?>  ( <?php echo $row['nrp_officer']; ?> )</li> 
                                 <?php endforeach; ?>
                             </ul> 
@@ -67,7 +67,7 @@
                             <p>:</p> 
                         </div>
                         <div class="col-8"> 
-                            <p><?php echo ($data['getDetail']['data']['leader_team'] == null ? '-' : $data['getDetail']['data']['leader_team']);?></p> 
+                            <p><?php echo ($data['getDetail']['data']['officer']['name_officer'] == null ? '-' : $data['getDetail']['data']['officer']['name_officer']);?></p> 
                         </div>
                     </div>
                     <div class="row">

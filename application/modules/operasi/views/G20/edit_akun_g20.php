@@ -12,76 +12,118 @@
 <div class="page">
     <div class="card">
         <div class="card-body">
-            <form class="form" method="post" enctype="multipart/form-data"> 
+            <form class="form" method="post" enctype="multipart/form-data">
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="fs-4 fw-bold">EDIT AKUN</p>
+                        <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                            <input style="width: 100%; " name="namaAkun" value="<?php echo $data['getDetail']['data']['name_account'];?>" type="text" required>
+                            <label class="labelmui">Akun</label>
+                        </div>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
-                        <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end" style="width: 25%;">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
+                        <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                            <input hidden type="text" name="oldPassword" value="<?php echo $data['getDetail']['data']['password'];?>">
+                            <input style="width: 100%; " name="password" value="<?php echo $data['getDetail']['data']['password'];?>" type="password" required>
+                            <label class="labelmui">Password</label>
+                        </div>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-2">
+                        <p class="text-center fw-bold" style="font-family:'Open Sans';font-size: 13px;color:#2C3333; ">Ketua Tim</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input required style="width: 100%;" name="namaAkun" value="<?php echo $data['getDetail']['data']['name_account'];?>" placeholder="Nama Akun" type="text">
-                                    <label class="labelmui">Nama Akun</label>
-                                </div>
+
+                <?php $no = 1; foreach ($data['getDetail']['data']['officers'] as $row) : ?> 
+                    <div class="row" style="margin-top:-20px">
+                        <div class="col-md-5">
+                            <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+                                <select name="officers[]" class="form-select" style="width:100%" id="select<?= $no?>" onchange="getvalue(<?= $no?>)" onclick="getOption(<?= $no?>)" required>
+                                    <option selected value="">Pilih Petugas</option>
+                                    <?php foreach ($data['getOfficer'] as $rows) : ?>
+                                        <option 
+                                            <?php echo ($row['name_officer'] == $rows['name_officer'] ? 'selected' : '');?>  
+                                            value="<?php echo $rows['id']; ?>"><?php echo $rows['name_officer']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">Petugas<?= $no?></label>
                             </div>
-                            <!-- <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input required style="width: 100%;" name="phone_account" value="<?php echo $data['getDetail']['data']['phone_account'];?>" placeholder="Phone Akun" type="text">
-                                    <label class="labelmui">Phone Akun</label>
-                                </div>
-                            </div> -->
-                            <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input required style="width: 100%;" name="ketuaTeam" value="<?php echo $data['getDetail']['data']['leader_team'];?>" type="text">
-                                    <label class="labelmui">Ketua Tim</label>
-                                </div>
-                            </div>  
-                            <div class="col-md-6">
-                                <div class="material-selectfield mb-3">
-                                    <select required name="officers[]" id="officers" style="height: 200px" multiple> 
-                                        <?php foreach ($data['getOfficer'] as $row) : ?>
-                                            <option 
-                                            <?php foreach ($data['getDetail']['data']['officer'] as $rowSelect) : ?>
-                                                <?php echo ($rowSelect['name_officer'] == $row['name_officer'] ? 'selected' : '');?>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+                                <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" required>
+                                    <option selected value="">Pilih No Kendaraan</option>
+                                    <?php foreach ($data['getVehicle'] as $rows) : ?> 
+                                        <option 
+                                            <?php foreach ($data['getDetail']['data']['vehicles'] as $rowSelect) : ?>
+                                                <?php echo ($rowSelect['no_vehicle'] == $rows['no_vehicle'] ? 'selected' : '');?>  
                                             <?php endforeach; ?>
-                                            value="<?php echo $row['id']; ?>"><?php echo $row['name_officer']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <label class="labelmui">Petugas</label>
-                                </div> 
-                            </div> 
-                            <div class="col-md-6">
-                                <div class="material-selectfield mb-3">
-                                    <select required name="id_kendaraan" class="form-select">
-                                        <option selected value="">Pilih No Kendaraan</option> 
-                                        <?php foreach($data['getVehicle'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['vehicle']['no_vehicle'] == $row['no_vehicle'] ? 'selected' : '');?> value="<?php echo $row['id'];?>"><?php echo $row['no_vehicle'];?></option> 
-                                        <?php endforeach; ?> 
-                                    </select>
-                                    <label class="labelmui">No Kendaraan</label>
-                                </div>
-                            </div> 
-                            <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input hidden type="text" name="oldPassword" value="<?php echo $data['getDetail']['data']['password'];?>">
-                                    <input style="width: 100%;" name="password" value="<?php echo $data['getDetail']['data']['password'];?>" type="password">
-                                    <label class="labelmui">Password</label>
+                                            value="<?php echo $rows['id']; ?>"><?php echo $rows['no_vehicle']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">No Kendaraan<?= $no++?></label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="form-check">
+                                    <input
+                                    <?php $ketua = $data['getDetail']['data']['officer']['name_officer']; $filter = array_filter($data['getDetail']['data']['officers'], fn($n) => $n['name_officer'] == $ketua);  ?>
+                                    style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="<?= $no ?>" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
+                                <button class=" btn btn-danger" type="button" id="deleteId" onclick="deletePetugas();"> - </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+                <div class="row" style="margin-top:-20px">
+                    <div class="col-md-5">
+                        <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+                            <select name="officers[]" class="form-select" style="width:100%" id="select<?= count($data['getDetail']['data']['officers']) + 1;?>" onchange="getvalue(<?= count($data['getDetail']['data']['officers']) + 1;?>)" onclick="getOption(<?= count($data['getDetail']['data']['officers']) + 1;?>)" required>
+                                <option selected value="">Pilih Petugas</option>
+                            </select>
+                            <label class="labelmui">Petugas<?= count($data['getDetail']['data']['officers']) + 1;?></label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
+                            <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" required>
+                                <option selected value="">Pilih No Kendaraan</option>
+                                <?php foreach ($data['getVehicle'] as $row) : ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label class="labelmui">No Kendaraan</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="position-absolute top-50 start-50 translate-middle">
+                            <div class="form-check">
+                                <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="position-absolute top-50 start-50 translate-middle" style="margin:0 -0.18vh 0 -0.18vh">
+                            <button class=" btn btn-success" type="button" id="addId" onclick="education_fields();"> + </button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('operasi/Akun'); ?>" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</a>
+                <div id="education_fields"></div>
+                <div class="clear"></div>
+                <div class="col-md-12 mt-2">
+                    <button type="submit" class="btn btn-primary w-25 float-end">SIMPAN</button>
                 </div>
+
             </form>
         </div>
     </div>
@@ -91,6 +133,132 @@
 
 
 <script>
+var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
+    var PetugasOrigin = JSON.parse(Petugas)
+    var Petugasbaru = JSON.parse(Petugas);
+    let PetugasUntukSelectLain = []
+    let PetugasChoose = [];
+
+
+
+
+    var room = 1;
+
+    function getOption(no) {
+        let select = $('#select' + no).find(":selected").val();
+        let list = '';
+        if (select == '') {
+            list += ` <option selected value="">Pilih Petugas</option>`
+        } else {
+            if (select) {
+                for (let i = 0; i < PetugasUntukSelectLain.length; i++) {
+                    // const element = PetugasUntukSelectLain[i];
+                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer}</option>`
+                }
+            }
+
+        }
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+        }
+        $('#select' + no).html(list);
+    }
+
+
+
+    function education_fields() {
+        room++;
+        check()
+        var objTo = document.getElementById('education_fields')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML =
+            '<div class="row" style="margin-top:-10px">' +
+            '<div class="col-md-5">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
+            ' <option selected value="">Pilih Petugas</option>' +
+            '</select>' +
+            '<label class="labelmui">Petugas</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-4">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
+            '<option selected value="">Pilih No Kendaraan</option>' +
+            '<?php foreach ($data['getVehicle'] as $row) : ?>' +
+            '<option value="<?php echo $row['id']; ?>">' +
+            '<?php echo $row['no_vehicle']; ?> </option>' +
+            '<?php endforeach; ?>' +
+
+
+            '</select>' +
+            '<label class="labelmui">No Kendaraan</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-2">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<div class="form-check">' +
+            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault1">' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-1">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> - </button>' +
+            '</div>' +
+            '</div>' +
+            '<div class="clear"></div>';
+
+        objTo.appendChild(divtest)
+        list = ''
+        list += `<option value ="">Pilih Petugas</option>`
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+        }
+        $('#select' + room).html(list);
+        return room;
+    }
+    var totalId = [1];
+
+
+    $('#addId').click(function() {
+        totalId.push(room);
+        return totalId;
+    })
+
+    function remove_education_fields(rid) {
+        var myIndex = totalId.indexOf(rid);
+        if (myIndex !== -1) {
+            totalId.splice(myIndex, 1);
+        }
+        $('.removeclass' + rid).remove();
+        return totalId;
+    }
+
+
+
+
+    function getvalue(id) {
+        PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())
+        Petugasbaru = Petugasbaru.filter((petugas) => petugas.id != $('#select' + id).val())
+        list = ''
+        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer}</option>`
+        PetugasChoose.push(PetugasUntukSelectLain);
+        return PetugasChoose
+    }
+
+
+    function check() {
+        console.log({
+            petugasLama: Petugasbaru.length,
+            petugasBaru: PetugasChoose.length,
+            petugasLain: PetugasUntukSelectLain.length
+        })
+    }
+
+
     $(document).ready(function() {
         new Choices('#officers', {
             searchEnabled: true,
