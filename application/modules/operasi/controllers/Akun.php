@@ -128,16 +128,21 @@ class Akun extends MY_Controller
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
         $dummy['name_account']    = $input['namaAkun'];
-        // $dummy ['phone_account']	= $input['phone_account']; 
         // $dummy['leader_team']    = $input['ketuaTeam'];
+        // $dummy ['phone_account']	= $input['phone_account']; 
         // $dummy['id_vehicle']    = $input['id_kendaraan'];
         // $dummy['officers']    = json_encode($input['officers']);
         $dummy['password']    = $input['password'];
         $dummy['officers'] = json_encode($input['officers']);
-        $dummy['id_kendaraan'] = json_encode($input['id_kendaraan']);
+        $dummy['vehicles'] = json_encode($input['id_kendaraan']);
         $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
-        echo json_encode($dummy);
-        die;
+
+        $pilihKetua = floatval($input['flexRadioDefault']) - 1;
+        $ketua = $input['officers'][$pilihKetua];
+        $dummy['leader_team']    = $ketua;
+        $dummy['id_vehicle']    = $input['id_kendaraan'][$pilihKetua];
+        // echo json_encode($dummy);
+        // die;
 
 
         $data = guzzle_request('POST', 'account/add', [
@@ -248,10 +253,19 @@ class Akun extends MY_Controller
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
         $dummy['name_account']    = $input['namaAkun'];
+        // $dummy['leader_team']    = $input['ketuaTeam'];
         // $dummy ['phone_account']	= $input['phone_account']; 
-        $dummy['leader_team']    = $input['ketuaTeam'];
-        $dummy['id_vehicle']    = $input['id_kendaraan'];
-        $dummy['officers']    = json_encode($input['officers']);
+        // $dummy['id_vehicle']    = $input['id_kendaraan'];
+        // $dummy['officers']    = json_encode($input['officers']);
+        $dummy['password']    = $input['password'];
+        $dummy['officers'] = json_encode($input['officers']);
+        $dummy['vehicles'] = json_encode($input['id_kendaraan']);
+        $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
+
+        $pilihKetua = floatval($input['flexRadioDefault']) - 1;
+        $ketua = $input['officers'][$pilihKetua];
+        $dummy['leader_team']    = $ketua;
+        $dummy['id_vehicle']    = $input['id_kendaraan'][$pilihKetua];
 
         if ($input['oldPassword'] != $input['password']) {
             $dummy['password']    = $input['password'];
