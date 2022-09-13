@@ -44,13 +44,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
-                                <input style="width: 100%; " name="" type="text" required>
+                                <input style="width: 100%; " name="namaAkun" type="text" required>
                                 <label class="labelmui">Akun</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
-                                <input style="width: 100%; " name="" type="password" required>
+                                <input style="width: 100%; " name="password" type="password" required>
                                 <label class="labelmui">Password</label>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
-                                <select name="id_kendaraan" class="form-select" style="width:100%" id="kendaraan" required>
+                                <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" required>
                                     <option selected value="">Pilih No Kendaraan</option>
                                     <?php foreach ($data['getVehicle'] as $row) : ?>
                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
@@ -84,7 +84,7 @@
                         <div class="col-md-2">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <div class="form-check">
-                                    <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                     <div id="education_fields"></div>
                     <div class="clear"></div>
                     <div class="col-md-12 mt-2">
-                        <button class="btn btn-primary w-25 float-end">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary w-25 float-end">SIMPAN</button>
                     </div>
 
                 </form>
@@ -168,7 +168,7 @@
             '</div>' +
             '<div class="col-md-4">' +
             '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="id_kendaraan" class="form-select" style="width:100%" required>' +
+            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
             '<option selected value="">Pilih No Kendaraan</option>' +
             '<?php foreach ($data['getVehicle'] as $row) : ?>' +
             '<option value="<?php echo $row['id']; ?>">' +
@@ -183,7 +183,7 @@
             '<div class="col-md-2">' +
             '<div class="position-absolute top-50 start-50 translate-middle">' +
             '<div class="form-check">' +
-            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">' +
+            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault1">' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -379,37 +379,38 @@
 
         });
 
-        $(".form").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault();
-            var formData = new FormData($('.form')[0]);
-            $.ajax({
-                url: "<?php echo base_url(); ?>operasi/Akun/store",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $("#overlay").fadeOut(300);
-                    if (data['status'] == true) {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'success'
-                        ).then(function() {
-                            $(".TambahAkun").modal('hide');
-                            userDataTable.draw();
-                        });
-                    } else {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'error'
-                        ).then(function() {});
-                    }
+    });
+    $(".form").submit(function(e) {
+        alert('wadaw');
+        $("#overlay").fadeIn(300);
+        e.preventDefault();
+        var formData = new FormData($('.form')[0]);
+        $.ajax({
+            url: "<?php echo base_url(); ?>operasi/Akun/store",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#overlay").fadeOut(300);
+                if (data['status'] == true) {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        // $(".TambahAkun").modal('hide');
+                        // userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
                 }
-            });
+            }
         });
     });
 </script>
