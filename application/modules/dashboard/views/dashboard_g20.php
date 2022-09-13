@@ -4,23 +4,28 @@
 
     <!-- <a href='#' id='export'>Export Features</a> -->
         <div style="top: 50px;right: 10px;position: relative;z-index: 999;text-align: end;"> 
-            <a href="javascript:void(0)" class="btn" style="background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
-                <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
-            </a> 
+           
         </div>
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="row" style="margin-left: 0px;"> 
-                        <div class="col-md-12">
-                            <div style="display: flex;">
-                                <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
-                                <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
-                                <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
-                            </div>
-                        </div> 
+                    <div>
+                        <div class="row" style="margin-left: 0px;"> 
+                            <div class="col-md-12">
+                                <div style="display: flex;">
+                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
+                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
+                    <a href="javascript:void(0)" class="btn" style="margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                        <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
+                    </a> 
                 </div>
+                
+                
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
                     <div style="width: 348px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
                         <div style="margin-left: 0px;overflow-x: scroll;height: 400px;scrollbar-width: thin;position: relative; padding: 15px;">
@@ -109,6 +114,7 @@
                     </div>
                     <!-- item-->
                 </div>
+                
             </div>  
         </div>
         <div id="mapG20Dashboard"></div>
@@ -320,6 +326,8 @@
     var markerPolres = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
+    var routingRenpam1 = new Array();
+    var routingRenpam2 = new Array();
     var arrayFilter = [];
 
 
@@ -1492,8 +1500,12 @@
                 list = "";
                 var status = ""; 
                 var route = []; 
+                var route1 = []; 
+                var route2 = []; 
                 ress.forEach(el => {
                     route.push(el.route);
+                    route1.push(el.route_alternatif_1);
+                    route2.push(el.route_alternatif_2);
                     if(el.status_renpam == 1){
                         status = `
                         <div>
@@ -1520,18 +1532,164 @@
                 for (let i = 0; i < ress.length; i++){ 
                     $(`#listRenpamClick${i+1}`).click(function(){    
 
-                        console.log(routingRenpam); 
+                        // console.log(route[i]); 
 
-                        routingRenpam[i] = L.Routing.control({
-                            waypoints: route[i],
-                            router: new L.Routing.osrmv1({
-                                language: 'en',
-                                profile: 'car'
-                            }),
-                            geocoder: L.Control.Geocoder.nominatim({})
-                        }).addTo(mapContainer);
-                        routingRenpam[i].hide();
-                        console.log(routingRenpam);
+                        if(route[i] != null && route[i][0]['latLng'] != null){
+                            routingRenpam[0] = L.Routing.control({
+                                show:false,
+                                draggableWaypoints: false,
+                                addWaypoints: false,
+                                waypoints: route[i],
+                                router: new L.Routing.osrmv1({
+                                    language: 'en',
+                                    profile: 'car'
+                                }),
+                                geocoder: L.Control.Geocoder.nominatim({})
+                            }).addTo(mapContainer);
+
+                            if(route1[i] != null && route1[i][0]['latLng'] != null){
+                                routingRenpam1[0] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route1[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "gray", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer);
+                            }else{
+                                Swal.fire(
+                                `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                                '',
+                                'error'
+                                ).then(function() { 
+                                });
+                            }
+
+                            if(route2[i] != null && route2[i][0]['latLng'] != null){
+                                routingRenpam2[0] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route2[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "green", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer);
+                            }else{
+                                Swal.fire(
+                                `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                '',
+                                'error'
+                                ).then(function() { 
+                                });
+                            }
+                             
+                        }else{
+                            Swal.fire(
+                            `Route tidak ada, atau belum di daftarkan!`, 
+                            '',
+                            'error'
+                            ).then(function() { 
+                            });
+                        }
+                        // console.log(routingRenpam);
                     });
                 } 
             }
