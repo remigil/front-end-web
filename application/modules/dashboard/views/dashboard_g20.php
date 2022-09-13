@@ -649,9 +649,9 @@
         console.log('ido2'); 
         console.log(ress) 
 
-        for (let i = 0; i < ress.length; i++) {  
-            if(markerArray[ress[i].id_officer] != null){ 
-              markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+        // for (let i = 0; i < ress.length; i++) {  
+            if(markerArray[ress.id_officer] != null){ 
+              markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
                   className: 'location-pin',
                   html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
                   iconSize: [30, 30],
@@ -669,7 +669,7 @@
                   </div>
               `).update();  
             }else{ 
-              markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+              markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                   className: 'location-pin',
                   html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
                   iconSize: [30, 30],
@@ -687,7 +687,7 @@
                   </div>
               `).addTo(mapContainer);    
             }
-        }
+        // }
     }) 
     socket.on('sendToAdmin', function(ress) { 
         console.log('ido3');
