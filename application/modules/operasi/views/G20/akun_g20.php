@@ -113,15 +113,6 @@
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
 
-    var Kendaraan = '<?php echo json_encode($data['getVehicle']) ?>'
-    var KendaraanBaru = JSON.parse(Kendaraan);
-    let listkendaraan = '';
-    listkendaraan += `<option value ="">Pilih Kendaraan</option>`
-    for (let i = 0; i < KendaraanBaru.length; i++) {
-        listkendaraan += `<option value ="${KendaraanBaru[i]['id']}">${KendaraanBaru[i]['no_vehicle']}</option>`;
-    }
-    $('#select' + room).html(listkendaraan);
-
 
 
 
@@ -241,25 +232,15 @@
         })
     }
     $(document).ready(function() {
-
-        // $('#select1').change(() => {
-        //     console.log({
-        //         ['select1']: $('#select1').val()
-        //     })
-        //     console.log(Petugasbaru.length)
-        //     PetugasChoose.push(Petugasbaru.filter((petugas) => petugas.id == $('#select1').val()))
-        //     PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id != $('#select1').val())
-        // })
-
-        new Choices('#officers', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
+        // new Choices('#officers', {
+        //     searchEnabled: true,
+        //     removeItemButton: true,
+        //     removeItems: true,
+        //     itemSelectText: '',
+        //     classNames: {
+        //         containerOuter: 'choices select-choices',
+        //     },
+        // });
 
         var userDataTable = $('#datatable').DataTable({
 
@@ -383,6 +364,7 @@
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
+            console.log(formData);
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Akun/store",
                 method: "POST",
