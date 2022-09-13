@@ -313,8 +313,8 @@
     // }
         query: {
         
-            username: "kakor",
-            password: "1legalitas!!",
+            username: "Kakor",
+            password: "a",
             
             type: "Admin"
         }
@@ -693,21 +693,21 @@
         console.log('ido3');
         console.log(ress); 
 
-        for (let i = 0; i < ress.length; i++) {  
+        // for (let i = 0; i < ress.length; i++) {  
 
             var jenis = '';
-            if(ress[i].type_vehicle == 'Sepeda Motor'){
+            if(ress.type_vehicle == 'Sepeda Motor'){
                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
                 jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-            }else if(ress[i].type_vehicle == 'Mobil'){
+            }else if(ress.type_vehicle == 'Mobil'){
                 jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
             }else{
                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
                 jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
             }
 
-            if(markerArray[ress[i].id_officer] != null){ 
-              markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+            if(markerArray[ress.id_officer] != null){ 
+              markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
                 //   className: 'location-pin',
                 html: jenis,
                 iconSize: [5, 5],
@@ -730,7 +730,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                        <p style="font-size: 12px;">${ress.name_account}</p>
                                     </div>
                                 </div> 
                             </div> 
@@ -743,7 +743,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                        <p style="font-size: 12px;">${ress.name_team}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -756,7 +756,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].vip}</p>
+                                        <p style="font-size: 12px;">${ress.vip}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -769,7 +769,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                        <p style="font-size: 12px;">${ress.nrp_user}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -782,7 +782,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                        <p style="font-size: 12px;">${ress.no_vehicle}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -795,7 +795,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                        <p style="font-size: 12px;">${ress.type_vehicle}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -803,7 +803,7 @@
                     </div>
               `).update();  
             }else{ 
-              markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+              markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                 //   className: 'location-pin',
                 html: jenis,
                 iconSize: [5, 5],
@@ -826,7 +826,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                        <p style="font-size: 12px;">${ress.name_account}</p>
                                     </div>
                                 </div> 
                             </div> 
@@ -839,7 +839,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                        <p style="font-size: 12px;">${ress.name_team}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -852,7 +852,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].vip}</p>
+                                        <p style="font-size: 12px;">${ress.vip}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -865,7 +865,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                        <p style="font-size: 12px;">${ress.nrp_user}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -878,7 +878,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                        <p style="font-size: 12px;">${ress.no_vehicle}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -891,7 +891,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                        <p style="font-size: 12px;">${ress.type_vehicle}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -900,7 +900,7 @@
               `).addTo(mapContainer);    
             }
 
-        }
+        // }
     });
 
     var centerMap = mapContainer.getCenter();
@@ -1535,8 +1535,11 @@
                         // console.log(route[i]); 
 
                         if(route[i] != null && route[i][0]['latLng'] != null){
+                            
+                            // routingRenpam = [];
+                           
                             routingRenpam[0] = L.Routing.control({
-                                show:false,
+                                // show:false,
                                 draggableWaypoints: false,
                                 addWaypoints: false,
                                 waypoints: route[i],
@@ -1546,6 +1549,8 @@
                                 }),
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer);
+                            routingRenpam[0].hide();
+                            mapContainer.removeLayer(routingRenpam[0]);
 
                             if(route1[i] != null && route1[i][0]['latLng'] != null){
                                 routingRenpam1[0] = L.Routing.control({
@@ -1609,7 +1614,7 @@
                                 Swal.fire(
                                 `Route Alternative tidak ada, atau belum di daftarkan!`, 
                                 '',
-                                'error'
+                                'warning'
                                 ).then(function() { 
                                 });
                             }
@@ -1676,7 +1681,7 @@
                                 Swal.fire(
                                 `Route Escape tidak ada, atau belum di daftarkan!`, 
                                 '',
-                                'error'
+                                'warning'
                                 ).then(function() { 
                                 });
                             }
