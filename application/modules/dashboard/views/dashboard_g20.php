@@ -910,19 +910,20 @@
 
 
     serverSideGet();
-    serverSideFilter();
+    serverSideFilter();  
     // serverSideGetJadwal();
     // serverSideGetCCTV(); 
     // serverSideGetFasum();
     // serverSideGetPolres();
 
-
     mapContainer.on('dragend',function(e){ 
         var ada = mapContainer.getCenter();
         centerLat = ada['lat'];
         centerLng = ada['lng'];   
-        serverSideFilter();
-    });
+        if($('#fasum').is(':checked')){
+            serverSideFilter();
+        }
+        });
 
     function serverSideFilter(){
         $("#overlay").fadeIn(300);   
@@ -951,7 +952,9 @@
         }
         markerPolres = new Array(); 
 
-        // console.log(`${centerLat},${centerLng}`);        
+        // console.log(`${centerLat},${centerLng}`);  
+        
+        
 
         $.ajax({
             type : "POST",
