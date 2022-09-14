@@ -68,6 +68,12 @@
                                         <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIPKA' ? 'selected' : '');?> value="BRIPKA">BRIPKA</option>
                                         <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIGADIR' ? 'selected' : '');?> value="BRIGADIR">BRIGADIR</option>
                                         <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIPTU' ? 'selected' : '');?> value="BRIPTU">BRIPTU</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'KOMBESPOL' ? 'selected' : '');?> value="KOMBESPOL">KOMBESPOL</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PEMBINA' ? 'selected' : '');?> value="PEMBINA">PEMBINA</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AKP' ? 'selected' : '');?> value="AKP">AKP</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PENATA' ? 'selected' : '');?> value="PENATA">PENATA</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PENGDA TK 1' ? 'selected' : '');?> value="PENGDA TK 1">PENGDA TK 1</option>
+                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AKBP' ? 'selected' : '');?> value="AKBP">AKBP</option>
                                     </select>
                                     <label class="labelmui">Pangkat </label>
                                 </div>

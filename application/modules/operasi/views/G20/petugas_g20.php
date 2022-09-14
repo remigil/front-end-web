@@ -72,6 +72,12 @@
                                 <option value="BRIPKA">BRIPKA</option>
                                 <option value="BRIGADIR">BRIGADIR</option>
                                 <option value="BRIPTU">BRIPTU</option>
+                                <option value="KOMBESPOL">KOMBESPOL</option>
+                                <option value="PEMBINA">PEMBINA</option>
+                                <option value="AKP">AKP</option>
+                                <option value="PENATA">PENATA</option>
+                                <option value="PENGDA TK 1">PENGDA TK 1</option>
+                                <option value="AKBP">AKBP</option>
                             </select>
                             <label class="labelmui">Pangkat</label>
                         </div>
