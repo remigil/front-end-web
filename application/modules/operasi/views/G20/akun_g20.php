@@ -20,7 +20,7 @@
                         <!-- <th>Polres</th> -->
                         <th>Ketua TIM</th>
                         <th>Petugas</th>
-                        <th>No. Kendaraan</th>
+                        <!-- <th>No. Kendaraan</th> -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -338,10 +338,10 @@
                 {
                     data: 'officers'
                 },
-                {
-                    data: 'vehicle',
-                    orderable: false
-                },
+                // {
+                //     data: 'vehicle',
+                //     orderable: false
+                // },
 
 
                 {

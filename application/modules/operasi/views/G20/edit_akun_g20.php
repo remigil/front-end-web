@@ -46,6 +46,7 @@
                 </div>
 
                 <?php $no = 1; foreach ($data['getDetail']['data']['officers'] as $row) : ?> 
+                    <!-- <input type="text" name="account_officer[]" value="<?php echo $rows['name_officer']; ?>"> -->
                     <div class="row" style="margin-top:-20px">
                         <div class="col-md-5">
                             <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
@@ -96,7 +97,7 @@
                 <div class="row" style="margin-top:-20px">
                     <div class="col-md-5">
                         <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
-                            <select name="officers[]" class="form-select" style="width:100%" id="select<?= count($data['getDetail']['data']['officers']) + 1;?>" onchange="getvalue(<?= count($data['getDetail']['data']['officers']) + 1;?>)" onclick="getOption(<?= count($data['getDetail']['data']['officers']) + 1;?>)" required>
+                            <select name="officers[]" class="form-select" style="width:100%" id="select<?= count($data['getDetail']['data']['officers']) + 1;?>" onchange="getvalue(<?= count($data['getDetail']['data']['officers']) + 1;?>)" onclick="getOption(<?= count($data['getDetail']['data']['officers']) + 1;?>)">
                                 <option selected value="">Pilih Petugas</option>
                             </select>
                             <label class="labelmui">Petugas</label>
@@ -104,7 +105,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">
-                            <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" required>
+                            <select name="id_kendaraan[]" class="form-select" style="width:100%" id="kendaraan" >
                                 <option selected value="">Pilih No Kendaraan</option>
                                 <?php foreach ($data['getVehicle'] as $row) : ?>
                                     <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
@@ -129,7 +130,7 @@
                 <div id="education_fields"></div>
                 <div class="clear"></div>
                 <div class="col-md-12 mt-2">
-                    <button type="submit" class="btn btn-primary w-25 float-end">SIMPAN</button>
+                    <a href="<?= base_url()?>operasi/akun/Detail/<?php echo $data['getDetail']['data']['id'];?>" class="btn btn-primary w-25 float-end">Kembali</a>
                 </div>
 
             </form>
@@ -150,7 +151,28 @@
     // EDIIT
     var dataGetId = '<?php echo json_encode($data['getDetail']['data'])?>';
     var parseGet = JSON.parse(dataGetId);;
-    // console.log(parseGet['officer']);
+    // console.log(parseGet['officer']);  
+
+    // var listKendaraan = '';
+    // var dummyKendaraan = '<?= json_encode($data['getVehicle'])?>';
+    // var dataKendaraan = JSON.parse(dummyKendaraan);
+    // // console.log(dataKendaraan);
+    
+    // dataKendaraan.forEach(el => {
+    //     listKendaraan += `<option ${el.no_vehicle == parseGet['officers'][1]['trx_account_officer']['vehicle_id'] ? 'selected' : ''} value="${el.id}" >${el.no_vehicle}</option>`; 
+    //     for (let i = 0; i < parseGet['officers'].length; i++) {     
+    //         $(`#kendaraanEdit${i+1}`).html(listKendaraan);
+    //     }
+    // });
+    // console.log(parseGet['vehicles']);
+
+    
+    // for (let i = 0; i < parseGet['officers'].length; i++) { 
+    //     // console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
+    //     if(parseGet['officer']['name_officer'] == parseGet['officers'][i]['name_officer']){
+    //         $(`#flexRadioDefault${i+1}`).prop('checked',true);
+    //     }
+    // }
     
     for (let i = 0; i < parseGet['officers'].length; i++) { 
         console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
@@ -159,7 +181,7 @@
         }
     }
     
-    // $(`#flexRadioDefault2`).prop('checked',true);
+     
 
     function deletePetugas(idOffice){
         console.log({a:parseGet['id'],b:idOffice});
@@ -330,40 +352,40 @@
             },
         });
 
-        $(".form").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-            var formData = new FormData($('.form')[0]); 
-            $.ajax({
-                url: "<?php echo base_url();?>operasi/Akun/storeEdit",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,  
-                success: function (data) {
-                    $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() {  
-                            window.location.href = "<?php echo base_url();?>operasi/Akun";
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
-                        });
-                    } 
-                }
-            }); 
-        });
     });
-
+    
+    $(".form").submit(function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault(); 
+        var formData = new FormData($('.form')[0]); 
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/Akun/storeEdit",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,  
+            success: function (data) {
+                $("#overlay").fadeOut(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'success'
+                    ).then(function() {  
+                        window.location.href = "<?php echo base_url();?>operasi/Akun";
+                    }); 
+                }else{
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'error'
+                    ).then(function() { 
+                    });
+                } 
+            }
+        }); 
+    });
     $("#delete").on('click', function(e) {
         $("#overlay").fadeIn(300);
         e.preventDefault();  
