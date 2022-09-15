@@ -731,7 +731,7 @@
                         <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
                             <li>
-                                <a href="<?php echo base_url(); ?>dashboard">
+                                <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("YYYY-MM-DD")?>&end_date=<?= date("YYYY-MM-DD")?>">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>

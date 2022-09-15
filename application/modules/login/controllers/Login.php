@@ -41,7 +41,11 @@ class Login extends MX_Controller
                 $data_session['logged']       = 1; 
     
                 $this->session->set_userdata($data_session);
-                redirect(base_url('dashboard'));
+                if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
+                    redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
+                }else{
+                    redirect(base_url('dashboard'));
+                }
             } else {
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');
