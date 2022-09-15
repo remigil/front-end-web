@@ -1,4 +1,23 @@
 <div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="waktu">Tanggal</label>
+        <div id="reportrange"  style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-md-10">
+                    <span style="font-size: 14px;"></span> <b class="caret"></b>
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                </div> 
+            </div>
+        </div>
+        
+        <input hidden type="date" id="startdate" name="startdate">
+        <input hidden type="date" id="enddate" name="enddate">
+    </div>  
+    <div class="col-md-6">
+        <a style="margin-top: 30px;" href="javascript:void(0);" id="submitSearch" class="btn btn-primary">Search</a>
+    </div>
+</div>
+<div class="row">
     <input hidden type="text" id="typeRenpam">
     <div class="col-xl-3 col-md-6">
         <!-- card -->
@@ -233,7 +252,8 @@
     </div>
 </div> 
 
-<script>
+<script> 
+
     var dataDetailRenpam = []; 
 
     $(document).ready(function() {
@@ -275,9 +295,9 @@
 
                     // console.log(data);
 
-                    // data.filterTgl = $('[name=event_date]').val();
+                    data.filterTgl = "<?= $data['start_date']?>";
 
-                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+                    data.filterTgl2 = "<?= $data['end_date']?>"; 
 
                     // data.filterStatus = $('[name=status]').val();
 
@@ -349,6 +369,40 @@
             }   
 
         });  
+ 
+
+        // var start = moment().subtract(29, 'days');
+        var start = moment("<?= $data['start_date']?>");
+        var end = moment("<?= $data['end_date']?>"); 
+        // alert(start);
+        
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#startdate').val(start.format('YYYY-MM-DD'));
+            $('#enddate').val(end.format('YYYY-MM-DD')); 
+            // userDataTable.draw(); 
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Hari Ini': [moment(), moment()],
+            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+            }
+        }, cb);
+
+        cb(start, end);   
+
+        $('#submitSearch').on('click', function(e) { 
+            window.location.href = `<?php echo base_url();?>dashboard?start_date=${$('#startdate').val()}&end_date=${$('#enddate').val()}`;
+        });
 
         $("#patroli").on('click', function(e) { 
             $("#typeRenpam").val('1');

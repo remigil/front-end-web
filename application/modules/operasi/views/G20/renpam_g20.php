@@ -168,9 +168,9 @@
 
                     // console.log(data);
 
-                    // data.filterTgl = $('[name=event_date]').val();
+                    data.filterTgl = "";
 
-                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+                    data.filterTgl2 = ""; 
 
                     // data.filterStatus = $('[name=status]').val();
 

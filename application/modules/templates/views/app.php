@@ -416,7 +416,26 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/node-waves/waves.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/feather-icons/feather.min.js"></script>
 
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+        authDomain: "g20k3i.firebaseapp.com",
+        projectId: "g20k3i",
+        storageBucket: "g20k3i.appspot.com",
+        messagingSenderId: "475022830226",
+        appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    console.log(app);
+    </script>
 
     <?php echo $css ?>
 </head>
