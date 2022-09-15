@@ -81,7 +81,12 @@
                                     <label class="labelmui">Subjek</label>
                                 </div>
                             </div>
-                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input  type="text" name="note_kakor" value="<?php echo $data['getDetail']['data']['note_kakor'];?>" class="form-control" id="note_kakor"> 
+                                    <label class="labelmui">Catatan Kakor</label>
+                                </div>
+                            </div>
                             <!-- <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 

@@ -123,7 +123,7 @@ class Renpam extends MY_Controller
         $dummy ['accounts']	= json_encode($input['id_accountR']); 
         $dummy ['vips']	= json_encode($input['id_vipR']); 
         $dummy ['route']	= $input['ruteawalR']; 
-
+        $dummy['note_kakor'] = $input['note_kakor'];
         // echo json_encode($dummy);
         // die; 
 

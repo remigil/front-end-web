@@ -92,8 +92,8 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <textarea required type="text" name="note_kakor" class="form-control" id="note_kakor"> </textarea>
+                            <div class="material-textfield mb-3">
+                                <input  type="text" name="note_kakor" class="form-control" id="note_kakor"> 
                                 <label class="labelmui">Catatan Kakor</label>
                             </div>
                         </div>
