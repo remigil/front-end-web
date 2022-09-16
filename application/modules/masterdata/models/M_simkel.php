@@ -94,7 +94,7 @@ class M_simkel extends CI_Model
         // } 
 
 
-        $url = 'simkel?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'sim_keliling?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
@@ -114,18 +114,18 @@ class M_simkel extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
-            $row['simkel_name']     = $field['simkel_name'];
-            $row['simkel_address'] 			= $field['simkel_address'];
-            $row['jam_operasional']       	= $field['simkel_open_time'] - $field['simkel_close_time'];
+            $row['name_sim_keliling']     = $field['name_sim_keliling'];
+            $row['address'] 			= $field['address'];
+            $row['jam_operasional']       	= $field['sim_keliling_open_time'] - $field['sim_keliling_close_time'];
             $row['action']         = '   
                 
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailSimkel">
 			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahSimkel">
+		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahSimkel">
 			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" id="HapusSimkel" onclick="detail(`' . $field['id'] . '`)">
+		<button style="background-color:transparent ; border:none" id="HapusSimkel" onclick="hapus(`' . $field['id'] . '`)">
 			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 		</button>
                 

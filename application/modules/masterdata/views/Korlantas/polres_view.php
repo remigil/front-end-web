@@ -17,10 +17,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Polres</th>
                         <th>Polda</th>
-                        <th width="40%">Alamat</th>
+                        <th>Nama Polres</th>
 						<th>Kode Satpas</th>
+                        <th width="40%">Alamat</th>
 						<th>Latitude</th>
 						<th>Longitude</th>
                         <th>Aksi</th>
@@ -43,35 +43,54 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polres</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="" id="" style="width:105% ;">
+                                <select name="namaPolda" id="namaPolda">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">Jawa Barat</option>
-                                    <option value="">Jawa Tengah</option>
-                                    <option value="">Jawa Timur</option>
+                                    <option value="1">Jawa Barat</option>
+                                    <option value="2">Jawa Tengah</option>
+                                    <option value="3">Jawa Timur</option>
                                 </select>
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolres" id="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
+                            </div>
+							<div class="material-textfield">
+                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
                             </div>
 
                         </div>
                         <div class="col-md-12 mt-2">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.3%; margin: 0 0 0 -2.7vh">
+                                <input type="text" name="alamatPolres" id="alamatPolres" style="width:107.3%; margin: 0 0 0 -2.7vh">
                                 <label for="" class="labelmui">Alamat</label>
                             </div>
 
                         </div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="latitude" id="latitude">
+									<label for="" class="labelmui">Latitude</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="longitude" id="longitude">
+									<label for="" class="labelmui">Longitude</label>
+								</div>
+							</div>
+							
+						</div>
                     </div>
                     <div class="mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
 
@@ -93,35 +112,55 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_polres" type="text">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polres</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="" id="" style="width:105% ;">
+                                <select name="namaPolda" id="namaPolda">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">Jawa Barat</option>
-                                    <option value="">Jawa Tengah</option>
-                                    <option value="">Jawa Timur</option>
+                                    <option value="1">Jawa Barat</option>
+                                    <option value="2">Jawa Tengah</option>
+                                    <option value="3">Jawa Timur</option>
                                 </select>
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPPolres" id="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
+                            </div>
+							<div class="material-textfield">
+                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
                             </div>
 
                         </div>
                         <div class="col-md-12 mt-2">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.3%; margin: 0 0 0 -2.7vh">
+                                <input type="text" name="alamatPolres" id="alamatPolres" style="width:107.3%; margin: 0 0 0 -2.7vh">
                                 <label for="" class="labelmui">Alamat</label>
                             </div>
 
                         </div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="latitude" id="latitude">
+									<label for="" class="labelmui">Latitude</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="longitude" id="longitude">
+									<label for="" class="labelmui">Longitude</label>
+								</div>
+							</div>
+							
+						</div>
                     </div>
                     <div class="mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
 
@@ -146,33 +185,52 @@
             <div class="modal-body">
                 <form action="" class="form">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polres</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="" id="" style="width:105% ;">
+                                <select name="namaPolda" id="namaPolda">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">Jawa Barat</option>
-                                    <option value="">Jawa Tengah</option>
-                                    <option value="">Jawa Timur</option>
+                                    <option value="1">Jawa Barat</option>
+                                    <option value="2">Jawa Tengah</option>
+                                    <option value="3">Jawa Timur</option>
                                 </select>
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPPolres" id="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
+                            </div>
+							<div class="material-textfield">
+                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
                             </div>
 
                         </div>
                         <div class="col-md-12 mt-2">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.3%; margin: 0 0 0 -2.7vh">
+                                <input type="text" name="alamatPolres" id="alamatPolres" style="width:107.3%; margin: 0 0 0 -2.7vh">
                                 <label for="" class="labelmui">Alamat</label>
                             </div>
 
                         </div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="latitude" id="latitude">
+									<label for="" class="labelmui">Latitude</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="longitude" id="longitude">
+									<label for="" class="labelmui">Longitude</label>
+								</div>
+							</div>
+							
+						</div>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
@@ -419,18 +477,18 @@
                 {
                     data: 'id'
                 },
-                {
-                    data: 'name_polres'
+				{
+					data: 'polda_id'
                 },
 				{
-                    data: 'polda_id'
-                },
-                {
-                    data: 'address'
+					data: 'name_polres'
+				},
+				{
+					data: 'code_satpas'
                 },
 				{
-                    data: 'code_satpas'
-                },
+					data: 'address'
+				},
 				{
                     data: 'latitude'
                 },
@@ -462,7 +520,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                url: "<?php echo base_url(); ?>masterdata/Polres/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -476,7 +534,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            $(".TambahKendaraan").modal('hide');
+                            $(".TambahPolres").modal('hide');
                             userDataTable.draw();
                         });
                     } else {
@@ -493,37 +551,44 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Polres/detailPolres/',
             type: 'POST',
             data: {
-                id_kendaraan: id
+                id_polres: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailKendaraan,input').attr('readonly', true)
-                $('.DetailKendaraan,input,#category').attr('disabled', true)
-                $('.DetailKendaraan,#title').val(results.title)
-                $('.DetailKendaraan,#category').val(results.news_category)
-                $('.DetailKendaraan,#content').val(results.content)
+                $('.DetailPolres,input').attr('readonly', true)
+                // $('.DetailPolres,input,#category').attr('disabled', true)
+                $('.DetailPolres,#namaPolda').val(results.id_polda)
+                $('.DetailPolres,#namaPolres').val(results.name_polres)
+                $('.DetailPolres,#kodeSatpas').val(results.code_satpas)
+                $('.DetailPolres,#alamatPolres').val(results.address)
+                $('.DetailPolres,#latitude').val(results.latitude)
+                $('.DetailPolres,#longitude').val(results.longitude)
+                
             }
         })
     }
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Polres/detailPolres/',
             type: 'POST',
             data: {
-                id_peraturan: id
+                id_polres: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahKendaraan,input').attr('readonly', false)
-                $('.UbahKendaraan,input,#category').attr('disabled', false)
-                $('#id_kendaraan').val(results.id)
-                $('.UbahKendaraan,#title').val(results.title)
-                $('.UbahKendaraan,#category').val(results.news_category)
-                $('.UbahKendaraan,#content').val(results.content)
+                $('.UbahPolres,input').attr('readonly', false)
+                // $('.UbahPolres,input,#category').attr('disabled', false)
+                $('#id_polres').val(results.id)
+                $('.UbahPolres,#namaPolda').val(results.id_polda)
+                $('.UbahPolres,#namaPolres').val(results.name_polres)
+                $('.UbahPolres,#kodeSatpas').val(results.code_satpas)
+                $('.UbahPolres,#alamatPolres').val(results.address)
+                $('.UbahPolres,#latitude').val(results.latitude)
+                $('.UbahPolres,#longitude').val(results.longitude)
             }
         })
     }
@@ -540,7 +605,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    url: "<?php echo base_url(); ?>masterdata/Polres/hapusPolres/",
                     type: "POST",
                     data: {
                         id_peraturan: id
@@ -554,7 +619,7 @@
                                 '',
                                 'success'
                             ).then(function() {
-                                $(".TambahKendaraan").modal('hide');
+                                $(".TambahPolres").modal('hide');
                                 userDataTable.draw();
                             });
                         } else {
@@ -574,7 +639,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            url: '<?= base_url() ?>masterdata/Polres/updatePolres',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
@@ -588,7 +653,7 @@
                         '',
                         'success'
                     ).then(function() {
-                        $(".UbahKendaraan").modal('hide');
+                        $(".UbahPolres").modal('hide');
                         userDataTable.draw();
                     });
                 } else {

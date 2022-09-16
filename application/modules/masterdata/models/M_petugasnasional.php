@@ -118,9 +118,9 @@ class M_petugasnasional extends CI_Model {
             $row ['id']	=  $no++; 
             $row ['nrp_officer']			= $field['nrp_officer'];  
             $row ['name_officer']			= $field['name_officer'];  
-            $row ['status_officer']			= $field['status_officer'];  
             $row ['phone_officer']   	= $field['phone_officer'];  
             $row ['rank_officer']   	= $field['rank_officer'];  
+            $row ['status_officer']			= $field['status_officer'];  
             $row ['action']         = ' 
                 
 

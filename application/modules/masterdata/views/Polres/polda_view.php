@@ -7,80 +7,6 @@
     </ol>
 </nav>
 <!-- </div> -->
-<div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahPolda">Tambah Polda</button>
-    <div class="card">
-
-        <div class="card-body">
-
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Polda</th>
-                        <th width="40%">Alamat</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Metro Jaya</td>
-                        <td>Jl. Jend. Sudirman No.Kav. 55, RT.5/RW.3, Senayan, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190, Telp. 021-5708013
-                        </td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jawa Barat</td>
-                        <td>Soekarno-Hatta St No.839 Babakan Penghulu, Cinambo Bandung Timur, Telp. 022-7810532 / 7800029</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Jawa Tengah</td>
-                        <td>Jl Pahlawan No 1 Semarang, Telp. 024-8440765 8440705 8440615</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPolda">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPolda">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPolda">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-</div>
-<!-- End Page -->
-
-
 <div class="modal fade TambahPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -89,25 +15,25 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                    <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
 
 
                     <div class="col-md-12">
@@ -127,27 +53,28 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_polda" type="text">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                    <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -166,24 +93,24 @@
             <div class="modal-body">
                 <form action="" class="form">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda" style="width:105% ;">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -197,7 +124,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        // $('#datatable').DataTable();
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -343,8 +270,188 @@
 
     });
 
+    $(document).ready(function() {
+        $('.dropify').dropify();
 
-    $("#HapusPolda").click(function() {
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Polda/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'name_polda'
+                },
+                // {
+                //     data: 'alamat'
+                // },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Polda/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahPolda").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
+            type: 'POST',
+            data: {
+                id_polda: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailKendaraan,input').attr('readonly', true)
+                // $('.DetailKendaraan,input,#category').attr('disabled', true)
+                $('.DetailKendaraan,#namaPolda').val(results.name_polda)
+                // $('.DetailKendaraan,#category').val(results.news_category)
+                // $('.DetailKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
+            type: 'POST',
+            data: {
+                id_polda: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahKendaraan,input').attr('readonly', false)
+                // $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('#id_polda').val(results.id)
+                $('.UbahKendaraan,#namaPolda').val(results.name_polda)
+                // $('.UbahKendaraan,#category').val(results.news_category)
+                // $('.UbahKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
         Swal.fire({
             title: 'Apakah anda ingin menghapus data ini?',
             icon: 'question',
@@ -352,16 +459,68 @@
             confirmButtonColor: '#C61318',
             cancelButtonColor: '#003A91',
             cancelButtonText: 'Batal',
-            confirmButtonText: 'Hapus'
+            confirmButtonText: 'Hapus',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: "Data berhasil dihapus",
-                    icon: 'success',
-                    confirmButtonColor: '#003A91',
-                    confirmButtonText: 'OK'
-                })
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Polda/hapusPolda/",
+                    type: "POST",
+                    data: {
+                        id_polda: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahPolda").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Polda/updatePolda',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahPolda").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
             }
         })
     })

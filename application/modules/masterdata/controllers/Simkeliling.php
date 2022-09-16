@@ -47,4 +47,6 @@ class Simkeliling extends MY_Controller
 		// die;
         echo json_encode($data);
     }
+
+	
 }

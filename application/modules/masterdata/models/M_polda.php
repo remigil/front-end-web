@@ -112,7 +112,7 @@ class M_polda extends CI_Model
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
             $row['name_polda']       = $field['name_polda'];
-            // $row['alamat']       = 'lorem ipsun dolor sit amet';
+            // $row['polda_address']       = 'lorem ipsun dolor sit amet';
             $row['action']         = '   
                 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">
@@ -121,7 +121,7 @@ class M_polda extends CI_Model
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
 					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="detail(`' . $field['id'] . '`)">
+				<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="hapus(`' . $field['id'] . '`)">
 					<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 				</button>
             ';

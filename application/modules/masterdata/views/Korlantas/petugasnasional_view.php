@@ -42,21 +42,21 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
+                            <input type="file" name="photo" id="" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
+							<div class="material-textfield">
+								<input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
+								<label for="" class="labelmui">NRP</label>
+							</div>
                             <div class="material-textfield">
                                 <input type="text" name="namaPetugas" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
                             </div>
 
-                            <div class="material-textfield">
-                                <input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
-                                <label for="" class="labelmui">NRP</label>
-                            </div>
                             <!-- <div class="row mb-4">
                                 <div class="material-textfield">
                                     <input type="hidden" name="" id="">
@@ -84,16 +84,24 @@
                                 <label for="" class="labelmui">Tanggal Lahir</label>
                             </div> -->
                             <div class="material-textfield">
-                                <input type="text" name="noHP" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="noHP" id="noHP" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">No. Handphone</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="pangkat" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="pangkat" id="pangkat" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
+                            </div>
+                            <div class="material-textfield">
+                                <input type="text" name="pamPetugas" id="pamPetugas" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">PAM Petugas</label>
+                            </div>
+                            <div class="material-textfield">
+                                <input type="text" name="struktural" id="struktural" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">Struktural</label>
                             </div>
                             <div class="row mb-3">
                                 <div class="material-textfield">
-                                    <input type="hidden" name="status" id="">
+                                    <input type="hidden" name="status" id="status">
                                     <label for="" class="labelmui">Status</label>
                                 </div>
                                 <div class="col-md-3">
@@ -134,21 +142,22 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
-                    <div class="row">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_petugas" type="text">
+				<div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
+                            <input type="file" name="photo" id="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
+							<div class="material-textfield">
+								<input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
+								<label for="" class="labelmui">NRP</label>
+							</div>
                             <div class="material-textfield">
-                                <input type="text" name="namaPetugas" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="namaPetugas" id="namaPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
                             </div>
 
-                            <div class="material-textfield">
-                                <input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
-                                <label for="" class="labelmui">NRP</label>
-                            </div>
                             <!-- <div class="row mb-4">
                                 <div class="material-textfield">
                                     <input type="hidden" name="" id="">
@@ -176,16 +185,24 @@
                                 <label for="" class="labelmui">Tanggal Lahir</label>
                             </div> -->
                             <div class="material-textfield">
-                                <input type="text" name="noHP" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="noHP" id="noHP" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">No. Handphone</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="pangkat" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="pangkat" id="pangkat" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
+                            </div>
+							<div class="material-textfield">
+                                <input type="text" name="pamPetugas" id="pamPetugas" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">PAM Petugas</label>
+                            </div>
+                            <div class="material-textfield">
+                                <input type="text" name="struktural" id="struktural" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">Struktural</label>
                             </div>
                             <div class="row mb-3">
                                 <div class="material-textfield">
-                                    <input type="hidden" name="status" id="">
+                                    <input type="hidden" name="status" id="status">
                                     <label for="" class="labelmui">Status</label>
                                 </div>
                                 <div class="col-md-3">
@@ -228,40 +245,83 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="row">
+				<div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
+                            <input type="file" name="photo" id="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
+							<div class="material-textfield">
+								<input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
+								<label for="" class="labelmui">NRP</label>
+							</div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="namaPetugas" id="namaPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
                             </div>
 
-                            <div class="material-textfield">
-                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
-                                <label for="" class="labelmui">NRP</label>
-                            </div>
-                            <div class="material-textfield">
-                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
-                                <label for="" class="labelmui">Jenis Kelamin</label>
-                            </div>
-                            <div class="material-textfield">
+                            <!-- <div class="row mb-4">
+                                <div class="material-textfield">
+                                    <input type="hidden" name="" id="">
+                                    <label for="" class="labelmui">Jenis Kelamin</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                        <input class="form-check-input" type="radio" name="jk" id="laki-laki" checked>
+                                        <label class="form-check-label" for="laki-laki">
+                                            Laki - laki
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                        <input class="form-check-input" type="radio" name="jk" id="perempuan">
+                                        <label class="form-check-label" for="perempuan">
+                                            Perempuan
+                                        </label>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="material-textfield">
                                 <input type="date" name="" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Tanggal Lahir</label>
-                            </div>
+                            </div> -->
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="noHP" id="noHP" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">No. Handphone</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="pangkat" id="pangkat" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
-
+							<div class="material-textfield">
+                                <input type="text" name="pamPetugas" id="pamPetugas" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">PAM Petugas</label>
+                            </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
-                                <label for="" class="labelmui">Jenis Kelamin</label>
+                                <input type="text" name="struktural" id="struktural" style="width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">Struktural</label>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="material-textfield">
+                                    <input type="hidden" name="status" id="status">
+                                    <label for="" class="labelmui">Status</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
+                                        <label class="form-check-label" for="active">
+                                            ACTIVE
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
+                                        <label class="form-check-label" for="inactive">
+                                            INACTIVE
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -520,14 +580,14 @@
                     data: 'name_officer'
                 },
                 {
-                    data: 'status_officer'
-                },
-                {
-                    data: 'phone_officer'
+					data: 'phone_officer'
                 },
 				{
-                    data: 'rank_officer'
+					data: 'rank_officer'
                 },
+				{
+					data: 'status_officer'
+				},
 				{
                     data: 'action',
                     orderable: false
@@ -584,7 +644,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Petugasnasional/detailPetugas/',
+            url: '<?= base_url() ?>masterdata/Petugasnasional/detailPetugas/',
             type: 'POST',
             data: {
                 id_petugas: id
@@ -592,17 +652,22 @@
             dataType: 'JSON',
             success: function(results) {
                 $('.DetailPetugasnasional,input').attr('readonly', true)
-                $('.DetailPetugasnasional,input,#category').attr('disabled', true)
-                $('.DetailPetugasnasional,#title').val(results.title)
-                $('.DetailPetugasnasional,#category').val(results.news_category)
-                $('.DetailPetugasnasional,#content').val(results.content)
+                // $('.DetailPetugasnasional,input,#category').attr('disabled', true)
+                $('.DetailPetugasnasional,#nrpPetugas').val(results.nrp_officer)
+                $('.DetailPetugasnasional,#namaPetugas').val(results.name_officer)
+                $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
+                $('.DetailPetugasnasional,#pangkat').val(results.rank_officer)
+                $('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
+                $('.DetailPetugasnasional,#struktural').val(results.structural_officer)
+                $('.DetailPetugasnasional,#status').val(results.status_officer)
+                
             }
         })
     }
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Petugasnasional/detailPetugas/',
+            url: '<?= base_url() ?>masterdata/Petugasnasional/detailPetugas/',
             type: 'POST',
             data: {
                 id_petugas: id
@@ -610,11 +675,15 @@
             dataType: 'JSON',
             success: function(results) {
                 $('.UbahPetugasnasional,input').attr('readonly', false)
-                $('.UbahPetugasnasional,input,#category').attr('disabled', false)
+                // $('.UbahPetugasnasional,input,#category').attr('disabled', false)
                 $('#id_petugas').val(results.id)
-                $('.UbahPetugasnasional,#title').val(results.title)
-                $('.UbahPetugasnasional,#category').val(results.news_category)
-                $('.UbahPetugasnasional,#content').val(results.content)
+                $('.DetailPetugasnasional,#nrpPetugas').val(results.nrp_officer)
+                $('.DetailPetugasnasional,#namaPetugas').val(results.name_petugas)
+                $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
+                $('.DetailPetugasnasional,#pangkat').val(results.rank_officer)
+				$('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
+                $('.DetailPetugasnasional,#struktural').val(results.structural_officer)
+                $('.DetailPetugasnasional,#status').val(results.status_officer)
             }
         })
     }
@@ -631,7 +700,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Petugasnasional/hapusPetugas/",
+                    url: "<?php echo base_url(); ?>masterdata/Petugasnasional/hapusPetugas/",
                     type: "POST",
                     data: {
                         id_petugas: id
@@ -665,7 +734,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Petugasnasional/updatepetugas',
+            url: '<?= base_url() ?>masterdata/Petugasnasional/updatepetugas',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

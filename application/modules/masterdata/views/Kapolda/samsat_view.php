@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Tambah Samsat</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahSamsat">Tambah Samsat</button>
     <div class="card">
 
         <div class="card-body">
@@ -23,103 +23,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Samsat 01</td>
-                        <td>KM 01 Jagorawi</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="Samsat 01" data-alamat="KM 01 Jagorawi" data-jb="07:00" data-jt="21:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="Samsat 01" data-alamat="KM 01 Jagorawi" data-jb="07:00" data-jt="21:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Samsat 02</td>
-                        <td>Jl. Raya Bogor</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="Samsat 02" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="22:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="Samsat 02" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="22:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Samsat 03</td>
-                        <td>Jl. Sholeh Iskandar</td>
-                        <td>05.00 - 20.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="Samsat 03" data-alamat="Jl. Sholeh Iskandar" data-jb="05:00" data-jt="20:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="Samsat 03" data-alamat="Jl. Sholeh Iskandar" data-jb="05:00" data-jt="20:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Samsat 04</td>
-                        <td>Jl. Raya Bogor</td>
-                        <td>05.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="Samsat 04" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="21:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="Samsat 04" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="21:00">
-                                    <h3 style=" color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Samsat 05</td>
-                        <td>Jl. Raya Bogor Cibinong</td>
-                        <td>05.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="Samsat 05" data-alamat="Jl. Raya Bogor Cibinong" data-jb="05:00" data-jt="21:00">
-                                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="Samsat 05" data-alamat="Jl. Raya Bogor Cibinong" data-jb="05:00" data-jt="21:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -129,7 +33,7 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahSamsat" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -139,27 +43,91 @@
             <div class="modal-body">
                 <div class="row m-3">
                     <div class="col-md-12">
-                        <form action="">
+					<form action="" class="form" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
+                                <input type="text" class="form-control" name="namaSamsat" id="namaSamsat" placeholder="isi nama samsat">
                                 <label for="nama_akun">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" name="alamatSamsat" id="alamatSamsat floatingTextarea"></textarea>
+                                <label for="">Alamat</label>
                             </div>
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="latitude" id="latitude" placeholder="">
+                                	<label for="">Latitude</label>
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="longitude" id="longitude" placeholder="">
+                                	<label for="">Longitude</label>
+								</div>
+							</div>
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Buka</label>
+                                        <input type="time" class="form-control" name="jamBuka" id="jamBuka" placeholder="isi jam buka">
+                                        <label for="">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Tutup</label>
+                                        <input type="time" class="form-control" name="jamTutup" id="jamTutup" placeholder="isi jam tutup">
+                                        <label for="">Jam Tutup</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal update/edit -->
+<div class="modal fade UbahSamsat" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Samsat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row m-3">
+                    <div class="col-md-12">
+					<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="" id="id_polda" type="text">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="namaSamsat" id="namaSamsat" placeholder="isi nama samsat">
+                                <label for="nama_akun">Nama Samsat</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" name="alamatSamsat" id="alamatSamsat floatingTextarea"></textarea>
+                                <label for="">Alamat</label>
+                            </div>
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="latitude" id="latitude" placeholder="">
+                                	<label for="">Latitude</label>
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="longitude" id="longitude" placeholder="">
+                                	<label for="">Longitude</label>
+								</div>
+							</div>
+                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" name="jamBuka" id="jamBuka" placeholder="isi jam buka">
+                                        <label for="">Jam Buka</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" name="jamTutup" id="jamTutup" placeholder="isi jam tutup">
+                                        <label for="">Jam Tutup</label>
                                     </div>
                                 </div>
                             </div>
@@ -172,41 +140,52 @@
 </div>
 
 <!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal DetailSamsat" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Akun</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Samsat</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row m-3">
                     <div class="col-md-12">
-                        <form action="">
+					<form action="" class="form">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_samsat" placeholder="isi nama samsat" name="nama_samsat">
+                                <input type="text" class="form-control" name="namaSamsat" id="namaSamsat" placeholder="isi nama samsat">
                                 <label for="nama_akun">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" name="nama_alamat" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" name="alamatSamsat" id="alamatSamsat floatingTextarea"></textarea>
+                                <label for="">Alamat</label>
                             </div>
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="latitude" id="latitude" placeholder="">
+                                	<label for="">Latitude</label>
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="longitude" id="longitude" placeholder="">
+                                	<label for="">Longitude</label>
+								</div>
+							</div>
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" name="jb" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Buka</label>
+                                        <input type="time" class="form-control" name="jamBuka" id="jamBuka" placeholder="isi jam buka">
+                                        <label for="">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" name="jt" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Tutup</label>
+                                        <input type="time" class="form-control" name="jamTutup" id="jamTutup" placeholder="isi jam tutup">
+                                        <label for="">Jam Tutup</label>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -220,13 +199,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable({
-            pageLength: 5,
-            lengthMenu: [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Semua']
-            ]
-        });
+        
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -372,46 +345,269 @@
 
     });
 
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail Samsat')
-        $('[name="nama_samsat"]').val($(this).data('samsat'))
-        $('[name="nama_alamat"]').val($(this).data('alamat'))
-        $('[name="jb"]').val($(this).data('jb'))
-        $('[name="jt"]').val($(this).data('jt'))
-        $('#submit_edit').hide()
-    })
+    $(document).ready(function() {
+        $('.dropify').dropify();
 
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
+        userDataTable = $('#datatable').DataTable({
 
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Samsat/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'name_samsat'
+                },
+				{
+                    data: 'address'
+                },
+				{
+                    data: 'operation_hour'
+                },
+                
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Samsat/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahSamsat").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/detailSamsat/',
+            type: 'POST',
+            data: {
+                id_samsat: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailSamsat,input').attr('readonly', true)
+                // $('.DetailSamsat,input,#category').attr('disabled', true)
+                $('.DetailSamsat,#namaSamsat').val(results.name_samsat)
+                $('.DetailSamsat,#alamatSamsat').val(results.address)
+                $('.DetailSamsat,#latitude').val(results.samsat_lat)
+                $('.DetailSamsat,#longitude').val(results.samsat_lng)
+                $('.DetailSamsat,#jamBuka').val(results.samsat_open_time)
+                $('.DetailSamsat,#jamTutup').val(results.samsat_close_time)
+                
             }
         })
     }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/detailSamsat/',
+            type: 'POST',
+            data: {
+                id_samsat: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahSamsat,input').attr('readonly', false)
+                // $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('#id_samsat').val(results.id)
+                $('.UbahSamsat,#namaSamsat').val(results.name_samsat)
+                $('.UbahSamsat,#alamatSamsat').val(results.address)
+                $('.UbahSamsat,#latitude').val(results.samsat_lat)
+                $('.UbahSamsat,#longitude').val(results.samsat_lng)
+                $('.UbahSamsat,#jamBuka').val(results.samsat_open_time)
+                $('.UbahSamsat,#jamTutup').val(results.samsat_close_time)
+            }
+        })
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Samsat/hapusSamsat/",
+                    type: "POST",
+                    data: {
+                        id_samsat: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahSamsat").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/updateSamsat',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahSamsat").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
 </script>

@@ -45,4 +45,176 @@ class Polres extends MY_Controller
         $data = $this->M_polres->get_datatables($postData);
         echo json_encode($data);
     }
+
+	public function store() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        
+            $dummy = [
+                [
+					'name' => 'polda_id',
+					'contents' => $input['namaPolda'],
+				],
+				[
+					'name' => 'name_polres',
+					'contents' => $input['namaPolres'],
+				],
+				[
+					'name' => 'code_satpas',
+					'contents' => $input['kodeSatpas'],
+				],
+				[
+					'name' => 'address',
+					'contents' => $input['alamatPolres'],
+				],
+				[
+					'name' => 'latitude',
+					'contents' => $input['latitude'],
+				],
+				[
+					'name' => 'longitude',
+					'contents' => $input['longitude'],
+				],
+				
+                
+            ]; 
+
+			$data = guzzle_request('POST', 'polres/add', [ 
+				'multipart' => $dummy, 
+				'headers' => $headers 
+			]);
+	
+			if($data['isSuccess'] == true){  
+				$res = array(
+					'status' => true,
+					'message' => 'Berhasil tambah data.',
+					'data' => $data
+				);
+			}else{
+				$res = array(
+					'status' => false,
+					'message' => 'Gagal tambah data.',
+					'data' => $data
+				);
+			}
+			
+			echo json_encode($res);
+
+    }
+	public function detailPolres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_polres');
+
+        $getDetail = guzzle_request('GET', 'polres/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data']['data'];
+
+        echo json_encode($data['getDetail']);
+    }
+
+	public function hapusPolres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $id = $this->input->post('id_polres');
+
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $id,
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'polres/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+
+        if ($data['isSuccess'] == true) {
+            $results = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $results = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($results);
+    }
+
+    public function updatePolres()
+    {
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        
+		$dummy = [
+			[
+				'name' => 'polda_id',
+				'contents' => $input['namaPolda'],
+			],
+			[
+				'name' => 'name_polres',
+				'contents' => $input['namaPolres'],
+			],
+			[
+				'name' => 'code_satpas',
+				'contents' => $input['kodeSatpas'],
+			],
+			[
+				'name' => 'address',
+				'contents' => $input['alamatPolres'],
+			],
+			[
+				'name' => 'latitude',
+				'contents' => $input['latitude'],
+			],
+			[
+				'name' => 'longitude',
+				'contents' => $input['longitude'],
+			],
+
+			
+			
+		]; 
+        $data = guzzle_request('PUT', 'polres/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+        // echo json_encode($data);
+        // die;
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
+
 }
