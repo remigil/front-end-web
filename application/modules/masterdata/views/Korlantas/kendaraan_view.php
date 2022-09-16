@@ -22,45 +22,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1783-07</td>
-                        <td>MOBIL</td>
-                        <td>Mitshubishi Lancer</td>
-                        <td>POLRES</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailKendaraan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahKendaraan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusKendaraan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1785-01</td>
-                        <td>SEPEDA MOTOR</td>
-                        <td>Honda Goldwing</td>
-                        <td>POLDdA</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailKendaraan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahKendaraan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusKendaraan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-
-                </tbody>
+                
             </table>
 
         </div>
@@ -81,32 +43,32 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="material-textfield">
                                 <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Tahun Kendaraan</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
-                                <label for="" class="labelmui">Merk</label>
+                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -133,32 +95,32 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="material-textfield">
                                 <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Tahun Kendaraan</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
-                                <label for="" class="labelmui">Merk</label>
+                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <label for="" class="labelmui">Kepemlikian</label>
                             </div>
                         </div>
                     </div>
@@ -186,32 +148,32 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="material-textfield">
                                 <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Tahun Kendaraan</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
-                                <label for="" class="labelmui">Merk</label>
+                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -232,7 +194,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -379,7 +341,194 @@
     });
 
 
-    $("#HapusKendaraan").click(function() {
+    $(document).ready(function() {
+        $('.dropify').dropify();
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Kendaraannasional/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'no_vehicle'
+                },
+                {
+                    data: 'type_vehicle'
+                },
+                {
+                    data: 'brand_vehicle'
+                },
+                {	
+                    data: 'ownership_vehicle'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahKendaraan").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_kendaraan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailKendaraan,input').attr('readonly', true)
+                $('.DetailKendaraan,input,#category').attr('disabled', true)
+                $('.DetailKendaraan,#title').val(results.title)
+                $('.DetailKendaraan,#category').val(results.news_category)
+                $('.DetailKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_peraturan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahKendaraan,input').attr('readonly', false)
+                $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('#id_kendaraan').val(results.id)
+                $('.UbahKendaraan,#title').val(results.title)
+                $('.UbahKendaraan,#category').val(results.news_category)
+                $('.UbahKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
         Swal.fire({
             title: 'Apakah anda ingin menghapus data ini?',
             icon: 'question',
@@ -387,16 +536,68 @@
             confirmButtonColor: '#C61318',
             cancelButtonColor: '#003A91',
             cancelButtonText: 'Batal',
-            confirmButtonText: 'Hapus'
+            confirmButtonText: 'Hapus',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: "Data berhasil dihapus",
-                    icon: 'success',
-                    confirmButtonColor: '#003A91',
-                    confirmButtonText: 'OK'
-                })
+                $.ajax({
+                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    type: "POST",
+                    data: {
+                        id_peraturan: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahKendaraan").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahKendaraan").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
             }
         })
     })

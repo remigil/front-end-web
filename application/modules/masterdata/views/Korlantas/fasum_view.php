@@ -20,118 +20,12 @@
                         <th>Nama Fasum</th>
                         <th>Jenis Fasum</th>
                         <th>Alamat</th>
-                        <th>Kontaks</th>
+                        <th>Kontak</th>
                         <th>Jam Operasional</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>SPBU 1</td>
-                        <td>SPBU</td>
-                        <td>KM 01 Jagorawi</td>
-                        <td>0895701900000</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bogor 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV1" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bogor 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV1" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Terminal Bogor</td>
-                        <td>Terminal</td>
-                        <td>Jl Raya Bogor</td>
-                        <td>0813401900500</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bogor 2" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV2" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bogor 2" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV2" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>RS. Islam Bogor</td>
-                        <td>Rumah Sakit</td>
-                        <td>Jl. Raya Sholeh Iskandar</td>
-                        <td>0895701900000</td>
-                        <td>08.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>RM. Salero</td>
-                        <td>Restoran</td>
-                        <td>Jl. Raya Bogor </td>
-                        <td>0813401900500</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Rest Area 01</td>
-                        <td>Rest Area</td>
-                        <td>Km. 50 Jagorawi</td>
-                        <td>0895701900000</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -262,13 +156,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable({
-            pageLength: 5,
-            lengthMenu: [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Semua']
-            ]
-        });
+        
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -459,4 +347,269 @@
             }
         })
     }
+
+	$(document).ready(function() {
+        $('.dropify').dropify();
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Fasilitasumum/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'fasum_name'
+                },
+                {
+                    data: 'fasum_type'
+                },
+				{
+                    data: 'fasum_address'
+                },
+				{
+                    data: 'fasum_phone'
+                },
+				{
+                    data: 'jam_operasional'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahKendaraan").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_kendaraan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailKendaraan,input').attr('readonly', true)
+                $('.DetailKendaraan,input,#category').attr('disabled', true)
+                $('.DetailKendaraan,#title').val(results.title)
+                $('.DetailKendaraan,#category').val(results.news_category)
+                $('.DetailKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_peraturan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahKendaraan,input').attr('readonly', false)
+                $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('#id_kendaraan').val(results.id)
+                $('.UbahKendaraan,#title').val(results.title)
+                $('.UbahKendaraan,#category').val(results.news_category)
+                $('.UbahKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    type: "POST",
+                    data: {
+                        id_peraturan: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahKendaraan").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahKendaraan").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
+        
 </script>

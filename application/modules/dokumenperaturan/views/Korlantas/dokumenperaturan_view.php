@@ -23,93 +23,6 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td width="5%">1</td>
-                        <td>Undang - undang</td>
-                        <td width="40%">UNDANG-UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945</td>
-                        <td>1945</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailDokumenPeraturan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahDokumenPeraturan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusDokumenPeraturan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="5%">2</td>
-                        <td>Undang - undang</td>
-                        <td width="40%">UU NOMOR 2 TAHUN 2002 TTG KEPOLISIAN NEGARA REPUBLIK INDONESIA</td>
-                        <td>2002</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailDokumenPeraturan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahDokumenPeraturan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusDokumenPeraturan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="5%">3</td>
-                        <td>Peraturan Pemerintah</td>
-                        <td width="40%">PERATURAN PEMERINTAH NOMOR 55 TAHUN 2012 TENTANG KENDARAAN</td>
-                        <td>2012</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailDokumenPeraturan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahDokumenPeraturan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusDokumenPeraturan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="5%">4</td>
-                        <td>Peraturan Kapolri</td>
-                        <td width="40%">PERATURAN KAPOLRI NOMOR 1 TAHUN 2019 TENTANG SISTEM MANAJEMEN DAN STANDAR KEBERHASILAN OPERASIONAL POLRI</td>
-                        <td>2019</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailDokumenPeraturan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahDokumenPeraturan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusDokumenPeraturan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="5%">5</td>
-                        <td>Peraturan Kakorlantas Polri</td>
-                        <td width="40%">KEPUTUSAN KAKORLANTAS NOMOR KEP-166-VIII-2019 TENTANG NRKB PILIHAN</td>
-                        <td>2019</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailDokumenPeraturan">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahDokumenPeraturan">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusDokumenPeraturan">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
 
         </div>
@@ -127,20 +40,31 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Dokumen Peraturan</label>
+				<div class="material-selectfield mb-3">
+                        <select name="kategoriPeraturan" id="form-select">
+                            <!-- <select name="" id=""  multiple required> -->
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Undang-undang</option>
+                            <option value="2">Peraturan Pemerintah</option>
+                            <option value="3">Peraturan Presiden</option>
+                            <option value="4">Peraturan Kepolisian</option>
+                            <option value="5">Peraturan Kapolri</option>
+                            <option value="6">Peraturan Kakorlantas POLRI</option>
+                            <option value="7">Peraturan Lain-lain</option>
+
+                        </select>
+                        <label class="labelmui">Kategori Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="judulPeraturan" id="" style="width:100% ;">
                         <label for="" class="labelmui">Nama Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100% ;" class="form-control">
+                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">File Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="tahunPeraturan" id="" style="width:100% ;">
                         <label for="" class="labelmui">Tahun</label>
                     </div>
                     <div class="col-md-12">
@@ -161,20 +85,31 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Dokumen Peraturan</label>
+				<div class="material-selectfield mb-3">
+                        <select name="kategoriPeraturan" id="form-select">
+                            <!-- <select name="" id=""  multiple required> -->
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Undang-undang</option>
+                            <option value="2">Peraturan Pemerintah</option>
+                            <option value="3">Peraturan Presiden</option>
+                            <option value="4">Peraturan Kepolisian</option>
+                            <option value="5">Peraturan Kapolri</option>
+                            <option value="6">Peraturan Kakorlantas POLRI</option>
+                            <option value="7">Peraturan Lain-lain</option>
+
+                        </select>
+                        <label class="labelmui">Kategori Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="judulPeraturan" id="" style="width:100% ;">
                         <label for="" class="labelmui">Nama Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100% ;" class="form-control">
+                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">File Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="tahunPeraturan" id="" style="width:100% ;">
                         <label for="" class="labelmui">Tahun</label>
                     </div>
                     <div class="col-md-12">
@@ -205,7 +140,7 @@
                         <label for="" class="labelmui">Nama Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100% ;" class="form-control">
+                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">File Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
@@ -241,11 +176,191 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>dokumenperaturan/DokumenPeraturan/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'regulation_category'
+                },
+                {
+                    data: 'regulation_name'
+                },
+                {
+                    data: 'file'
+                },
+                {
+                    data: 'year'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>dokumenperaturan/DokumenPeraturan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahDokumenPeraturan").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
     });
 
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan/',
+            type: 'POST',
+            data: {
+                id_peraturan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailDokumenPeraturan,input').attr('readonly', true)
+                $('.DetailDokumenPeraturan,input,#category').attr('disabled', true)
+                $('.DetailDokumenPeraturan,#title').val(results.title)
+                $('.DetailDokumenPeraturan,#category').val(results.news_category)
+                $('.DetailDokumenPeraturan,#content').val(results.content)
+            }
+        })
+    }
 
-    $("#HapusDokumenPeraturan").click(function() {
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan/',
+            type: 'POST',
+            data: {
+                id_peraturan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahDokumenPeraturan,input').attr('readonly', false)
+                $('.UbahDokumenPeraturan,input,#category').attr('disabled', false)
+                $('#id_peraturan').val(results.id)
+                $('.UbahDokumenPeraturan,#title').val(results.title)
+                $('.UbahDokumenPeraturan,#category').val(results.news_category)
+                $('.UbahDokumenPeraturan,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
         Swal.fire({
             title: 'Apakah anda ingin menghapus data ini?',
             icon: 'question',
@@ -253,16 +368,68 @@
             confirmButtonColor: '#C61318',
             cancelButtonColor: '#003A91',
             cancelButtonText: 'Batal',
-            confirmButtonText: 'Hapus'
+            confirmButtonText: 'Hapus',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: "Data berhasil dihapus",
-                    icon: 'success',
-                    confirmButtonColor: '#003A91',
-                    confirmButtonText: 'OK'
-                })
+                $.ajax({
+                    url: "<?php echo base_url(); ?>DokumenPeraturan/hapusPeraturan/",
+                    type: "POST",
+                    data: {
+                        id_peraturan: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahDokumenPeraturan").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>DokumenPeraturan/updatePeraturan',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahDokumenPeraturan").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
             }
         })
     })

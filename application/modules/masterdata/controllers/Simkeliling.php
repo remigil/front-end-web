@@ -8,14 +8,15 @@ class Simkeliling extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+		$this->load->model("m_simkel");
     }
 
     public function index()
     {
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token'],    
-        // ];
+        $headers = [
+            'Token' => $this->session->userdata['token'],    
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -36,5 +37,14 @@ class Simkeliling extends MY_Controller
 
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
+    }
+	
+	public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_simkel->get_datatables($postData);
+		// var_dump($data);
+		// die;
+        echo json_encode($data);
     }
 }

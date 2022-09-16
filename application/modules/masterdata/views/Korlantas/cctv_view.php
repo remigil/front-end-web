@@ -125,6 +125,72 @@
     </div>
 </div>
 
+<div class="modal fade UbahCCTV" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit CCTV</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="" id="id_cctv" type="text">
+				<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="type_cctv" placeholder="Type CCTV">
+                                <label for="type_cctv">Type CCTV</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="ip_cctv" placeholder="Alamat Ip">
+                                <label for="ip_cctv">Alamat IP</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="username" placeholder="isi nama samsat">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="link_cctv" placeholder="isi nama samsat">
+                                <label for="link_cctv">Link CCTV</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="gateway_cctv" placeholder="isi nama samsat">
+                                <label for="gateway_cctv">Gateway CCTV</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="password" placeholder="isi nama samsat">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input name="address" class="form-control" placeholder="Alamat" type="text" required>
+                                <label for="address">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="form-floating mb-3">
+                            <input style="width: 100%;" name="cordinate" class="form-control" type="text">
+                                <label for="cordinate">Coordinate</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div id="mapG20Dashboard" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+                    </div>
+
+					<button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- Detail Modals -->
 <div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -180,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+                    <button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -520,4 +586,55 @@
             }
         })
     }
+
+	function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Cctv/detailBerita/',
+            type: 'POST',
+            data: {
+                id_berita: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahCCTV,input').attr('readonly', false)
+                $('.UbahCCTV,input,#category').attr('disabled', false)
+                $('#id_berita').val(results.id)
+                $('.UbahCCTV,#title').val(results.title)
+                $('.UbahCCTV,#category').val(results.news_category)
+                $('.UbahCCTV,#content').val(results.content)
+            }
+        })
+    }
+
+	$('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>Cctv/updateCCTV',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahCCTV").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
 </script>

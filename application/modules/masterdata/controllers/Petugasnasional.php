@@ -8,14 +8,15 @@ class Petugasnasional extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+		$this->load->model('masterdata/m_petugasnasional');
     }
 
     public function index()
     {
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token'],    
-        // ];
+        $headers = [
+            'Token' => $this->session->userdata['token'],    
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -36,5 +37,238 @@ class Petugasnasional extends MY_Controller
 
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
+    }
+	public function serverSideTable() 
+    {  
+        $postData = $this->input->post();   
+        $data = $this->m_petugasnasional->get_datatables($postData);  
+		// var_dump($data);
+		// die;
+		echo json_encode($data); 
+    }
+
+	public function store() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
+            $dummy = [
+				[
+					'name' => 'photo_officer',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				], 
+                [
+                    'name' => 'name_officer',
+                    'contents' => $input['namaPetugas'],
+                ],
+                [
+                    'name' => 'nrp_officer',
+                    'contents' => $input['nrpPetugas'],
+                ],
+                [
+                    'name' => 'phone_officer',
+                    'contents' => $input['noHP'],
+                ],
+                [
+                    'name' => 'rank_officer',
+                    'contents' => $input['pangkat'],
+                ],
+                [
+                    'name' => 'status_officer',
+                    'contents' => $input['status'],
+                ],
+                
+            ];
+        } else {
+            $dummy = [
+                [
+                    'name' => 'name_officer',
+                    'contents' => $input['namaPetugas'],
+                ],
+                [
+                    'name' => 'nrp_officer',
+                    'contents' => $input['nrpPetugas'],
+                ],
+                [
+                    'name' => 'phone_officer',
+                    'contents' => $input['noHP'],
+                ],
+                [
+                    'name' => 'rank_officer',
+                    'contents' => $input['pangkat'],
+                ],
+                [
+                    'name' => 'status_officer',
+                    'contents' => $input['status'],
+                ],
+
+            ];
+        }
+
+        $data = guzzle_request('POST', 'officer/add', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+
+    }
+	public function detailPetugas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_petugas');
+
+        $getDetail = guzzle_request('GET', 'officer/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data']['data'];
+
+        echo json_encode($data['getDetail']);
+    }
+
+	public function hapusPetugas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $id = $this->input->post('id_petugas');
+
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $id,
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'officer/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+
+        if ($data['isSuccess'] == true) {
+            $results = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $results = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($results);
+    }
+
+    public function updatePetugas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
+            $dummy = [
+				[
+					'name' => 'photo_officer',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				], 
+                [
+                    'name' => 'name_officer',
+                    'contents' => $input['namaPetugas'],
+                ],
+                [
+                    'name' => 'nrp_officer',
+                    'contents' => $input['nrpPetugas'],
+                ],
+                [
+                    'name' => 'phone_officer',
+                    'contents' => $input['noHP'],
+                ],
+                [
+                    'name' => 'rank_officer',
+                    'contents' => $input['pangkat'],
+                ],
+                [
+                    'name' => 'status_officer',
+                    'contents' => $input['status'],
+                ],
+                
+            ];
+        } else {
+            $dummy = [
+                [
+                    'name' => 'name_officer',
+                    'contents' => $input['namaPetugas'],
+                ],
+                [
+                    'name' => 'nrp_officer',
+                    'contents' => $input['nrpPetugas'],
+                ],
+                [
+                    'name' => 'phone_officer',
+                    'contents' => $input['noHP'],
+                ],
+                [
+                    'name' => 'rank_officer',
+                    'contents' => $input['pangkat'],
+                ],
+                [
+                    'name' => 'status_officer',
+                    'contents' => $input['status'],
+                ],
+
+            ];
+        }
+        $data = guzzle_request('PUT', 'officer/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+        // echo json_encode($data);
+        // die;
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 }

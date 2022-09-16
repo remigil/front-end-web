@@ -8,7 +8,7 @@ class Cctv extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('masterdata/m_cctv'); 
+        $this->load->model('m_cctv'); 
     }
 
     public function index()
@@ -195,5 +195,109 @@ class Cctv extends MY_Controller
         
         echo json_encode($res);
 
+    }
+
+	public function detailCCTV()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_cctv');
+
+        $getDetail = guzzle_request('GET', 'cctv/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data']['data'];
+
+        echo json_encode($data['getDetail']);
+    }
+
+	public function updateCCTV()
+    {
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+
+
+        $latlng = explode(",",$input['cordinate']); 
+        $dummy = [
+            [
+                'name' => 'jenis_cctv',
+                'contents' => $input['type_cctv'],
+            ],
+            [
+                'name' => 'merek_cctv',
+                'contents' => $input['type_cctv'],
+            ],
+            [
+                'name' => 'type_cctv',
+                'contents' => $input['type_cctv'],
+            ],
+            [
+                'name' => 'ip_cctv',
+                'contents' => $input['ip_cctv'],
+            ],
+            [
+                'name' => 'link_cctv',
+                'contents' => $input['link_cctv'],
+            ],
+            [
+                'name' => 'gateway_cctv',
+                'contents' => $input['gateway_cctv'],
+            ],
+            [
+                'name' => 'address_cctv',
+                'contents' => $input['address'],
+            ], 
+            [
+                'name' => 'vms_cctv',
+                'contents' => $input['address'],
+            ],
+            [
+                'name' => 'lat_cctv',
+                'contents' => $latlng[0],
+            ],
+            [
+                'name' => 'lng_cctv',
+                'contents' => $latlng[1],
+            ],
+            [
+                'name' => 'username_cctv',
+                'contents' => $input['username'],
+            ],
+            [
+                'name' => 'password_cctv',
+                'contents' => $input['password'],
+            ],
+            [
+                'name' => 'status_cctv',
+                'contents' => 1,
+            ]
+        ];
+
+        $data = guzzle_request('PUT', 'cctv/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+        // echo json_encode($data);
+        // die;
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 }

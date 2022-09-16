@@ -43,7 +43,7 @@ class Berita extends MY_Controller
         $data = $this->m_berita->get_datatables($postData);  
 		echo json_encode($data); 
     }
-
+ 
     public function store() 
     {  
         $headers = [ 

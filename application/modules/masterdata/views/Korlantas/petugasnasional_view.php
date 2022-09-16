@@ -25,65 +25,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>DN1234VS</td>
-                        <td>IKBAL</td>
-                        <td>ACTIVE</td>
-                        <td>089570190000</td>
-                        <td>Bripda</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>DN1234VZ</td>
-                        <td>FIKRI</td>
-                        <td>INACTIVE</td>
-                        <td>081370190000</td>
-                        <td>Bharaka</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>DN1234NU</td>
-                        <td>AJIS</td>
-                        <td>ACTIVE</td>
-                        <td>085670190002</td>
-                        <td>Briptu</td>
-                        <td>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".DetailPetugas">
-                                <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahPetugas">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusPetugas">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -107,15 +49,15 @@
                         </div>
                         <div class="col-md-9">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="namaPetugas" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
                             </div>
 
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
+                                <input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">NRP</label>
                             </div>
-                            <div class="row mb-4">
+                            <!-- <div class="row mb-4">
                                 <div class="material-textfield">
                                     <input type="hidden" name="" id="">
                                     <label for="" class="labelmui">Jenis Kelamin</label>
@@ -136,22 +78,22 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="material-textfield">
+                            </div> -->
+                            <!-- <div class="material-textfield">
                                 <input type="date" name="" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Tanggal Lahir</label>
-                            </div>
+                            </div> -->
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="noHP" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">No. Handphone</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="pangkat" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
                             <div class="row mb-3">
                                 <div class="material-textfield">
-                                    <input type="hidden" name="" id="">
+                                    <input type="hidden" name="status" id="">
                                     <label for="" class="labelmui">Status</label>
                                 </div>
                                 <div class="col-md-3">
@@ -199,15 +141,15 @@
                         </div>
                         <div class="col-md-9">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="namaPetugas" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
                             </div>
 
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style=" width:105%; margin-bottom:-2vh">
+                                <input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">NRP</label>
                             </div>
-                            <div class="row mb-4">
+                            <!-- <div class="row mb-4">
                                 <div class="material-textfield">
                                     <input type="hidden" name="" id="">
                                     <label for="" class="labelmui">Jenis Kelamin</label>
@@ -228,22 +170,22 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="material-textfield">
+                            </div> -->
+                            <!-- <div class="material-textfield">
                                 <input type="date" name="" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Tanggal Lahir</label>
-                            </div>
+                            </div> -->
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="noHP" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">No. Handphone</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105%; margin-bottom:-2vh">
+                                <input type="text" name="pangkat" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
                             <div class="row mb-3">
                                 <div class="material-textfield">
-                                    <input type="hidden" name="" id="">
+                                    <input type="hidden" name="status" id="">
                                     <label for="" class="labelmui">Status</label>
                                 </div>
                                 <div class="col-md-3">
@@ -340,7 +282,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -487,7 +429,197 @@
     });
 
 
-    $("#HapusPetugas").click(function() {
+    $(document).ready(function() {
+        $('.dropify').dropify();
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Petugasnasional/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'nrp_officer'
+                },
+                {
+                    data: 'name_officer'
+                },
+                {
+                    data: 'status_officer'
+                },
+                {
+                    data: 'phone_officer'
+                },
+				{
+                    data: 'rank_officer'
+                },
+				{
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Petugasnasional/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahPetugasnasional").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Petugasnasional/detailPetugas/',
+            type: 'POST',
+            data: {
+                id_petugas: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailPetugasnasional,input').attr('readonly', true)
+                $('.DetailPetugasnasional,input,#category').attr('disabled', true)
+                $('.DetailPetugasnasional,#title').val(results.title)
+                $('.DetailPetugasnasional,#category').val(results.news_category)
+                $('.DetailPetugasnasional,#content').val(results.content)
+            }
+        })
+    }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Petugasnasional/detailPetugas/',
+            type: 'POST',
+            data: {
+                id_petugas: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahPetugasnasional,input').attr('readonly', false)
+                $('.UbahPetugasnasional,input,#category').attr('disabled', false)
+                $('#id_petugas').val(results.id)
+                $('.UbahPetugasnasional,#title').val(results.title)
+                $('.UbahPetugasnasional,#category').val(results.news_category)
+                $('.UbahPetugasnasional,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
         Swal.fire({
             title: 'Apakah anda ingin menghapus data ini?',
             icon: 'question',
@@ -495,16 +627,68 @@
             confirmButtonColor: '#C61318',
             cancelButtonColor: '#003A91',
             cancelButtonText: 'Batal',
-            confirmButtonText: 'Hapus'
+            confirmButtonText: 'Hapus',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: "Data berhasil dihapus",
-                    icon: 'success',
-                    confirmButtonColor: '#003A91',
-                    confirmButtonText: 'OK'
-                })
+                $.ajax({
+                    url: "<?php echo base_url(); ?>Petugasnasional/hapusPetugas/",
+                    type: "POST",
+                    data: {
+                        id_petugas: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahPetugas").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>Petugasnasional/updatepetugas',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahPetugasnasional").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
             }
         })
     })

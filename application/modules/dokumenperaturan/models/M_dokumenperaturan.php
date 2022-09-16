@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_cctv extends CI_Model {
+class M_dokumenperaturan extends CI_Model {
 
 
     public function __construct(){
@@ -21,7 +21,7 @@ class M_cctv extends CI_Model {
         $draw = $postData['draw']; 
 
         $rowperpage = $postData['length']; // Rows display per page  
-
+		 
         $columnName = $postData['columns']; // Column name 
 
 		$page = $postData['page']; 
@@ -95,42 +95,56 @@ class M_cctv extends CI_Model {
         // } 
 
 
-        $url = 'cctv?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'doc?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+
 
         $result = guzzle_request('GET', $url, [
 
-            'headers' => [ 
+            'headers' => [
+
                 'Authorization' => $this->session->userdata['token'] 
+
             ]
 
         ]);   
-
+		
         $no=1;
-
+		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
+			
+			if ($field['regulation_category'] == 1) {
+				$category = "Undang-undang";
+			} else if($field['regulation_category'] == 2){
+				$category = "Peraturan Pemerintah";
+			}else if($field['regulation_category'] == 3){
+				$category = "Peraturan Presiden";
+			}else if($field['regulation_category'] == 4){
+				$category = "Peraturan Kepolisian";
+			}else if($field['regulation_category'] == 5){
+				$category = "Peraturan Kapolri";
+			}else if($field['regulation_category'] == 6){
+				$category = "Peraturan Kakorlantas POLRI";
+			}else if($field['regulation_category'] == 7){
+				$category = "Peraturan Lain-lain";
+			}
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['type_cctv']   	= $field['type_cctv'];
-            $row ['ip_cctv']   	= $field['ip_cctv'];  
-            $row ['address_cctv']	= $field['address_cctv'];  
-            $row ['lat_cctv']   	= $field['lat_cctv'];  
-            $row ['lng_cctv']   	= $field['lng_cctv']; 
-            if($field['status_cctv'] == 1){
-                $row ['status_cctv']   	= 'Active'; 
-            }else{
-                $row ['status_cctv']   	= 'Inactive'; 
-            } 
-            $row ['action']         = '   
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailCCTV">
-			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahCCTV">
-			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-		</button>
-		<button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
-				<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-			</button>
+            $row ['news_category']	= $category; 
+            $row ['title']			= $field['title'];  
+            $row ['year']   	= $field['year'];  
+            $row ['action']         = ' 
+                
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">
+                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+                </button>
+                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahBerita">
+                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+                </button>
+                <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
+                        <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+                    </button>
+
             '; 
 
             $data[] = $row;

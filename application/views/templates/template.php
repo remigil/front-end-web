@@ -244,9 +244,9 @@
 									<div class="mega-menu-section">
 										<ul>
 											<li class="mega-menu-headline">KORLANTAS</li>
-											<li><a href="<?= base_url()?>ditgakkum"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
-											<li><a href="<?= base_url()?>ditregident"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
-											<li><a href="<?= base_url()?>ditkamsel"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
+											<li><a href="<?= base_url()?>ditgakkum_front"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
+											<li><a href="<?= base_url()?>ditregident_front"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
+											<li><a href="<?= base_url()?>ditkamsel_front"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
 											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
 										</ul>
 									</div>

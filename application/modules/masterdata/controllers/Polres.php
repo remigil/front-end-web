@@ -14,9 +14,9 @@ class Polres extends MY_Controller
     public function index()
     {
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token'],    
-        // ];
+        $headers = [
+            'Token' => $this->session->userdata['token'],    
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';

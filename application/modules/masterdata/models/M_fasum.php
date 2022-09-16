@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_polres extends CI_Model
+class M_fasum extends CI_Model
 {
 
 
@@ -94,7 +94,7 @@ class M_polres extends CI_Model
         // } 
 
 
-        $url = 'polres?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'fasum?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
@@ -103,7 +103,10 @@ class M_polres extends CI_Model
             ]
 
         ]);
-
+// 		echo "<pre>";
+// 		var_dump($result);
+// 		echo "<pre>";
+// die;
 
         $no = 1;
 
@@ -111,12 +114,11 @@ class M_polres extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
-            $row['name_polres']     = $field['name_polres'];
-            $row['polda_id'] 			= $field['polda_id'];
-            $row['address']       	= $field['address'];
-            $row['code_satpas']       	= $field['code_satpas'];
-            $row['latitude']       	= $field['latitude'];
-            $row['longitude']       	= $field['longitude'];
+            $row['fasum_name']     = $field['fasum_name'];
+            $row['fasum_type'] 			= $field['fasum_type'];
+            $row['fasum_address']       	= $field['fasum_address'];
+            $row['fasum_phone']       	= $field['fasum_phone'];
+            $row['jam_operasional']       	= $field['fasum_open_time'] - $field['fasum_close_time'];
             $row['action']         = '   
                 
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">

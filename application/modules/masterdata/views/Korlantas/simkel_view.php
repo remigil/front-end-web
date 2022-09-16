@@ -23,103 +23,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>SIM Kel 01</td>
-                        <td>KM 01 Jagorawi</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="SIM Kel 01" data-alamat="KM 01 Jagorawi" data-jb="07:00" data-jt="21:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="SIM Kel 01" data-alamat="KM 01 Jagorawi" data-jb="07:00" data-jt="21:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SIM Kel 02</td>
-                        <td>Jl. Raya Bogor</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="SIM Kel 02" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="22:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="SIM Kel 02" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="22:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>SIM Kel 03</td>
-                        <td>Jl. Sholeh Iskandar</td>
-                        <td>05.00 - 20.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="SIM Kel 03" data-alamat="Jl. Sholeh Iskandar" data-jb="05:00" data-jt="20:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="SIM Kel 03" data-alamat="Jl. Sholeh Iskandar" data-jb="05:00" data-jt="20:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>SIM Kel 04</td>
-                        <td>Jl. Raya Bogor</td>
-                        <td>05.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="SIM Kel 04" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="21:00">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="SIM Kel 04" data-alamat="Jl. Raya Bogor" data-jb="05:00" data-jt="21:00">
-                                    <h3 style=" color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>SIM Kel 05</td>
-                        <td>Jl. Raya Bogor Cibinong</td>
-                        <td>05.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-samsat="SIM Kel 05" data-alamat="Jl. Raya Bogor Cibinong" data-jb="05:00" data-jt="21:00">
-                                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-samsat="SIM Kel 05" data-alamat="Jl. Raya Bogor Cibinong" data-jb="05:00" data-jt="21:00">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -220,13 +124,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable({
-            pageLength: 5,
-            lengthMenu: [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Semua']
-            ]
-        });
+        
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -372,46 +270,261 @@
 
     });
 
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail Samsat')
-        $('[name="nama_samsat"]').val($(this).data('samsat'))
-        $('[name="nama_alamat"]').val($(this).data('alamat'))
-        $('[name="jb"]').val($(this).data('jb'))
-        $('[name="jt"]').val($(this).data('jt'))
-        $('#submit_edit').hide()
-    })
+    $(document).ready(function() {
+        $('.dropify').dropify();
 
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
+        userDataTable = $('#datatable').DataTable({
 
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Simkeliling/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'simkel_name'
+                },
+                {
+                    data: 'simkel_address'
+                },
+				{
+                    data: 'jam_operasional'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahKendaraan").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_kendaraan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailKendaraan,input').attr('readonly', true)
+                $('.DetailKendaraan,input,#category').attr('disabled', true)
+                $('.DetailKendaraan,#title').val(results.title)
+                $('.DetailKendaraan,#category').val(results.news_category)
+                $('.DetailKendaraan,#content').val(results.content)
             }
         })
     }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            type: 'POST',
+            data: {
+                id_peraturan: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahKendaraan,input').attr('readonly', false)
+                $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('#id_kendaraan').val(results.id)
+                $('.UbahKendaraan,#title').val(results.title)
+                $('.UbahKendaraan,#category').val(results.news_category)
+                $('.UbahKendaraan,#content').val(results.content)
+            }
+        })
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    type: "POST",
+                    data: {
+                        id_peraturan: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahKendaraan").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahKendaraan").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
 </script>

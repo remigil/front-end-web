@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_polres extends CI_Model
+class M_simkel extends CI_Model
 {
 
 
@@ -94,7 +94,7 @@ class M_polres extends CI_Model
         // } 
 
 
-        $url = 'polres?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'simkel?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
@@ -103,7 +103,10 @@ class M_polres extends CI_Model
             ]
 
         ]);
-
+		// echo "<pre>";
+		// var_dump($result);
+		// echo "<pre>";
+		// die;
 
         $no = 1;
 
@@ -111,21 +114,18 @@ class M_polres extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
-            $row['name_polres']     = $field['name_polres'];
-            $row['polda_id'] 			= $field['polda_id'];
-            $row['address']       	= $field['address'];
-            $row['code_satpas']       	= $field['code_satpas'];
-            $row['latitude']       	= $field['latitude'];
-            $row['longitude']       	= $field['longitude'];
+            $row['simkel_name']     = $field['simkel_name'];
+            $row['simkel_address'] 			= $field['simkel_address'];
+            $row['jam_operasional']       	= $field['simkel_open_time'] - $field['simkel_close_time'];
             $row['action']         = '   
                 
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailSimkel">
 			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
+		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahSimkel">
 			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="detail(`' . $field['id'] . '`)">
+		<button style="background-color:transparent ; border:none" id="HapusSimkel" onclick="detail(`' . $field['id'] . '`)">
 			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 		</button>
                 

@@ -95,7 +95,7 @@ class M_berita extends CI_Model {
         // } 
 
 
-        $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''; 
 
 
         $result = guzzle_request('GET', $url, [
