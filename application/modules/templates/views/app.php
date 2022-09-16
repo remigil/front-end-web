@@ -79,6 +79,30 @@
 
 
     <style>
+        .animateLine {   
+            stroke-dasharray: 10; 
+            animation: dash linear infinite;
+            animation-duration: 15.5833s; 
+        }
+
+        .animateRoute {
+            stroke-dasharray: 1920;
+            stroke-dashoffset: 1920;
+            animation: dash linear  infinite;
+            animation-duration: 10.5833s; 
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 1000;
+            }
+        }
+
+        .leaflet-retina .leaflet-control-layers-toggle {
+            background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
+            background-size: 36px 36px;
+        }
+            
         #mapG20Dashboard {
             height: 700px;
             width: 100%

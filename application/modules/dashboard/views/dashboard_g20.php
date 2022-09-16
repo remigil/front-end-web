@@ -1564,6 +1564,9 @@
                                     language: 'en',
                                     profile: 'car'
                                 }),
+                                lineOptions: {
+                                    styles: [{color: "blue", className: 'animateRoute'}]
+                                },
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer);
                             routingRenpam[0].hide();
@@ -1580,7 +1583,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "gray", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                                        styles: [{color: "gray", className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1647,7 +1650,8 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "green", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                                        styles: [{color: "green", className: 'animateLine'}]
+                                        // styles: [{className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
