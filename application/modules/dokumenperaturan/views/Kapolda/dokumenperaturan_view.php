@@ -7,31 +7,6 @@
     </ol>
 </nav>
 <!-- </div> -->
-<div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahDokumenPeraturan">Tambah Dokumen Peraturan</button>
-    <div class="card">
-
-        <div class="card-body">
-
-            <table id="datatable" class="table dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th width="5%">No</th>
-                        <th>Jenis Peraturan</th>
-                        <th width="40%">Nama Peraturan</th>
-                        <th>Tahun</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                
-            </table>
-
-        </div>
-    </div>
-</div>
-<!-- End Page -->
-
-
 <div class="modal fade TambahDokumenPeraturan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -40,7 +15,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+                <form action="" class="form" method="post" enctype="multipart/form-data">
 				<div class="material-selectfield mb-3">
                         <select name="kategoriPeraturan" id="form-select">
                             <!-- <select name="" id=""  multiple required> -->
@@ -85,9 +60,10 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="" id="id_peraturan" type="text">
 				<div class="material-selectfield mb-3">
-                        <select name="kategoriPeraturan" id="form-select">
+                        <select name="kategoriPeraturan" id="kategoriPeraturan">
                             <!-- <select name="" id=""  multiple required> -->
                             <option selected>Pilih Kategori</option>
                             <option value="1">Undang-undang</option>
@@ -102,15 +78,15 @@
                         <label class="labelmui">Kategori Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="judulPeraturan" id="" style="width:100% ;">
+                        <input type="text" name="judulPeraturan" id="judulPeraturan" style="width:100% ;">
                         <label for="" class="labelmui">Nama Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
+                        <input type="file" name="files" id="files" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">File Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="tahunPeraturan" id="" style="width:100% ;">
+                        <input type="text" name="tahunPeraturan" id="tahunPeraturan" style="width:100% ;">
                         <label for="" class="labelmui">Tahun</label>
                     </div>
                     <div class="col-md-12">
@@ -132,20 +108,31 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
+				<div class="material-selectfield mb-3">
+							<select name="kategoriPeraturan" id="kategoriPeraturan">
+								<!-- <select name="" id=""  multiple required> -->
+								<option selected>Pilih Kategori</option>
+                            <option value="1">Undang-undang</option>
+                            <option value="2">Peraturan Pemerintah</option>
+                            <option value="3">Peraturan Presiden</option>
+                            <option value="4">Peraturan Kepolisian</option>
+                            <option value="5">Peraturan Kapolri</option>
+                            <option value="6">Peraturan Kakorlantas POLRI</option>
+                            <option value="7">Peraturan Lain-lain</option>
+
+							</select>
+							<label class="labelmui">Kategori Dokumen Peraturan</label>
+						</div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Dokumen Peraturan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="judulPeraturan" id="judulPeraturan" style="width:100% ;">
                         <label for="" class="labelmui">Nama Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
+                        <input type="file" name="files" id="files" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">File Dokumen Peraturan</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="tahunPeraturan" id="tahunPeraturan" style="width:100% ;">
                         <label for="" class="labelmui">Tahun</label>
                     </div>
                 </form>
@@ -265,9 +252,6 @@
                     data: 'regulation_name'
                 },
                 {
-                    data: 'file'
-                },
-                {
                     data: 'year'
                 },
                 {
@@ -335,9 +319,9 @@
             success: function(results) {
                 $('.DetailDokumenPeraturan,input').attr('readonly', true)
                 $('.DetailDokumenPeraturan,input,#category').attr('disabled', true)
-                $('.DetailDokumenPeraturan,#title').val(results.title)
-                $('.DetailDokumenPeraturan,#category').val(results.news_category)
-                $('.DetailDokumenPeraturan,#content').val(results.content)
+                $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
+                $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
+                $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)
             }
         })
     }
@@ -355,7 +339,7 @@
                 $('.UbahDokumenPeraturan,input,#category').attr('disabled', false)
                 $('#id_peraturan').val(results.id)
                 $('.UbahDokumenPeraturan,#title').val(results.title)
-                $('.UbahDokumenPeraturan,#category').val(results.news_category)
+                $('.UbahDokumenPeraturan,#category').val(results.regulation_category)
                 $('.UbahDokumenPeraturan,#content').val(results.content)
             }
         })

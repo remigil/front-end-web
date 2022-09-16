@@ -42,7 +42,7 @@ class DokumenPeraturan extends MY_Controller
 	public function serverSideTable() 
     {  
         $postData = $this->input->post();   
-        $data = $this->m_berita->get_datatables($postData);  
+        $data = $this->m_dokumenperaturan->get_datatables($postData);  
 		echo json_encode($data); 
     }
 
