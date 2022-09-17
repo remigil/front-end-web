@@ -8,14 +8,14 @@ class Samsat extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		$this->load->model("M_samsat");
+        $this->load->model("M_samsat");
     }
 
     public function index()
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],    
+            'Token' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -39,73 +39,72 @@ class Samsat extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-	public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_samsat->get_datatables($postData);  
-		// var_dump($data);
-		// die;
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_samsat->get_datatables($postData);
+        var_dump($data);
+        die;
+        echo json_encode($data);
     }
 
-	public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
-        
-            $dummy = [
-                [
-					'name' => 'name_samsat',
-					'contents' => $input['namaSamsat'],
-				],
-				[
-					'name' => 'address',
-					'contents' => $input['alamatSamsat'],
-				],
-				[
-					'name' => 'samsat_lat',
-					'contents' => $input['latitude'],
-				],
-				[
-					'name' => 'samsat_lng',
-					'contents' => $input['longitude'],
-				],
-				[
-					'name' => 'samsat_open_time',
-					'contents' => $input['jamBuka'],
-				],
-				[
-					'name' => 'samsat_close_time',
-					'contents' => $input['jamTutup'],
-				]
-                
-            ]; 
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
 
-			$data = guzzle_request('POST', 'samsat/add', [ 
-				'multipart' => $dummy, 
-				'headers' => $headers 
-			]);
-	
-			if($data['isSuccess'] == true){  
-				$res = array(
-					'status' => true,
-					'message' => 'Berhasil tambah data.',
-					'data' => $data
-				);
-			}else{
-				$res = array(
-					'status' => false,
-					'message' => 'Gagal tambah data.',
-					'data' => $data
-				);
-			}
-			
-			echo json_encode($res);
+        $dummy = [
+            [
+                'name' => 'name_samsat',
+                'contents' => $input['namaSamsat'],
+            ],
+            [
+                'name' => 'address',
+                'contents' => $input['alamatSamsat'],
+            ],
+            [
+                'name' => 'samsat_lat',
+                'contents' => $input['latitude'],
+            ],
+            [
+                'name' => 'samsat_lng',
+                'contents' => $input['longitude'],
+            ],
+            [
+                'name' => 'samsat_open_time',
+                'contents' => $input['jamBuka'],
+            ],
+            [
+                'name' => 'samsat_close_time',
+                'contents' => $input['jamTutup'],
+            ]
 
+        ];
+
+        $data = guzzle_request('POST', 'samsat/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
-	public function detailSamsat()
+    public function detailSamsat()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -121,7 +120,7 @@ class Samsat extends MY_Controller
         echo json_encode($data['getDetail']);
     }
 
-	public function hapusSamsat()
+    public function hapusSamsat()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -160,38 +159,38 @@ class Samsat extends MY_Controller
 
     public function updateSamsat()
     {
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
-        
-		$dummy = [
-			[
-				'name' => 'name_samsat',
-				'contents' => $input['namaSamsat'],
-			],
-			[
-				'name' => 'address',
-				'contents' => $input['alamatSamsat'],
-			],
-			[
-				'name' => 'samsat_lat',
-				'contents' => $input['latitude'],
-			],
-			[
-				'name' => 'samsat_lng',
-				'contents' => $input['longitude'],
-			],
-			[
-				'name' => 'samsat_open_time',
-				'contents' => $input['jamBuka'],
-			],
-			[
-				'name' => 'samsat_close_time',
-				'contents' => $input['jamTutup'],
-			]
-			
-		];
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $dummy = [
+            [
+                'name' => 'name_samsat',
+                'contents' => $input['namaSamsat'],
+            ],
+            [
+                'name' => 'address',
+                'contents' => $input['alamatSamsat'],
+            ],
+            [
+                'name' => 'samsat_lat',
+                'contents' => $input['latitude'],
+            ],
+            [
+                'name' => 'samsat_lng',
+                'contents' => $input['longitude'],
+            ],
+            [
+                'name' => 'samsat_open_time',
+                'contents' => $input['jamBuka'],
+            ],
+            [
+                'name' => 'samsat_close_time',
+                'contents' => $input['jamTutup'],
+            ]
+
+        ];
         $data = guzzle_request('PUT', 'samsat/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
             'headers' => $headers
