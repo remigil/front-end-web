@@ -8,7 +8,7 @@ class Polres extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model("M_polres");
+        $this->load->model("masterdata/M_polres");
     }
 
     public function index()

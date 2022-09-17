@@ -7,6 +7,30 @@
     </ol>
 </nav>
 <!-- </div> -->
+<div class="page">
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahDokumenPeraturan">Tambah Dokumen Peraturan</button>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+</div>
+<!-- End Page -->
+
+
 <div class="modal fade TambahDokumenPeraturan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -90,7 +114,7 @@
                         <label for="" class="labelmui">Tahun</label>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -319,8 +343,8 @@
             success: function(results) {
                 $('.DetailDokumenPeraturan,input').attr('readonly', true)
                 $('.DetailDokumenPeraturan,input,#category').attr('disabled', true)
-                $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
+                $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
                 $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)
             }
         })
@@ -336,11 +360,11 @@
             dataType: 'JSON',
             success: function(results) {
                 $('.UbahDokumenPeraturan,input').attr('readonly', false)
-                $('.UbahDokumenPeraturan,input,#category').attr('disabled', false)
+                // $('.UbahDokumenPeraturan,input,#category').attr('disabled', false)
                 $('#id_peraturan').val(results.id)
-                $('.UbahDokumenPeraturan,#title').val(results.title)
-                $('.UbahDokumenPeraturan,#category').val(results.regulation_category)
-                $('.UbahDokumenPeraturan,#content').val(results.content)
+                $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
+                $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
+                $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)
             }
         })
     }

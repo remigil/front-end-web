@@ -97,7 +97,7 @@
                     </div>
                     <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
                     <div class="col-md-12">
-					<button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -446,11 +446,11 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailKendaraan,input').attr('readonly', true)
-                // $('.DetailKendaraan,input,#category').attr('disabled', true)
-                $('.DetailKendaraan,#namaPolda').val(results.name_polda)
-                // $('.DetailKendaraan,#category').val(results.news_category)
-                // $('.DetailKendaraan,#content').val(results.content)
+                $('.DetailPolda,input').attr('readonly', true)
+                // $('.DetailPolda,input,#category').attr('disabled', true)
+                $('.DetailPolda,#namaPolda').val(results.name_polda)
+                // $('.DetailPolda,#category').val(results.news_category)
+                // $('.DetailPolda,#content').val(results.content)
             }
         })
     }
@@ -464,12 +464,12 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahKendaraan,input').attr('readonly', false)
-                // $('.UbahKendaraan,input,#category').attr('disabled', false)
+                $('.UbahPolda,input').attr('readonly', false)
+                // $('.UbahPolda,input,#category').attr('disabled', false)
                 $('#id_polda').val(results.id)
-                $('.UbahKendaraan,#namaPolda').val(results.name_polda)
-                // $('.UbahKendaraan,#category').val(results.news_category)
-                // $('.UbahKendaraan,#content').val(results.content)
+                $('.DetailPolda,#namaPolda').val(results.name_polda)
+                // $('.UbahPolda,#category').val(results.news_category)
+                // $('.UbahPolda,#content').val(results.content)
             }
         })
     }

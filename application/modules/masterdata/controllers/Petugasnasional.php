@@ -233,6 +233,14 @@ class Petugasnasional extends MY_Controller
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
                 ],
+				[
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
+                ],
                 [
                     'name' => 'status_officer',
                     'contents' => $input['status'],
@@ -256,6 +264,14 @@ class Petugasnasional extends MY_Controller
                 [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
+                ],
+				[
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
                 ],
                 [
                     'name' => 'status_officer',

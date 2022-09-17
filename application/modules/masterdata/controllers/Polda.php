@@ -8,7 +8,7 @@ class Polda extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('M_polda');
+        $this->load->model('masterdata/M_polda');
     }
 
     public function index()

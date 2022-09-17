@@ -227,7 +227,7 @@
 
 
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -678,7 +678,7 @@
                 // $('.UbahPetugasnasional,input,#category').attr('disabled', false)
                 $('#id_petugas').val(results.id)
                 $('.DetailPetugasnasional,#nrpPetugas').val(results.nrp_officer)
-                $('.DetailPetugasnasional,#namaPetugas').val(results.name_petugas)
+                $('.DetailPetugasnasional,#namaPetugas').val(results.name_officer)
                 $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
                 $('.DetailPetugasnasional,#pangkat').val(results.rank_officer)
 				$('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
