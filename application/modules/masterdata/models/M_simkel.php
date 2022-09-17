@@ -103,20 +103,15 @@ class M_simkel extends CI_Model
             ]
 
         ]);
-		// echo "<pre>";
-		// var_dump($result);
-		// echo "<pre>";
-		// die;
 
         $no = 1;
-
         foreach ($result['data']['data'] as $field) {
             $row = array();
             // $row ['id']	=  $field['id']; 
-            $row['id']    			=  $no++;
+            $row['id']                =  $no++;
             $row['name_sim_keliling']     = $field['name_sim_keliling'];
-            $row['address'] 			= $field['address'];
-            $row['jam_operasional']       	= $field['sim_keliling_open_time'] - $field['sim_keliling_close_time'];
+            $row['address']             = $field['address'];
+            $row['jam_operasional']           = $field['sim_keliling_open_time'] . ' - ' . $field['sim_keliling_close_time'];
             $row['action']         = '   
                 
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailSimkel">
