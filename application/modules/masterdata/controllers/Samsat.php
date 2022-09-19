@@ -8,14 +8,14 @@ class Samsat extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		$this->load->model("masterdata/m_samsat");
+        $this->load->model("masterdata/m_samsat");
     }
 
     public function index()
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],    
+            'Token' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -39,71 +39,80 @@ class Samsat extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-	public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_samsat->get_datatables($postData);  
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_samsat->get_datatables($postData);
+        // var_dump($data);
+        // die;
+        echo json_encode($data);
     }
 
-	public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
-        
-            $dummy = [
-                [
-					'name' => 'no_vehicle',
-					'contents' => $input['noKendaraan'],
-				],
-				[
-					'name' => 'type_vehicle',
-					'contents' => $input['jenisKendaraan'],
-				],
-				[
-					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
-				],
-				[
-					'name' => 'ownership_vehicle',
-					'contents' => $input['kepemilikan'],
-				]
-                
-            ]; 
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
 
-			$data = guzzle_request('POST', 'vehicle/add', [ 
-				'multipart' => $dummy, 
-				'headers' => $headers 
-			]);
-	
-			if($data['isSuccess'] == true){  
-				$res = array(
-					'status' => true,
-					'message' => 'Berhasil tambah data.',
-					'data' => $data
-				);
-			}else{
-				$res = array(
-					'status' => false,
-					'message' => 'Gagal tambah data.',
-					'data' => $data
-				);
-			}
-			
-			echo json_encode($res);
+        $dummy = [
+            [
+                'name' => 'name_samsat',
+                'contents' => $input['namaSamsat'],
+            ],
+            [
+                'name' => 'address',
+                'contents' => $input['address'],
+            ],
+            [
+                'name' => 'samsat_lat',
+                'contents' => $input['latitude'],
+            ],
+            [
+                'name' => 'samsat_lng',
+                'contents' => $input['longitude'],
+            ],
+            [
+                'name' => 'samsat_open_time',
+                'contents' => $input['jamBuka'],
+            ],
+            [
+                'name' => 'samsat_close_time',
+                'contents' => $input['jamTutup'],
+            ]
 
+        ];
+
+        $data = guzzle_request('POST', 'samsat/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
-	public function detailKendaraan()
+    public function detailSamsat()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $id = $this->input->post('id_kendaraan');
+        $id = $this->input->post('id_samsat');
 
-        $getDetail = guzzle_request('GET', 'vehicle/getId/' . $id . '', [
+        $getDetail = guzzle_request('GET', 'samsat/getId/' . $id . '', [
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data']['data'];
@@ -111,12 +120,12 @@ class Samsat extends MY_Controller
         echo json_encode($data['getDetail']);
     }
 
-	public function hapusKendaraan()
+    public function hapusSamsat()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $id = $this->input->post('id_kendaraan');
+        $id = $this->input->post('id_samsat');
 
         $dummy = [
             [
@@ -125,7 +134,7 @@ class Samsat extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('DELETE', 'vehicle/delete', [
+        $data = guzzle_request('DELETE', 'samsat/delete', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);
@@ -148,33 +157,41 @@ class Samsat extends MY_Controller
         echo json_encode($results);
     }
 
-    public function updateKendaraan()
+    public function updateSamsat()
     {
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
-        
-            $dummy = [
-                [
-					'name' => 'no_vehicle',
-					'contents' => $input['noKendaraan'],
-				],
-				[
-					'name' => 'type_vehicle',
-					'contents' => $input['jenisKendaraan'],
-				],
-				[
-					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
-				],
-				[
-					'name' => 'ownership_vehicle',
-					'contents' => $input['kepemilikan'],
-				]
-                
-            ];
-        $data = guzzle_request('PUT', 'vehicle/edit/' . $input['id'] . '', [
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+
+        $dummy = [
+            [
+                'name' => 'name_samsat',
+                'contents' => $input['namaSamsat'],
+            ],
+            [
+                'name' => 'address',
+                'contents' => $input['address'],
+            ],
+            [
+                'name' => 'samsat_lat',
+                'contents' => $input['latitude'],
+            ],
+            [
+                'name' => 'samsat_lng',
+                'contents' => $input['longitude'],
+            ],
+            [
+                'name' => 'samsat_open_time',
+                'contents' => $input['jamBuka'],
+            ],
+            [
+                'name' => 'samsat_close_time',
+                'contents' => $input['jamTutup'],
+            ]
+
+        ];
+        $data = guzzle_request('PUT', 'samsat/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);

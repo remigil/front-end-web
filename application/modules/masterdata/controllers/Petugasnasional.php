@@ -63,13 +63,13 @@ class Petugasnasional extends MY_Controller
 					'filename' => $filename
 				], 
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaPetugas'],
-                ],
-                [
-                    'name' => 'nrp_officer',
+					'name' => 'nrp_officer',
                     'contents' => $input['nrpPetugas'],
                 ],
+				[
+					'name' => 'name_officer',
+					'contents' => $input['namaPetugas'],
+				],
                 [
                     'name' => 'phone_officer',
                     'contents' => $input['noHP'],
@@ -77,6 +77,14 @@ class Petugasnasional extends MY_Controller
                 [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
+                ],
+                [
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
                 ],
                 [
                     'name' => 'status_officer',
@@ -86,14 +94,14 @@ class Petugasnasional extends MY_Controller
             ];
         } else {
             $dummy = [
-                [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaPetugas'],
-                ],
-                [
-                    'name' => 'nrp_officer',
+				[
+					'name' => 'nrp_officer',
                     'contents' => $input['nrpPetugas'],
                 ],
+				[
+					'name' => 'name_officer',
+					'contents' => $input['namaPetugas'],
+				],
                 [
                     'name' => 'phone_officer',
                     'contents' => $input['noHP'],
@@ -101,6 +109,14 @@ class Petugasnasional extends MY_Controller
                 [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
+                ],
+				[
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
                 ],
                 [
                     'name' => 'status_officer',
@@ -202,13 +218,13 @@ class Petugasnasional extends MY_Controller
 					'filename' => $filename
 				], 
                 [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaPetugas'],
-                ],
-                [
-                    'name' => 'nrp_officer',
+					'name' => 'nrp_officer',
                     'contents' => $input['nrpPetugas'],
                 ],
+				[
+					'name' => 'name_officer',
+					'contents' => $input['namaPetugas'],
+				],
                 [
                     'name' => 'phone_officer',
                     'contents' => $input['noHP'],
@@ -216,6 +232,14 @@ class Petugasnasional extends MY_Controller
                 [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
+                ],
+				[
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
                 ],
                 [
                     'name' => 'status_officer',
@@ -225,14 +249,14 @@ class Petugasnasional extends MY_Controller
             ];
         } else {
             $dummy = [
-                [
-                    'name' => 'name_officer',
-                    'contents' => $input['namaPetugas'],
-                ],
-                [
-                    'name' => 'nrp_officer',
+				[
+					'name' => 'nrp_officer',
                     'contents' => $input['nrpPetugas'],
                 ],
+				[
+					'name' => 'name_officer',
+					'contents' => $input['namaPetugas'],
+				],
                 [
                     'name' => 'phone_officer',
                     'contents' => $input['noHP'],
@@ -240,6 +264,14 @@ class Petugasnasional extends MY_Controller
                 [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
+                ],
+				[
+                    'name' => 'pam_officer',
+                    'contents' => $input['pamPetugas'],
+                ],
+                [
+                    'name' => 'structural_officer',
+                    'contents' => $input['struktural'],
                 ],
                 [
                     'name' => 'status_officer',

@@ -9,10 +9,15 @@
 <div class="page">
     <div class="card">
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-3 ">
-                    <label for="waktu" class="form-label"> Waktu</label>
-                    <input class="form-control" type="date" name="waktu" id="waktu">
+            <div class="row" style="width: 95%;">
+            <div class="col-md-3">
+                    <label for="waktu">Waktu</label>
+                    <div id="reportrange" class="pull-right" style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                        <span></span> <b class="caret"></b>
+                    </div>
+                    <input hidden type="date" id="startdate" name="startdate">
+                    <input hidden type="date" id="enddate" name="enddate">
                 </div>
                 <div class="col-md-3 ">
                     <label class="form-label">Jenis Permasalahan</label>
@@ -23,13 +28,23 @@
                     </select>
                 </div>
                 <div class="col-md-3 ">
-                    <label class="form-label">Polda</label>
+                    <label class="form-label">POLDA</label>
                     <select class="form-select">
-                        <option>Polda Metro Jaya</option>
-                        <option>Jakarta Pusat</option>
-                        <option>Jakarta Utara</option>
-                        <option>Jakarta Barat</option>
-                        <option>Jakarta Selatan</option>
+                    <option selected="--">-- Pilih Polda --</option>
+                    <option value="1">POLDA JAWA BARAT</option>
+                    <option value="2">POLDA METRO JAYA</option>
+                    <option value="3">POLDA BANTEN</option>
+                    </select>
+                </div>
+                <div class="col-md-3 ">
+                    <label class="form-label">POLRES</label>
+                    <select class="form-select">
+                        <option selected="--">-- Pilih Polres --</option>
+                        <option>POLRESTABES BANDUNG</option>
+                        <option>POLRESTA BOGOR</option>
+                        <option>POLRES BOGOR</option>
+                        <option>POLRESTA SUKABUMI</option>
+                        <option>POLRES SUBANG</option>
                     </select>
                 </div>
             </div>
@@ -37,39 +52,22 @@
             <button class=" mt-3 btn btn-primary float-end"> Tampilkan </button>
         </div>
     </div>
-
-    <div class="card">
+    <!-- <a href="<?= base_url('troublespot/Tambah'); ?>"><button class="btn btn-sm btn-primary" type="button" style="height: 6vh;">Tambah Troublespot</button></a> -->
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahTroublespot">Tambah Troublespot</button>
+    <div class="card mt-2">
         <div class="card-body">
-            <table id="tripon" class="table table-striped dt-responsive w-100">
+            <table id="datatable" class="table table-striped dt-responsive w-100">
                 <thead>
                     <tr class="text-center">
-                        <th>No</th>
+                        <th >No</th>
+                        <!-- <th>Nama Polda</th> -->
                         <th>Nama Polres</th>
                         <th>Lokasi Kejadian</th>
-                        <th>Waktu Pengkajian</th>
-                        <th>Informasi Lebih Lanjut</th>
+                        <th style="width: 15%;">Waktu Pengkajian</th>
+                        <th style="width: 15%;">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Polres Metro Jakarta Pusat</td>
-                        <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
-                        <td>5 jam</td>
-                        <td class="text-center">
-                            <a href="<?= base_url('troublespot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Polres Metro Jakarta Utara</td>
-                        <td>RS St. Carolus - Salemba, Jalan Salemba Raya, RT.3/RW.5, Paseban, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta</td>
-                        <td>6 jam</td>
-                        <td class="text-center">
-                            <a href="<?= base_url('troublespot/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -77,9 +75,286 @@
 </div>
 <!-- End Page -->
 
+<div class="modal fade TambahTroublespot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Troublespot</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form">
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                                    <input type="text" name="no_ts" id="" >
+                                    <label for="" class="labelmui">No. TS</label>
+                                </div>
+                    </div>
+                    
+                    
+                        <div class="col-md-6">
+                                <div class="material-textfield">
+                                    <input type="date" name="tanggal_pelaporan" id="" >
+                                    <label for="" class="labelmui">Tanggal Pelaporan</label>
+                            </div>    
+                        </div>
+                        <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input type="text" name="nama_pelapor" id="" >
+                            <label for="" class="labelmui">Nama Pelapor</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="material-selectfield">
+                        <select class="form-select" name="polres">
+                        <option value="1">POLRESTABES BANDUNG</option>
+                        <option value="2">POLRES BOGOR</option>
+                        <option value="3">POLRESTA BOGOR</option>
+                        <option value="4">POLRESTA SUKABUMI</option>
+                      
+                        </select>
+                            <label for="" class="labelmui">Polres</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input type="text" name="penyebab_kemacetan" id="" >
+                            <label for="" class="labelmui">Penyebab Kemacetan</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input type="text" name="lokasi_kejadian" id="" >
+                        <label for="" class="labelmui">Lokasi Kejadian</label>
+                    </div>
+                </div>
+                
+                
+                    <div class="col-md-12 mt-3">
+                            <div id="mapG20Dashboard" style="height: 250px"></div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input type="text" name="latitude" id="" >
+                            <label for="" class=" labelmui">Latitude</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="material-textfield">
+                            <input type="text" name="longitude" id="" >
+                            <label for="" class=" labelmui">Longitude</label>
+                        </div>
+                    </div>
+                <div class="col-md-12">
+                        <div class="material-textfield">
+                            <input type="text" name="keterangan" id="" >
+                            <label for="" class=" labelmui">Keterangan</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="material-textfield">
+                            <input type="text" name="permasalahan" id="" >
+                            <label for="" class=" labelmui">Permasalahan</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="material-textfield">
+                            <input type="text" name="rekomendasi" id="" >
+                            <label for="" class=" labelmui">rekomendasi</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="material-textfield">
+                            <input type="text" name="tindakan" id="" >
+                            <label for="" class=" labelmui">Tindakan</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="material-textfield">
+                            <input type="text" name="hasil_dicapai" id="" >
+                            <label for="" class=" labelmui">Hasil yang dicapai</label>
+                        </div>
+                    </div>
 
+                    </div>
+                
+                    
+                    
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script>
+     
+    $(document).ready(function() {
+        $('.dropify').dropify();
+
+var userDataTable = $('#datatable').DataTable({ 
+
+    responsive: true, 
+
+    scrollX: true,
+
+    // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+    // buttons: ["excel", "csv", "pdf"],
+
+    oLanguage: {
+
+        sSearch: 'Search:'
+
+    },
+
+    initComplete : function (settings, json) { },
+
+    retrieve : true,
+
+    processing : true,
+
+    serverSide: true,
+
+    serverMethod: 'POST',
+
+    ajax : {
+
+        dataType: 'json',
+
+        url: '<?php echo base_url();?>troublespot/Troublespot/serverSideTable',
+
+        data: function(data){
+
+            $("#overlay").fadeIn(300);
+
+            // console.log(data);
+
+            // data.filterTgl = $('[name=event_date]').val();
+
+            // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+            // data.filterStatus = $('[name=status]').val();
+
+            // data.filterName = $('[name=group_name]').val();
+
+            // data.filterPocName = $('[name=group_poc_name]').val();
+
+            // data.filterPhone = $('[name=poc_phone]').val();
+
+            // data.filterThreat = $('[name=threat_level]').val();
+
+            data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+            data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+            data.page = Number(data.start / data.length) + 1
+
+        },
+
+        beforeSend: function (xhr, settings) {
+            
+        },
+
+        "dataSrc": function (result) { 
+
+            result.iTotalRecords = result.iTotalRecords;
+
+            result.iTotalDisplayRecords = result.iTotalRecords;
+
+            return result.aaData;
+
+        }
+
+    },
+
+    columns: [ 
+
+        { data: 'id'},
+        // { data: 'polda_id'}, 
+        { data: 'polres_id'},
+        { data: 'location'}, 
+        { data: 'created_at'},  
+        { data: 'action' , orderable : false }
+
+    ],
+
+    order: [[ 0, "DESC" ]],
+
+    drawCallback : function(settings){
+
+        $("#overlay").fadeOut(300); 
+
+    }   
+
+});   
+
+$(".form").submit(function(e) {
+    $("#overlay").fadeIn(300);
+    e.preventDefault(); 
+    var formData = new FormData($('.form')[0]); 
+    $.ajax({
+        url: "<?php echo base_url();?>troublespot/Troublespot/store",
+        method: "POST",
+        data: formData,
+        dataType: 'JSON',
+        contentType: false,
+        processData: false,  
+        success: function (data) {
+            $("#overlay").fadeOut(300);
+            if(data['status'] == true){
+                Swal.fire(
+                `${data['message']}`, 
+                '',
+                'success'
+                ).then(function() { 
+                    $(".TambahTroublespot").modal('hide');
+                    userDataTable.draw(); 
+                }); 
+            }else{
+                Swal.fire(
+                `${data['message']}`, 
+                '',
+                'error'
+                ).then(function() { 
+                });
+            } 
+        }
+    }); 
+});
+
+var start = moment().subtract(29, 'days');
+var end = moment();
+
+function cb(start, end) {
+    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+    $('#startdate').val(start.format('YYYY-MM-DD'));
+    $('#enddate').val(end.format('YYYY-MM-DD'));
+}
+
+$('#reportrange').daterangepicker({
+    startDate: start,
+    endDate: end,
+    ranges: {
+    'Hari Ini': [moment(), moment()],
+    'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+    '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+    'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+    'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+    'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+    'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+    }
+}, cb);
+
+cb(start, end);     
+
+});
+
     $(document).ready(function() {
         $('#tripon').DataTable();
 
@@ -106,9 +381,8 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         });
-
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
+// StART MAP SECTION
+var mapContainer = L.map('mapG20Dashboard', {
             maxZoom: 19,
             minZoom: 1,
             zoomControl: false,
@@ -228,43 +502,7 @@
 
 
     });
+// Conditional select Polda Polres
 
 
-    function BtnFilter() {
-        console.log('asdasd');
-        $('#FilterTripOn').html(`<div class="card">
-        <div class="card-body">
-            <table class="table table-bordered text-center fw-bold">
-                <thead class="table-primary">
-                    <tr>
-                        <th>Kota Awal</th>
-                        <th>Kota Terdaftar</th>
-                        <th>Jumlah TripOn Terdaftar</th>
-                        <th>Jumlah Penumpang Terdaftar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bogor</td>
-                        <td>Bandung</td>
-                        <td>1230</td>
-                        <td>123</td>
-                    </tr>
-                    <tr>
-                        <td>Bandung</td>
-                        <td>Bogor</td>
-                        <td>123</td>
-                        <td>1230</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Total</td>
-                        <td>1353</td>
-                        <td>1353</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-        `)
-    }
 </script>

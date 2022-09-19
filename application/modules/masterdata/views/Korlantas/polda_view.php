@@ -38,25 +38,25 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                    <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
 
 
                     <div class="col-md-12">
@@ -76,27 +76,28 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_polda" type="text">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                    <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -115,24 +116,24 @@
             <div class="modal-body">
                 <form action="" class="form">
                     <div class="row">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polda</p>
                             <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div>
-                        <div class="col-md-9">
+                        </div> -->
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:105% ;">
+                                <input type="text" name="namaPolda" id="namaPolda" style="width:105% ;">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
 
-                            <div class="material-textfield">
+                            <!-- <div class="material-textfield">
                                 <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
                                 <label for="" class="labelmui">Alamat</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -407,7 +408,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                url: "<?php echo base_url(); ?>masterdata/Polda/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -421,7 +422,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            $(".TambahKendaraan").modal('hide');
+                            $(".TambahPolda").modal('hide');
                             userDataTable.draw();
                         });
                     } else {
@@ -438,37 +439,37 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
             type: 'POST',
             data: {
-                id_kendaraan: id
+                id_polda: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailKendaraan,input').attr('readonly', true)
-                $('.DetailKendaraan,input,#category').attr('disabled', true)
-                $('.DetailKendaraan,#title').val(results.title)
-                $('.DetailKendaraan,#category').val(results.news_category)
-                $('.DetailKendaraan,#content').val(results.content)
+                $('.DetailPolda,input').attr('readonly', true)
+                // $('.DetailPolda,input,#category').attr('disabled', true)
+                $('.DetailPolda,#namaPolda').val(results.name_polda)
+                // $('.DetailPolda,#category').val(results.news_category)
+                // $('.DetailPolda,#content').val(results.content)
             }
         })
     }
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
             type: 'POST',
             data: {
-                id_peraturan: id
+                id_polda: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahKendaraan,input').attr('readonly', false)
-                $('.UbahKendaraan,input,#category').attr('disabled', false)
-                $('#id_kendaraan').val(results.id)
-                $('.UbahKendaraan,#title').val(results.title)
-                $('.UbahKendaraan,#category').val(results.news_category)
-                $('.UbahKendaraan,#content').val(results.content)
+                $('.UbahPolda,input').attr('readonly', false)
+                // $('.UbahPolda,input,#category').attr('disabled', false)
+                $('#id_polda').val(results.id)
+                $('.DetailPolda,#namaPolda').val(results.name_polda)
+                // $('.UbahPolda,#category').val(results.news_category)
+                // $('.UbahPolda,#content').val(results.content)
             }
         })
     }
@@ -485,10 +486,10 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    url: "<?php echo base_url(); ?>masterdata/Polda/hapusPolda/",
                     type: "POST",
                     data: {
-                        id_peraturan: id
+                        id_polda: id
                     },
                     dataType: 'JSON',
                     success: function(data) {
@@ -499,7 +500,7 @@
                                 '',
                                 'success'
                             ).then(function() {
-                                $(".TambahKendaraan").modal('hide');
+                                $(".TambahPolda").modal('hide');
                                 userDataTable.draw();
                             });
                         } else {
@@ -519,7 +520,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            url: '<?= base_url() ?>masterdata/Polda/updatePolda',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
@@ -533,7 +534,7 @@
                         '',
                         'success'
                     ).then(function() {
-                        $(".UbahKendaraan").modal('hide');
+                        $(".UbahPolda").modal('hide');
                         userDataTable.draw();
                     });
                 } else {

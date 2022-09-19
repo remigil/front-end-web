@@ -31,7 +31,7 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/akun_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
@@ -186,7 +186,7 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/detail_akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/detail_akun_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
@@ -219,7 +219,7 @@ class Akun extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/edit_akun_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/edit_akun_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
@@ -255,10 +255,11 @@ class Akun extends MY_Controller
         $dummy['name_account']    = $input['namaAkun'];
         // $dummy['leader_team']    = $input['ketuaTeam'];
         // $dummy ['phone_account']	= $input['phone_account']; 
-        // $dummy['id_vehicle']    = $input['id_kendaraan']; 
-        // $dummy['officers'] = json_encode($input['officers']);
-        // $dummy['vehicles'] = json_encode($input['id_kendaraan']);
+        // $dummy['id_vehicle']    = $input['id_kendaraan'];
+        // $dummy['officers']    = json_encode($input['officers']);
         $dummy['password']    = $input['password'];
+        $dummy['officers'] = json_encode($input['officers']);
+        $dummy['vehicles'] = json_encode($input['id_kendaraan']);
         $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
 
         $pilihKetua = floatval($input['flexRadioDefault']) - 1;
@@ -269,14 +270,6 @@ class Akun extends MY_Controller
         if ($input['oldPassword'] != $input['password']) {
             $dummy['password']    = $input['password'];
         }
-
-        $filterOf = array_filter($input['officers'], fn($n) => $n != "" || $n != null);
-        $dummy['officers'] = json_encode($filterOf);
-
-        $filterVehicles = array_filter($input['id_kendaraan'], fn($n) => $n != "" || $n != null);
-        $dummy['vehicles'] = json_encode($filterVehicles);
-        // echo json_encode($dummy);
-        // die;
 
         $data = guzzle_request('PUT', 'account/edit/' . $input['id'] . '', [
             'form_params' => $dummy,

@@ -128,9 +128,9 @@ class M_cctv extends CI_Model {
 		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahCCTV">
 			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
-				<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-			</button>
+		<button style="background-color:transparent ; border:none" id="Hapuscctv" onclick="hapus(`' . $field['id'] . '`)">
+			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+		</button>
             '; 
 
             $data[] = $row;

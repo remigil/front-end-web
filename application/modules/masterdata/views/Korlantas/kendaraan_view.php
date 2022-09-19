@@ -39,11 +39,11 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
+			<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
@@ -55,19 +55,19 @@
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
@@ -91,11 +91,12 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form">
-                    <div class="row">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_kendaraan" type="text">
+				<div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
@@ -107,20 +108,20 @@
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
-                                <label for="" class="labelmui">Kepemlikian</label>
+                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -145,10 +146,10 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="row">
+				<div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
@@ -160,19 +161,19 @@
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
                                 <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
@@ -462,7 +463,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                url: "<?php echo base_url(); ?>masterdata/Kendaraannasional/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -493,7 +494,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Kendaraannasional/detailKendaraan/',
             type: 'POST',
             data: {
                 id_kendaraan: id
@@ -501,29 +502,31 @@
             dataType: 'JSON',
             success: function(results) {
                 $('.DetailKendaraan,input').attr('readonly', true)
-                $('.DetailKendaraan,input,#category').attr('disabled', true)
-                $('.DetailKendaraan,#title').val(results.title)
-                $('.DetailKendaraan,#category').val(results.news_category)
-                $('.DetailKendaraan,#content').val(results.content)
+                // $('.DetailKendaraan,input,#category').attr('disabled', true)
+                $('.DetailKendaraan,#noKendaraan').val(results.no_vehicle)
+                $('.DetailKendaraan,#jenisKendaraan').val(results.type_vehicle)
+                $('.DetailKendaraan,#merek').val(results.brand_vehicle)
+                $('.DetailKendaraan,#kepemilikan').val(results.ownership_vehicle)
             }
         })
     }
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>masterdata/Kendaraannasional/detailKendaraan/',
             type: 'POST',
             data: {
-                id_peraturan: id
+                id_kendaraan: id
             },
             dataType: 'JSON',
             success: function(results) {
                 $('.UbahKendaraan,input').attr('readonly', false)
                 $('.UbahKendaraan,input,#category').attr('disabled', false)
                 $('#id_kendaraan').val(results.id)
-                $('.UbahKendaraan,#title').val(results.title)
-                $('.UbahKendaraan,#category').val(results.news_category)
-                $('.UbahKendaraan,#content').val(results.content)
+                $('.UbahKendaraan,#noKendaraan').val(results.no_vehicle)
+                $('.UbahKendaraan,#jenisKendaraan').val(results.type_vehicle)
+                $('.UbahKendaraan,#merek').val(results.brand_vehicle)
+                $('.UbahKendaraan,#kepemilikan').val(results.ownership_vehicle)
             }
         })
     }
@@ -540,10 +543,10 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    url: "<?php echo base_url(); ?>masterdata/Kendaraannasional/hapusKendaraan/",
                     type: "POST",
                     data: {
-                        id_peraturan: id
+                        id_kendaraan: id
                     },
                     dataType: 'JSON',
                     success: function(data) {
@@ -574,7 +577,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            url: '<?= base_url() ?>masterdata/Kendaraannasional/updateKendaraan',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

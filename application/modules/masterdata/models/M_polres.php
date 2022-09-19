@@ -111,21 +111,21 @@ class M_polres extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
+            $row['polda_id'] 		= $field['polda_id'];
             $row['name_polres']     = $field['name_polres'];
-            $row['polda_id'] 			= $field['polda_id'];
+            $row['code_satpas']     = $field['code_satpas'];
             $row['address']       	= $field['address'];
-            $row['code_satpas']       	= $field['code_satpas'];
             $row['latitude']       	= $field['latitude'];
-            $row['longitude']       	= $field['longitude'];
+            $row['longitude']      	= $field['longitude'];
             $row['action']         = '   
                 
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".Detailpolres">
 			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
+		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".Ubahpolres">
 			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="detail(`' . $field['id'] . '`)">
+		<button style="background-color:transparent ; border:none" id="Hapuspolres" onclick="hapus(`' . $field['id'] . '`)">
 			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 		</button>
                 

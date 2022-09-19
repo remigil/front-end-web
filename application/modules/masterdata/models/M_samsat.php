@@ -95,7 +95,7 @@ class M_samsat extends CI_Model {
         // } 
 
 
-        $url = 'doc?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'samsat?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
 
         $result = guzzle_request('GET', $url, [
@@ -107,7 +107,12 @@ class M_samsat extends CI_Model {
             ]
 
         ]);   
-		
+		// echo "<pre>";
+		// var_dump($result);
+		// echo "<pre>";
+		// die;
+
+
         $no=1;
 		
 		foreach  ($result['data']['data'] as $field) { 
@@ -118,16 +123,16 @@ class M_samsat extends CI_Model {
             $row ['id']	=  $no++; 
             $row ['name_samsat'] 			= $field['name_samsat'];
             $row ['address']			= $field['address'];  
-            $row ['operational_hour']			= $field['operational_hour'];  
+            $row ['operational_hour']			= $field['samsat_open_time'] ."-". $field['samsat_close_time'];  
             $row ['action']         = ' 
                 
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailKendaraan">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailSamsat">
 					<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahKendaraan">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahSamsat">
 					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" id="HapusKendaraan" onclick="detail(`' . $field['id'] . '`)">
+				<button style="background-color:transparent ; border:none" id="HapusSamsat" onclick="hapus(`' . $field['id'] . '`)">
 					<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 				</button>
 

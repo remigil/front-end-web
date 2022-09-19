@@ -8,7 +8,7 @@ class Polda extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('M_polda');
+        $this->load->model('masterdata/M_polda');
     }
 
     public function index()
@@ -59,25 +59,14 @@ class Polda extends MY_Controller
         
             $dummy = [
                 [
-					'name' => 'no_vehicle',
-					'contents' => $input['noKendaraan'],
+					'name' => 'name_polda',
+					'contents' => $input['namaPolda'],
 				],
-				[
-					'name' => 'type_vehicle',
-					'contents' => $input['jenisKendaraan'],
-				],
-				[
-					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
-				],
-				[
-					'name' => 'ownership_vehicle',
-					'contents' => $input['kepemilikan'],
-				]
+				
                 
             ]; 
 
-			$data = guzzle_request('POST', 'vehicle/add', [ 
+			$data = guzzle_request('POST', 'polda/add', [ 
 				'multipart' => $dummy, 
 				'headers' => $headers 
 			]);
@@ -99,15 +88,15 @@ class Polda extends MY_Controller
 			echo json_encode($res);
 
     }
-	public function detailKendaraan()
+	public function detailPolda()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $id = $this->input->post('id_kendaraan');
+        $id = $this->input->post('id_polda');
 
-        $getDetail = guzzle_request('GET', 'vehicle/getId/' . $id . '', [
+        $getDetail = guzzle_request('GET', 'polda/getId/' . $id . '', [
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data']['data'];
@@ -115,12 +104,12 @@ class Polda extends MY_Controller
         echo json_encode($data['getDetail']);
     }
 
-	public function hapusKendaraan()
+	public function hapusPolda()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $id = $this->input->post('id_kendaraan');
+        $id = $this->input->post('id_polda');
 
         $dummy = [
             [
@@ -129,7 +118,7 @@ class Polda extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('DELETE', 'vehicle/delete', [
+        $data = guzzle_request('DELETE', 'polda/delete', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);
@@ -152,33 +141,22 @@ class Polda extends MY_Controller
         echo json_encode($results);
     }
 
-    public function updateKendaraan()
+    public function updatePolda()
     {
         $headers = [ 
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
         
-            $dummy = [
-                [
-					'name' => 'no_vehicle',
-					'contents' => $input['noKendaraan'],
-				],
-				[
-					'name' => 'type_vehicle',
-					'contents' => $input['jenisKendaraan'],
-				],
-				[
-					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
-				],
-				[
-					'name' => 'ownership_vehicle',
-					'contents' => $input['kepemilikan'],
-				]
-                
-            ];
-        $data = guzzle_request('PUT', 'vehicle/edit/' . $input['id'] . '', [
+		$dummy = [
+			[
+				'name' => 'name_polda',
+				'contents' => $input['namaPolda'],
+			],
+			
+			
+		]; 
+        $data = guzzle_request('PUT', 'polda/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);

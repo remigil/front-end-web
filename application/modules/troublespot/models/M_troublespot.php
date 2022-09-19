@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_petugasnasional extends CI_Model {
+class M_troublespot extends CI_Model {
 
 
     public function __construct(){
@@ -32,7 +32,7 @@ class M_petugasnasional extends CI_Model {
 
         $orderFieldRess =  $columnName[$orderField]['data']; 
 
-    
+       
         $data = array(); 
 
 
@@ -95,7 +95,7 @@ class M_petugasnasional extends CI_Model {
         // } 
 
 
-        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'troublespot?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
 
         $result = guzzle_request('GET', $url, [
@@ -109,35 +109,41 @@ class M_petugasnasional extends CI_Model {
         ]);   
 		
         $no=1;
-		
+        // var_dump($result);
+        // die;
+		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
-			
+            if ($field['polda_id'] == 1) {
+				$polda = "Polda jawa barat";
+			} else if($field['polda_id'] == 2){
+				$polda = "Polda metro jaya";
+			}else if($field['polda_id'] == 3){
+				$polda = "Polda banten";
+			}
+			if ($field['polres_id'] == 1) {
+				$polres = "polrestabes bandung";
+			} else if($field['polres_id'] == 2){
+				$polres = "polresta bogor";
+			}else if($field['polres_id'] == 3){
+				$polres = "polres bogor";
+			}
 			
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['nrp_officer']			= $field['nrp_officer'];  
-            $row ['name_officer']			= $field['name_officer'];  
-            $row ['phone_officer']   	= $field['phone_officer'];  
-            $row ['rank_officer']   	= $field['rank_officer'];  
-            $row ['status_officer']			= $field['status_officer'];  
-            $row ['action']         = ' 
-                
+            $row ['polda_id']	= $polda;
+            $row ['polres_id']	= $polres;
+            $row ['location']			= $field['location'];  
+            $row ['created_at']   		= $field['created_at'];
+           
+            $row ['action']         = '
+            
+            <a href="'.base_url().'troublespot/Troublespot/detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
 
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPetugas">
-					<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-				</button>
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahPetugas">
-					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-				</button>
-				<button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
-					<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-				</button>
-
+			
             '; 
 
             $data[] = $row;
-            
 
         }
 

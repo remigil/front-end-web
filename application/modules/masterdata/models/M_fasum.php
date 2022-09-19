@@ -118,16 +118,16 @@ class M_fasum extends CI_Model
             $row['fasum_type'] 			= $field['fasum_type'];
             $row['fasum_address']       	= $field['fasum_address'];
             $row['fasum_phone']       	= $field['fasum_phone'];
-            $row['jam_operasional']       	= $field['fasum_open_time'] - $field['fasum_close_time'];
+            $row['jam_operasional']       	= $field['fasum_open_time']."-".$field['fasum_close_time'];
             $row['action']         = '   
                 
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailFasum">
 			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
+		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahFasum">
 			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 		</button>
-		<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="detail(`' . $field['id'] . '`)">
+		<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="hapus(`' . $field['id'] . '`)">
 			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 		</button>
                 

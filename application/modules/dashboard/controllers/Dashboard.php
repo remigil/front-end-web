@@ -33,7 +33,7 @@ class Dashboard extends MY_Controller
                 'headers' => $headers
             ]);
             $data['getAccount'] = $getAccount['data']['data'];
- 
+
 
 
             $page_content["data"] = $data;
@@ -60,49 +60,49 @@ class Dashboard extends MY_Controller
             ]);
             $resGetRenpam = $getRenpam['data']['data'];
 
-            
-            
-            
-            $url = parse_url($_SERVER['REQUEST_URI']); 
-            if($url['query']){
+
+
+
+            $url = parse_url($_SERVER['REQUEST_URI']);
+            if ($url['query']) {
                 parse_str($url['query'], $params);
                 $data['start_date'] = $params['start_date'];
-                $data['end_date'] = $params['end_date']; 
+                $data['end_date'] = $params['end_date'];
 
-                
-                $filterProses = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 0 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDone = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+
+                $filterProses = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+                $filterDone = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
                 $data['filterProses'] = count($filterProses);
                 $data['filterDone'] = count($filterDone);
-                
-                
-                $filterProsesPatroli = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePatroli = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+
+
+                $filterProsesPatroli = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+                $filterDonePatroli = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
                 $data['filterProsesPatroli'] = count($filterProsesPatroli);
                 $data['filterDonePatroli'] = count($filterDonePatroli);
-    
-                $filterProsesPengawalan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 2 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePengawalan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 2  && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+
+                $filterProsesPengawalan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 2 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+                $filterDonePengawalan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 2  && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
                 $data['filterProsesPengawalan'] = count($filterProsesPengawalan);
                 $data['filterDonePengawalan'] = count($filterDonePengawalan);
-    
-                $filterProsesPenjagaan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePenjagaan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+
+                $filterProsesPenjagaan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+                $filterDonePenjagaan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
                 $data['filterProsesPenjagaan'] = count($filterProsesPenjagaan);
                 $data['filterDonePenjagaan'] = count($filterDonePenjagaan);
-    
-                $filterProsesPengaturan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePengaturan = array_filter($resGetRenpam, fn($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+
+                $filterProsesPengaturan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
+                $filterDonePengaturan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
                 $data['filterProsesPengaturan'] = count($filterProsesPengaturan);
                 $data['filterDonePengaturan'] = count($filterDonePengaturan);
-            }else{
+            } else {
                 redirect(base_url('404_notfound'));
             }
 
 
 
             $page_content["data"] = $data;
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
@@ -115,10 +115,10 @@ class Dashboard extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $input = $this->input->post(); 
-         
-        
-        $url = 'renpam/getId/'.$input['id'].'';
+        $input = $this->input->post();
+
+
+        $url = 'renpam/getId/' . $input['id'] . '';
         // echo json_encode($url);
         // die;
         $getMe = guzzle_request('GET', $url, [
@@ -133,30 +133,31 @@ class Dashboard extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $input = $this->input->post(); 
-        if($input['filter']){
-            $filter = '&filter='.$input['filter'].'';
-        }else{
+        $input = $this->input->post();
+        if ($input['filter']) {
+            $filter = '&filter=' . $input['filter'] . '';
+        } else {
             $filter = '';
         }
-        if($input['radius']){
-            $radius = '?radius='.$input['radius'].'';
-        }else{
+        if ($input['radius']) {
+            $radius = '?radius=' . $input['radius'] . '';
+        } else {
             $radius = '?radius=1500';
         }
-        if($input['coordinate']){
-            $coordinate = '&coordinate='.$input['coordinate'].'';
-        }else{
+        if ($input['coordinate']) {
+            $coordinate = '&coordinate=' . $input['coordinate'] . '';
+        } else {
             $coordinate = '&coordinate=-8.451740, 115.089643';
         }
+ 
         if($input['type']){
             $type = '&type='.$input['type'].'';
         }else{
             // $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall,gas_station';
-            $type = '&type=mosque';
+            $type = '&type=mosque'; 
         }
-        
-        $url = 'filter-search'.$radius.''.$filter.''.$coordinate.''.$type.'';
+
+        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . '';
         // echo json_encode($url);
         // die;
         $getMe = guzzle_request('GET', $url, [
@@ -283,7 +284,7 @@ class Dashboard extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Peta";
- 
+
         $page_content["page"] = "dashboard/dashboard_g20";
 
         $getVip = guzzle_request('GET', 'vip', [

@@ -21,7 +21,7 @@ class M_dokumenperaturan extends CI_Model {
         $draw = $postData['draw']; 
 
         $rowperpage = $postData['length']; // Rows display per page  
-		 
+		
         $columnName = $postData['columns']; // Column name 
 
 		$page = $postData['page']; 
@@ -32,7 +32,7 @@ class M_dokumenperaturan extends CI_Model {
 
         $orderFieldRess =  $columnName[$orderField]['data']; 
 
-       
+
         $data = array(); 
 
 
@@ -95,7 +95,7 @@ class M_dokumenperaturan extends CI_Model {
         // } 
 
 
-        $url = 'doc?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'regulation_doc?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
 
         $result = guzzle_request('GET', $url, [
@@ -108,37 +108,42 @@ class M_dokumenperaturan extends CI_Model {
 
         ]);   
 		
+		// echo "<pre>";
+		// var_dump($result);
+		// echo "<pre>";
+		// die;
+
         $no=1;
 		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
 			
-			if ($field['regulation_category'] == 1) {
-				$category = "Undang-undang";
-			} else if($field['regulation_category'] == 2){
-				$category = "Peraturan Pemerintah";
-			}else if($field['regulation_category'] == 3){
-				$category = "Peraturan Presiden";
-			}else if($field['regulation_category'] == 4){
-				$category = "Peraturan Kepolisian";
-			}else if($field['regulation_category'] == 5){
-				$category = "Peraturan Kapolri";
-			}else if($field['regulation_category'] == 6){
-				$category = "Peraturan Kakorlantas POLRI";
-			}else if($field['regulation_category'] == 7){
-				$category = "Peraturan Lain-lain";
-			}
+			// if ($field['regulation_category'] == 1) {
+			// 	$category = "Undang-undang";
+			// } else if($field['regulation_category'] == 2){
+			// 	$category = "Peraturan Pemerintah";
+			// }else if($field['regulation_category'] == 3){
+			// 	$category = "Peraturan Presiden";
+			// }else if($field['regulation_category'] == 4){
+			// 	$category = "Peraturan Kepolisian";
+			// }else if($field['regulation_category'] == 5){
+			// 	$category = "Peraturan Kapolri";
+			// }else if($field['regulation_category'] == 6){
+			// 	$category = "Peraturan Kakorlantas POLRI";
+			// }else if($field['regulation_category'] == 7){
+			// 	$category = "Peraturan Lain-lain";
+			// }
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['news_category']	= $category; 
-            $row ['title']			= $field['title'];  
-            $row ['year']   	= $field['year'];  
+            $row ['regulation_category']	= $field['regulation_category']; 
+            $row ['regulation_name']		= $field['regulation_name'];  
+            $row ['year']   				= $field['year'];  
             $row ['action']         = ' 
                 
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailDokumenPeraturan">
                     <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                 </button>
-                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahBerita">
+                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahDokumenPeraturan">
                     <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                 </button>
                 <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
