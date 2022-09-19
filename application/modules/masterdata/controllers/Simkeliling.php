@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Simkeliling extends MY_Controller
+class SimKeliling extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model("m_simkel");
+        $this->load->model("masterdata/m_simkel");
     }
 
     public function index()
@@ -114,7 +114,7 @@ class Simkeliling extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $id = $this->input->post('id_polda');
+        $id = $this->input->post('id_simkel');
 
         $dummy = [
             [
@@ -123,7 +123,7 @@ class Simkeliling extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('DELETE', 'polda/delete', [
+        $data = guzzle_request('DELETE', 'sim_keliling/delete', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);
@@ -155,13 +155,22 @@ class Simkeliling extends MY_Controller
 
         $dummy = [
             [
-                'name' => 'name_polda',
-                'contents' => $input['namaPolda'],
+                'name' => 'name_sim_keliling',
+                'contents' => $input['name_sim_keliling'],
+            ], [
+                'name' => 'address',
+                'contents' => $input['address'],
+            ], [
+                'name' => 'sim_keliling_open_time',
+                'contents' => $input['sim_keliling_open_time'],
+            ], [
+                'name' => 'sim_keliling_close_time',
+                'contents' => $input['sim_keliling_close_time'],
             ],
 
 
         ];
-        $data = guzzle_request('PUT', 'polda/edit/' . $input['id'] . '', [
+        $data = guzzle_request('PUT', 'sim_keliling/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);

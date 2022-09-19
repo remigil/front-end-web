@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Tambah Samsat</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahSamsat">Tambah Samsat</button>
     <div class="card">
 
         <div class="card-body">
@@ -33,7 +33,7 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahSamsat" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -43,29 +43,111 @@
             <div class="modal-body">
                 <div class="row m-3">
                     <div class="col-md-12">
-                        <form action="">
+						<form action="" class="form" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Samsat</label>
+                                <input type="text" class="form-control" id="namaSamsat" name="namaSamsat" placeholder="Samsat">
+                                <label for="namaSamsat">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea address" name="address"></textarea>
+                                <label for="address">Alamat</label>
+                            </div>
+							<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
                             </div>
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Buka</label>
+                                        <input type="time" class="form-control" id="jamBuka" name="jamBuka" placeholder="Samsat">
+                                        <label for="jamBuka">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Tutup</label>
+                                        <input type="time" class="form-control" id="jamTutup" name="jamTutup" placeholder="Samsat">
+                                        <label for="jamTutup">Jam Tutup</label>
                                     </div>
                                 </div>
+								
+                            </div>
+							<div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modals -->
+<div class="modal fade UbahSamsat" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Samsat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row m-3">
+                    <div class="col-md-12">
+						<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="" id="id_samsat" type="text">
+						<div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaSamsat" name="namaSamsat" placeholder="Samsat">
+                                <label for="namaSamsat">Nama Samsat</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address"></textarea>
+                                <label for="address">Alamat</label>
+                            </div>
+							<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
+                            </div>
+                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" id="jamBuka" name="jamBuka" placeholder="Samsat">
+                                        <label for="jamBuka">Jam Buka</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" id="jamTutup" name="jamTutup" placeholder="Samsat">
+                                        <label for="jamTutup">Jam Tutup</label>
+                                    </div>
+                                </div>
+								
+                            </div>
+							<div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                             </div>
                         </form>
                     </div>
@@ -76,7 +158,7 @@
 </div>
 
 <!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailSamsat" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -87,28 +169,43 @@
                 <div class="row m-3">
                     <div class="col-md-12">
                         <form action="">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_samsat" placeholder="isi nama samsat" name="nama_samsat">
-                                <label for="nama_akun">Nama Samsat</label>
+						<div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaSamsat" name="namaSamsat" placeholder="Samsat">
+                                <label for="namaSamsat">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" name="nama_alamat" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address"></textarea>
+                                <label for="address">Alamat</label>
                             </div>
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+							<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" name="jb" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Buka</label>
+                                        <input type="time" class="form-control" id="jamBuka" name="jamBuka" placeholder="Samsat">
+                                        <label for="jamBuka">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="nama_akun" name="jt" placeholder="isi nama samsat">
-                                        <label for="nama_akun">Jam Tutup</label>
+                                        <input type="time" class="form-control" id="jamTutup" name="jamTutup" placeholder="Samsat">
+                                        <label for="jamTutup">Jam Tutup</label>
                                     </div>
                                 </div>
+								
                             </div>
                         </form>
                     </div>
@@ -121,6 +218,155 @@
 
 
 <script>
+    $(document).ready(function() {
+        $('.dropify').dropify();
+
+
+        var initialCenter = [-2.548926, 118.0148634];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 19,
+            minZoom: 1,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var markerClusterGroup = L.markerClusterGroup();
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        });
+
+        var arrayData = $.grep(data, function(element, index) {
+            return element.coordinate != null && element.coordinate != '';
+        });
+        // console.log(arrayData); 
+
+        for (let i = 0; i < arrayData.length; i++) {
+            var cordinate = arrayData[i].coordinate;
+            var latlong = cordinate.split(',');
+            var latitude = parseFloat(latlong[0]);
+            var longitude = parseFloat(latlong[1]);
+            // console.log({a:latitude , b:longitude});
+
+            markerClusterGroup.addLayer(
+                L.marker([latitude, longitude], {
+                    icon
+                }).bindPopup(`
+                <div class="text-center" style="width: 300px;">
+                    <div class="card-block">
+                        <a class="avatar avatar-lg" href="javascript:void(0)">
+                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
+                        </a>
+                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12 col-12" style="margin-top: -15px;">
+                            <div class="row text-left">
+                                <div class="col-md-4 col-4">
+                                    <h5 class="profile-job">Location :</h5>  
+                                </div>
+                                <div class="col-md-8 col-8">
+                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
+                                </div>
+                            </div> 
+                        </div> 
+                        <div class="col-md-12 col-12" style="margin-top: -15px;">
+                            <div class="row text-left">
+                                <div class="col-md-4 col-4">
+                                    <h5 class="profile-job">POC :</h5>  
+                                </div>
+                                <div class="col-md-8 col-8">
+                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
+                                </div>
+                            </div> 
+                        </div>  
+                        <div class="col-md-12 col-12" style="margin-top: -15px;">
+                            <div class="row text-left">
+                                <div class="col-md-4 col-4">
+                                    <h5 class="profile-job">Demand :</h5>  
+                                </div>
+                                <div class="col-md-8 col-8">
+                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
+                                </div>
+                            </div> 
+                        </div>  
+                    </div>
+                    <div class="card-footer">
+                        <div class="row no-space">
+                            <div class="col-4" style="display: grid">
+                                <span>Participant/s</span>
+                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
+                            </div>
+                            <div class="col-4" style="display: grid">
+                                <span>Threat Level</span> 
+                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
+                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
+                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
+                            </div>
+                            <div class="col-4" style="display: grid">
+                                <span>Event Date</span> 
+                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `)
+            );
+        }
+        mapContainer.addLayer(markerClusterGroup);
+        mapContainer.setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+
+
+
+
+    });
+
     $(document).ready(function() {
         $('.dropify').dropify();
 
@@ -206,22 +452,13 @@
                     data: 'id'
                 },
                 {
-                    data: 'polda_id'
-                },
-                {
-                    data: 'name_polres'
-                },
-                {
-                    data: 'code_satpas'
+                    data: 'name_samsat'
                 },
                 {
                     data: 'address'
                 },
                 {
-                    data: 'latitude'
-                },
-                {
-                    data: 'longitude'
+                    data: 'operational_hour'
                 },
                 {
                     data: 'action',
@@ -248,7 +485,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Polres/store",
+                url: "<?php echo base_url(); ?>masterdata/Samsat/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -262,7 +499,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            $(".TambahPolres").modal('hide');
+                            $(".TambahSamsat").modal('hide');
                             userDataTable.draw();
                         });
                     } else {
@@ -276,46 +513,123 @@
             });
         });
     });
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail Samsat')
-        $('[name="nama_samsat"]').val($(this).data('samsat'))
-        $('[name="nama_alamat"]').val($(this).data('alamat'))
-        $('[name="jb"]').val($(this).data('jb'))
-        $('[name="jt"]').val($(this).data('jt'))
-        $('#submit_edit').hide()
-    })
 
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
-
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/detailSamsat',
+            type: 'POST',
+            data: {
+                id_samsat: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailSamsat,input').attr('readonly', true)
+                $('.DetailSamsat,textarea').attr('readonly', true)
+                // $('.DetailSamsat,input,#address').attr('disabled', true)
+                $('.DetailSamsat,#namaSamsat').val(results.name_samsat)
+                $('.DetailSamsat,#address').val(results.address)
+				$('.DetailSamsat,#latitude').val(results.samsat_lat)
+                $('.DetailSamsat,#longitude').val(results.samsat_lng)
+                $('.DetailSamsat,#jamBuka').val(results.samsat_open_time)
+                $('.DetailSamsat,#jamTutup').val(results.samsat_close_time)
             }
         })
     }
+
+    function detailEdit(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/detailSamsat',
+            type: 'POST',
+            data: {
+                id_samsat: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.UbahSamsat,input').attr('readonly', false)
+                $('.UbahSamsat,textarea').attr('readonly', false)
+                // $('.UbahSamsat,input,#address').attr('disabled', false)
+                $('#id_samsat').val(results.id)
+                $('.DetailSamsat,#namaSamsat').val(results.name_samsat)
+                $('.DetailSamsat,#address').val(results.address)
+				$('.DetailSamsat,#latitude').val(results.samsat_lat)
+                $('.DetailSamsat,#longitude').val(results.samsat_lng)
+                $('.DetailSamsat,#jamBuka').val(results.samsat_open_time)
+                $('.DetailSamsat,#jamTutup').val(results.samsat_close_time)
+            }
+        })
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Samsat/hapus/",
+                    type: "POST",
+                    data: {
+                        id_samsat: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahSamsat").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Samsat/update',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahSamsat").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
 </script>

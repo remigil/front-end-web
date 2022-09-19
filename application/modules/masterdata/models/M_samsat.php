@@ -123,7 +123,7 @@ class M_samsat extends CI_Model {
             $row ['id']	=  $no++; 
             $row ['name_samsat'] 			= $field['name_samsat'];
             $row ['address']			= $field['address'];  
-            $row ['operational_hour']			= $field['samsat_open_time'] - $field['samsat_close_time'];  
+            $row ['operational_hour']			= $field['samsat_open_time'] ."-". $field['samsat_close_time'];  
             $row ['action']         = ' 
                 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailSamsat">
@@ -132,7 +132,7 @@ class M_samsat extends CI_Model {
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahSamsat">
 					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" id="HapusKendaraan" onclick="hapus(`' . $field['id'] . '`)">
+				<button style="background-color:transparent ; border:none" id="HapusSamsat" onclick="hapus(`' . $field['id'] . '`)">
 					<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 				</button>
 

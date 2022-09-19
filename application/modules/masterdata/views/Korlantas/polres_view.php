@@ -608,7 +608,7 @@
                     url: "<?php echo base_url(); ?>masterdata/Polres/hapusPolres/",
                     type: "POST",
                     data: {
-                        id_peraturan: id
+                        id_polres: id
                     },
                     dataType: 'JSON',
                     success: function(data) {

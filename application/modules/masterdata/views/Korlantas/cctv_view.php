@@ -10,7 +10,7 @@
 <div class="row align-items-center">
     <div class="col-md-6">
         <div class="mb-3">
-            <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Tambah CCTV</button>
+		<button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahCCTV">Tambah CCTV</button>
         </div>
     </div>
 
@@ -60,7 +60,7 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade " id="addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahCCTV" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -68,40 +68,50 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="formAdd" method="post" enctype="multipart/form-data"> 
+				<form action="" class="form" method="post" enctype="multipart/form-data">
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
+                                <label for="tipeCCTV">Type CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="jenisCCTV" name="jenisCCTV" placeholder="CCTV">
+                                <label for="jenisCCTV">Jenis CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="ipCCTV" name="ipCCTV" placeholder="CCTV">
+                                <label for="ipCCTV">IP CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="merekCCTV" name="merekCCTV" placeholder="CCTV">
+                                <label for="merekCCTV">Merek CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="gatewayCCTV" name="gatewayCCTV" placeholder="CCTV">
+                                <label for="gatewayCCTV">Gateway CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="linkCCTV" name="linkCCTV" placeholder="CCTV">
+                                <label for="linkCCTV">Link CCTV</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="type_cctv" placeholder="Type CCTV">
-                                <label for="type_cctv">Type CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="ip_cctv" placeholder="Alamat Ip">
-                                <label for="ip_cctv">Alamat IP</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="username" placeholder="isi nama samsat">
-                                <label for="username">Username</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="link_cctv" placeholder="isi nama samsat">
-                                <label for="link_cctv">Link CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="gateway_cctv" placeholder="isi nama samsat">
-                                <label for="gateway_cctv">Gateway CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="password" placeholder="isi nama samsat">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input name="address" class="form-control" placeholder="Alamat" type="text" required>
-                                <label for="address">Alamat</label>
+                                <input name="lokasiCCTV" id="lokasiCCTV" class="form-control" placeholder="Alamat" type="text" required>
+                                <label for="address">Lokasi CCTV</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
@@ -111,12 +121,54 @@
                                 <label for="cordinate">Coordinate</label>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-3">
+                        <div class="col-md-12 mt-3 mb-3">
                             <div id="mapG20Dashboard" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
                     </div>
+					<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="vmsCCTV" name="vmsCCTV" placeholder="CCTV">
+                                <label for="vmsCCTV">VMS CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="username" name="username" placeholder="CCTV">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="password" name="password" placeholder="CCTV">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row mb-3">
+                                <div class="material-textfield">
+                                    <input type="hidden" name="status" id="status">
+                                    <label for="" class="labelmui">Status</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
+                                        <label class="form-check-label" for="active">
+                                            ACTIVE
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
+                                        <label class="form-check-label" for="inactive">
+                                            INACTIVE
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                      
                     <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
                 </form>
@@ -138,36 +190,46 @@
 				<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="type_cctv" placeholder="Type CCTV">
-                                <label for="type_cctv">Type CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="ip_cctv" placeholder="Alamat Ip">
-                                <label for="ip_cctv">Alamat IP</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="username" placeholder="isi nama samsat">
-                                <label for="username">Username</label>
+								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
+                                <label for="tipeCCTV">Type CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="link_cctv" placeholder="isi nama samsat">
-                                <label for="link_cctv">Link CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="gateway_cctv" placeholder="isi nama samsat">
-                                <label for="gateway_cctv">Gateway CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="password" placeholder="isi nama samsat">
-                                <label for="password">Password</label>
+								<input type="text" class="form-control" id="jenisCCTV" name="jenisCCTV" placeholder="CCTV">
+                                <label for="jenisCCTV">Jenis CCTV</label>
                             </div>
                         </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="ipCCTV" name="ipCCTV" placeholder="CCTV">
+                                <label for="ipCCTV">IP CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="merekCCTV" name="merekCCTV" placeholder="CCTV">
+                                <label for="merekCCTV">Merek CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="gatewayCCTV" name="gatewayCCTV" placeholder="CCTV">
+                                <label for="gatewayCCTV">Gateway CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="linkCCTV" name="linkCCTV" placeholder="CCTV">
+                                <label for="linkCCTV">Link CCTV</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input name="address" class="form-control" placeholder="Alamat" type="text" required>
-                                <label for="address">Alamat</label>
+                                <input name="lokasiCCTV" id="lokasiCCTV" class="form-control" placeholder="Alamat" type="text" required>
+                                <label for="address">Lokasi CCTV</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
@@ -177,12 +239,54 @@
                                 <label for="cordinate">Coordinate</label>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-3">
+                        <div class="col-md-12 mt-3 mb-3">
                             <div id="mapG20Dashboard" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
                     </div>
+					<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="vmsCCTV" name="vmsCCTV" placeholder="CCTV">
+                                <label for="vmsCCTV">VMS CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="username" name="username" placeholder="CCTV">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="password" name="password" placeholder="CCTV">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row mb-3">
+                                <div class="material-textfield">
+                                    <input type="hidden" name="status" id="status">
+                                    <label for="" class="labelmui">Status</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
+                                        <label class="form-check-label" for="active">
+                                            ACTIVE
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
+                                        <label class="form-check-label" for="inactive">
+                                            INACTIVE
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
 					<button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
                 </form>
@@ -192,7 +296,7 @@
 </div><!-- /.modal -->
 
 <!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailCCTV" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -201,52 +305,75 @@
             </div>
             <div class="modal-body">
                 <form action="">
-                    <div class="row">
+				<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="nama" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama CCTV</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="provinsi" placeholder="isi nama samsat">
-                                <label for="nama_akun">Provinsi</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="username" placeholder="isi nama samsat">
-                                <label for="nama_akun">Username</label>
+								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
+                                <label for="tipeCCTV">Type CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="alamat" placeholder="isi nama samsat">
-                                <label for="nama_akun">Alamat IP</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="kota" placeholder="isi nama samsat">
-                                <label for="nama_akun">Kota</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="password" placeholder="isi nama samsat">
-                                <label for="nama_akun">Password</label>
+								<input type="text" class="form-control" id="jenisCCTV" name="jenisCCTV" placeholder="CCTV">
+                                <label for="jenisCCTV">Jenis CCTV</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                    <div class="row">
-                        <div class="col-md-6">
+						<div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="latitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Latitude</label>
+								<input type="text" class="form-control" id="ipCCTV" name="ipCCTV" placeholder="CCTV">
+                                <label for="ipCCTV">IP CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="longitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Longitude</label>
+								<input type="text" class="form-control" id="merekCCTV" name="merekCCTV" placeholder="CCTV">
+                                <label for="merekCCTV">Merek CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="gatewayCCTV" name="gatewayCCTV" placeholder="CCTV">
+                                <label for="gatewayCCTV">Gateway CCTV</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="linkCCTV" name="linkCCTV" placeholder="CCTV">
+                                <label for="linkCCTV">Link CCTV</label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input name="lokasiCCTV" id="lokasiCCTV" class="form-control" placeholder="Alamat" type="text" required>
+                                <label for="address">Lokasi CCTV</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="vmsCCTV" name="vmsCCTV" placeholder="CCTV">
+                                <label for="vmsCCTV">VMS CCTV</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="username" name="username" placeholder="CCTV">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+								<input type="text" class="form-control" id="password" name="password" placeholder="CCTV">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
         </div>
@@ -288,7 +415,7 @@
 
                 dataType: 'json',
 
-                url: '<?php echo base_url(); ?>masterdata/cctv/serverSideTable',
+                url: '<?php echo base_url(); ?>masterdata/Cctv/serverSideTable',
 
                 data: function(data) {
 
@@ -502,115 +629,140 @@
 
         }); 
 
-        $(".formAdd").submit(function(e) {
+        $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-            var formData = new FormData($('.formAdd')[0]); 
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url();?>masterdata/cctv/store",
+                url: "<?php echo base_url(); ?>masterdata/Cctv/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
                 contentType: false,
-                processData: false,  
-                success: function (data) {
+                processData: false,
+                success: function(data) {
                     $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
+                    if (data['status'] == true) {
                         Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() { 
-                            $("#addModal").modal('hide');
-                            userDataTable.draw(); 
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahCCTV").modal('hide');
+                            userDataTable.draw();
                         });
-                    } 
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
                 }
-            }); 
+            });
         });
-
     });
 
-
-
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail CCTV')
-        $('[name="nama"]').val($(this).data('nama'))
-        $('[name="alamat"]').val($(this).data('ip'))
-        $('[name="provinsi"]').val($(this).data('provinsi'))
-        $('[name="kota"]').val($(this).data('kota'))
-        $('[name="latitude"]').val($(this).data('lat'))
-        $('[name="longitude"]').val($(this).data('long'))
-        $('[name="username"]').val($(this).data('username'))
-        $('[name="password"]').val($(this).data('password'))
-        $('#submit_edit').hide()
-    })
-
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
-
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Cctv/detailCCTV/',
+            type: 'POST',
+            data: {
+                id_cctv: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                $('.DetailCCTV,input').attr('readonly', true)
+                // $('.DetailCCTV,input,#category').attr('disabled', true)
+                $('.DetailCCTV,#tipeCCTV').val(results.type_cctv)
+                $('.DetailCCTV,#jenisCCTV').val(results.jenis_cctv)
+                $('.DetailCCTV,#ipCCTV').val(results.ip_cctv)
+                $('.DetailCCTV,#merekCCTV').val(results.merek_cctv)
+                $('.DetailCCTV,#gatewayCCTV').val(results.gateway_cctv)
+                $('.DetailCCTV,#linkCCTV').val(results.link_cctv)
+                $('.DetailCCTV,#lokasiCCTV').val(results.address_cctv)
+                $('.DetailCCTV,#vmsCCTV').val(results.vms_cctv)
+                $('.DetailCCTV,#username').val(results.username_cctv)
+                $('.DetailCCTV,#password').val(results.password)
+                $('.DetailCCTV,#status').val(results.status_cctv)
             }
         })
     }
 
-	function detailEdit(id) {
+    function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Cctv/detailBerita/',
+            url: '<?= base_url() ?>mastedata/Cctv/detailCCTV/',
             type: 'POST',
             data: {
-                id_berita: id
+                id_cctv: id
             },
             dataType: 'JSON',
             success: function(results) {
                 $('.UbahCCTV,input').attr('readonly', false)
-                $('.UbahCCTV,input,#category').attr('disabled', false)
-                $('#id_berita').val(results.id)
-                $('.UbahCCTV,#title').val(results.title)
-                $('.UbahCCTV,#category').val(results.news_category)
-                $('.UbahCCTV,#content').val(results.content)
+                // $('.DetailCCTV,input,#category').attr('disabled', true)
+                $('#id_cctv').val(results.id)
+                $('.DetailCCTV,#tipeCCTV').val(results.type_cctv)
+                $('.DetailCCTV,#jenisCCTV').val(results.jenis_cctv)
+                $('.DetailCCTV,#ipCCTV').val(results.ip_cctv)
+                $('.DetailCCTV,#merekCCTV').val(results.merek_cctv)
+                $('.DetailCCTV,#gatewayCCTV').val(results.gateway_cctv)
+                $('.DetailCCTV,#linkCCTV').val(results.link_cctv)
+                $('.DetailCCTV,#lokasiCCTV').val(results.address_cctv)
+                $('.DetailCCTV,#vmsCCTV').val(results.vms_cctv)
+                $('.DetailCCTV,#username').val(results.username_cctv)
+                $('.DetailCCTV,#password').val(results.password_cctv)
+				$('.DetailCCTV,#status').val(results.status_cctv)
             }
         })
     }
 
-	$('#btn_edit').on('click', function(e) {
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Cctv/hapusCCTV/",
+                    type: "POST",
+                    data: {
+                        id_cctv: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahCCTV").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Cctv/updateCCTV',
+            url: '<?= base_url() ?>masterdata/Cctv/updateCCTV',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

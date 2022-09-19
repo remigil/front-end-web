@@ -8,7 +8,7 @@ class Samsat extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model("M_samsat");
+        $this->load->model("masterdata/m_samsat");
     }
 
     public function index()
@@ -43,8 +43,8 @@ class Samsat extends MY_Controller
     {
         $postData = $this->input->post();
         $data = $this->m_samsat->get_datatables($postData);
-        var_dump($data);
-        die;
+        // var_dump($data);
+        // die;
         echo json_encode($data);
     }
 
@@ -62,7 +62,7 @@ class Samsat extends MY_Controller
             ],
             [
                 'name' => 'address',
-                'contents' => $input['alamatSamsat'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'samsat_lat',
@@ -171,7 +171,7 @@ class Samsat extends MY_Controller
             ],
             [
                 'name' => 'address',
-                'contents' => $input['alamatSamsat'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'samsat_lat',

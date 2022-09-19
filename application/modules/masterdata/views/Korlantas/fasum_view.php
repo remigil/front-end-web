@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Tambah Fasilitas Umum</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Umum</button>
     <div class="card">
 
         <div class="card-body">
@@ -35,34 +35,48 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahFasum" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasum</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasilitas Umum</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+				<form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Fasum</label>
+                                <input type="text" class="form-control" id="" name="namaFasum">
+                                <label for="">Nama Fasilitas Umum</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jenis Fasilitas Umum</label>
+                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
+                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamatFasum" name="alamatFasum"></textarea>
                                 <label for="floatingTextarea">Alamat</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
                             </div>
                         </div>
                     </div>
@@ -71,21 +85,51 @@
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
+					<div class="row">
+                        <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Tutup</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
+                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamBuka" name="jamBuka">
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn  btn-primary float-end">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -93,34 +137,48 @@
 </div>
 
 <!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasum</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasilitas Umum</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
-                    <div class="row">
+				<form action="" class="form">
+				<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Fasum</label>
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Umum</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jenis Fasilitas Umum</label>
+                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
+                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamat" name="alamat"></textarea>
                                 <label for="floatingTextarea">Alamat</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
                             </div>
                         </div>
                     </div>
@@ -129,21 +187,154 @@
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
+					<div class="row">
+                        <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Tutup</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsi" name="deskripsi"></textarea>
+                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
+                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamBuka" name="jamBuka" >
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modals -->
+<div class="modal fade UbahFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Fasilitas Umum</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="" id="id_fasum" type="text">
+				<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
+                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamat" name="alamat"></textarea>
+                                <label for="floatingTextarea">Alamat</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsi" name="deskripsi"></textarea>
+                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
+                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamBuka" name="jamBuka" >
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn  btn-primary float-end" id="btn_edit" type="submit">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -299,55 +490,6 @@
 
     });
 
-
-
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail CCTV')
-        $('[name="nama"]').val($(this).data('nama'))
-        $('[name="alamat"]').val($(this).data('ip'))
-        $('[name="provinsi"]').val($(this).data('provinsi'))
-        $('[name="kota"]').val($(this).data('kota'))
-        $('[name="latitude"]').val($(this).data('lat'))
-        $('[name="longitude"]').val($(this).data('long'))
-        $('[name="username"]').val($(this).data('username'))
-        $('[name="password"]').val($(this).data('password'))
-        $('#submit_edit').hide()
-    })
-
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
-
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
-        })
-    }
-
 	$(document).ready(function() {
         $('.dropify').dropify();
 
@@ -472,7 +614,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/Kendaraan/store",
+                url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -486,7 +628,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            $(".TambahKendaraan").modal('hide');
+                            $(".TambahFasum").modal('hide');
                             userDataTable.draw();
                         });
                     } else {
@@ -503,37 +645,53 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>Fasilitasumum/detailFasum/',
             type: 'POST',
             data: {
-                id_kendaraan: id
+                id_fasum: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailKendaraan,input').attr('readonly', true)
-                $('.DetailKendaraan,input,#category').attr('disabled', true)
-                $('.DetailKendaraan,#title').val(results.title)
-                $('.DetailKendaraan,#category').val(results.news_category)
-                $('.DetailKendaraan,#content').val(results.content)
+                $('.DetailFasum,input').attr('readonly', true)
+                // $('.DetailFasum,input,#category').attr('disabled', true)
+                $('.DetailFasum,#namaFasum').val(results.fasum_name)
+                $('.DetailFasum,#jenisFasum').val(results.fasum_type)
+                $('.DetailFasum,#alamatFasum').val(results.fasum_address)
+                $('.DetailFasum,#latitude').val(results.fasum_lat)
+                $('.DetailFasum,#longitude').val(results.fasum_lng)
+                $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
+                $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
+                $('.DetailFasum,#statusFasum').val(results.fasum_status)
+                $('.DetailFasum,#photo').val(results.fasum_logo)
+                $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
+                $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
         })
     }
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/detailKendaraan/',
+            url: '<?= base_url() ?>Fasilitasumum/detailFasum/',
             type: 'POST',
             data: {
-                id_peraturan: id
+                id_fasum: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahKendaraan,input').attr('readonly', false)
-                $('.UbahKendaraan,input,#category').attr('disabled', false)
-                $('#id_kendaraan').val(results.id)
-                $('.UbahKendaraan,#title').val(results.title)
-                $('.UbahKendaraan,#category').val(results.news_category)
-                $('.UbahKendaraan,#content').val(results.content)
+                $('.UbahFasum,input').attr('readonly', false)
+                // $('.DetailFasum,input,#category').attr('disabled', true)
+				$('#id_fasum').val(results.id)
+                $('.DetailFasum,#namaFasum').val(results.fasum_name)
+                $('.DetailFasum,#jenisFasum').val(results.fasum_type)
+                $('.DetailFasum,#alamatFasum').val(results.fasum_address)
+                $('.DetailFasum,#latitude').val(results.fasum_lat)
+                $('.DetailFasum,#longitude').val(results.fasum_lng)
+                $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
+                $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
+                $('.DetailFasum,#statusFasum').val(results.fasum_status)
+                $('.DetailFasum,#photo').val(results.fasum_logo)
+                $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
+                $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
         })
     }
@@ -550,10 +708,10 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Kendaraan/hapusKendaraan/",
+                    url: "<?php echo base_url(); ?>Fasilitasumum/hapusFasum/",
                     type: "POST",
                     data: {
-                        id_peraturan: id
+                        id_fasum: id
                     },
                     dataType: 'JSON',
                     success: function(data) {
@@ -564,7 +722,7 @@
                                 '',
                                 'success'
                             ).then(function() {
-                                $(".TambahKendaraan").modal('hide');
+                                $(".TambahFasum").modal('hide');
                                 userDataTable.draw();
                             });
                         } else {
@@ -584,7 +742,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Kendaraan/updateKendaraan',
+            url: '<?= base_url() ?>Fasilitasumum/updateFasum',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
@@ -598,7 +756,7 @@
                         '',
                         'success'
                     ).then(function() {
-                        $(".UbahKendaraan").modal('hide');
+                        $(".UbahFasum").modal('hide');
                         userDataTable.draw();
                     });
                 } else {

@@ -37,7 +37,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Sim Keliling</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah SIM Keliling</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -46,7 +46,7 @@
                         <form action="" class="form" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="name_sim_keliling" name="name_sim_keliling" placeholder="Sim Keliling">
-                                <label for="name_sim_keliling">Nama Samsat</label>
+                                <label for="name_sim_keliling">Nama SIM Keliling</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address" id="address"></textarea>
@@ -78,12 +78,59 @@
     </div>
 </div>
 
+<!-- Edit Modals -->
+<div class="modal fade UbahSimkel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit SIM Keliling</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row m-3">
+                    <div class="col-md-12">
+                        <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="" id="id_simkel" type="text">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="name_sim_keliling" name="name_sim_keliling" placeholder="Sim Keliling">
+                                <label for="name_sim_keliling">Nama SIM Keliling</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address" id="address"></textarea>
+                                <label for="address">Alamat</label>
+                            </div>
+                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" name="sim_keliling_open_time" id="sim_keliling_open_time" placeholder="">
+                                        <label for="sim_keliling_open_time">Jam Buka</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" name="sim_keliling_close_time" id="sim_keliling_close_time" placeholder="">
+                                        <label for="sim_keliling_close_time">Jam Tutup</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Detail Modals -->
 <div class="modal fade DetailSimkel" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Akun</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail SIM Keliling</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -452,9 +499,10 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                // $('.DetailSimkel,input').attr('readonly', true)
-                // $('.DetailSimkel,textarea').attr('readonly', true)
-                // $('.DetailSimkel,input,#address').attr('disabled', true)
+                $('.UbahSimkel,input').attr('readonly', false)
+                $('.UbahSimkel,textarea').attr('readonly', false)
+                $('.UbahSimkel,input,#address').attr('disabled', false)
+                $('#id_simkel').val(results.id)
                 $('.DetailSimkel,#name_sim_keliling').val(results.name_sim_keliling)
                 $('.DetailSimkel,#address').val(results.address)
                 $('.DetailSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
@@ -478,7 +526,7 @@
                     url: "<?php echo base_url(); ?>masterdata/SimKeliling/hapus/",
                     type: "POST",
                     data: {
-                        id_peraturan: id
+                        id_simkel: id
                     },
                     dataType: 'JSON',
                     success: function(data) {
@@ -489,7 +537,7 @@
                                 '',
                                 'success'
                             ).then(function() {
-                                $(".TambahKendaraan").modal('hide');
+                                $(".TambahSimkel").modal('hide');
                                 userDataTable.draw();
                             });
                         } else {
@@ -509,7 +557,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/SimKeliling/updateSimKeliling',
+            url: '<?= base_url() ?>masterdata/SimKeliling/update',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
@@ -523,7 +571,7 @@
                         '',
                         'success'
                     ).then(function() {
-                        $(".UbahKendaraan").modal('hide');
+                        $(".UbahSimkel").modal('hide');
                         userDataTable.draw();
                     });
                 } else {
