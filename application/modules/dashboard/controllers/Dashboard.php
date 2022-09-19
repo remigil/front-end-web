@@ -152,7 +152,8 @@ class Dashboard extends MY_Controller
         if($input['type']){
             $type = '&type='.$input['type'].'';
         }else{
-            $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall,gas_station';
+            // $type = '&type=mosque,school,cafe,hospital,lodging,restaurant,tourist_attraction,fire_station,shopping_mall,gas_station';
+            $type = '&type=mosque';
         }
         
         $url = 'filter-search'.$radius.''.$filter.''.$coordinate.''.$type.'';
@@ -251,6 +252,7 @@ class Dashboard extends MY_Controller
 
         echo json_encode($data['getJadwal']);
     }
+ 
 
     public function getRenpam()
     {

@@ -101,6 +101,51 @@
                                         <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
                                         <span>Trouble Spot</span> 
                                     </div>   
+                                    <div class="col-md-12 mt-3" id="menuKategori">
+                                    <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="mosque" id="mosque" class="form-input" >  
+                                                <span>mosque</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="school" id="school" class="form-input" >  
+                                                <span>School</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="cafe" id="cafe" class="form-input" >  
+                                                <span>Cafe</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="hospital" id="hospital" class="form-input" >  
+                                                <span>Hospital</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="lodging" id="lodging" class="form-input" >  
+                                                <span>Lodging</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="restaurant" id="restaurant" class="form-input" >  
+                                                <span>Restaurant</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="tourist_attraction" id="tourist_attraction" class="form-input" >  
+                                                <span>Tourist Attraction</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="fire_station" id="fire_station" class="form-input" >  
+                                                <span>Fire Station</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="shopping_mall" id="shopping_mall" class="form-input" >  
+                                                <span>Shopping Mall</span> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" checked name="filterFasumKateg" value="gas_station" id="gas_station" class="form-input" >  
+                                                <span>Gas Station</span> 
+                                            </div>
+                                        </div>
+                                    </div> 
                                     <!-- <div class="dropdown-divider"></div> -->
     
                                     <!-- <div class="material-textfield">
@@ -166,6 +211,26 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="list-group" id="listRenpam"> 
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading3">
+                            <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                                Petugas
+                            </button>
+                        </h2>
+                        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="list-group" id="listPetugas"> 
                                         </div>
                                     </div> 
                                 </div>
@@ -330,6 +395,7 @@
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
     var arrayFilter = [];
+    var arrayFilterFasumKategori = [];
 
 
   $(document).ready(function() { 
@@ -341,8 +407,7 @@
     //     {-8.458519301130188,115.14931575647383},
     //     {-8.452198812821242,115.09396433830263},
     //     {-8.5068977,115.2622931},
-    // ];
-
+    // ];  
 
 
     var initialCenter = [-8.451740, 115.089643];
@@ -415,6 +480,8 @@
         $("#overlay").fadeIn(300);   
 
         
+        let countlist = 0;
+        let list = ""; 
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>dashboard/getTracking", 
@@ -638,6 +705,39 @@
                         }
                       
                     }
+
+
+                      
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => { 
+                        countlist += 1;
+                        list += `<div class="list-group-item text-start" style="display: flex;" 
+                        href="javascript:void(0)">${el.name_officer} 
+                            <div style="right: 1px;position: absolute;">
+                                <a class="btn" style="margin-top: -7px;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
+                                <button class="btn" style="margin-top: -7px;"
+                                    id="listPetugasClick${countlist}"   
+                                    data-nama="${el.name_team}"  
+                                    data-akun="${el.name_account}" 
+                                    data-nrp="${el.nrp_user}"
+                                    data-telp="${el.handphone}"
+                                    data-cord="${el.latitude},${el.longitude}" >
+                                    <i class="fa fas fa-eye "></i>
+                                </button>
+                            </div>
+                        </div>`;
+                        $('#listPetugas').html(list); 
+                    });  
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#listPetugasClick${i+1}`).click(function(){   
+                            var latlong =  $(this).data('cord').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+                            mapContainer.flyTo([latitude, longitude], 17);  
+     
+                        });
+                    } 
 
                 }else{ 
                     $("#overlay").fadeOut(300);  
@@ -930,8 +1030,17 @@
         var ada = mapContainer.getCenter();
         centerLat = ada['lat'];
         centerLng = ada['lng'];   
-        if($('#fasum').is(':checked')){
+        if($('#fasum').is(':checked')){ 
             serverSideFilter();
+        }
+    });
+
+    $("#menuKategori").hide();
+    $("#fasum").on("change", function (e) {
+        if($('#fasum').is(':checked')){
+            $("#menuKategori").show();
+        }else{
+            $("#menuKategori").hide();
         }
     });
 
@@ -941,6 +1050,12 @@
         $("input:checkbox[name=filter]:checked").each(function(){
             arrayFilter.push($(this).val());
         });  
+
+        arrayFilterFasumKategori = [];
+        $("input:checkbox[name=filterFasumKateg]:checked").each(function(){
+            arrayFilterFasumKategori.push($(this).val());
+        });  
+
 
         for (let i = 0; i < markerJadwal.length; i++) { 
             mapContainer.removeLayer(markerJadwal[i]);
@@ -973,7 +1088,7 @@
                 "filter" : arrayFilter.toString(),
                 "radius" : 15000,
                 "coordinate" : `${centerLat},${centerLng}`,
-                "type" : null, 
+                "type" : arrayFilterFasumKategori.toString(), 
             }, 
             dataType : "JSON",
             success : function(result){  
@@ -1315,6 +1430,10 @@
     $("[name=filter]").on("change", function (e) { 
         serverSideFilter();
     });
+    $("[name=filterFasumKateg]").on("change", function (e) { 
+        serverSideFilter();
+    });
+    
 
     
 
@@ -1565,12 +1684,25 @@
                                     profile: 'car'
                                 }),
                                 lineOptions: {
-                                    styles: [{color: "blue", className: 'animateRoute'}]
-                                },
+                                    // styles: [{color: "blue", className: 'animateRoute'}]
+                                    styles: [{color: "blue"}]
+                                }, 
+                                // routeLine: function(r) {
+                                //     var lines = L.Routing.line(r, {  styles: [{color: '#19afc3', opacity: 0.8, weight: 9},
+                                //                                                 {color: '#00ffb4', opacity: 0.8, weight: 6},
+                                //                                                 {color: '#00fdf6', opacity: 1, weight: 2}],
+                                //                                         addWaypoints: true
+                                //                                     });
+                                //     lines.on('linetouched', function(e) { 
+                                //         console.log(e);
+                                //         alert("jalan kaaga"); 
+                                //     });
+                                //     return lines;
+                                // },
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer);
                             routingRenpam[0].hide();
-                            mapContainer.removeLayer(routingRenpam[0]);
+                            mapContainer.removeLayer(routingRenpam[0]);  
 
                             if(route1[i] != null && route1[i][0]['latLng'] != null){
                                 routingRenpam1[0] = L.Routing.control({
@@ -1583,7 +1715,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "gray", className: 'animateLine'}]
+                                        styles: [{color: "yellow", className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1650,7 +1782,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "green", className: 'animateLine'}]
+                                        styles: [{color: "red", className: 'animateLine'}]
                                         // styles: [{className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
@@ -1720,6 +1852,9 @@
                 } 
             }
         });
+
+
+ 
     });
 
 
