@@ -427,6 +427,19 @@
             color: #ff4d4d;
             font-size: 26px
         }
+
+
+        #incognito {
+        display: none;
+        }
+
+        #incognito + label:before {
+        content: "\f0c9"; /* Bars */
+        }
+
+        #incognito:checked + label:before {
+        content: "\f0aa";
+        }
     </style>
 
     <!-- JAVASCRIPT -->

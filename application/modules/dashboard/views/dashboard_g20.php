@@ -716,6 +716,18 @@
                         href="javascript:void(0)">${el.name_officer} 
                             <div style="right: 1px;position: absolute;">
                                 <a class="btn" style="margin-top: -7px;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a>
+                                
+                                <input type="checkbox" class="listPetugasIncognito${countlist}" name="incognito" 
+                                id="incognito"   
+                                    data-id="${el.id_officer}"  
+                                    data-nama="${el.name_team}"  
+                                    data-akun="${el.name_account}" 
+                                    data-nrp="${el.nrp_user}"
+                                    data-telp="${el.handphone}"
+                                    data-cord="${el.latitude},${el.longitude}"
+                                class="form-input" >  
+                                <label for="incognito" class="fa fas fa-eye"></label>
+                              
                                 <button class="btn" style="margin-top: -7px;"
                                     id="listPetugasClick${countlist}"   
                                     data-nama="${el.name_team}"  
@@ -723,12 +735,14 @@
                                     data-nrp="${el.nrp_user}"
                                     data-telp="${el.handphone}"
                                     data-cord="${el.latitude},${el.longitude}" >
-                                    <i class="fa fas fa-eye "></i>
+                                    <i class="fa fas fa-eye"></i>
                                 </button>
                             </div>
                         </div>`;
                         $('#listPetugas').html(list); 
                     });  
+
+                    
                     for (let i = 0; i < ress.length; i++){ 
                         $(`#listPetugasClick${i+1}`).click(function(){   
                             var latlong =  $(this).data('cord').split(',');
@@ -737,6 +751,19 @@
                             mapContainer.flyTo([latitude, longitude], 17);  
      
                         });
+
+                        $(`.listPetugasIncognito${i+1}`).on("change", function (e) {
+                            if($(`.listPetugasIncognito${i+1}`).is(':checked')){
+                                mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                            }else{
+                                mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                            }
+                        });
+
+                        // $(`#listPetugasIncognito${i+1}`).click(function(){   
+                        //     console.log(markerArray[$(this).data('id')]);
+                        //     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                        // }); 
                     } 
 
                 }else{ 
@@ -750,6 +777,16 @@
         
     }
 
+    function togglePress(e) {
+        const btn = e.target;
+        const isPressed = btn.getAttribute("aria-pressed"); 
+        if (isPressed == "false") {
+            btn.setAttribute("aria-pressed", true);
+        } else {
+            btn.setAttribute("aria-pressed", false);
+        } 
+    }
+    document.querySelector("button").addEventListener("click", togglePress);
 
     socket.on('from server', function(ress) { 
         console.log('ido2'); 
@@ -1657,9 +1694,10 @@
  
                     countlist += 1;
                     list += `<a class="list-group-item text-start" style="display: flex;"
-                    id="listRenpamClick${countlist}"   
-                    data-cord=${JSON.stringify(el.route)} 
-                    href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}</a>`;
+                        id="listRenpamClick${countlist}"   
+                        data-cord=${JSON.stringify(el.route)} 
+                        href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}
+                    </a>`;
                     $('#listRenpam').html(list); 
                 });  
 
