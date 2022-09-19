@@ -1697,10 +1697,9 @@
                     }
  
                     countlist += 1;
-                    list += `<a class="list-group-item text-start" style="display: flex;"
-                        id="listRenpamClick${countlist}"   
-                        data-cord=${JSON.stringify(el.route)} 
+                    list += `<a class="list-group-item text-start" style="display: flex;"  
                         href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}
+                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
                     </a>`;
                     $('#listRenpam').html(list); 
                 });  
@@ -1713,7 +1712,7 @@
                         // console.log(route[i]); 
 
                         if(route[i] != null && route[i][0]['latLng'] != null){
-                            if(routingRenpam.length > 0){
+                            if(routingRenpam[i] != null){
                                 mapContainer.removeControl(routingRenpam[i]);   
                             }
 
@@ -1757,7 +1756,7 @@
                         }
 
                         if(route1[i] != null && route1[i][0]['latLng'] != null){
-                            if(routingRenpam1.length > 0){
+                            if(routingRenpam1[i] != null){
                                 mapContainer.removeControl(routingRenpam1[i]);   
                             } 
 
@@ -1828,7 +1827,7 @@
                         }
 
                         if(route2[i] != null && route2[i][0]['latLng'] != null){
-                            if(routingRenpam2.length > 0){
+                            if(routingRenpam2[i] != null){
                                 mapContainer.removeControl(routingRenpam2[i]);   
                             } 
 
