@@ -19,13 +19,13 @@
                         <th>No</th>
                         <th>NRP</th>
                         <th>Nama Petugas</th>
-                        <th>Status</th>
                         <th>No. Handphone</th>
                         <th>Pangkat</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -42,16 +42,16 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" method="post" enctype="multipart/form-data">
+                <form action="" class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
                             <input type="file" name="photo" id="" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
-							<div class="material-textfield">
-								<input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
-								<label for="" class="labelmui">NRP</label>
-							</div>
+                            <div class="material-textfield">
+                                <input type="text" name="nrpPetugas" id="" style=" width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">NRP</label>
+                            </div>
                             <div class="material-textfield">
                                 <input type="text" name="namaPetugas" id="" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" value="1" checked>
                                         <label class="form-check-label" for="active">
                                             ACTIVE
                                         </label>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
+                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" value="0" id="inactive">
                                         <label class="form-check-label" for="inactive">
                                             INACTIVE
                                         </label>
@@ -142,17 +142,17 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="" id="id_petugas" type="text">
-				<div class="row">
+                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="" id="id_petugas" type="text">
+                    <div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
                             <input type="file" name="photo" id="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
-							<div class="material-textfield">
-								<input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
-								<label for="" class="labelmui">NRP</label>
-							</div>
+                            <div class="material-textfield">
+                                <input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">NRP</label>
+                            </div>
                             <div class="material-textfield">
                                 <input type="text" name="namaPetugas" id="namaPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
@@ -192,7 +192,7 @@
                                 <input type="text" name="pangkat" id="pangkat" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
-							<div class="material-textfield">
+                            <div class="material-textfield">
                                 <input type="text" name="pamPetugas" id="pamPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">PAM Petugas</label>
                             </div>
@@ -227,7 +227,7 @@
 
 
                     <div class="col-md-12">
-					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -245,15 +245,15 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-				<div class="row">
+                    <div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
                             <input type="file" name="photo" id="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                         </div>
                         <div class="col-md-9">
-							<div class="material-textfield">
-								<input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
-								<label for="" class="labelmui">NRP</label>
-							</div>
+                            <div class="material-textfield">
+                                <input type="text" name="nrpPetugas" id="nrpPetugas" style=" width:105%; margin-bottom:-2vh">
+                                <label for="" class="labelmui">NRP</label>
+                            </div>
                             <div class="material-textfield">
                                 <input type="text" name="namaPetugas" id="namaPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Nama Petugas</label>
@@ -293,7 +293,7 @@
                                 <input type="text" name="pangkat" id="pangkat" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">Pangkat</label>
                             </div>
-							<div class="material-textfield">
+                            <div class="material-textfield">
                                 <input type="text" name="pamPetugas" id="pamPetugas" style="width:105%; margin-bottom:-2vh">
                                 <label for="" class="labelmui">PAM Petugas</label>
                             </div>
@@ -342,7 +342,7 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        
+
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -580,15 +580,15 @@
                     data: 'name_officer'
                 },
                 {
-					data: 'phone_officer'
+                    data: 'phone_officer'
                 },
-				{
-					data: 'rank_officer'
+                {
+                    data: 'rank_officer'
                 },
-				{
-					data: 'status_officer'
-				},
-				{
+                {
+                    data: 'status_officer'
+                },
+                {
                     data: 'action',
                     orderable: false
                 }
@@ -660,7 +660,7 @@
                 $('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
                 $('.DetailPetugasnasional,#struktural').val(results.structural_officer)
                 $('.DetailPetugasnasional,#status').val(results.status_officer)
-                
+
             }
         })
     }
@@ -681,7 +681,7 @@
                 $('.DetailPetugasnasional,#namaPetugas').val(results.name_officer)
                 $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
                 $('.DetailPetugasnasional,#pangkat').val(results.rank_officer)
-				$('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
+                $('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
                 $('.DetailPetugasnasional,#struktural').val(results.structural_officer)
                 $('.DetailPetugasnasional,#status').val(results.status_officer)
             }

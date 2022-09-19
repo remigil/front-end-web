@@ -1,39 +1,40 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_petugasnasional extends CI_Model {
+class M_petugasnasional extends CI_Model
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
         parent::__construct();
 
         $this->load->helper('guzzle_request_helper');
-
     }
 
-    public function get_datatables($postData=null)
+    public function get_datatables($postData = null)
 
-    {   
+    {
 
-        $draw = $postData['draw']; 
+        $draw = $postData['draw'];
 
         $rowperpage = $postData['length']; // Rows display per page  
-		 
+
         $columnName = $postData['columns']; // Column name 
 
-		$page = $postData['page']; 
+        $page = $postData['page'];
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue']; 
+        $orderValue = $postData['orderValue'];
 
-        $orderFieldRess =  $columnName[$orderField]['data']; 
+        $orderFieldRess =  $columnName[$orderField]['data'];
 
-    
-        $data = array(); 
+
+        $data = array();
 
 
         $search = $postData['search']['value'];
@@ -42,27 +43,25 @@ class M_petugasnasional extends CI_Model {
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-		// $filter_status = $postData['filterStatus'];
+        // $filter_status = $postData['filterStatus'];
 
-		// $filter_name = $postData['filterName'];
+        // $filter_name = $postData['filterName'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+        // $filter_poc_name = $postData['filterPocName'];
 
-		// $filter_phone = $postData['filterPhone'];
+        // $filter_phone = $postData['filterPhone'];
 
-		// $filter_threat = $postData['filterThreat']; 
+        // $filter_threat = $postData['filterThreat']; 
 
- 
 
-        if($search){
 
-            $searchData = '&search='.$search.'';
+        if ($search) {
 
-        }else{
+            $searchData = '&search=' . $search . '';
+        } else {
 
             $searchData = '';
-
-        } 
+        }
 
         // if($filter_threat){
 
@@ -95,33 +94,37 @@ class M_petugasnasional extends CI_Model {
         // } 
 
 
-        $url = 'officer?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'officer?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
 
-                'Authorization' => $this->session->userdata['token'] 
+                'Authorization' => $this->session->userdata['token']
 
             ]
 
-        ]);   
-		
-        $no=1;
-		
-		foreach  ($result['data']['data'] as $field) { 
-			
-			
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['nrp_officer']			= $field['nrp_officer'];  
-            $row ['name_officer']			= $field['name_officer'];  
-            $row ['phone_officer']   	= $field['phone_officer'];  
-            $row ['rank_officer']   	= $field['rank_officer'];  
-            $row ['status_officer']			= $field['status_officer'];  
-            $row ['action']         = ' 
+        ]);
+
+        $no = 1;
+
+        foreach ($result['data']['data'] as $field) {
+            if ($field['status_officer'] == '1') {
+                $status = "Active";
+            } else if ($field['status_officer'] == '0') {
+                $status = "Inactive";
+            }
+
+            $row = array();
+            // $row ['id']	=  $field['id']; 
+            $row['id']    =  $no++;
+            $row['nrp_officer']            = $field['nrp_officer'];
+            $row['name_officer']            = $field['name_officer'];
+            $row['phone_officer']       = $field['phone_officer'];
+            $row['rank_officer']       = $field['rank_officer'];
+            $row['status_officer']            = $status;
+            $row['action']         = ' 
                 
 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPetugas">
@@ -134,11 +137,9 @@ class M_petugasnasional extends CI_Model {
 					<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
 				</button>
 
-            '; 
+            ';
 
             $data[] = $row;
-            
-
         }
 
 
@@ -158,9 +159,5 @@ class M_petugasnasional extends CI_Model {
 
 
         return $response;
-
     }
-
-  
-
 }
