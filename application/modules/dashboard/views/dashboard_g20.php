@@ -726,7 +726,7 @@
                                     data-telp="${el.handphone}"
                                     data-cord="${el.latitude},${el.longitude}"
                                 class="form-input" >  
-                                <label for="incognito" class="fa fas fa-eye"></label>
+                                <label for="incognito" class="fa fas fa-user-slash"></label>
                               
                                 <button class="btn" style="margin-top: -7px;"
                                     id="listPetugasClick${countlist}"   

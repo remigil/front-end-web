@@ -434,11 +434,14 @@
         }
 
         #incognito + label:before {
-        content: "\f0c9"; /* Bars */
+            cursor: pointer;
+            content: "\f505"; /* Bars */
         }
 
         #incognito:checked + label:before {
-        content: "\f0aa";
+            cursor: pointer;
+            /* color: red; */
+            content: "\f506";
         }
     </style>
 
