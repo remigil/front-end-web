@@ -113,7 +113,7 @@ class M_akun extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
-            $row['name_account']    = ''.$field['name_account'].' - ( '.$field['vehicle']['no_vehicle'].' )'; 
+            $row['name_account']    = ''.$field['name_account'].''; 
 
             if($field['officers'] != null){
                 $petugas = '';

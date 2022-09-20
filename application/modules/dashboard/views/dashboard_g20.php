@@ -1707,16 +1707,12 @@
                  
 
                 for (let i = 0; i < ress.length; i++){ 
-                    $(`#listRenpamClick${i+1}`).click(function(){    
+                    $(`#listRenpamClick${i+1}`).on("change", function (e) {
 
                         // console.log(route[i]); 
 
                         if(route[i] != null && route[i][0]['latLng'] != null){
-                            if(routingRenpam[i] != null){
-                                mapContainer.removeControl(routingRenpam[i]);   
-                            }
-
-                            // routingRenpam = []; 
+                            routingRenpam[i] = null;
                             routingRenpam[i] = L.Routing.control({
                                 // show:false,
                                 draggableWaypoints: false,
@@ -1744,6 +1740,12 @@
                                 // },
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer); 
+
+                            if($(this).is(':checked')){   
+                                mapContainer.addControl(routingRenpam[i]); 
+                            }else{
+                                mapContainer.removeControl(routingRenpam[i]);  
+                            }
                             
                              
                         }else{
@@ -1756,10 +1758,7 @@
                         }
 
                         if(route1[i] != null && route1[i][0]['latLng'] != null){
-                            if(routingRenpam1[i] != null){
-                                mapContainer.removeControl(routingRenpam1[i]);   
-                            } 
-
+                            routingRenpam1[i] = null;
                             routingRenpam1[i] = L.Routing.control({
                                 show:false,
                                 draggableWaypoints: false,
@@ -1817,6 +1816,12 @@
                                 },
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer); 
+
+                            if($(this).is(':checked')){  
+                                mapContainer.addControl(routingRenpam1[i]);  
+                            }else{
+                                mapContainer.removeControl(routingRenpam1[i]);   
+                            }
                         }else{
                             Swal.fire(
                             `Route Alternative tidak ada, atau belum di daftarkan!`, 
@@ -1826,11 +1831,8 @@
                             });
                         }
 
-                        if(route2[i] != null && route2[i][0]['latLng'] != null){
-                            if(routingRenpam2[i] != null){
-                                mapContainer.removeControl(routingRenpam2[i]);   
-                            } 
-
+                        if(route2[i] != null && route2[i][0]['latLng'] != null){ 
+                            routingRenpam2[i] = null;
                             routingRenpam2[i] = L.Routing.control({
                                 show:false,
                                 draggableWaypoints: false,
@@ -1889,6 +1891,12 @@
                                 },
                                 geocoder: L.Control.Geocoder.nominatim({})
                             }).addTo(mapContainer); 
+
+                            if($(this).is(':checked')){  
+                                mapContainer.addControl(routingRenpam1[i]); 
+                            }else{
+                                mapContainer.removeControl(routingRenpam2[i]); 
+                            }
                         }else{
                             Swal.fire(
                             `Route Escape tidak ada, atau belum di daftarkan!`, 
