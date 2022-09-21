@@ -5,9 +5,14 @@ class AkunMasyarakat extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+		$this->load->model("pengguna/m_pengguna_umum");
     }
     public function index()
     {
+		$headers = [
+            'Token' => $this->session->userdata['token'],    
+        ];
+
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Manajemen Pengguna";
@@ -25,5 +30,29 @@ class AkunMasyarakat extends MY_Controller
 
 
         $this->templates->loadTemplate($page_content);
+    }
+
+	public function serverSideTable() 
+    {  
+        $postData = $this->input->post();   
+        $data = $this->m_pengguna_umum->get_datatables($postData);  
+		echo json_encode($data); 
+    }
+
+	public function detailPenggunaUmum()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_pengguna_umum');
+
+        $getDetail = guzzle_request('GET', 'society/getid/' . $id . '', [
+            'headers' => $headers
+        ]);
+		
+        $data['getDetail'] = $getDetail['data']['data'];
+
+        echo json_encode($data['getDetail']);
     }
 }
