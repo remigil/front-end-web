@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
@@ -55,19 +55,19 @@
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merekKendaraan" id="merekKendaraan">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="kepemilikan" id="kepemilikan">
                                 <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
@@ -96,31 +96,31 @@
 				<div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="" id="">
                                 <label for="" class="labelmui">Tahun Kendaraan</label>
                             </div>
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merekKendaraan" id="merekKendaraan">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="kepemilikan" id="kepemilikan">
                                 <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
 
 
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" id="btn_edit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -149,39 +149,34 @@
 				<div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="noKendaraan" id="noKendaraan">
                                 <label for="" class="labelmui">No. Kendaraan</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="" id="">
                                 <label for="" class="labelmui">Tahun Kendaraan</label>
                             </div>
                         </div> -->
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
                                 <label for="" class="labelmui">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="merek" id="merek" style="width:116%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="merekKendaraan" id="merekKendaraan">
                                 <label for="" class="labelmui">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan" style="width:107.4%; margin:0 0 -2vh -2.7vh">
+                                <input type="text" name="kepemilikan" id="kepemilikan">
                                 <label for="" class="labelmui">Kepemilikan</label>
                             </div>
                         </div>
-                    </div>
-
-
-                    <div class="col-md-12">
-                        <button type="button" class="btn btn-primary waves-effect float-end" data-bs-dismiss="modal" aria-label="Close" style="width: 25%; letter-spacing: 2px;">KEMBALI</button>
                     </div>
                 </form>
             </div>
@@ -505,7 +500,7 @@
                 // $('.DetailKendaraan,input,#category').attr('disabled', true)
                 $('.DetailKendaraan,#noKendaraan').val(results.no_vehicle)
                 $('.DetailKendaraan,#jenisKendaraan').val(results.type_vehicle)
-                $('.DetailKendaraan,#merek').val(results.brand_vehicle)
+                $('.DetailKendaraan,#merekKendaraan').val(results.brand_vehicle)
                 $('.DetailKendaraan,#kepemilikan').val(results.ownership_vehicle)
             }
         })
@@ -525,7 +520,7 @@
                 $('#id_kendaraan').val(results.id)
                 $('.UbahKendaraan,#noKendaraan').val(results.no_vehicle)
                 $('.UbahKendaraan,#jenisKendaraan').val(results.type_vehicle)
-                $('.UbahKendaraan,#merek').val(results.brand_vehicle)
+                $('.UbahKendaraan,#merekKendaraan').val(results.brand_vehicle)
                 $('.UbahKendaraan,#kepemilikan').val(results.ownership_vehicle)
             }
         })

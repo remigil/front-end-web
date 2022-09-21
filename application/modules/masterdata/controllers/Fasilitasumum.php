@@ -8,7 +8,7 @@ class Fasilitasumum extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		$this->load->model("M_fasum");
+		$this->load->model("masterdata/m_fasum");
     }
 
     public function index()
@@ -42,7 +42,7 @@ class Fasilitasumum extends MY_Controller
 	public function serverSideTable()
     {
         $postData = $this->input->post();
-        $data = $this->M_fasum->get_datatables($postData);
+        $data = $this->m_fasum->get_datatables($postData);
 		// var_dump($data);
 		// die;
         echo json_encode($data);

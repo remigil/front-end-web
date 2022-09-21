@@ -47,22 +47,22 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="" name="namaFasum">
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
                                 <label for="">Nama Fasilitas Umum</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
-                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
+                                <label for="">Jenis Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamatFasum" name="alamatFasum"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="alamatFasum" name="alamatFasum"></textarea>
+                                <label for="">Alamat</label>
                             </div>
                         </div>
                     </div>
@@ -88,8 +88,8 @@
 					<div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="">Deskripsi Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
 					<div class="row">
                         <div class="col-md-12">
 							<div class="form-floating mb-3">
-								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
+								<input type="file" name="photo" id="" style="width:100% ;" class="form-control">
                         		<label for="" class="labelmui">Logo Fasilitas Umum</label>
                             </div>
                         </div>
@@ -163,8 +163,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamat" name="alamat"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="alamatFasum" name="alamatFasum"></textarea>
+                                <label for="">Alamat</label>
                             </div>
                         </div>
                     </div>
@@ -183,15 +183,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12">	
                             <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
                         </div>
                     </div>
 					<div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsi" name="deskripsi"></textarea>
-                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="deskripsi">Deskripsi Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
@@ -266,8 +266,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea alamat" name="alamat"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="alamatFasum" name="alamatFasum"></textarea>
+                                <label for="">Alamat</label>
                             </div>
                         </div>
                     </div>
@@ -293,8 +293,8 @@
 					<div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="floatingTextarea deskripsi" name="deskripsi"></textarea>
-                                <label for="floatingTextarea">Deskripsi Fasilitas Umum</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="deskripsi">Deskripsi Fasilitas Umum</label>
                             </div>
                         </div>
                     </div>
@@ -340,6 +340,25 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade UploadFasum" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="myLargeModalLabel">Upload File</h5>
+            </div>
+            <div class="modal-body">
+
+                <form action="" class="form">
+                    <div class="col-md-12">
+                        <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
+                    </div>
+                    <button type="submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 100%; letter-spacing: 2px;">UPLOAD FILE</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
@@ -645,7 +664,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>Fasilitasumum/detailFasum/',
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -662,7 +681,7 @@
                 $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
                 $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
                 $('.DetailFasum,#statusFasum').val(results.fasum_status)
-                $('.DetailFasum,#photo').val(results.fasum_logo)
+                // $('.DetailFasum,#photo').val(results.fasum_logo)
                 $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
                 $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
@@ -671,7 +690,7 @@
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Fasilitasumum/detailFasum/',
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
             data: {
                 id_fasum: id
@@ -689,7 +708,7 @@
                 $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
                 $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
                 $('.DetailFasum,#statusFasum').val(results.fasum_status)
-                $('.DetailFasum,#photo').val(results.fasum_logo)
+                // $('.DetailFasum,#photo').val(results.fasum_logo)
                 $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
                 $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
@@ -708,7 +727,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Fasilitasumum/hapusFasum/",
+                    url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/hapusFasum/",
                     type: "POST",
                     data: {
                         id_fasum: id
@@ -742,7 +761,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Fasilitasumum/updateFasum',
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

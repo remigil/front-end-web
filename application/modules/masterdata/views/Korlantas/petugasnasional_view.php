@@ -627,7 +627,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            $(".TambahPetugasnasional").modal('hide');
+                            $(".TambahPetugas").modal('hide');
                             userDataTable.draw();
                         });
                     } else {

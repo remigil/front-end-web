@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sejarah extends MX_Controller {
+class Link_tvradio_polri extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -9,8 +9,8 @@ class Sejarah extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Sejarah POLANTAS | K3I Korlantas";  
-        $this->template->load('templates/template','profil/sejarah', $data); 
+        $data['title'] = "Link ke TV-Radio POLRI | K3I Korlantas";  
+        $this->template->load('templates/template','lain_lain/link_tvradio_polri', $data); 
         
 	}
 	public function error()

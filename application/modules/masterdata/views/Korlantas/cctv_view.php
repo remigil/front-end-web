@@ -265,30 +265,8 @@
                             </div>
                         </div>
                     </div>
-					<div class="row mb-3">
-                                <div class="material-textfield">
-                                    <input type="hidden" name="status" id="status">
-                                    <label for="" class="labelmui">Status</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
-                                        <label class="form-check-label" for="active">
-                                            ACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
-                                        <label class="form-check-label" for="inactive">
-                                            INACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
 
-					<button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+					<button class="btn btn-primary float-end" id="btn_edit" type="submit">SIMPAN</button>
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -305,7 +283,7 @@
             </div>
             <div class="modal-body">
                 <form action="">
-				<div class="row">
+					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
 								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
@@ -701,17 +679,17 @@
                 $('.UbahCCTV,input').attr('readonly', false)
                 // $('.DetailCCTV,input,#category').attr('disabled', true)
                 $('#id_cctv').val(results.id)
-                $('.DetailCCTV,#tipeCCTV').val(results.type_cctv)
-                $('.DetailCCTV,#jenisCCTV').val(results.jenis_cctv)
-                $('.DetailCCTV,#ipCCTV').val(results.ip_cctv)
-                $('.DetailCCTV,#merekCCTV').val(results.merek_cctv)
-                $('.DetailCCTV,#gatewayCCTV').val(results.gateway_cctv)
-                $('.DetailCCTV,#linkCCTV').val(results.link_cctv)
-                $('.DetailCCTV,#lokasiCCTV').val(results.address_cctv)
-                $('.DetailCCTV,#vmsCCTV').val(results.vms_cctv)
-                $('.DetailCCTV,#username').val(results.username_cctv)
-                $('.DetailCCTV,#password').val(results.password_cctv)
-				$('.DetailCCTV,#status').val(results.status_cctv)
+                $('.UbahCCTV,#tipeCCTV').val(results.type_cctv)
+                $('.UbahCCTV,#jenisCCTV').val(results.jenis_cctv)
+                $('.UbahCCTV,#ipCCTV').val(results.ip_cctv)
+                $('.UbahCCTV,#merekCCTV').val(results.merek_cctv)
+                $('.UbahCCTV,#gatewayCCTV').val(results.gateway_cctv)
+                $('.UbahCCTV,#linkCCTV').val(results.link_cctv)
+                $('.UbahCCTV,#lokasiCCTV').val(results.address_cctv)
+                $('.UbahCCTV,#vmsCCTV').val(results.vms_cctv)
+                $('.UbahCCTV,#username').val(results.username_cctv)
+                $('.UbahCCTV,#password').val(results.password_cctv)
+				$('.UbahCCTV,#status').val(results.status_cctv)
             }
         })
     }

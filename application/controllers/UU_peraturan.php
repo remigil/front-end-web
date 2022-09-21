@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sejarah extends MX_Controller {
+class UU_peraturan extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -9,8 +9,8 @@ class Sejarah extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Sejarah POLANTAS | K3I Korlantas";  
-        $this->template->load('templates/template','profil/sejarah', $data); 
+        $data['title'] = "UU dan Peraturan | K3I Korlantas";  
+        $this->template->load('templates/template','informasi_publik/uu_peraturan', $data); 
         
 	}
 	public function error()

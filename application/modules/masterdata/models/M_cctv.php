@@ -123,14 +123,14 @@ class M_cctv extends CI_Model {
             } 
             $row ['action']         = '   
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailCCTV">
-			<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-		</button>
-		<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahCCTV">
-			<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-		</button>
-		<button style="background-color:transparent ; border:none" id="Hapuscctv" onclick="hapus(`' . $field['id'] . '`)">
-			<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-		</button>
+				<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+			</button>
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahCCTV">
+				<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+			</button>
+			<button style="background-color:transparent ; border:none" id="Hapuscctv" onclick="hapus(`' . $field['id'] . '`)">
+				<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+			</button>
             '; 
 
             $data[] = $row;

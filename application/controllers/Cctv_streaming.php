@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sejarah extends MX_Controller {
+class Cctv_streaming extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -9,8 +9,8 @@ class Sejarah extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Sejarah POLANTAS | K3I Korlantas";  
-        $this->template->load('templates/template','profil/sejarah', $data); 
+        $data['title'] = "CCTV Streaming | K3I Korlantas";  
+        $this->template->load('templates/template','lain_lain/cctv_streaming', $data); 
         
 	}
 	public function error()
