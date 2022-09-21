@@ -204,14 +204,14 @@
 			<!-- Left Side Content -->
 			<div class="left-side">
 				
-				<a href="index-2.html"><img src="<?php echo base_url(); ?>assets/main-logo.png" alt=""></a> 
+				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo.png" alt=""></a> 
 			</div>
 			<!-- Left Side Content / End -->
 
 
 			<!-- Right Side Content / End -->
 			<div class="right-side">
-				 
+
 				<!-- Mobile Navigation -->
 				<div class="mmenu-trigger">
 					<button class="hamburger hamburger--collapse" type="button">
@@ -230,7 +230,7 @@
 						<li><a  href="#">PROFIL</a>
 							<ul>
 								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
-								<li><a href="<?= base_url()?>struktur_organisasi">Strukture Organisasi</a></li>
+								<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
 								<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
 								<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
 								<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
@@ -247,17 +247,21 @@
 											<li><a href="<?= base_url()?>ditgakkum_front"><i class="sl sl-icon-user"></i> DITGAKUM</a></li>
 											<li><a href="<?= base_url()?>ditregident_front"><i class="sl sl-icon-check"></i> DITREGIDENT</a></li>
 											<li><a href="<?= base_url()?>ditkamsel_front"><i class="sl sl-icon-plus"></i> DITKAMSEL</a></li>
-											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
+											<li><a href="<?= base_url()?>bagrenmin_front"><i class="sl sl-icon-docs"></i> BAGRENMIN</a></li>
+											<li><a href="<?= base_url()?>bagops_front"><i class="sl sl-icon-docs"></i> BAGOPS</a></li>
+											<li><a href="<?= base_url()?>bagtik_front"><i class="sl sl-icon-docs"></i> BAGTIK</a></li>
 										</ul>
 									</div>
 		
 									<div class="mega-menu-section">
 										<ul>
 											<li class="mega-menu-headline">FUNGSI LAINNYA</li>
-											<li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> BAHARKAM</a></li>
-											<li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> ASOPS</a></li>
-											<li><a href="pages-404.html"><i class="sl sl-icon-close"></i> DIVTIK</a></li>
-											<li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> BARESKIM</a></li>
+											<li><a href="<?= base_url()?>baharkam"><i class="sl sl-icon-envelope-open"></i> BAHARKAM</a></li>
+											<li><a href="<?= base_url()?>asops"><i class="sl sl-icon-hourglass"></i> ASOPS</a></li>
+											<li><a href="<?= base_url()?>divtik"><i class="sl sl-icon-close"></i> DIVTIK</a></li>
+											<li><a href="<?= base_url()?>bareskrim"><i class="sl sl-icon-equalizer"></i> BARESKIM</a></li>
+											<li><a href="<?= base_url()?>divhumas"><i class="sl sl-icon-equalizer"></i> DIVHUMAS</a></li>
+											<li><a href="<?= base_url()?>itwasum"><i class="sl sl-icon-equalizer"></i> ITWASUM</a></li>
 										</ul>
 									</div> 
 									
@@ -266,20 +270,20 @@
 
 						<li><a href="#">PUBLIKASI</a>
 							<ul>
-								<li><a href="dashboard.html">Konfersi Pers</a></li>
-								<li><a href="dashboard-messages.html">Kegiatan Kakorlantas</a></li>
-								<li><a href="dashboard-bookings.html">Riset Media Center NTMC</a></li>
-								<li><a href="dashboard-wallet.html">Kegiatan Khusus (PAM PPKM)</a></li> 
+								<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
+								<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
+								<li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li>
+								<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
 							</ul>
 						</li>
  
 
 						<li><a href="#">INFORMASI PUBLIC</a>
 							<ul>
-								<li><a href="dashboard.html">Informasi Setiap Saat</a></li>
-								<li><a href="dashboard-messages.html">Informasi Berkala</a></li>
-								<li><a href="dashboard-bookings.html">Informasi Serta Merta</a></li>
-								<li><a href="dashboard-wallet.html">UU dan Peraturan</a></li> 
+								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
+								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
+								<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
+								<li><a href="<?= base_url()?>uu_peraturan">UU dan Peraturan</a></li> 
 							</ul>
 						</li>
  
@@ -298,19 +302,19 @@
 
 						<li><a href="#">KONTAK KAMI</a>
 							<ul>
-								<li><a href="dashboard.html">Layanan Chatbot k3i Korlantas</a></li>
-								<li><a href="dashboard-messages.html">Survey Kepuasan</a></li>
-								<li><a href="dashboard-bookings.html">Layanan Pengaduan</a></li>
-								<li><a href="dashboard-wallet.html">Contact Center NTMC</a></li> 
+								<li><a href="<?= base_url()?>layanan_chatbot">Layanan Chatbot k3i Korlantas</a></li>
+								<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
+								<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
+								<li><a href="<?= base_url()?>contact_center">Contact Center NTMC</a></li> 
 							</ul>
 						</li>
 
 						<li><a href="#">LAIN - LAIN</a>
 							<ul>
-								<li><a href="dashboard.html">CCTV Streaming</a></li>
-								<li><a href="dashboard-messages.html">Link Pengecekan Status ETLE</a></li>
-								<li><a href="dashboard-bookings.html">Link ke Layanan Polisiku</a></li>
-								<li><a href="dashboard-wallet.html">Link ke TV-RADIO POLRI</a></li> 
+								<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
+								<li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li>
+								<li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li>
+								<li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
 						</li>
 						

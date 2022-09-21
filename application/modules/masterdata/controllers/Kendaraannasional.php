@@ -64,7 +64,7 @@ class Kendaraannasional extends MY_Controller
 				],
 				[
 					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
+					'contents' => $input['merekKendaraan'],
 				],
 				[
 					'name' => 'ownership_vehicle',
@@ -166,7 +166,7 @@ class Kendaraannasional extends MY_Controller
 				],
 				[
 					'name' => 'brand_vehicle',
-					'contents' => $input['merek'],
+					'contents' => $input['merekKendaraan'],
 				],
 				[
 					'name' => 'ownership_vehicle',

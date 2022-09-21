@@ -112,7 +112,7 @@
                                 <label for="namaSamsat">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address"></textarea>
+                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
                                 <label for="address">Alamat</label>
                             </div>
 							<div class="row">
@@ -571,7 +571,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>masterdata/Samsat/hapus/",
+                    url: "<?php echo base_url(); ?>masterdata/Samsat/hapusSamsat/",
                     type: "POST",
                     data: {
                         id_samsat: id
@@ -605,7 +605,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/Samsat/update',
+            url: '<?= base_url() ?>masterdata/Samsat/updateSamsat',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

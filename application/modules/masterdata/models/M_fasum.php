@@ -95,6 +95,7 @@ class M_fasum extends CI_Model
 
 
         $url = 'fasum?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+		
 
         $result = guzzle_request('GET', $url, [
 

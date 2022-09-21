@@ -8,7 +8,7 @@ class Polres extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model("masterdata/M_polres");
+        $this->load->model("masterdata/m_polres");
     }
 
     public function index()
@@ -42,7 +42,7 @@ class Polres extends MY_Controller
     public function serverSideTable()
     {
         $postData = $this->input->post();
-        $data = $this->M_polres->get_datatables($postData);
+        $data = $this->m_polres->get_datatables($postData);
         echo json_encode($data);
     }
 
