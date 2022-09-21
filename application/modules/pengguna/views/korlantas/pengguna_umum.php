@@ -58,7 +58,7 @@
                                 <label for="">Nama User</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kebangsaaan" name="kebangsaaan" placeholder="Isi kebangsaan">
+                                <input type="text" class="form-control" id="kebangsaan" name="kebangsaan" placeholder="Isi kebangsaan">
                                 <label for="">Kebangsaan</label>
                             </div>
                             <div class="form-floating mb-3">
@@ -208,9 +208,9 @@
 				$('.DetailPenggunaUmum,#nik').val(results.nik)
 				$('.DetailPenggunaUmum,#email').val(results.email)
 				$('.DetailPenggunaUmum,#namaPenggunaUmum').val(results.person_name)
+				$('.DetailPenggunaUmum,#kebangsaan').val(results.nationality)
 				$('.DetailPenggunaUmum,#noHp').val(results.no_hp)
 				$('.DetailPenggunaUmum,#noSim').val(results.no_sim)
-				$('.DetailPenggunaUmum,#kebangsaan').val(results.nationality)
 			}
 		})
 	}
