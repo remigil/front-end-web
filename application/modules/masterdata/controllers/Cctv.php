@@ -90,13 +90,19 @@ class Cctv extends MY_Controller
         }
 
         if($input['searchFilter']){
-            $searchData = '?search='.$input['searchFilter'].'';
+            $searchData = '&search='.$input['searchFilter'].'';
         }else{
-            $searchData = '?search';
+            $searchData = '';
+        } 
+
+        if($input['page']){
+            $page = ''.$input['page'].'';
+        }else{
+            $page = '1';
         } 
 
 
-        $url = 'cctv'.$searchData.''.$kategoriFilter.'';
+        $url = 'cctv?serverSide=True&length=8&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
         // print_r($url);
         // die;
         $getCCTV = guzzle_request('GET', $url, [

@@ -55,14 +55,26 @@
             </div> 
         </div> 
     </div>
+    
 
 </div>
 <!-- end row -->
  
-<div class="row" id="listCCTV">
+<div class="row" id="listCCTV"></div>
 
-     
-
+<div class="row">
+    <input hidden type="text" name="halaman" id="halaman" value="1">
+    <div class="col-md-6">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
+                <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
+                <li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
@@ -153,6 +165,27 @@
             $('#listCCTV').html(listCCTV); 
             serverSideGetCCTV();
         });
+
+        // if($('[name=halaman]').val() == 1){
+        //     $("#backHalaman").addClass("disabled");
+        // }
+        $("#backHalaman").on("click", function (e) {
+            var nilaiHalaman = parseFloat($('[name=halaman]').val()) - 1;
+            if(nilaiHalaman < 1){
+                $("#backHalaman").addClass("disabled");
+            }else{
+                $('[name=halaman]').val(nilaiHalaman);
+                serverSideGetCCTV()
+            } 
+        });
+        $("#nextHalaman").on("click", function (e) {
+            var nilaiHalaman = parseFloat($('[name=halaman]').val()) + 1;
+            if(nilaiHalaman > 1){
+                $("#backHalaman").removeClass("disabled");
+                $('[name=halaman]').val(nilaiHalaman);
+                serverSideGetCCTV()
+            }
+        });
         function serverSideGetCCTV(){
             $("#overlay").fadeIn(300); 
             $.ajax({
@@ -161,15 +194,21 @@
                 data : {
                     "kategoriFilter" : $('[name=kategoriFilter]').val(),
                     "searchFilter": $('[name=searchFilter]').val(),
+                    "page": $('[name=halaman]').val(),
                 }, 
                 dataType : "JSON",
                 success : function(result){  
                     let ressData = result['data'];
+                    if(ressData.length > 0){
+
+                    }else{
+
+                    } 
                     let ress = ressData.filter(function (e) {
                         return e.lat_cctv != null && e.lng_cctv != null;
                     });   
-                    // console.log(ress);
-                    
+                    // console.log(result);
+
                     $("#overlay").fadeOut(300);
                     if(ress.length > 0){   
                         countlistCCTV = 0;
