@@ -342,7 +342,7 @@
             dataType: 'JSON',
             success: function(results) {
                 $('.DetailDokumenPeraturan,input').attr('readonly', true)
-                $('.DetailDokumenPeraturan,input,#category').attr('disabled', true)
+                $('.DetailDokumenPeraturan,input,#kategoriPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
                 $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
                 $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)

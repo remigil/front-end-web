@@ -65,9 +65,9 @@
                     </div>
 
                     <div class="material-textfield">
-                        <input type="text" name="isiBerita" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Isi Berita</label>
-                    </div>
+							<label for="content">Isi Berita</label>
+							<textarea class="form-control" type="text" name="content" id="content" style="width:100% ; height:100px;"></textarea>
+						</div>
                     <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">Foto Berita</label>
@@ -111,9 +111,9 @@
                         <label for="" class="labelmui">Judul Berita</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="text" name="content" id="content" style="width:100% ;">
-                        <label for="" class="labelmui">Isi Berita</label>
-                    </div>
+							<label for="content">Isi Berita</label>
+							<textarea class="form-control" type="text" name="content" id="content" style="width:100% ; height:100px;"></textarea>
+						</div>
                     <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100% ;" class="form-control">
                         <label for="" class="labelmui">Foto Berita</label>
@@ -357,6 +357,7 @@
             success: function(results) {
                 $('.DetailBerita,input').attr('readonly', true)
                 $('.DetailBerita,input,#category').attr('disabled', true)
+                $('.DetailBerita,input,#content').attr('disabled', true)
                 $('.DetailBerita,#title').val(results.title)
                 $('.DetailBerita,#category').val(results.news_category)
                 $('.DetailBerita,#content').val(results.content)

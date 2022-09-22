@@ -108,6 +108,16 @@ class M_polres extends CI_Model
         $no = 1;
 
         foreach ($result['data']['data'] as $field) {
+
+			// if ($field['polda_id'] == 1) {
+			// 	$polda = "Polda Metro Jaya";
+			// }else if($field['polda_id'] == 2){
+			// 	$polda = "Polda Jawa Barat";
+			// }
+			// else if($field['polda_id'] == 3){
+			// 	$polda = "Polda Bali";
+			// }
+
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;

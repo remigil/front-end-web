@@ -51,7 +51,7 @@ class Polres extends MY_Controller
         $headers = [ 
             'Authorization' => $this->session->userdata['token'],  
         ]; 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         
             $dummy = [
                 [
@@ -72,11 +72,11 @@ class Polres extends MY_Controller
 				],
 				[
 					'name' => 'latitude',
-					'contents' => $input['latitude'],
+					'contents' => $input['cordinate'],
 				],
 				[
 					'name' => 'longitude',
-					'contents' => $input['longitude'],
+					'contents' => $input['cordinate'],
 				],
 				
                 

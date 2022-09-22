@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
+                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
                                         <input class=" form-check-input" type="radio" name="flexRadioDefault" value="0" id="inactive">
                                         <label class="form-check-label" for="inactive">
                                             INACTIVE
