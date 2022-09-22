@@ -49,10 +49,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
+                                    <select class="form-select" name="jenisBahanBakar">
+                                        <option selected>Pilih Jenis Bahan Bakar</option>
+                                        <?php foreach($data['getFuel'] as $row): ?>
+                                            <option <?php echo ($data['getDetail']['data']['fuel_vehicle'] == $row['name_fuelVehicle'] ? 'selected' : '');?> value="<?php echo $row['name_fuelVehicle'];?>"><?php echo $row['name_fuelVehicle'];?></option> 
+                                        <?php endforeach; ?>  
+                                    </select>
+                                    <label class="labelmui">Jenis Bahan Bakar</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="material-selectfield mb-3">
                                     <select class="form-select" name="kepemilikan">
                                         <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == null ? 'selected' : '');?>  value="">Pilih Kepemilikan</option>
-                                        <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == 'Polres' ? 'selected' : '');?> value="Polres">Polres</option>
-                                        <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == 'Polresta' ? 'selected' : '');?> value="Polresta">Polresta</option>
+
+                                        <?php foreach($data['getOwnership'] as $row): ?>
+                                            <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == $row['name_ownershipVehicle'] ? 'selected' : '');?> value="<?php echo $row['name_ownershipVehicle'];?>"><?php echo $row['name_ownershipVehicle'];?></option> 
+                                        <?php endforeach; ?>  
                                     </select>
                                     <label class="labelmui">Kepemilikan</label>
                                 </div>

@@ -46,35 +46,18 @@
                     <div class="material-selectfield mb-3">
                         <select name="asalNegara" class="form-select">
                             <option value="">Pilih Negara Kedatangan</option> 
-                            <option value="Afrika Selatan">Afrika Selatan</option>
-                            <option value="Amerika Serikat">Amerika Serikat</option>
-                            <option value="Arab Saudi">Arab Saudi</option>
-                            <option value="Argentina">Argentina</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Brasil">Brasil</option>
-                            <option value="China">China</option>
-                            <option value="India">India</option>
-                            <option value="Indonesia">Indonesia</option>
-                            <option value="Inggris">Inggris</option>
-                            <option value="Italia">Italia</option>
-                            <option value="Jepang">Jepang</option>
-                            <option value="Jerman">Jerman</option>
-                            <option value="Kanada">Kanada</option>
-                            <option value="Meksiko">Meksiko</option>
-                            <option value="Korea Selatan">Korea Selatan</option>
-                            <option value="Rusia">Rusia</option>
-                            <option value="Perancis">Perancis</option>
-                            <option value="Turki">Turki</option>
-                            <option value="Uni Eropa">Uni Eropa</option>
+                            <?php foreach($data['getCountry'] as $row): ?>
+                                <option value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
+                            <?php endforeach; ?> 
                         </select>
                         <label class="labelmui">Negara Kedatangan</label>
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="jabatan" class="form-select">
                             <option value="">Pilih Jabatan</option>
-                            <option value="Presiden">Presiden</option>
-                            <option value="Wakil Presiden">Wakil Presiden</option>
-                            <option value="Menteri Pertahanan">Menteri Pertahanan</option>
+                            <?php foreach($data['getPosition'] as $row): ?>
+                                <option value="<?php echo $row['name_position'];?>"><?php echo $row['name_position'];?></option> 
+                            <?php endforeach; ?> 
                         </select>
                         <label class="labelmui">Jabatan</label>
                     </div>

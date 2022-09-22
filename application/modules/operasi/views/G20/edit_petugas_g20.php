@@ -40,9 +40,11 @@
                                 <div class="material-selectfield mb-3">
                                     <select name="struktural" class="form-select">
                                         <option <?php echo ($data['getDetail']['data']['structural_officer'] == null ? 'selected' : '');?> value="">Pilih Strukturan</option>
-                                        <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI' ? 'selected' : '');?> value="BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
-                                        <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'BA DITLANTAS POLDA' ? 'selected' : '');?> value="BA DITLANTAS POLDA">BA DITLANTAS POLDA</option> 
-                                        <option <?php echo ($data['getDetail']['data']['structural_officer'] == 'Korlantas' ? 'selected' : '');?> value="Korlantas">Korlantas</option> 
+
+                                        <?php foreach($data['getStructural'] as $row): ?>
+                                            <option <?php echo ($data['getDetail']['data']['structural_officer'] == $row['name_structural'] ? 'selected' : '');?> value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
+                                        <?php endforeach; ?>  
+                                         
                                     </select>
                                     <label class="labelmui">Strukturan</label>
                                 </div>
@@ -63,17 +65,11 @@
                                 <div class="material-selectfield mb-3">
                                     <select class="form-select" name="pangkat">
                                         <option <?php echo ($data['getDetail']['data']['rank_officer'] == null ? 'selected' : '');?> value="">Pilih Pangkat</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AIPTU' ? 'selected' : '');?> value="AIPTU">AIPTU</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AIPDA' ? 'selected' : '');?> value="AIPDA">AIPDA</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIPKA' ? 'selected' : '');?> value="BRIPKA">BRIPKA</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIGADIR' ? 'selected' : '');?> value="BRIGADIR">BRIGADIR</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'BRIPTU' ? 'selected' : '');?> value="BRIPTU">BRIPTU</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'KOMBESPOL' ? 'selected' : '');?> value="KOMBESPOL">KOMBESPOL</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PEMBINA' ? 'selected' : '');?> value="PEMBINA">PEMBINA</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AKP' ? 'selected' : '');?> value="AKP">AKP</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PENATA' ? 'selected' : '');?> value="PENATA">PENATA</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'PENGDA TK 1' ? 'selected' : '');?> value="PENGDA TK 1">PENGDA TK 1</option>
-                                        <option <?php echo ($data['getDetail']['data']['rank_officer'] == 'AKBP' ? 'selected' : '');?> value="AKBP">AKBP</option>
+
+                                        <?php foreach($data['getRank'] as $row): ?>
+                                            <option <?php echo ($data['getDetail']['data']['rank_officer'] == $row['name_rankOfficer'] ? 'selected' : '');?> value="<?php echo $row['name_rankOfficer'];?>"><?php echo $row['name_rankOfficer'];?></option> 
+                                        <?php endforeach; ?>  
+                                         
                                     </select>
                                     <label class="labelmui">Pangkat </label>
                                 </div>

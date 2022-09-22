@@ -25,7 +25,13 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                    <div class="row">  
+                    <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input required style="width: 100%;" name="instruksi" placeholder="" value="<?php echo $data['getDetail']['data']['name_renpam'];?>" type="text">
+                                    <label class="labelmui">Judul Renpam</label>
+                                </div>
+                            </div> 
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
                                     <select required name="id_account[]" id="id_account" style="height: 200px;" multiple> 
@@ -81,10 +87,10 @@
                                     <label class="labelmui">Subjek</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="material-textfield mb-3">
                                     <input  type="text" name="note_kakor" value="<?php echo $data['getDetail']['data']['note_kakor'];?>" class="form-control" id="note_kakor"> 
-                                    <label class="labelmui">Catatan Kakor</label>
+                                    <label class="labelmui">Instruksi Kakor</label>
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -93,12 +99,7 @@
                                     <label class="labelmui">Waktu Selesai</label>
                                 </div>
                             </div> -->
-                            <div class="col-md-12">
-                                <div class="material-textfield mb-3">
-                                    <input required style="width: 100%;" name="instruksi" placeholder="" value="<?php echo $data['getDetail']['data']['name_renpam'];?>" type="text">
-                                    <label class="labelmui">Instruksi</label>
-                                </div>
-                            </div>
+                            
 
                             <div class="col-md-6">
                                 <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal"><?php echo ($data['getDetail']['data']['route_alternatif_1'] > 0 ? 'Edit' : 'Add');?> Rute Alternative</a>

@@ -67,17 +67,10 @@
                         <div class="material-selectfield mb-3">
                             <select name="pangkat" class="form-select">
                                 <option selected>Pilih Pangkat</option>
-                                <option value="AIPTU">AIPTU</option>
-                                <option value="AIPDA">AIPDA</option>
-                                <option value="BRIPKA">BRIPKA</option>
-                                <option value="BRIGADIR">BRIGADIR</option>
-                                <option value="BRIPTU">BRIPTU</option>
-                                <option value="KOMBESPOL">KOMBESPOL</option>
-                                <option value="PEMBINA">PEMBINA</option>
-                                <option value="AKP">AKP</option>
-                                <option value="PENATA">PENATA</option>
-                                <option value="PENGDA TK 1">PENGDA TK 1</option>
-                                <option value="AKBP">AKBP</option>
+
+                                <?php foreach($data['getRank'] as $row): ?>
+                                    <option value="<?php echo $row['name_rankOfficer'];?>"><?php echo $row['name_rankOfficer'];?></option> 
+                                <?php endforeach; ?>  
                             </select>
                             <label class="labelmui">Pangkat</label>
                         </div>
@@ -86,9 +79,11 @@
                         <div class="material-selectfield mb-3">
                             <select name="struktural" class="form-select">
                                 <option selected>Pilih Strukturan</option>
-                                <option value="BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI">BANIT SUBDITWAL & PJR DITGAKKUM KORLANTAS POLRI</option>
-                                <option value="BA DITLANTAS POLDA">BA DITLANTAS POLDA</option> 
-                                <option value="Korlantas">Korlantas</option> 
+
+                                <?php foreach($data['getStructural'] as $row): ?>
+                                    <option value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
+                                <?php endforeach; ?>   
+
                             </select>
                             <label class="labelmui">Strukturan</label>
                         </div>

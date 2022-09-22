@@ -121,6 +121,12 @@
                     <div class="row">  
 
                         <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
+                                <label class="labelmui">Judul Renpam</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select required name="id_accountR[]" id="id_accountR" style="height: 200px;" multiple> 
                                     <?php foreach($data['getAccount'] as $row): ?>
@@ -164,11 +170,11 @@
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div> 
+                        <div class="col-md-12">
                             <div class="material-textfield mb-3">
-                                <input  type="text" name="note_kakor" class="form-control" id="note_kakor"> 
-                                <label class="labelmui">Catatan Kakor</label>
+                                <input type="text" name="note_kakor" class="form-control" id="note_kakor">
+                                <label class="labelmui">Instruksi Kakor</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
@@ -177,12 +183,7 @@
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div> -->
-                        <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
-                                <label class="labelmui">Instruksi</label>
-                            </div>
-                        </div>
+                        
                          
                         <input hidden style="width: 100%;" name="ruteawalR" id="ruteawalR" placeholder="" type="text">
 

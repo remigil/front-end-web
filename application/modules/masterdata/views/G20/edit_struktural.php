@@ -3,8 +3,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item">VIP</li>
-        <li class="breadcrumb-item">Detail VIP</li>
+        <li class="breadcrumb-item">Detail Structural Petugas</li>
         <li class="breadcrumb-item active fw-bold" aria-current="page">Edit</li>
     </ol>
 </nav>
@@ -16,7 +15,7 @@
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="fs-4 fw-bold">EDIT VIP</p>
+                        <p class="fs-4 fw-bold">EDIT STRUCTURAL PETUGAS</p>
                     </div>
                     <div class="col-md-6">
                         <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
@@ -24,54 +23,35 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body">  
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="namaVIP" value="<?php echo $data['getDetail']['data']['name_vip'];?>" type="text">
-                                    <label class="labelmui">VIP</label>
+                                    <input style="width: 100%;" name="name" value="<?php echo $data['getDetail']['data']['name_structural'];?>" type="text">
+                                    <label class="labelmui">name Structural Petugas</label>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="jabatan" class="form-select">
-                                        <option <?php echo ($data['getDetail']['data']['position_vip'] == null ? 'selected' : '');?> value="">Pilih Jabatan</option>
-                                        <?php foreach($data['getPosition'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['position_vip'] == $row['name_position'] ? 'selected' : '');?> value="<?php echo $row['name_position'];?>"><?php echo $row['name_position'];?></option> 
-                                        <?php endforeach; ?>  
+                                    <select class="form-select" name="status">
+                                        <option <?php echo ($data['getDetail']['data']['status_structural'] == null ? 'selected' : '');?> value="">Pilih Status</option>
+                                        <option <?php echo ($data['getDetail']['data']['status_structural'] == '1' ? 'selected' : '');?> value="1">Aktif</option>
+                                        <option <?php echo ($data['getDetail']['data']['status_structural'] == '0' ? 'selected' : '');?> value="0">Tidak Aktif</option>
                                     </select>
-                                    <label class="labelmui">Jabatan</label>
+                                    <label class="labelmui">name</label>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="material-selectfield mb-3">
-                                    <select name="asalNegara" class="form-select">
-                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == null ? 'selected' : '');?> value="">Pilih Negara Kedatangan</option>
-                                         
-                                        <?php foreach($data['getCountry'] as $row): ?>
-                                            <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == $row['name_country'] ? 'selected' : '');?> value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
-                                        <?php endforeach; ?> 
- 
-                                    </select>
-                                    <label class="labelmui">Negara Kedatangan</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="material-textfield mb-3">
-                                    <input style="width: 100%;" name="keterangan" value="<?php echo $data['getDetail']['data']['description_vip'];?>" type="text">
-                                    <label class="labelmui">Keterangan</label>
-                                </div>
-                            </div>
-                        </div>
+                            </div> 
+                        </div> 
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <a href="<?= base_url('operasi/Vip'); ?>" class="btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Kembali</a>
+                <div class="col-12 mb-3">
+                    <a href="<?= base_url('masterdata/struktural'); ?>" class="btn btn-sm btn-primary float-end w-25">Kembali</a>
                 </div>
-            </form>
+            </form> 
         </div>
     </div>
 </div>
+
 
 
 <script>
@@ -81,7 +61,7 @@
             e.preventDefault(); 
             var formData = new FormData($('.form')[0]); 
             $.ajax({
-                url: "<?php echo base_url();?>operasi/Vip/storeEdit",
+                url: "<?php echo base_url();?>masterdata/struktural/storeEdit",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -95,7 +75,7 @@
                         '',
                         'success'
                         ).then(function() {  
-                            window.location.href = "<?php echo base_url();?>operasi/Vip";
+                            window.location.href = "<?php echo base_url();?>masterdata/struktural";
                         }); 
                     }else{
                         Swal.fire(
@@ -114,7 +94,7 @@
         $("#overlay").fadeIn(300);
         e.preventDefault();  
         $.ajax({
-            url: "<?php echo base_url();?>operasi/Vip/delete",
+            url: "<?php echo base_url();?>masterdata/struktural/delete",
             method: "POST",
             data: {
                 "id": $(this).data("id"),
@@ -130,7 +110,7 @@
                     '',
                     'success'
                     ).then(function() {  
-                        window.location.href = "<?php echo base_url();?>operasi/Vip";
+                        window.location.href = "<?php echo base_url();?>masterdata/struktural";
                     }); 
                 }else{
                     Swal.fire(

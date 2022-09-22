@@ -34,9 +34,17 @@ class Petugas extends MY_Controller
         }
 
 
+        $getRank = guzzle_request('GET', 'rank_officer', [  
+            'headers' => $headers 
+        ]); 
+        $data['getRank'] = $getRank['data']['data']; 
 
+        $getStructural = guzzle_request('GET', 'structural', [  
+            'headers' => $headers 
+        ]); 
+        $data['getStructural'] = $getStructural['data']['data']; 
 
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
@@ -204,6 +212,16 @@ class Petugas extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
+
+        $getRank = guzzle_request('GET', 'rank_officer', [  
+            'headers' => $headers 
+        ]); 
+        $data['getRank'] = $getRank['data']['data']; 
+
+        $getStructural = guzzle_request('GET', 'structural', [  
+            'headers' => $headers 
+        ]); 
+        $data['getStructural'] = $getStructural['data']['data']; 
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

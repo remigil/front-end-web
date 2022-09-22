@@ -9,7 +9,7 @@ class Bahan_bakar extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper"); 
-        $this->load->model('operasi/m_bahan_bakar'); 
+        $this->load->model('masterdata/m_bahan_bakar'); 
     }
 
     public function index()
@@ -24,13 +24,13 @@ class Bahan_bakar extends MY_Controller
         $page_content["title"] = "Operasi";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/bahan_bakar";
+            $page_content["page"] = "masterdata/G20/bahan_bakar";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/bahan_bakar_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/bahan_bakar_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/bahan_bakar_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/bahan_bakar_polres";
+            $page_content["page"] = "masterdata/Polres/bahan_bakar_polres";
         } 
 
 
@@ -54,11 +54,11 @@ class Bahan_bakar extends MY_Controller
         $dummy = [
             [
                 'name' => 'name_fuelVehicle',
-                'contents' => $input['nobahan_bakar'],
+                'contents' => $input['jenis'],
             ],
             [
                 'name' => 'status_fuelVehicle',
-                'contents' => $input['jenisbahan_bakar'],
+                'contents' => $input['status'],
             ] 
         ];
 
@@ -97,13 +97,13 @@ class Bahan_bakar extends MY_Controller
         $page_content["title"] = "Operasi";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/detail_bahan_bakar";
+            $page_content["page"] = "masterdata/G20/detail_bahan_bakar";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/detail_bahan_bakar_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/detail_bahan_bakar_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/detail_bahan_bakar_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/detail_bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/detail_bahan_bakar_polres";
+            $page_content["page"] = "masterdata/Polres/detail_bahan_bakar_polres";
         }
 
 
@@ -129,13 +129,13 @@ class Bahan_bakar extends MY_Controller
         $page_content["title"] = "Operasi";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/edit_bahan_bakar";
+            $page_content["page"] = "masterdata/G20/edit_bahan_bakar";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/edit_bahan_bakar_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/edit_bahan_bakar_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/edit_bahan_bakar_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/edit_bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/edit_bahan_bakar_polres";
+            $page_content["page"] = "masterdata/Polres/edit_bahan_bakar_polres";
         }
 
 
@@ -158,11 +158,11 @@ class Bahan_bakar extends MY_Controller
         $dummy = [
             [
                 'name' => 'name_fuelVehicle',
-                'contents' => $input['nobahan_bakar'],
+                'contents' => $input['jenis'],
             ],
             [
                 'name' => 'status_fuelVehicle',
-                'contents' => $input['jenisbahan_bakar'],
+                'contents' => $input['status'],
             ] 
         ];
 

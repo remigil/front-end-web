@@ -17,6 +17,7 @@
                         <th>No</th>
                         <th>No. Kendaraan</th>
                         <th>Jenis Kendaraan</th>
+                        <th>Bahan Bakar</th>
                         <th>Merek</th>
                         <th>Kepemilikan</th>
                         <th>Aksi</th>
@@ -51,6 +52,18 @@
                         </select>
                         <label class="labelmui">Jenis Kendaraan</label>
                     </div>
+
+
+                    <div class="material-selectfield mb-3">
+                        <select class="form-select" name="jenisBahanBakar">
+                            <option selected>Pilih Jenis Bahan Bakar</option>
+                            <?php foreach($data['getFuel'] as $row): ?>
+                                <option value="<?php echo $row['name_fuelVehicle'];?>"><?php echo $row['name_fuelVehicle'];?></option> 
+                            <?php endforeach; ?>  
+                        </select>
+                        <label class="labelmui">Jenis Bahan Bakar</label>
+                    </div>
+
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="merek" placeholder="" type="text">
                         <label class="labelmui">Merek</label>
@@ -58,8 +71,11 @@
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="kepemilikan">
                             <option selected>Pilih Kepemilikan</option>
-                            <option value="Polres">Polres</option>
-                            <option value="Polresta">Polresta</option>
+
+                            <?php foreach($data['getOwnership'] as $row): ?>
+                                <option value="<?php echo $row['name_ownershipVehicle'];?>"><?php echo $row['name_ownershipVehicle'];?></option> 
+                            <?php endforeach; ?>  
+ 
                         </select>
                         <label class="labelmui">Kepemilikan</label>
                     </div>
@@ -193,6 +209,7 @@
                 { data: 'no_vehicle'},
 
                 { data: 'type_vehicle'}, 
+                { data :'fuel_vehicle'},
 
                 { data: 'brand_vehicle'},
 

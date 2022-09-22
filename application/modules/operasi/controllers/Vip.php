@@ -33,10 +33,18 @@ class Vip extends MY_Controller
             $page_content["page"] = "operasi/Polres/vip_polres";
         }
 
+        $getPosition = guzzle_request('GET', 'position', [  
+            'headers' => $headers 
+        ]); 
+        $data['getPosition'] = $getPosition['data']['data']; 
+
+        $getCountry = guzzle_request('GET', 'country', [  
+            'headers' => $headers 
+        ]); 
+        $data['getCountry'] = $getCountry['data']['data']; 
 
 
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
@@ -150,6 +158,17 @@ class Vip extends MY_Controller
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
+
+
+        $getPosition = guzzle_request('GET', 'position', [  
+            'headers' => $headers 
+        ]); 
+        $data['getPosition'] = $getPosition['data']['data']; 
+
+        $getCountry = guzzle_request('GET', 'country', [  
+            'headers' => $headers 
+        ]); 
+        $data['getCountry'] = $getCountry['data']['data']; 
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

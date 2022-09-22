@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_kendaraan extends CI_Model {
+class M_struktural extends CI_Model {
 
 
     public function __construct(){
@@ -95,7 +95,7 @@ class M_kendaraan extends CI_Model {
         // } 
 
 
-        $url = 'vehicle?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'structural?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 
@@ -113,13 +113,26 @@ class M_kendaraan extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['no_vehicle']	= $field['no_vehicle']; 
-            $row ['type_vehicle']	= $field['type_vehicle'];  
-            $row ['fuel_vehicle']	= $field['fuel_vehicle'];  
-            $row ['brand_vehicle']   	= $field['brand_vehicle'];
-            $row ['ownership_vehicle']   	= $field['ownership_vehicle'];  
+            $row ['name_structural']	= $field['name_structural'];  
+
+            if($field['status_structural'] == 1){
+                $stFlag = 'checked';
+            }else{
+                $stFlag = '';
+            }
+
+            $row ['status_structural']   			= '
+                <div class="switch">
+                    <input class="flag" type="checkbox" id="flag'.$field['id'].'" '.$stFlag.' data-id="'.$field['id'].'" data-name="'.$field['name_structural'].'" data-status="'.$field['status_structural'].'" data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                    <label for="flag'.$field['id'].'"></label>
+                </div>
+            ';
+
+
+            // $row ['status_structural']	= $field['status_structural'];  
+
             $row ['action']         = ' 
-                <a href="'.base_url().'operasi/Kendaraan/Detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                <a href="'.base_url().'masterdata/struktural/edit/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             '; 
 
             $data[] = $row;

@@ -28,7 +28,7 @@
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
                     <div style="width: 348px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
-                        <div style="margin-left: 0px;overflow-x: scroll;height: 400px;scrollbar-width: thin;position: relative; padding: 15px;">
+                        <div style="margin-left: 0px;overflow-x: scroll;height: 460px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
                                 <div class="row">
                                     <div class="col-md-12 mb-1">
@@ -102,7 +102,7 @@
                                         <span>Trouble Spot</span> 
                                     </div>   
                                     <div class="col-md-12 mt-3" id="menuKategori">
-                                    <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
+                                        <p style="font-size: 17px;">Fasilitas Umum Kategori</p> 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input type="checkbox" checked name="filterFasumKateg" value="mosque" id="mosque" class="form-input" >  
@@ -146,6 +146,12 @@
                                             </div>
                                         </div>
                                     </div> 
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <a href="javascript:void(0);" class="btn btn-primary" id="filterCari" style="width: 100%">Search</a>
+                                        </div>
+                                    </div>
                                     <!-- <div class="dropdown-divider"></div> -->
     
                                     <!-- <div class="material-textfield">
@@ -336,11 +342,11 @@
 <script>
     $(function() {
 
-        var start = moment().subtract(29, 'days');
+        var start = moment();
         var end = moment();
 
         function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#reportrange span').html(start.format('MMMM D') + ' - ' + end.format('MMMM D')); 
             $('#startdate').val(start.format('YYYY-MM-DD'));
             $('#enddate').val(end.format('YYYY-MM-DD'));
         }
@@ -554,13 +560,13 @@
                                         <div class="col-md-12 col-12" style="height: 30px;">
                                             <div class="row text-start">
                                                 <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                                    <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
                                                 </div>
                                                 <div class="col-md-2">
                                                     <p style="font-size: 12px;"> : </p>
                                                 </div>
                                                 <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].vip}</p>
+                                                    <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
                                                 </div>
                                             </div> 
                                         </div>  
@@ -650,13 +656,13 @@
                                         <div class="col-md-12 col-12" style="height: 30px;">
                                             <div class="row text-start">
                                                 <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                                    <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
                                                 </div>
                                                 <div class="col-md-2">
                                                     <p style="font-size: 12px;"> : </p>
                                                 </div>
                                                 <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].vip}</p>
+                                                    <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
                                                 </div>
                                             </div> 
                                         </div>  
@@ -899,13 +905,13 @@
                             <div class="col-md-12 col-12" style="height: 30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
                                     </div>
                                     <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
+                                        <p style="font-size: 12px;"> : </p></a>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.vip}</p>
+                                    <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
                                     </div>
                                 </div> 
                             </div>  
@@ -995,13 +1001,13 @@
                             <div class="col-md-12 col-12" style="height: 30px;">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">VIP</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
                                     </div>
                                     <div class="col-md-2">
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.vip}</p>
+                                    <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
                                     </div>
                                 </div> 
                             </div>  
@@ -1468,12 +1474,16 @@
         });
     }
 
-    $("[name=filter]").on("change", function (e) { 
+    $("#filterCari").on("click", function (e) { 
         serverSideFilter();
     });
-    $("[name=filterFasumKateg]").on("change", function (e) { 
-        serverSideFilter();
-    });
+
+    // $("[name=filter]").on("change", function (e) { 
+    //     serverSideFilter();
+    // });
+    // $("[name=filterFasumKateg]").on("change", function (e) { 
+    //     serverSideFilter();
+    // });
     
 
     

@@ -2,14 +2,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kendaraan extends MY_Controller
+class Struktural extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
         $this->load->helper("logged_helper"); 
-        $this->load->model('operasi/m_kendaraan'); 
+        $this->load->model('masterdata/m_struktural'); 
     }
 
     public function index()
@@ -21,36 +21,27 @@ class Kendaraan extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Structural Petugas";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/kendaraan_g20";
+            $page_content["page"] = "masterdata/G20/struktural";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/kendaraan_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/struktural_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/kendaraan_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/struktural_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/kendaraan_polres";
+            $page_content["page"] = "masterdata/Polres/struktural_polres";
         } 
 
-        $getFuel = guzzle_request('GET', 'fuel_vehicle?filter[]=status_fuelVehicle&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getFuel'] = $getFuel['data']['data']; 
 
-        $getOwnership = guzzle_request('GET', 'ownership_vehicle?filter[]=status_ownershipVehicle&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getOwnership'] = $getOwnership['data']['data']; 
-
-        $page_content["data"] = $data;
+        $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
 
     public function serverSideTable() 
     {  
         $postData = $this->input->post();   
-        $data = $this->m_kendaraan->get_datatables($postData);  
+        $data = $this->m_struktural->get_datatables($postData);  
 		echo json_encode($data); 
     }
 
@@ -62,28 +53,16 @@ class Kendaraan extends MY_Controller
         $input      = $this->input->post(); 
         $dummy = [
             [
-                'name' => 'no_vehicle',
-                'contents' => $input['noKendaraan'],
+                'name' => 'name_structural',
+                'contents' => $input['name'],
             ],
             [
-                'name' => 'type_vehicle',
-                'contents' => $input['jenisKendaraan'],
-            ],
-            [
-                'name' => 'fuel_vehicle',
-                'contents' => $input['jenisBahanBakar'],
-            ],
-            [
-                'name' => 'brand_vehicle',
-                'contents' => $input['merek'],
-            ],
-            [
-                'name' => 'ownership_vehicle',
-                'contents' => $input['kepemilikan'],
-            ]
+                'name' => 'status_structural',
+                'contents' => $input['status'],
+            ] 
         ];
 
-        $data = guzzle_request('POST', 'vehicle/add', [ 
+        $data = guzzle_request('POST', 'structural/add', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -118,17 +97,17 @@ class Kendaraan extends MY_Controller
         $page_content["title"] = "Operasi";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/detail_kendaraan_g20";
+            $page_content["page"] = "masterdata/G20/detail_struktural";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/detail_kendaraan_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/detail_struktural_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/detail_kendaraan_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/detail_struktural_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/detail_kendaraan_polres";
+            $page_content["page"] = "masterdata/Polres/detail_struktural_polres";
         }
 
 
-        $getDetail = guzzle_request('GET', 'vehicle/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'structural/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
@@ -147,33 +126,23 @@ class Kendaraan extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Structural Petugas";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "operasi/G20/edit_kendaraan_g20";
+            $page_content["page"] = "masterdata/G20/edit_struktural";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "operasi/Korlantas/edit_kendaraan_korlantas";
+            $page_content["page"] = "masterdata/Korlantas/edit_struktural_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "operasi/Kapolda/edit_kendaraan_kapolda";
+            $page_content["page"] = "masterdata/Kapolda/edit_struktural_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "operasi/Polres/edit_kendaraan_polres";
+            $page_content["page"] = "masterdata/Polres/edit_struktural_polres";
         }
 
 
-        $getDetail = guzzle_request('GET', 'vehicle/getId/'.$id.'', [  
+        $getDetail = guzzle_request('GET', 'structural/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
-
-        $getFuel = guzzle_request('GET', 'fuel_vehicle?filter[]=status_fuelVehicle&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getFuel'] = $getFuel['data']['data']; 
-
-        $getOwnership = guzzle_request('GET', 'ownership_vehicle?filter[]=status_ownershipVehicle&filterSearch[]=1', [  
-            'headers' => $headers 
-        ]); 
-        $data['getOwnership'] = $getOwnership['data']['data']; 
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -188,28 +157,16 @@ class Kendaraan extends MY_Controller
         $input      = $this->input->post(); 
         $dummy = [
             [
-                'name' => 'no_vehicle',
-                'contents' => $input['noKendaraan'],
+                'name' => 'name_structural',
+                'contents' => $input['name'],
             ],
             [
-                'name' => 'type_vehicle',
-                'contents' => $input['jenisKendaraan'],
-            ],
-            [
-                'name' => 'fuel_vehicle',
-                'contents' => $input['jenisBahanBakar'],
-            ],
-            [
-                'name' => 'brand_vehicle',
-                'contents' => $input['merek'],
-            ],
-            [
-                'name' => 'ownership_vehicle',
-                'contents' => $input['kepemilikan'],
-            ]
+                'name' => 'status_structural',
+                'contents' => $input['status'],
+            ] 
         ];
 
-        $data = guzzle_request('PUT', 'vehicle/edit/'.$input['id'].'', [ 
+        $data = guzzle_request('PUT', 'structural/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -247,7 +204,7 @@ class Kendaraan extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('DELETE', 'vehicle/delete', [ 
+        $data = guzzle_request('DELETE', 'structural/delete', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
