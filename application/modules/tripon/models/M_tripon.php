@@ -1,9 +1,11 @@
 <?php
 
+use LDAP\Result;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_berita extends CI_Model {
+class M_tripon extends CI_Model {
 
 
     public function __construct(){
@@ -95,10 +97,11 @@ class M_berita extends CI_Model {
         // } 
 
 
-        $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''; 
+        $url_trip_on = 'trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        // $url_passanger_trip_on = 'passanger_trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        
 
-
-        $result = guzzle_request('GET', $url, [
+        $result = guzzle_request('GET', $url_trip_on,  [
 
             'headers' => [
 
@@ -106,49 +109,34 @@ class M_berita extends CI_Model {
 
             ]
 
-        ]);   
-		// echo "<pre>";
-		// var_dump($result);
-		// echo "</pre>";
+        ]);  
+
+        // echo "<pre>";
+        // var_dump($result);die;
+        
+        // $asd = $result['data']['data'];
+        // var_dump($asd);die;
+        
+		
         $no=1;
-		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
-			
-			if ($field['news_category'] == 1) {
-				$category = "Berita PPKM";
-			} else if($field['news_category'] == 2){
-				$category = "Berita Kecelakaan Lalu Lintas";
-			}else if($field['news_category'] == 3){
-				$category = "Berita Pelanggaran Lalu Lintas";
-			}else if($field['news_category'] == 4){
-				$category = "Berita Kemacetan Lalu Lintas";
-			}else if($field['news_category'] == 5){
-				$category = "Berita Satpas";
-			}else if($field['news_category'] == 6){
-				$category = "Berita ETLE";
-			}else if($field['news_category'] == 7){
-				$category = "Berita Kontjensi";
-			}
+            
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['news_category']	= $category; 
-            $row ['title']			= $field['title'];  
-            $row ['content']   		= $field['content'];
-            $row ['author']  	 	= $field['author'];  
-            $row ['created_at']   	= $field['created_at'];  
-            $row ['action']         = ' 
-                
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">
-                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                </button>
-                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahBerita">
-                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                </button>
-                <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
-                        <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                    </button>
-
+            $row ['person_name']	= $field['society']['person_name'];
+            $row ['no_vehicle']	= $field["public_vehicle"]['no_vehicle'];
+            $row ['type_vehicle']	= $field['type_vehicle']['type_name'];
+            $row ['brand_vehicle']	= $field['brand_vehicle']['brand_name'];
+            // $row ['brand_vehicle']	= $field['brand_vehicle'];  
+            // $row ['type_vehicle'] = $field['type_vehicle'];
+            // foreach ($field['passenger_trip_ons'] as $tes){
+            //     $row ['passenger']	= $tes['name'];
+            // }
+            $row ['action']         = '
+            
+            <a href="'.base_url().'tripon/Tripon/detail/'.$field['id'].'"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
+            
             '; 
 
             $data[] = $row;

@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_berita extends CI_Model {
+class M_akun_operasi extends CI_Model {
 
 
     public function __construct(){
@@ -95,7 +95,7 @@ class M_berita extends CI_Model {
         // } 
 
 
-        $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.''; 
+		$url = 'society?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
 
         $result = guzzle_request('GET', $url, [
@@ -106,48 +106,44 @@ class M_berita extends CI_Model {
 
             ]
 
-        ]);   
+        ]);
+		
 		// echo "<pre>";
 		// var_dump($result);
 		// echo "</pre>";
+		
         $no=1;
-		// kategori berita berdasarkan nomor
+
 		foreach  ($result['data']['data'] as $field) { 
-			
-			if ($field['news_category'] == 1) {
-				$category = "Berita PPKM";
-			} else if($field['news_category'] == 2){
-				$category = "Berita Kecelakaan Lalu Lintas";
-			}else if($field['news_category'] == 3){
-				$category = "Berita Pelanggaran Lalu Lintas";
-			}else if($field['news_category'] == 4){
-				$category = "Berita Kemacetan Lalu Lintas";
-			}else if($field['news_category'] == 5){
-				$category = "Berita Satpas";
-			}else if($field['news_category'] == 6){
-				$category = "Berita ETLE";
-			}else if($field['news_category'] == 7){
-				$category = "Berita Kontjensi";
+
+			if ($field['status_verifikasi'] == 0) {
+				$status = '
+				<button style="border:none" class="btn btn-warning">
+					belum aktivasi
+				</button>';
+			}else if ($field['status_verifikasi'] == 1) {
+				$status = '
+				<button style="border:none" class="btn btn-danger">
+					Nonaktif
+				</button>';
+			}else if($field['status_verifikasi'] == 2) {
+				$status = '
+				<button style="border:none" class="btn btn-success">
+					Aktif
+				</button>';
 			}
             $row = array();   
 			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['news_category']	= $category; 
-            $row ['title']			= $field['title'];  
-            $row ['content']   		= $field['content'];
-            $row ['author']  	 	= $field['author'];  
+            $row ['id']				=  $no++; 
+            $row ['person_name']	= $field['person_name'];  
+            $row ['email']			= $field['email'];  
+            $row ['no_hp']   		= '+62 '.$field['no_hp'];
             $row ['created_at']   	= $field['created_at'];  
-            $row ['action']         = ' 
+            $row ['action']         = $status.' 
                 
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">
-                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+				<button class="btn btn-primary" style="border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPenggunaUmum">
+                    Detail
                 </button>
-                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahBerita">
-                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                </button>
-                <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
-                        <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                    </button>
 
             '; 
 
@@ -174,7 +170,5 @@ class M_berita extends CI_Model {
         return $response;
 
     }
-
-  
 
 }
