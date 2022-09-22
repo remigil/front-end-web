@@ -8,6 +8,7 @@ class Tripon extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model("tripon/m_tripon");
     }
 
     public function index()
@@ -37,9 +38,19 @@ class Tripon extends MY_Controller
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+    public function serverSideTable() 
+    {  
+        $postData = $this->input->post();   
+        $data = $this->m_tripon->get_datatables($postData);  
+		echo json_encode($data); 
+    }
 
-    public function detail()
+
+    public function detail($id)
     {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "TripOn";
@@ -53,11 +64,15 @@ class Tripon extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "tripon/Polres/tripondetail";
         }
+        $getDetail = guzzle_request('GET', 'trip_on/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data'];
+        // var_dump($data['getDetail']);die;
+        // echo json_encode($data['getDetail']['data']);
+        // die;
 
-
-
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 }

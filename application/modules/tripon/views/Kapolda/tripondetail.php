@@ -1,5 +1,6 @@
 <!-- Page -->
 <!-- <div class="kotak" style="border-style:solid ;"> -->
+
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
@@ -12,17 +13,19 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
-                    <p class="fs-4 fw-bold">DETAIL DATA TRIPON F4462 AAD</p>
+                    <!-- <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['vehicle_id'];?></p> -->
+                    <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle'];?></p>
                 </div>
                 <div class="col-md-7">
                     <!-- ini belum -->
                     <div class="border fw-bold rounded">
                         <div class="ms-3 mt-2 mb-2">
                             <span class="text-primary"> No TRP </span>
-                            <span> | TRP/F/1210/19/2022/JABAR/BOGOR</span>
+                            <span> | <?php echo $data['getDetail']['data']['code'];?></span>
                             <span style=" height: 500px; border-left: 6px solid green;" class="ms-2 me-2"></span>
                             <span class="text-primary">Jumlah Penumpang </span>
-                            <span>| 4</span>
+                            <?php $jumlah = $data['getDetail']['data']['passenger_trip_ons'];?>
+                            <span>| <?= count($jumlah);?></span>
                         </div>
                     </div>
                 </div>
@@ -30,8 +33,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="border rounded" style="height:7vh;background-color:#D5D5D4;">
-                        <div class="mt-2 mb-2 ">
-                            <div style="border:1px solid #003A91; margin-top:3%"></div>
+                        <div class="mt-2 mb-2 text-center ">
+                            <div style="border:1px solid #003A91; margin-top:2.1%"></div>
                             <span class=" fw-bolder text-primary" style="position:absolute; height:15px; left:37px; top: 2%;background:#D5D5D4; padding:0 15px 0 15px;">IDENTITAS PENGENDARA</span>
                         </div>
                     </div>
@@ -39,7 +42,7 @@
                 <div class="col-md-4">
                     <div class="border rounded" style="height:7vh;background-color:#B7D9EC ;">
                         <div class="mt-2 mb-2 text-center">
-                            <div style="border:1px solid #003A91; margin-top:6.47%"></div>
+                            <div style="border:1px solid #003A91; margin-top:2.1%"></div>
                             <span class="fw-bolder  text-primary" style="position:absolute; height:15px; left:25%; top: 2%;background:#B7D9EC; padding:0 15px 0 15px;">RUTE PENGENDARA</span>
                         </div>
                     </div>
@@ -66,9 +69,9 @@
                                         <p class=" fw-bold text-primary">:</p>
                                     </div>
                                     <div class="col-md-7">
-                                        <p class=" fw-bold text-primary mt-3">BINTANG</p>
-                                        <p class=" fw-bold text-primary">3201234567890123</p>
-                                        <p class=" fw-bold text-primary">INDONESIA</p>
+                                        <p class=" fw-bold text-primary mt-3"><?php echo $data['getDetail']['data']['society']['person_name'];?></p>
+                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nik'];?></p>
+                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nationality'];?></p>
                                     </div>
                                 </div>
                             </div>
@@ -88,30 +91,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $no = 1;
+                                foreach ($data['getDetail']['data']['passenger_trip_ons'] as $row) : ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>EREN YEAGER</td>
-                                        <td>3201234567890123</td>
-                                        <td>INDONESIA</td>
+                                    <td> <?php echo $no++ ?> </td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['nik']; ?></td>
+                                        <td><?php echo $row['nationality']; ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>ANIE LIONHART</td>
-                                        <td>3201234567890123</td>
-                                        <td>INDONESIA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>PIEKE FINGER</td>
-                                        <td>3201234567890123</td>
-                                        <td>INDONESIA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>REINER BRAUN</td>
-                                        <td>3201234567890123</td>
-                                        <td>INDONESIA</td>
-                                    </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
@@ -138,32 +126,33 @@
                             <tr>
                                 <td width="30%" class="text-primary">TIPE KENDARAAN</td>
                                 <td width="5%">:</td>
-                                <td>MOBIL PRIBADI</td>
+                                <td><?php echo $data['getDetail']['data']['type_vehicle']['type_name'];?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">MEREK KENDARAAN</td>
                                 <td width="5%">:</td>
-                                <td>HONDA</td>
-                            </tr>
-                            <tr>
-                                <td width="30%" class="text-primary">WAKTU KEBERANGKATAN</td>
-                                <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151">Selasa, 19 Juli 2022, Pukul 18 : 00 WIB</td>
+                                <td><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name'];?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU PENGISIAN DATA</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;">Senin 18 Juli 2022, Pukul 07 : 44 WIB</td>
+                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo $data['getDetail']['data']['created_at'];?></td>
                             </tr>
+                            <tr>
+                                <td width="30%" class="text-primary">WAKTU KEBERANGKATAN</td>
+                                <td width="5%">:</td>
+                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo $data['getDetail']['data']['departure_date'];?>, <?php echo $data['getDetail']['data']['departure_time'];?></td>
+                            </tr>
+                            
                             <tr>
                                 <td width="30%" class="text-primary">TITIK LOKASI AWAL</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151">-6.601172920128401, 106.80702103945605 Botani Square, Jalan Sholeh Iskandar, RT.01/RW.10, Kedungbadak, Kota Bogor, Jawa Barat</td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?> Botani Square, Jalan Sholeh Iskandar, RT.01/RW.10, Kedungbadak, Kota Bogor, Jawa Barat</td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">TITIK DESTINASI</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151">-6.175264396563681, 106.82709915294522 Monas, Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?> Monas, Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
                             </tr>
                         </table>
                     </div>

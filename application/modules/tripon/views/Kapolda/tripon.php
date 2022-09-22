@@ -78,39 +78,19 @@
 
     <div class="card">
         <div class="card-body">
-            <table id="tripon" class="table table-striped dt-responsive  nowrap w-100">
+            <table id="dataTable" class="table table-striped dt-responsive  nowrap w-100">
                 <thead>
                     <tr class="text-center">
                         <th>No</th>
-                        <th>No Polisi Kendaraan</th>
                         <th>Nama Pengemudi</th>
+                        <th>No Polisi Kendaraan</th>
                         <th>Jenis Kendaraan</th>
                         <th>Merk Kendaraan</th>
+                        <!-- <th>Penumpang</th> -->
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>F 4464 AAD</td>
-                        <td>Bintang</td>
-                        <td>Mobil Pribadi</td>
-                        <td>Yamaha</td>
-                        <td class="text-center">
-                            <a href="<?= base_url('tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>F 4464 AAD</td>
-                        <td>Bintang</td>
-                        <td>Mobil Pribadi</td>
-                        <td>Yamaha</td>
-                        <td class="text-center">
-                            <a href="<?= base_url('tripon/Detail'); ?>"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -121,8 +101,130 @@
 
 
 <script>
+      $(document).ready(function() {
+        $('.dropify').dropify();
+
+        userDataTable = $('#dataTable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>tripon/Tripon/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'person_name',
+                },
+                {
+                    data: 'no_vehicle'
+                },
+                {
+                    data: 'type_vehicle'
+                },
+				{
+                    data: 'brand_vehicle'
+                },
+                
+                // {
+                //     data: 'passenger'
+                // },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
+        
+    });
     $(document).ready(function() {
-        $('#tripon').DataTable();
+        
 
         var keberangkatan = {
             series: [{
@@ -163,7 +265,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['BANDUNG', 'BOGOR', 'SUKABUMI', 'CIANJUR', 'PURWAKARTA', 'KARAWANG', 'SUBANG', 'CIMAHI', 'CIAMIS'],
+                categories: ['DKI JAKARTA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
             },
 
             fill: {
@@ -357,4 +459,6 @@
     </div>
         `)
     }
+  
+    
 </script>
