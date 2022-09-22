@@ -20,7 +20,7 @@
                             </div> 
                         </div>
                     </div>
-                    <a href="javascript:void(0)" class="btn" style="margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                    <a href="javascript:void(0)" class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
                 </div>
@@ -326,6 +326,38 @@
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
                         </div>
+                    </div>   
+
+                    <div class="col-md-6 mt-3 float-end">
+                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="myModalNoteKakor" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelNoteKakor" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelNoteKakor">Tambah Instruksi Kakor</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+            <form class="formNote" method="post" enctype="multipart/form-data"> 
+                    
+                    <div class="row">   
+                         
+                        <div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
+                                <label class="labelmui">Instruksi</label>
+                            </div>
+                        </div>
+                           
                     </div>   
 
                     <div class="col-md-6 mt-3 float-end">
@@ -723,7 +755,17 @@
                             <div style="right: 1px;position: absolute;">
                             
                             <div style="display: flex;">
-                                <a class="btn" style="margin-top: -7px;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                    
+                                    <button class="btn" style="margin-top: -7px;"
+                                        id="listPetugasClick${countlist}"   
+                                        data-nama="${el.name_team}"  
+                                        data-akun="${el.name_account}" 
+                                        data-nrp="${el.nrp_user}"
+                                        data-telp="${el.handphone}"
+                                        data-cord="${el.latitude},${el.longitude}" >
+                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                    </button>
                                     <div class="switch">
                                         <input class="flag" type="checkbox" id="flag${countlist}" 
                                         data-id="${el.id_officer}"  
@@ -735,15 +777,6 @@
                                         data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
                                         <label for="flag${countlist}"></label>
                                     </div>
-                                    <button class="btn" style="margin-top: -7px;"
-                                        id="listPetugasClick${countlist}"   
-                                        data-nama="${el.name_team}"  
-                                        data-akun="${el.name_account}" 
-                                        data-nrp="${el.nrp_user}"
-                                        data-telp="${el.handphone}"
-                                        data-cord="${el.latitude},${el.longitude}" >
-                                        <i class="fa fas fa-eye"></i>
-                                    </button>
                                 </div>
 
                               
@@ -765,8 +798,10 @@
                             // alert($(this).data('id'));
                             if($(`#flag${i+1}`).is(':checked')){
                                 mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                $(`#listPetugasClick${i+1}`).hide();
                             }else{
                                 mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                $(`#listPetugasClick${i+1}`).show();
                             }
                         });
 
@@ -1624,7 +1659,7 @@
             dataType : "JSON",
             success : function(result){ 
                 let ress = result['data'];
-                // console.log(result['test']);
+                // console.log(ress);
                 countlist = 0;
                 list = "";
                 var status = ""; 
@@ -1649,10 +1684,18 @@
                     }
  
                     countlist += 1;
-                    list += `<a class="list-group-item text-start" style="display: flex;"  
-                        href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}
-                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
-                    </a>`;
+                    list += `<div class="list-group-item text-start" style="display: flex;">
+                        ${status} &nbsp;&nbsp; ${el.name_renpam}
+                        <div style="right: 10px;position: absolute;">
+                            <a class="btn" href="javascripte:void(0);"
+                            style="margin-top: -5px; font-size: 16px;"  
+                            data-idnote="${el.id}"
+                            title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
+                            </a>
+                            <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
+                        </div>
+                    </div>`;
                     $('#listRenpam').html(list); 
                 });  
 
@@ -1864,6 +1907,7 @@
             }
         });
     }
+
      
     
     
@@ -1934,6 +1978,12 @@
 
  
     });
+
+    $('#myModalNoteKakor').on('shown.bs.modal', function(e) { 
+        var myVal = $(event.relatedTarget).data('idnote'); 
+
+        console.log(myVal);
+    }); 
 
 
     // function serverSideGetCCTV(){
