@@ -161,7 +161,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select name="subjekR" class="form-select">
+                                <select required name="subjekR" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 

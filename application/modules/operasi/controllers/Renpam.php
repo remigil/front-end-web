@@ -77,6 +77,8 @@ class Renpam extends MY_Controller
         $dummy ['vips']	= json_encode($input['id_vip']); 
         $dummy ['route']	= $input['ruteawal']; 
         $dummy['note_kakor'] = $input['note_kakor'];
+        $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+        $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
 
         // echo json_encode($dummy);
         // die; 
@@ -124,6 +126,8 @@ class Renpam extends MY_Controller
         $dummy ['vips']	= json_encode($input['id_vipR']); 
         $dummy ['route']	= $input['ruteawalR']; 
         $dummy['note_kakor'] = $input['note_kakor'];
+        $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+        $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
         // echo json_encode($dummy);
         // die; 
 
@@ -143,6 +147,54 @@ class Renpam extends MY_Controller
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+
+    }
+
+    public function storeEditNoteKakor() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        $dummy = array();  
+
+        // $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
+        // $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
+        // $dummy ['name_renpam']	= $input['instruksi']; 
+        // $dummy ['type_renpam']	= $input['subjek']; 
+        // $dummy ['date']	= $input['date']; 
+        // $dummy ['start_time']	= $input['startTime']; 
+        // $dummy ['end_time']	= $input['endTime']; 
+        // $dummy ['accounts']	= json_encode($input['id_account']); 
+        // $dummy ['vips']	= json_encode($input['id_vip']); 
+        // $dummy ['route']	= $input['ruteawal']; 
+        // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+        // $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        $dummy['note_kakor'] = $input['note_kakor'];
+
+        // echo json_encode($dummy);
+        // die;
+
+        $data = guzzle_request('PUT', 'renpam/edit/'.$input['id'].'', [ 
+            'form_params' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }

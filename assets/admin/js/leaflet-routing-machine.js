@@ -20472,7 +20472,7 @@
 										return L.marker(wp.latLng, {
 											icon: L.divIcon({
 												className: "location-pin",
-												html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin"></div><div class="pulse"></div>`,
+												html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
 												iconSize: [5, 5],
 												//iconAnchor: [18, 30]
 												iconAnchor: [5, 10],
@@ -20487,7 +20487,7 @@
 											marker = L.marker(wp.latLng, {
 												icon: L.divIcon({
 													className: "location-pin",
-													html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin"></div><div class="pulse"></div>`,
+													html: `<img src="https://icon2.cleanpng.com/20180605/qef/kisspng-human-resource-management-association-giraudeau-ba-route-icon-5b163b21aaa790.805675261528183585699.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
 													iconSize: [5, 5],
 													//iconAnchor: [18, 30]
 													iconAnchor: [5, 10],

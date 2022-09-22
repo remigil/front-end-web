@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select name="subjek" class="form-select">
+                                <select required name="subjek" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -111,8 +111,14 @@
                         </div> -->
                         
                          
-                        <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
+                        <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text"> 
+                        <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
+                        <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
 
+                        <div class="col-md-6">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                        </div>
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
                         </div>
@@ -126,6 +132,54 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel1">Tambah Alternative</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative1" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end" >
+                    <button class="btn btn-primary float-end" id="submitAlternative1" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel2">Tambah Escape</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative2" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end">
+                    <button class="btn btn-primary float-end" id="submitAlternative2" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
 
 
 <script>
@@ -400,5 +454,211 @@
             });
             
         });
+
     });
+
+
+
+    var routingAlternative1 = new Array();
+    var routingAlternative2 = new Array();
+    let arrayWaypoint = []; 
+    $('#myModal1').on('shown.bs.modal', function() {    
+    
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam = L.map('mapG20Alternative1', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam); 
+
+
+        mapContainerRenpam.invalidateSize(); 
+ 
+
+        var routeAlternative1 = L.Routing.control({
+            waypoints: arrayWaypoint,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative1.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative1.spliceWaypoints(routeAlternative1.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam);
+
+            
+        }); 
+
+        $("#submitAlternative1").on('click', function(e){ 
+            routingAlternative1 = routeAlternative1.getWaypoints();
+            $('#coordsAlternative1').val(JSON.stringify(routingAlternative1));  
+            // $("#myModal1").modal('hide');
+        });
+    });
+
+
+    $('#myModal2').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam2 = L.map('mapG20Alternative2', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam2);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam2); 
+
+
+        mapContainerRenpam2.invalidateSize(); 
+
+       
+
+        var routeAlternative2 = L.Routing.control({
+            waypoints: arrayWaypoint,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam2);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam2.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative2.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam2.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative2.spliceWaypoints(routeAlternative2.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam2.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam2);
+
+            
+        }); 
+
+        $("#submitAlternative2").on('click', function(e){ 
+            routingAlternative2 = routeAlternative2.getWaypoints();
+            $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));  
+            // $("#myModal2").modal('hide');
+        });
+    }); 
 </script>

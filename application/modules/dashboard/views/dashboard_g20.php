@@ -8,13 +8,13 @@
         </div>
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
-                <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
                         <div class="row" style="margin-left: 0px;"> 
                             <div class="col-md-12">
                                 <div style="display: flex;">
                                     <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
-                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
+                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;"> 
                                     <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
                                 </div>
                             </div> 
@@ -27,20 +27,20 @@
                 
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 348px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
-                        <div style="margin-left: 0px;overflow-x: scroll;height: 460px;scrollbar-width: thin;position: relative; padding: 15px;">
+                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
+                        <div style="margin-left: 0px;overflow-x: scroll;height: 435px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
                                 <div class="row">
                                     <div class="col-md-12 mb-1">
                                         <label for="waktu">Tanggal</label>
                                         <div id="reportrange" class="pull-right" style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
                                             <div class="row">
-                                                <div class="col-md-10">
-                                                    <span style="font-size: 14px;"></span> <b class="caret"></b>
+                                                <div class="col-md-12 col-sm-12">
+                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> &nbsp;<span style="font-size: 14px;"></span> <b class="caret"></b>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <!-- <div class="col-md-2 col-sm-2">
                                                     <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <input hidden type="date" id="startdate" name="startdate">
@@ -59,19 +59,19 @@
                                         <input type="checkbox" name="filter" value="instruksi" id="instruksi" class="form-input" >  
                                         <span>Instruksi</span> 
                                     </div>  
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-6">
                                         <input type="checkbox" checked name="filter" value="turjawali" id="turjawali" class="form-input" >  
                                         <span>Turjawali</span> 
                                     </div>  
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-6">
                                         <input type="checkbox"  name="filter" value="jadwal_kegiatan" id="jadwal" class="form-input" >  
                                         <span>Jadwal Kegiatan</span> 
                                     </div> 
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="vip" id="vip" class="form-input" >  
                                         <span>VIP</span> 
                                     </div> 
-                                    <div class="col-md-6 mt-3">
+                                    <div class="col-md-6">
                                         <input type="checkbox" checked name="filter" value="cctv" id="cctv" class="form-input" >  
                                         <span>CCTV</span> 
                                     </div>  
@@ -178,7 +178,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
     
         <!-- Modal content-->
-        <div class="modal-content" style="width: 400px;">
+        <div class="modal-content" style="width: 350px;">
             <div class="modal-header bg-primary">
                 <h4 class="modal-title text-white" id="myLargeModalLabel">Filters Map</h4>
                 <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
@@ -216,7 +216,7 @@
                             <div class="accordion-body text-muted">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="list-group" id="listRenpam"> 
+                                        <div class="list-group" id="listRenpam" style="height: 400px;overflow-y: auto;scrollbar-width: thin;"> 
                                         </div>
                                     </div> 
                                 </div>
@@ -261,7 +261,13 @@
             <form class="formR" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">  
-
+                        
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
+                                <label class="labelmui">Judul Renpam</label>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select required name="id_account[]" id="id_account" style="height: 200px;" multiple> 
@@ -297,7 +303,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select name="subjek" class="form-select">
+                                <select required name="subjek" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -307,22 +313,28 @@
                                 <label class="labelmui">Subjek</label>
                             </div>
                         </div>
-                        <div class="col-md-6"></div>
+                        <div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <input  type="text" name="note_kakor" class="form-control" id="note_kakor"> 
+                                <label class="labelmui">Instruksi Kakor</label>
+                            </div>
+                        </div>
                         <!-- <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div> -->
-                        <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
-                                <label class="labelmui">Instruksi</label>
-                            </div>
-                        </div>
+                        
                          
                         <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
+                        <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
+                        <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
 
+                        <div class="col-md-6">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                        </div>
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
                         </div>
@@ -337,6 +349,53 @@
     </div>
 </div>
 
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel1">Tambah Alternative</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative1" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end" >
+                    <button class="btn btn-primary float-end" id="submitAlternative1" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel2">Tambah Escape</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative2" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end">
+                    <button class="btn btn-primary float-end" id="submitAlternative2" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
 
 
 <div class="modal fade" id="myModalNoteKakor" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelNoteKakor" aria-hidden="true">
@@ -347,19 +406,19 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
-            <form class="formNote" method="post" enctype="multipart/form-data"> 
+                <form class="formNoteKakor" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">   
                          
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
-                                <label class="labelmui">Instruksi</label>
+                                <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
+                                <input required style="width: 100%;" name="note_kakor" id="noteKakor" placeholder="" type="text">
+                                <label class="labelmui">Instruksi Kakor</label>
                             </div>
                         </div>
                            
-                    </div>   
-
+                    </div>    
                     <div class="col-md-6 mt-3 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
                     </div>
@@ -1689,7 +1748,8 @@
                         <div style="right: 10px;position: absolute;">
                             <a class="btn" href="javascripte:void(0);"
                             style="margin-top: -5px; font-size: 16px;"  
-                            data-idnote="${el.id}"
+                            data-idnote="${el.id}" 
+                            data-note="${el.note_kakor}"
                             title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                 <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                             </a>
@@ -1720,20 +1780,20 @@
                                         language: 'en',
                                         profile: 'car'
                                     }),
-                                    // lineOptions: {
-                                    //     // styles: [{color: "blue", className: 'animateRoute'}]
-                                    //     styles: [{color: "blue"}]
-                                    // }, 
-                                    routeLine: function(r) {
-                                        var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
-                                                                            addWaypoints: true
-                                                                        });
-                                        lines.on('linetouched', function(e) { 
-                                            console.log(e);
-                                            alert("jalan kaaga"); 
-                                        });
-                                        return lines;
-                                    },
+                                    lineOptions: {
+                                        styles: [{color: "blue", className: 'animateRoute'}]
+                                        // styles: [{color: "blue"}]
+                                    }, 
+                                    // routeLine: function(r) {
+                                    //     var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
+                                    //                                         addWaypoints: true
+                                    //                                     });
+                                    //     lines.on('linetouched', function(e) { 
+                                    //         console.log(e);
+                                    //         alert("jalan kaaga"); 
+                                    //     });
+                                    //     return lines;
+                                    // },
                                     geocoder: L.Control.Geocoder.nominatim({})
                                 }).addTo(mapContainer);  
                                 // mapContainer.addControl(routingRenpam[i]); 
@@ -1765,7 +1825,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "yellow", className: 'animateRoute'}]
+                                        styles: [{color: "#f29900", className: 'animateRoute'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1784,7 +1844,7 @@
                                             return L.marker(wp.latLng, {
                                                 icon: L.divIcon({
                                                     className: "location-pin",
-                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
                                                     iconSize: [5, 5],
                                                     //iconAnchor: [18, 30]
                                                     iconAnchor: [5, 10],
@@ -1799,7 +1859,7 @@
                                                 marker = L.marker(wp.latLng, {
                                                 icon: L.divIcon({
                                                     className: "location-pin",
-                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
                                                     iconSize: [5, 5],
                                                     //iconAnchor: [18, 30]
                                                     iconAnchor: [5, 10],
@@ -1859,7 +1919,7 @@
                                             return L.marker(wp.latLng, {
                                                 icon: L.divIcon({
                                                     className: "location-pin",
-                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
                                                     iconSize: [5, 5],
                                                     //iconAnchor: [18, 30]
                                                     iconAnchor: [5, 10],
@@ -1874,7 +1934,7 @@
                                                 marker = L.marker(wp.latLng, {
                                                 icon: L.divIcon({
                                                     className: "location-pin",
-                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
                                                     iconSize: [5, 5],
                                                     //iconAnchor: [18, 30]
                                                     iconAnchor: [5, 10],
@@ -1976,12 +2036,7 @@
 
  
     });
-
-    $('#myModalNoteKakor').on('shown.bs.modal', function(e) { 
-        var myVal = $(event.relatedTarget).data('idnote'); 
-
-        console.log(myVal);
-    }); 
+ 
 
 
     // function serverSideGetCCTV(){
@@ -2587,16 +2642,265 @@
     //     // Create export
     //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
     //     document.getElementById('export').setAttribute('download','data.geojson');
-    // }
-    
-    
-    
-    
+    // } 
 });
 
-$('#cekarrayTrack').on('click', function(e) { 
-    console.log(markerFasum);
-});
+
+    var routingAlternative1 = new Array();
+    var routingAlternative2 = new Array();
+    let arrayWaypoint1 = []; 
+    let arrayWaypoint2 = []; 
+    $('#myModal1').on('shown.bs.modal', function() {    
+    
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam = L.map('mapG20Alternative1', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam); 
+
+
+        mapContainerRenpam.invalidateSize(); 
+ 
+
+        var routeAlternative1 = L.Routing.control({
+            waypoints: arrayWaypoint1,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative1.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative1.spliceWaypoints(routeAlternative1.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam);
+
+            
+        }); 
+
+        $("#submitAlternative1").on('click', function(e){ 
+            routingAlternative1 = routeAlternative1.getWaypoints();
+            $('#coordsAlternative1').val(JSON.stringify(routingAlternative1));  
+            // $("#myModal1").modal('hide');
+        });
+    });
+
+
+    $('#myModal2').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam2 = L.map('mapG20Alternative2', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam2);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam2); 
+
+
+        mapContainerRenpam2.invalidateSize(); 
+
+       
+
+        var routeAlternative2 = L.Routing.control({
+            waypoints: arrayWaypoint2,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam2);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam2.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative2.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam2.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative2.spliceWaypoints(routeAlternative2.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam2.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam2);
+
+            
+        }); 
+
+        $("#submitAlternative2").on('click', function(e){ 
+            routingAlternative2 = routeAlternative2.getWaypoints();
+            $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));  
+            // $("#myModal2").modal('hide');
+        });
+    }); 
+
+    
+
+    $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
+        var myId = $(event.relatedTarget).data('idnote'); 
+        var myNote = $(event.relatedTarget).data('note'); 
+        var modal          = $(this);
+
+        modal.find('#idNoteKakor').val(myId);
+        modal.find('#noteKakor').val(myNote);
+
+
+        // console.log(myId);
+
+        $(".formNoteKakor").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();  
+
+            var formData = new FormData($('.formNoteKakor')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Renpam/storeEditNoteKakor",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $("#myModalNoteKakor").modal('hide'); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
+    });
+
+    $('#cekarrayTrack').on('click', function(e) { 
+        console.log(markerFasum);
+    });
 
     
 </script> 

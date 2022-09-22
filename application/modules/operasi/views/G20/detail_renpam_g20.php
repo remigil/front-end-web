@@ -114,6 +114,9 @@
                     profile: 'car'
                 }),
                 routeWhileDragging: false,
+                lineOptions: {
+                        styles: [{color: "blue", className: 'animateRoute'}] 
+                }, 
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer); 
         }
@@ -130,7 +133,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "gray", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                    styles: [{color: "#f29900", className: 'animateRoute'}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {
@@ -149,7 +152,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -164,7 +167,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -191,7 +194,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "green", opacity: 0.8, weight: 3, dashArray: "5,12"}]
+                    styles: [{color: "green", className: 'animateRoute'}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {
@@ -210,7 +213,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -225,7 +228,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],

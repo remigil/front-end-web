@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-md-6"> 
                                 <div class="material-selectfield mb-3">
-                                    <select name="subjek" class="form-select">
+                                    <select required name="subjek" class="form-select">
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == null ? 'selected' : '');?> value="">Pilih Subjek</option> 
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '1' ? 'selected' : '');?> value="1">Patroli</option> 
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '2' ? 'selected' : '');?> value="2">Pengawalan</option> 
