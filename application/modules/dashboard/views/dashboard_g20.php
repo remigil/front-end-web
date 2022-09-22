@@ -1720,22 +1720,20 @@
                                         language: 'en',
                                         profile: 'car'
                                     }),
-                                    lineOptions: {
-                                        // styles: [{color: "blue", className: 'animateRoute'}]
-                                        styles: [{color: "blue"}]
-                                    }, 
-                                    // routeLine: function(r) {
-                                    //     var lines = L.Routing.line(r, {  styles: [{color: '#19afc3', opacity: 0.8, weight: 9},
-                                    //                                                 {color: '#00ffb4', opacity: 0.8, weight: 6},
-                                    //                                                 {color: '#00fdf6', opacity: 1, weight: 2}],
-                                    //                                         addWaypoints: true
-                                    //                                     });
-                                    //     lines.on('linetouched', function(e) { 
-                                    //         console.log(e);
-                                    //         alert("jalan kaaga"); 
-                                    //     });
-                                    //     return lines;
-                                    // },
+                                    // lineOptions: {
+                                    //     // styles: [{color: "blue", className: 'animateRoute'}]
+                                    //     styles: [{color: "blue"}]
+                                    // }, 
+                                    routeLine: function(r) {
+                                        var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
+                                                                            addWaypoints: true
+                                                                        });
+                                        lines.on('linetouched', function(e) { 
+                                            console.log(e);
+                                            alert("jalan kaaga"); 
+                                        });
+                                        return lines;
+                                    },
                                     geocoder: L.Control.Geocoder.nominatim({})
                                 }).addTo(mapContainer);  
                                 // mapContainer.addControl(routingRenpam[i]); 
@@ -1767,7 +1765,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "yellow", className: 'animateLine'}]
+                                        styles: [{color: "yellow", className: 'animateRoute'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1841,7 +1839,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "red", className: 'animateLine'}]
+                                        styles: [{color: "red", className: 'animateRoute'}]
                                         // styles: [{className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
