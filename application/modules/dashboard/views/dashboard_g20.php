@@ -1611,12 +1611,265 @@
 
  
 
-  
+    function getRenpam(){
+        let countlist = 0;
+        let list = ""; 
+        var data = []; 
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>dashboard/getRenpam", 
+            data : {
+                "status" : '1',
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                let ress = result['data'];
+                // console.log(result['test']);
+                countlist = 0;
+                list = "";
+                var status = ""; 
+                var route = []; 
+                var route1 = []; 
+                var route2 = []; 
+                ress.forEach(el => {
+                    route.push(el.route);
+                    route1.push(el.route_alternatif_1);
+                    route2.push(el.route_alternatif_2);
+                    if(el.status_renpam == 1){
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                        </div>`;
+                    }else{
+                        status = `
+                        <div>
+                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                        </div>
+                        `;
+                    }
+ 
+                    countlist += 1;
+                    list += `<a class="list-group-item text-start" style="display: flex;"  
+                        href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}
+                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
+                    </a>`;
+                    $('#listRenpam').html(list); 
+                });  
+
+                 
+
+                for (let i = 0; i < ress.length; i++){ 
+                    $(`#listRenpamClick${i+1}`).on("change", function (e) {
+
+                        // console.log(route[i]); 
+                        
+
+                        if(route[i] != null && route[i][0]['latLng'] != null){
+                            
+                            if($(this).is(':checked')){   
+                                routingRenpam[i] = null;
+                                routingRenpam[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        // styles: [{color: "blue", className: 'animateRoute'}]
+                                        styles: [{color: "blue"}]
+                                    }, 
+                                    // routeLine: function(r) {
+                                    //     var lines = L.Routing.line(r, {  styles: [{color: '#19afc3', opacity: 0.8, weight: 9},
+                                    //                                                 {color: '#00ffb4', opacity: 0.8, weight: 6},
+                                    //                                                 {color: '#00fdf6', opacity: 1, weight: 2}],
+                                    //                                         addWaypoints: true
+                                    //                                     });
+                                    //     lines.on('linetouched', function(e) { 
+                                    //         console.log(e);
+                                    //         alert("jalan kaaga"); 
+                                    //     });
+                                    //     return lines;
+                                    // },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer);  
+                                // mapContainer.addControl(routingRenpam[i]); 
+                            }else{ 
+                                mapContainer.removeControl(routingRenpam[i]);  
+                            }
+                            
+                             
+                        }else{
+                            Swal.fire(
+                            `Route tidak ada, atau belum di daftarkan!`, 
+                            '',
+                            'error'
+                            ).then(function() { 
+                            });
+                        }
+
+                        if(route1[i] != null && route1[i][0]['latLng'] != null){
+                            
+                            if($(this).is(':checked')){  
+                                routingRenpam1[i] = null;
+                                routingRenpam1[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route1[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "yellow", className: 'animateLine'}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+    
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer); 
+                                // mapContainer.addControl(routingRenpam1[i]);  
+                            }else{
+                                mapContainer.removeControl(routingRenpam1[i]);   
+                            }
+                        }else{
+                            Swal.fire(
+                            `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                            '',
+                            'warning'
+                            ).then(function() { 
+                            });
+                        }
+
+                        if(route2[i] != null && route2[i][0]['latLng'] != null){ 
+                            
+                            if($(this).is(':checked')){  
+                                routingRenpam2[i] = null;
+                                routingRenpam2[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route2[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "red", className: 'animateLine'}]
+                                        // styles: [{className: 'animateLine'}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+    
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer); 
+                                // mapContainer.addControl(routingRenpam1[i]); 
+                            }else{
+                                mapContainer.removeControl(routingRenpam2[i]); 
+                            }
+                        }else{
+                            Swal.fire(
+                            `Route Escape tidak ada, atau belum di daftarkan!`, 
+                            '',
+                            'warning'
+                            ).then(function() { 
+                            });
+                        }
+                        // console.log(routingRenpam);
+                    });
+                } 
+            }
+        });
+    }
      
     
     
-
+    var openModalFilter = false;
     $('#myModalFilter').on('shown.bs.modal', function() { 
+
 
         let countlist = 0;
         let list = ""; 
@@ -1673,254 +1926,11 @@
             }
         });
 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getRenpam", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ress = result['data'];
-                // console.log(result['test']);
-                countlist = 0;
-                list = "";
-                var status = ""; 
-                var route = []; 
-                var route1 = []; 
-                var route2 = []; 
-                ress.forEach(el => {
-                    route.push(el.route);
-                    route1.push(el.route_alternatif_1);
-                    route2.push(el.route_alternatif_2);
-                    if(el.status_renpam == 1){
-                        status = `
-                        <div>
-                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
-                        </div>`;
-                    }else{
-                        status = `
-                        <div>
-                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
-                        </div>
-                        `;
-                    }
- 
-                    countlist += 1;
-                    list += `<a class="list-group-item text-start" style="display: flex;"  
-                        href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.name_renpam}
-                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
-                    </a>`;
-                    $('#listRenpam').html(list); 
-                });  
-
-                 
-
-                for (let i = 0; i < ress.length; i++){ 
-                    $(`#listRenpamClick${i+1}`).on("change", function (e) {
-
-                        // console.log(route[i]); 
-
-                        if(route[i] != null && route[i][0]['latLng'] != null){
-                            routingRenpam[i] = null;
-                            routingRenpam[i] = L.Routing.control({
-                                // show:false,
-                                draggableWaypoints: false,
-                                addWaypoints: false,
-                                waypoints: route[i],
-                                router: new L.Routing.osrmv1({
-                                    language: 'en',
-                                    profile: 'car'
-                                }),
-                                lineOptions: {
-                                    // styles: [{color: "blue", className: 'animateRoute'}]
-                                    styles: [{color: "blue"}]
-                                }, 
-                                // routeLine: function(r) {
-                                //     var lines = L.Routing.line(r, {  styles: [{color: '#19afc3', opacity: 0.8, weight: 9},
-                                //                                                 {color: '#00ffb4', opacity: 0.8, weight: 6},
-                                //                                                 {color: '#00fdf6', opacity: 1, weight: 2}],
-                                //                                         addWaypoints: true
-                                //                                     });
-                                //     lines.on('linetouched', function(e) { 
-                                //         console.log(e);
-                                //         alert("jalan kaaga"); 
-                                //     });
-                                //     return lines;
-                                // },
-                                geocoder: L.Control.Geocoder.nominatim({})
-                            }).addTo(mapContainer); 
-
-                            if($(this).is(':checked')){   
-                                mapContainer.addControl(routingRenpam[i]); 
-                            }else{
-                                mapContainer.removeControl(routingRenpam[i]);  
-                            }
-                            
-                             
-                        }else{
-                            Swal.fire(
-                            `Route tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'error'
-                            ).then(function() { 
-                            });
-                        }
-
-                        if(route1[i] != null && route1[i][0]['latLng'] != null){
-                            routingRenpam1[i] = null;
-                            routingRenpam1[i] = L.Routing.control({
-                                show:false,
-                                draggableWaypoints: false,
-                                addWaypoints: false,
-                                waypoints: route1[i],
-                                router: new L.Routing.osrmv1({
-                                    language: 'en',
-                                    profile: 'car'
-                                }),
-                                lineOptions: {
-                                    styles: [{color: "yellow", className: 'animateLine'}]
-                                },
-                                createMarker: function(i, wp, nWps) {
-                                    if (i === 0 || i === nWps + 1) {
-                                        // here change the starting and ending icons
-                                        return L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-                                    } else if (i === nWps - 1) {
-                                        return L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-                                    } else {
-                                        // here change all the others
-                                        var options = {
-                                                draggable: this.draggableWaypoints,
-                                            },
-                                            marker = L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-
-                                        return marker;
-                                    }
-                                },
-                                geocoder: L.Control.Geocoder.nominatim({})
-                            }).addTo(mapContainer); 
-
-                            if($(this).is(':checked')){  
-                                mapContainer.addControl(routingRenpam1[i]);  
-                            }else{
-                                mapContainer.removeControl(routingRenpam1[i]);   
-                            }
-                        }else{
-                            Swal.fire(
-                            `Route Alternative tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'warning'
-                            ).then(function() { 
-                            });
-                        }
-
-                        if(route2[i] != null && route2[i][0]['latLng'] != null){ 
-                            routingRenpam2[i] = null;
-                            routingRenpam2[i] = L.Routing.control({
-                                show:false,
-                                draggableWaypoints: false,
-                                addWaypoints: false,
-                                waypoints: route2[i],
-                                router: new L.Routing.osrmv1({
-                                    language: 'en',
-                                    profile: 'car'
-                                }),
-                                lineOptions: {
-                                    styles: [{color: "red", className: 'animateLine'}]
-                                    // styles: [{className: 'animateLine'}]
-                                },
-                                createMarker: function(i, wp, nWps) {
-                                    if (i === 0 || i === nWps + 1) {
-                                        // here change the starting and ending icons
-                                        return L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-                                    } else if (i === nWps - 1) {
-                                        return L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-                                    } else {
-                                        // here change all the others
-                                        var options = {
-                                                draggable: this.draggableWaypoints,
-                                            },
-                                            marker = L.marker(wp.latLng, {
-                                            icon: L.divIcon({
-                                                className: "location-pin",
-                                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                iconSize: [5, 5],
-                                                //iconAnchor: [18, 30]
-                                                iconAnchor: [5, 10],
-                                            }),
-                                            draggable: this.draggableWaypoints,
-                                        });
-
-                                        return marker;
-                                    }
-                                },
-                                geocoder: L.Control.Geocoder.nominatim({})
-                            }).addTo(mapContainer); 
-
-                            if($(this).is(':checked')){  
-                                mapContainer.addControl(routingRenpam1[i]); 
-                            }else{
-                                mapContainer.removeControl(routingRenpam2[i]); 
-                            }
-                        }else{
-                            Swal.fire(
-                            `Route Escape tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'warning'
-                            ).then(function() { 
-                            });
-                        }
-                        // console.log(routingRenpam);
-                    });
-                } 
-            }
-        });
-
+        
+        if(openModalFilter == false){
+            openModalFilter = true;
+            getRenpam();
+        } 
 
  
     });
