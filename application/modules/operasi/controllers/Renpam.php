@@ -126,8 +126,8 @@ class Renpam extends MY_Controller
         $dummy ['vips']	= json_encode($input['id_vipR']); 
         $dummy ['route']	= $input['ruteawalR']; 
         $dummy['note_kakor'] = $input['note_kakor'];
-        $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
-        $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
+        // $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
         // echo json_encode($dummy);
         // die; 
 
