@@ -19,6 +19,7 @@
                             <th>Email</th>
                             <th>No. Handphone</th>
                             <th>Tanggal Pembuatan Akun</th>
+                            
                             <th>Aksi</th>
                         </tr>
                     </thead>

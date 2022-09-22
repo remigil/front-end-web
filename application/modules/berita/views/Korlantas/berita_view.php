@@ -157,8 +157,8 @@
 							<label for="title" class="labelmui">Judul Berita</label>
 						</div>
 						<div class="material-textfield">
-							<input type="text" name="content" id="content" style="width:100% ;">
-							<label for="content" class="labelmui">Isi Berita</label>
+							<label for="content">Isi Berita</label>
+							<textarea class="form-control" type="text" name="content" id="content" style="width:100% ; height:100px;"></textarea>
 						</div>
 						<div class="material-textfield">
 							<input type="file" name="" id="" style="width:100% ;" class="form-control">
@@ -169,6 +169,8 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+	
 
 
 <div class="modal fade UploadBerita" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
