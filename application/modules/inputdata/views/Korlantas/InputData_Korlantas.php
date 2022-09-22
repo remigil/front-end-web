@@ -12,361 +12,73 @@
     <div class="card">
 
         <div class="card-body">
-            <div class="col-md-12">
-                <div class="row d-flex">
-                    <div class="col-md-3">
-                        <div class="material-selectfield mb-3">
-                            <select name="" id="">
-                                <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Metro Jaya</option>
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
-                            </select>
-                            <label class="labelmui">Polda</label>
+            <form action="" id="form-dataharian">
+                <div class="col-md-12">
+                    <div class="row d-flex">
+                        <div class="col-md-2">
+                            <div class="material-selectfield mb-3">
+                                <select name="polda_id" id="polda_id">
+                                    <!-- <select name="" id=""  multiple required> -->
+                                    <option value="0">--Pilih polda---</option>
+                                    <?php foreach ($data['getPolda'] as $key) : ?>
+                                        <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">Polda</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="material-selectfield mb-3">
-                            <select name="" id="">
-                                <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Ditgakkum</option>
-                                <option value="">Ditkamsel</option>
-                                <option value="">Ditregident</option>
-                            </select>
-                            <label class="labelmui">Satker Mabes</label>
+                        <div class="col-md-3">
+                            <div class="material-selectfield mb-3">
+                                <select name="jenis_satker" id="jenis_satker">
+                                    <!-- <select name="" id=""  multiple required> -->
+                                    <option value="">--Pilih jenis satker--</option>
+                                    <option value="1">Ditgakkum</option>
+                                    <option value="2">Ditkamsel</option>
+                                    <option value="3">Ditregident</option>
+                                </select>
+                                <label class="labelmui">Satker Mabes</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="material-selectfield mb-3">
-                            <select name="" id="">
-                                <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Data Dakgar Lantas</option>
-                                <option value="">Pelanggaran Konvensional</option>
-                                <option value="">Kecelakaan Lalu Lintas</option>
-                                <option value="">Turjagwali</option>
-                                <option value="">Dikmaslantas</option>
-                                <option value="">Penyebaran / Pemasangan</option>
-                                <option value="">SIM</option>
-                                <option value="">BPKB</option>
-                                <option value="">RANMOR</option>
-                                <option value="">STNK</option>
-                            </select>
-                            <label class="labelmui">Jenis Laporan</label>
+                        <div class="col-md-3">
+                            <div class="material-selectfield mb-3">
+                                <select name="jenis_laporan" id="jenis_laporan">
+                                    <!-- <select name="" id=""  multiple required> -->
+                                    <option value="">-Pilih jenis laporan--</option>
+                                </select>
+                                <label class="labelmui">Jenis Laporan</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="material-textfield mb-3">
-                            <input type="date" name="" id="" style="width:100% ;">
+                        <div class="col-md-3">
+                            <div class="material-textfield mb-3">
+                                <input type="date" name="date" id="date" style="width:100% ;">
 
-                            <label class="labelmui">Tanggal Input</label>
+                                <label class="labelmui">Tanggal Input</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" type="button" id="btn_pilih">Pilih</button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <table id="datatable" class="table table-bordered dt-responsive w-100">
-                <thead class="bg-primary text-white">
-                    <tr>
-                        <th>No</th>
-                        <th>Polres</th>
-                        <th>Jumlah Data</th>
-                        <th>Pengaturan</th>
-                        <th>Penjagaan</th>
-                        <th>Pengawalan</th>
-                        <th>Patroli</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Polres Metro Jaksel</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Polres Metro Jakpus</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Polres Metro Jakut</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Polres Metro Jaktim</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Polres Metro Jakbar</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Polresta Tanggerang</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Polresta Tanggerang Selatan</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Polresta Bekasi Kota</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Polres Bekasi</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Polresta Depok</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>Polresta Bogor</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
+                <div class="isiRow">
 
-                </tbody>
-            </table>
-            <div class="col-md-12">
-                <button type="button" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
-                <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
-
-            </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" id="btn_submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 10%; letter-spacing: 2px;">SIMPAN</button>
+                    <button type="button" class="btn btn-secondary waves-effect float-end mt-3 me-3" style="width: 10%; letter-spacing: 2px;">BATAL</button>
+                </div>
+            </form>
         </div>
-
     </div>
 </div>
 <!-- End Page -->
 
-
-<div class="modal fade TambahRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="fw-bold ms-4"> Identitas Operasi</p>
-                <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Operasi</label>
-                    </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Mulai</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Selesai</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade UbahRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="fw-bold ms-4"> Identitas Operasi</p>
-                <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Operasi</label>
-                    </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Mulai</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Selesai</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<div class="modal fade DetailRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Rencana Operasi</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="fw-bold ms-4"> Identitas Operasi</p>
-                <form action="" class="form">
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Operasi</label>
-                    </div>
-                    <div class="material-selectfield mb-3">
-                        <select class="form-select" name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Mulai</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Selesai</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">KEMBALI</button>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<div class="modal fade UploadRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title w-100 text-center" id="myLargeModalLabel">Upload File</h5>
-            </div>
-            <div class="modal-body">
-
-                <form action="" class="form">
-                    <div class="col-md-12">
-                        <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                    </div>
-                    <button type="submit" class="btn btn-primary waves-effect float-end mt-3" style="width: 100%; letter-spacing: 2px;">UPLOAD FILE</button>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
 
+        console.log('ok')
         $('#datatable').DataTable({
             scrollY: "450px",
             scrollCollapse: true,
@@ -374,6 +86,153 @@
             bInfo: false
         });
     });
+
+    $('#jenis_satker').on('change', function() {
+        let jenis_satker = $('#jenis_satker').val()
+        $('#jenis_laporan').html('')
+        if (jenis_satker == 1) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                <option value="1">Data Dakgar Lantas</option>
+                                <option value="2">Pelanggaran Konvensional</option>
+                                <option value="3">Kecelakaan Lalu Lintas</option>
+                                  <option value="4">Turjagwali</option>`)
+        } else if (jenis_satker == 2) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                        <option value="5">Dikmaslantas</option>
+                                        <option value="6">Penyebaran / Pemasangan</option>`)
+        } else if (jenis_satker == 3) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                <option value="7">SIM</option>
+                                <option value="8">BPKB</option>
+                                <option value="9">RANMOR</option>
+                                <option value="10">STNK</option>`)
+        } else {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>`)
+        }
+    })
+
+
+    $('#btn_pilih').on('click', function() {
+        $.ajax({
+            url: '<?= base_url() ?>inputdata/LaporanHarian/getPolres',
+            type: 'POST',
+            data: {
+                polda_id: $('#polda_id').val()
+            },
+            dataType: 'JSON',
+            success: function(results) {
+
+                let jenis_laporan = $('#jenis_laporan').val();
+                let laporan = [];
+                let field_input = [];
+
+
+                if (jenis_laporan == 1) {
+                    laporan.push('Konfirmasi Masyarakat', 'Capture Camera', 'Validasi Petugas', 'odol')
+                    field_input.push('<input type="number" name="konfirmasi_masyarakat[]" class="form-control" value="0">', '<input type="number" name="capture_camera[]" class="form-control" value="0">', '<input type="number" name="validasi_petugas[]" class="form-control" value="0">', '<input type="number" name="odol[]" class="form-control" value="0">')
+                } else if (jenis_laporan == 2) {
+                    laporan.push('Pelanggaran Berat', 'Pelanggaran Sedang', 'Pelanggaran Ringan')
+                    field_input.push(`<input type="number" name="pelanggaran_berat[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_sedang[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_ringan[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 3) {
+                    laporan.push('Meninggal dunia', 'Luka Berat', 'Luka Ringan')
+                    field_input.push(`<input type="number" name="meninggal_dunia[]" class="form-control" value="0">`, `<input type="number" name="luka_berat[]" class="form-control" value="0">`, `<input type="number" name="luka_ringan[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 4) {
+                    laporan.push('Penjagaan', 'Pengawalan', 'Patroli', 'Pengaturan')
+                    field_input.push(`<input type="number" name="penjagaan[]" class="form-control" value="0">`, `<input type="number" name="pengawalan[]" class="form-control" value="0">`, `<input type="number" name="patroli[]" class="form-control" value="0">`, `<input type="number" name="pengaturan[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 5) {
+                    laporan.push('Media Cetak', 'Media Elektronik', 'Media Sosial', 'Laka Langgar')
+                    field_input.push(`<input type="number" name="media_cetak[]" class="form-control" value="0">`, `<input type="number" name="media_elektronik[]" class="form-control" value="0">`, `<input type="number" name="media_sosial[]" class="form-control" value="0">`, `<input type="number" name="laka_langgar[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 6) {
+                    laporan.push('Stiker', 'Leaflet', 'Spanduk', 'Billboard')
+                    field_input.push(`<input type="number" name="stiker[]" class="form-control" value="0">`, `<input type="number" name="leaflet[]" class="form-control" value="0">`, `<input type="number" name="spanduk[]" class="form-control" value="0">`, `<input type="number" name="billboard[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 7) {
+                    laporan.push('Baru', 'Perpanjangan')
+                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 8) {
+                    laporan.push('Baru', 'Perpanjangan', 'RUBENTINA')
+                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`, `<input type="number" name="rubentina[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 9) {
+                    laporan.push('Mobil Penumpang', 'Mobil Barang', 'Mobil Bus', 'Ransus', 'Sepeda Motor')
+                    field_input.push(`<input type="number" name="mobil_penumpang[]" class="form-control" value="0">`, `<input type="number" name="mobil_barang[]" class="form-control" value="0">`, `<input type="number" name="mobil_bus[]" class="form-control" value="0">`, `<input type="number" name="ransus[]" class="form-control" value="0">`, `<input type="number" name="sepeda_motor[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 10) {
+                    laporan.push('Baru', 'Perpanjangan', 'RUBENTINA')
+                    field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`, `<input type="number" name="rubentina[]" class="form-control" value="0">`)
+                }
+
+                let inputs = ''
+                field_input.forEach((element, index) => {
+                    inputs += `<td>${element}</td>`
+                })
+
+                console.log(inputs)
+
+                let body = ''
+                results.forEach((element, index) => {
+                    body += `
+                    <tr>
+                        <td>${index+1}</td>
+                        <td><input type="hidden" name="polres_id[]" value="${element.id}">${element.name_polres}</td>
+                        ${inputs}
+                    </tr>`
+                });
+
+                let coloumn = ''
+                laporan.forEach((element, index) => {
+                    coloumn += `<th>${element}</th>`
+                })
+
+
+                let master_tb = `
+                <table id="datatable" class="table table-bordered dt-responsive w-100">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>No</th>
+                        <th>Polres</th>
+                        ${coloumn}
+                    </tr>
+                </thead>
+                <tbody id="maintablebody">
+                    ${body}
+                <tbody>
+                </table>
+                `
+                $('.isiRow').html(master_tb)
+            }
+        })
+    })
+
+
+    $('#btn_submit').on('click', function(e) {
+        e.preventDefault();
+        const formData = new FormData($('#form-dataharian')[0]);
+
+        $.ajax({
+            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
+            method: "POST",
+            data: formData,
+            dataType: "JSON",
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#overlay").fadeOut(300);
+                if (data['status'] == true) {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        window.location.reload();
+                    });
+                } else {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
 
 
     $("#HapusRencanaOperasi").click(function() {
