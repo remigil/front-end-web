@@ -574,6 +574,7 @@
 
 
     $("[name=searchAlamat]").on("change", function (e) {
+        $('#listAddress').show();
         // console.log(this.value);
         $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
             console.log(ress);  
