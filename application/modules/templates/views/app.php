@@ -549,7 +549,7 @@
                     <?php if ($this->uri->segment(1) == "dashboard") { ?>
                         <div>
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;">K3I KORLANTAS POLRI - PAM LANTAS KTT G20 BALI 2022</h3>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI -  <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                         </div>
                     <?php } else { ?>
                         <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
