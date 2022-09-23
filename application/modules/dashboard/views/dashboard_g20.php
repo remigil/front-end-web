@@ -14,7 +14,7 @@
                             <div class="col-md-12">
                                 <div style="display: flex;">
                                     <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
-                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;"> 
+                                    <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;"> 
                                     <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
                                 </div>
                             </div> 
@@ -23,6 +23,7 @@
                     <a href="javascript:void(0)" class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
+                    <div id="listAddress" style="margin-left: 10px;"></div>
                 </div>
                 
                 
@@ -571,6 +572,44 @@
     //     lon: 1234234
     // })
 
+
+    $("[name=searchAlamat]").on("change", function (e) {
+        // console.log(this.value);
+        $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+            console.log(ress);  
+            countlist = 0;
+            list = "";
+            ress.forEach(el => {
+                countlist += 1;
+                list += `<a class="list-group-item" style="width: 300px;"
+                id="list${countlist}"   
+                data-alamat="${el.display_name}"
+                data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                $('#listAddress').html(list); 
+            });  
+
+            if(list == ""){
+                countlist = 0;
+                list = "";
+                $('#listAddress').html(list); 
+            }
+
+            
+            for (let i = 0; i < ress.length; i++){ 
+                $(`#list${i+1}`).click(function(){  
+                    var latlong =  $(this).data('cords').split(',');
+                    var latitude = parseFloat(latlong[0]);
+                    var longitude = parseFloat(latlong[1]); 
+
+                    $('#listAddress').hide();
+                    // console.log({a:latitude, b:longitude});
+                    $('[name=address]').val($(this).data('alamat'));
+                    $('[name=cordinate]').val($(this).data('cords'));
+                    mapContainer.flyTo([latitude, longitude], 17);    
+                });
+            }
+        });
+    });
 
 
     function serverSideGet(){
