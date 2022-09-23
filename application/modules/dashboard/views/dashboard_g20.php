@@ -1877,12 +1877,12 @@
                                 mapContainer.removeControl(routingRenpam1[i]);   
                             }
                         }else{
-                            Swal.fire(
-                            `Route Alternative tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'warning'
-                            ).then(function() { 
-                            });
+                            // Swal.fire(
+                            // `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                            // '',
+                            // 'warning'
+                            // ).then(function() { 
+                            // });
                         }
 
                         if(route2[i] != null && route2[i][0]['latLng'] != null){ 
@@ -1952,12 +1952,12 @@
                                 mapContainer.removeControl(routingRenpam2[i]); 
                             }
                         }else{
-                            Swal.fire(
-                            `Route Escape tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'warning'
-                            ).then(function() { 
-                            });
+                            // Swal.fire(
+                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                            // '',
+                            // 'warning'
+                            // ).then(function() { 
+                            // });
                         }
                         // console.log(routingRenpam);
                     });
