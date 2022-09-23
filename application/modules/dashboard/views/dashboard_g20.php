@@ -553,10 +553,10 @@
     };
     var overlayMaps = {};
     L.control.layers(baseMaps, overlayMaps, {
-        position: 'bottomleft'
+        position: 'topright'
     }).addTo(mapContainer);
     L.control.zoom({
-        position: 'bottomright'
+        position: 'topright'
     }).addTo(mapContainer);
     
     mapContainer.doubleClickZoom.disable();
@@ -1781,7 +1781,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "blue", className: 'animateRoute'}]
+                                        styles: [{color: "red", className: 'animateRoute'}]
                                         // styles: [{color: "blue"}]
                                     }, 
                                     // routeLine: function(r) {
@@ -1825,7 +1825,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "#f29900", className: 'animateRoute'}]
+                                        styles: [{color: "purple", className: 'animateRoute'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1899,7 +1899,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "red", className: 'animateRoute'}]
+                                        styles: [{color: "black", className: 'animateRoute'}]
                                         // styles: [{className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
