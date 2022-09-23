@@ -73,6 +73,7 @@ class LaporanHarian extends MY_Controller
         $value = [];
         $url = '';
 
+
         $max_loop = count($this->input->post('polres_id'));
 
         if ($jenis_laporan == 1) {
@@ -201,11 +202,9 @@ class LaporanHarian extends MY_Controller
             for ($i = 0; $i < $max_loop; $i++) {
                 $object = (object) [
                     'polres_id' => $this->input->post('polres_id')[$i],
-                    'mobil_penumpang' => $this->input->post('mobil_penumpang')[$i],
-                    'mobil_barang' => $this->input->post('mobil_barang')[$i],
-                    'mobil_bus' => $this->input->post('mobil_bus')[$i],
-                    'ransus' => $this->input->post('ransus')[$i],
-                    'sepeda_motor' => $this->input->post('sepeda_motor')[$i],
+                    'baru' => $this->input->post('baru')[$i],
+                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
+                    'rubentina' => $this->input->post('rubentina')[$i],
                 ];
 
                 array_push($value, $object);
