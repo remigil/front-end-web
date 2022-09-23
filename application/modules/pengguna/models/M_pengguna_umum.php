@@ -1,39 +1,40 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_pengguna_umum extends CI_Model {
+class M_pengguna_umum extends CI_Model
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
         parent::__construct();
 
         $this->load->helper('guzzle_request_helper');
-
     }
 
-    public function get_datatables($postData=null)
+    public function get_datatables($postData = null)
 
-    {   
+    {
 
-        $draw = $postData['draw']; 
+        $draw = $postData['draw'];
 
         $rowperpage = $postData['length']; // Rows display per page  
-		 
+
         $columnName = $postData['columns']; // Column name 
 
-		$page = $postData['page']; 
+        $page = $postData['page'];
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue']; 
+        $orderValue = $postData['orderValue'];
 
-        $orderFieldRess =  $columnName[$orderField]['data']; 
+        $orderFieldRess =  $columnName[$orderField]['data'];
 
-       
-        $data = array(); 
+
+        $data = array();
 
 
         $search = $postData['search']['value'];
@@ -42,27 +43,25 @@ class M_pengguna_umum extends CI_Model {
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-		// $filter_status = $postData['filterStatus'];
+        // $filter_status = $postData['filterStatus'];
 
-		// $filter_name = $postData['filterName'];
+        // $filter_name = $postData['filterName'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+        // $filter_poc_name = $postData['filterPocName'];
 
-		// $filter_phone = $postData['filterPhone'];
+        // $filter_phone = $postData['filterPhone'];
 
-		// $filter_threat = $postData['filterThreat']; 
+        // $filter_threat = $postData['filterThreat']; 
 
- 
 
-        if($search){
 
-            $searchData = '&search='.$search.'';
+        if ($search) {
 
-        }else{
+            $searchData = '&search=' . $search . '';
+        } else {
 
             $searchData = '';
-
-        } 
+        }
 
         // if($filter_threat){
 
@@ -95,60 +94,60 @@ class M_pengguna_umum extends CI_Model {
         // } 
 
 
-		$url = 'society?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'society?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
 
-                'Authorization' => $this->session->userdata['token'] 
+                'Authorization' => $this->session->userdata['token']
 
             ]
 
         ]);
-		
-		// echo "<pre>";
-		// var_dump($result);
-		// echo "</pre>";
-		
-        $no=1;
 
-		foreach  ($result['data']['data'] as $field) { 
+        // echo "<pre>";
+        // var_dump($result);
+        // echo "</pre>";
 
-			if ($field['status_verifikasi'] == 0) {
-				$status = '
+        $no = 1;
+
+        foreach ($result['data']['data'] as $field) {
+
+            if ($field['status_verifikasi'] == 0) {
+                $status = '
 				<button style="border:none" class="btn btn-warning">
 					belum aktivasi
 				</button>';
-			}else if ($field['status_verifikasi'] == 1) {
-				$status = '
+            } else if ($field['status_verifikasi'] == 1) {
+                $status = '
 				<button style="border:none" class="btn btn-danger">
 					Nonaktif
 				</button>';
-			}else if($field['status_verifikasi'] == 2) {
-				$status = '
+            } else if ($field['status_verifikasi'] == 2) {
+                $status = '
 				<button style="border:none" class="btn btn-success">
 					Aktif
 				</button>';
-			}
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']				=  $no++; 
-            $row ['person_name']	= $field['person_name'];  
-            $row ['email']			= $field['email'];  
-            $row ['no_hp']   		= '+62 '.$field['no_hp'];
-            $row ['created_at']   	= $field['created_at'];  
-            $row ['action']         = $status.' 
+            }
+            $row = array();
+            // $row ['id']	=  $field['id']; 
+            $row['id']                =  $no++;
+            $row['person_name']    = $field['person_name'];
+            $row['email']            = $field['email'];
+            $row['no_hp']           = '+62 ' . $field['no_hp'];
+            $row['created_at']       = $field['created_at'];
+            // $row['action']         = $status . ' 
+            $row['action']         = ' 
                 
 				<button class="btn btn-primary" style="border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPenggunaUmum">
                     Detail
                 </button>
 
-            '; 
+            ';
 
             $data[] = $row;
-
         }
 
 
@@ -168,7 +167,5 @@ class M_pengguna_umum extends CI_Model {
 
 
         return $response;
-
     }
-
 }
