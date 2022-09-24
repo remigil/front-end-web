@@ -178,6 +178,26 @@ class M_renpam extends CI_Model {
             }else {
                 $row ['route_alternatif_2']	= '-'; 
             } 
+
+            if($field['route_masyarakat'] != null){
+                $route3 = '';
+                foreach  ($field['route_masyarakat'] as $fieldRoute3) { 
+                    $route3 .= ''.$fieldRoute3['name'].' <br> To <br> ';
+                }
+                $row ['route_masyarakat']	= $route3; 
+            }else {
+                $row ['route_masyarakat']	= '-'; 
+            } 
+
+            if($field['route_umum'] != null){
+                $route4 = '';
+                foreach  ($field['route_umum'] as $fieldRoute4) { 
+                    $route4 .= ''.$fieldRoute4['name'].' <br> To <br> ';
+                }
+                $row ['route_umum']	= $route4; 
+            }else {
+                $row ['route_umum']	= '-'; 
+            } 
             
             $row ['note']	= '-';
 

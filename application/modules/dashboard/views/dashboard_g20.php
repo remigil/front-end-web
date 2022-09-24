@@ -536,7 +536,7 @@
         minZoom: 1,
         zoomSnap: 0.25,
         zoomControl: false,
-        layers: [googleStreet]
+        layers: [googleHybrid]
     }).setView(initialCenter, initialZoom); 
 
     var markerClusterGroup = L.markerClusterGroup(); 
@@ -2469,7 +2469,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
   
         var baseMaps = {
@@ -2721,7 +2721,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var baseMaps = {
@@ -2821,7 +2821,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var baseMaps = {

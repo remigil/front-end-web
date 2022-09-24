@@ -79,6 +79,8 @@ class Renpam extends MY_Controller
         $dummy['note_kakor'] = $input['note_kakor'];
         $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
         $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
+        $dummy ['route_umum']	= $input['coordsAlternative4']; 
 
         // echo json_encode($dummy);
         // die; 
@@ -128,6 +130,8 @@ class Renpam extends MY_Controller
         $dummy['note_kakor'] = $input['note_kakor'];
         // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
         // $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
+        $dummy ['route_umum']	= $input['coordsAlternative4']; 
         // echo json_encode($dummy);
         // die; 
 
@@ -175,6 +179,8 @@ class Renpam extends MY_Controller
         // $dummy ['route']	= $input['ruteawal']; 
         // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
         // $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        // $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
+        // $dummy ['route_umum']	= $input['coordsAlternative4']; 
         $dummy['note_kakor'] = $input['note_kakor'];
 
         // echo json_encode($dummy);
@@ -300,6 +306,8 @@ class Renpam extends MY_Controller
         $dummy ['route']	= $input['ruteawal']; 
         $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
         $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
+        $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
+        $dummy ['route_umum']	= $input['coordsAlternative4']; 
         $dummy['note_kakor'] = $input['note_kakor'];
 
         // echo json_encode($dummy);

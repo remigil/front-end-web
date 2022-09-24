@@ -101,14 +101,18 @@
                             </div> -->
                             
 
-                            <div class="col-md-6">
-                                <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal"><?php echo ($data['getDetail']['data']['route_alternatif_1'] > 0 ? 'Edit' : 'Add');?> Rute Alternative</a>
-                                <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal2"><?php echo ($data['getDetail']['data']['route_alternatif_2'] > 0 ? 'Edit' : 'Add');?> Rute Escape</a>
+                            <div class="col-md-12">
+                                <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal"><?php echo ($data['getDetail']['data']['route_alternatif_1'] > 0 ? 'Edit' : 'Add');?> Rute Alternative</a>
+                                <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"><?php echo ($data['getDetail']['data']['route_alternatif_2'] > 0 ? 'Edit' : 'Add');?> Rute Escape</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"><?php echo ($data['getDetail']['data']['route_masyarakat'] > 0 ? 'Edit' : 'Add');?> Rute Masyarakat</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"><?php echo ($data['getDetail']['data']['route_umum'] > 0 ? 'Edit' : 'Add');?> Rute Umum</a>
                             </div>
                             
                             <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
-                            <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="30" rows="10"></textarea>
-                            <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="30" rows="10"></textarea>
+                            <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
+                            <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
+                            <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
+                            <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
 
                             <div class="col-md-12 mt-3">
                                 <div id="mapG20Kegiatan" style="height: 700px"></div>
@@ -125,11 +129,11 @@
 
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary ">
-                    <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Instruksi</h5>
+                    <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Alternative</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">  
@@ -148,7 +152,7 @@
         </div>
     </div> 
 
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary ">
@@ -171,10 +175,59 @@
         </div>
     </div> 
 
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary ">
+                    <h5 class="modal-title text-white" id="myLargeModalLabel3">Tambah Route Masyarakat</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">  
+                    <div class="row">   
+                        <div class="col-md-12">
+                            <div id="mapG20Alternative3" style="height: 500px"></div> 
+                        </div>
+                    </div>   
+
+                    <div class="col-md-6 mt-3 float-end">
+                        <button class="btn btn-primary float-end" id="submitAlternative3">Simpan</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel4" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary ">
+                    <h5 class="modal-title text-white" id="myLargeModalLabel4">Tambah Route Masyarakat</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">  
+                    <div class="row">   
+                        <div class="col-md-12">
+                            <div id="mapG20Alternative4" style="height: 500px"></div> 
+                        </div>
+                    </div>   
+
+                    <div class="col-md-6 mt-3 float-end">
+                        <button class="btn btn-primary float-end" id="submitAlternative4">Simpan</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div> 
+
 
 <script>
     var routingRenpam = new Array();
     var routingAlternative1 = new Array();
+    var routingAlternative2 = new Array();
+    var routingAlternative3 = new Array();
+    var routingAlternative4 = new Array();
     let arrayWaypoint = []; 
 
     $(document).ready(function() {
@@ -234,7 +287,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var route = '<?php echo json_encode($data['getDetail']['data']['route'])?>';  
@@ -365,7 +418,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var baseMaps = {
@@ -471,7 +524,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var baseMaps = {
@@ -542,6 +595,216 @@
             routingAlternative2 = routeAlternative2.getWaypoints();
             $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));  
             $("#myModal2").modal('hide');
+        });
+    });
+
+    $('#myModal3').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam3 = L.map('mapG20Alternative3', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam3);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam3); 
+
+
+        mapContainerRenpam3.invalidateSize(); 
+
+        var routeDataAlternative3 = '<?php echo json_encode($data['getDetail']['data']['route_masyarakat'])?>';  
+        var resAlternative3 = JSON.parse(routeDataAlternative3);
+        // console.log(resAlternative3);
+        if(routeDataAlternative3 != 'null' && resAlternative3.length > 0){
+            arrayWaypoint = resAlternative3
+        }
+
+        var routeAlternative3 = L.Routing.control({
+            waypoints: arrayWaypoint,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam3);
+  
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam3.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative3.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam3.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative3.spliceWaypoints(routeAlternative3.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam3.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam3);
+
+            
+        }); 
+
+        $("#submitAlternative3").on('click', function(e){ 
+            routingAlternative3 = routeAlternative3.getWaypoints();
+            $('#coordsAlternative3').val(JSON.stringify(routingAlternative3));  
+            $("#myModal3").modal('hide');
+        });
+    });
+
+    $('#myModal4').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam4 = L.map('mapG20Alternative4', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam4);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam4); 
+
+
+        mapContainerRenpam4.invalidateSize(); 
+
+        var routeDataAlternative4 = '<?php echo json_encode($data['getDetail']['data']['route_umum'])?>';  
+        var resAlternative4 = JSON.parse(routeDataAlternative4);
+        // console.log(resAlternative4);
+        if(routeDataAlternative4 != 'null' && resAlternative4.length > 0){
+            arrayWaypoint = resAlternative4
+        }
+
+        var routeAlternative4 = L.Routing.control({
+            waypoints: arrayWaypoint,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam4);
+  
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam4.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative4.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam4.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative4.spliceWaypoints(routeAlternative4.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam4.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam4);
+
+            
+        }); 
+
+        $("#submitAlternative4").on('click', function(e){ 
+            routingAlternative4 = routeAlternative4.getWaypoints();
+            $('#coordsAlternative4').val(JSON.stringify(routingAlternative4));  
+            $("#myModal4").modal('hide');
         });
     });
 

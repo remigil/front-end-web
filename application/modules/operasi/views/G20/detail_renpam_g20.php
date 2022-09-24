@@ -67,6 +67,8 @@
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
+    var routingRenpam3 = new Array();
+    var routingRenpam4 = new Array();
 
     $(document).ready(function() {
 
@@ -99,27 +101,10 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom); 
   
-        var route = '<?php echo json_encode($data['getDetail']['data']['route'])?>';  
-        if(route != 'null'){ 
-            routingRenpam[0] = L.Routing.control({
-                show: false, 
-                draggableWaypoints: false,
-                addWaypoints: false,
-                waypoints: JSON.parse(route),
-                router: new L.Routing.osrmv1({
-                    language: 'en',
-                    profile: 'car'
-                }),
-                routeWhileDragging: false,
-                lineOptions: {
-                        styles: [{color: "blue", className: 'animateRoute'}] 
-                }, 
-                geocoder: L.Control.Geocoder.nominatim({})
-            }).addTo(mapContainer); 
-        }
+        
 
         var route1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1'])?>'; 
         if(route1 != 'null'){
@@ -133,7 +118,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "#f29900", className: 'animateRoute'}]
+                    styles: [{color: "#b935b9", className: 'animateRoute'}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {
@@ -194,7 +179,7 @@
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "green", className: 'animateRoute'}]
+                    styles: [{color: "gray", className: 'animateRoute'}]
                 },
                 createMarker: function(i, wp, nWps) {
                     if (i === 0 || i === nWps + 1) {
@@ -241,6 +226,147 @@
                 },
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);
+        }
+
+        var route3 = '<?php echo json_encode($data['getDetail']['data']['route_masyarakat'])?>'; 
+        if(route3 != 'null'){
+            routingRenpam3[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route3),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                lineOptions: {
+                    styles: [{color: "#000dda", className: 'animateRoute'}]
+                },
+                createMarker: function(i, wp, nWps) {
+                    if (i === 0 || i === nWps + 1) {
+                        // here change the starting and ending icons
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else if (i === nWps - 1) {
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else {
+                        // here change all the others
+                        var options = {
+                                draggable: this.draggableWaypoints,
+                            },
+                            marker = L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+
+                        return marker;
+                    }
+                },
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer);
+        }
+
+        var route4 = '<?php echo json_encode($data['getDetail']['data']['route_umum'])?>'; 
+        if(route4 != 'null'){
+            routingRenpam4[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route4),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                lineOptions: {
+                    styles: [{color: "#bdbd0b", className: 'animateRoute'}]
+                },
+                createMarker: function(i, wp, nWps) {
+                    if (i === 0 || i === nWps + 1) {
+                        // here change the starting and ending icons
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else if (i === nWps - 1) {
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else {
+                        // here change all the others
+                        var options = {
+                                draggable: this.draggableWaypoints,
+                            },
+                            marker = L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+
+                        return marker;
+                    }
+                },
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer);
+        }
+
+        var route = '<?php echo json_encode($data['getDetail']['data']['route'])?>';  
+        if(route != 'null'){ 
+            routingRenpam[0] = L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: JSON.parse(route),
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                routeWhileDragging: false,
+                lineOptions: {
+                        styles: [{color: "red", className: 'animateRoute'}] 
+                }, 
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer); 
         }
 
 
