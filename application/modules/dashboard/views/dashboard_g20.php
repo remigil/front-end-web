@@ -97,7 +97,7 @@
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="fasum" id="fasum" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
-                                    </div>   
+                                    </div>  
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
                                         <span>Trouble Spot</span> 
@@ -255,7 +255,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Instruksi</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Pengamanan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
@@ -313,6 +313,18 @@
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
+                        </div> 
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="title_start" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Awal</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="title_end" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Akhir</label>
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
@@ -328,24 +340,23 @@
                         </div> -->
                         
                          
-                        <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
-                        <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
-                        <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
-                        <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
-                        <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
-
-                        <div class="col-md-12">
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
-                        </div>
-                        <div class="col-md-12 mt-3">
+                        <textarea hidden name="ruteawal" id="ruteawal" cols="2" rows="2"></textarea>
+                        <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="2" rows="2"></textarea>
+                        <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="2" rows="2"></textarea>
+                        <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="2" rows="2"></textarea>
+                        <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="2" rows="2"></textarea>
+ 
+                        <!-- <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
-                        </div>
+                        </div> -->
                     </div>   
 
-                    <div class="col-md-6 mt-3 float-end">
+                    <div class="col-md-12 mt-3 float-end">
+                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
+                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
+                        <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>
                     </div>
                 </form>
@@ -353,6 +364,33 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div class="modal fade" id="myModalUtama" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabelUtama" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelUtama">Tambah Utama</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Kegiatan" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end" >
+                    <button class="btn btn-primary float-end" id="submitAlternativeUtama" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
 
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -552,2111 +590,2373 @@
     var arrayFilterFasumKategori = [];
 
 
-  $(document).ready(function() { 
-    // alert('oke');
-      
-    // var arrayContoh = [ 
-    //     {-8.551740, 115.077643},
-    //     {-8.451740, 115.089643},
-    //     {-8.458519301130188,115.14931575647383},
-    //     {-8.452198812821242,115.09396433830263},
-    //     {-8.5068977,115.2622931},
-    // ];  
-
-
-    var initialCenter = [-8.451740, 115.089643];
-    var initialZoom = 9.65;
-    var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'] 
-    });
-    var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-    });
-    var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-    });
-    var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-    }); 
-
-    // StART MAP SECTION
-    var mapContainer = L.map('mapG20Dashboard', {
-        maxZoom: 20,
-        minZoom: 1,
-        zoomSnap: 0.25,
-        zoomControl: false,
-        layers: [googleHybrid]
-    }).setView(initialCenter, initialZoom); 
-
-    var markerClusterGroup = L.markerClusterGroup(); 
-    var icon = L.icon({
-        iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-        iconSize: [80, 80], // size of the icon
-    });
-                    
-                    
-    var baseMaps = {
-        "Google Map Street": googleStreet,
-        "Google Map Satelite": googleSatelite,
-        "Google Map Hybrid": googleHybrid,
-        "Google Map Terrain": googleTerrain,
-    };
-    var overlayMaps = {};
-    L.control.layers(baseMaps, overlayMaps, {
-        position: 'topright'
-    }).addTo(mapContainer);
-    L.control.zoom({
-        position: 'topright'
-    }).addTo(mapContainer);
-    
-    mapContainer.doubleClickZoom.disable();
-   
-    socket.on("connected", function(resSocket){
-        console.log(socket.id);
-        console.log(resSocket);
-        console.log('ido1');
-    });
-    // socket.emit("trackingUser", {
-    //     lat: 1234,
-    //     lon: 1234234
-    // })
-
-
-    $("[name=searchAlamat]").on("change", function (e) {
-        $('#listAddress').show();
-        // console.log(this.value);
-        $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-            console.log(ress);  
-            countlist = 0;
-            list = "";
-            ress.forEach(el => {
-                countlist += 1;
-                list += `<a class="list-group-item" style="width: 300px;"
-                id="list${countlist}"   
-                data-alamat="${el.display_name}"
-                data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                $('#listAddress').html(list); 
-            });  
-
-            if(list == ""){
-                countlist = 0;
-                list = "";
-                $('#listAddress').html(list); 
-            }
-
-            
-            for (let i = 0; i < ress.length; i++){ 
-                $(`#list${i+1}`).click(function(){  
-                    var latlong =  $(this).data('cords').split(',');
-                    var latitude = parseFloat(latlong[0]);
-                    var longitude = parseFloat(latlong[1]); 
-
-                    $('#listAddress').hide();
-                    // console.log({a:latitude, b:longitude});
-                    $('[name=address]').val($(this).data('alamat'));
-                    $('[name=cordinate]').val($(this).data('cords'));
-                    mapContainer.flyTo([latitude, longitude], 17);    
-                });
-            }
-        });
-    });
-
-
-    function serverSideGet(){
-        $("#overlay").fadeIn(300);   
-
+    $(document).ready(function() { 
+        // alert('oke');
         
-        let countlist = 0;
-        let list = ""; 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getTracking", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){  
-                $("#overlay").fadeOut(300); 
-                let ress = result['data']; 
-                // console.log(result['data']);
-                // console.log('get Controller');
-
-                if (ress.length > 0) {    
-                    for (let i = 0; i < ress.length; i++) {  
-
-                        var jenis = '';
-                        if(ress[i].type_vehicle == 'Sepeda Motor'){
-                            // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                            jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-                        }else if(ress[i].type_vehicle == 'Mobil'){
-                            jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-                        }else{
-                            // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                            jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-                        }
-
-                        
-                        if(markerArray[ress[i].id_officer] != null){ 
-                            markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: jenis,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                <div class="text-center" style="width: 300px;"> 
-                                    <div class="row mt-3">
-                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                            <div class="avatar-xl me-3">
-                                                <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].name_account}</p>
-                                                </div>
-                                            </div> 
-                                        </div> 
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].name_team}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">NRP</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].nrp_user}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12 mb-3" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                    </div>
-                                </div>
-                            `).update();  
-                        }else{ 
-                            markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: jenis,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                <div class="text-center" style="width: 300px;"> 
-                                    <div class="row mt-3">
-                                        <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                            <div class="avatar-xl me-3">
-                                                <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].name_account}</p>
-                                                </div>
-                                            </div> 
-                                        </div> 
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].name_team}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">NRP</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].nrp_user}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                        <div class="col-md-12 col-12 mb-3" style="height: 30px;">
-                                            <div class="row text-start">
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <p style="font-size: 12px;"> : </p>
-                                                </div>
-                                                <div class="col-md-5 col-6">
-                                                    <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
-                                                </div>
-                                            </div> 
-                                        </div>  
-                                    </div>
-                                </div>
-                            `).addTo(mapContainer);    
-                        }
-                      
-                    }
+        // var arrayContoh = [ 
+        //     {-8.551740, 115.077643},
+        //     {-8.451740, 115.089643},
+        //     {-8.458519301130188,115.14931575647383},
+        //     {-8.452198812821242,115.09396433830263},
+        //     {-8.5068977,115.2622931},
+        // ];  
 
 
-                      
-                    countlist = 0;
-                    list = "";
-                    ress.forEach(el => { 
-                        countlist += 1;
-                        list += `<div class="list-group-item text-start" style="display: flex;" 
-                        href="javascript:void(0)">${el.name_officer} 
-                            <div style="right: 1px;position: absolute;">
-                            
-                            <div style="display: flex;">
-                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                    
-                                    <button class="btn" style="margin-top: -7px;"
-                                        id="listPetugasClick${countlist}"   
-                                        data-nama="${el.name_team}"  
-                                        data-akun="${el.name_account}" 
-                                        data-nrp="${el.nrp_user}"
-                                        data-telp="${el.handphone}"
-                                        data-cord="${el.latitude},${el.longitude}" >
-                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                    </button>
-                                    <div class="switch">
-                                        <input class="flag" type="checkbox" id="flag${countlist}" 
-                                        data-id="${el.id_officer}"  
-                                        data-nama="${el.name_team}"  
-                                        data-akun="${el.name_account}" 
-                                        data-nrp="${el.nrp_user}"
-                                        data-telp="${el.handphone}"
-                                        data-cord="${el.latitude},${el.longitude}"
-                                        data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                        <label for="flag${countlist}"></label>
-                                    </div>
-                                </div>
-
-                              
-                            </div>
-                        </div>`;
-                        $('#listPetugas').html(list); 
-                    });  
-
-                    
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#listPetugasClick${i+1}`).click(function(){   
-                            var latlong =  $(this).data('cord').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
-                            mapContainer.flyTo([latitude, longitude], 17);    
-                        });
-
-                        $(`#flag${i+1}`).on("change", function (e) {
-                            // alert($(this).data('id'));
-                            if($(`#flag${i+1}`).is(':checked')){
-                                mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                $(`#listPetugasClick${i+1}`).hide();
-                            }else{
-                                mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                $(`#listPetugasClick${i+1}`).show();
-                            }
-                        });
-
-                        // $(`#listPetugasIncognito${i+1}`).click(function(){   
-                        //     console.log(markerArray[$(this).data('id')]);
-                        //     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                        // }); 
-                    } 
-
-                }else{ 
-                    $("#overlay").fadeOut(300);  
-                } 
-            },
-            error: function () { 
-                console.log("gagal connect");
-            } 
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'] 
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         }); 
-        
-    }
 
-    function togglePress(e) {
-        const btn = e.target;
-        const isPressed = btn.getAttribute("aria-pressed"); 
-        if (isPressed == "false") {
-            btn.setAttribute("aria-pressed", true);
-        } else {
-            btn.setAttribute("aria-pressed", false);
-        } 
-    }
-    document.querySelector("button").addEventListener("click", togglePress);
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom); 
 
-    socket.on('from server', function(ress) { 
-        console.log('ido2'); 
-        console.log(ress) 
-
-        // for (let i = 0; i < ress.length; i++) {  
-            if(markerArray[ress.id_officer] != null){ 
-              markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                  className: 'location-pin',
-                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-                  iconSize: [30, 30],
-                  //iconAnchor: [18, 30]
-                  iconAnchor: [10, 33]
-                }) }).bindPopup(`
-                  <div class="text-center" style="width: 300px;">
-                      <div class="card-block">
-                          <a class="avatar avatar-lg" href="javascript:void(0)">
-                              <img src="-" alt="Logo">
-                          </a>
-                          <h4 class="profile-user">-</h4>
-                          <h5 class="profile-user">-</h5>
-                      </div> 
-                  </div>
-              `).update();  
-            }else{ 
-              markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-                  className: 'location-pin',
-                  html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-                  iconSize: [30, 30],
-                  //iconAnchor: [18, 30]
-                  iconAnchor: [10, 33]
-                }) }).bindPopup(`
-                  <div class="text-center" style="width: 300px;">
-                      <div class="card-block">
-                          <a class="avatar avatar-lg" href="javascript:void(0)">
-                              <img src="-" alt="Logo">
-                          </a>
-                          <h4 class="profile-user">-</h4>
-                          <h5 class="profile-user">-</h5>
-                      </div> 
-                  </div>
-              `).addTo(mapContainer);    
-            }
-        // }
-    }) 
-    socket.on('sendToAdminMobile', function(ress) { 
-        console.log('ido3');
-        console.log(ress); 
-
-
-       
-        // for (let i = 0; i < ress.length; i++) {  
-
-            var jenis = '';
-            if(ress.type_vehicle == 'Sepeda Motor'){
-                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-            }else if(ress.type_vehicle == 'Mobil'){
-                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-            }else{
-                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
-            }
- 
-            if(markerArray[ress.id_officer] != null){ 
-            markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                //   className: 'location-pin',
-                html: jenis,
-                iconSize: [5, 5],
-                iconAnchor: [5, 10]
-                // iconAnchor: [10, 33]
-                }) }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
-                        <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                <div class="avatar-xl me-3">
-                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.name_account}</p>
-                                    </div>
-                                </div> 
-                            </div> 
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.name_team}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p></a>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                    <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.nrp_user}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.no_vehicle}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.type_vehicle}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                        </div>
-                    </div>
-            `).update();  
-            }else{ 
-            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-                //   className: 'location-pin',
-                html: jenis,
-                iconSize: [5, 5],
-                iconAnchor: [5, 10]
-                // iconAnchor: [10, 33]
-                }) }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
-                        <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                <div class="avatar-xl me-3">
-                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.name_account}</p>
-                                    </div>
-                                </div> 
-                            </div> 
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.name_team}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                    <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.nrp_user}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.no_vehicle}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
-                                <div class="row text-start">
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p style="font-size: 12px;"> : </p>
-                                    </div>
-                                    <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;">${ress.type_vehicle}</p>
-                                    </div>
-                                </div> 
-                            </div>  
-                        </div>
-                    </div>
-            `).addTo(mapContainer);    
-            }
-        
-
-        // } 
-    });
-
-    var centerMap = mapContainer.getCenter();
-    var centerLat = centerMap['lat'];
-    var centerLng = centerMap['lng'];  
-
-
-    
-    serverSideGet();
-    
-    serverSideFilter();  
-    // serverSideGetJadwal();
-    // serverSideGetCCTV(); 
-    // serverSideGetFasum();
-    // serverSideGetPolres();
-
-    mapContainer.on('dragend',function(e){ 
-        var ada = mapContainer.getCenter();
-        centerLat = ada['lat'];
-        centerLng = ada['lng'];   
-        if($('#fasum').is(':checked')){ 
-            serverSideFilter();
-        }
-    });
-
-    $("#menuKategori").hide();
-    $("#fasum").on("change", function (e) {
-        if($('#fasum').is(':checked')){
-            $("#menuKategori").show();
-        }else{
-            $("#menuKategori").hide();
-        }
-    });
-
-    function serverSideFilter(){
-        $("#overlay").fadeIn(300);   
-        arrayFilter = [];
-        $("input:checkbox[name=filter]:checked").each(function(){
-            arrayFilter.push($(this).val());
-        });  
-
-        arrayFilterFasumKategori = [];
-        $("input:checkbox[name=filterFasumKateg]:checked").each(function(){
-            arrayFilterFasumKategori.push($(this).val());
-        });  
-
-
-        for (let i = 0; i < markerJadwal.length; i++) { 
-            mapContainer.removeLayer(markerJadwal[i]);
-        }
-        markerJadwal = new Array();
-
-        for (let i = 0; i < markerCCTV.length; i++) { 
-            mapContainer.removeLayer(markerCCTV[i]);
-        } 
-        markerCCTV = new Array();  
-
-        for (let i = 0; i < markerFasum.length; i++) { 
-            mapContainer.removeLayer(markerFasum[i]);
-        }
-        markerFasum = new Array();  
-
-        for (let i = 0; i < markerPolres.length; i++) { 
-            mapContainer.removeLayer(markerPolres[i]);
-        }
-        markerPolres = new Array(); 
-
-        // console.log(`${centerLat},${centerLng}`);  
-        
-        
-
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getFilter", 
-            data : {
-                "filter" : arrayFilter.toString(),
-                "radius" : 15000,
-                "coordinate" : `${centerLat},${centerLng}`,
-                "type" : arrayFilterFasumKategori.toString(), 
-            }, 
-            dataType : "JSON",
-            success : function(result){  
-                $("#overlay").fadeOut(300); 
-                var ressTurjawali = result['data']['turjawali'];
-                var ressPolres = result['data']['polres'];
-                var ressCctv = result['data']['cctv'];
-                var ressLaporan = result['data']['titik_laporan'];
-                var ressFasum = result['data']['fasum'];
-                var ressTroublespot = result['data']['troublespot'];
-                var ressSchedule = result['data']['jadwal_kegiatan'];
-                var ressOperasi = result['data']['operasi'];
-                // console.log(result);
-
-                if(ressTurjawali && ressTurjawali.length > 0){  
-                    var filterTurjawali = ressTurjawali.filter(function (e) {
-                        return e.latitude != null && e.longitude != null;
-                    }); 
-                }
-                if(ressPolres && ressPolres.length > 0){  
-                    var filterpolres = ressPolres.filter(function (e) {
-                        return e.latitude != null && e.longitude != null;
-                    }); 
-
-                    if(filterpolres.length > 0){  
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < filterpolres.length; i++) {  
-    
-                                var latitudePolres = parseFloat(filterpolres[i].latitude);
-                                var longitudePolres = parseFloat(filterpolres[i].longitude); 
-        
-                                markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                        <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${filterpolres[i].name_polres}</h5> 
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${filterpolres[i].address}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div> 
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Kode</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${filterpolres[i].code_satpas}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                            
-
-                        }
-                    }
-                }
-                if(ressCctv && ressCctv.length > 0){  
-                    var filterCctv = ressCctv.filter(function (e) {
-                        return e.lat_cctv != null && e.lng_cctv != null;
-                    });  
-
-                    if(filterCctv.length > 0){  
-                        for (let i = 0; i < filterCctv.length; i++) {     
-                            id = i;  
-                            var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
-                            var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
-
-                            var resource = '';
-                            if(filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                            }else{
-                                resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
-                            }
-
-                            markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                                // iconAnchor: [10, 33]
-                                }) }).bindPopup(`
-                                <div style="width: 300px;">
-                                    <div class="row">
-                                        <div class="col-md-12" style="text-align: center;">
-                                            <h5>${filterCctv[i].address_cctv}</h5>
-                                        </div>
-                                        <div class="col-md-12"> 
-                                            ${resource}
-                                        </div> 
-                                    </div>
-                                </div>
-                                    
-                            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
-                        }
-                    }
-                } 
-                if(ressLaporan && ressLaporan.length > 0){  
-                    var filterLaporan = ressLaporan.filter(function (e) {
-                        return e.lat_cctv != null && e.lng_cctv != null;
-                    });   
-                }
-                if(ressFasum && ressFasum.length > 0){ 
-                    var filterFasum = ressFasum.filter(function (e) {
-                        return e.geometry.location.lat != null && e.geometry.location.lng != null;
-                    }); 
-
-                    if(filterFasum.length > 0){  
-                        var logoMarker = '';
-                        var logoBody = '';
-                        for (let i = 0; i < filterFasum.length; i++) {  
-                            // if(filterFasum[i].fasum_type == 1){
-                            //     logoMarker = `hotel.png`;
-                            //     logoBody = `hotel.png`;
-                            // }else if(filterFasum[i].fasum_type == 2){
-                            //     logoMarker = `rumah ibadah.png`;
-                            //     logoBody = `rumah ibadah.png`;
-                            // }else if(filterFasum[i].fasum_type == 3){
-                            //     logoMarker = `pom bensin.png`;
-                            //     logoBody = `pom bensin.png`;
-                            // }else if(filterFasum[i].fasum_type == 4){
-                            //     logoMarker = `rest_area.png`;
-                            //     logoBody = `rest_area.png`;
-                            // }else if(filterFasum[i].fasum_type == 5){
-                            //     logoMarker = `rumah makan.png`;
-                            //     logoBody = `rumah makan.png`;
-                            // }else if(filterFasum[i].fasum_type == 6){
-                            //     logoMarker = `wisata.png`;
-                            //     logoBody = `wisata.png`;
-                            // }else if(filterFasum[i].fasum_type == 7){
-                            //     logoMarker = `damkar.png`;
-                            //     logoBody = `damkar.png`;
-                            // }else if(filterFasum[i].fasum_type == 8){
-                            //     logoMarker = `rumah sakit umum.png`;
-                            //     logoBody = `rumah sakit umum.png`;
-                            // }
-                            
-                                var latitudeFasum = parseFloat(filterFasum[i].geometry.location.lat);
-                                var longitudeFasum = parseFloat(filterFasum[i].geometry.location.lng); 
-                                markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-                                    className: 'location-pin',
-                                    html: `<img style="background-color:${filterFasum[i].icon_background_color};" src="${filterFasum[i].icon}"><div class="pin" style="background-color:${filterFasum[i].icon_background_color}"></div>`,
-                                    iconSize: [5, 5],
-                                    //iconAnchor: [18, 30]
-                                    iconAnchor: [5, 10]
-
-                                    }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                        <img src="${filterFasum[i].icon}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>Fasilitas Umum</h5>
-                                                    <span style="font-size: 14px;">- ${filterFasum[i].name} -</span>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${filterFasum[i].name}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>     
-                                            </div>
-                                        </div> 
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                            
-                        }
-                    }
-                }  
-                if(ressTroublespot && ressTroublespot.length > 0){ 
-                    var filterTroublespot = ressTroublespot.filter(function (e) {
-                        return e.lat_cctv != null && e.lng_cctv != null;
-                    }); 
-                }   
-                if(ressSchedule && ressSchedule.length > 0){  
-                    var filterSchedule = ressSchedule.filter(function (e) {
-                        return e.coordinate_schedule != null;
-                    });   
-                    // console.log(filterSchedule); 
-                    if(filterSchedule.length > 0){  
-                        for (var i = 0; i < filterSchedule.length; i++) {   
-                            
-                            var cordinateJadwal = filterSchedule[i].coordinate_schedule;
-                            var latlongJadwal =  cordinateJadwal.split(',');
-                            var latitudeJadwal = parseFloat(latlongJadwal[0]);
-                            var longitudeJadwal = parseFloat(latlongJadwal[1]);
-                            
-
-                                markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3"> 
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-                                                    <div class="avatar-xl me-3">
-                                                        <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <h5>Jadwal Kegiatan</h5> 
-                                                </div>
-                                                <div class="col-md-12 col-12 mt-1">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5">
-                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div> 
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5">
-                                                            <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5">
-                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>  
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5">
-                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div>   
-                                            </div>
-                                        </div>
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                            
-                        }
-                    }
-                }   
-                if(ressOperasi && ressOperasi.length > 0){ 
-                    var filterOperasi = ressOperasi.filter(function (e) {
-                        return e.lat_cctv != null && e.lng_cctv != null;
-                    });   
-                } 
-
-
-
-
-            }
+        var markerClusterGroup = L.markerClusterGroup(); 
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
         });
-    }
-
-    $("#filterCari").on("click", function (e) { 
-        serverSideFilter();
-    });
-
-    // $("[name=filter]").on("change", function (e) { 
-    //     serverSideFilter();
-    // });
-    // $("[name=filterFasumKateg]").on("change", function (e) { 
-    //     serverSideFilter();
-    // });
-    
-
-    
-
-
-    // function serverSideGetJadwal(){
-    //     $("#overlay").fadeIn(300);  
-    //     $.ajax({
-    //         type : "POST",
-    //         url : "<?php echo base_url();?>dashboard/getJadwal", 
-    //         data : {
-    //             "status" : '1',
-    //         }, 
-    //         dataType : "JSON",
-    //         success : function(result){ 
-    //             let ressData = result['data'];
-    //             $("#overlay").fadeOut(300);
-
-    //             let ress = ressData.filter(function (e) {
-    //                 return e.coordinate_schedule != null;
-    //             });   
-                
-    //             if(ress.length > 0){  
-    //                 for (let i = 0; i < ress.length; i++) {   
                         
-    //                     var cordinateJadwal = ress[i].coordinate_schedule;
-    //                     var latlongJadwal =  cordinateJadwal.split(',');
-    //                     var latitudeJadwal = parseFloat(latlongJadwal[0]);
-    //                     var longitudeJadwal = parseFloat(latlongJadwal[1]);
-                         
-
-    //                         markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
-    //                             // className: 'location-pin',
-    //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-    //                             iconSize: [5, 5],
-    //                             iconAnchor: [5, 10]
-    //                             // iconAnchor: [10, 33]
-    //                             }) }).bindPopup(`
-    //                                 <div class="text-center" style="width: 300px;"> 
-    //                                     <div class="row mt-3"> 
-    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-    //                                             <div class="avatar-xl me-3">
-    //                                                 <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-    //                                             </div>
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-3">
-    //                                             <h5>Jadwal Kegiatan</h5> 
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-1">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].activity}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div> 
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].address_schedule}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>   
-    //                                     </div>
-    //                                 </div>
-    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                         
-    //                 }
-    //             }
-    //         }
-    //     });
-
-    // }
-
-
+                        
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'topright'
+        }).addTo(mapContainer);
+        
+        mapContainer.doubleClickZoom.disable();
     
-    // $("#jadwal").on("change", function (e) {
-    //     if($(this).is(':checked')){ 
-    //         serverSideGetJadwal();
-    //     }else{ 
-    //         for (let i = 0; i < markerJadwal.length; i++) { 
-    //             mapContainer.removeLayer(markerJadwal[i]);
-    //         }
-    //         markerJadwal = new Array();
-    //     } 
-    // });
-    
+        socket.on("connected", function(resSocket){
+            console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+        // socket.emit("trackingUser", {
+        //     lat: 1234,
+        //     lon: 1234234
+        // })
 
- 
 
-    function getRenpam(){
-        let countlist = 0;
-        let list = ""; 
-        var data = []; 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getRenpam", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ress = result['data'];
-                // console.log(ress);
+        $("[name=searchAlamat]").on("change", function (e) {
+            $('#listAddress').show();
+            // console.log(this.value);
+            $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                console.log(ress);  
                 countlist = 0;
                 list = "";
-                var status = ""; 
-                var route = []; 
-                var route1 = []; 
-                var route2 = []; 
-                var route3 = []; 
-                var route4 = []; 
                 ress.forEach(el => {
-                    route.push(el.route);
-                    route1.push(el.route_alternatif_1);
-                    route2.push(el.route_alternatif_2);
-                    route3.push(el.route_masyarakat);
-                    route4.push(el.route_umum);
-                    if(el.status_renpam == 1){
-                        status = `
-                        <div>
-                            <div class="rounded-circle m-auto" style="background:green; height:15px ; width:15px"></div>
-                        </div>`;
-                    }else{
-                        status = `
-                        <div>
-                            <div class="rounded-circle m-auto" style="background:red; height:15px ; width:15px"></div>
-                        </div>
-                        `;
-                    }
- 
                     countlist += 1;
-                    list += `<div class="list-group-item text-start" style="display: flex;">
-                        <div class="row">
-                            <div class="col-md-2" style="display: flex;align-items: center;">
-                                ${status}
-                            </div>
-                            <div class="col-md-7">
-                                ${el.name_renpam}
-                            </div>
-                            <div class="col-md-3" style="display: flex;align-items: center;">
-                                <a class="btn" href="javascripte:void(0);"
-                                style="font-size: 16px;"  
-                                data-idnote="${el.id}" 
-                                data-note="${el.note_kakor}"
-                                title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
-                                    <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
-                                </a>
-                                <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
-                            </div>
-                        </div>
-                    </div>`;
-                    $('#listRenpam').html(list); 
+                    list += `<a class="list-group-item" style="width: 300px;"
+                    id="list${countlist}"   
+                    data-alamat="${el.display_name}"
+                    data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                    $('#listAddress').html(list); 
                 });  
 
-                 
+                if(list == ""){
+                    countlist = 0;
+                    list = "";
+                    $('#listAddress').html(list); 
+                }
 
+                
                 for (let i = 0; i < ress.length; i++){ 
-                    $(`#listRenpamClick${i+1}`).on("change", function (e) {
+                    $(`#list${i+1}`).click(function(){  
+                        var latlong =  $(this).data('cords').split(',');
+                        var latitude = parseFloat(latlong[0]);
+                        var longitude = parseFloat(latlong[1]); 
 
-                        // console.log(route[i]);  
-
-                        if(route1[i] != null && route1[i][0]['latLng'] != null){
-                            
-                            if($(this).is(':checked')){  
-                                routingRenpam1[i] = null;
-                                routingRenpam1[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route1[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "#b935b9", className: 'animateRoute'}]
-                                    },
-                                    createMarker: function(i, wp, nWps) {
-                                        if (i === 0 || i === nWps + 1) {
-                                            // here change the starting and ending icons
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else if (i === nWps - 1) {
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else {
-                                            // here change all the others
-                                            var options = {
-                                                    draggable: this.draggableWaypoints,
-                                                },
-                                                marker = L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-    
-                                            return marker;
-                                        }
-                                    },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer); 
-                                // mapContainer.addControl(routingRenpam1[i]);  
-                            }else{
-                                mapContainer.removeControl(routingRenpam1[i]);   
-                            }
-                        }else{
-                            // Swal.fire(
-                            // `Route Alternative tidak ada, atau belum di daftarkan!`, 
-                            // '',
-                            // 'warning'
-                            // ).then(function() { 
-                            // });
-                        }
-
-                        if(route2[i] != null && route2[i][0]['latLng'] != null){ 
-                            
-                            if($(this).is(':checked')){  
-                                routingRenpam2[i] = null;
-                                routingRenpam2[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route2[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "gray", className: 'animateRoute'}]
-                                        // styles: [{className: 'animateLine'}]
-                                    },
-                                    createMarker: function(i, wp, nWps) {
-                                        if (i === 0 || i === nWps + 1) {
-                                            // here change the starting and ending icons
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else if (i === nWps - 1) {
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else {
-                                            // here change all the others
-                                            var options = {
-                                                    draggable: this.draggableWaypoints,
-                                                },
-                                                marker = L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-    
-                                            return marker;
-                                        }
-                                    },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer); 
-                                // mapContainer.addControl(routingRenpam1[i]); 
-                            }else{
-                                mapContainer.removeControl(routingRenpam2[i]); 
-                            }
-                        }else{
-                            // Swal.fire(
-                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
-                            // '',
-                            // 'warning'
-                            // ).then(function() { 
-                            // });
-                        }
-
-                        if(route3[i] != null && route3[i][0]['latLng'] != null){ 
-                            
-                            if($(this).is(':checked')){  
-                                routingRenpam3[i] = null;
-                                routingRenpam3[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route3[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "#000dda", className: 'animateRoute'}]
-                                    },
-                                    createMarker: function(i, wp, nWps) {
-                                        if (i === 0 || i === nWps + 1) {
-                                            // here change the starting and ending icons
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else if (i === nWps - 1) {
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else {
-                                            // here change all the others
-                                            var options = {
-                                                    draggable: this.draggableWaypoints,
-                                                },
-                                                marker = L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-
-                                            return marker;
-                                        }
-                                    },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer); 
-                                // mapContainer.addControl(routingRenpam1[i]); 
-                            }else{
-                                mapContainer.removeControl(routingRenpam3[i]); 
-                            }
-                        }else{
-                            // Swal.fire(
-                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
-                            // '',
-                            // 'warning'
-                            // ).then(function() { 
-                            // });
-                        }
-
-
-                        if(route4[i] != null && route4[i][0]['latLng'] != null){ 
-                            
-                            if($(this).is(':checked')){  
-                                routingRenpam4[i] = null;
-                                routingRenpam4[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route4[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "#bdbd0b", className: 'animateRoute'}]
-                                    },
-                                    createMarker: function(i, wp, nWps) {
-                                        if (i === 0 || i === nWps + 1) {
-                                            // here change the starting and ending icons
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else if (i === nWps - 1) {
-                                            return L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-                                        } else {
-                                            // here change all the others
-                                            var options = {
-                                                    draggable: this.draggableWaypoints,
-                                                },
-                                                marker = L.marker(wp.latLng, {
-                                                icon: L.divIcon({
-                                                    className: "location-pin",
-                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
-                                                    iconSize: [5, 5],
-                                                    //iconAnchor: [18, 30]
-                                                    iconAnchor: [5, 10],
-                                                }),
-                                                draggable: this.draggableWaypoints,
-                                            });
-
-                                            return marker;
-                                        }
-                                    },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer); 
-                                // mapContainer.addControl(routingRenpam1[i]); 
-                            }else{
-                                mapContainer.removeControl(routingRenpam4[i]); 
-                            }
-                        }else{
-                            // Swal.fire(
-                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
-                            // '',
-                            // 'warning'
-                            // ).then(function() { 
-                            // });
-                        }
-
-
-
-                        if(route[i] != null && route[i][0]['latLng'] != null){
-                            
-                            if($(this).is(':checked')){   
-                                routingRenpam[i] = null;
-                                routingRenpam[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "red", className: 'animateRoute'}]
-                                        // styles: [{color: "blue"}]
-                                    }, 
-                                    // routeLine: function(r) {
-                                    //     var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
-                                    //                                         addWaypoints: true
-                                    //                                     });
-                                    //     lines.on('linetouched', function(e) { 
-                                    //         console.log(e);
-                                    //         alert("jalan kaaga"); 
-                                    //     });
-                                    //     return lines;
-                                    // },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer);  
-                                // mapContainer.addControl(routingRenpam[i]); 
-                            }else{ 
-                                mapContainer.removeControl(routingRenpam[i]);  
-                            }
-                            
-                             
-                        }else{
-                            Swal.fire(
-                            `Route tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'error'
-                            ).then(function() { 
-                            });
-                        }
-                        // console.log(routingRenpam);
+                        $('#listAddress').hide();
+                        // console.log({a:latitude, b:longitude});
+                        $('[name=address]').val($(this).data('alamat'));
+                        $('[name=cordinate]').val($(this).data('cords'));
+                        mapContainer.flyTo([latitude, longitude], 17);    
                     });
+                }
+            });
+        });
+
+
+        function serverSideGet(){
+            $("#overlay").fadeIn(300);   
+
+            
+            let countlist = 0;
+            let list = ""; 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getTracking", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    $("#overlay").fadeOut(300); 
+                    let ress = result['data']; 
+                    // console.log(result['data']);
+                    // console.log('get Controller');
+
+                    if (ress.length > 0) {    
+                        for (let i = 0; i < ress.length; i++) {  
+
+                            var jenis = '';
+                            if(ress[i].type_vehicle == 'Sepeda Motor'){
+                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                            }else if(ress[i].type_vehicle == 'Mobil'){
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                            }else{
+                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                            }
+
+                            
+                            if(markerArray[ress[i].id_officer] != null){ 
+                                markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: jenis,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                        </div>
+                                    </div>
+                                `).update();  
+                            }else{ 
+                                markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: jenis,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="avatar-xl me-3">
+                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].name_account}</p>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].name_team}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].nrp_user}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].no_vehicle}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                            <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                                <div class="row text-start">
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <p style="font-size: 12px;"> : </p>
+                                                    </div>
+                                                    <div class="col-md-5 col-6">
+                                                        <p style="font-size: 12px;">${ress[i].type_vehicle}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                        </div>
+                                    </div>
+                                `).addTo(mapContainer);    
+                            }
+                        
+                        }
+
+
+                        
+                        countlist = 0;
+                        list = "";
+                        ress.forEach(el => { 
+                            countlist += 1;
+                            list += `<div class="list-group-item text-start" style="display: flex;" 
+                            href="javascript:void(0)">${el.name_officer} 
+                                <div style="right: 1px;position: absolute;">
+                                
+                                <div style="display: flex;">
+                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                        
+                                        <button class="btn" style="margin-top: -7px;"
+                                            id="listPetugasClick${countlist}"   
+                                            data-nama="${el.name_team}"  
+                                            data-akun="${el.name_account}" 
+                                            data-nrp="${el.nrp_user}"
+                                            data-telp="${el.handphone}"
+                                            data-cord="${el.latitude},${el.longitude}" >
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </button>
+                                        <div class="switch">
+                                            <input class="flag" type="checkbox" id="flag${countlist}" 
+                                            data-id="${el.id_officer}"  
+                                            data-nama="${el.name_team}"  
+                                            data-akun="${el.name_account}" 
+                                            data-nrp="${el.nrp_user}"
+                                            data-telp="${el.handphone}"
+                                            data-cord="${el.latitude},${el.longitude}"
+                                            data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                            <label for="flag${countlist}"></label>
+                                        </div>
+                                    </div>
+
+                                
+                                </div>
+                            </div>`;
+                            $('#listPetugas').html(list); 
+                        });  
+
+                        
+                        for (let i = 0; i < ress.length; i++){ 
+                            $(`#listPetugasClick${i+1}`).click(function(){   
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 17);    
+                            });
+
+                            $(`#flag${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flag${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClick${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClick${i+1}`).show();
+                                }
+                            });
+
+                            // $(`#listPetugasIncognito${i+1}`).click(function(){   
+                            //     console.log(markerArray[$(this).data('id')]);
+                            //     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                            // }); 
+                        } 
+
+                    }else{ 
+                        $("#overlay").fadeOut(300);  
+                    } 
+                },
+                error: function () { 
+                    console.log("gagal connect");
                 } 
+            }); 
+            
+        }
+
+        function togglePress(e) {
+            const btn = e.target;
+            const isPressed = btn.getAttribute("aria-pressed"); 
+            if (isPressed == "false") {
+                btn.setAttribute("aria-pressed", true);
+            } else {
+                btn.setAttribute("aria-pressed", false);
+            } 
+        }
+        document.querySelector("button").addEventListener("click", togglePress);
+
+        socket.on('from server', function(ress) { 
+            console.log('ido2'); 
+            console.log(ress) 
+
+            // for (let i = 0; i < ress.length; i++) {  
+                if(markerArray[ress.id_officer] != null){ 
+                markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    className: 'location-pin',
+                    html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                    iconSize: [30, 30],
+                    //iconAnchor: [18, 30]
+                    iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">
+                        <div class="card-block">
+                            <a class="avatar avatar-lg" href="javascript:void(0)">
+                                <img src="-" alt="Logo">
+                            </a>
+                            <h4 class="profile-user">-</h4>
+                            <h5 class="profile-user">-</h5>
+                        </div> 
+                    </div>
+                `).update();  
+                }else{ 
+                markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    className: 'location-pin',
+                    html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                    iconSize: [30, 30],
+                    //iconAnchor: [18, 30]
+                    iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">
+                        <div class="card-block">
+                            <a class="avatar avatar-lg" href="javascript:void(0)">
+                                <img src="-" alt="Logo">
+                            </a>
+                            <h4 class="profile-user">-</h4>
+                            <h5 class="profile-user">-</h5>
+                        </div> 
+                    </div>
+                `).addTo(mapContainer);    
+                }
+            // }
+        }) 
+        socket.on('sendToAdminMobile', function(ress) { 
+            console.log('ido3');
+            console.log(ress); 
+
+
+        
+            // for (let i = 0; i < ress.length; i++) {  
+
+                var jenis = '';
+                if(ress.type_vehicle == 'Sepeda Motor'){
+                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                }else if(ress.type_vehicle == 'Mobil'){
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                }else{
+                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                }
+    
+                if(markerArray[ress.id_officer] != null){ 
+                markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    //   className: 'location-pin',
+                    html: jenis,
+                    iconSize: [5, 5],
+                    iconAnchor: [5, 10]
+                    // iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                        <div class="text-center" style="width: 300px;"> 
+                            <div class="row mt-3">
+                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                    <div class="avatar-xl me-3">
+                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.name_account}</p>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.name_team}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p></a>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                        <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.nrp_user}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.no_vehicle}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.type_vehicle}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                            </div>
+                        </div>
+                `).update();  
+                }else{ 
+                markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    //   className: 'location-pin',
+                    html: jenis,
+                    iconSize: [5, 5],
+                    iconAnchor: [5, 10]
+                    // iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                        <div class="text-center" style="width: 300px;"> 
+                            <div class="row mt-3">
+                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                    <div class="avatar-xl me-3">
+                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Nama Akun</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.name_account}</p>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.name_team}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">No Telfon</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                        <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.nrp_user}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.no_vehicle}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                                <div class="col-md-12 col-12 mb-3" style="height: 30px;">
+                                    <div class="row text-start">
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</p>  
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p style="font-size: 12px;"> : </p>
+                                        </div>
+                                        <div class="col-md-5 col-6">
+                                            <p style="font-size: 12px;">${ress.type_vehicle}</p>
+                                        </div>
+                                    </div> 
+                                </div>  
+                            </div>
+                        </div>
+                `).addTo(mapContainer);    
+                }
+            
+
+            // } 
+        });
+
+        var centerMap = mapContainer.getCenter();
+        var centerLat = centerMap['lat'];
+        var centerLng = centerMap['lng'];  
+
+
+        
+        serverSideGet();
+        
+        serverSideFilter();  
+        // serverSideGetJadwal();
+        // serverSideGetCCTV(); 
+        // serverSideGetFasum();
+        // serverSideGetPolres();
+
+        mapContainer.on('dragend',function(e){ 
+            var ada = mapContainer.getCenter();
+            centerLat = ada['lat'];
+            centerLng = ada['lng'];   
+            if($('#fasum').is(':checked')){ 
+                serverSideFilter();
             }
         });
-    }
 
-     
+        $("#menuKategori").hide();
+        $("#fasum").on("change", function (e) {
+            if($('#fasum').is(':checked')){
+                $("#menuKategori").show();
+            }else{
+                $("#menuKategori").hide();
+            }
+        });
+
+        function serverSideFilter(){
+            $("#overlay").fadeIn(300);   
+            arrayFilter = [];
+            $("input:checkbox[name=filter]:checked").each(function(){
+                arrayFilter.push($(this).val());
+            });  
+
+            arrayFilterFasumKategori = [];
+            $("input:checkbox[name=filterFasumKateg]:checked").each(function(){
+                arrayFilterFasumKategori.push($(this).val());
+            });  
+
+
+            for (let i = 0; i < markerJadwal.length; i++) { 
+                mapContainer.removeLayer(markerJadwal[i]);
+            }
+            markerJadwal = new Array();
+
+            for (let i = 0; i < markerCCTV.length; i++) { 
+                mapContainer.removeLayer(markerCCTV[i]);
+            } 
+            markerCCTV = new Array();  
+
+            for (let i = 0; i < markerFasum.length; i++) { 
+                mapContainer.removeLayer(markerFasum[i]);
+            }
+            markerFasum = new Array();  
+
+            for (let i = 0; i < markerPolres.length; i++) { 
+                mapContainer.removeLayer(markerPolres[i]);
+            }
+            markerPolres = new Array(); 
+
+            // console.log(`${centerLat},${centerLng}`);  
+            
+            
+
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getFilter", 
+                data : {
+                    "filter" : arrayFilter.toString(),
+                    "radius" : 15000,
+                    "coordinate" : `${centerLat},${centerLng}`,
+                    "type" : arrayFilterFasumKategori.toString(), 
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    $("#overlay").fadeOut(300); 
+                    var ressTurjawali = result['data']['turjawali'];
+                    var ressPolres = result['data']['polres'];
+                    var ressCctv = result['data']['cctv'];
+                    var ressLaporan = result['data']['titik_laporan'];
+                    var ressFasum = result['data']['fasum'];
+                    var ressTroublespot = result['data']['troublespot'];
+                    var ressSchedule = result['data']['jadwal_kegiatan'];
+                    var ressOperasi = result['data']['operasi'];
+                    // console.log(result);
+
+                    if(ressTurjawali && ressTurjawali.length > 0){  
+                        var filterTurjawali = ressTurjawali.filter(function (e) {
+                            return e.latitude != null && e.longitude != null;
+                        }); 
+                    }
+                    if(ressPolres && ressPolres.length > 0){  
+                        var filterpolres = ressPolres.filter(function (e) {
+                            return e.latitude != null && e.longitude != null;
+                        }); 
+
+                        if(filterpolres.length > 0){  
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < filterpolres.length; i++) {  
+        
+                                    var latitudePolres = parseFloat(filterpolres[i].latitude);
+                                    var longitudePolres = parseFloat(filterpolres[i].longitude); 
+            
+                                    markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;"> 
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                        <div class="avatar-xl me-3">
+                                                            <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>${filterpolres[i].name_polres}</h5> 
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5 col-6">
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <p style="font-size: 12px;">${filterpolres[i].address}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div> 
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5 col-6">
+                                                                <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <p style="font-size: 12px;">${filterpolres[i].code_satpas}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5 col-6">
+                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <p style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5 col-6">
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <p style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>   
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                                
+
+                            }
+                        }
+                    }
+                    if(ressCctv && ressCctv.length > 0){  
+                        var filterCctv = ressCctv.filter(function (e) {
+                            return e.lat_cctv != null && e.lng_cctv != null;
+                        });  
+
+                        if(filterCctv.length > 0){  
+                            for (let i = 0; i < filterCctv.length; i++) {     
+                                id = i;  
+                                var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
+                                var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
+
+                                var resource = '';
+                                if(filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                    resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+                                }else{
+                                    resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
+                                }
+
+                                markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div style="width: 300px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <h5>${filterCctv[i].address_cctv}</h5>
+                                            </div>
+                                            <div class="col-md-12"> 
+                                                ${resource}
+                                            </div> 
+                                        </div>
+                                    </div>
+                                        
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                            }
+                        }
+                    } 
+                    if(ressLaporan && ressLaporan.length > 0){  
+                        var filterLaporan = ressLaporan.filter(function (e) {
+                            return e.lat_cctv != null && e.lng_cctv != null;
+                        });   
+                    }
+                    if(ressFasum && ressFasum.length > 0){ 
+                        var filterFasum = ressFasum.filter(function (e) {
+                            return e.geometry.location.lat != null && e.geometry.location.lng != null;
+                        }); 
+
+                        if(filterFasum.length > 0){  
+                            var logoMarker = '';
+                            var logoBody = '';
+                            for (let i = 0; i < filterFasum.length; i++) {  
+                                // if(filterFasum[i].fasum_type == 1){
+                                //     logoMarker = `hotel.png`;
+                                //     logoBody = `hotel.png`;
+                                // }else if(filterFasum[i].fasum_type == 2){
+                                //     logoMarker = `rumah ibadah.png`;
+                                //     logoBody = `rumah ibadah.png`;
+                                // }else if(filterFasum[i].fasum_type == 3){
+                                //     logoMarker = `pom bensin.png`;
+                                //     logoBody = `pom bensin.png`;
+                                // }else if(filterFasum[i].fasum_type == 4){
+                                //     logoMarker = `rest_area.png`;
+                                //     logoBody = `rest_area.png`;
+                                // }else if(filterFasum[i].fasum_type == 5){
+                                //     logoMarker = `rumah makan.png`;
+                                //     logoBody = `rumah makan.png`;
+                                // }else if(filterFasum[i].fasum_type == 6){
+                                //     logoMarker = `wisata.png`;
+                                //     logoBody = `wisata.png`;
+                                // }else if(filterFasum[i].fasum_type == 7){
+                                //     logoMarker = `damkar.png`;
+                                //     logoBody = `damkar.png`;
+                                // }else if(filterFasum[i].fasum_type == 8){
+                                //     logoMarker = `rumah sakit umum.png`;
+                                //     logoBody = `rumah sakit umum.png`;
+                                // }
+                                
+                                    var latitudeFasum = parseFloat(filterFasum[i].geometry.location.lat);
+                                    var longitudeFasum = parseFloat(filterFasum[i].geometry.location.lng); 
+                                    markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                        className: 'location-pin',
+                                        html: `<img style="background-color:${filterFasum[i].icon_background_color};" src="${filterFasum[i].icon}"><div class="pin" style="background-color:${filterFasum[i].icon_background_color}"></div>`,
+                                        iconSize: [5, 5],
+                                        //iconAnchor: [18, 30]
+                                        iconAnchor: [5, 10]
+
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;"> 
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                        <div class="avatar-xl me-3">
+                                                            <img src="${filterFasum[i].icon}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>Fasilitas Umum</h5>
+                                                        <span style="font-size: 14px;">- ${filterFasum[i].name} -</span>
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5 col-6">
+                                                                <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <p style="font-size: 12px;">${filterFasum[i].name}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>     
+                                                </div>
+                                            </div> 
+                                    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                                
+                            }
+                        }
+                    }  
+                    if(ressTroublespot && ressTroublespot.length > 0){ 
+                        var filterTroublespot = ressTroublespot.filter(function (e) {
+                            return e.lat_cctv != null && e.lng_cctv != null;
+                        }); 
+                    }   
+                    if(ressSchedule && ressSchedule.length > 0){  
+                        var filterSchedule = ressSchedule.filter(function (e) {
+                            return e.coordinate_schedule != null;
+                        });   
+                        // console.log(filterSchedule); 
+                        if(filterSchedule.length > 0){  
+                            for (var i = 0; i < filterSchedule.length; i++) {   
+                                
+                                var cordinateJadwal = filterSchedule[i].coordinate_schedule;
+                                var latlongJadwal =  cordinateJadwal.split(',');
+                                var latitudeJadwal = parseFloat(latlongJadwal[0]);
+                                var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                                
+
+                                    markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                            <div class="text-center" style="width: 300px;"> 
+                                                <div class="row mt-3"> 
+                                                    <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                        <div class="avatar-xl me-3">
+                                                            <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-3">
+                                                        <h5>Jadwal Kegiatan</h5> 
+                                                    </div>
+                                                    <div class="col-md-12 col-12 mt-1">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5">
+                                                                <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p style="font-size: 12px;">${filterSchedule[i].activity}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div> 
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5">
+                                                                <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p style="font-size: 12px;">${filterSchedule[i].date_schedule.substr(0, 10)}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5">
+                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p style="font-size: 12px;">${filterSchedule[i].start_time.substr(0, 5)} - ${filterSchedule[i].end_time.substr(0, 5)} WITA</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>  
+                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                        <div class="row text-start">
+                                                            <div class="col-md-5">
+                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <p style="font-size: 12px;"> : </p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p style="font-size: 12px;">${filterSchedule[i].address_schedule}</p>
+                                                            </div>
+                                                        </div> 
+                                                    </div>   
+                                                </div>
+                                            </div>
+                                    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                                
+                            }
+                        }
+                    }   
+                    if(ressOperasi && ressOperasi.length > 0){ 
+                        var filterOperasi = ressOperasi.filter(function (e) {
+                            return e.lat_cctv != null && e.lng_cctv != null;
+                        });   
+                    } 
+
+
+
+
+                }
+            });
+        }
+
+        $("#filterCari").on("click", function (e) { 
+            serverSideFilter();
+        });
+
+        // $("[name=filter]").on("change", function (e) { 
+        //     serverSideFilter();
+        // });
+        // $("[name=filterFasumKateg]").on("change", function (e) { 
+        //     serverSideFilter();
+        // });
+        
+
+        
+
+
+        // function serverSideGetJadwal(){
+        //     $("#overlay").fadeIn(300);  
+        //     $.ajax({
+        //         type : "POST",
+        //         url : "<?php echo base_url();?>dashboard/getJadwal", 
+        //         data : {
+        //             "status" : '1',
+        //         }, 
+        //         dataType : "JSON",
+        //         success : function(result){ 
+        //             let ressData = result['data'];
+        //             $("#overlay").fadeOut(300);
+
+        //             let ress = ressData.filter(function (e) {
+        //                 return e.coordinate_schedule != null;
+        //             });   
+                    
+        //             if(ress.length > 0){  
+        //                 for (let i = 0; i < ress.length; i++) {   
+                            
+        //                     var cordinateJadwal = ress[i].coordinate_schedule;
+        //                     var latlongJadwal =  cordinateJadwal.split(',');
+        //                     var latitudeJadwal = parseFloat(latlongJadwal[0]);
+        //                     var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                            
+
+        //                         markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+        //                             // className: 'location-pin',
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+        //                             iconSize: [5, 5],
+        //                             iconAnchor: [5, 10]
+        //                             // iconAnchor: [10, 33]
+        //                             }) }).bindPopup(`
+        //                                 <div class="text-center" style="width: 300px;"> 
+        //                                     <div class="row mt-3"> 
+        //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+        //                                             <div class="avatar-xl me-3">
+        //                                                 <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+        //                                             </div>
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-3">
+        //                                             <h5>Jadwal Kegiatan</h5> 
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-1">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].activity}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div> 
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Tanggal Kegiatan</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].date_schedule.substr(0, 10)}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].start_time.substr(0, 5)} - ${ress[i].end_time.substr(0, 5)} WITA</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].address_schedule}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>   
+        //                                     </div>
+        //                                 </div>
+        //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+        //                 }
+        //             }
+        //         }
+        //     });
+
+        // }
+
+
+        
+        // $("#jadwal").on("change", function (e) {
+        //     if($(this).is(':checked')){ 
+        //         serverSideGetJadwal();
+        //     }else{ 
+        //         for (let i = 0; i < markerJadwal.length; i++) { 
+        //             mapContainer.removeLayer(markerJadwal[i]);
+        //         }
+        //         markerJadwal = new Array();
+        //     } 
+        // });
+        
+
     
-    
-    var openModalFilter = false;
-    $('#myModalFilter').on('shown.bs.modal', function() { 
 
-
-        let countlist = 0;
-        let list = ""; 
-        var data = []; 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>dashboard/getJadwal", 
-            data : {
-                "status" : '1',
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                let ress = result['data'];
-                // console.log(result['test']);
-                countlist = 0;
-                list = "";
-                var status = ""; 
-                if($('#jadwal').is(':checked')){
+        function getRenpam(){
+            let countlist = 0;
+            let list = ""; 
+            var data = []; 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getRenpam", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){ 
+                    let ress = result['data'];
+                    // console.log(ress);
+                    countlist = 0;
+                    list = "";
+                    var status = ""; 
+                    var route = []; 
+                    var route1 = []; 
+                    var route2 = []; 
+                    var route3 = []; 
+                    var route4 = []; 
                     ress.forEach(el => {
-                        if(el.status_schedule == 1){
+                        route.push(el.route);
+                        route1.push(el.route_alternatif_1);
+                        route2.push(el.route_alternatif_2);
+                        route3.push(el.route_masyarakat);
+                        route4.push(el.route_umum);
+                        if(el.status_renpam == 1){
                             status = `
                             <div>
-                                <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                                <div class="rounded-circle m-auto" style="background:green; height:15px ; width:15px"></div>
                             </div>`;
                         }else{
                             status = `
                             <div>
-                                <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                                <div class="rounded-circle m-auto" style="background:red; height:15px ; width:15px"></div>
                             </div>
                             `;
                         }
-                        countlist += 1;
-                        list += `<a class="list-group-item text-start" style="display: flex;"
-                        id="listJadwalClick${countlist}"   
-                        data-alamat="${el.address_schedule}"  
-                        data-cord="${el.coordinate_schedule}"
-                        href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.activity}</a>`;
-                        $('#listJadwal').html(list); 
-                    });  
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#listJadwalClick${i+1}`).click(function(){   
-                            var latlong =  $(this).data('cord').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
-                            mapContainer.flyTo([latitude, longitude], 17); 
     
-     
+                        countlist += 1;
+                        list += `<div class="list-group-item text-start" style="display: flex;">
+                            <div class="row">
+                                <div class="col-md-2" style="display: flex;align-items: center;">
+                                    ${status}
+                                </div>
+                                <div class="col-md-7">
+                                    ${el.name_renpam}
+                                </div>
+                                <div class="col-md-3" style="display: flex;align-items: center;">
+                                    <a class="btn" href="javascripte:void(0);"
+                                    style="font-size: 16px;"  
+                                    data-idnote="${el.id}" 
+                                    data-note="${el.note_kakor}"
+                                    title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                        <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
+                                    </a>
+                                    <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
+                                </div>
+                            </div>
+                        </div>`;
+                        $('#listRenpam').html(list); 
+                    });  
+
+                    
+
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#listRenpamClick${i+1}`).on("change", function (e) {
+
+                            // console.log(route[i]);  
+
+                            if(route1[i] != null && route1[i][0]['latLng'] != null){
+                                
+                                if($(this).is(':checked')){  
+                                    routingRenpam1[i] = null;
+                                    routingRenpam1[i] = L.Routing.control({
+                                        show:false,
+                                        draggableWaypoints: false,
+                                        addWaypoints: false,
+                                        waypoints: route1[i],
+                                        router: new L.Routing.osrmv1({
+                                            language: 'en',
+                                            profile: 'car'
+                                        }),
+                                        lineOptions: {
+                                            styles: [{color: "#b935b9", className: 'animateRoute'}]
+                                        },
+                                        createMarker: function(i, wp, nWps) {
+                                            if (i === 0 || i === nWps + 1) {
+                                                // here change the starting and ending icons
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else if (i === nWps - 1) {
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else {
+                                                // here change all the others
+                                                var options = {
+                                                        draggable: this.draggableWaypoints,
+                                                    },
+                                                    marker = L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+        
+                                                return marker;
+                                            }
+                                        },
+                                        geocoder: L.Control.Geocoder.nominatim({})
+                                    }).addTo(mapContainer); 
+                                    // mapContainer.addControl(routingRenpam1[i]);  
+                                }else{
+                                    mapContainer.removeControl(routingRenpam1[i]);   
+                                }
+                            }else{
+                                // Swal.fire(
+                                // `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                                // '',
+                                // 'warning'
+                                // ).then(function() { 
+                                // });
+                            }
+
+                            if(route2[i] != null && route2[i][0]['latLng'] != null){ 
+                                
+                                if($(this).is(':checked')){  
+                                    routingRenpam2[i] = null;
+                                    routingRenpam2[i] = L.Routing.control({
+                                        show:false,
+                                        draggableWaypoints: false,
+                                        addWaypoints: false,
+                                        waypoints: route2[i],
+                                        router: new L.Routing.osrmv1({
+                                            language: 'en',
+                                            profile: 'car'
+                                        }),
+                                        lineOptions: {
+                                            styles: [{color: "gray", className: 'animateRoute'}]
+                                            // styles: [{className: 'animateLine'}]
+                                        },
+                                        createMarker: function(i, wp, nWps) {
+                                            if (i === 0 || i === nWps + 1) {
+                                                // here change the starting and ending icons
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else if (i === nWps - 1) {
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else {
+                                                // here change all the others
+                                                var options = {
+                                                        draggable: this.draggableWaypoints,
+                                                    },
+                                                    marker = L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+        
+                                                return marker;
+                                            }
+                                        },
+                                        geocoder: L.Control.Geocoder.nominatim({})
+                                    }).addTo(mapContainer); 
+                                    // mapContainer.addControl(routingRenpam1[i]); 
+                                }else{
+                                    mapContainer.removeControl(routingRenpam2[i]); 
+                                }
+                            }else{
+                                // Swal.fire(
+                                // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                // '',
+                                // 'warning'
+                                // ).then(function() { 
+                                // });
+                            }
+
+                            if(route3[i] != null && route3[i][0]['latLng'] != null){ 
+                                
+                                if($(this).is(':checked')){  
+                                    routingRenpam3[i] = null;
+                                    routingRenpam3[i] = L.Routing.control({
+                                        show:false,
+                                        draggableWaypoints: false,
+                                        addWaypoints: false,
+                                        waypoints: route3[i],
+                                        router: new L.Routing.osrmv1({
+                                            language: 'en',
+                                            profile: 'car'
+                                        }),
+                                        lineOptions: {
+                                            styles: [{color: "#000dda", className: 'animateRoute'}]
+                                        },
+                                        createMarker: function(i, wp, nWps) {
+                                            if (i === 0 || i === nWps + 1) {
+                                                // here change the starting and ending icons
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else if (i === nWps - 1) {
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else {
+                                                // here change all the others
+                                                var options = {
+                                                        draggable: this.draggableWaypoints,
+                                                    },
+                                                    marker = L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+
+                                                return marker;
+                                            }
+                                        },
+                                        geocoder: L.Control.Geocoder.nominatim({})
+                                    }).addTo(mapContainer); 
+                                    // mapContainer.addControl(routingRenpam1[i]); 
+                                }else{
+                                    mapContainer.removeControl(routingRenpam3[i]); 
+                                }
+                            }else{
+                                // Swal.fire(
+                                // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                // '',
+                                // 'warning'
+                                // ).then(function() { 
+                                // });
+                            }
+
+
+                            if(route4[i] != null && route4[i][0]['latLng'] != null){ 
+                                
+                                if($(this).is(':checked')){  
+                                    routingRenpam4[i] = null;
+                                    routingRenpam4[i] = L.Routing.control({
+                                        show:false,
+                                        draggableWaypoints: false,
+                                        addWaypoints: false,
+                                        waypoints: route4[i],
+                                        router: new L.Routing.osrmv1({
+                                            language: 'en',
+                                            profile: 'car'
+                                        }),
+                                        lineOptions: {
+                                            styles: [{color: "#bdbd0b", className: 'animateRoute'}]
+                                        },
+                                        createMarker: function(i, wp, nWps) {
+                                            if (i === 0 || i === nWps + 1) {
+                                                // here change the starting and ending icons
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else if (i === nWps - 1) {
+                                                return L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+                                            } else {
+                                                // here change all the others
+                                                var options = {
+                                                        draggable: this.draggableWaypoints,
+                                                    },
+                                                    marker = L.marker(wp.latLng, {
+                                                    icon: L.divIcon({
+                                                        className: "location-pin",
+                                                        html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                        iconSize: [5, 5],
+                                                        //iconAnchor: [18, 30]
+                                                        iconAnchor: [5, 10],
+                                                    }),
+                                                    draggable: this.draggableWaypoints,
+                                                });
+
+                                                return marker;
+                                            }
+                                        },
+                                        geocoder: L.Control.Geocoder.nominatim({})
+                                    }).addTo(mapContainer); 
+                                    // mapContainer.addControl(routingRenpam1[i]); 
+                                }else{
+                                    mapContainer.removeControl(routingRenpam4[i]); 
+                                }
+                            }else{
+                                // Swal.fire(
+                                // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                                // '',
+                                // 'warning'
+                                // ).then(function() { 
+                                // });
+                            }
+
+
+
+                            if(route[i] != null && route[i][0]['latLng'] != null){
+                                
+                                if($(this).is(':checked')){   
+                                    routingRenpam[i] = null;
+                                    routingRenpam[i] = L.Routing.control({
+                                        show:false,
+                                        draggableWaypoints: false,
+                                        addWaypoints: false,
+                                        waypoints: route[i],
+                                        router: new L.Routing.osrmv1({
+                                            language: 'en',
+                                            profile: 'car'
+                                        }),
+                                        lineOptions: {
+                                            styles: [{color: "red", className: 'animateRoute'}]
+                                            // styles: [{color: "blue"}]
+                                        }, 
+                                        // routeLine: function(r) {
+                                        //     var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
+                                        //                                         addWaypoints: true
+                                        //                                     });
+                                        //     lines.on('linetouched', function(e) { 
+                                        //         console.log(e);
+                                        //         alert("jalan kaaga"); 
+                                        //     });
+                                        //     return lines;
+                                        // },
+                                        geocoder: L.Control.Geocoder.nominatim({})
+                                    }).addTo(mapContainer);  
+                                    // mapContainer.addControl(routingRenpam[i]); 
+                                }else{ 
+                                    mapContainer.removeControl(routingRenpam[i]);  
+                                }
+                                
+                                
+                            }else{
+                                // Swal.fire(
+                                // `Route tidak ada, atau belum di daftarkan!`, 
+                                // '',
+                                // 'error'
+                                // ).then(function() { 
+                                // });
+                            }
+                            // console.log(routingRenpam);
                         });
                     } 
-                }else{
-                    $('#listJadwal').html('Mohon untuk pilih filter Jadwal!'); 
                 }
- 
-            }
-        });
+            });
+        }
 
         
-        if(openModalFilter == false){
-            openModalFilter = true;
-            getRenpam();
-        } 
+        
+        
+        var openModalFilter = false;
+        $('#myModalFilter').on('shown.bs.modal', function() { 
 
- 
+
+            let countlist = 0;
+            let list = ""; 
+            var data = []; 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getJadwal", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){ 
+                    let ress = result['data'];
+                    // console.log(result['test']);
+                    countlist = 0;
+                    list = "";
+                    var status = ""; 
+                    if($('#jadwal').is(':checked')){
+                        ress.forEach(el => {
+                            if(el.status_schedule == 1){
+                                status = `
+                                <div>
+                                    <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                                </div>`;
+                            }else{
+                                status = `
+                                <div>
+                                    <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                                </div>
+                                `;
+                            }
+                            countlist += 1;
+                            list += `<a class="list-group-item text-start" style="display: flex;"
+                            id="listJadwalClick${countlist}"   
+                            data-alamat="${el.address_schedule}"  
+                            data-cord="${el.coordinate_schedule}"
+                            href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.activity}</a>`;
+                            $('#listJadwal').html(list); 
+                        });  
+                        for (let i = 0; i < ress.length; i++){ 
+                            $(`#listJadwalClick${i+1}`).click(function(){   
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 17); 
+        
+        
+                            });
+                        } 
+                    }else{
+                        $('#listJadwal').html('Mohon untuk pilih filter Jadwal!'); 
+                    }
+    
+                }
+            });
+
+            
+            if(openModalFilter == false){
+                openModalFilter = true;
+                getRenpam();
+            } 
+
+    
+        });
+    
+
+
+        // function serverSideGetCCTV(){
+        //     $("#overlay").fadeIn(300);  
+        //     $.ajax({
+        //         type : "POST",
+        //         url : "<?php echo base_url();?>dashboard/getCCTV", 
+        //         data : {
+        //             "status" : '1',
+        //         }, 
+        //         dataType : "JSON",
+        //         success : function(result){ 
+        //             let ressData = result['data'];
+        //             let ress = ressData.filter(function (e) {
+        //                 return e.lat_cctv != null && e.lng_cctv != null;
+        //             });   
+                    
+        //             $("#overlay").fadeOut(300);
+                    
+        //             if(ress.length > 0){  
+        //                 for (let i = 0; i < ress.length; i++) {     
+        //                     id = i;  
+        //                     var latitudeCCTV = parseFloat(ress[i].lat_cctv);
+        //                     var longitudeCCTV = parseFloat(ress[i].lng_cctv);
+
+        //                     var resource = '';
+        //                     if(ress[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+        //                         resource = `<iframe id="myIframe" src="${ress[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+        //                     }else{
+        //                         resource = `<img style="width: 300px;" src="${ress[i].link_cctv}" />`;
+        //                     }
+
+        //                     markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+        //                         // className: 'location-pin',
+        //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+        //                         iconSize: [5, 5],
+        //                         iconAnchor: [5, 10]
+        //                         // iconAnchor: [10, 33]
+        //                         }) }).bindPopup(`
+        //                         <div style="width: 300px;">
+        //                             <div class="row">
+        //                                 <div class="col-md-12" style="text-align: center;">
+        //                                     <h5>${ress[i].address_cctv}</h5>
+        //                                 </div>
+        //                                 <div class="col-md-12"> 
+        //                                     ${resource}
+        //                                 </div> 
+        //                             </div>
+        //                         </div>
+                                    
+        //                     `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+        //                 }
+        //             }
+        //         }
+        //     }); 
+        // } 
+
+        // $("#cctv").on("change", function (e) {
+        //     if($(this).is(':checked')){ 
+        //         serverSideGetCCTV();
+        //     }else{ 
+        //         for (let i = 0; i < markerCCTV.length; i++) { 
+        //             mapContainer.removeLayer(markerCCTV[i]);
+        //         } 
+        //         markerCCTV = new Array();  
+        //     } 
+        // });
+
+
+
+        // function serverSideGetFasum(){ 
+        //     $("#overlay").fadeIn(300);   
+        //     $.ajax({
+        //         type : "POST",
+        //         url : "<?php echo base_url();?>dashboard/getFasum", 
+        //         data : {
+        //             "status" : '1',
+        //         }, 
+        //         dataType : "JSON",
+        //         success : function(result){ 
+        //             let ressData = result['data'];
+        //             let ress = ressData.filter(function (e) {
+        //                 return e.fasum_lat != null && e.fasum_lng != null;
+        //             });  
+        //             $("#overlay").fadeOut(300);
+                    
+        //             if(ress.length > 0){  
+        //                 var logoMarker = '';
+        //                 var logoBody = '';
+        //                 for (let i = 0; i < ress.length; i++) {  
+        //                     if(ress[i].fasum_type == 1){
+        //                         logoMarker = `hotel.png`;
+        //                         logoBody = `hotel.png`;
+        //                     }else if(ress[i].fasum_type == 2){
+        //                         logoMarker = `rumah ibadah.png`;
+        //                         logoBody = `rumah ibadah.png`;
+        //                     }else if(ress[i].fasum_type == 3){
+        //                         logoMarker = `pom bensin.png`;
+        //                         logoBody = `pom bensin.png`;
+        //                     }else if(ress[i].fasum_type == 4){
+        //                         logoMarker = `rest_area.png`;
+        //                         logoBody = `rest_area.png`;
+        //                     }else if(ress[i].fasum_type == 5){
+        //                         logoMarker = `rumah makan.png`;
+        //                         logoBody = `rumah makan.png`;
+        //                     }else if(ress[i].fasum_type == 6){
+        //                         logoMarker = `wisata.png`;
+        //                         logoBody = `wisata.png`;
+        //                     }else if(ress[i].fasum_type == 7){
+        //                         logoMarker = `damkar.png`;
+        //                         logoBody = `damkar.png`;
+        //                     }else if(ress[i].fasum_type == 8){
+        //                         logoMarker = `rumah sakit umum.png`;
+        //                         logoBody = `rumah sakit umum.png`;
+        //                     }
+                            
+        //                         var latitudeFasum = parseFloat(ress[i].fasum_lat);
+        //                         var longitudeFasum = parseFloat(ress[i].fasum_lng); 
+        //                         markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+        //                             // className: 'location-pin',
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+        //                             iconSize: [5, 5],
+        //                             iconAnchor: [5, 10]
+        //                             // iconAnchor: [10, 33]
+        //                             }) }).bindPopup(`
+        //                                 <div class="text-center" style="width: 300px;"> 
+        //                                     <div class="row mt-3">
+        //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+        //                                             <div class="avatar-xl me-3">
+        //                                                 <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+        //                                             </div>
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-3">
+        //                                             <h5>Fasilitas Umum</h5>
+        //                                             <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-3">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].fasum_name}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div> 
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].fasum_address}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>   
+        //                                     </div>
+        //                                 </div> 
+        //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+        //                 }
+        //             }
+        //         }
+        //     }); 
+        // } 
+
+        // $("#fasum").on("change", function (e) {
+        //     if($(this).is(':checked')){  
+        //         serverSideGetFasum();
+        //     }else{ 
+        //         for (let i = 0; i < markerFasum.length; i++) { 
+        //             mapContainer.removeLayer(markerFasum[i]);
+        //         }
+        //         markerFasum = new Array();  
+        //     } 
+        // });
+
+
+
+        // function serverSideGetPolres(){
+        //     $("#overlay").fadeIn(300);   
+        //     $.ajax({
+        //         type : "POST",
+        //         url : "<?php echo base_url();?>dashboard/getPolres", 
+        //         data : {
+        //             "status" : '1',
+        //         }, 
+        //         dataType : "JSON",
+        //         success : function(result){ 
+        //             let ressData = result['data'];
+        //             let ress = ressData.filter(function (e) {
+        //                 return e.latitude != null && e.longitude != null;
+        //             });  
+        //             $("#overlay").fadeOut(300);
+                    
+        //             if(ress.length > 0){  
+        //                 var logoMarker = '';
+        //                 var logoBody = '';
+        //                 for (let i = 0; i < ress.length; i++) {  
+    
+        //                         var latitudePolres = parseFloat(ress[i].latitude);
+        //                         var longitudePolres = parseFloat(ress[i].longitude); 
+        
+        //                         markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+        //                             // className: 'location-pin',
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+        //                             iconSize: [5, 5],
+        //                             iconAnchor: [5, 10]
+        //                             // iconAnchor: [10, 33]
+        //                             }) }).bindPopup(`
+        //                                 <div class="text-center" style="width: 300px;"> 
+        //                                     <div class="row mt-3">
+        //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+        //                                             <div class="avatar-xl me-3">
+        //                                                 <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+        //                                             </div>
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-3">
+        //                                             <h5>${ress[i].name_polres}</h5> 
+        //                                         </div>
+        //                                         <div class="col-md-12 col-12 mt-3">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].address}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div> 
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].code_satpas}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>  
+        //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
+        //                                             <div class="row text-start">
+        //                                                 <div class="col-md-5 col-6">
+        //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+        //                                                 </div>
+        //                                                 <div class="col-md-1">
+        //                                                     <p style="font-size: 12px;"> : </p>
+        //                                                 </div>
+        //                                                 <div class="col-md-6 col-6">
+        //                                                     <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
+        //                                                 </div>
+        //                                             </div> 
+        //                                         </div>   
+        //                                     </div>
+        //                                 </div> 
+        //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
+                            
+
+        //                 }
+        //             }
+        //         }
+        //     }); 
+        // } 
+
+        // $("#polres").on("change", function (e) {
+        //     if($(this).is(':checked')){ 
+        //         serverSideGetPolres();
+        //     }else{ 
+        //         for (let i = 0; i < markerPolres.length; i++) { 
+        //             mapContainer.removeLayer(markerPolres[i]);
+        //         }
+        //         markerPolres = new Array();  
+        //     } 
+        // });
+
+        
+        mapContainer.on('dblclick', function(e) { 
+            $('#myModal').modal('show');
+        }); 
+    
+        let arrayWaypoint = [];
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#startTime').clockpicker({
+                autoclose: true
+            });
+            $('#endTime').clockpicker({
+                autoclose: true
+            });
+    
+            new Choices('#id_vip', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });
+
+            new Choices('#id_account', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });
+            
+
+
+            // $('[name=cordinate]').val('-8.451740, 115.089643');
+            // var initialCenter = [-8.451740, 115.089643];
+            // var initialZoom = 9.65;
+            // var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            //     maxZoom: 20,
+            //     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            //     attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            // });
+            // var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            //     maxZoom: 20,
+            //     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            //     attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            // });
+            // var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            //     maxZoom: 20,
+            //     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            //     attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            // });
+            // var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            //     maxZoom: 20,
+            //     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            //     attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            // });
+
+            // // StART MAP SECTION
+            // var mapContainerInstruksi = L.map('mapG20Kegiatan', {
+            //     maxZoom: 20,
+            //     minZoom: 1,
+            //     zoomSnap: 0.25,
+            //     zoomControl: false,
+            //     layers: [googleHybrid]
+            // }).setView(initialCenter, initialZoom);
+    
+            // var baseMaps = {
+            //     "Google Map Street": googleStreet,
+            //     "Google Map Satelite": googleSatelite,
+            //     "Google Map Hybrid": googleHybrid,
+            //     "Google Map Terrain": googleTerrain,
+            // };
+            // var overlayMaps = {};
+            // L.control.layers(baseMaps, overlayMaps, {
+            //     position: 'topleft'
+            // }).addTo(mapContainerInstruksi);
+            // L.control.zoom({
+            //     position: 'bottomleft'
+            // }).addTo(mapContainerInstruksi);
+            
+            // // mapContainerInstruksi.invalidateSize(); 
+            
+            // var control = L.Routing.control({
+            //     waypoints: arrayWaypoint,
+            //     router: new L.Routing.osrmv1({
+            //         language: 'en',
+            //         profile: 'car'
+            //     }),
+            //     showAlternatives: true,
+            //     geocoder: L.Control.Geocoder.nominatim({})
+            // }).addTo(mapContainerInstruksi);
+
+
+            // function createButton(label, container) {
+            //     var btn = L.DomUtil.create('button', '', container);
+            //     btn.setAttribute('type', 'button');
+            //     btn.innerHTML = label;
+            //     return btn;
+            // }
+
+            // mapContainerInstruksi.on('click', function(e) {
+            //     var container = L.DomUtil.create('div'),
+            //         startBtn = createButton('Start from this location', container), 
+            //         destBtn = createButton('Go to this location', container);
+
+            //     L.DomEvent.on(startBtn, 'click', function() {  
+
+            //         control.spliceWaypoints(0, 1, e.latlng);
+            //         mapContainerInstruksi.closePopup();
+            //     }); 
+            //     L.DomEvent.on(destBtn, 'click', function() { 
+
+            //         control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+            //         mapContainerInstruksi.closePopup();
+            //     });
+            //     L.popup()
+            //         .setContent(container)
+            //         .setLatLng(e.latlng)
+            //         .openOn(mapContainerInstruksi);
+            // });
+
+
+
+            
+        });
+
+    
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+        // mapContainer.on('pm:create', (e) => {
+        //     e.layer.setStyle({ pmIgnore: false });
+        //     L.PM.reInitLayer(e.layer);
+        // });
+        // mapContainer.pm.addControls({  
+        //     position: 'bottomleft',  
+        //     drawCircle: true,  
+        // });  
+
+        // mapContainer.on('pm:drawstart', ({ workingLayer }) => {
+        // workingLayer.on('pm:vertexadded', (e) => {
+        //     console.log(e);
+        // });
+        // });
+
+    
+
+
+        // // Initialise the FeatureGroup to store editable layers
+        // var featureGroup = new L.FeatureGroup();
+        // mapContainer.addLayer(featureGroup);
+
+        // // define custom marker
+        // var MyCustomMarker = L.Icon.extend({
+        // options: {
+        //     shadowUrl: null,
+        //     iconAnchor: new L.Point(12, 12),
+        //     iconSize: new L.Point(24, 24),
+        //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
+        // }
+        // });
+
+        // var drawPluginOptions = {
+        //     position: 'bottomleft',
+        //     draw: {
+        //         polyline: {
+        //             shapeOptions: {
+        //                 color: '#f357a1',
+        //                 weight: 10
+        //             }
+        //         },
+        //         polygon: {
+        //             allowIntersection: false, // Restricts shapes to simple polygons
+        //             drawError: {
+        //                 color: '#e1e100', // Color the shape will turn when intersects
+        //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
+        //             },
+        //             shapeOptions: {
+        //                 color: '#bada55'
+        //             }
+        //         },
+        //         circle: true, // Turns off this drawing tool
+        //         rectangle: {
+        //             shapeOptions: {
+        //                 clickable: false
+        //             }
+        //         },
+        //         marker: {
+        //             icon: new MyCustomMarker()
+        //         }
+        //     },
+        //     edit: {
+        //         featureGroup: featureGroup, //REQUIRED!!
+        //         remove: false
+        //     }
+        // };
+
+
+
+        // // Initialise the draw control and pass it the FeatureGroup of editable layers
+        // var drawControl = new L.Control.Draw(drawPluginOptions);
+        // mapContainer.addControl(drawControl);
+
+
+        // var featureGroup = new L.FeatureGroup();
+        // mapContainer.addLayer(featureGroup); 
+
+        // mapContainer.on('draw:created', function(e) {
+        // var type = e.layerType,
+        //     layer = e.layer;
+
+        // if (type === 'marker') {
+        //     layer.bindPopup('A popup!');
+        // }
+
+        // featureGroup.addLayer(layer);
+        // });
+
+        // document.getElementById('export').onclick = function(e) {
+        //     // Extract GeoJson from featureGroup
+        //     var data = featureGroup.toGeoJSON();
+
+        //     // Stringify the GeoJson
+        //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+
+        //     // Create export
+        //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+        //     document.getElementById('export').setAttribute('download','data.geojson');
+        // } 
     });
- 
 
 
-    // function serverSideGetCCTV(){
-    //     $("#overlay").fadeIn(300);  
-    //     $.ajax({
-    //         type : "POST",
-    //         url : "<?php echo base_url();?>dashboard/getCCTV", 
-    //         data : {
-    //             "status" : '1',
-    //         }, 
-    //         dataType : "JSON",
-    //         success : function(result){ 
-    //             let ressData = result['data'];
-    //             let ress = ressData.filter(function (e) {
-    //                 return e.lat_cctv != null && e.lng_cctv != null;
-    //             });   
-                
-    //             $("#overlay").fadeOut(300);
-                
-    //             if(ress.length > 0){  
-    //                 for (let i = 0; i < ress.length; i++) {     
-    //                     id = i;  
-    //                     var latitudeCCTV = parseFloat(ress[i].lat_cctv);
-    //                     var longitudeCCTV = parseFloat(ress[i].lng_cctv);
+    $(".formR").submit(function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault(); 
 
-    //                     var resource = '';
-    //                     if(ress[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-    //                         resource = `<iframe id="myIframe" src="${ress[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-    //                     }else{
-    //                         resource = `<img style="width: 300px;" src="${ress[i].link_cctv}" />`;
-    //                     }
+        // var routeArray = new Array();
+        // routeArray = control.getWaypoints();
+        // $('#ruteawal').val(JSON.stringify(routeArray)); 
 
-    //                     markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
-    //                         // className: 'location-pin',
-    //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
-    //                         iconSize: [5, 5],
-    //                         iconAnchor: [5, 10]
-    //                         // iconAnchor: [10, 33]
-    //                         }) }).bindPopup(`
-    //                         <div style="width: 300px;">
-    //                             <div class="row">
-    //                                 <div class="col-md-12" style="text-align: center;">
-    //                                     <h5>${ress[i].address_cctv}</h5>
-    //                                 </div>
-    //                                 <div class="col-md-12"> 
-    //                                     ${resource}
-    //                                 </div> 
-    //                             </div>
-    //                         </div>
-                                
-    //                     `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
-    //                 }
-    //             }
-    //         }
-    //     }); 
-    // } 
+        var formData = new FormData($('.formR')[0]); 
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/Renpam/store",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,  
+            success: function (data) {
+                $("#overlay").fadeOut(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'success'
+                    ).then(function() { 
+                        $("#myModal").modal('hide');
+                        userDataTable.draw(); 
+                    }); 
+                }else{
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'error'
+                    ).then(function() { 
+                    });
+                } 
+            }
+        }); 
+    });
 
-    // $("#cctv").on("change", function (e) {
-    //     if($(this).is(':checked')){ 
-    //         serverSideGetCCTV();
-    //     }else{ 
-    //         for (let i = 0; i < markerCCTV.length; i++) { 
-    //             mapContainer.removeLayer(markerCCTV[i]);
-    //         } 
-    //         markerCCTV = new Array();  
-    //     } 
-    // });
+    var routingUtama = new Array();
+    var routingAlternative1 = new Array();
+    var routingAlternative2 = new Array();
+    var routingAlternative3 = new Array();
+    var routingAlternative4 = new Array();
+    let arrayWaypointUtama = []; 
+    let arrayWaypoint1 = []; 
+    let arrayWaypoint2 = []; 
+    let arrayWaypoint3 = []; 
+    let arrayWaypoint4 = []; 
 
 
-
-    // function serverSideGetFasum(){ 
-    //     $("#overlay").fadeIn(300);   
-    //     $.ajax({
-    //         type : "POST",
-    //         url : "<?php echo base_url();?>dashboard/getFasum", 
-    //         data : {
-    //             "status" : '1',
-    //         }, 
-    //         dataType : "JSON",
-    //         success : function(result){ 
-    //             let ressData = result['data'];
-    //             let ress = ressData.filter(function (e) {
-    //                 return e.fasum_lat != null && e.fasum_lng != null;
-    //             });  
-    //             $("#overlay").fadeOut(300);
-                
-    //             if(ress.length > 0){  
-    //                 var logoMarker = '';
-    //                 var logoBody = '';
-    //                 for (let i = 0; i < ress.length; i++) {  
-    //                     if(ress[i].fasum_type == 1){
-    //                         logoMarker = `hotel.png`;
-    //                         logoBody = `hotel.png`;
-    //                     }else if(ress[i].fasum_type == 2){
-    //                         logoMarker = `rumah ibadah.png`;
-    //                         logoBody = `rumah ibadah.png`;
-    //                     }else if(ress[i].fasum_type == 3){
-    //                         logoMarker = `pom bensin.png`;
-    //                         logoBody = `pom bensin.png`;
-    //                     }else if(ress[i].fasum_type == 4){
-    //                         logoMarker = `rest_area.png`;
-    //                         logoBody = `rest_area.png`;
-    //                     }else if(ress[i].fasum_type == 5){
-    //                         logoMarker = `rumah makan.png`;
-    //                         logoBody = `rumah makan.png`;
-    //                     }else if(ress[i].fasum_type == 6){
-    //                         logoMarker = `wisata.png`;
-    //                         logoBody = `wisata.png`;
-    //                     }else if(ress[i].fasum_type == 7){
-    //                         logoMarker = `damkar.png`;
-    //                         logoBody = `damkar.png`;
-    //                     }else if(ress[i].fasum_type == 8){
-    //                         logoMarker = `rumah sakit umum.png`;
-    //                         logoBody = `rumah sakit umum.png`;
-    //                     }
-                        
-    //                         var latitudeFasum = parseFloat(ress[i].fasum_lat);
-    //                         var longitudeFasum = parseFloat(ress[i].fasum_lng); 
-    //                         markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
-    //                             // className: 'location-pin',
-    //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
-    //                             iconSize: [5, 5],
-    //                             iconAnchor: [5, 10]
-    //                             // iconAnchor: [10, 33]
-    //                             }) }).bindPopup(`
-    //                                 <div class="text-center" style="width: 300px;"> 
-    //                                     <div class="row mt-3">
-    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-    //                                             <div class="avatar-xl me-3">
-    //                                                 <img src="<?php echo base_url();?>assets/icon/${logoBody}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-    //                                             </div>
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-3">
-    //                                             <h5>Fasilitas Umum</h5>
-    //                                             <span style="font-size: 14px;">- ${ress[i].category_fasum.name_category_fasum} -</span>
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-3">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].fasum_name}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div> 
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].fasum_address}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].fasum_phone}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].fasum_open_time != null ? ress[i].fasum_open_time : '00:00'} - ${ress[i].fasum_close_time != null ? ress[i].fasum_close_time : '00:00'} WITA</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>   
-    //                                     </div>
-    //                                 </div> 
-    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                         
-    //                 }
-    //             }
-    //         }
-    //     }); 
-    // } 
-
-    // $("#fasum").on("change", function (e) {
-    //     if($(this).is(':checked')){  
-    //         serverSideGetFasum();
-    //     }else{ 
-    //         for (let i = 0; i < markerFasum.length; i++) { 
-    //             mapContainer.removeLayer(markerFasum[i]);
-    //         }
-    //         markerFasum = new Array();  
-    //     } 
-    // });
-
-
-
-    // function serverSideGetPolres(){
-    //     $("#overlay").fadeIn(300);   
-    //     $.ajax({
-    //         type : "POST",
-    //         url : "<?php echo base_url();?>dashboard/getPolres", 
-    //         data : {
-    //             "status" : '1',
-    //         }, 
-    //         dataType : "JSON",
-    //         success : function(result){ 
-    //             let ressData = result['data'];
-    //             let ress = ressData.filter(function (e) {
-    //                 return e.latitude != null && e.longitude != null;
-    //             });  
-    //             $("#overlay").fadeOut(300);
-                
-    //             if(ress.length > 0){  
-    //                 var logoMarker = '';
-    //                 var logoBody = '';
-    //                 for (let i = 0; i < ress.length; i++) {  
- 
-    //                         var latitudePolres = parseFloat(ress[i].latitude);
-    //                         var longitudePolres = parseFloat(ress[i].longitude); 
+    $('#myModalUtama').on('shown.bs.modal', function() {    
     
-    //                         markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
-    //                             // className: 'location-pin',
-    //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
-    //                             iconSize: [5, 5],
-    //                             iconAnchor: [5, 10]
-    //                             // iconAnchor: [10, 33]
-    //                             }) }).bindPopup(`
-    //                                 <div class="text-center" style="width: 300px;"> 
-    //                                     <div class="row mt-3">
-    //                                         <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
-    //                                             <div class="avatar-xl me-3">
-    //                                                 <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
-    //                                             </div>
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-3">
-    //                                             <h5>${ress[i].name_polres}</h5> 
-    //                                         </div>
-    //                                         <div class="col-md-12 col-12 mt-3">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].address}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div> 
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Kode</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].code_satpas}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12"  style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].phone_polres != null ? ress[i].phone_polres : '-'}</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>  
-    //                                         <div class="col-md-12 col-12" style="margin-top: -30px;">
-    //                                             <div class="row text-start">
-    //                                                 <div class="col-md-5 col-6">
-    //                                                     <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-    //                                                 </div>
-    //                                                 <div class="col-md-1">
-    //                                                     <p style="font-size: 12px;"> : </p>
-    //                                                 </div>
-    //                                                 <div class="col-md-6 col-6">
-    //                                                     <p style="font-size: 12px;">${ress[i].open_time != null ? ress[i].open_time : '00:00'} - ${ress[i].close_time != null ? ress[i].close_time : '00:00'} WITA</p>
-    //                                                 </div>
-    //                                             </div> 
-    //                                         </div>   
-    //                                     </div>
-    //                                 </div> 
-    //                         `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                        
-
-    //                 }
-    //             }
-    //         }
-    //     }); 
-    // } 
-
-    // $("#polres").on("change", function (e) {
-    //     if($(this).is(':checked')){ 
-    //         serverSideGetPolres();
-    //     }else{ 
-    //         for (let i = 0; i < markerPolres.length; i++) { 
-    //             mapContainer.removeLayer(markerPolres[i]);
-    //         }
-    //         markerPolres = new Array();  
-    //     } 
-    // });
-
-    
-    mapContainer.on('dblclick', function(e) { 
-        $('#myModal').modal('show');
-    }); 
- 
-    let arrayWaypoint = [];
-    $('#myModal').on('shown.bs.modal', function() {
-        $('#startTime').clockpicker({
-            autoclose: true
-        });
-        $('#endTime').clockpicker({
-            autoclose: true
-        });
- 
-        new Choices('#id_vip', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
-
-        new Choices('#id_account', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
-        
-
-
-        $('[name=cordinate]').val('-8.451740, 115.089643');
         var initialCenter = [-8.451740, 115.089643];
         var initialZoom = 9.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -2681,14 +2981,14 @@
         });
 
         // StART MAP SECTION
-        var mapContainerInstruksi = L.map('mapG20Kegiatan', {
+        var mapContainerRenpamUtama = L.map('mapG20Kegiatan', {
             maxZoom: 20,
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
             layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
-  
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -2698,219 +2998,63 @@
         var overlayMaps = {};
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topleft'
-        }).addTo(mapContainerInstruksi);
+        }).addTo(mapContainerRenpamUtama);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerInstruksi);
-        
-        // mapContainerInstruksi.invalidateSize(); 
-        
-        var control = L.Routing.control({
-            waypoints: arrayWaypoint,
+        }).addTo(mapContainerRenpamUtama); 
+
+
+        mapContainerRenpamUtama.invalidateSize(); 
+
+
+        var routeAlternativeUtama = L.Routing.control({
+            waypoints: arrayWaypointUtama,
             router: new L.Routing.osrmv1({
                 language: 'en',
                 profile: 'car'
             }),
-            showAlternatives: true,
             geocoder: L.Control.Geocoder.nominatim({})
-        }).addTo(mapContainerInstruksi);
+        }).addTo(mapContainerRenpamUtama);
 
 
-        function createButton(label, container) {
+        function createButton(label, container) { 
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerInstruksi.on('click', function(e) {
+        mapContainerRenpamUtama.on('click', function(e) {  
             var container = L.DomUtil.create('div'),
                 startBtn = createButton('Start from this location', container), 
                 destBtn = createButton('Go to this location', container);
 
             L.DomEvent.on(startBtn, 'click', function() {  
 
-                control.spliceWaypoints(0, 1, e.latlng);
-                mapContainerInstruksi.closePopup();
+                routeAlternativeUtama.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpamUtama.closePopup();
             }); 
             L.DomEvent.on(destBtn, 'click', function() { 
 
-                control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-                mapContainerInstruksi.closePopup();
+                routeAlternativeUtama.spliceWaypoints(routeAlternativeUtama.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpamUtama.closePopup();
             });
             L.popup()
                 .setContent(container)
                 .setLatLng(e.latlng)
-                .openOn(mapContainerInstruksi);
-        });
+                .openOn(mapContainerRenpamUtama);
 
+            
+        }); 
 
-
-        $(".formR").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-
-            var routeArray = new Array();
-            routeArray = control.getWaypoints();
-            $('#ruteawal').val(JSON.stringify(routeArray)); 
-
-            var formData = new FormData($('.formR')[0]); 
-            $.ajax({
-                url: "<?php echo base_url();?>operasi/Renpam/store",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,  
-                success: function (data) {
-                    $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() { 
-                            $("#myModal").modal('hide');
-                            userDataTable.draw(); 
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
-                        });
-                    } 
-                }
-            }); 
+        $("#submitAlternativeUtama").on('click', function(e){ 
+            routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
+            $('#ruteawal').val(JSON.stringify(routingAlternativeUtama));  
+            // $("#myModal1").modal('hide');
         });
     });
 
-  
 
-
-
-
-
-
-
-
-
-
-
-    
- 
-
-    // mapContainer.on('pm:create', (e) => {
-    //     e.layer.setStyle({ pmIgnore: false });
-    //     L.PM.reInitLayer(e.layer);
-    // });
-    // mapContainer.pm.addControls({  
-    //     position: 'bottomleft',  
-    //     drawCircle: true,  
-    // });  
-
-    // mapContainer.on('pm:drawstart', ({ workingLayer }) => {
-    // workingLayer.on('pm:vertexadded', (e) => {
-    //     console.log(e);
-    // });
-    // });
-
- 
-
-
-    // // Initialise the FeatureGroup to store editable layers
-    // var featureGroup = new L.FeatureGroup();
-    // mapContainer.addLayer(featureGroup);
-
-    // // define custom marker
-    // var MyCustomMarker = L.Icon.extend({
-    // options: {
-    //     shadowUrl: null,
-    //     iconAnchor: new L.Point(12, 12),
-    //     iconSize: new L.Point(24, 24),
-    //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-    // }
-    // });
-
-    // var drawPluginOptions = {
-    //     position: 'bottomleft',
-    //     draw: {
-    //         polyline: {
-    //             shapeOptions: {
-    //                 color: '#f357a1',
-    //                 weight: 10
-    //             }
-    //         },
-    //         polygon: {
-    //             allowIntersection: false, // Restricts shapes to simple polygons
-    //             drawError: {
-    //                 color: '#e1e100', // Color the shape will turn when intersects
-    //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
-    //             },
-    //             shapeOptions: {
-    //                 color: '#bada55'
-    //             }
-    //         },
-    //         circle: true, // Turns off this drawing tool
-    //         rectangle: {
-    //             shapeOptions: {
-    //                 clickable: false
-    //             }
-    //         },
-    //         marker: {
-    //             icon: new MyCustomMarker()
-    //         }
-    //     },
-    //     edit: {
-    //         featureGroup: featureGroup, //REQUIRED!!
-    //         remove: false
-    //     }
-    // };
-
-
-
-    // // Initialise the draw control and pass it the FeatureGroup of editable layers
-    // var drawControl = new L.Control.Draw(drawPluginOptions);
-    // mapContainer.addControl(drawControl);
-
-
-    // var featureGroup = new L.FeatureGroup();
-    // mapContainer.addLayer(featureGroup); 
-
-    // mapContainer.on('draw:created', function(e) {
-    // var type = e.layerType,
-    //     layer = e.layer;
-
-    // if (type === 'marker') {
-    //     layer.bindPopup('A popup!');
-    // }
-
-    // featureGroup.addLayer(layer);
-    // });
-
-    // document.getElementById('export').onclick = function(e) {
-    //     // Extract GeoJson from featureGroup
-    //     var data = featureGroup.toGeoJSON();
-
-    //     // Stringify the GeoJson
-    //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-
-    //     // Create export
-    //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-    //     document.getElementById('export').setAttribute('download','data.geojson');
-    // } 
-});
-
-
-    var routingAlternative1 = new Array();
-    var routingAlternative2 = new Array();
-    var routingAlternative3 = new Array();
-    var routingAlternative4 = new Array();
-    let arrayWaypoint1 = []; 
-    let arrayWaypoint2 = []; 
-    let arrayWaypoint3 = []; 
-    let arrayWaypoint4 = []; 
     $('#myModal1').on('shown.bs.modal', function() {    
     
         var initialCenter = [-8.451740, 115.089643];

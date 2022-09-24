@@ -87,6 +87,19 @@
                                     <label class="labelmui">Subjek</label>
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input required style="width: 100%;" name="title_start" value="<?php echo $data['getDetail']['data']['title_start'];?>" placeholder="" type="text">
+                                    <label class="labelmui">Lokasi Awal</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input required style="width: 100%;" name="title_end" value="<?php echo $data['getDetail']['data']['title_end'];?>" placeholder="" type="text">
+                                    <label class="labelmui">Lokasi Akhir</label>
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="material-textfield mb-3">
                                     <input  type="text" name="note_kakor" value="<?php echo $data['getDetail']['data']['note_kakor'];?>" class="form-control" id="note_kakor"> 
@@ -353,7 +366,7 @@
         $("#overlay").fadeIn(300);
         e.preventDefault();  
         $.ajax({
-            url: "<?php echo base_url();?>operasi/Kegiatan/delete",
+            url: "<?php echo base_url();?>operasi/renpam/delete",
             method: "POST",
             data: {
                 "id": $(this).data("id"),
@@ -369,7 +382,7 @@
                     '',
                     'success'
                     ).then(function() {  
-                        window.location.href = "<?php echo base_url();?>operasi/Kegiatan";
+                        window.location.href = "<?php echo base_url();?>operasi/renpam";
                     }); 
                 }else{
                     Swal.fire(

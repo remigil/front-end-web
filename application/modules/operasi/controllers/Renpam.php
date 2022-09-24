@@ -75,6 +75,11 @@ class Renpam extends MY_Controller
         // $dummy ['end_time']	= $input['endTime']; 
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
+
+
+        $dummy ['title_start']	= $input['title_start']; 
+        $dummy ['title_end']	= $input['title_end']; 
+
         $dummy ['route']	= $input['ruteawal']; 
         $dummy['note_kakor'] = $input['note_kakor'];
         $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
@@ -126,6 +131,9 @@ class Renpam extends MY_Controller
         // $dummy ['end_time']	= $input['endTimeR']; 
         $dummy ['accounts']	= json_encode($input['id_accountR']); 
         $dummy ['vips']	= json_encode($input['id_vipR']); 
+
+        $dummy ['title_start']	= $input['title_start']; 
+        $dummy ['title_end']	= $input['title_end']; 
         $dummy ['route']	= $input['ruteawalR']; 
         $dummy['note_kakor'] = $input['note_kakor'];
         // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
@@ -303,6 +311,9 @@ class Renpam extends MY_Controller
         // $dummy ['end_time']	= $input['endTime']; 
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
+
+        $dummy ['title_start']	= $input['title_start']; 
+        $dummy ['title_end']	= $input['title_end']; 
         $dummy ['route']	= $input['ruteawal']; 
         $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
         $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
