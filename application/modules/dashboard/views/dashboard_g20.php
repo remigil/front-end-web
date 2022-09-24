@@ -331,10 +331,14 @@
                         <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
                         <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
+                        <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
+                        <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
 
-                        <div class="col-md-6">
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
-                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                        <div class="col-md-12">
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #b935b9" data-bs-toggle="modal" data-bs-target="#myModal1"> Rute Alternative</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: gray" data-bs-toggle="modal" data-bs-target="#myModal2"> Rute Escape</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #000dda" data-bs-toggle="modal" data-bs-target="#myModal3"> Rute Masyarakat</a>
+                            <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"> Rute Umum</a>
                         </div>
                         <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
@@ -390,6 +394,56 @@
 
                 <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternative2" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel3">Tambah Masyarakat</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative3" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end">
+                    <button class="btn btn-primary float-end" id="submitAlternative3" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
+                    <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel4">Tambah Masyarakat</h5>
+                <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">  
+                <div class="row">   
+                    <div class="col-md-12">
+                        <div id="mapG20Alternative4" style="height: 500px"></div> 
+                    </div>
+                </div>   
+
+                <div class="col-md-6 mt-3 float-end">
+                    <button class="btn btn-primary float-end" id="submitAlternative4" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
             
@@ -492,6 +546,8 @@
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
+    var routingRenpam3 = new Array();
+    var routingRenpam4 = new Array();
     var arrayFilter = [];
     var arrayFilterFasumKategori = [];
 
@@ -2688,8 +2744,12 @@
 
     var routingAlternative1 = new Array();
     var routingAlternative2 = new Array();
+    var routingAlternative3 = new Array();
+    var routingAlternative4 = new Array();
     let arrayWaypoint1 = []; 
     let arrayWaypoint2 = []; 
+    let arrayWaypoint3 = []; 
+    let arrayWaypoint4 = []; 
     $('#myModal1').on('shown.bs.modal', function() {    
     
         var initialCenter = [-8.451740, 115.089643];
@@ -2886,6 +2946,207 @@
         $("#submitAlternative2").on('click', function(e){ 
             routingAlternative2 = routeAlternative2.getWaypoints();
             $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));  
+            // $("#myModal2").modal('hide');
+        });
+    }); 
+
+    $('#myModal3').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam3 = L.map('mapG20Alternative3', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam3);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam3); 
+
+
+        mapContainerRenpam3.invalidateSize(); 
+
+       
+
+        var routeAlternative3 = L.Routing.control({
+            waypoints: arrayWaypoint3,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam3);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam3.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative3.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam3.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative3.spliceWaypoints(routeAlternative3.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam3.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam3);
+
+            
+        }); 
+
+        $("#submitAlternative3").on('click', function(e){ 
+            routingAlternative3 = routeAlternative3.getWaypoints();
+            $('#coordsAlternative3').val(JSON.stringify(routingAlternative3));  
+            // $("#myModal2").modal('hide');
+        });
+    }); 
+
+
+    $('#myModal4').on('shown.bs.modal', function() {    
+        
+        var initialCenter = [-8.451740, 115.089643];
+        var initialZoom = 9.65;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainerRenpam4 = L.map('mapG20Alternative4', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
+
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerRenpam4);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerRenpam4); 
+
+
+        mapContainerRenpam4.invalidateSize(); 
+
+       
+
+        var routeAlternative4 = L.Routing.control({
+            waypoints: arrayWaypoint4,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerRenpam4);
+
+
+        function createButton(label, container) { 
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        mapContainerRenpam4.on('click', function(e) {  
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
+
+            L.DomEvent.on(startBtn, 'click', function() {  
+
+                routeAlternative4.spliceWaypoints(0, 1, e.latlng);
+                mapContainerRenpam4.closePopup();
+            }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
+
+                routeAlternative4.spliceWaypoints(routeAlternative4.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerRenpam4.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerRenpam4);
+
+            
+        }); 
+
+        $("#submitAlternative4").on('click', function(e){ 
+            routingAlternative4 = routeAlternative4.getWaypoints();
+            $('#coordsAlternative4').val(JSON.stringify(routingAlternative4));  
             // $("#myModal2").modal('hide');
         });
     }); 
