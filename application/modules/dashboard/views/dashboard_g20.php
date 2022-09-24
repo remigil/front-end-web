@@ -1821,35 +1821,46 @@
                 var route = []; 
                 var route1 = []; 
                 var route2 = []; 
+                var route3 = []; 
+                var route4 = []; 
                 ress.forEach(el => {
                     route.push(el.route);
                     route1.push(el.route_alternatif_1);
                     route2.push(el.route_alternatif_2);
+                    route3.push(el.route_masyarakat);
+                    route4.push(el.route_umum);
                     if(el.status_renpam == 1){
                         status = `
                         <div>
-                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
+                            <div class="rounded-circle m-auto" style="background:green; height:15px ; width:15px"></div>
                         </div>`;
                     }else{
                         status = `
                         <div>
-                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
+                            <div class="rounded-circle m-auto" style="background:red; height:15px ; width:15px"></div>
                         </div>
                         `;
                     }
  
                     countlist += 1;
                     list += `<div class="list-group-item text-start" style="display: flex;">
-                        ${status} &nbsp;&nbsp; ${el.name_renpam}
-                        <div style="right: 10px;position: absolute;">
-                            <a class="btn" href="javascripte:void(0);"
-                            style="margin-top: -5px; font-size: 16px;"  
-                            data-idnote="${el.id}" 
-                            data-note="${el.note_kakor}"
-                            title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
-                                <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
-                            </a>
-                            <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
+                        <div class="row">
+                            <div class="col-md-2" style="display: flex;align-items: center;">
+                                ${status}
+                            </div>
+                            <div class="col-md-7">
+                                ${el.name_renpam}
+                            </div>
+                            <div class="col-md-3" style="display: flex;align-items: center;">
+                                <a class="btn" href="javascripte:void(0);"
+                                style="font-size: 16px;"  
+                                data-idnote="${el.id}" 
+                                data-note="${el.note_kakor}"
+                                title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                    <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
+                                </a>
+                                <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} >
+                            </div>
                         </div>
                     </div>`;
                     $('#listRenpam').html(list); 
@@ -1860,52 +1871,7 @@
                 for (let i = 0; i < ress.length; i++){ 
                     $(`#listRenpamClick${i+1}`).on("change", function (e) {
 
-                        // console.log(route[i]); 
-                        
-
-                        if(route[i] != null && route[i][0]['latLng'] != null){
-                            
-                            if($(this).is(':checked')){   
-                                routingRenpam[i] = null;
-                                routingRenpam[i] = L.Routing.control({
-                                    show:false,
-                                    draggableWaypoints: false,
-                                    addWaypoints: false,
-                                    waypoints: route[i],
-                                    router: new L.Routing.osrmv1({
-                                        language: 'en',
-                                        profile: 'car'
-                                    }),
-                                    lineOptions: {
-                                        styles: [{color: "red", className: 'animateRoute'}]
-                                        // styles: [{color: "blue"}]
-                                    }, 
-                                    // routeLine: function(r) {
-                                    //     var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
-                                    //                                         addWaypoints: true
-                                    //                                     });
-                                    //     lines.on('linetouched', function(e) { 
-                                    //         console.log(e);
-                                    //         alert("jalan kaaga"); 
-                                    //     });
-                                    //     return lines;
-                                    // },
-                                    geocoder: L.Control.Geocoder.nominatim({})
-                                }).addTo(mapContainer);  
-                                // mapContainer.addControl(routingRenpam[i]); 
-                            }else{ 
-                                mapContainer.removeControl(routingRenpam[i]);  
-                            }
-                            
-                             
-                        }else{
-                            Swal.fire(
-                            `Route tidak ada, atau belum di daftarkan!`, 
-                            '',
-                            'error'
-                            ).then(function() { 
-                            });
-                        }
+                        // console.log(route[i]);  
 
                         if(route1[i] != null && route1[i][0]['latLng'] != null){
                             
@@ -1921,7 +1887,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "purple", className: 'animateRoute'}]
+                                        styles: [{color: "#b935b9", className: 'animateRoute'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
                                         if (i === 0 || i === nWps + 1) {
@@ -1995,7 +1961,7 @@
                                         profile: 'car'
                                     }),
                                     lineOptions: {
-                                        styles: [{color: "black", className: 'animateRoute'}]
+                                        styles: [{color: "gray", className: 'animateRoute'}]
                                         // styles: [{className: 'animateLine'}]
                                     },
                                     createMarker: function(i, wp, nWps) {
@@ -2054,6 +2020,201 @@
                             // 'warning'
                             // ).then(function() { 
                             // });
+                        }
+
+                        if(route3[i] != null && route3[i][0]['latLng'] != null){ 
+                            
+                            if($(this).is(':checked')){  
+                                routingRenpam3[i] = null;
+                                routingRenpam3[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route3[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "#000dda", className: 'animateRoute'}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer); 
+                                // mapContainer.addControl(routingRenpam1[i]); 
+                            }else{
+                                mapContainer.removeControl(routingRenpam3[i]); 
+                            }
+                        }else{
+                            // Swal.fire(
+                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                            // '',
+                            // 'warning'
+                            // ).then(function() { 
+                            // });
+                        }
+
+
+                        if(route4[i] != null && route4[i][0]['latLng'] != null){ 
+                            
+                            if($(this).is(':checked')){  
+                                routingRenpam4[i] = null;
+                                routingRenpam4[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route4[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "#bdbd0b", className: 'animateRoute'}]
+                                    },
+                                    createMarker: function(i, wp, nWps) {
+                                        if (i === 0 || i === nWps + 1) {
+                                            // here change the starting and ending icons
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else if (i === nWps - 1) {
+                                            return L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+                                        } else {
+                                            // here change all the others
+                                            var options = {
+                                                    draggable: this.draggableWaypoints,
+                                                },
+                                                marker = L.marker(wp.latLng, {
+                                                icon: L.divIcon({
+                                                    className: "location-pin",
+                                                    html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                                    iconSize: [5, 5],
+                                                    //iconAnchor: [18, 30]
+                                                    iconAnchor: [5, 10],
+                                                }),
+                                                draggable: this.draggableWaypoints,
+                                            });
+
+                                            return marker;
+                                        }
+                                    },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer); 
+                                // mapContainer.addControl(routingRenpam1[i]); 
+                            }else{
+                                mapContainer.removeControl(routingRenpam4[i]); 
+                            }
+                        }else{
+                            // Swal.fire(
+                            // `Route Escape tidak ada, atau belum di daftarkan!`, 
+                            // '',
+                            // 'warning'
+                            // ).then(function() { 
+                            // });
+                        }
+
+
+
+                        if(route[i] != null && route[i][0]['latLng'] != null){
+                            
+                            if($(this).is(':checked')){   
+                                routingRenpam[i] = null;
+                                routingRenpam[i] = L.Routing.control({
+                                    show:false,
+                                    draggableWaypoints: false,
+                                    addWaypoints: false,
+                                    waypoints: route[i],
+                                    router: new L.Routing.osrmv1({
+                                        language: 'en',
+                                        profile: 'car'
+                                    }),
+                                    lineOptions: {
+                                        styles: [{color: "red", className: 'animateRoute'}]
+                                        // styles: [{color: "blue"}]
+                                    }, 
+                                    // routeLine: function(r) {
+                                    //     var lines = L.Routing.line(r, {  styles: [{className: 'animateRoute'}],
+                                    //                                         addWaypoints: true
+                                    //                                     });
+                                    //     lines.on('linetouched', function(e) { 
+                                    //         console.log(e);
+                                    //         alert("jalan kaaga"); 
+                                    //     });
+                                    //     return lines;
+                                    // },
+                                    geocoder: L.Control.Geocoder.nominatim({})
+                                }).addTo(mapContainer);  
+                                // mapContainer.addControl(routingRenpam[i]); 
+                            }else{ 
+                                mapContainer.removeControl(routingRenpam[i]);  
+                            }
+                            
+                             
+                        }else{
+                            Swal.fire(
+                            `Route tidak ada, atau belum di daftarkan!`, 
+                            '',
+                            'error'
+                            ).then(function() { 
+                            });
                         }
                         // console.log(routingRenpam);
                     });
