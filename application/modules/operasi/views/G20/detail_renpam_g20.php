@@ -104,6 +104,29 @@
             layers: [googleHybrid]
         }).setView(initialCenter, initialZoom); 
   
+
+        var typeRenpam = '<?php echo json_encode($data['getDetail']['data']['type_renpam'])?>';
+        if(typeRenpam == 3){ //penjagaan
+            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+        }else if(typeRenpam == 4){ //pengaturan
+            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+        }else if(typeRenpam == 5){ //penutupan
+            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+        }else{
+            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+        }
         
 
         var route1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1'])?>'; 
@@ -126,7 +149,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: markerType,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -137,7 +160,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
+                                html: markerTypeEnd,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -152,7 +175,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                html: markerTypeOther,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -187,7 +210,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: markerType,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -198,7 +221,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                html: markerTypeEnd,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -213,7 +236,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://www.citypng.com/public/uploads/preview/hd-round-emergency-exit-escape-sign-icon-symbol-png-316282089114htwnmbnbp.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                html: markerTypeOther,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -248,7 +271,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -259,7 +282,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -274,7 +297,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://img1.pngdownload.id/20180403/cwe/kisspng-computer-icons-avatar-download-organization-flat-icon-5ac3dc8d228894.7977650815227854211415.jpg"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -309,7 +332,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -320,7 +343,7 @@
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin"  style="background: green;"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: green;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -335,7 +358,7 @@
                             marker = L.marker(wp.latLng, {
                             icon: L.divIcon({
                                 className: "location-pin",
-                                html: `<img src="https://grandwisatabekasi.com/wp-content/uploads/2019/05/transport.png"><div class="pin" style="background: grey;"></div><div class="pulse"></div>`,
+                                html: `<img src="https://cdn-icons-png.flaticon.com/512/178/178753.png"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`,
                                 iconSize: [5, 5],
                                 //iconAnchor: [18, 30]
                                 iconAnchor: [5, 10],
@@ -365,6 +388,49 @@
                 lineOptions: {
                         styles: [{color: "red", className: 'animateRoute'}] 
                 }, 
+                createMarker: function(i, wp, nWps) {
+                    if (i === 0 || i === nWps + 1) {
+                        // here change the starting and ending icons
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: markerType,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else if (i === nWps - 1) {
+                        return L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: markerTypeEnd,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+                    } else {
+                        // here change all the others
+                        var options = {
+                                draggable: this.draggableWaypoints,
+                            },
+                            marker = L.marker(wp.latLng, {
+                            icon: L.divIcon({
+                                className: "location-pin",
+                                html: markerTypeOther,
+                                iconSize: [5, 5],
+                                //iconAnchor: [18, 30]
+                                iconAnchor: [5, 10],
+                            }),
+                            draggable: this.draggableWaypoints,
+                        });
+
+                        return marker;
+                    }
+                },
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer); 
         }

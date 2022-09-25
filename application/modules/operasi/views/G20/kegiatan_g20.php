@@ -173,6 +173,13 @@
                         </div> 
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="total_vehicle" placeholder="" type="text">
+                                <label class="labelmui">Jumlah kendaraan yang dikawal</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="title_start" placeholder="" type="text">
                                 <label class="labelmui">Lokasi Awal</label>
                             </div>

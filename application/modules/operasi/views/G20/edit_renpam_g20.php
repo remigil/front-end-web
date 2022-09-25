@@ -87,6 +87,13 @@
                                     <label class="labelmui">Subjek</label>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input style="width: 100%;" name="total_vehicle" placeholder="" value="<?php echo $data['getDetail']['data']['total_vehicle'];?>" type="text">
+                                    <label class="labelmui">Jumlah kendaraan yang dikawal</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6"></div>
 
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
@@ -96,7 +103,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
-                                    <input required style="width: 100%;" name="title_end" value="<?php echo $data['getDetail']['data']['title_end'];?>" placeholder="" type="text">
+                                    <input style="width: 100%;" name="title_end" value="<?php echo $data['getDetail']['data']['title_end'];?>" placeholder="" type="text">
                                     <label class="labelmui">Lokasi Akhir</label>
                                 </div>
                             </div>

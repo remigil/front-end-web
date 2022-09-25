@@ -76,7 +76,7 @@ class Renpam extends MY_Controller
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
 
-
+        $dummy ['total_vehicle']	= $input['total_vehicle']; 
         $dummy ['title_start']	= $input['title_start']; 
         $dummy ['title_end']	= $input['title_end']; 
 
@@ -132,6 +132,7 @@ class Renpam extends MY_Controller
         $dummy ['accounts']	= json_encode($input['id_accountR']); 
         $dummy ['vips']	= json_encode($input['id_vipR']); 
 
+        $dummy ['total_vehicle']	= $input['total_vehicle']; 
         $dummy ['title_start']	= $input['title_start']; 
         $dummy ['title_end']	= $input['title_end']; 
         $dummy ['route']	= $input['ruteawalR']; 
@@ -312,6 +313,7 @@ class Renpam extends MY_Controller
         $dummy ['accounts']	= json_encode($input['id_account']); 
         $dummy ['vips']	= json_encode($input['id_vip']); 
 
+        $dummy ['total_vehicle']	= $input['total_vehicle']; 
         $dummy ['title_start']	= $input['title_start']; 
         $dummy ['title_end']	= $input['title_end']; 
         $dummy ['route']	= $input['ruteawal']; 
