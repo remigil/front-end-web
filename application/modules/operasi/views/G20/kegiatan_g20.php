@@ -161,7 +161,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select required name="subjekR" class="form-select">
+                                <select  name="subjekR" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -171,6 +171,18 @@
                                 <label class="labelmui">Subjek</label>
                             </div>
                         </div> 
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input required style="width: 100%;" name="title_start" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Awal</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="title_end" placeholder="" type="text">
+                                <label class="labelmui">Lokasi Akhir</label>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input type="text" name="note_kakor" class="form-control" id="note_kakor">

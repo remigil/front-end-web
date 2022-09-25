@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select required name="subjek" class="form-select">
+                                <select name="subjek" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="title_end" placeholder="" type="text">
+                                <input style="width: 100%;" name="title_end" placeholder="" type="text">
                                 <label class="labelmui">Lokasi Akhir</label>
                             </div>
                         </div>
