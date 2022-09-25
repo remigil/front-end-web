@@ -93,6 +93,7 @@
                                     <option value="2">Pengawalan</option> 
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
+                                    <option value="5">Penutupan</option>
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>

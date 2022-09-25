@@ -83,6 +83,8 @@
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '2' ? 'selected' : '');?> value="2">Pengawalan</option> 
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '3' ? 'selected' : '');?> value="3">Penjagaan</option> 
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '4' ? 'selected' : '');?> value="4">Pengaturan</option> 
+                                        <option <?php echo ($data['getDetail']['data']['type_renpam'] == '5' ? 'selected' : '');?> value="5">Penutupan</option> 
+                                        
                                     </select>
                                     <label class="labelmui">Subjek</label>
                                 </div>

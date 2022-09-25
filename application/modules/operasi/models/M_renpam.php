@@ -228,6 +228,8 @@ class M_renpam extends CI_Model {
                 $row ['type_renpam']	= 'Penjagaan';  
             } else if($field['type_renpam'] == 4){
                 $row ['type_renpam']	= 'Pengaturan';  
+            } else if($field['type_renpam'] == 5){
+                $row ['type_renpam']	= 'Penutupan';  
             }
             $row ['name_renpam']	= $field['name_renpam'];   
             if($field['schedule'] > 0){
