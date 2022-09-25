@@ -74,7 +74,13 @@ class Renpam extends MY_Controller
         $dummy ['start_time']	= $input['startTime']; 
         // $dummy ['end_time']	= $input['endTime']; 
         $dummy ['accounts']	= json_encode($input['id_account']); 
-        $dummy ['vips']	= json_encode($input['id_vip']); 
+
+        // echo json_encode($input['id_vip']);
+        // die; 
+        
+        if(isset($input['id_vip'])){
+            $dummy ['vips']	= json_encode($input['id_vip']); 
+        } 
 
         $dummy ['total_vehicle']	= $input['total_vehicle']; 
         $dummy ['title_start']	= $input['title_start']; 
@@ -87,8 +93,6 @@ class Renpam extends MY_Controller
         $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
         $dummy ['route_umum']	= $input['coordsAlternative4']; 
 
-        // echo json_encode($dummy);
-        // die; 
 
         
         $data = guzzle_request('POST', 'renpam/add', [ 
