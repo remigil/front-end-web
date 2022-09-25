@@ -78,6 +78,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/clockpicker.css">
 
 
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.common.css" />
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.light.css" />
+
     <style>
         .animateLine {   
             stroke-dasharray: 10; 
@@ -455,6 +458,11 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/simplebar/simplebar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/node-waves/waves.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/feather-icons/feather.min.js"></script>
+
+
+    <script src="https://cdn3.devexpress.com/jslib/18.2.6/js/dx.all.js"></script>
+
+    
 
     <script type="module">
     // Import the functions you need from the SDKs you need

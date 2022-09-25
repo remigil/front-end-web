@@ -215,10 +215,10 @@
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                             data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body text-muted">
-                                <div class="row">
+                                <div class="row"> 
                                     <div class="col-md-12">
-                                        <div class="list-group" id="listRenpam" style="height: 400px;overflow-y: auto;scrollbar-width: thin;"> 
-                                        </div>
+                                        <ul class="list-group" id="listRenpam" style="height: 400px;overflow-y: auto;scrollbar-width: thin;"> 
+                                        </ul>
                                     </div> 
                                 </div>
                             </div>
@@ -951,38 +951,42 @@
                         list = "";
                         ress.forEach(el => { 
                             countlist += 1;
-                            list += `<div class="list-group-item text-start" style="display: flex;" 
-                            href="javascript:void(0)">${el.name_officer} 
-                                <div style="right: 1px;position: absolute;">
-                                
-                                <div style="display: flex;">
-                                    <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                        
-                                        <button class="btn" style="margin-top: -7px;"
-                                            id="listPetugasClick${countlist}"   
-                                            data-nama="${el.name_team}"  
-                                            data-akun="${el.name_account}" 
-                                            data-nrp="${el.nrp_user}"
-                                            data-telp="${el.handphone}"
-                                            data-cord="${el.latitude},${el.longitude}" >
-                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </button>
-                                        <div class="switch">
-                                            <input class="flag" type="checkbox" id="flag${countlist}" 
-                                            data-id="${el.id_officer}"  
-                                            data-nama="${el.name_team}"  
-                                            data-akun="${el.name_account}" 
-                                            data-nrp="${el.nrp_user}"
-                                            data-telp="${el.handphone}"
-                                            data-cord="${el.latitude},${el.longitude}"
-                                            data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                            <label for="flag${countlist}"></label>
-                                        </div>
+                            list += `
+                            <div class="list-group-item text-start">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        ${el.name_officer} 
                                     </div>
-
-                                
+                                    <div class="col-md-6">
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                
+                                            <button class="btn" style="margin-top: -7px;"
+                                                id="listPetugasClick${countlist}"   
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch">
+                                                <input class="flag" type="checkbox" id="flag${countlist}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flag${countlist}"></label>
+                                            </div>
+                                        </div> 
+                                    </div>
                                 </div>
-                            </div>`;
+                                
+                            </div>
+                            `;
                             $('#listPetugas').html(list); 
                         });  
 
@@ -1889,7 +1893,7 @@
                         }
     
                         countlist += 1;
-                        list += `<div class="list-group-item text-start" style="display: flex;">
+                        list += `<li class="list-group-item text-start" style="display: flex;">
                             <div class="row">
                                 <div class="col-md-2" style="display: flex;align-items: center;">
                                     ${status}
@@ -1908,11 +1912,47 @@
                                     <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-cord=${JSON.stringify(el.route)} data-type="${el.type_renpam}" >
                                 </div>
                             </div>
-                        </div>`;
+                        </li>`;
                         $('#listRenpam').html(list); 
                     });  
 
+                    // var getListItem = function() {
+                    //     var items = listWidget.element().find(".dx-list-item");
+                    //     var focusedItem = items.filter(".dx-state-focused").removeClass("dx-state-focused");
+                    //     return focusedItem.length && focusedItem || items.first();
+                    // };
                     
+                    // var listWidget = $("#listRenpam").dxList({
+                    //     dataSource: ress,
+                    //     height: 400,
+                    //     searchEnabled: true,
+                    //     searchExpr: "name_renpam",
+                    //     searchEditorOptions: {
+                    //         onInitialized: function(e) {
+                    //             var search = e.component;
+
+                    //             search.on("valueChanged", function() {
+                    //                 clearTimeout(search.timeoutID);
+                    //                 search.timeoutID = setTimeout(function() {
+                    //                     getListItem().addClass("dx-state-focused");
+                    //                 }); 
+                    //             });
+                                
+                    //             search.registerKeyHandler("upArrow", function() {
+                    //                 getListItem().removeClass("dx-state-focused").prev().addClass("dx-state-focused");
+                    //             });
+                    //             search.registerKeyHandler("downArrow", function() {
+                    //                 getListItem().removeClass("dx-state-focused").next().addClass("dx-state-focused");
+                    //             });
+                    //         },
+                    //         onDisposing: function(e) {
+                    //             clearTimeout(e.component.timeoutID);
+                    //         }
+                    //     },
+                    //     itemTemplate: function(data) {
+                    //         return $("<div>").text(data.name_renpam);
+                    //     }
+                    // }).dxList("instance");
 
                     for (let i = 0; i < ress.length; i++){ 
                         $(`#listRenpamClick${i+1}`).on("change", function (e) {
@@ -1924,16 +1964,16 @@
                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                 markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-                            }else if(typeRenpam == 4){ //pengaturan
+                            }else if(typeRenpam == 4){ //pengaturan 
                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-                            }else if(typeRenpam == 5){ //penutupan
+                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                            }else if(typeRenpam == 5){ //penutupan 
                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
                             }else{
                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
