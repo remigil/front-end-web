@@ -290,7 +290,7 @@
                             <div class="material-selectfield mb-3">
                                 <select name="id_vip[]" id="id_vip" style="height: 200px" multiple> 
                                     <?php foreach($data['getVip'] as $row): ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?></option> 
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?>  ( <?= $row['country_arrival_vip']?> )</option> 
                                     <?php endforeach; ?> 
                                 </select>
                                 <label style="margin-top: -20px;font-size: 14px;" class="labelmui">VIP</label>

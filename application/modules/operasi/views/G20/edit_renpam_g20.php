@@ -62,7 +62,7 @@
                                                 <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?>
                                                     <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : '');?>  
                                                 <?php endforeach; ?>
-                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?>
+                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?>  ( <?= $row['country_arrival_vip']?> )
                                             </option>
                                         <?php endforeach; ?> 
                                     </select>
