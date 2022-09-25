@@ -86,7 +86,7 @@
         }
 
         .animateRoute {
-            stroke-dasharray: 10;
+            stroke-dasharray: 50;
             stroke-dashoffset: 1920;
             animation: dash linear  infinite;
             animation-duration: 20.5833s;  
