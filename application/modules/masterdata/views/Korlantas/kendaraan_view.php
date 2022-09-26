@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahKendaraan">Tambah Kendaraan</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahKendaraan">Tambah Kendaraan</button>
     <div class="card">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
@@ -39,7 +39,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" method="post" enctype="multipart/form-data">
+			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
@@ -496,8 +496,13 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailKendaraan,input').attr('readonly', true)
-                // $('.DetailKendaraan,input,#category').attr('disabled', true)
+                
+                $('.DetailKendaraan,#noKendaraan').attr('disabled', true)
+                $('.DetailKendaraan,#jenisKendaraan').attr('disabled', true)
+                $('.DetailKendaraan,#merekKendaraan').attr('disabled', true)
+                $('.DetailKendaraan,#kepemilikan').attr('disabled', true)
+
+				
                 $('.DetailKendaraan,#noKendaraan').val(results.no_vehicle)
                 $('.DetailKendaraan,#jenisKendaraan').val(results.type_vehicle)
                 $('.DetailKendaraan,#merekKendaraan').val(results.brand_vehicle)
@@ -515,9 +520,14 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahKendaraan,input').attr('readonly', false)
-                $('.UbahKendaraan,input,#category').attr('disabled', false)
+                
+                $('.UbahKendaraan,#noKendaraan').attr('disabled', false)
+                $('.UbahKendaraan,#jenisKendaraan').attr('disabled', false)
+                $('.UbahKendaraan,#merekKendaraan').attr('disabled', false)
+                $('.UbahKendaraan,#kepemilikan').attr('disabled', false)
+
                 $('#id_kendaraan').val(results.id)
+
                 $('.UbahKendaraan,#noKendaraan').val(results.no_vehicle)
                 $('.UbahKendaraan,#jenisKendaraan').val(results.type_vehicle)
                 $('.UbahKendaraan,#merekKendaraan').val(results.brand_vehicle)
@@ -599,4 +609,8 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>

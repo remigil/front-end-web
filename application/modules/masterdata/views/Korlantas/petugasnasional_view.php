@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahPetugas">Tambah Petugas</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahPetugas">Tambah Petugas</button>
     <div class="card">
 
         <div class="card-body">
@@ -42,7 +42,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form" method="post" enctype="multipart/form-data">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-3" style="margin-top:1vh">
                             <input type="file" name="photo" id="" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
@@ -651,8 +651,16 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailPetugasnasional,input').attr('readonly', true)
-                // $('.DetailPetugasnasional,input,#category').attr('disabled', true)
+                
+                $('.DetailPetugasnasional,#nrpPetugas').attr('disabled', true)
+                $('.DetailPetugasnasional,#namaPetugas').attr('disabled', true)
+                $('.DetailPetugasnasional,#noHP').attr('disabled', true)
+                $('.DetailPetugasnasional,#pangkat').attr('disabled', true)
+                $('.DetailPetugasnasional,#pamPetugas').attr('disabled', true)
+                $('.DetailPetugasnasional,#struktural').attr('disabled', true)
+                $('.DetailPetugasnasional,#status').attr('disabled', true)
+                
+
                 $('.DetailPetugasnasional,#nrpPetugas').val(results.nrp_officer)
                 $('.DetailPetugasnasional,#namaPetugas').val(results.name_officer)
                 $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
@@ -674,16 +682,24 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPetugasnasional,input').attr('readonly', false)
-                // $('.UbahPetugasnasional,input,#category').attr('disabled', false)
+
+                $('.UbahPetugasnasional,#nrpPetugas').attr('disabled', false)
+                $('.UbahPetugasnasional,#namaPetugas').attr('disabled', false)
+                $('.UbahPetugasnasional,#noHP').attr('disabled', false)
+                $('.UbahPetugasnasional,#pangkat').attr('disabled', false)
+                $('.UbahPetugasnasional,#pamPetugas').attr('disabled', false)
+                $('.UbahPetugasnasional,#struktural').attr('disabled', false)
+                $('.UbahPetugasnasional,#status').attr('disabled', false)
+
                 $('#id_petugas').val(results.id)
-                $('.DetailPetugasnasional,#nrpPetugas').val(results.nrp_officer)
-                $('.DetailPetugasnasional,#namaPetugas').val(results.name_officer)
-                $('.DetailPetugasnasional,#noHP').val(results.phone_officer)
-                $('.DetailPetugasnasional,#pangkat').val(results.rank_officer)
-                $('.DetailPetugasnasional,#pamPetugas').val(results.pam_officer)
-                $('.DetailPetugasnasional,#struktural').val(results.structural_officer)
-                $('.DetailPetugasnasional,#status').val(results.status_officer)
+
+                $('.UbahPetugasnasional,#nrpPetugas').val(results.nrp_officer)
+                $('.UbahPetugasnasional,#namaPetugas').val(results.name_officer)
+                $('.UbahPetugasnasional,#noHP').val(results.phone_officer)
+                $('.UbahPetugasnasional,#pangkat').val(results.rank_officer)
+                $('.UbahPetugasnasional,#pamPetugas').val(results.pam_officer)
+                $('.UbahPetugasnasional,#struktural').val(results.structural_officer)
+                $('.UbahPetugasnasional,#status').val(results.status_officer)
             }
         })
     }
@@ -761,4 +777,8 @@
             }
         })
     })
+	
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>
