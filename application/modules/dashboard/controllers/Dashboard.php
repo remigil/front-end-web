@@ -261,10 +261,24 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        $input = $this->input->post(); 
+        // if ($input['search']) {
+        //     $search = '&search=' . $input['search'] . '';
+        // } else {
+        //     $search = '';
+        // }
+        if ($input['type']) {
+            $type = '&filter[]=type_renpam&filterSearch[]=' . $input['type'] . '';
+        } else {
+            $type = '';
+        }
+        // if($input['page']){
+        //     $page = ''.$input['page'].'';
+        // }else{
+        //     $page = '1';
+        // } 
 
-
-        $url = 'renpam';
+        $url = 'renpam?serverSide=True&length=1000'.$type.'';
         $getRenpam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
