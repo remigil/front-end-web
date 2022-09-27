@@ -139,7 +139,7 @@ class M_pengguna_umum extends CI_Model
             $row['no_hp']           = '+62 ' . $field['no_hp'];
             $row['created_at']       = $field['created_at'];
             // $row['action']         = $status . ' 
-            $row['action']         = ' 
+            $row['action']         = $status.' 
                 
 				<button class="btn btn-primary" style="border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPenggunaUmum">
                     Detail

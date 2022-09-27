@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahSamsat">Tambah Samsat</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahSamsat">Tambah Samsat</button>
     <div class="card">
 
         <div class="card-body">
@@ -43,7 +43,7 @@
             <div class="modal-body">
                 <div class="row m-3">
                     <div class="col-md-12">
-						<form action="" class="form" method="post" enctype="multipart/form-data">
+						<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaSamsat" name="namaSamsat" placeholder="Samsat">
                                 <label for="namaSamsat">Nama Samsat</label>
@@ -108,7 +108,7 @@
 </div>
 
 <!-- Edit Modals -->
-<div class="modal fade UbahSamsat" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade UbahSamsat" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -125,9 +125,16 @@
                                 <label for="namaSamsat">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
-                                <label for="address">Alamat</label>
-                            </div>
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
+                                <label for="">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+							<div class="col-md-6" style="display: none;">
+                            	<div class="material-textfield mb-3">
+                            		<input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                            		<label class="labelmui">Coordinate</label>
+                            	</div>
+                        	</div>
 							<div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
@@ -143,7 +150,11 @@
                                 </div>
 								
                             </div>
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                            <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
@@ -231,12 +242,13 @@
 
 
 <script>
+	
         
     $(document).ready(function() {
 
-		$('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -367,6 +379,8 @@
 			
 
         });
+
+		
 
         userDataTable = $('#datatable').DataTable({
 
@@ -521,9 +535,14 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailSamsat,input').attr('readonly', true)
-                $('.DetailSamsat,textarea').attr('readonly', true)
-                // $('.DetailSamsat,input,#address').attr('disabled', true)
+                
+                $('.DetailSamsat,#namaSamsat').attr('disabled', true)
+                $('.DetailSamsat,#address').attr('disabled', true)
+                $('.DetailSamsat,#latitude').attr('disabled', true)
+                $('.DetailSamsat,#longitude').attr('disabled', true)
+                $('.DetailSamsat,#jamBuka').attr('disabled', true)
+                $('.DetailSamsat,#jamTutup').attr('disabled', true)
+
                 $('.DetailSamsat,#namaSamsat').val(results.name_samsat)
                 $('.DetailSamsat,#address').val(results.address)
 				$('.DetailSamsat,#latitude').val(results.samsat_lat)
@@ -543,16 +562,21 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahSamsat,input').attr('readonly', false)
-                $('.UbahSamsat,textarea').attr('readonly', false)
-                // $('.UbahSamsat,input,#address').attr('disabled', false)
+                $('.UbahSamsat,#namaSamsat').attr('disabled', false)
+                $('.UbahSamsat,#address').attr('disabled', false)
+                $('.UbahSamsat,#latitude').attr('disabled', false)
+                $('.UbahSamsat,#longitude').attr('disabled', false)
+                $('.UbahSamsat,#jamBuka').attr('disabled', false)
+                $('.UbahSamsat,#jamTutup').attr('disabled', false)
+
                 $('#id_samsat').val(results.id)
-                $('.DetailSamsat,#namaSamsat').val(results.name_samsat)
-                $('.DetailSamsat,#address').val(results.address)
-				$('.DetailSamsat,#latitude').val(results.samsat_lat)
-                $('.DetailSamsat,#longitude').val(results.samsat_lng)
-                $('.DetailSamsat,#jamBuka').val(results.samsat_open_time)
-                $('.DetailSamsat,#jamTutup').val(results.samsat_close_time)
+
+                $('.UbahSamsat,#namaSamsat').val(results.name_samsat)
+                $('.UbahSamsat,#address').val(results.address)
+				$('.UbahSamsat,#latitude').val(results.samsat_lat)
+                $('.UbahSamsat,#longitude').val(results.samsat_lng)
+                $('.UbahSamsat,#jamBuka').val(results.samsat_open_time)
+                $('.UbahSamsat,#jamTutup').val(results.samsat_close_time)
             }
         })
     }
@@ -630,4 +654,8 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>

@@ -56,15 +56,87 @@ class Polda extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
             $dummy = [
+				[
+					'name' => 'logo_polda',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename,
+				],
+                [
+					'name' => 'code_satpas',
+					'contents' => $input['kodeSatpas'],
+				],
                 [
 					'name' => 'name_polda',
 					'contents' => $input['namaPolda'],
 				],
+                [
+					'name' => 'address',
+					'contents' => $input['address'],
+				],
+                [
+					'name' => 'latitude',
+					'contents' => $input['latitude'],
+				],
+                [
+					'name' => 'longitude',
+					'contents' => $input['longitude'],
+				],
+                [
+					'name' => 'open_time',
+					'contents' => $input['open_time'],
+				],
+                [
+					'name' => 'close_time',
+					'contents' => $input['close_time'],
+				],
+				[
+					'name' => 'phone_polda',
+					'contents' => $input['phone_polda'],
+				],
 				
                 
-            ]; 
+            ];
+		} else {
+				$dummy = [
+					[
+						'name' => 'code_satpas',
+						'contents' => $input['kodeSatpas'],
+					],
+					[
+						'name' => 'name_polda',
+						'contents' => $input['namaPolda'],
+					],
+					[
+						'name' => 'address',
+						'contents' => $input['address'],
+					],
+					[
+						'name' => 'latitude',
+						'contents' => $input['latitude'],
+					],
+					[
+						'name' => 'longitude',
+						'contents' => $input['longitude'],
+					],
+					[
+						'name' => 'open_time',
+						'contents' => $input['open_time'],
+					],
+					[
+						'name' => 'close_time',
+						'contents' => $input['close_time'],
+					],
+					[
+						'name' => 'phone_polda',
+						'contents' => $input['phone_polda'],
+					],
+	
+				];
+			} 
 
 			$data = guzzle_request('POST', 'polda/add', [ 
 				'multipart' => $dummy, 
@@ -147,15 +219,89 @@ class Polda extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        
-		$dummy = [
-			[
-				'name' => 'name_polda',
-				'contents' => $input['namaPolda'],
-			],
+        $path = $_FILES['photo']['tmp_name'];
+        $filename = $_FILES['photo']['name'];
+        if($_FILES['photo']['name']){ 
+            $dummy = [
+                [
+					'name' => 'code_satpas',
+					'contents' => $input['kodeSatpas'],
+				],
+                [
+					'name' => 'name_polda',
+					'contents' => $input['namaPolda'],
+				],
+                [
+					'name' => 'address',
+					'contents' => $input['address'],
+				],
+                [
+					'name' => 'logo_polda',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename,
+				],
+                [
+					'name' => 'latitude',
+					'contents' => $input['latitude'],
+				],
+                [
+					'name' => 'longitude',
+					'contents' => $input['longitude'],
+				],
+                [
+					'name' => 'open_time',
+					'contents' => $input['open_time'],
+				],
+                [
+					'name' => 'close_time',
+					'contents' => $input['close_time'],
+				],
+                [
+					'name' => 'phone_polda',
+					'contents' => $input['phone_polda'],
+				],
+				
+                
+            ];
+		} else {
+				$dummy = [
+					[
+						'name' => 'code_satpas',
+						'contents' => $input['kodeSatpas'],
+					],
+					[
+						'name' => 'name_polda',
+						'contents' => $input['namaPolda'],
+					],
+					[
+						'name' => 'address',
+						'contents' => $input['address'],
+					],
+					
+					[
+						'name' => 'latitude',
+						'contents' => $input['latitude'],
+					],
+					[
+						'name' => 'longitude',
+						'contents' => $input['longitude'],
+					],
+					[
+						'name' => 'open_time',
+						'contents' => $input['open_time'],
+					],
+					[
+						'name' => 'close_time',
+						'contents' => $input['close_time'],
+					],
+					[
+						'name' => 'phone_polda',
+						'contents' => $input['phone_polda'],
+					],
+	
+				];
+			}
 			
-			
-		]; 
         $data = guzzle_request('PUT', 'polda/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
             'headers' => $headers

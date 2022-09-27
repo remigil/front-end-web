@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahPolda">Tambah Polda</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahPolda">Tambah Polda</button>
     <div class="card">
 
         <div class="card-body">
@@ -18,7 +18,9 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Polda</th>
-                        <!-- <th width="40%">Alamat</th> -->
+                        <th>Kode Satpas</th>
+                        <th width="40%">Alamat</th>
+                        <th>No. Telepon Polda</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -38,15 +40,110 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" method="post" enctype="multipart/form-data">
+			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
-					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polda</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
+                        
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="namaPolda">
+                                <label for="" class="labelmui">Nama Polda</label>
+                            </div>
+                        </div>
+						<div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="address" placeholder="" type="text" required>
+                                <label class="labelmui">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
+                            </div>
+                        </div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="latitude">
+									<label for="" class="labelmui">Latitude</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="text" name="longitude">
+									<label for="" class="labelmui">Longitude</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12 mt-1">
+							<div id="mapG20Kegiatan" style="height: 400px">
+								<img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="phone_polda">
+                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 mt-3">
+                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade UbahPolda" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Polda</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<div class="row">
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
                                 <input type="text" name="namaPolda" id="namaPolda">
@@ -55,7 +152,7 @@
                         </div>
 						<div class="col-md-12">
                             <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="alamatPolda" placeholder="" type="text" required>
+                                <input style="width: 100%;" name="address" id="address" placeholder="" type="text" required>
                                 <label class="labelmui">Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
@@ -81,53 +178,37 @@
 							</div>
 							
 						</div>
-                    </div>
-                    <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
-                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
-                            </div>
-                        </div>
-
-
-                    <div class="col-md-12 mt-3">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade UbahPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Polda</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="" id="id_polda" type="text">
-                    <div class="row">
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polda</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
-                        <div class="col-md-12">
+						<div class="col-md-12 mt-1">
+							<div id="mapG20Kegiatan" style="height: 400px">
+								<img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="open_time" id="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="close_time" id="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="namaPolda" id="namaPolda">
-                                <label for="" class="labelmui">Nama Polda</label>
+                                <input type="text" name="phone_polda" id="phone_polda">
+                                <label for="" class="labelmui">Nomor Telepon Polda</label>
                             </div>
-
-                            <!-- <div class="material-textfield">
-                                <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
-                                <label for="" class="labelmui">Alamat</label>
-                            </div> -->
                         </div>
                     </div>
-                    <!-- <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div> -->
-                    <div class="col-md-12">
-					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+
+
+                    <div class="col-md-12 mt-3">
+                        <button type="submit" id="btn_edit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -136,7 +217,7 @@
 </div><!-- /.modal -->
 
 
-<div class="modal fade DetailPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailPolda" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -145,25 +226,50 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="row">
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polda</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
+				<div class="row">
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
+                        
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <input type="text" name="namaPolda" id="namaPolda" style="width:105% ;">
+                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <label for="" class="labelmui">Kode Satpas</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="namaPolda" id="namaPolda">
                                 <label for="" class="labelmui">Nama Polda</label>
                             </div>
-
-                            <!-- <div class="material-textfield">
-                                <input type="text" name="" id="" style="height:16.2vh; width:105% ;">
-                                <label for="" class="labelmui">Alamat</label>
-                            </div> -->
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+						<div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <textarea style="width: 100%;" name="address" id="address" placeholder="" type="text" required></textarea>
+                                <label class="labelmui">Alamat</label>
+                            </div> 
+                        </div> 
+						<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="open_time" id="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="close_time" id="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="phone_polda" id="phone_polda">
+                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -175,10 +281,11 @@
 
 <script>
     $(document).ready(function() {
+		$('.dropify').dropify();
 
-		$('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -232,7 +339,7 @@
 
             let countlist = 0;
             let list = ""; 
-            $('[name=alamatPolda]').on("change", function (e) {
+            $('[name=address]').on("change", function (e) {
                 // console.log(this.value);
                 $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
                     console.log(ress);  
@@ -264,7 +371,7 @@
 							$("[name=longitude]").val(longitude);
 
                             // console.log({a:latitude, b:longitude});
-                            $('[name=alamatPolda]').val($(this).data('alamat'));
+                            $('[name=address]').val($(this).data('alamat'));
                             $('[name=cordinate]').val($(this).data('cords'));
                             mapContainer.flyTo([latitude, longitude], 17);    
                         });
@@ -283,7 +390,7 @@
                 // console.log({a:cordLat, b:corLong});
 
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    $('[name=alamatPolda]').val(data['display_name']); 
+                    $('[name=address]').val(data['display_name']); 
                     mapContainer.flyTo([cordLat, corLong], 17);  
                 }); 
             });
@@ -301,7 +408,7 @@
 
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
 
-                    $('[name=alamatPolda]').val(data['display_name']); 
+                    $('[name=address]').val(data['display_name']); 
 
                 }); 
 
@@ -394,9 +501,16 @@
                 {
                     data: 'name_polda'
                 },
-                // {
-                //     data: 'alamat'
-                // },
+                {
+                    data: 'code_satpas'
+                },
+                {
+                    data: 'address'
+                },
+                {
+                    data: 'phone_polda'
+                },
+                
                 {
                     data: 'action',
                     orderable: false
@@ -460,11 +574,26 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailPolda,input').attr('readonly', true)
-                // $('.DetailPolda,input,#category').attr('disabled', true)
+                $('.DetailPolda,#photo').attr('disabled', true)
+                $('.DetailPolda,#kodeSatpas').attr('disabled', true)
+                $('.DetailPolda,#namaPolda').attr('disabled', true)
+                $('.DetailPolda,#address').attr('disabled', true)
+                $('.DetailPolda,#latitude').attr('disabled', true)
+                $('.DetailPolda,#longitude').attr('disabled', true)
+                $('.DetailPolda,#open_time').attr('disabled', true)
+                $('.DetailPolda,#close_time').attr('disabled', true)
+                $('.DetailPolda,#phone_polda').attr('disabled', true)
+				
+                $('.DetailPolda,#photo').val(results.logo_polda)
+                $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
                 $('.DetailPolda,#namaPolda').val(results.name_polda)
-                // $('.DetailPolda,#category').val(results.news_category)
-                // $('.DetailPolda,#content').val(results.content)
+                $('.DetailPolda,#address').val(results.address)
+                $('.DetailPolda,#latitude').val(results.latitude)
+                $('.DetailPolda,#longitude').val(results.longitude)
+                $('.DetailPolda,#open_time').val(results.open_time)
+                $('.DetailPolda,#close_time').val(results.close_time)
+                $('.DetailPolda,#phone_polda').val(results.phone_polda)
+                
             }
         })
     }
@@ -478,12 +607,27 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPolda,input').attr('readonly', false)
-                // $('.UbahPolda,input,#category').attr('disabled', false)
-                $('#id_polda').val(results.id)
-                $('.DetailPolda,#namaPolda').val(results.name_polda)
-                // $('.UbahPolda,#category').val(results.news_category)
-                // $('.UbahPolda,#content').val(results.content)
+                $('.UbahPolda,#photo').attr('disabled', false)
+                $('.UbahPolda,#kodeSatpas').attr('disabled', false)
+                $('.UbahPolda,#namaPolda').attr('disabled', false)
+                $('.UbahPolda,#address').attr('disabled', false)
+                $('.UbahPolda,#latitude').attr('disabled', false)
+                $('.UbahPolda,#longitude').attr('disabled', false)
+                $('.UbahPolda,#open_time').attr('disabled', false)
+                $('.UbahPolda,#close_time').attr('disabled', false)
+                $('.UbahPolda,#phone_polda').attr('disabled', false)
+
+				$('.UbahPolda,#id').val(results.id)
+				
+                $('.UbahPolda,#photo').val(results.logo_polda)
+                $('.UbahPolda,#kodeSatpas').val(results.code_satpas)
+                $('.UbahPolda,#namaPolda').val(results.name_polda)
+                $('.UbahPolda,#address').val(results.address)
+                $('.UbahPolda,#latitude').val(results.latitude)
+                $('.UbahPolda,#longitude').val(results.longitude)
+                $('.UbahPolda,#open_time').val(results.open_time)
+                $('.UbahPolda,#close_time').val(results.close_time)
+                $('.UbahPolda,#phone_polda').val(results.phone_polda)
             }
         })
     }
@@ -561,4 +705,8 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>

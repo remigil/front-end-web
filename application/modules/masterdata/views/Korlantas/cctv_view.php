@@ -10,7 +10,7 @@
 <div class="row align-items-center">
     <div class="col-md-6">
         <div class="mb-3">
-		<button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahCCTV">Tambah CCTV</button>
+		<button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahCCTV">Tambah CCTV</button>
         </div>
     </div>
 
@@ -68,41 +68,41 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" method="post" enctype="multipart/form-data">
+				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
 					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="tipeCCTV" placeholder="CCTV">
                                 <label for="tipeCCTV">Type CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="jenisCCTV" name="jenisCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="jenisCCTV" placeholder="CCTV">
                                 <label for="jenisCCTV">Jenis CCTV</label>
                             </div>
                         </div>
 						<div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="ipCCTV" name="ipCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="ipCCTV" placeholder="CCTV">
                                 <label for="ipCCTV">IP CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="merekCCTV" name="merekCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="merekCCTV" placeholder="CCTV">
                                 <label for="merekCCTV">Merek CCTV</label>
                             </div>
                         </div>
 						<div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="gatewayCCTV" name="gatewayCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="gatewayCCTV" placeholder="CCTV">
                                 <label for="gatewayCCTV">Gateway CCTV</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="linkCCTV" name="linkCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="linkCCTV" placeholder="CCTV">
                                 <label for="linkCCTV">Link CCTV</label>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input name="lokasiCCTV" id="lokasiCCTV" class="form-control" placeholder="Alamat" type="text" required>
+                                <input name="lokasiCCTV" class="form-control" placeholder="Alamat" type="text" required>
                                 <label for="address">Lokasi CCTV</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
@@ -130,26 +130,26 @@
 					<div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="vmsCCTV" name="vmsCCTV" placeholder="CCTV">
+								<input type="text" class="form-control" name="vmsCCTV" placeholder="CCTV">
                                 <label for="vmsCCTV">VMS CCTV</label>
                             </div>
                         </div>
 						<div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="username" name="username" placeholder="CCTV">
+								<input type="text" class="form-control" name="username" placeholder="CCTV">
                                 <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="password" name="password" placeholder="CCTV">
+								<input type="text" class="form-control" name="password" placeholder="CCTV">
                                 <label for="password">Password</label>
                             </div>
                         </div>
                     </div>
 					<div class="row mb-3">
                                 <div class="material-textfield">
-                                    <input type="hidden" name="status" id="status">
+                                    <input type="hidden" name="status">
                                     <label for="" class="labelmui">Status</label>
                                 </div>
                                 <div class="col-md-3">
@@ -177,17 +177,18 @@
     </div>
 </div>
 
-<div class="modal fade UbahCCTV" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<!-- Ubah Modals -->
+<div class="modal fade UbahCCTV" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit CCTV</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Ubah Akun</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="id" value="" id="id_cctv" type="text">
-				<div class="row">
+			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="" id="id_cctv" type="text">
+					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
 								<input type="text" class="form-control" id="tipeCCTV" name="tipeCCTV" placeholder="CCTV">
@@ -233,17 +234,7 @@
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
-                        <div class="col-md-6" style="display: none;">
-                            <div class="form-floating mb-3">
-                            <input style="width: 100%;" name="cordinate" class="form-control" type="text">
-                                <label for="cordinate">Coordinate</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 mt-3 mb-3">
-                            <div id="mapG20Dashboard" style="height: 400px">
-                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
-                            </div>
-                        </div>
+                        
                     </div>
 					<div class="row">
                         <div class="col-md-12">
@@ -266,12 +257,15 @@
                         </div>
                     </div>
 
-					<button class="btn btn-primary float-end" id="btn_edit" type="submit">SIMPAN</button>
+					<div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                            </div>
+                    
                 </form>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
 <!-- Detail Modals -->
 <div class="modal fade DetailCCTV" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -483,9 +477,9 @@
 
 
 
-        $('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+        $('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -650,8 +644,19 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailCCTV,input').attr('readonly', true)
-                // $('.DetailCCTV,input,#category').attr('disabled', true)
+                
+                $('.DetailCCTV,#tipeCCTV').attr('disabled', true)
+                $('.DetailCCTV,#jenisCCTV').attr('disabled', true)
+                $('.DetailCCTV,#ipCCTV').attr('disabled', true)
+                $('.DetailCCTV,#merekCCTV').attr('disabled', true)
+                $('.DetailCCTV,#gatewayCCTV').attr('disabled', true)
+                $('.DetailCCTV,#linkCCTV').attr('disabled', true)
+                $('.DetailCCTV,#lokasiCCTV').attr('disabled', true)
+                $('.DetailCCTV,#vmsCCTV').attr('disabled', true)
+                $('.DetailCCTV,#username').attr('disabled', true)
+                $('.DetailCCTV,#password').attr('disabled', true)
+                $('.DetailCCTV,#status').attr('disabled', true)
+
                 $('.DetailCCTV,#tipeCCTV').val(results.type_cctv)
                 $('.DetailCCTV,#jenisCCTV').val(results.jenis_cctv)
                 $('.DetailCCTV,#ipCCTV').val(results.ip_cctv)
@@ -669,16 +674,27 @@
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>mastedata/Cctv/detailCCTV/',
+            url: '<?= base_url() ?>masterdata/Cctv/detailCCTV',
             type: 'POST',
             data: {
                 id_cctv: id
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahCCTV,input').attr('readonly', false)
-                // $('.DetailCCTV,input,#category').attr('disabled', true)
+                $('.UbahCCTV,#tipeCCTV').attr('disabled', false)
+                $('.UbahCCTV,#jenisCCTV').attr('disabled', false)
+                $('.UbahCCTV,#ipCCTV').attr('disabled', false)
+                $('.UbahCCTV,#merekCCTV').attr('disabled', false)
+                $('.UbahCCTV,#gatewayCCTV').attr('disabled', false)
+                $('.UbahCCTV,#linkCCTV').attr('disabled', false)
+                $('.UbahCCTV,#lokasiCCTV').attr('disabled', false)
+                $('.UbahCCTV,#vmsCCTV').attr('disabled', false)
+                $('.UbahCCTV,#username').attr('disabled', false)
+                $('.UbahCCTV,#password').attr('disabled', false)
+                $('.UbahCCTV,#status').attr('disabled', false)
+
                 $('#id_cctv').val(results.id)
+
                 $('.UbahCCTV,#tipeCCTV').val(results.type_cctv)
                 $('.UbahCCTV,#jenisCCTV').val(results.jenis_cctv)
                 $('.UbahCCTV,#ipCCTV').val(results.ip_cctv)
@@ -688,8 +704,8 @@
                 $('.UbahCCTV,#lokasiCCTV').val(results.address_cctv)
                 $('.UbahCCTV,#vmsCCTV').val(results.vms_cctv)
                 $('.UbahCCTV,#username').val(results.username_cctv)
-                $('.UbahCCTV,#password').val(results.password_cctv)
-				$('.UbahCCTV,#status').val(results.status_cctv)
+                $('.UbahCCTV,#password').val(results.password)
+                $('.UbahCCTV,#status').val(results.status_cctv)
             }
         })
     }
@@ -767,4 +783,8 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>

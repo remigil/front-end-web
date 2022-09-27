@@ -34,12 +34,12 @@ class Petugas extends MY_Controller
         }
 
 
-        $getRank = guzzle_request('GET', 'rank_officer', [  
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
             'headers' => $headers 
         ]); 
         $data['getRank'] = $getRank['data']['data']; 
 
-        $getStructural = guzzle_request('GET', 'structural', [  
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
             'headers' => $headers 
         ]); 
         $data['getStructural'] = $getStructural['data']['data']; 
@@ -213,12 +213,12 @@ class Petugas extends MY_Controller
         ]);
         $data['getDetail'] = $getDetail['data'];
 
-        $getRank = guzzle_request('GET', 'rank_officer', [  
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
             'headers' => $headers 
         ]); 
         $data['getRank'] = $getRank['data']['data']; 
 
-        $getStructural = guzzle_request('GET', 'structural', [  
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
             'headers' => $headers 
         ]); 
         $data['getStructural'] = $getStructural['data']['data']; 

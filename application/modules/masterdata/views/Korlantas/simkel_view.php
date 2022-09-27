@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=" .AddSim">Tambah SIM Keliling</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=" .TambahSimkel">Tambah SIM Keliling</button>
     <div class="card">
 
         <div class="card-body">
@@ -33,7 +33,7 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade AddSim" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahSimkel" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -43,15 +43,15 @@
             <div class="modal-body">
                 <div class="row m-3">
                     <div class="col-md-12">
-                        <form action="" class="form" method="post" enctype="multipart/form-data">
+                        <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="name_sim_keliling" name="name_sim_keliling" placeholder="Sim Keliling">
+                                <input type="text" class="form-control" name="name_sim_keliling" placeholder="Sim Keliling">
                                 <label for="name_sim_keliling">Nama SIM Keliling</label>
                             </div>
 							
                             <div class="col-md-12">
                             <div class="form-floating mb-3">
-								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address"></textarea>
                                 <label for="">Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
@@ -85,13 +85,13 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" name="sim_keliling_open_time" id="sim_keliling_open_time" placeholder="">
+                                        <input type="time" class="form-control" name="sim_keliling_open_time" placeholder="">
                                         <label for="sim_keliling_open_time">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" name="sim_keliling_close_time" id="sim_keliling_close_time" placeholder="">
+                                        <input type="time" class="form-control" name="sim_keliling_close_time" placeholder="">
                                         <label for="sim_keliling_close_time">Jam Tutup</label>
                                     </div>
                                 </div>
@@ -206,9 +206,9 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-		$('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -493,9 +493,12 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailSimkel,input').attr('readonly', true)
-                $('.DetailSimkel,textarea').attr('readonly', true)
-                // $('.DetailSimkel,input,#address').attr('disabled', true)
+                
+                $('.DetailSimkel,#name_sim_keliling').attr('disabled', true)
+                $('.DetailSimkel,#address').attr('disabled', true)
+                $('.DetailSimkel,#sim_keliling_open_time').attr('disabled', true)
+                $('.DetailSimkel,#sim_keliling_close_time').attr('disabled', true)
+
                 $('.DetailSimkel,#name_sim_keliling').val(results.name_sim_keliling)
                 $('.DetailSimkel,#address').val(results.address)
                 $('.DetailSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
@@ -513,14 +516,17 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahSimkel,input').attr('readonly', false)
-                $('.UbahSimkel,textarea').attr('readonly', false)
-                $('.UbahSimkel,input,#address').attr('disabled', false)
+                $('.UbahSimkel,#name_sim_keliling').attr('disabled', false)
+                $('.UbahSimkel,#address').attr('disabled', false)
+                $('.UbahSimkel,#sim_keliling_open_time').attr('disabled', false)
+                $('.UbahSimkel,#sim_keliling_close_time').attr('disabled', false)
+
                 $('#id_simkel').val(results.id)
-                $('.DetailSimkel,#name_sim_keliling').val(results.name_sim_keliling)
-                $('.DetailSimkel,#address').val(results.address)
-                $('.DetailSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
-                $('.DetailSimkel,#sim_keliling_close_time').val(results.sim_keliling_close_time)
+
+                $('.UbahSimkel,#name_sim_keliling').val(results.name_sim_keliling)
+                $('.UbahSimkel,#address').val(results.address)
+                $('.UbahSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
+                $('.UbahSimkel,#sim_keliling_close_time').val(results.sim_keliling_close_time)
             }
         })
     }
@@ -598,4 +604,8 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 </script>

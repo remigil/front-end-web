@@ -109,7 +109,7 @@ class M_berita extends CI_Model {
             ]);
 
 
-        var_dump($result);
+        // var_dump($result);
 		// echo "<pre>";
 		// var_dump($result);
 		// echo "</pre>";

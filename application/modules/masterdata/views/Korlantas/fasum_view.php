@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Umum</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Umum</button>
     <div class="card">
 
         <div class="card-body">
@@ -43,7 +43,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-				<form action="" class="form" method="post" enctype="multipart/form-data">
+				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -372,9 +372,9 @@
 	$(document).ready(function() {
         $('.dropify').dropify();
 
-		$('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -665,8 +665,19 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailFasum,input').attr('readonly', true)
-                // $('.DetailFasum,input,#category').attr('disabled', true)
+                
+                $('.DetailFasum,#namaFasum').attr('disabled', true)
+                $('.DetailFasum,#jenisFasum').attr('disabled', true)
+                $('.DetailFasum,#alamatFasum').attr('disabled', true)
+                $('.DetailFasum,#latitude').attr('disabled', true)
+                $('.DetailFasum,#longitude').attr('disabled', true)
+                $('.DetailFasum,#deskripsiFasum').attr('disabled', true)
+                $('.DetailFasum,#kontakFasum').attr('disabled', true)
+                $('.DetailFasum,#statusFasum').attr('disabled', true)
+                $('.DetailFasum,#photo').attr('disabled', true)
+                $('.DetailFasum,#jamBuka').attr('disabled', true)
+                $('.DetailFasum,#jamTutup').attr('disabled', true)
+
                 $('.DetailFasum,#namaFasum').val(results.fasum_name)
                 $('.DetailFasum,#jenisFasum').val(results.fasum_type)
                 $('.DetailFasum,#alamatFasum').val(results.fasum_address)
@@ -675,7 +686,7 @@
                 $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
                 $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
                 $('.DetailFasum,#statusFasum').val(results.fasum_status)
-                // $('.DetailFasum,#photo').val(results.fasum_logo)
+                $('.DetailFasum,#photo').val(results.fasum_logo)
                 $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
                 $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
@@ -691,20 +702,31 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahFasum,input').attr('readonly', false)
-                // $('.DetailFasum,input,#category').attr('disabled', true)
+                $('.UbahFasum,#namaFasum').attr('disabled', false)
+                $('.UbahFasum,#jenisFasum').attr('disabled', false)
+                $('.UbahFasum,#alamatFasum').attr('disabled', false)
+                $('.UbahFasum,#latitude').attr('disabled', false)
+                $('.UbahFasum,#longitude').attr('disabled', false)
+                $('.UbahFasum,#deskripsiFasum').attr('disabled', false)
+                $('.UbahFasum,#kontakFasum').attr('disabled', false)
+                $('.UbahFasum,#statusFasum').attr('disabled', false)
+                $('.UbahFasum,#photo').attr('disabled', false)
+                $('.UbahFasum,#jamBuka').attr('disabled', false)
+                $('.UbahFasum,#jamTutup').attr('disabled', false)
+
 				$('#id_fasum').val(results.id)
-                $('.DetailFasum,#namaFasum').val(results.fasum_name)
-                $('.DetailFasum,#jenisFasum').val(results.fasum_type)
-                $('.DetailFasum,#alamatFasum').val(results.fasum_address)
-                $('.DetailFasum,#latitude').val(results.fasum_lat)
-                $('.DetailFasum,#longitude').val(results.fasum_lng)
-                $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
-                $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
-                $('.DetailFasum,#statusFasum').val(results.fasum_status)
-                // $('.DetailFasum,#photo').val(results.fasum_logo)
-                $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
-                $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
+
+                $('.UbahFasum,#namaFasum').val(results.fasum_name)
+                $('.UbahFasum,#jenisFasum').val(results.fasum_type)
+                $('.UbahFasum,#alamatFasum').val(results.fasum_address)
+                $('.UbahFasum,#latitude').val(results.fasum_lat)
+                $('.UbahFasum,#longitude').val(results.fasum_lng)
+                $('.UbahFasum,#deskripsiFasum').val(results.fasum_description)
+                $('.UbahFasum,#kontakFasum').val(results.fasum_phone)
+                $('.UbahFasum,#statusFasum').val(results.fasum_status)
+                $('.UbahFasum,#photo').val(results.fasum_logo)
+                $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
+                $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
             }
         })
     }
@@ -782,5 +804,9 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
         
 </script>

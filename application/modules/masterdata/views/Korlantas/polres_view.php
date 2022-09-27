@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahPolres">Tambah Polres</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahPolres">Tambah Polres</button>
     <div class="card">
 
         <div class="card-body">
@@ -43,7 +43,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" method="post" enctype="multipart/form-data">
+			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
 					<div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
@@ -54,7 +54,7 @@
                         </div> -->
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="namaPolda" id="namaPolda">
+                                <select name="namaPolda">
                                     <!-- <select name="" id=""  multiple required> -->
                                     <option value="1">Jawa Barat</option>
                                     <option value="2">Jawa Tengah</option>
@@ -63,18 +63,18 @@
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="namaPolres" id="namaPolres">
+                                <input type="text" name="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
                             </div>
 							<div class="material-textfield">
-                                <input type="text" name="kodeSatpas" id="kodeSatpas">
+                                <input type="text" name="kodeSatpas">
                                 <label for="" class="labelmui">Kode Satpas</label>
                             </div>
 
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="alamatPolres" placeholder="" type="text" required>
+                                <input style="width: 100%;" name="address" placeholder="" type="text" required>
                                 <label class="labelmui">Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-md-12 mt-2">
                             <div class="material-textfield">
-                                <input type="text" name="alamatPolres" id="alamatPolres">
+                                <input type="text" name="address" id="address">
                                 <label for="" class="labelmui">Alamat</label>
                             </div>
 
@@ -225,8 +225,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield">
-                                <label for="alamatPolres">Alamat</label>
-                                <textarea type="text" name="alamatPolres" id="alamatPolres" style="width:100%; height:100%;"></textarea>
+                                <label for="address">Alamat</label>
+                                <textarea type="text" name="address" id="address" style="width:100%; height:100%;"></textarea>
                             </div>
 
                         </div>
@@ -262,9 +262,9 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-		$('[name=cordinate]').val('-8.451740, 115.089643');
-        var initialCenter = [-8.451740, 115.089643];
-        var initialZoom = 9.65;
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -318,7 +318,7 @@
 
             let countlist = 0;
             let list = ""; 
-            $('[name=alamatPolres]').on("change", function (e) {
+            $('[name=address]').on("change", function (e) {
                 // console.log(this.value);
                 $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
                     console.log(ress);  
@@ -350,7 +350,7 @@
 							$("[name=longitude]").val(longitude);
 
                             // console.log({a:latitude, b:longitude});
-                            $('[name=alamatPolres]').val($(this).data('alamat'));
+                            $('[name=address]').val($(this).data('alamat'));
                             $('[name=cordinate]').val($(this).data('cords'));
                             mapContainer.flyTo([latitude, longitude], 17);    
                         });
@@ -369,7 +369,7 @@
                 // console.log({a:cordLat, b:corLong});
 
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    $('[name=alamatPolres]').val(data['display_name']); 
+                    $('[name=address]').val(data['display_name']); 
                     mapContainer.flyTo([cordLat, corLong], 17);  
                 }); 
             });
@@ -387,7 +387,7 @@
 
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
 
-                    $('[name=alamatPolres]').val(data['display_name']); 
+                    $('[name=address]').val(data['display_name']); 
 
                 }); 
 
@@ -558,15 +558,28 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailPolres,input').attr('readonly', true)
-                $('.DetailPolres,input,#namaPolda').attr('disabled', true)
-                $('.DetailPolres,input,#alamatPolres').attr('disabled', true)
+                
+                $('.DetailPolres,#logo_polres').attr('disabled', true)
+                $('.DetailPolres,#namaPolda').attr('disabled', true)
+                $('.DetailPolres,#namaPolres').attr('disabled', true)
+                $('.DetailPolres,#kodeSatpas').attr('disabled', true)
+                $('.DetailPolres,#address').attr('disabled', true)
+                $('.DetailPolres,#latitude').attr('disabled', true)
+                $('.DetailPolres,#longitude').attr('disabled', true)
+                $('.DetailPolres,#open_time').attr('disabled', true)
+                $('.DetailPolres,#close_time').attr('disabled', true)
+                $('.DetailPolres,#phone_polres').attr('disabled', true)
+
+                $('.DetailPolres,#logo_polres').val(results.logo_polres)
                 $('.DetailPolres,#namaPolda').val(results.id_polda)
                 $('.DetailPolres,#namaPolres').val(results.name_polres)
                 $('.DetailPolres,#kodeSatpas').val(results.code_satpas)
-                $('.DetailPolres,#alamatPolres').val(results.address)
+                $('.DetailPolres,#address').val(results.address)
                 $('.DetailPolres,#latitude').val(results.latitude)
                 $('.DetailPolres,#longitude').val(results.longitude)
+                $('.DetailPolres,#open_time').val(results.open_time)
+                $('.DetailPolres,#close_time').val(results.close_time)
+                $('.DetailPolres,#phone_polres').val(results.phone_polres)
                 
             }
         })
@@ -581,15 +594,29 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPolres,input').attr('readonly', false)
-                // $('.UbahPolres,input,#category').attr('disabled', false)
+                $('.UbahPolres,#logo_polres').attr('disabled', false)
+                $('.UbahPolres,#namaPolda').attr('disabled', false)
+                $('.UbahPolres,#namaPolres').attr('disabled', false)
+                $('.UbahPolres,#kodeSatpas').attr('disabled', false)
+                $('.UbahPolres,#address').attr('disabled', false)
+                $('.UbahPolres,#latitude').attr('disabled', false)
+                $('.UbahPolres,#longitude').attr('disabled', false)
+                $('.UbahPolres,#open_time').attr('disabled', false)
+                $('.UbahPolres,#close_time').attr('disabled', false)
+                $('.UbahPolres,#phone_polres').attr('disabled', false)
+
                 $('#id_polres').val(results.id)
+
+                $('.UbahPolres,#logo_polres').val(results.logo_polres)
                 $('.UbahPolres,#namaPolda').val(results.id_polda)
                 $('.UbahPolres,#namaPolres').val(results.name_polres)
                 $('.UbahPolres,#kodeSatpas').val(results.code_satpas)
-                $('.UbahPolres,#alamatPolres').val(results.address)
+                $('.UbahPolres,#address').val(results.address)
                 $('.UbahPolres,#latitude').val(results.latitude)
                 $('.UbahPolres,#longitude').val(results.longitude)
+                $('.UbahPolres,#open_time').val(results.open_time)
+                $('.UbahPolres,#close_time').val(results.close_time)
+                $('.UbahPolres,#phone_polres').val(results.phone_polres)
             }
         })
     }
@@ -667,5 +694,9 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
 	
 </script>

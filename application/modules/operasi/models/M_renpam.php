@@ -151,10 +151,28 @@ class M_renpam extends CI_Model {
              
             if($field['route'] != null){
                 $route = '';
-                foreach  ($field['route'] as $fieldRoute) { 
-                    $route .= ''.$fieldRoute['name'].' To ';
+                // $route .= ''.$field['title_start'].'';
+                if($field['type_renpam'] == 2 || $field['type_renpam'] == 1){
+                    
+                    if(count($field['route']) > 2){
+                        for ( $i = 0; $i < count($field['route']); $i++) { 
+                            if($i == 0){
+                                $route .= '<span>'.$field['title_start'].'</span><p>'.$field['route'][0]['name'].'</p><p>To</p>   ';
+                            }else if($i == count($field['route']) - 1){
+                                $route .= '<span>'.$field['title_end'].'</span><p>'.$field['route'][count($field['route']) - 1]['name'].'</p>';
+                            }else{
+                                $route .= '<span>'.$field['title_start'].'</span><p>'.$field['route'][$i]['name'].'</p><p>To</p>   ';
+                            }
+                            
+                        }
+                    }else{
+                        $route .= '<span>'.$field['title_start'].'</span><p>'.$field['route'][0]['name'].'</p><p>To</p>   ';
+                        $route .= '<span>'.$field['title_end'].'</span><p>'.$field['route'][count($field['route']) - 1]['name'].'</p>';
+                    }
+                    $row ['route']	= $route;  
+                }else{
+                    $row ['route']	= ''.$field['title_start'].' - '.$field['route'][0]['name'].'';  
                 }
-                $row ['route']	= $route; 
             }else {
                 $row ['route']	= '-'; 
             }
@@ -230,7 +248,10 @@ class M_renpam extends CI_Model {
                 $row ['type_renpam']	= 'Pengaturan';  
             } else if($field['type_renpam'] == 5){
                 $row ['type_renpam']	= 'Penutupan';  
+            }else{
+                $row ['type_renpam']	= '-'; 
             }
+
             $row ['name_renpam']	= $field['name_renpam'];   
             if($field['schedule'] > 0){
                 $row ['lokasi']	= $field['schedule']['address_schedule'];  
