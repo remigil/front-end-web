@@ -1,39 +1,40 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_troublespot extends CI_Model {
+class M_troublespot extends CI_Model
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
         parent::__construct();
 
         $this->load->helper('guzzle_request_helper');
-
     }
 
-    public function get_datatables($postData=null)
+    public function get_datatables($postData = null)
 
-    {   
+    {
 
-        $draw = $postData['draw']; 
+        $draw = $postData['draw'];
 
         $rowperpage = $postData['length']; // Rows display per page  
-		 
+
         $columnName = $postData['columns']; // Column name 
 
-		$page = $postData['page']; 
+        $page = $postData['page'];
 
-        $orderField = $postData['orderField']; 
+        $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue']; 
+        $orderValue = $postData['orderValue'];
 
-        $orderFieldRess =  $columnName[$orderField]['data']; 
+        $orderFieldRess =  $columnName[$orderField]['data'];
 
-       
-        $data = array(); 
+
+        $data = array();
 
 
         $search = $postData['search']['value'];
@@ -42,27 +43,25 @@ class M_troublespot extends CI_Model {
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-		// $filter_status = $postData['filterStatus'];
+        // $filter_status = $postData['filterStatus'];
 
-		// $filter_name = $postData['filterName'];
+        // $filter_name = $postData['filterName'];
 
-		// $filter_poc_name = $postData['filterPocName'];
+        // $filter_poc_name = $postData['filterPocName'];
 
-		// $filter_phone = $postData['filterPhone'];
+        // $filter_phone = $postData['filterPhone'];
 
-		// $filter_threat = $postData['filterThreat']; 
+        // $filter_threat = $postData['filterThreat']; 
 
- 
 
-        if($search){
 
-            $searchData = '&search='.$search.'';
+        if ($search) {
 
-        }else{
+            $searchData = '&search=' . $search . '';
+        } else {
 
             $searchData = '';
-
-        } 
+        }
 
         // if($filter_threat){
 
@@ -95,56 +94,55 @@ class M_troublespot extends CI_Model {
         // } 
 
 
-        $url = 'troublespot?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'troublespot?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
 
-                'Authorization' => $this->session->userdata['token'] 
+                'Authorization' => $this->session->userdata['token']
 
             ]
 
-        ]);   
-		
-        $no=1;
+        ]);
+
+        $no = 1;
         // var_dump($result);
         // die;
-		// kategori berita berdasarkan nomor
-		foreach  ($result['data']['data'] as $field) { 
-            if ($field['polda_id'] == 1) {
-				$polda = "Polda jawa barat";
-			} else if($field['polda_id'] == 2){
-				$polda = "Polda metro jaya";
-			}else if($field['polda_id'] == 3){
-				$polda = "Polda banten";
-			}
-			if ($field['polres_id'] == 1) {
-				$polres = "polrestabes bandung";
-			} else if($field['polres_id'] == 2){
-				$polres = "polresta bogor";
-			}else if($field['polres_id'] == 3){
-				$polres = "polres bogor";
-			}
-			
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['polda_id']	= $polda;
-            $row ['polres_id']	= $polres;
-            $row ['location']			= $field['location'];  
-            $row ['created_at']   		= $field['created_at'];
-           
-            $row ['action']         = '
+        // kategori berita berdasarkan nomor
+        foreach ($result['data']['data'] as $field) {
+            // if ($field['polda_id'] == 1) {
+            //     $polda = "Polda jawa barat";
+            // } else if ($field['polda_id'] == 2) {
+            //     $polda = "Polda metro jaya";
+            // } else if ($field['polda_id'] == 3) {
+            //     $polda = "Polda banten";
+            // }
+            // if ($field['polres_id'] == 1) {
+            //     $polres = "polrestabes bandung";
+            // } else if ($field['polres_id'] == 2) {
+            //     $polres = "polresta bogor";
+            // } else if ($field['polres_id'] == 3) {
+            //     $polres = "polres bogor";
+            // }
+
+            $row = array();
+            // $row ['id']	=  $field['id']; 
+            $row['id']    =  $no++;
+            $row['polda_id']    = 'asd';
+            $row['polres_id']    = 'asd';
+            $row['location']            = $field['location'];
+            $row['created_at']           = $field['created_at'];
+
+            $row['action']         = '
             
-            <a href="'.base_url().'troublespot/Troublespot/detail/'.$field['id'].'"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+            <a href="' . base_url() . 'troublespot/Troublespot/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
 
 			
-            '; 
+            ';
 
             $data[] = $row;
-
         }
 
 
@@ -164,9 +162,5 @@ class M_troublespot extends CI_Model {
 
 
         return $response;
-
     }
-
-  
-
 }
