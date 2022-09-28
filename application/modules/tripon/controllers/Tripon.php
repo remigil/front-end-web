@@ -14,9 +14,9 @@ class Tripon extends MY_Controller
     public function index()
     {
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token'],    
-        // ];
+        $headers = [
+            'Token' => $this->session->userdata['token'],    
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -32,10 +32,19 @@ class Tripon extends MY_Controller
             $page_content["page"] = "tripon/Polres/tripon";
         }
 
+        $getVehicle = guzzle_request('GET', 'type_vehicle', [
+            'headers' => [
+                'Authorization' => $headers
+                ]
+        ]);
+        $data['getVehicle'] = $getVehicle['data']['data'];
+        
+        // var_dump($getVehicle);
+        // die;
 
 
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
+        // $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
     public function serverSideTable() 

@@ -16,10 +16,12 @@
                 </div>
                 <div class="col-md-3 ">
                     <label class="form-label">Kendaraan</label>
-                    <select class="form-select">
-                        <option>Semua Kendaraan</option>
-                        <option>Kendaraan 1</option>
-                        <option>Kendaraan 2</option>
+                    <select name="type_vehicle" class="form-select" style="width:100%" id="type_name" required>
+                        <option selected value="">Pilih Jenis Kendaraan</option>
+                        <?php
+                        foreach ($data['getVehicle'] as $row) : ?>
+                            <option value="<?php echo $row['id']; ?>"><?php echo $row['type_name']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="col-md-3 ">
@@ -31,7 +33,7 @@
                     </select>
                 </div>
             </div>
-            <div class="mt-3" id="mapG20Dashboard"></div>
+            <div style="height: 450px;" class="mt-3" id="mapG20Dashboard"></div>
             <button class=" mt-3 btn btn-primary float-end"> Tampilkan </button>
         </div>
     </div>
@@ -430,7 +432,7 @@
                 <thead class="table-primary">
                     <tr>
                         <th>Kota Awal</th>
-                        <th>Kota Terdaftar</th>
+                        <th>Kota Tujuan</th>
                         <th>Jumlah TripOn Terdaftar</th>
                         <th>Jumlah Penumpang Terdaftar</th>
                     </tr>
