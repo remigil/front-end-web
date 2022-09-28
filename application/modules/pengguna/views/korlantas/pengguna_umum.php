@@ -215,4 +215,103 @@
 			}
 		})
 	}
+
+	function nonaktif(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin mengaktivasi akun ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            );
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+	function aktif(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menonaktifkan akun ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            );
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+	function aktivasi(id) {
+        Swal.fire({
+            title: 'Akun ini belum melakukan aktivasi, lakukan aktivasi pada akun ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            );
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
 </script>

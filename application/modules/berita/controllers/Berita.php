@@ -46,6 +46,7 @@ class Berita extends MY_Controller
  
     public function store() 
     {  
+		$author = $this->session->userdata['full_name'];
         $headers = [ 
             'Authorization' => $this->session->userdata['token'],  
         ]; 
@@ -73,7 +74,11 @@ class Berita extends MY_Controller
                 ],
                 [
                     'name' => 'author',
-                    'contents' => $this->session->userdata['full_name'],
+                    'contents' => $author,
+				],
+				[
+                    'name' => 'date',
+                    'contents' => date('Y-m-d'),
 				],
             ];
         } else {
@@ -92,8 +97,12 @@ class Berita extends MY_Controller
                 ],
                 [
                     'name' => 'author',
-                    'contents' => $this->session->userdata['full_name'],
-                ],
+                    'contents' => $author,
+				],
+				[
+                    'name' => 'date',
+                    'contents' => date('Y-m-d'),
+				],
 
             ];
         }
