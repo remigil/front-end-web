@@ -68,7 +68,7 @@ class Polres extends MY_Controller
 				],
 				[
 					'name' => 'address',
-					'contents' => $input['alamatPolres'],
+					'contents' => $input['address'],
 				],
 				[
 					'name' => 'latitude',
@@ -179,7 +179,7 @@ class Polres extends MY_Controller
 			],
 			[
 				'name' => 'address',
-				'contents' => $input['alamatPolres'],
+				'contents' => $input['address'],
 			],
 			[
 				'name' => 'latitude',

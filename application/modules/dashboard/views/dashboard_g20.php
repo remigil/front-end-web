@@ -824,6 +824,8 @@
                                                 <a href="https://api.whatsapp.com/send?phone=${ress[i].handphone}" target="_blank"><p style="font-size: 12px;">${ress[i].handphone}</p></a>
                                             </div>
                                         </div> 
+
+                                        ${call_wa_dan_biasa(ress[i].handphone)}
                                         
                                         
                                     
@@ -922,6 +924,8 @@
                                                     <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].handphone}</p>
                                                 </a>
                                             </div>
+
+                                            ${call_wa_dan_biasa(ress[i].handphone)}
                                             
                                             <div class="col-md-4">
                                                 <p style="font-size: 12px;font-weight: bold;">Tim</p>  
@@ -1042,6 +1046,30 @@
                 } 
             }); 
             
+        }
+
+        const call_wa_dan_biasa = (noTelp) => {
+            // let castNoTelp = noTelp.sub
+            let noDepan = noTelp.substring(0, 2);
+            if (noDepan === "62") {
+                noTelp = noTelp;
+            } else if (noDepan === "08") {
+                noTelp = "62" + noTelp.substring(1);
+            } else if (noDepan === "+6") {
+                noTelp = noTelp.substring(1);
+            } else {
+                noTelp = noTelp;
+            }
+            return ` 
+                <div style="" class="text-center">
+              <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
+                <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 50px;height: 50px"/>
+              </a>
+            <a href="tel:+${noTelp}" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/phone.png"/>
+            </a>
+                </div>
+            `
         }
 
         function togglePress(e) {
@@ -1173,6 +1201,8 @@
                                 <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
                             </div>
                         </div> 
+
+                        ${call_wa_dan_biasa(ress.handphone)}
                         
                         
                     
@@ -1285,6 +1315,8 @@
                                 <a href="https://api.whatsapp.com/send?phone=${ress.handphone}" target="_blank"><p style="font-size: 12px;">${ress.handphone}</p></a>
                             </div>
                         </div> 
+
+                        ${call_wa_dan_biasa(ress.handphone)}
                         
                         
                     

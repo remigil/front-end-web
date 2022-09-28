@@ -54,6 +54,11 @@ class Berita extends MY_Controller
         $filename = $_FILES['photo']['name'];
         if($_FILES['photo']['name']){ 
             $dummy = [
+				[
+					'name' => 'picture',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename,
+				], 
                 [
                     'name' => 'news_category',
                     'contents' => $input['kategoriBerita'],
@@ -64,18 +69,12 @@ class Berita extends MY_Controller
                 ],
                 [
                     'name' => 'content',
-                    'contents' => $input['isiBerita'],
+                    'contents' => $input['content'],
                 ],
                 [
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
-                ],
-                
-                [
-                    'name' => 'picture',
-                    'contents' => fopen($path,'r'),
-                    'filename' => $filename
-                ] 
+				],
             ];
         } else {
             $dummy = [
@@ -89,7 +88,7 @@ class Berita extends MY_Controller
                 ],
                 [
                     'name' => 'content',
-                    'contents' => $input['isiBerita'],
+                    'contents' => $input['content'],
                 ],
                 [
                     'name' => 'author',

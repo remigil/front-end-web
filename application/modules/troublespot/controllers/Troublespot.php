@@ -8,14 +8,14 @@ class Troublespot extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('troublespot/m_troublespot'); 
+        $this->load->model('troublespot/m_troublespot');
     }
 
     public function index()
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],    
+            'Token' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -32,19 +32,49 @@ class Troublespot extends MY_Controller
             $page_content["page"] = "troublespot/Polres/list_polres";
         }
 
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
 
-        $page_content["data"] = '';
+        // var_dump($getPolda);
+        // die;
+        // $getVehicle = guzzle_request('GET', 'vehicle', [
+        //     'headers' => $headers
+        // ]);
+
+        // $data['getVehicle'] = $getVehicle['data']['data'];
+
+
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_troublespot->get_datatables($postData);  
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_troublespot->get_datatables($postData);
+        echo json_encode($data);
     }
 
-    public function store() 
-    {  
+
+    public function GetPolres($id)
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $getPolres = guzzle_request('GET', 'polres/getPolda/' . $id, [
+            'headers' => $headers
+        ]);
+        $data = $getPolres['data']['data'];
+
+
+        echo json_encode($data);
+    }
+
+    public function store()
+    {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
@@ -81,15 +111,15 @@ class Troublespot extends MY_Controller
             [
                 'name' => 'latitude',
                 'contents' => $input['latitude'],
-            ], 
+            ],
             [
                 'name' => 'longitude',
                 'contents' => $input['longitude'],
-            ], 
+            ],
             [
                 'name' => 'desc',
                 'contents' => $input['keterangan'],
-            ], 
+            ],
             [
                 'name' => 'problem',
                 'contents' => $input['permasalahan'],
@@ -107,29 +137,28 @@ class Troublespot extends MY_Controller
                 'contents' => $input['hasil_dicapai'],
             ],
         ];
-      
 
-        $data = guzzle_request('POST', 'troublespot/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+
+        $data = guzzle_request('POST', 'troublespot/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function detail($id)
@@ -265,12 +294,12 @@ class Troublespot extends MY_Controller
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'no_ts',
@@ -303,15 +332,15 @@ class Troublespot extends MY_Controller
             [
                 'name' => 'latitude',
                 'contents' => $input['latitude'],
-            ], 
+            ],
             [
                 'name' => 'longitude',
                 'contents' => $input['longitude'],
-            ], 
+            ],
             [
                 'name' => 'desc',
                 'contents' => $input['keterangan'],
-            ], 
+            ],
             [
                 'name' => 'problem',
                 'contents' => $input['permasalahan'],
@@ -329,28 +358,27 @@ class Troublespot extends MY_Controller
                 'contents' => $input['hasil_dicapai'],
             ],
         ];
-        
-        $data = guzzle_request('PUT', 'troublespot/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+
+        $data = guzzle_request('PUT', 'troublespot/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function delete()

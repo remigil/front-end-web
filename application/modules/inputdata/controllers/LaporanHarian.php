@@ -226,6 +226,8 @@ class LaporanHarian extends MY_Controller
             ]
         ];
 
+        // var_dump($date);
+        // die;
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'polda_id' => $polda_id,
