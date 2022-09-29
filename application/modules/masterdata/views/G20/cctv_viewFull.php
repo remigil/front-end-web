@@ -446,6 +446,98 @@
             /* color: red; */
             content: "\f506";
         }
+
+
+        .dropzone {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        height: 460px;
+        margin-bottom: 20px;
+        padding: 20px;
+        transition: background-color 0.25s ease-in;
+        
+        &:hover {
+            background-color: #fcfcfc;
+            border-color: #5bc0de;
+        }
+        
+        .panel {
+            border-color: #5bc0de;
+            
+            &:hover {
+                cursor: default;
+            }
+        }
+        
+        .panel-heading {
+            border-color: #5bc0de;
+            background-color: #5bc0de;
+            color: #fff;
+        }
+        
+        .panel-title {
+            position: relative;
+            
+            .fa {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 15px;
+                height: 15px;
+                z-index: 2;
+                color: #fff;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        }
+
+        .panel {
+        &:hover {
+            border-color: #5bc0de;
+            cursor: move;
+            
+            .panel-heading {
+                border-color: #5bc0de;
+                background-color: #5bc0de;
+                color: #fff;
+            }
+        }
+        }
+
+        .over {
+        border-style: dashed;
+        }
+
+        .selected {
+        display: none;
+        }
+
+        .cloned {
+        opacity: 0.5;
+        
+        &.selected {
+            display: block;
+        }
+        }
+
+
+        .panel-title {
+        position: relative;
+            
+            .fa {
+                display: none;
+            }
+        }
+
+        .isiCCTV {
+        display: show;
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -488,7 +580,7 @@
     <?php echo $css ?>
 </head>
 
-<body>
+<body style="background-color: #f5f3f4;">
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
@@ -501,7 +593,21 @@
     <div id="layout-wrapper">
  
  
+    <div class="vertical-menu" style="background: white; top: 0"> 
+        <div data-simplebar class="h-100">
+ 
+                <!-- Left Menu Start -->
+                <main>
+                <div class="row" id="side-menuCCTV" style="margin: 5px;"> 
+                </div>
+            </main>
+        </div> 
+    </div>
 
+    <div class="main-content">
+
+        <div class="page-content" style="background-color: #f5f3f4; padding: 0;">
+            <div class="container-fluid">
 
                     <!-- Page -->
                     <!-- <div class="kotak" style="border-style:solid ;"> -->
@@ -518,8 +624,18 @@
                                 <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Tambah CCTV</button>
                             </div>
                         </div> -->
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div style="display: flex;"> 
+                                <input hidden type="text" name="halaman" id="halaman" value="1"> 
+                                <nav aria-label="Page navigation example" style="padding-top: 11px;">
+                                    <ul class="pagination">
+                                        <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
+                                        <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
+                                        <li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
+                                    </ul>
+                                </nav> 
                                 <div class="form-floating mb-3" style="margin: 5px; width: 50%;"> 
                                     <select class="form-select" name="kategoriFilter" style="height: 50px;">
                                         <option selected value="">Pilih Kategori CCTV</option>
@@ -535,11 +651,12 @@
                                 <div class="form-floating mb-3" style="margin: 5px; width: 50%;">
                                     <input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
                                     <label for="searchFilter">Search</label>
-                                </div>
+                                </div> 
+                                
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="d-flex flex-wrap align-items-center justify-content-end gap-2" style="margin: 5px;">
                                 <div>
                                     <ul class="nav nav-pills">
@@ -560,24 +677,15 @@
                          
 
                     </div>
-                    <!-- end row -->
-                    
-                    <div class="row" id="listCCTV"></div>
-
-                    <div class="row">
-                        <input hidden type="text" name="halaman" id="halaman" value="1">
-                        <div class="col-md-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
-                                    <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
-                                    <li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
-                                </ul>
-                            </nav>
+                    <!-- end row --> 
+                    <aside class="col-sm-12 col-md-12"> 
+                        <div class="dropzone row" style="height: auto;margin: 0px;" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+                         
                         </div>
-                    </div>
+                    </aside>
+                    <!-- <div class="row" id="listCCTV"></div> -->
+
+                    
 
 
                     <!-- ADD Modals -->
@@ -660,15 +768,21 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+            </div>
+        </div>
                     
                     <script>
                         $(document).ready(function() { 
+                            
 
                             serverSideGetCCTV(); 
 
                             
                             
                             let countlistCCTV = 0;
+                            let listSideCCTV = ""; 
                             let listCCTV = ""; 
                             $('[name=kategoriFilter]').on("change", function (e) {
                                 countlistCCTV = 0;
@@ -722,11 +836,7 @@
                                     dataType : "JSON",
                                     success : function(result){  
                                         let ressData = result['data'];
-                                        if(ressData.length > 0){
-
-                                        }else{
-
-                                        } 
+                                         
                                         let ress = ressData.filter(function (e) {
                                             return e.lat_cctv != null && e.lng_cctv != null;
                                         });   
@@ -734,30 +844,54 @@
 
                                         $("#overlay").fadeOut(300);
                                         if(ress.length > 0){   
-                                            countlistCCTV = 0;
-                                            listCCTV = "";
+                                            // countlistCCTV = 0;
+                                            listSideCCTV = "";
+                                            // listCCTV = "";
 
+                                            // listCCTV += ` 
+                                            //     <aside class="col-sm-12 col-md-12"> 
+                                            //         <div class="dropzone" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"></div>
+                                            //     </aside>
+                                            // `;
+                                            // $('#listCCTV').html(listCCTV);  
+                                            
                                             ress.forEach(el => {
+                                                countlistCCTV += 1;
                                                 if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
                                                     resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
                                                 }else{
-                                                    resource = `<img style="width: 100%;" src="${el.link_cctv}" />`;
-                                                }
-                                                countlistCCTV += 1;
-                                                listCCTV += `
-                                                    <div class="col-md-6">
-                                                        <div class="text-center" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                    resource = `<img style="width: 100%; height: 100%;" src="${el.link_cctv}" />`;
+                                                } 
+
+                                                listSideCCTV += `    
+                                                    <div class="panel panel-default col-md-6" id="${el.address_cctv}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${el.address_cctv}')">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                        </div>
+                                                        <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}">
                                                             ${resource}
-                                                            <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
-                                                            <p class="text-muted mb-2">${el.address_cctv}</p> 
-                                                        </div> 
-                                                    </div>
+                                                        </div>
+                                                    </div>  
                                                 `;
-                                                $('#listCCTV').html(listCCTV);  
-                                            });  
+                                                $("#side-menuCCTV").html(listSideCCTV);
+
+                                                
+                                                // listCCTV += `
+                                                //     <div class="col-md-6"> 
+                                                //         <div class="droptarget" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                //             ${resource}
+                                                //             <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
+                                                //             <p class="text-muted mb-2">${el.address_cctv}</p> 
+                                                //         </div> 
+                                                //     </div>
+                                                // `;
+                                                // $('#listCCTV').html(listCCTV);  
+                                            });   
+                                           
+
                                             
-                                            for (let i = 0; i < ress.length; i++){ 
-                                                $(`#openFullscreen${i+1}`).on("click", function (event) { 
+                                            for (let i = 0; i < countlistCCTV; i++){  
+                                                $(`#openFullscreen${i}`).on("click", function (event) { 
                                                     var myIp = $(this).data('ip'); 
                                                     var myLink = $(this).data('resource'); 
                                                     var myType = $(this).data('type'); 
@@ -792,6 +926,9 @@
                                     }
                                 });
                             } 
+
+
+                            
                             
 
 
@@ -954,6 +1091,42 @@
                             });
 
                         });
+
+
+                        var clone;
+                        var cloneId;
+
+                        function dragStart(ev, ipcctv, linkcctv) {  
+                            ev.dataTransfer.effectsAllowed = "copy";
+                            ev.dataTransfer.setData("text", ev.target.getAttribute("id"));
+                            ev.dataTransfer.setDragImage(ev.target, 0, 0);
+
+                            clone = ev.target.cloneNode(true);
+                            cloneId = ev.target.getAttribute("id");
+                            clone.className += " " + "selected";
+                            ev.target.parentNode.appendChild(clone);
+
+                            return true;
+                        }
+
+                        function dragEnter(ev) {
+                        event.preventDefault();
+                            return true;
+                        }
+
+                        function dragOver(ev) {
+                            return false;
+                        }
+
+                        function dragDrop(ev) {   
+                            var src = ev.dataTransfer.getData("text");
+                            clone.className += " " + "cloned";
+                            clone.id = cloneId + "_cloned";
+                            ev.target.appendChild(document.getElementById(src));
+                            document.getElementById(src).removeAttribute("draggable");
+                            ev.stopPropagation(); 
+                            return false;
+                        }
 
 
 
