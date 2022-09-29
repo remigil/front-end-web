@@ -117,17 +117,17 @@ class M_pengguna_umum extends CI_Model
 
             if ($field['status_verifikasi'] == 0) {
                 $status = '
-				<button style="border:none" class="btn btn-warning">
+				<button style="border:none" class="btn btn-warning" id="aktivasi" onclick="aktivasi(`' . $field['id'] . '`)">
 					belum aktivasi
 				</button>';
             } else if ($field['status_verifikasi'] == 1) {
                 $status = '
-				<button style="border:none" class="btn btn-danger">
+				<button style="border:none" class="btn btn-danger" id="nonaktif" onclick="nonaktif(`' . $field['id'] . '`)">
 					Nonaktif
 				</button>';
             } else if ($field['status_verifikasi'] == 2) {
                 $status = '
-				<button style="border:none" class="btn btn-success">
+				<button style="border:none" class="btn btn-success" id="aktif" onclick="aktif(`' . $field['id'] . '`)">
 					Aktif
 				</button>';
             }

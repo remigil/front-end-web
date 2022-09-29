@@ -32,10 +32,19 @@ class Polres extends MY_Controller
             $page_content["page"] = "masterdata/Polres/polres_view";
         }
 
+		$getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+
+		// var_dump($getPolda);
+        // die;
 
 
 
-        $page_content["data"] = '';
+
+        $page_content["data"] = $data;
+        // $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
 

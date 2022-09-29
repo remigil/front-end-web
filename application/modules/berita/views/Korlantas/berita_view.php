@@ -23,7 +23,7 @@
                             <th>Isi Berita</th>
                             <th>Author</th>
                             <th>Tanggal Berita</th>
-                            <th>Aksi</th>
+                            <th>Aksi</th>				
                         </tr>
                     </thead>
                 </table>
@@ -297,7 +297,7 @@
                     data: 'author'
                 },
                 {
-                    data: 'created_at'
+                    data: 'date'
                 },
                 {
                     data: 'action',

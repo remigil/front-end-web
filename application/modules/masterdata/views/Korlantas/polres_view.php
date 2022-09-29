@@ -46,7 +46,7 @@
 			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
 					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
                         <!-- <div class="col-md-3">
                             <p class="fw-bold fs-5">Icon Polres</p>
@@ -54,13 +54,14 @@
                         </div> -->
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="namaPolda">
-                                    <!-- <select name="" id=""  multiple required> -->
-                                    <option value="1">Jawa Barat</option>
-                                    <option value="2">Jawa Tengah</option>
-                                    <option value="3">Jawa Timur</option>
+                                <select name="namaPolda" class="form-select" style="width:100%" required>
+									<option selected value="">Pilih Polda</option>
+                                    <?php
+                        				foreach ($data['getPolda'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+                        			<?php endforeach; ?>
                                 </select>
-                                <label class=" labelmui">Polda</label>
+                                <label class="labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
                                 <input type="text" name="namaPolres">
@@ -107,6 +108,27 @@
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
+						<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="phone_polres">
+                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            </div>
+                        </div>
 
 
                     <div class="col-md-12 mt-3">
@@ -129,10 +151,9 @@
 			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="" id="id_polres" type="text">
                     <div class="row">
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polres</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
+					<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
                                 <select name="namaPolda" id="namaPolda">
@@ -144,7 +165,7 @@
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="namaPPolres" id="namaPolres">
+                                <input type="text" name="namaPolres" id="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
                             </div>
 							<div class="material-textfield">
@@ -153,12 +174,18 @@
                             </div>
 
                         </div>
-                        <div class="col-md-12 mt-2">
-                            <div class="material-textfield">
-                                <input type="text" name="address" id="address">
-                                <label for="" class="labelmui">Alamat</label>
+                        <div class="col-md-12">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="address" id="address" placeholder="" type="text" required>
+                                <label class="labelmui">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
                             </div>
-
                         </div>
 						<div class="row">
 							<div class="col-md-6">
@@ -176,11 +203,36 @@
 							
 						</div>
                     </div>
-                    <div class="mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
+                    <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+					<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="open_time" id="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="material-textfield">
+									<input type="time" name="close_time" id="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="phone_polres" id="phone_polres">
+                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            </div>
+                        </div>
 
 
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" id="btn_edit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -198,11 +250,10 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="row">
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polres</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
+				<div class="row">
+					<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
                                 <select name="namaPolda" id="namaPolda">
@@ -214,7 +265,7 @@
                                 <label class=" labelmui">Polda</label>
                             </div>
                             <div class="material-textfield">
-                                <input type="text" name="namaPPolres" id="namaPolres">
+                                <input type="text" name="namaPolres" id="namaPolres">
                                 <label for="" class="labelmui">Nama Polres</label>
                             </div>
 							<div class="material-textfield">
@@ -224,31 +275,34 @@
 
                         </div>
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <label for="address">Alamat</label>
-                                <textarea type="text" name="address" id="address" style="width:100%; height:100%;"></textarea>
-                            </div>
-
-                        </div>
-						<div class="row">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="address" id="address" placeholder="" type="text" required>
+                                <label class="labelmui">Alamat</label>
+                            </div> 
+                            
+                        </div> 
+                        
+					<div class="row mt-3">
 							<div class="col-md-6">
 								<div class="material-textfield">
-									<input type="text" name="latitude" id="latitude">
-									<label for="" class="labelmui">latitude</label>
+									<input type="time" name="open_time" id="open_time">
+									<label for="" class="labelmui">Jam Buka</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="material-textfield">
-									<input type="text" name="longitude" id="longitude">
-									<label for="" class="labelmui">Longitude</label>
+									<input type="time" name="close_time" id="close_time">
+									<label for="" class="labelmui">Jam Tutup</label>
 								</div>
 							</div>
 							
 						</div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
+						<div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="text" name="phone_polres" id="phone_polres">
+                                <label for="" class="labelmui">Nomor Telepon Polres</label>
+                            </div>
+                        </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -478,7 +532,7 @@
                     data: 'id'
                 },
 				{
-					data: 'polda_id'
+					data: 'name_polda'
                 },
 				{
 					data: 'name_polres'

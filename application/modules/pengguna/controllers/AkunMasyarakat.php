@@ -55,4 +55,6 @@ class AkunMasyarakat extends MY_Controller
 
         echo json_encode($data['getDetail']);
     }
+
+	
 }

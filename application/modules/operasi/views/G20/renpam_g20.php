@@ -2,29 +2,30 @@
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
-        <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
+        <li class="breadcrumb-item"><a href="#">Operasi</a></li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page"><?= $title; ?></li>
     </ol>
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal">Tambah Rencana Pengamanan</button>
+    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal">Tambah Uraian Kegiatan</button>
     <div class="card mt-3">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tim</th>
+                        <th>Tanggal</th>
+                        <th>Unit Pengawalan</th>
                         <th>VIP</th>
                         <th>Subjek</th>
+                        <!-- <th>Waktu</th> -->
+                        <th>Uraian Kegiatan</th>
                         <th>Instruksi</th>
-                        <th>Lokasi Utama</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
+                        <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
-                </thead> 
+                </thead>
             </table>
         </div>
 
@@ -38,61 +39,61 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Pengamanan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Uraian Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body"> 
-                <form class="form" method="post" enctype="multipart/form-data"> 
-                    
-                    <div class="row">  
+            <div class="modal-body">
+                <form class="form" method="post" enctype="multipart/form-data">
+
+                    <div class="row">
 
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
-                                <label class="labelmui">Judul Renpam</label>
+                                <label class="labelmui">Uraian Kegiatan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="id_account[]" id="id_account" style="height: 200px;" multiple> 
-                                    <?php foreach($data['getAccount'] as $row): ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_account'];?></option> 
-                                    <?php endforeach; ?> 
+                                <select required name="id_account[]" id="id_account" style="height: 200px;" multiple>
+                                    <?php foreach ($data['getAccount'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
-                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input required style="width: 100%;" name="date" id="datepicker" class="form-control" value="<?= date('Y-m-d') ?>" type="date" >
+                                <input required style="width: 100%;" name="date" id="datepicker" class="form-control" value="<?= date('Y-m-d') ?>" type="date">
                                 <label class="labelmui">Tanggal</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="id_vip[]" id="id_vip" style="height: 200px" multiple> 
-                                    <?php foreach($data['getVip'] as $row): ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?>  ( <?= $row['country_arrival_vip']?> )</option> 
-                                    <?php endforeach; ?> 
+                                <select required name="id_vip[]" id="id_vip" style="height: 200px" multiple>
+                                    <?php foreach ($data['getVip'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )</option>
+                                    <?php endforeach; ?>
                                 </select>
                                 <label style="margin-top: -20px;font-size: 14px;" class="labelmui">VIP</label>
                             </div>
-                        </div>  
+                        </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input required type="text" name="startTime" class="form-control" id="startTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
+                                <input required type="text" name="startTime" class="form-control" id="startTime" value="<?php echo date('H:i') ?>" data-default="<?php echo date('H:i') ?>">
                                 <label class="labelmui">Waktu Mulai</label>
                             </div>
                         </div>
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select name="subjek" class="form-select">
-                                    <option selected value="">Pilih Subjek</option> 
-                                    <option value="1">Patroli</option> 
-                                    <option value="2">Pengawalan</option> 
-                                    <option value="3">Penjagaan</option> 
-                                    <option value="4">Pengaturan</option> 
+                                    <option selected value="">Pilih Subjek</option>
+                                    <option value="1">Patroli</option>
+                                    <option value="2">Pengawalan</option>
+                                    <option value="3">Penjagaan</option>
+                                    <option value="4">Pengaturan</option>
                                     <option value="5">Penutupan</option>
                                 </select>
                                 <label class="labelmui">Subjek</label>
@@ -119,28 +120,28 @@
                         </div>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
-                                <input  type="text" name="note_kakor" class="form-control" id="note_kakor"> 
+                                <input type="text" name="note_kakor" class="form-control" id="note_kakor">
                                 <label class="labelmui">Instruksi Kakor</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
                             <div class="material-textfield mb-3">
-                                <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i')?>" data-default="<?php echo date('H:i')?>"> 
+                                <input required type="text" name="endTime" class="form-control" id="endTime" value="<?php echo date('H:i') ?>" data-default="<?php echo date('H:i') ?>"> 
                                 <label class="labelmui">Waktu Selesai</label>
                             </div>
                         </div> -->
-                        
-                         
+
+
                         <textarea hidden name="ruteawal" id="ruteawal" cols="2" rows="2"></textarea>
                         <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
                         <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
- 
+
                         <!-- <div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 500px"></div>
                         </div> -->
-                    </div>   
+                    </div>
 
                     <div class="col-md-12 mt-3 float-end">
                         <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: red" data-bs-toggle="modal" data-bs-target="#myModalUtama"> Rute Utama</a>
@@ -165,22 +166,22 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelUtama">Tambah Utama</h5>
                 <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">  
-                <div class="row">   
+            <div class="modal-body">
+                <div class="row">
                     <div class="col-md-12">
-                        <div id="mapG20Kegiatan" style="height: 500px"></div> 
+                        <div id="mapG20Kegiatan" style="height: 500px"></div>
                     </div>
-                </div>   
+                </div>
 
-                <div class="col-md-6 mt-3 float-end" >
+                <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternativeUtama" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
-            
+
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -189,22 +190,22 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabel1">Tambah Alternative</h5>
                 <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">  
-                <div class="row">   
+            <div class="modal-body">
+                <div class="row">
                     <div class="col-md-12">
-                        <div id="mapG20Alternative1" style="height: 500px"></div> 
+                        <div id="mapG20Alternative1" style="height: 500px"></div>
                     </div>
-                </div>   
+                </div>
 
-                <div class="col-md-6 mt-3 float-end" >
+                <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternative1" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
-            
+
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -213,22 +214,22 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabel2">Tambah Escape</h5>
                 <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">  
-                <div class="row">   
+            <div class="modal-body">
+                <div class="row">
                     <div class="col-md-12">
-                        <div id="mapG20Alternative2" style="height: 500px"></div> 
+                        <div id="mapG20Alternative2" style="height: 500px"></div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternative2" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
-            
+
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -237,22 +238,22 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabel3">Tambah Route Masyarakat</h5>
                 <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">  
-                <div class="row">   
+            <div class="modal-body">
+                <div class="row">
                     <div class="col-md-12">
-                        <div id="mapG20Alternative3" style="height: 500px"></div> 
+                        <div id="mapG20Alternative3" style="height: 500px"></div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternative3" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
-            
+
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="myLargeModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -261,29 +262,29 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabel4">Tambah Umum</h5>
                 <!-- <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">  
-                <div class="row">   
+            <div class="modal-body">
+                <div class="row">
                     <div class="col-md-12">
-                        <div id="mapG20Alternative4" style="height: 500px"></div> 
+                        <div id="mapG20Alternative4" style="height: 500px"></div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-md-6 mt-3 float-end">
                     <button class="btn btn-primary float-end" id="submitAlternative4" data-bs-toggle="modal" data-bs-target="#myModal">Simpan</button>
                     <!-- <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#myModal" style="margin: 5px">Kembali</button> -->
                 </div>
-            
+
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <script>
     $(document).ready(function() {
-         
-        var userDataTable = $('#datatable').DataTable({ 
 
-            responsive: true, 
+        var userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
 
             scrollX: true,
 
@@ -297,23 +298,23 @@
 
             },
 
-            initComplete : function (settings, json) { },
+            initComplete: function(settings, json) {},
 
-            retrieve : true,
+            retrieve: true,
 
-            processing : true,
+            processing: true,
 
             serverSide: true,
 
             serverMethod: 'POST',
 
-            ajax : {
+            ajax: {
 
                 dataType: 'json',
 
-                url: '<?php echo base_url();?>operasi/Renpam/serverSideTable',
+                url: '<?php echo base_url(); ?>operasi/Renpam/serverSideTable',
 
-                data: function(data){
+                data: function(data) {
 
                     $("#overlay").fadeIn(300);
 
@@ -321,7 +322,7 @@
 
                     data.filterTgl = "";
 
-                    data.filterTgl2 = ""; 
+                    data.filterTgl2 = "";
 
                     // data.filterStatus = $('[name=status]').val();
 
@@ -341,11 +342,11 @@
 
                 },
 
-                beforeSend: function (xhr, settings) {
-                    
+                beforeSend: function(xhr, settings) {
+
                 },
 
-                "dataSrc": function (result) { 
+                "dataSrc": function(result) {
 
                     result.iTotalRecords = result.iTotalRecords;
 
@@ -357,58 +358,87 @@
 
             },
 
-            columns: [ 
+            columns: [
 
-                { data: 'id'}, 
-                { data: 'accounts', orderable : false },
-                { data: 'vips', orderable : false }, 
-                { data: 'type_renpam'},  
-                { data: 'name_renpam'},   
-                { data: 'route'},  
-                { data: 'date'},  
-                { data: 'waktu', orderable : false}, 
-                { data: 'action' , orderable : false }
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'date'
+                },
+                {
+                    data: 'accounts',
+                    orderable: false
+                },
+                {
+                    data: 'vips',
+                    orderable: false
+                },
+                {
+                    data: 'type_renpam'
+                },
+
+                // {
+                //     data: 'waktu',
+                //     orderable: false
+                // },
+                {
+                    data: 'route'
+                },
+                {
+                    data: 'name_renpam',
+                },
+                {
+                    data: 'keterangan',
+                },
+
+                {
+                    data: 'action',
+                    orderable: false
+                }
 
             ],
 
-            order: [[ 0, "DESC" ]],
+            order: [
+                [0, "DESC"]
+            ],
 
-            drawCallback : function(settings){
+            drawCallback: function(settings) {
 
-                $("#overlay").fadeOut(300); 
+                $("#overlay").fadeOut(300);
                 client();
-            }   
+            }
 
-        });   
+        });
 
 
-        function client(){  
+        function client() {
 
-            $(".deletedata").on("click",function(event){ 
+            $(".deletedata").on("click", function(event) {
 
                 Swal.fire({
 
-                title: 'Anda yakin ingin menghapus ?',
+                    title: 'Anda yakin ingin menghapus ?',
 
-                text: "",
+                    text: "",
 
-                icon: 'warning',
+                    icon: 'warning',
 
-                showCancelButton: true,
+                    showCancelButton: true,
 
-                confirmButtonColor: '#3085d6',
+                    confirmButtonColor: '#3085d6',
 
-                cancelButtonColor: '#d33',
+                    cancelButtonColor: '#d33',
 
-                confirmButtonText: 'Yes'
+                    confirmButtonText: 'Yes'
 
-                }).then((result) => { 
+                }).then((result) => {
 
-                    if (result.value == true) {   
+                    if (result.value == true) {
                         $("#overlay").fadeIn(300);
 
                         $.ajax({
-                            url: "<?php echo base_url();?>operasi/renpam/delete",
+                            url: "<?php echo base_url(); ?>operasi/renpam/delete",
                             method: "POST",
                             data: {
                                 "id": $(this).data("id"),
@@ -416,55 +446,54 @@
                             dataType: 'JSON',
                             // contentType: false,
                             // processData: false,  
-                            success: function (data) {
+                            success: function(data) {
                                 $("#overlay").fadeOut(300);
-                                if(data['status'] == true){
+                                if (data['status'] == true) {
                                     Swal.fire(
-                                    `${data['message']}`, 
-                                    '',
-                                    'success'
-                                    ).then(function() {  
-                                        userDataTable.ajax.reload();  
-                                    }); 
-                                }else{
-                                    Swal.fire(
-                                    `${data['message']}`, 
-                                    '',
-                                    'error'
-                                    ).then(function() { 
+                                        `${data['message']}`,
+                                        '',
+                                        'success'
+                                    ).then(function() {
+                                        userDataTable.ajax.reload();
                                     });
-                                } 
+                                } else {
+                                    Swal.fire(
+                                        `${data['message']}`,
+                                        '',
+                                        'error'
+                                    ).then(function() {});
+                                }
                             }
-                        }); 
+                        });
 
-                    }else{   
+                    } else {
 
-                        userDataTable.ajax.reload();  
+                        userDataTable.ajax.reload();
 
-                        
+
                     }
 
                 });
 
-                
+
 
             });
         }
-       
 
 
-        let arrayWaypoint = []; 
-        var obj = {}; 
+
+        let arrayWaypoint = [];
+        var obj = {};
         $('#myModal').on('shown.bs.modal', function() {
             console.log(arrayWaypoint);
-            
+
             $('#startTime').clockpicker({
                 autoclose: true
             });
             $('#endTime').clockpicker({
                 autoclose: true
             });
-    
+
             new Choices('#id_vip', {
                 searchEnabled: true,
                 removeItemButton: true,
@@ -484,7 +513,7 @@
                     containerOuter: 'choices select-choices',
                 },
             });
-            
+
 
 
             // $('[name=cordinate]').val('-8.451740, 115.089643');
@@ -519,7 +548,7 @@
             //     zoomControl: false,
             //     layers: [googleHybrid]
             // }).setView(initialCenter, initialZoom);
-    
+
             // var baseMaps = {
             //     "Google Map Street": googleStreet,
             //     "Google Map Satelite": googleSatelite,
@@ -533,9 +562,9 @@
             // L.control.zoom({
             //     position: 'bottomleft'
             // }).addTo(mapContainerInstruksi);
-            
+
             // // mapContainerInstruksi.invalidateSize(); 
-            
+
             // var control = L.Routing.control({
             //     waypoints: arrayWaypoint,
             //     router: new L.Routing.osrmv1({
@@ -578,41 +607,40 @@
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
-            e.preventDefault(); 
-    
+            e.preventDefault();
+
             // var routeArray = new Array();
             // routeArray = control.getWaypoints();
             // $('#ruteawal').val(JSON.stringify(routeArray)); 
-    
-            var formData = new FormData($('.form')[0]); 
+
+            var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url();?>operasi/Renpam/store",
+                url: "<?php echo base_url(); ?>operasi/Renpam/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
                 contentType: false,
-                processData: false,  
-                success: function (data) {
+                processData: false,
+                success: function(data) {
                     $("#overlay").fadeOut(300);
-                    if(data['status'] == true){
+                    if (data['status'] == true) {
                         Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'success'
-                        ).then(function() { 
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
                             $("#myModal").modal('hide');
-                            userDataTable.draw(); 
-                        }); 
-                    }else{
-                        Swal.fire(
-                        `${data['message']}`, 
-                        '',
-                        'error'
-                        ).then(function() { 
+                            userDataTable.draw();
                         });
-                    } 
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
                 }
-            }); 
+            });
         });
     });
 
@@ -625,11 +653,11 @@
     var routingAlternative2 = new Array();
     var routingAlternative3 = new Array();
     var routingAlternative4 = new Array();
-    let arrayWaypointUtama = []; 
-    let arrayWaypoint = []; 
+    let arrayWaypointUtama = [];
+    let arrayWaypoint = [];
 
-    $('#myModalUtama').on('shown.bs.modal', function() {    
-    
+    $('#myModalUtama').on('shown.bs.modal', function() {
+
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -674,10 +702,10 @@
         }).addTo(mapContainerRenpamUtama);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerRenpamUtama); 
+        }).addTo(mapContainerRenpamUtama);
 
 
-        mapContainerRenpamUtama.invalidateSize(); 
+        mapContainerRenpamUtama.invalidateSize();
 
 
         var routeAlternativeUtama = L.Routing.control({
@@ -690,24 +718,24 @@
         }).addTo(mapContainerRenpamUtama);
 
 
-        function createButton(label, container) { 
+        function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerRenpamUtama.on('click', function(e) {  
+        mapContainerRenpamUtama.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container), 
+                startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {
 
                 routeAlternativeUtama.spliceWaypoints(0, 1, e.latlng);
                 mapContainerRenpamUtama.closePopup();
-            }); 
-            L.DomEvent.on(destBtn, 'click', function() { 
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
 
                 routeAlternativeUtama.spliceWaypoints(routeAlternativeUtama.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerRenpamUtama.closePopup();
@@ -717,18 +745,18 @@
                 .setLatLng(e.latlng)
                 .openOn(mapContainerRenpamUtama);
 
-            
-        }); 
 
-        $("#submitAlternativeUtama").on('click', function(e){ 
+        });
+
+        $("#submitAlternativeUtama").on('click', function(e) {
             routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
-            $('#ruteawal').val(JSON.stringify(routingAlternativeUtama));  
+            $('#ruteawal').val(JSON.stringify(routingAlternativeUtama));
             // $("#myModal1").modal('hide');
         });
     });
 
-    $('#myModal1').on('shown.bs.modal', function() {    
-    
+    $('#myModal1').on('shown.bs.modal', function() {
+
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -773,11 +801,11 @@
         }).addTo(mapContainerRenpam);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerRenpam); 
+        }).addTo(mapContainerRenpam);
 
 
-        mapContainerRenpam.invalidateSize(); 
- 
+        mapContainerRenpam.invalidateSize();
+
 
         var routeAlternative1 = L.Routing.control({
             waypoints: arrayWaypoint,
@@ -789,24 +817,24 @@
         }).addTo(mapContainerRenpam);
 
 
-        function createButton(label, container) { 
+        function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerRenpam.on('click', function(e) {  
+        mapContainerRenpam.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container), 
+                startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {
 
                 routeAlternative1.spliceWaypoints(0, 1, e.latlng);
                 mapContainerRenpam.closePopup();
-            }); 
-            L.DomEvent.on(destBtn, 'click', function() { 
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
 
                 routeAlternative1.spliceWaypoints(routeAlternative1.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerRenpam.closePopup();
@@ -816,19 +844,19 @@
                 .setLatLng(e.latlng)
                 .openOn(mapContainerRenpam);
 
-            
-        }); 
 
-        $("#submitAlternative1").on('click', function(e){ 
+        });
+
+        $("#submitAlternative1").on('click', function(e) {
             routingAlternative1 = routeAlternative1.getWaypoints();
-            $('#coordsAlternative1').val(JSON.stringify(routingAlternative1));  
+            $('#coordsAlternative1').val(JSON.stringify(routingAlternative1));
             // $("#myModal1").modal('hide');
         });
     });
 
 
-    $('#myModal2').on('shown.bs.modal', function() {    
-        
+    $('#myModal2').on('shown.bs.modal', function() {
+
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -873,12 +901,12 @@
         }).addTo(mapContainerRenpam2);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerRenpam2); 
+        }).addTo(mapContainerRenpam2);
 
 
-        mapContainerRenpam2.invalidateSize(); 
+        mapContainerRenpam2.invalidateSize();
 
-       
+
 
         var routeAlternative2 = L.Routing.control({
             waypoints: arrayWaypoint,
@@ -890,24 +918,24 @@
         }).addTo(mapContainerRenpam2);
 
 
-        function createButton(label, container) { 
+        function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerRenpam2.on('click', function(e) {  
+        mapContainerRenpam2.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container), 
+                startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {
 
                 routeAlternative2.spliceWaypoints(0, 1, e.latlng);
                 mapContainerRenpam2.closePopup();
-            }); 
-            L.DomEvent.on(destBtn, 'click', function() { 
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
 
                 routeAlternative2.spliceWaypoints(routeAlternative2.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerRenpam2.closePopup();
@@ -917,18 +945,18 @@
                 .setLatLng(e.latlng)
                 .openOn(mapContainerRenpam2);
 
-            
-        }); 
 
-        $("#submitAlternative2").on('click', function(e){ 
+        });
+
+        $("#submitAlternative2").on('click', function(e) {
             routingAlternative2 = routeAlternative2.getWaypoints();
-            $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));  
+            $('#coordsAlternative2').val(JSON.stringify(routingAlternative2));
             // $("#myModal2").modal('hide');
         });
-    }); 
+    });
 
-    $('#myModal3').on('shown.bs.modal', function() {    
-        
+    $('#myModal3').on('shown.bs.modal', function() {
+
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -973,12 +1001,12 @@
         }).addTo(mapContainerRenpam3);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerRenpam3); 
+        }).addTo(mapContainerRenpam3);
 
 
-        mapContainerRenpam3.invalidateSize(); 
+        mapContainerRenpam3.invalidateSize();
 
-       
+
 
         var routeAlternative3 = L.Routing.control({
             waypoints: arrayWaypoint,
@@ -990,24 +1018,24 @@
         }).addTo(mapContainerRenpam3);
 
 
-        function createButton(label, container) { 
+        function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerRenpam3.on('click', function(e) {  
+        mapContainerRenpam3.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container), 
+                startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {
 
                 routeAlternative3.spliceWaypoints(0, 1, e.latlng);
                 mapContainerRenpam3.closePopup();
-            }); 
-            L.DomEvent.on(destBtn, 'click', function() { 
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
 
                 routeAlternative3.spliceWaypoints(routeAlternative3.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerRenpam3.closePopup();
@@ -1017,19 +1045,19 @@
                 .setLatLng(e.latlng)
                 .openOn(mapContainerRenpam3);
 
-            
-        }); 
 
-        $("#submitAlternative3").on('click', function(e){ 
+        });
+
+        $("#submitAlternative3").on('click', function(e) {
             routingAlternative3 = routeAlternative3.getWaypoints();
-            $('#coordsAlternative3').val(JSON.stringify(routingAlternative3));  
+            $('#coordsAlternative3').val(JSON.stringify(routingAlternative3));
             // $("#myModal2").modal('hide');
         });
-    }); 
+    });
 
 
-    $('#myModal4').on('shown.bs.modal', function() {    
-        
+    $('#myModal4').on('shown.bs.modal', function() {
+
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -1074,12 +1102,12 @@
         }).addTo(mapContainerRenpam4);
         L.control.zoom({
             position: 'bottomleft'
-        }).addTo(mapContainerRenpam4); 
+        }).addTo(mapContainerRenpam4);
 
 
-        mapContainerRenpam4.invalidateSize(); 
+        mapContainerRenpam4.invalidateSize();
 
-       
+
 
         var routeAlternative4 = L.Routing.control({
             waypoints: arrayWaypoint,
@@ -1091,24 +1119,24 @@
         }).addTo(mapContainerRenpam4);
 
 
-        function createButton(label, container) { 
+        function createButton(label, container) {
             var btn = L.DomUtil.create('button', '', container);
             btn.setAttribute('type', 'button');
             btn.innerHTML = label;
             return btn;
         }
 
-        mapContainerRenpam4.on('click', function(e) {  
+        mapContainerRenpam4.on('click', function(e) {
             var container = L.DomUtil.create('div'),
-                startBtn = createButton('Start from this location', container), 
+                startBtn = createButton('Start from this location', container),
                 destBtn = createButton('Go to this location', container);
 
-            L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {
 
                 routeAlternative4.spliceWaypoints(0, 1, e.latlng);
                 mapContainerRenpam4.closePopup();
-            }); 
-            L.DomEvent.on(destBtn, 'click', function() { 
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
 
                 routeAlternative4.spliceWaypoints(routeAlternative4.getWaypoints().length - 1, 1, e.latlng);
                 mapContainerRenpam4.closePopup();
@@ -1118,13 +1146,13 @@
                 .setLatLng(e.latlng)
                 .openOn(mapContainerRenpam4);
 
-            
-        }); 
 
-        $("#submitAlternative4").on('click', function(e){ 
+        });
+
+        $("#submitAlternative4").on('click', function(e) {
             routingAlternative4 = routeAlternative4.getWaypoints();
-            $('#coordsAlternative4').val(JSON.stringify(routingAlternative4));  
+            $('#coordsAlternative4').val(JSON.stringify(routingAlternative4));
             // $("#myModal2").modal('hide');
         });
-    }); 
+    });
 </script>

@@ -82,17 +82,17 @@
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.light.css" />
 
     <style>
-        .animateLine {   
-            stroke-dasharray: 10; 
+        .animateLine {
+            stroke-dasharray: 10;
             animation: dash linear infinite;
-            animation-duration: 15.5833s; 
+            animation-duration: 15.5833s;
         }
 
         .animateRoute {
             stroke-dasharray: 10;
             stroke-dashoffset: 1920;
-            animation: dash linear  infinite;
-            animation-duration: 20.5833s;  
+            animation: dash linear infinite;
+            animation-duration: 20.5833s;
         }
 
         @keyframes dash {
@@ -105,7 +105,7 @@
             background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
             background-size: 36px 36px;
         }
-            
+
         #mapG20Dashboard {
             height: 900px;
             width: 100%
@@ -433,15 +433,16 @@
 
 
         #incognito {
-        display: none;
+            display: none;
         }
 
-        #incognito + label:before {
+        #incognito+label:before {
             cursor: pointer;
-            content: "\f505"; /* Bars */
+            content: "\f505";
+            /* Bars */
         }
 
-        #incognito:checked + label:before {
+        #incognito:checked+label:before {
             cursor: pointer;
             /* color: red; */
             content: "\f506";
@@ -451,7 +452,7 @@
     <!-- JAVASCRIPT -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
- 
+
     <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/metismenu/metisMenu.min.js"></script>
@@ -462,7 +463,7 @@
 
     <script src="https://cdn3.devexpress.com/jslib/18.2.6/js/dx.all.js"></script>
 
-    
+
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -470,19 +471,19 @@
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
-            authDomain: "g20k3i.firebaseapp.com",
-            projectId: "g20k3i",
-            storageBucket: "g20k3i.appspot.com",
-            messagingSenderId: "475022830226",
-            appId: "1:475022830226:web:51022ccfb162eac1b0144b"
-        };
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+                authDomain: "g20k3i.firebaseapp.com",
+                projectId: "g20k3i",
+                storageBucket: "g20k3i.appspot.com",
+                messagingSenderId: "475022830226",
+                appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+            };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        console.log(app);
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            console.log(app);
     </script>
 
     <?php echo $css ?>
@@ -557,7 +558,7 @@
                     <?php if ($this->uri->segment(1) == "dashboard") { ?>
                         <div>
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI -  <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                         </div>
                     <?php } else { ?>
                         <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
@@ -700,7 +701,7 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
+                                    <span data-key="t-dashboard">Uraian Kegiatan</span>
                                 </a>
                             </li>
                             <li>
@@ -722,8 +723,8 @@
                                     <span data-key="t-authentication">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
-                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -785,7 +786,7 @@
                         <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
                             <li>
-                                <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d")?>&end_date=<?= date("Y-m-d")?>">
+                                <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d") ?>&end_date=<?= date("Y-m-d") ?>">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
@@ -800,15 +801,15 @@
                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
                                 </ul>
                             </li>
-                            <?php if($this->session->userdata['role'] != 'Operator'){?>
-                            <li>
-                                <a href="<?php echo base_url(); ?>dashboard/peta">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Peta</span>
-                                </a>
-                            </li>
+                            <?php if ($this->session->userdata['role'] != 'Operator') { ?>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>dashboard/peta">
+                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Peta</span>
+                                    </a>
+                                </li>
                             <?php } ?>
-                            
+
 
                             <li>
                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
@@ -825,7 +826,7 @@
                             </li>
 
                         <?php } else { ?>
-                            
+
                             <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">

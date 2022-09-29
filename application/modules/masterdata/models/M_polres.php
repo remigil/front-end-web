@@ -94,9 +94,10 @@ class M_polres extends CI_Model
         // } 
 
 
-        $url = 'polres?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url_polres = 'polres?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        // $url_polda = 'polda?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
-        $result = guzzle_request('GET', $url, [
+        $result = guzzle_request('GET', $url_polres, [
 
             'headers' => [
                 'Authorization' => $this->session->userdata['token']
@@ -104,6 +105,13 @@ class M_polres extends CI_Model
 
         ]);
 
+		// $result = guzzle_request('GET', $url_polda, [
+
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+
+        // ]);
 
         $no = 1;
 
@@ -121,7 +129,7 @@ class M_polres extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
-            $row['polda_id'] 		= $field['polda_id'];
+            $row['name_polda'] 		= $field['polda']['name_polda'];
             $row['name_polres']     = $field['name_polres'];
             $row['code_satpas']     = $field['code_satpas'];
             $row['address']       	= $field['address'];

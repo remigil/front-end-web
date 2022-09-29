@@ -109,7 +109,7 @@ class M_berita extends CI_Model {
             ]);
 
 
-        // var_dump($result);
+        // var_dump($result['data']['data']);
 		// echo "<pre>";
 		// var_dump($result);
 		// echo "</pre>";
@@ -139,7 +139,7 @@ class M_berita extends CI_Model {
             $row ['title']			= $field['title'];  
             $row ['content']   		= $field['content'];
             $row ['author']  	 	= $field['author'];  
-            $row ['created_at']   	= $field['created_at'];  
+            $row ['date']   	= $field['date'];  
             $row ['action']         = ' 
                 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">

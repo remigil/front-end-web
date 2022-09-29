@@ -275,7 +275,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Pengamanan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Uraian Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
@@ -286,7 +286,7 @@
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
-                                <label class="labelmui">Judul Renpam</label>
+                                <label class="labelmui">Uraian Kegiatan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -296,7 +296,7 @@
                                         <option value="<?php echo $row['id'];?>"><?php echo $row['name_account'];?></option> 
                                     <?php endforeach; ?> 
                                 </select>
-                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
