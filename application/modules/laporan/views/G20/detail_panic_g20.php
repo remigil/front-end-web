@@ -40,11 +40,11 @@
                                 <p>:</p>
                             </div>
                             <div class="ms-3">
-                                <p>Hendri</p>
-                                <p>Kecelekaan</p>
-                                <p>-</p>
-                                <p>01 Juli 2022 07:06 AM</p>
-                                <p>+62 895 124 564</p>
+                                <p><?= $data['getDetail']['name_officer']; ?></p>
+                                <p><?= $data['getDetail']['categori']; ?></p>
+                                <p><?= $data['getDetail']['description']; ?></p>
+                                <p><?= $data['getDetail']['created_at']; ?></p>
+                                <p><?= $data['getDetail']['code']; ?></p>
                             </div>
                         </div>
                         <div class="col-6">

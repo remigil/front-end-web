@@ -23,36 +23,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hendri</td>
-                        <td>Kecelakaan</td>
-                        <td>-</td>
-                        <td>01 Juli 2022 07:06</td>
-                        <td class="text-primary">+62 895 1234 564</td>
-                        <td class="text-center ms-auto">
-                            <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('laporan/panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Putu</td>
-                        <td>Kemacetan</td>
-                        <td>-</td>
-                        <td>01 Juli 2022 07:06</td>
-                        <td class="text-primary">+62 895 1234 564</td>
-                        <td class="text-center ms-auto">
-                            <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('laporan/panic/Detail'); ?>"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                        </td>
-                    </tr>
-                </tbody>
+
             </table>
         </div>
 
@@ -61,69 +32,128 @@
 <!-- End Page -->
 
 
-<div class="modal fade TambahKegiatan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Kegiatan</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Kegiatan</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">VIP</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Tim yang ditugaskan</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="date">
-                            <label class="labelmui">Tanggal</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="NoKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Mulai</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="time">
-                            <label class="labelmui">Waktu Akhir</label>
-                        </div>
-                        <div class="material-textfield mb-3 col-6">
-                            <input style="width: 100%;" name="JenisKegiatan" placeholder="" type="text">
-                            <label class="labelmui">Lokasi Tujuan</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-
-                            <div style="height: 25vh;" class="mt-3 rounded" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mt-3 float-end">
-                        <button class="btn btn-primary float-end" type="submit">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     $(document).ready(function() {
-        $('#datatable').DataTable({
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
             scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>laporan/panic/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'name_officer'
+                },
+                {
+                    data: 'categori'
+                },
+                {
+                    data: 'description'
+                },
+                {
+                    data: 'time'
+                },
+                {
+                    data: 'phone_officer'
+                },
+                {
+                    data: 'status'
+                },
+
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
         });
     });
 </script>

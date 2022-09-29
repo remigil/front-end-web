@@ -701,7 +701,7 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Uraian Kegiatan</span>
+                                    <span data-key="t-dashboard">Rencana Kegiatan</span>
                                 </a>
                             </li>
                             <li>
