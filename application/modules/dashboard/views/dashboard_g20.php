@@ -530,7 +530,7 @@
                 <form class="formNoteKakor" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">   
-                         
+                        <textarea name="accountsNoteKakor" id="accountsNoteKakor" cols="5" rows="5"></textarea>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
@@ -1886,6 +1886,7 @@
                                         style="font-size: 16px;"  
                                         data-idnote="${el.id}" 
                                         data-note="${el.note_kakor}"
+                                        data-accounts='${JSON.stringify(el.accounts)}'
                                         title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                             <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                                         </a>
@@ -3625,17 +3626,36 @@
     $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
         var myId = $(event.relatedTarget).data('idnote'); 
         var myNote = $(event.relatedTarget).data('note'); 
+        var myAccounts = $(event.relatedTarget).data('accounts'); 
         var modal          = $(this);
 
         modal.find('#idNoteKakor').val(myId);
         modal.find('#noteKakor').val(myNote);
 
+        var arrayAccount = new Array();
+        for (let i = 0; i < myAccounts.length; i++){ 
+            arrayAccount.push(myAccounts[i]['id']);
+        }
 
-        // console.log(myId);
+        modal.find('#accountsNoteKakor').val(JSON.stringify(arrayAccount));
+        
 
-        $(".formNoteKakor").submit(function(e) {
+        // console.log(myAccounts);
+
+        
+    });
+
+    $('#cekarrayTrack').on('click', function(e) { 
+        console.log(markerFasum);
+    });
+
+    $(".formNoteKakor").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault();  
+
+            // var routeArray = new Array();
+            // routeArray = control.getWaypoints();
+            // $('#ruteawal').val(JSON.stringify(routeArray)); 
 
             var formData = new FormData($('.formNoteKakor')[0]); 
             $.ajax({
@@ -3666,11 +3686,6 @@
                 }
             }); 
         });
-    });
-
-    $('#cekarrayTrack').on('click', function(e) { 
-        console.log(markerFasum);
-    });
 
     
 </script> 

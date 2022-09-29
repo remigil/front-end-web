@@ -188,7 +188,7 @@ class Renpam extends MY_Controller
         // $dummy ['date']	= $input['date']; 
         // $dummy ['start_time']	= $input['startTime']; 
         // $dummy ['end_time']	= $input['endTime']; 
-        // $dummy ['accounts']	= json_encode($input['id_account']); 
+        $dummy ['accounts']	= $input['accountsNoteKakor']; 
         // $dummy ['vips']	= json_encode($input['id_vip']); 
         // $dummy ['route']	= $input['ruteawal']; 
         // $dummy ['route_alternatif_1']	= $input['coordsAlternative1']; 
@@ -200,7 +200,7 @@ class Renpam extends MY_Controller
         // echo json_encode($dummy);
         // die;
 
-        $data = guzzle_request('PUT', 'renpam/edit/' . $input['id'] . '', [
+        $data = guzzle_request('PUT', 'renpam/instruksiKakor/' . $input['id'] . '', [
             'form_params' => $dummy,
             'headers' => $headers
         ]);
