@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <a href="<?= base_url('laporan/Operasi'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
+                <a href="<?= base_url('laporan/Panic'); ?>"><button class="btn btn-sm btn-primary float-end" style="width: 40vh;">Kembali</button></a>
             </div>
         </div>
     </div>
