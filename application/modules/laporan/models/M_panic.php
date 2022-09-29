@@ -27,11 +27,14 @@ class M_panic extends CI_Model
 
         $page = $postData['page'];
 
-        $filter = 'PNC';
-
         $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue'];
+        if ($postData == null) {
+            $orderValue = 'DESC';
+        } else {
+            $orderValue = $postData['orderValue'];
+        }
+
 
         $orderFieldRess =  $columnName[$orderField]['data'];
 
@@ -121,11 +124,10 @@ class M_panic extends CI_Model
             $row['name_officer']      = $field['officer']['name_officer'];
             $row['categori']      = $field['categori'];
             $row['description']           = $field['description'];
-            $row['time']           = '';
+            $row['time']           = $field['created_at'];
             $row['phone_officer']           = $field['officer']['phone_officer'];
             $row['status']           = $status;
             $row['action']             = '   
-			
                  <a href=" ' . base_url('laporan/panic/Detail/' . $field['id']) . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
             ';
 
