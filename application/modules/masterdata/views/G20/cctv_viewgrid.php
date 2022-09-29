@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?php echo base_url()?>masterdata/cctv/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv/fullscreen" data-bs-toggle="tooltip" data-bs-placement="top" title="FullScreen"><i class="bx bx bx-fullscreen"></i></a>
+                    </li>
                 </ul>
             </div> 
         </div> 

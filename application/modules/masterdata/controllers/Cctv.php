@@ -75,6 +75,73 @@ class Cctv extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function fullscreen() 
+    {  
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Thumbnail CCTV";
+
+        // if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor'  || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
+        //     $page_content["page"] = "masterdata/G20/cctv_viewFull";
+        // } else if ($this->session->userdata['role'] == 'Korlantas') {
+        //     $page_content["page"] = "masterdata/Korlantas/cctv_viewFull";
+        // } else if ($this->session->userdata['role'] == 'Kapolda') {
+        //     $page_content["page"] = "masterdata/Kapolda/cctv_viewFull";
+        // } else if ($this->session->userdata['role'] == 'Polres') {
+        //     $page_content["page"] = "masterdata/Polres/cctv_viewFull";
+        // }else{
+        //     redirect(base_url('dashboard'));
+        // }
+ 
+
+
+        // $page_content["data"] = '';
+        // $this->templates->loadTemplate($page_content);
+        $this->load->view('masterdata/G20/cctv_viewFull', $page_content);
+    }
+
+    public function getCCTVFullScreen()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post();  
+
+        if($input['kategoriFilter']){
+            $kategoriFilter = '&filter[]=type_cctv&filterSearch[]='.$input['kategoriFilter'].'';
+        }else{
+            $kategoriFilter = '';
+        }
+
+        if($input['searchFilter']){
+            $searchData = '&search='.$input['searchFilter'].'';
+        }else{
+            $searchData = '';
+        } 
+
+        if($input['page']){
+            $page = ''.$input['page'].'';
+        }else{
+            $page = '1';
+        } 
+
+
+        $url = 'cctv?serverSide=True&length=4&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
+        // print_r($url);
+        // die;
+        $getCCTV = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getCCTV'] = $getCCTV['data'];
+
+        echo json_encode($data['getCCTV']);
+    }
+
     public function getCCTV()
     {
         $headers = [
