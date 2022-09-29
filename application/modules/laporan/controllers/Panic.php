@@ -9,6 +9,7 @@ class Panic extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model("laporan/m_panic");
     }
 
     public function index()
@@ -30,7 +31,7 @@ class Panic extends MY_Controller
             $page_content["page"] = "laporan/Kapolda/panic_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "laporan/Polres/panic_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
@@ -40,13 +41,23 @@ class Panic extends MY_Controller
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_panic->get_datatables($postData);
+        echo json_encode($data);
+    }
 
-    public function Detail()
+    public function Detail($id)
     {
 
         // $headers = [
         //     'Token' => $this->session->userdata['token'],    
         // ];
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -60,14 +71,19 @@ class Panic extends MY_Controller
             $page_content["page"] = "laporan/Kapolda/detail_panic_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "laporan/Polres/detail_panic_polres";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
 
 
+        $getDetail = guzzle_request('GET', 'report/getLaporanById/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data'][0];
 
-        $page_content["data"] = '';
+
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 }
