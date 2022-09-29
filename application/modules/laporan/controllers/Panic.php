@@ -82,7 +82,6 @@ class Panic extends MY_Controller
         ]);
         $data['getDetail'] = $getDetail['data'][0];
 
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

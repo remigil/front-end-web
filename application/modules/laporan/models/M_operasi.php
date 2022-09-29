@@ -125,7 +125,7 @@ class M_operasi extends CI_Model
             $row['status']           = $status;
             $row['action']             = '   
 			
-                 <a href=" ' . base_url('laporan/panic/Detail/' . $field['id']) . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                 <a href=" ' . base_url('laporan/operasi/Detail/' . $field['id']) . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
             ';
 
             $data[] = $row;

@@ -36,20 +36,23 @@
                                 </div>
                                 <div class="col-1">
                                     <p>:</p>
+                                    <br>
+
                                     <p>:</p>
                                     <p>:</p>
                                     <p>:</p>
                                     <p>:</p>
                                 </div>
                                 <div class="col-3">
-                                    <p>Made</p>
-                                    <p>Operasi</p>
-                                    <p>-</p>
-                                    <p>01 Juli 2022 07:06 AM</p>
-                                    <p>+62 895 1234 564</p>
+                                    <p><?= $data['getDetail']['name_officer']; ?></p>
+                                    <br>
+                                    <p><?= $data['getDetail']['categori']; ?></p>
+                                    <p><?= $data['getDetail']['description']; ?></p>
+                                    <p><?= $data['getDetail']['created_at']; ?></p>
+                                    <p><?= $data['getDetail']['phone_officer']; ?></p>
                                 </div>
                                 <div class="col-6">
-                                    <div class="rounded float-end" style="background-color: grey; height:27vh; width: 60vh;"></div>
+                                    <img src="<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:27vh; width: 60vh;">
                                 </div>
                             </div>
                         </div>

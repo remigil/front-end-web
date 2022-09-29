@@ -47,12 +47,15 @@ class Operasi extends MY_Controller
         $data = $this->m_operasi->get_datatables($postData);
         echo json_encode($data);
     }
-    public function Detail()
+    public function Detail($id)
     {
 
         // $headers = [
         //     'Token' => $this->session->userdata['token'],    
         // ];
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -71,9 +74,13 @@ class Operasi extends MY_Controller
         }
 
 
+        $getDetail = guzzle_request('GET', 'report/getLaporanById/' . $id . '', [
+            'headers' => $headers
+        ]);
+        $data['getDetail'] = $getDetail['data'][0];
 
 
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 }
