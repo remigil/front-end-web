@@ -31,20 +31,33 @@
                             <p>INSTRUKSI</p>
                             <p>TANGGAL</p>
                             <p>WAKTU</p>
-                            <p>LOKASI</p>
+                            <p>INSTRUKSI KAKOR</p>
                         </div>
                         <div class="col-1">
                             <p>:</p>
                             <p>:</p>
                             <p>:</p>
                             <p>:</p>
+                            <p>:</p>
                         </div>
                         <div class="col-3">
-                            <p><?php echo $data['getDetail']['data']['type_renpam']; ?></p>
-                            <p><?php echo $data['getDetail']['data']['name_renpam']; ?></p>
-                            <p><?php echo format_indo($data['getDetail']['data']['date']); ?></p>
-                            <p><?php echo $data['getDetail']['data']['start_time']; ?> - <?php echo $data['getDetail']['data']['start_time']; ?> WITA</p>
-                            <p><?php echo ($data['getDetail']['data']['schedule'] > 0 ? $data['getDetail']['data']['schedule']['address_schedule'] : '-'); ?></p>
+                            <p>
+                                <?php if($data['getDetail']['data']['type_renpam'] == 1) {?> 
+                                    Patroli
+                                <?php } else if($data['getDetail']['data']['type_renpam'] == 2) { ?>
+                                    Pengawalan
+                                <?php } else if($data['getDetail']['data']['type_renpam'] == 3) { ?>
+                                    Penjagaan
+                                <?php } else if($data['getDetail']['data']['type_renpam'] == 4) { ?>
+                                    Pengaturan
+                                <?php } else if($data['getDetail']['data']['type_renpam'] == 5) { ?>
+                                    Penutupan
+                                <?php } ?>
+                            </p> 
+                            <p><?php echo $data['getDetail']['data']['name_renpam'];?></p> 
+                            <p><?php echo format_indo($data['getDetail']['data']['date']);?></p>
+                            <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
+                            <p><?php echo ($data['getDetail']['data']['note_kakor'] != null ? $data['getDetail']['data']['note_kakor'] : '-');?></p>
                         </div>
                     </div>
                 </div>

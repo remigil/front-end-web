@@ -710,6 +710,7 @@
                     data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
                     $('#listAddress').html(list); 
                 });  
+                
 
                 if(list == ""){
                     countlist = 0;
@@ -820,14 +821,14 @@
                                                     <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} </p>
+                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</p>
                                                 </div>
                                                 
                                                 <div class="col-md-4">
                                                     <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} </p>
+                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</p>
                                                 </div>
                                             </div> 
                                         </div>  
@@ -890,14 +891,14 @@
                                                 <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} </p>
+                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</p>
                                             </div>
                                             
                                             <div class="col-md-4">
                                                 <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} </p>
+                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</p>
                                             </div>
                                         </div> 
                                           
@@ -987,6 +988,7 @@
                     } 
                 },
                 error: function () { 
+                    $("#overlay").fadeOut(300);  
                     console.log("gagal connect");
                 } 
             }); 
@@ -1146,14 +1148,14 @@
                                     <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} </p>
+                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</p>
                                 </div>
                                 
                                 <div class="col-md-4">
                                     <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} </p>
+                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</p>
                                 </div>
                             </div>  
                         
@@ -1214,14 +1216,14 @@
                                     <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} </p>
+                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</p>
                                 </div>
                                 
                                 <div class="col-md-4">
                                     <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} </p>
+                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</p>
                                 </div>
                             </div>  
                         
@@ -1853,14 +1855,14 @@
 
                             if(el.status_renpam == 1){
                                 status = `
-                                <div>
+                                <a href="<?php echo base_url()?>operasi/renpam/edit/${el.id}" target="_blank">
                                     <div class="rounded-circle m-auto" style="background:green; height:15px ; width:15px"></div>
-                                </div>`;
+                                </a>`;
                             }else{
                                 status = `
-                                <div>
+                                <a href="<?php echo base_url()?>operasi/renpam/edit/${el.id}" target="_blank">
                                     <div class="rounded-circle m-auto" style="background:red; height:15px ; width:15px"></div>
-                                </div>
+                                </a>
                                 `;
                             }
         
