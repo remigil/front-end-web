@@ -863,6 +863,13 @@
                             </li> -->
 
                             <li>
+                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">CCTV</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="<?php echo base_url(); ?>zoom">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Zoom</span>
@@ -889,7 +896,7 @@
                                         <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
                                         <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
                                     <?php } ?>
-                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                    <!-- <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li> -->
                                     <li><a href="<?php echo base_url('masterdata/jabatan'); ?>" data-key="t-read-email">Jabatan VIP</a></li>
                                     <li><a href="<?php echo base_url('masterdata/negara'); ?>" data-key="t-read-email">Negara VIP</a></li>
                                     <li><a href="<?php echo base_url('masterdata/pangkat'); ?>" data-key="t-read-email">Pangkat Petugas</a></li>
