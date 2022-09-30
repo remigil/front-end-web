@@ -85,4 +85,40 @@ class Panic extends MY_Controller
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
+
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $input      = $this->input->post();
+        $dummy = [
+            [
+                'name' => 'id',
+                'contents' => $input['id'],
+            ]
+        ];
+
+        $data = guzzle_request('DELETE', 'report/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil hapus data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal hapus data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
+    }
 }

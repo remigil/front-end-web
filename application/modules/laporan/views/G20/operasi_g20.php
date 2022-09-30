@@ -147,10 +147,80 @@
             drawCallback: function(settings) {
 
                 $("#overlay").fadeOut(300);
+                client();
 
             }
 
 
         });
+
+
+        function client() {
+
+            $(".deletedata").on("click", function(event) {
+
+                Swal.fire({
+
+                    title: 'Anda yakin ingin menghapus ?',
+
+                    text: "",
+
+                    icon: 'warning',
+
+                    showCancelButton: true,
+
+                    confirmButtonColor: '#3085d6',
+
+                    cancelButtonColor: '#d33',
+
+                    confirmButtonText: 'Yes'
+
+                }).then((result) => {
+
+                    if (result.value == true) {
+                        $("#overlay").fadeIn(300);
+
+                        $.ajax({
+                            url: "<?php echo base_url(); ?>laporan/Operasi/delete",
+                            method: "POST",
+                            data: {
+                                "id": $(this).data("id"),
+                            },
+                            dataType: 'JSON',
+                            // contentType: false,
+                            // processData: false,  
+                            success: function(data) {
+                                $("#overlay").fadeOut(300);
+                                if (data['status'] == true) {
+                                    Swal.fire(
+                                        `${data['message']}`,
+                                        '',
+                                        'success'
+                                    ).then(function() {
+                                        userDataTable.ajax.reload();
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        `${data['message']}`,
+                                        '',
+                                        'error'
+                                    ).then(function() {});
+                                }
+                            }
+                        });
+
+                    } else {
+
+                        userDataTable.ajax.reload();
+
+
+                    }
+
+                });
+
+
+
+            });
+        }
     });
 </script>

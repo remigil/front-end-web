@@ -127,8 +127,15 @@ class M_panic extends CI_Model
             $row['time']           = format_indoTglWkt($field['created_at']);
             $row['phone_officer']           = $field['officer']['phone_officer'];
             $row['status']           = $status;
-            $row['action']             = '   
-                 <a href=" ' . base_url('laporan/panic/Detail/' . $field['id']) . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+            $row['action']             = '    
+                <div style="position: absolute;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-cog "></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="' . base_url() . 'laporan/panic/Detail/' . $field['id'] . '"> Detail</a>
+                        <a class="dropdown-item" href="' . base_url() . 'laporan/panic/Edit/' . $field['id'] . '"> Edit</a>
+                        <a class="deletedata dropdown-item" href="javascript:void(0);" data-id="' . $field['id'] . '"> Hapus</a> 
+                    </div>
+                </div> 
             ';
 
             $data[] = $row;
