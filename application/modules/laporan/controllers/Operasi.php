@@ -79,6 +79,9 @@ class Operasi extends MY_Controller
         ]);
         $data['getDetail'] = $getDetail['data'][0];
 
+        // echo json_encode($data['getDetail']);
+        // die;
+
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

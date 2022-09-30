@@ -1463,7 +1463,7 @@
                     } 
                     if(ressLaporan && ressLaporan.length > 0){  
                         var filterLaporan = ressLaporan.filter(function (e) {
-                            return e.lat_cctv != null && e.lng_cctv != null;
+                            return e.coordinate.latitude != null && e.coordinate.longitude != null;
                         });   
                     }
                     if(ressFasum && ressFasum.length > 0){ 
