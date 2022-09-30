@@ -22,6 +22,7 @@ class Login extends MX_Controller
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $tokenNotif = $this->input->post('token');
 
 
 
@@ -38,14 +39,38 @@ class Login extends MX_Controller
                 $data_session['polres']       = 'Bogor';
                 $data_session['full_name']       = $username;
                 $data_session['token']       = $response['token'];
+                $data_session['tokenFcm']       = $tokenNotif;
                 $data_session['logged']       = 1; 
     
                 $this->session->set_userdata($data_session);
-                if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
-                    redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
+
+
+                $headers = [ 
+                    'Authorization' => $response['token'],  
+                ]; 
+                $dummy = [
+                    [
+                        'name' => 'token_notif',
+                        'contents' => $tokenNotif,
+                    ],
+                ];
+                $data = guzzle_request('PUT', 'user/edit/'.$response['user']['data']['id'].'', [ 
+                    'multipart' => $dummy, 
+                    'headers' => $headers 
+                ]);
+
+                if($data['isSuccess'] == true){ 
+                    if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
+                        redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
+                    }else{
+                        redirect(base_url('dashboard'));
+                    } 
                 }else{
-                    redirect(base_url('dashboard'));
+                    $this->session->set_flashdata('error', 'Mohon untuk periksa kembali jaringan anda!');
+                    redirect('login');
+                    die;
                 }
+
             } else {
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');

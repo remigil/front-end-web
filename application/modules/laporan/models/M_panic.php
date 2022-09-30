@@ -124,7 +124,7 @@ class M_panic extends CI_Model
             $row['name_officer']      = $field['officer']['name_officer'];
             $row['categori']      = $field['categori'];
             $row['description']           = $field['description'];
-            $row['time']           = $field['created_at'];
+            $row['time']           = format_indoTglWkt($field['created_at']);
             $row['phone_officer']           = $field['officer']['phone_officer'];
             $row['status']           = $status;
             $row['action']             = '   

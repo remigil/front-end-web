@@ -141,7 +141,7 @@
             ],
 
             order: [
-                [0, "ASC"]
+                [0, "DESC"]
             ],
 
             drawCallback: function(settings) {

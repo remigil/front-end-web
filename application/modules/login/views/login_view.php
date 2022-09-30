@@ -92,6 +92,65 @@
         transform: translateY(-50%) scale(.9);
       }
     </style>
+
+
+    
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
+    <script> 
+        
+        firebase.initializeApp({
+            'messagingSenderId': '475022830226'
+        })
+            
+        const messaging = firebase.messaging();
+        function initFirebaseMessagingRegistration() {
+            messaging
+                .requestPermission()
+                .then(function () {
+                    messageElement.innerHTML = "Got notification permission";
+                    // console.log("Got notification permission");
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    // print the token on the HTML page
+                    $('#tokenNotif').val(token);
+                    tokenElement.innerHTML = "Token is " + token;
+                })
+                .catch(function (err) {
+                    errorElement.innerHTML = "Error: " + err;
+                    // console.log("Didn't get notification permission", err);
+            
+                    Notification.requestPermission(function() {
+                        if (Notification.permission === 'granted') {
+                            // user approved.
+                            // use of new Notification(...) syntax will now be successful
+                        } else if (Notification.permission === 'denied') {
+                            // user denied.
+                        } else { // Notification.permission === 'default'
+                            // user didn’t make a decision.
+                            // You can’t send notifications until they grant permission.
+                        }
+                    });
+
+                });
+        }
+        messaging.onMessage(function (payload) {
+            console.log("Message received. ", JSON.stringify(payload));
+            notificationElement.innerHTML = notificationElement.innerHTML + " " + payload.data.notification;
+        });
+        messaging.onTokenRefresh(function () {
+            messaging.getToken()
+                .then(function (refreshedToken) {
+                    console.log('Token refreshed.');
+                    $('#tokenNotif').val(refreshedToken);
+                    tokenElement.innerHTML = "Token is " + refreshedToken;
+                }).catch(function (err) {
+                    errorElement.innerHTML = "Error: " + err;
+                    console.log('Unable to retrieve refreshed token ', err);
+                });
+        });
+    </script>
 </head>
 <body id="top">
 <div class="page_loader"></div>
@@ -124,10 +183,26 @@
                             <a href="register-2.html" class="link-btn btn-2 default-bg">Register</a>
                         </div> -->
                         <div class="clearfix"></div>
-                        <form method="post" action="<?php echo base_url();?>login/auth" autocomplete="off">
+                        <div style="display: none;">
+                          <h1>This is a test page</h1>
+                          <div id="token" style="color:lightblue"></div>
+                          <div id="message" style="color:lightblue"></div>
+                          <div id="notification" style="color:green"></div>
+                          <div id="error" style="color:red"></div>
+                        </div>
+                        <script>
+                            messageElement = document.getElementById("message")
+                            tokenElement = document.getElementById("token")
+                            notificationElement = document.getElementById("notification")
+                            errorElement = document.getElementById("error")
+                        </script>
+                        <!-- <button onclick="initFirebaseMessagingRegistration()">Enable Firebase Messaging</button> -->
+                        <form method="post" action="<?php echo base_url();?>login/auth" autocomplete="off"> 
+
+                            <textarea hidden name="token" id="tokenNotif" cols="5" rows="5"></textarea>
                             
                             <div class="material-textfield mb-3">
-                              <input style="width: 100%;" name="username" placeholder="Nama pengguna atau alamat email" type="text">
+                              <input style="width: 100%;" onclick="initFirebaseMessagingRegistration()" name="username" placeholder="Nama pengguna atau alamat email" type="text">
                               <label class="labelmui">Nama pengguna atau alamat email</label>
                             </div>
                             <div class="material-textfield">

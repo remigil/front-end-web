@@ -464,10 +464,155 @@
     <script src="https://cdn3.devexpress.com/jslib/18.2.6/js/dx.all.js"></script>
 
 
+    
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
+    <script> 
+        
+        firebase.initializeApp({
+            'messagingSenderId': '475022830226'
+        })
+            
+        const messaging = firebase.messaging();
+        function initFirebaseMessagingRegistration() {
+            messaging
+                .requestPermission()
+                .then(function () {
+                    messageElement.innerHTML = "Got notification permission";
+                    console.log("Got notification permission");
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    // print the token on the HTML page
+                    tokenElement.innerHTML = "Token is " + token;
+                })
+                .catch(function (err) {
+                    errorElement.innerHTML = "Error: " + err;
+                    console.log("Didn't get notification permission", err);
+            
+                    Notification.requestPermission(function() {
+                        if (Notification.permission === 'granted') {
+                            // user approved.
+                            // use of new Notification(...) syntax will now be successful
+                        } else if (Notification.permission === 'denied') {
+                            // user denied.
+                        } else { // Notification.permission === 'default'
+                            // user didn’t make a decision.
+                            // You can’t send notifications until they grant permission.
+                        }
+                    });
 
-    <script type="module">
+                });
+        }
+        messaging.onMessage(function (payload) {
+            console.log("Message received. ", JSON.stringify(payload));
+            notificationElement.innerHTML = notificationElement.innerHTML + " " + payload.data.notification;
+        });
+        messaging.onTokenRefresh(function () {
+            messaging.getToken()
+                .then(function (refreshedToken) {
+                    console.log('Token refreshed.');
+                    tokenElement.innerHTML = "Token is " + refreshedToken;
+                }).catch(function (err) {
+                    errorElement.innerHTML = "Error: " + err;
+                    console.log('Unable to retrieve refreshed token ', err);
+                });
+        });
+    </script>
+
+    <script src="<?php echo base_url(); ?>assets/admin/js/firebase-messaging-sw.js"></script>
+
+ 
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-messaging.js"></script> -->
+
+    <!-- <script>
+        // alert('yuuu');
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+            authDomain: "g20k3i.firebaseapp.com",
+            projectId: "g20k3i",
+            storageBucket: "g20k3i.appspot.com",
+            messagingSenderId: "475022830226",
+            appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+        };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        console.log(app);
+
+        // const messaging = firebase.messaging();
+        // console.log(messaging);
+
+        // // //Custom function made to run firebase service 
+        // getStartToken();
+
+        // messaging.onMessage(function(payload){
+        //     console.log("on Message",payload);
+        // });
+
+
+        // function getStartToken(){ 
+        //     console.log(messaging.getToken());
+        //     messaging.getToken().then((currentToken) => {
+        //         console.log(currentToken);
+        //         // if (currentToken) {
+        //         //     sendTokenToServer(currentToken);
+        //         // } else {
+        //         //     // Show permission request.
+        //         //     RequestPermission();
+        //         //     setTokenSentToServer(false);
+        //         // }
+        //     }).catch((err) => {
+        //         // setTokenSentToServer(false);
+        //     });
+        // }
+
+        // function RequestPermission(){
+        //     messaging.requestPermission()
+        //     .then(function(permission){
+        //         if (permission === 'granted') {
+        //             console.log("have Permission");
+        //             //calls method again and to sent token to server
+        //             getStartToken();
+        //         }else{
+        //             console.log("Permission Denied");
+        //         }
+        //     });
+        //     .catch(function(err){
+        //         console.log(err);
+        //     });
+        // }
+
+        // function sendTokenToServer(token){ 
+        //     if (!isTokensendTokenToServer()) {
+        //         $.ajax({
+        //             url: URL,type: 'POST',data: {
+        //             //whatever you wanna send
+        //             push_token:token,},
+        //             success: function (response) {
+        //                 setTokenSentToServer(true);
+        //             },
+        //             error: function (err) {
+        //                 setTokenSentToServer(false);
+        //             },
+        //         });
+        //     }
+        // }
+
+        // function isTokensendTokenToServer() {
+        //     return window.localStorage.getItem('sendTokenToServer') === '1';
+        // }
+        // function setTokenSentToServer(sent) {
+        //     window.localStorage.setItem('sendTokenToServer', sent ? '1' : '0');
+        // }
+  
+    </script> -->
+
+    <!-- <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -483,8 +628,14 @@
 
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
-            console.log(app);
-    </script>
+            console.log(app); 
+
+            const messaging = messaging();
+            console.log(messaging); 
+
+ -->
+    </script> 
+    
 
     <?php echo $css ?>
 </head>
@@ -572,7 +723,7 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item noti-icon position-relative" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="bell" class="icon-lg"></i>
-                            <span class="badge bg-danger rounded-pill">5</span>
+                            <!-- <span class="badge bg-danger rounded-pill">5</span> -->
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
@@ -580,12 +731,13 @@
                                     <div class="col">
                                         <h6 class="m-0"> Notifications </h6>
                                     </div>
-                                    <div class="col-auto">
+                                    <!-- <div class="col-auto">
                                         <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div data-simplebar style="max-height: 230px;">
+
                                 <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
                                         <div class="flex-shrink-0 me-3">
@@ -600,53 +752,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#!" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 avatar-sm me-3">
-                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                <i class="bx bx-cart"></i>
-                                            </span>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-1">Your order is placed</h6>
-                                            <div class="font-size-13 text-muted">
-                                                <p class="mb-1">If several languages coalesce the grammar</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>3 min ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#!" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 avatar-sm me-3">
-                                            <span class="avatar-title bg-success rounded-circle font-size-16">
-                                                <i class="bx bx-badge-check"></i>
-                                            </span>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-1">Your item is shipped</h6>
-                                            <div class="font-size-13 text-muted">
-                                                <p class="mb-1">If several languages coalesce the grammar</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>3 min ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a href="#!" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 me-3">
-                                            <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-1">Salena Layfield</h6>
-                                            <div class="font-size-13 text-muted">
-                                                <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                 
                             </div>
                             <div class="p-2 border-top d-grid">
                                 <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
@@ -698,11 +804,22 @@
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Rencana Kegiatan</span>
                                 </a>
+                            </li> -->
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i data-feather="users"></i>
+                                    <span data-key="t-authentication">Rencana Kegiatan</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Operasi</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Harian</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li> 
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
@@ -720,7 +837,7 @@
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Laporan</span>
+                                    <span data-key="t-authentication">Laporan Operasi</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
@@ -972,7 +1089,20 @@
         <div class="main-content">
 
             <div class="page-content" style="background-color: #f5f3f4;">
-                <div class="container-fluid">
+                <div class="container-fluid"> 
+
+                <!-- <h1>This is a test page</h1>
+                <div id="token" style="color:lightblue"></div>
+                <div id="message" style="color:lightblue"></div>
+                <div id="notification" style="color:green"></div>
+                <div id="error" style="color:red"></div>
+                <script>
+                    messageElement = document.getElementById("message")
+                    tokenElement = document.getElementById("token")
+                    notificationElement = document.getElementById("notification")
+                    errorElement = document.getElementById("error")
+                </script>
+                <button onclick="initFirebaseMessagingRegistration()">Enable Firebase Messaging</button> -->
 
                     <!-- Page Content-->
                     <?php $this->load->view($page_content) ?>
@@ -1262,6 +1392,10 @@
             }
         });
     </script>
+
+
+
+
 </body>
 
 
