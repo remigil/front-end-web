@@ -125,7 +125,7 @@ class M_kendaraan extends CI_Model {
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailKendaraan">
 					<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahKendaraan">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahKendaraan">
 					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 				</button>
 				<button style="background-color:transparent ; border:none" id="HapusKendaraan" onclick="hapus(`' . $field['id'] . '`)">

@@ -42,33 +42,33 @@
 			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan">
-                                <label for="" class="labelmui">No. Kendaraan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="no" name="noKendaraan">
+                                <label for="">No. Kendaraan</label>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="" id="" style="width:116%; margin:0 0 -2vh -2.7vh">
-                                <label for="" class="labelmui">Tahun Kendaraan</label>
-                            </div>
-                        </div> -->
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
-                                <label for="" class="labelmui">Jenis Kendaraan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="jenis" name="jenisKendaraan">
+                                <label for="">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="merekKendaraan" id="merekKendaraan">
-                                <label for="" class="labelmui">Merk</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="merek" name="merekKendaraan">
+                                <label for="">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan">
-                                <label for="" class="labelmui">Kepemilikan</label>
+						<div class="form-floating mb-3">
+                                <select name="kepemilikan" class="form-select" style="width:100%" required>
+									<option selected value="">Pilih Kepemilikan</option>
+                                    <?php
+                        				foreach ($data['getPolda'] as $row) : ?>
+                            			<option value="<?php $row['name_polda']; ?>"><?php echo $row['name_polda']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="owner">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -93,35 +93,35 @@
             <div class="modal-body">
 			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="" id="id_kendaraan" type="text">
-				<div class="row">
+					<div class="row">
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan">
-                                <label for="" class="labelmui">No. Kendaraan</label>
-                            </div>
-                        </div>
-                        <!-- <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="" id="">
-                                <label for="" class="labelmui">Tahun Kendaraan</label>
-                            </div>
-                        </div> -->
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
-                                <label for="" class="labelmui">Jenis Kendaraan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="noKendaraan" placeholder="no" name="noKendaraan">
+                                <label for="">No. Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="merekKendaraan" id="merekKendaraan">
-                                <label for="" class="labelmui">Merk</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jenisKendaraan" placeholder="jenis" name="jenisKendaraan">
+                                <label for="">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan">
-                                <label for="" class="labelmui">Kepemilikan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="merekKendaraan" placeholder="merek" name="merekKendaraan">
+                                <label for="">Merk</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+						<div class="form-floating mb-3">
+                                <select name="kepemilikan" id="kepemilikan" class="form-select" style="width:100%" required>
+									<option selected value="">Pilih Kepemilikan</option>
+                                    <?php
+                        				foreach ($data['getPolda'] as $row) : ?>
+                            			<option value="<?php $row['name_polda']; ?>"><?php echo $row['name_polda']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="owner">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -146,35 +146,29 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-				<div class="row">
+					<div class="row">
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="noKendaraan" id="noKendaraan">
-                                <label for="" class="labelmui">No. Kendaraan</label>
-                            </div>
-                        </div>
-                        <!-- <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="" id="">
-                                <label for="" class="labelmui">Tahun Kendaraan</label>
-                            </div>
-                        </div> -->
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="jenisKendaraan" id="jenisKendaraan">
-                                <label for="" class="labelmui">Jenis Kendaraan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="noKendaraan" placeholder="no" name="noKendaraan">
+                                <label for="">No. Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="merekKendaraan" id="merekKendaraan">
-                                <label for="" class="labelmui">Merk</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jenisKendaraan" placeholder="jenis" name="jenisKendaraan">
+                                <label for="">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="kepemilikan" id="kepemilikan">
-                                <label for="" class="labelmui">Kepemilikan</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="merekKendaraan" placeholder="merek" name="merekKendaraan">
+                                <label for="">Merk</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+							<div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kepemilikan" placeholder="owner" name="kepemilikan">
+                                <label for="">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -187,156 +181,6 @@
 
 
 <script>
-    $(document).ready(function() {
-        $('.dropify').dropify();
-
-        
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
-            minZoom: 1,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);
-
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-
-        var arrayData = $.grep(data, function(element, index) {
-            return element.coordinate != null && element.coordinate != '';
-        });
-        // console.log(arrayData); 
-
-        for (let i = 0; i < arrayData.length; i++) {
-            var cordinate = arrayData[i].coordinate;
-            var latlong = cordinate.split(',');
-            var latitude = parseFloat(latlong[0]);
-            var longitude = parseFloat(latlong[1]);
-            // console.log({a:latitude , b:longitude});
-
-            markerClusterGroup.addLayer(
-                L.marker([latitude, longitude], {
-                    icon
-                }).bindPopup(`
-                <div class="text-center" style="width: 300px;">
-                    <div class="card-block">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-                        </a>
-                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Location :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">POC :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Demand :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                    </div>
-                    <div class="card-footer">
-                        <div class="row no-space">
-                            <div class="col-4" style="display: grid">
-                                <span>Participant/s</span>
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Threat Level</span> 
-                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Event Date</span> 
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `)
-            );
-        }
-        mapContainer.addLayer(markerClusterGroup);
-        mapContainer.setView(initialCenter, initialZoom);
-
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'topright'
-        }).addTo(mapContainer);
-        L.control.zoom({
-            position: 'bottomleft'
-        }).addTo(mapContainer);
-
-
-
-
-    });
-
-
     $(document).ready(function() {
         $('.dropify').dropify();
 
@@ -612,5 +456,8 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
 	})
 </script>

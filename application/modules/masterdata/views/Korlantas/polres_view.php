@@ -44,16 +44,13 @@
             </div>
             <div class="modal-body">
 			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
-                    <div class="row">
-					<div class="col-md-12 mb-3"> 
+                    
+						<div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
-                        <!-- <div class="col-md-3">
-                            <p class="fw-bold fs-5">Icon Polres</p>
-                            <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
-                        </div> -->
+                        
                         <div class="col-md-12">
-                            <div class="material-selectfield mb-3">
+                            <div class="form-floating mb-3">
                                 <select name="namaPolda" class="form-select" style="width:100%" required>
 									<option selected value="">Pilih Polda</option>
                                     <?php
@@ -61,75 +58,77 @@
                             			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
                         			<?php endforeach; ?>
                                 </select>
-                                <label class="labelmui">Polda</label>
+                                <label for="polda">Polda</label>
                             </div>
-                            <div class="material-textfield">
-                                <input type="text" name="namaPolres">
-                                <label for="" class="labelmui">Nama Polres</label>
+						</div>
+						<div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" placeholder="kode" name="kodeSatpas">
+								<label for="">Kode Satpas</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nama" name="namaPolres">
+                                <label for="">Nama Polres</label>
                             </div>
-							<div class="material-textfield">
-                                <input type="text" name="kodeSatpas">
-                                <label for="" class="labelmui">Kode Satpas</label>
-                            </div>
+						</div>
 
-                        </div>
                         <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="address" placeholder="" type="text" required>
-                                <label class="labelmui">Alamat</label>
+                            <div class="form-floating mb-3">
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address"></textarea>
+                                <label>Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
                         <div class="col-md-6" style="display: none;">
-                            <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
-                                <label class="labelmui">Coordinate</label>
+                            <div class="form-floating mb-3">
+                            <input style="width: 100%;" class="form-control" name="cordinate" placeholder="" type="text">
+                                <label>Coordinate</label>
                             </div>
                         </div>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="text" name="latitude" id="latitude">
-									<label for="" class="labelmui">Latitude</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="latitude" >
+									<label for="">Latitude</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="text" name="longitude" id="longitude">
-									<label for="" class="labelmui">Longitude</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="longitude" >
+									<label for="">Longitude</label>
 								</div>
 							</div>
 							
 						</div>
 						
-                    </div>
-					<div class="col-md-12 mt-3">
+						<div class="col-md-12 mt-3">
                             <div id="mapG20Kegiatan" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
 						<div class="row mt-3">
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="open_time">
-									<label for="" class="labelmui">Jam Buka</label>
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" name="open_time">
+									<label for="">Jam Buka</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="close_time">
-									<label for="" class="labelmui">Jam Tutup</label>
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" name="close_time">
+									<label for="">Jam Tutup</label>
 								</div>
 							</div>
 							
 						</div>
 						<div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="phone_polres">
-                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nomor" name="phone_polres">
+                                <label for="">Nomor Telepon Polda</label>
                             </div>
                         </div>
-
 
                     <div class="col-md-12 mt-3">
                         <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
@@ -140,7 +139,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="modal fade UbahPolres" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade UbahPolres" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -148,85 +147,90 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="" id="id_polres" type="text">
-                    <div class="row">
-					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="" id="id_polres" type="text">
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
+                        
                         <div class="col-md-12">
-                            <div class="material-selectfield mb-3">
-                                <select name="namaPolda" id="namaPolda">
-                                    <!-- <select name="" id=""  multiple required> -->
-                                    <option value="1">Jawa Barat</option>
-                                    <option value="2">Jawa Tengah</option>
-                                    <option value="3">Jawa Timur</option>
+                            <div class="form-floating mb-3">
+                                <select name="namaPolda" id="namaPolda" class="form-select" style="width:100%" required>
+									<option selected value="">Pilih Polda</option>
+                                    <?php
+                        				foreach ($data['getPolda'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+                        			<?php endforeach; ?>
                                 </select>
-                                <label class=" labelmui">Polda</label>
+                                <label for="polda">Polda</label>
                             </div>
-                            <div class="material-textfield">
-                                <input type="text" name="namaPolres" id="namaPolres">
-                                <label for="" class="labelmui">Nama Polres</label>
+						</div>
+						<div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
+								<label for="">Kode Satpas</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaPolres" placeholder="nama" name="namaPolres">
+                                <label for="">Nama Polres</label>
                             </div>
-							<div class="material-textfield">
-                                <input type="text" name="kodeSatpas" id="kodeSatpas">
-                                <label for="" class="labelmui">Kode Satpas</label>
-                            </div>
+						</div>
 
-                        </div>
                         <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="address" id="address" placeholder="" type="text" required>
-                                <label class="labelmui">Alamat</label>
+                            <div class="form-floating mb-3">
+								<textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
+                                <label>Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
                         <div class="col-md-6" style="display: none;">
-                            <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
-                                <label class="labelmui">Coordinate</label>
+                            <div class="form-floating mb-3">
+                            <input style="width: 100%;" class="form-control" name="cordinate" placeholder="" type="text">
+                                <label>Coordinate</label>
                             </div>
                         </div>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="text" name="latitude" id="latitude">
-									<label for="" class="labelmui">Latitude</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="latitude" id="latitude">
+									<label for="">Latitude</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="text" name="longitude" id="longitude">
-									<label for="" class="labelmui">Longitude</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="longitude" id="longitude">
+									<label for="">Longitude</label>
 								</div>
 							</div>
 							
 						</div>
-                    </div>
-                    <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
+						
+						<div class="col-md-12 mt-3">
+                            <div id="mapEdit" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
-					<div class="row mt-3">
+						<div class="row mt-3">
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="open_time" id="open_time">
-									<label for="" class="labelmui">Jam Buka</label>
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" id="open_time" name="open_time">
+									<label for="">Jam Buka</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="close_time" id="close_time">
-									<label for="" class="labelmui">Jam Tutup</label>
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" id="close_time" name="close_time">
+									<label for="">Jam Tutup</label>
 								</div>
 							</div>
 							
 						</div>
 						<div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="phone_polres" id="phone_polres">
-                                <label for="" class="labelmui">Nomor Telepon Polda</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="phone_polres" placeholder="nomor" name="phone_polres">
+                                <label for="">Nomor Telepon Polda</label>
                             </div>
                         </div>
 
@@ -250,57 +254,73 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-				<div class="row">
-					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
+                        
                         <div class="col-md-12">
-                            <div class="material-selectfield mb-3">
-                                <select name="namaPolda" id="namaPolda">
-                                    <!-- <select name="" id=""  multiple required> -->
-                                    <option value="1">Jawa Barat</option>
-                                    <option value="2">Jawa Tengah</option>
-                                    <option value="3">Jawa Timur</option>
-                                </select>
-                                <label class=" labelmui">Polda</label>
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="namaPolda" placeholder="nama" name="namaPolda">
+								<label for="">Nama Polda</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
+								<label for="">Kode Satpas</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaPolres" placeholder="nama" name="namaPolres">
+                                <label for="">Nama Polres</label>
                             </div>
-                            <div class="material-textfield">
-                                <input type="text" name="namaPolres" id="namaPolres">
-                                <label for="" class="labelmui">Nama Polres</label>
-                            </div>
-							<div class="material-textfield">
-                                <input type="text" name="kodeSatpas" id="kodeSatpas">
-                                <label for="" class="labelmui">Kode Satpas</label>
-                            </div>
+						</div>
 
-                        </div>
                         <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="address" id="address" placeholder="" type="text" required>
-                                <label class="labelmui">Alamat</label>
+                            <div class="form-floating mb-3">
+								<textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
+                                <label>Alamat</label>
                             </div> 
                             
                         </div> 
                         
-					<div class="row mt-3">
+						<div class="row">
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="open_time" id="open_time">
-									<label for="" class="labelmui">Jam Buka</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="latitude" id="latitude">
+									<label for="">Latitude</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="material-textfield">
-									<input type="time" name="close_time" id="close_time">
-									<label for="" class="labelmui">Jam Tutup</label>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="longitude" id="longitude">
+									<label for="">Longitude</label>
+								</div>
+							</div>
+							
+						</div>
+						
+						
+						<div class="row mt-3">
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" id="open_time" name="open_time">
+									<label for="">Jam Buka</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<input type="time" class="form-control" id="close_time" name="close_time">
+									<label for="">Jam Tutup</label>
 								</div>
 							</div>
 							
 						</div>
 						<div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="phone_polres" id="phone_polres">
-                                <label for="" class="labelmui">Nomor Telepon Polres</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="phone_polres" placeholder="nomor" name="phone_polres">
+                                <label for="">Nomor Telepon Polda</label>
                             </div>
                         </div>
                 </form>
@@ -603,6 +623,144 @@
         });
     });
 
+	// map pada form edit
+
+	$(document).ready(function() {
+        var initialCenter = [-8.751740, 115.149643];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapEdit', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+		
+		$('#myModalEdit').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
+
+            $('.dropify').dropify();
+
+
+
+            let countlist = 0;
+            let list = ""; 
+            $('[name=address]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddress').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=address]').val($(this).data('alamat'));
+                            $('[name=cordinate]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);    
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinate]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=address]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinate]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
+        });
+
+	});
+
     function detail(id) {
         $.ajax({
             url: '<?= base_url() ?>masterdata/Polres/detailPolres/',
@@ -751,6 +909,9 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
 	})
 	
 </script>

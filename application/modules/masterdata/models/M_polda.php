@@ -121,7 +121,7 @@ class M_polda extends CI_Model
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">
 					<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 				</button>
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahPolda">
 					<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 				</button>
 				<button style="background-color:transparent ; border:none" id="HapusPolda" onclick="hapus(`' . $field['id'] . '`)">

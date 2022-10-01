@@ -140,7 +140,7 @@ class M_polres extends CI_Model
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolres">
 				<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
 			</button>
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahPolres">
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahPolres">
 				<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
 			</button>
 			<button style="background-color:transparent ; border:none" id="Hapuspolres" onclick="hapus(`' . $field['id'] . '`)">

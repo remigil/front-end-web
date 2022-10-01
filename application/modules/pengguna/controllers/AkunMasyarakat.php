@@ -56,5 +56,33 @@ class AkunMasyarakat extends MY_Controller
         echo json_encode($data['getDetail']);
     }
 
+	public function aktivasi()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('id_pengguna_umum');
+		$data = guzzle_request('PUT', 'society/editStatus/' . $id , [
+            
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal.',
+                'data' => $data
+            );
+        }
+        echo json_encode($res);
+    }
+
 	
 }

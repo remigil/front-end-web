@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahDokumenPeraturan">Tambah Dokumen Peraturan</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahDokumenPeraturan">Tambah Dokumen Peraturan</button>
     <div class="card">
 
         <div class="card-body">
@@ -39,9 +39,12 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form" method="post" enctype="multipart/form-data">
-				<div class="material-selectfield mb-3">
-                        <select name="kategoriPeraturan" id="form-select">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+					<div class="col-md-12 mb-3"> 
+                        <input type="file" name="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
+                    </div>
+				<div class="form-floating mb-3">
+                        <select name="kategoriPeraturan" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
                             <option selected>Pilih Kategori</option>
                             <option value="1">Undang-undang</option>
@@ -53,22 +56,18 @@
                             <option value="7">Peraturan Lain-lain</option>
 
                         </select>
-                        <label class="labelmui">Kategori Peraturan</label>
+                        <label for="kategoriPeraturan">Kategori Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="judulPeraturan" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Dokumen Peraturan</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="judul" name="judulPeraturan" style="width:100% ;">
+                        <label for="">Nama Dokumen Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="file" name="files" id="" style="width:100% ;" class="form-control">
-                        <label for="" class="labelmui">File Dokumen Peraturan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="tahunPeraturan" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Tahun</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="tahun" name="tahunPeraturan" style="width:100% ;">
+                        <label for="">Tahun</label>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -86,8 +85,11 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="" id="id_peraturan" type="text">
-				<div class="material-selectfield mb-3">
-                        <select name="kategoriPeraturan" id="kategoriPeraturan">
+				<div class="col-md-12 mb-3"> 
+                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
+                    </div>
+				<div class="form-floating mb-3">
+                        <select name="kategoriPeraturan" id="kategoriPeraturan" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
                             <option selected>Pilih Kategori</option>
                             <option value="1">Undang-undang</option>
@@ -99,22 +101,18 @@
                             <option value="7">Peraturan Lain-lain</option>
 
                         </select>
-                        <label class="labelmui">Kategori Peraturan</label>
+                        <label for="kategoriPeraturan">Kategori Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="judulPeraturan" id="judulPeraturan" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Dokumen Peraturan</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="judulPeraturan" placeholder="judul" name="judulPeraturan" style="width:100% ;">
+                        <label for="">Nama Dokumen Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="file" name="files" id="files" style="width:100% ;" class="form-control">
-                        <label for="" class="labelmui">File Dokumen Peraturan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="tahunPeraturan" id="tahunPeraturan" style="width:100% ;">
-                        <label for="" class="labelmui">Tahun</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="tahunPeraturan" placeholder="tahun" name="tahunPeraturan" style="width:100% ;">
+                        <label for="">Tahun</label>
                     </div>
                     <div class="col-md-12">
-					<button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					<button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -132,10 +130,13 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-				<div class="material-selectfield mb-3">
-							<select name="kategoriPeraturan" id="kategoriPeraturan">
-								<!-- <select name="" id=""  multiple required> -->
-								<option selected>Pilih Kategori</option>
+				<div class="col-md-12 mb-3"> 
+                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
+                    </div>
+				<div class="form-floating mb-3">
+                        <select name="kategoriPeraturan" id="kategoriPeraturan" class="form-control" aria-label="Floating label select" style="width:100%" required>
+                            <!-- <select name="" id=""  multiple required> -->
+                            <option selected>Pilih Kategori</option>
                             <option value="1">Undang-undang</option>
                             <option value="2">Peraturan Pemerintah</option>
                             <option value="3">Peraturan Presiden</option>
@@ -144,20 +145,16 @@
                             <option value="6">Peraturan Kakorlantas POLRI</option>
                             <option value="7">Peraturan Lain-lain</option>
 
-							</select>
-							<label class="labelmui">Kategori Dokumen Peraturan</label>
-						</div>
-                    <div class="material-textfield">
-                        <input type="text" name="judulPeraturan" id="judulPeraturan" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Dokumen Peraturan</label>
+                        </select>
+                        <label for="kategoriPeraturan">Kategori Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="file" name="files" id="files" style="width:100% ;" class="form-control">
-                        <label for="" class="labelmui">File Dokumen Peraturan</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="judulPeraturan" placeholder="judul" name="judulPeraturan" style="width:100% ;">
+                        <label for="">Nama Dokumen Peraturan</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="tahunPeraturan" id="tahunPeraturan" style="width:100% ;">
-                        <label for="" class="labelmui">Tahun</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="tahunPeraturan" placeholder="tahun" name="tahunPeraturan" style="width:100% ;">
+                        <label for="">Tahun</label>
                     </div>
                 </form>
             </div>
@@ -341,8 +338,11 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailDokumenPeraturan,input').attr('readonly', true)
-                $('.DetailDokumenPeraturan,input,#category').attr('disabled', true)
+                $('.DetailDokumenPeraturan,#kategoriPeraturan').attr('disabled', true)
+                $('.DetailDokumenPeraturan,#judulPeraturan').attr('disabled', true)
+                $('.DetailDokumenPeraturan,#tahunPeraturan').attr('disabled', true)
+                $('.DetailDokumenPeraturan,#files').attr('disabled', true)
+                
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
                 $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
                 $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)
@@ -359,12 +359,17 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahDokumenPeraturan,input').attr('readonly', false)
-                // $('.UbahDokumenPeraturan,input,#category').attr('disabled', false)
+                $('.UbahDokumenPeraturan,#kategoriPeraturan').attr('disabled', false)
+                $('.UbahDokumenPeraturan,#judulPeraturan').attr('disabled', false)
+                $('.UbahDokumenPeraturan,#tahunPeraturan').attr('disabled', false)
+				$('.UbahDokumenPeraturan,#files').attr('disabled', false)
+
                 $('#id_peraturan').val(results.id)
-                $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
-                $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
-                $('.DetailDokumenPeraturan,#tahunPeraturan').val(results.year)
+
+                $('.UbahDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
+                $('.UbahDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
+                $('.UbahDokumenPeraturan,#tahunPeraturan').val(results.year)
+                $('.UbahDokumenPeraturan,#files').val(results.file)
             }
         })
     }
@@ -442,4 +447,11 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
+	})
 </script>

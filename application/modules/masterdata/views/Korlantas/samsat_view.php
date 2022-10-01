@@ -108,7 +108,7 @@
 </div>
 
 <!-- Edit Modals -->
-<div class="modal fade UbahSamsat" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade UbahSamsat" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -125,13 +125,14 @@
                                 <label for="namaSamsat">Nama Samsat</label>
                             </div>
                             <div class="form-floating mb-3">
-								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address" required></textarea>
                                 <label for="">Alamat</label>
                             </div> 
                             <div class="list-group" id="listAddress"></div>
 							<div class="col-md-6" style="display: none;">
+							<!-- <div class="col-md-6"> -->
                             	<div class="material-textfield mb-3">
-                            		<input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                            		<input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" value="" placeholder="" type="text">
                             		<label class="labelmui">Coordinate</label>
                             	</div>
                         	</div>
@@ -151,11 +152,11 @@
 								
                             </div>
                             <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
+                            <div id="mapEdit" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
-                            <div class="row">
+                            <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control" id="jamBuka" name="jamBuka" placeholder="Samsat">
@@ -246,7 +247,7 @@
         
     $(document).ready(function() {
 
-		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+		 $('[name=cordinate]').val('-1.5707209, 115.4875168');
         var initialCenter = [-1.5707209, 115.4875168];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -526,6 +527,147 @@
         });
     });
 
+	// map pada form edit
+
+	$(document).ready(function() {
+
+		// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+        var initialCenter = [-8.751740, 115.149643];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapEdit', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+		
+		$('#myModalEdit').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
+
+            let countlist = 0;
+            let list = ""; 
+            $('[name=address]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddress').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=address]').val($(this).data('alamat'));
+                            $('[name=cordinateEdit]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);    
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinateEdit]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=address]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinateEdit]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
+        });
+
+		var latlong11 =  $('[name=cordinateEdit]').val().split(',');
+        var latitude11 = parseFloat(latlong11[0]);
+        var longitude11 = parseFloat(latlong11[1]); 
+        mapContainer.flyTo([latitude11, longitude11], 17);
+
+	});
+
     function detail(id) {
         $.ajax({
             url: '<?= base_url() ?>masterdata/Samsat/detailSamsat',
@@ -573,6 +715,7 @@
 
                 $('.UbahSamsat,#namaSamsat').val(results.name_samsat)
                 $('.UbahSamsat,#address').val(results.address)
+				$('.UbahSamsat,#cordinateEdit').val((results.samsat_lat) + ',' + (results.samsat_lng));
 				$('.UbahSamsat,#latitude').val(results.samsat_lat)
                 $('.UbahSamsat,#longitude').val(results.samsat_lng)
                 $('.UbahSamsat,#jamBuka').val(results.samsat_open_time)
@@ -657,5 +800,8 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
 	})
 </script>

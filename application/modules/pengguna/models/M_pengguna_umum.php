@@ -114,20 +114,23 @@ class M_pengguna_umum extends CI_Model
         $no = 1;
 
         foreach ($result['data']['data'] as $field) {
-
+			
             if ($field['status_verifikasi'] == 0) {
-                $status = '
-				<button style="border:none" class="btn btn-warning" id="aktivasi" onclick="aktivasi(`' . $field['id'] . '`)">
-					belum aktivasi
-				</button>';
+				$status = '
+				<span class="badge badge-pill bg-warning">Belum Ativasi</span>';
+                $buttonstatus = '';
             } else if ($field['status_verifikasi'] == 1) {
-                $status = '
-				<button style="border:none" class="btn btn-danger" id="nonaktif" onclick="nonaktif(`' . $field['id'] . '`)">
+				$status = '
+				<span class="badge badge-pill bg-primary">Aktif</span>';
+                $buttonstatus = '
+				<button style="border:none" class="btn btn-danger" onclick="nonaktif(`' . $field['id'] . '`)">
 					Nonaktif
 				</button>';
             } else if ($field['status_verifikasi'] == 2) {
-                $status = '
-				<button style="border:none" class="btn btn-success" id="aktif" onclick="aktif(`' . $field['id'] . '`)">
+				$status = '
+				<span class="badge badge-pill bg-danger">Nonaktif</span>';
+                $buttonstatus = '
+				<button style="border:none" class="btn btn-success" onclick="aktif(`' . $field['id'] . '`)">
 					Aktif
 				</button>';
             }
@@ -138,8 +141,8 @@ class M_pengguna_umum extends CI_Model
             $row['email']            = $field['email'];
             $row['no_hp']           = '+62 ' . $field['no_hp'];
             $row['created_at']       = $field['created_at'];
-            // $row['action']         = $status . ' 
-            $row['action']         = $status.' 
+            $row['status']         = $status; 
+            $row['action']         = $buttonstatus.' 
                 
 				<button class="btn btn-primary" style="border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPenggunaUmum">
                     Detail

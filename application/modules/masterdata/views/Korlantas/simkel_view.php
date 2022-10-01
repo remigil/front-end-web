@@ -65,13 +65,13 @@
 						<div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <input type="text" class="form-control" name="latitude" placeholder="Samsat">
                                         <label for="latitude">Latitude</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <input type="text" class="form-control" name="longitude" placeholder="Samsat">
                                         <label for="longitude">Longitude</label>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
 </div>
 
 <!-- Edit Modals -->
-<div class="modal fade UbahSimkel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade UbahSimkel" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -116,20 +116,48 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row m-3">
+				<div class="row m-3">
                     <div class="col-md-12">
                         <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="id" value="" id="id_simkel" type="text">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="name_sim_keliling" name="name_sim_keliling" placeholder="Sim Keliling">
+                                <input type="text" class="form-control" name="name_sim_keliling" id="name_sim_keliling" placeholder="Sim Keliling">
                                 <label for="name_sim_keliling">Nama SIM Keliling</label>
                             </div>
+							
+                            <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address" id="address"></textarea>
-                                <label for="address">Alamat</label>
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
+                                <label for="">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
                             </div>
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                            <div class="row">
+                        </div>
+						<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
+                            </div>
+                            <div class="col-md-12 mt-3">
+                            <div id="mapEdit" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+                            <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control" name="sim_keliling_open_time" id="sim_keliling_open_time" placeholder="">
@@ -144,7 +172,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                             </div>
                         </form>
                     </div>
@@ -163,28 +191,46 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row m-3">
+				<div class="row m-3">
                     <div class="col-md-12">
-                        <form action="">
+                        <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="name_sim_keliling" placeholder="Sim Keliling">
-                                <label for="name_sim_keliling">Nama Sim Keliling</label>
+                                <input type="text" class="form-control" name="name_sim_keliling" id="name_sim_keliling" placeholder="Sim Keliling">
+                                <label for="name_sim_keliling">Nama SIM Keliling</label>
                             </div>
+							
+                            <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address"></textarea>
-                                <label for="address">Alamat</label>
-                            </div>
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                            <div class="row">
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="address" name="address"></textarea>
+                                <label for="">Alamat</label>
+                            </div> 
+                        </div> 
+							<div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="sim_keliling_open_time" placeholder="">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="time" class="form-control" name="sim_keliling_open_time" id="sim_keliling_open_time" placeholder="">
                                         <label for="sim_keliling_open_time">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <input type="time" class="form-control" id="sim_keliling_close_time" placeholder="">
+                                        <input type="time" class="form-control" name="sim_keliling_close_time" id="sim_keliling_close_time" placeholder="">
                                         <label for="sim_keliling_close_time">Jam Tutup</label>
                                     </div>
                                 </div>
@@ -450,6 +496,147 @@
 
         });
 
+		// map pada form edit
+
+	$(document).ready(function() {
+
+// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+var initialCenter = [-8.751740, 115.149643];
+var initialZoom = 5;
+var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+});
+var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+});
+var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+});
+var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+	attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+});
+
+// StART MAP SECTION
+var mapContainer = L.map('mapEdit', {
+	maxZoom: 20,
+	minZoom: 1,
+	zoomSnap: 0.25,
+	zoomControl: false,
+	layers: [googleStreet]
+}).setView(initialCenter, initialZoom);
+
+var baseMaps = {
+	"Google Map Street": googleStreet,
+	"Google Map Satelite": googleSatelite,
+	"Google Map Hybrid": googleHybrid,
+	"Google Map Terrain": googleTerrain,
+};
+var overlayMaps = {};
+L.control.layers(baseMaps, overlayMaps, {
+	position: 'topright'
+}).addTo(mapContainer);
+L.control.zoom({
+	position: 'bottomleft'
+}).addTo(mapContainer);
+
+$('#myModalEdit').on('shown.bs.modal', function() {
+	mapContainer.invalidateSize();
+
+	let countlist = 0;
+	let list = ""; 
+	$('[name=address]').on("change", function (e) {
+		// console.log(this.value);
+		$.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+			console.log(ress);  
+			countlist = 0;
+			list = "";
+			ress.forEach(el => {
+				countlist += 1;
+				list += `<a class="list-group-item" 
+				id="list${countlist}"   
+				data-alamat="${el.display_name}"
+				data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+				$('#listAddress').html(list); 
+			});  
+
+			if(list == ""){
+				countlist = 0;
+				list = "";
+				$('#listAddress').html(list); 
+			}
+
+			
+			for (let i = 0; i < ress.length; i++){ 
+				$(`#list${i+1}`).click(function(){  
+					var latlong =  $(this).data('cords').split(',');
+					var latitude = parseFloat(latlong[0]);
+					var longitude = parseFloat(latlong[1]); 
+
+					$("[name=latitude]").val(latitude);
+					$("[name=longitude]").val(longitude);
+
+					// console.log({a:latitude, b:longitude});
+					$('[name=address]').val($(this).data('alamat'));
+					$('[name=cordinateEdit]').val($(this).data('cords'));
+					mapContainer.flyTo([latitude, longitude], 17);    
+				});
+			}
+		});
+
+	});
+
+
+	$('[name=cordinateEdit]').on("change", function (e) {
+
+		var cordLatLong =  this.value.split(','); 
+		var cordLat = parseFloat(cordLatLong[0]); 
+		var corLong = parseFloat(cordLatLong[1]); 
+
+		// console.log({a:cordLat, b:corLong});
+
+		$.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+			$('[name=address]').val(data['display_name']); 
+			mapContainer.flyTo([cordLat, corLong], 17);  
+		}); 
+	});
+
+
+	mapContainer.on("dragend", function (e) {
+
+		var corLat = mapContainer.getCenter()['lat'];
+		var corLng = mapContainer.getCenter()['lng'];
+		var cord = `${corLat},${corLng}`;
+
+		$("[name=latitude]").val(corLat);
+		$("[name=longitude]").val(corLng);
+		$('[name=cordinateEdit]').val(cord);
+
+		$.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+			$('[name=address]').val(data['display_name']); 
+
+		}); 
+
+	});
+	
+
+});
+
+// var latlong11 =  $('[name=cordinate]').val().split(',');
+// var latitude11 = parseFloat(latlong11[0]);
+// var longitude11 = parseFloat(latlong11[1]); 
+// mapContainer.flyTo([latitude11, longitude11], 17);
+
+});
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault();
@@ -496,6 +683,9 @@
                 
                 $('.DetailSimkel,#name_sim_keliling').attr('disabled', true)
                 $('.DetailSimkel,#address').attr('disabled', true)
+                $('.DetailSimkel,#cordinateEdit').attr('disabled', true)
+                $('.DetailSimkel,#latitude').attr('disabled', true)
+                $('.DetailSimkel,#longitude').attr('disabled', true)
                 $('.DetailSimkel,#sim_keliling_open_time').attr('disabled', true)
                 $('.DetailSimkel,#sim_keliling_close_time').attr('disabled', true)
 
@@ -518,6 +708,9 @@
             success: function(results) {
                 $('.UbahSimkel,#name_sim_keliling').attr('disabled', false)
                 $('.UbahSimkel,#address').attr('disabled', false)
+                $('.UbahSimkel,#cordinateEdit').attr('disabled', false)
+                $('.UbahSimkel,#latitude').attr('disabled', false)
+                $('.UbahSimkel,#longitude').attr('disabled', false)
                 $('.UbahSimkel,#sim_keliling_open_time').attr('disabled', false)
                 $('.UbahSimkel,#sim_keliling_close_time').attr('disabled', false)
 
@@ -525,6 +718,9 @@
 
                 $('.UbahSimkel,#name_sim_keliling').val(results.name_sim_keliling)
                 $('.UbahSimkel,#address').val(results.address)
+                $('.UbahSimkel,#cordinateEdit').val((results.latitude) + ',' + (results.longitude))
+                $('.UbahSimkel,#latitude').val(results.latitude)
+                $('.UbahSimkel,#longitude').val(results.longitude)
                 $('.UbahSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
                 $('.UbahSimkel,#sim_keliling_close_time').val(results.sim_keliling_close_time)
             }
@@ -607,5 +803,8 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
 	})
 </script>

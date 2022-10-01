@@ -45,6 +45,216 @@
             <div class="modal-body">
 				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Umum</label>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getFasum'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label>
+                            </div>
+						</div>
+                    </div>
+                    <div class="col-md-12">
+                            <div class="form-floating mb-3">
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" name="address"></textarea>
+                                <label for="">Alamat</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label for="">Coordinate</label>
+                            </div>
+                        </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="latitude" placeholder="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="longitude" placeholder="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+					<div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
+                                <label for="">Deskripsi Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
+                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Status Fasum</option>
+                            		<option value="0">Nonaktif</option>
+                            		<option value="1">Aktif</option>
+                                </select>
+                                <label for="">Status</label>
+                            </div>
+						</div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" name="jamBuka">
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn  btn-primary float-end">SIMPAN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail Modals -->
+<div class="modal fade DetailFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasilitas Umum</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+				<form action="" class="form">
+				<div class="row">
+					<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
+                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="address" name="address"></textarea>
+                                <label for="">Alamat</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="deskripsi">Deskripsi Fasilitas Umum</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamBuka" name="jamBuka" >
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modals -->
+<div class="modal fade UbahFasum" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Fasilitas Umum</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="" id="id_fasum" type="text">
+				<div class="row">
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="namaFasum" name="namaFasum">
@@ -66,8 +276,9 @@
                             <div class="list-group" id="listAddress"></div>
                         </div> 
                         <div class="col-md-6" style="display: none;">
+                        <!-- <div class="col-md-6"> -->
                             <div class="material-textfield mb-3">
-                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
                                 <label class="labelmui">Coordinate</label>
                             </div>
                         </div>
@@ -86,7 +297,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
-                            <div id="mapG20Kegiatan" style="height: 400px">
+                            <div id="mapEdit" style="height: 400px">
                                 <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
@@ -112,223 +323,11 @@
                             </div>
                         </div>
                     </div>
-					<div class="row">
-                        <div class="col-md-12">
-							<div class="form-floating mb-3">
-								<input type="file" name="photo" id="" style="width:100% ;" class="form-control">
-                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
+					
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="time" class="form-control" id="jamBuka" name="jamBuka">
-                                <label for="jamBuka">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
-                                <label for="jamTutup">Jam Tutup</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn  btn-primary float-end">SIMPAN</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail Modals -->
-<div class="modal fade DetailFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasilitas Umum</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-				<form action="" class="form">
-				<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
-                                <label for="namaFasum">Nama Fasilitas Umum</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
-                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="alamatFasum" name="alamatFasum"></textarea>
-                                <label for="">Alamat</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="latitude" name="latitude">
-                                <label for="latitude">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="longitude" name="longitude">
-                                <label for="longitude">Longitude</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">	
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="deskripsi">Deskripsi Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
-                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
-                                <label for="statusFasum">Status</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-12">
-							<div class="form-floating mb-3">
-								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
-                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="jamBuka" name="jamBuka" >
-                                <label for="jamBuka">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="jamTutup" name="jamTutup">
-                                <label for="jamTutup">Jam Tutup</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Edit Modals -->
-<div class="modal fade UbahFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Fasilitas Umum</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="id" value="" id="id_fasum" type="text">
-				<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
-                                <label for="namaFasum">Nama Fasilitas Umum</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
-                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="alamatFasum" name="alamatFasum"></textarea>
-                                <label for="">Alamat</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="latitude" name="latitude">
-                                <label for="latitude">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="longitude" name="longitude">
-                                <label for="longitude">Longitude</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
-                                <label for="deskripsi">Deskripsi Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
-                                <label for="kontakFasum">Kontak Fasilitas Umum</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
-                                <label for="statusFasum">Status</label>
-                            </div>
-                        </div>
-                    </div>
-					<div class="row">
-                        <div class="col-md-12">
-							<div class="form-floating mb-3">
-								<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
-                        		<label for="" class="labelmui">Logo Fasilitas Umum</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="jamBuka" name="jamBuka" >
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
@@ -591,10 +590,10 @@
                     data: 'fasum_name'
                 },
                 {
-                    data: 'fasum_type'
+                    data: 'category_fasum'
                 },
 				{
-                    data: 'fasum_address'
+                    data: 'address'
                 },
 				{
                     data: 'fasum_phone'
@@ -621,6 +620,8 @@
 
 
         });
+
+			
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
@@ -656,6 +657,147 @@
         });
     });
 
+	// map pada form edit
+
+	$(document).ready(function() {
+
+		// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+        var initialCenter = [-8.751740, 115.149643];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapEdit', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+		
+		$('#myModalEdit').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
+
+            let countlist = 0;
+            let list = ""; 
+            $('[name=address]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddress').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=address]').val($(this).data('alamat'));
+                            $('[name=cordinateEdit]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);    
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinateEdit]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=address]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinateEdit]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
+        });
+
+		var latlong11 =  $('[name=cordinateEdit]').val().split(',');
+        var latitude11 = parseFloat(latlong11[0]);
+        var longitude11 = parseFloat(latlong11[1]); 
+        mapContainer.flyTo([latitude11, longitude11], 17);
+
+	});
+
     function detail(id) {
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
@@ -668,7 +810,7 @@
                 
                 $('.DetailFasum,#namaFasum').attr('disabled', true)
                 $('.DetailFasum,#jenisFasum').attr('disabled', true)
-                $('.DetailFasum,#alamatFasum').attr('disabled', true)
+                $('.DetailFasum,#address').attr('disabled', true)
                 $('.DetailFasum,#latitude').attr('disabled', true)
                 $('.DetailFasum,#longitude').attr('disabled', true)
                 $('.DetailFasum,#deskripsiFasum').attr('disabled', true)
@@ -680,7 +822,7 @@
 
                 $('.DetailFasum,#namaFasum').val(results.fasum_name)
                 $('.DetailFasum,#jenisFasum').val(results.fasum_type)
-                $('.DetailFasum,#alamatFasum').val(results.fasum_address)
+                $('.DetailFasum,#address').val(results.fasum_address)
                 $('.DetailFasum,#latitude').val(results.fasum_lat)
                 $('.DetailFasum,#longitude').val(results.fasum_lng)
                 $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
@@ -704,7 +846,7 @@
             success: function(results) {
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
-                $('.UbahFasum,#alamatFasum').attr('disabled', false)
+                $('.UbahFasum,#address').attr('disabled', false)
                 $('.UbahFasum,#latitude').attr('disabled', false)
                 $('.UbahFasum,#longitude').attr('disabled', false)
                 $('.UbahFasum,#deskripsiFasum').attr('disabled', false)
@@ -718,7 +860,8 @@
 
                 $('.UbahFasum,#namaFasum').val(results.fasum_name)
                 $('.UbahFasum,#jenisFasum').val(results.fasum_type)
-                $('.UbahFasum,#alamatFasum').val(results.fasum_address)
+                $('.UbahFasum,#address').val(results.fasum_address)
+                $('.UbahFasum,#cordinateEdit').val((results.fasum_lat) + ',' + (results.fasum_lng))
                 $('.UbahFasum,#latitude').val(results.fasum_lat)
                 $('.UbahFasum,#longitude').val(results.fasum_lng)
                 $('.UbahFasum,#deskripsiFasum').val(results.fasum_description)

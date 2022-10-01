@@ -13,9 +13,8 @@ class Fasilitasumum extends MY_Controller
 
     public function index()
     {
-
-        $headers = [
-            'Token' => $this->session->userdata['token'],    
+		$headers = [
+            'Token' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -32,10 +31,15 @@ class Fasilitasumum extends MY_Controller
             $page_content["page"] = "masterdata/Polres/fasum_view";
         }
 
+        $getFasum = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        $data['getFasum'] = $getFasum['data'];
 
+        // var_dump($getFasum);
+        // die;
 
-
-        $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
@@ -58,6 +62,11 @@ class Fasilitasumum extends MY_Controller
         $filename = $_FILES['photo']['name'];
         if($_FILES['photo']['name']){ 
             $dummy = [
+				[
+					'name' => 'fasum_logo',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				],
                 [
                     'name' => 'fasum_name',
                     'contents' => $input['namaFasum'],
@@ -68,7 +77,7 @@ class Fasilitasumum extends MY_Controller
                 ],
                 [
                     'name' => 'fasum_address',
-                    'contents' => $input['alamatFasum'],
+                    'contents' => $input['address'],
                 ],
                 [
                     'name' => 'fasum_lat',
@@ -90,11 +99,6 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-                [
-                    'name' => 'fasum_logo',
-                    'contents' => fopen($path,'r'),
-                    'filename' => $filename
-				],
 				[
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],
@@ -116,7 +120,7 @@ class Fasilitasumum extends MY_Controller
                 ],
                 [
                     'name' => 'fasum_address',
-                    'contents' => $input['alamatFasum'],
+                    'contents' => $input['address'],
                 ],
                 [
                     'name' => 'fasum_lat',
@@ -169,6 +173,8 @@ class Fasilitasumum extends MY_Controller
         }
         
         echo json_encode($res);
+
+		
 		
     }
 
@@ -245,7 +251,7 @@ class Fasilitasumum extends MY_Controller
                 ],
                 [
                     'name' => 'fasum_address',
-                    'contents' => $input['alamatFasum'],
+                    'contents' => $input['address'],
                 ],
                 [
                     'name' => 'fasum_lat',
@@ -293,7 +299,7 @@ class Fasilitasumum extends MY_Controller
                 ],
                 [
                     'name' => 'fasum_address',
-                    'contents' => $input['alamatFasum'],
+                    'contents' => $input['address'],
                 ],
                 [
                     'name' => 'fasum_lat',

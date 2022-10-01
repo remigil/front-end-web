@@ -19,6 +19,7 @@
                             <th>Email</th>
                             <th>No. Handphone</th>
                             <th>Tanggal Pembuatan Akun</th>
+                            <th>Status</th>
                             
                             <th>Aksi</th>
                         </tr>
@@ -176,6 +177,9 @@
                     data: 'created_at'
                 },
                 {
+                    data: 'status'
+                },
+                {
                     data: 'action',
                     orderable: false
                 }
@@ -218,16 +222,23 @@
 
 	function nonaktif(id) {
         Swal.fire({
-            title: 'Apakah anda ingin mengaktivasi akun ini?',
+            title: 'Apakah anda ingin menonaktifkan akun ini?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonColor: '#C61318',
-            cancelButtonColor: '#003A91',
+            confirmButtonColor: '#003A91',
+            cancelButtonColor: '#C61318',
             cancelButtonText: 'Batal',
             confirmButtonText: 'Ya',
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
+					url: '<?= base_url() ?>pengguna/AkunMasyarakat/aktivasi',
+			type: 'POST',
+			data: {
+				id_pengguna_umum: id
+			},
+			dataType: 'JSON',
+					
                     success: function(data) {
                         $("#overlay").fadeOut(300);
                         if (data['status'] == true) {
@@ -235,7 +246,10 @@
                                 `${data['message']}`,
                                 '',
                                 'success'
-                            );
+                            ).then(function() {
+                                $(".DetailPenggunaUmum").modal('hide');
+                                userDataTable.draw();
+                            });
                         } else {
                             Swal.fire(
                                 `${data['message']}`,
@@ -251,16 +265,23 @@
 
 	function aktif(id) {
         Swal.fire({
-            title: 'Apakah anda ingin menonaktifkan akun ini?',
+            title: 'Apakah anda ingin mengaktifkan akun ini?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonColor: '#C61318',
-            cancelButtonColor: '#003A91',
+            confirmButtonColor: '#003A91',
+            cancelButtonColor: '#C61318',
             cancelButtonText: 'Batal',
             confirmButtonText: 'Ya',
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
+					url: '<?= base_url() ?>pengguna/AkunMasyarakat/aktivasi',
+			type: 'POST',
+			data: {
+				id_pengguna_umum: id
+			},
+			dataType: 'JSON',
+					
                     success: function(data) {
                         $("#overlay").fadeOut(300);
                         if (data['status'] == true) {
@@ -268,7 +289,10 @@
                                 `${data['message']}`,
                                 '',
                                 'success'
-                            );
+                            ).then(function() {
+                                $(".DetailPenggunaUmum").modal('hide');
+                                userDataTable.draw();
+                            });
                         } else {
                             Swal.fire(
                                 `${data['message']}`,
@@ -282,36 +306,36 @@
         })
     }
 
-	function aktivasi(id) {
-        Swal.fire({
-            title: 'Akun ini belum melakukan aktivasi, lakukan aktivasi pada akun ini?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#C61318',
-            cancelButtonColor: '#003A91',
-            cancelButtonText: 'Batal',
-            confirmButtonText: 'Ya',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    success: function(data) {
-                        $("#overlay").fadeOut(300);
-                        if (data['status'] == true) {
-                            Swal.fire(
-                                `${data['message']}`,
-                                '',
-                                'success'
-                            );
-                        } else {
-                            Swal.fire(
-                                `${data['message']}`,
-                                '',
-                                'error'
-                            ).then(function() {});
-                        }
-                    }
-                });
-            }
-        })
-    }
+	// function aktivasi(id) {
+    //     Swal.fire({
+    //         title: 'Akun ini belum melakukan aktivasi, lakukan aktivasi pada akun ini?',
+    //         icon: 'question',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#C61318',
+    //         cancelButtonColor: '#003A91',
+    //         cancelButtonText: 'Batal',
+    //         confirmButtonText: 'Ya',
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             $.ajax({
+    //                 success: function(data) {
+    //                     $("#overlay").fadeOut(300);
+    //                     if (data['status'] == true) {
+    //                         Swal.fire(
+    //                             `${data['message']}`,
+    //                             '',
+    //                             'success'
+    //                         );
+    //                     } else {
+    //                         Swal.fire(
+    //                             `${data['message']}`,
+    //                             '',
+    //                             'error'
+    //                         ).then(function() {});
+    //                     }
+    //                 }
+    //             });
+    //         }
+    //     })
+    // }
 </script>

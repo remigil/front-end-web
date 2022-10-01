@@ -62,11 +62,11 @@ class Berita extends MY_Controller
 				], 
                 [
                     'name' => 'news_category',
-                    'contents' => $input['kategoriBerita'],
+                    'contents' => $input['category'],
                 ],
                 [
                     'name' => 'title',
-                    'contents' => $input['judulBerita'],
+                    'contents' => $input['title'],
                 ],
                 [
                     'name' => 'content',
@@ -85,11 +85,11 @@ class Berita extends MY_Controller
             $dummy = [
                 [
                     'name' => 'news_category',
-                    'contents' => $input['kategoriBerita'],
+                    'contents' => $input['category'],
                 ],
                 [
                     'name' => 'title',
-                    'contents' => $input['judulBerita'],
+                    'contents' => $input['title'],
                 ],
                 [
                     'name' => 'content',
@@ -337,15 +337,15 @@ class Berita extends MY_Controller
             $dummy = [
                 [
                     'name' => 'news_category',
-                    'contents' => $input['kategoriBerita'],
+                    'contents' => $input['category'],
                 ],
                 [
                     'name' => 'title',
-                    'contents' => $input['judulBerita'],
+                    'contents' => $input['title'],
                 ],
                 [
                     'name' => 'content',
-                    'contents' => $input['isiBerita'],
+                    'contents' => $input['content'],
                 ],
                 [
                     'name' => 'author',
@@ -362,15 +362,15 @@ class Berita extends MY_Controller
             $dummy = [
                 [
                     'name' => 'news_category',
-                    'contents' => $input['kategoriBerita'],
+                    'contents' => $input['category'],
                 ],
                 [
                     'name' => 'title',
-                    'contents' => $input['judulBerita'],
+                    'contents' => $input['title'],
                 ],
                 [
                     'name' => 'content',
-                    'contents' => $input['isiBerita'],
+                    'contents' => $input['content'],
                 ],
                 [
                     'name' => 'author',

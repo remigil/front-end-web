@@ -116,8 +116,8 @@ class M_fasum extends CI_Model
             // $row ['id']	=  $field['id']; 
             $row['id']    			=  $no++;
             $row['fasum_name']     = $field['fasum_name'];
-            $row['fasum_type'] 			= $field['fasum_type'];
-            $row['fasum_address']       	= $field['fasum_address'];
+            $row['category_fasum'] 			= $field['category_fasum']['name_category_fasum'];
+            $row['address']       	= $field['fasum_address'];
             $row['fasum_phone']       	= $field['fasum_phone'];
             $row['jam_operasional']       	= $field['fasum_open_time']."-".$field['fasum_close_time'];
             $row['action']         = '   

@@ -47,8 +47,8 @@
 					<div class="col-md-12 mb-3"> 
                         <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/> 
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="kategoriBerita" id="form-select">
+                    <div class="form-floating mb-3">
+                        <select name="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
                             <option selected>Pilih Kategori</option>
                             <option value="1">Berita PPKM</option>
@@ -60,19 +60,19 @@
                             <option value="7">Berita Kontijensi</option>
 
                         </select>
-                        <label class="labelmui">Kategori Berita</label>
+                        <label for="category">Kategori Berita</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="judulBerita" style="width:100% ;">
-                        <label for="" class="labelmui">Judul Berita</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
                     </div>
 
-                    <div class="material-textfield">
-							<label for="content">Isi Berita</label>
-							<textarea class="form-control" type="text" name="content" style="width:100% ; height:100px;"></textarea>
-						</div>
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -94,10 +94,10 @@
 							<!-- get data foto dari server -->
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
                         </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="category" id="category">
+						<div class="form-floating mb-3">
+                        <select name="category" id="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Pilih Kategori</option>
+                            <option selected>Pilih Kategori</option>
                             <option value="1">Berita PPKM</option>
                             <option value="2">Berita Kecelakaan Lalu Lintas</option>
                             <option value="3">Berita Pelanggaran Lalu Lintas</option>
@@ -107,18 +107,19 @@
                             <option value="7">Berita Kontijensi</option>
 
                         </select>
-                        <label class="labelmui">Kategori Berita</label>
+                        <label for="category">Kategori Berita</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="title" id="title" style="width:100% ;">
-                        <label for="" class="labelmui">Judul Berita</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="title" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
                     </div>
-                    <div class="material-textfield">
-							<label for="content">Isi Berita</label>
-							<textarea class="form-control" type="text" name="content" id="content" style="width:100% ; height:100px;"></textarea>
-						</div>
+
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -136,41 +137,34 @@
 				</div>
 				<div class="modal-body">
 					<form action="" class="form">
-						<div class="col-md-12 mb-3"> 
+					<div class="col-md-12 mb-3"> 
+							<!-- get data foto dari server -->
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
                         </div>
-						<div class="material-selectfield mb-3">
-							
-							<select name="category" id="category">
-								<!-- <select name="" id=""  multiple required> -->
-								<option selected>Pilih Kategori</option>
-								<option value="1">Berita PPKM</option>
-								<option value="2">Berita Kecelakaan Lalu Lintas</option>
-								<option value="3">Berita Pelanggaran Lalu Lintas</option>
-								<option value="4">Berita Kemacetan Lalu Lintas</option>
-								<option value="5">Berita Satpas</option>
-								<option value="6">Berita ETLE</option>
-								<option value="7">Berita Kontijensi</option>
+						<div class="form-floating mb-3">
+                        <select name="category" id="category" class="form-control" aria-label="Floating label select" style="width:100%" required>
+                            <!-- <select name="" id=""  multiple required> -->
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Berita PPKM</option>
+                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
+                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
+                            <option value="4">Berita Kemacetan Lalu Lintas</option>
+                            <option value="5">Berita Satpas</option>
+                            <option value="6">Berita ETLE</option>
+                            <option value="7">Berita Kontijensi</option>
 
-							</select>
-							<label class="labelmui">Kategori Berita</label>
-						</div>
-						<div class="material-textfield">
-							<input type="text" name="title" id="title" style="width:100% ;">
-							<label for="title" class="labelmui">Judul Berita</label>
-						</div>
-						<div class="material-textfield">
-							<label for="content">Isi Berita</label>
-							<textarea class="form-control" type="text" name="content" id="content" style="width:100% ; height:100px;"></textarea>
-						</div>
-						<!-- <div class="material-textfield">
-							<input type="file" name="photo" id="photo" style="width:100% ;" class="form-control">
-							<label for="" class="labelmui">Foto Berita</label>
-						</div> -->
-						<!-- <div class="material-textfield">
-							<input type="text" name="photo" id="photo" style="width:100% ;">
-							<label for="photo" class="labelmui">photo</label>
-						</div> -->
+                        </select>
+                        <label for="category">Kategori Berita</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="title" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
 					</form>
 				</div>
 			</div><!-- /.modal-content -->
@@ -477,6 +471,9 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
 	})
 </script>
 

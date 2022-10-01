@@ -9,7 +9,7 @@
 <!-- </div> -->
 
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahBerita">Tambah Berita</button>
+    <button type="button" class="btn btn-primary waves-effect" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahBerita">Tambah Berita</button>
     <div class="col-12">
 
         <div class="card mt-3">
@@ -23,7 +23,7 @@
                             <th>Isi Berita</th>
                             <th>Author</th>
                             <th>Tanggal Berita</th>
-                            <th>Aksi</th>
+                            <th>Aksi</th>				
                         </tr>
                     </thead>
                 </table>
@@ -43,9 +43,12 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="form" method="post" enctype="multipart/form-data">
-                    <div class="material-selectfield mb-3">
-                        <select name="kategoriBerita" id="form-select">
+                <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+					<div class="col-md-12 mb-3"> 
+                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/> 
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
                             <option selected>Pilih Kategori</option>
                             <option value="1">Berita PPKM</option>
@@ -57,23 +60,19 @@
                             <option value="7">Berita Kontijensi</option>
 
                         </select>
-                        <label class="labelmui">Kategori Berita</label>
+                        <label for="category">Kategori Berita</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="judulBerita" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Judul Berita</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
                     </div>
 
-                    <div class="material-textfield">
-                        <input type="text" name="isiBerita" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Isi Berita</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100% ;" class="form-control">
-                        <label for="" class="labelmui">Foto Berita</label>
-                    </div>
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -91,10 +90,14 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="" id="id_berita" type="text">
-                    <div class="material-selectfield mb-3">
-                        <select name="category" id="category">
+					<div class="col-md-12 mb-3"> 
+							<!-- get data foto dari server -->
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
+						<div class="form-floating mb-3">
+                        <select name="category" id="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Pilih Kategori</option>
+                            <option selected>Pilih Kategori</option>
                             <option value="1">Berita PPKM</option>
                             <option value="2">Berita Kecelakaan Lalu Lintas</option>
                             <option value="3">Berita Pelanggaran Lalu Lintas</option>
@@ -104,22 +107,19 @@
                             <option value="7">Berita Kontijensi</option>
 
                         </select>
-                        <label class="labelmui">Kategori Berita</label>
+                        <label for="category">Kategori Berita</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="title" id="title" style="width:100% ;">
-                        <label for="" class="labelmui">Judul Berita</label>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="title" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
                     </div>
-                    <div class="material-textfield">
-                        <input type="text" name="content" id="content" style="width:100% ;">
-                        <label for="" class="labelmui">Isi Berita</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100% ;" class="form-control">
-                        <label for="" class="labelmui">Foto Berita</label>
-                    </div>
+
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
                 </form>
             </div>
@@ -137,38 +137,41 @@
 				</div>
 				<div class="modal-body">
 					<form action="" class="form">
-						<div class="material-selectfield mb-3">
-							<select name="category" id="category">
-								<!-- <select name="" id=""  multiple required> -->
-								<option selected>Pilih Kategori</option>
-								<option value="1">Berita PPKM</option>
-								<option value="2">Berita Kecelakaan Lalu Lintas</option>
-								<option value="3">Berita Pelanggaran Lalu Lintas</option>
-								<option value="4">Berita Kemacetan Lalu Lintas</option>
-								<option value="5">Berita Satpas</option>
-								<option value="6">Berita ETLE</option>
-								<option value="7">Berita Kontijensi</option>
+					<div class="col-md-12 mb-3"> 
+							<!-- get data foto dari server -->
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                        </div>
+						<div class="form-floating mb-3">
+                        <select name="category" id="category" class="form-control" aria-label="Floating label select" style="width:100%" required>
+                            <!-- <select name="" id=""  multiple required> -->
+                            <option selected>Pilih Kategori</option>
+                            <option value="1">Berita PPKM</option>
+                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
+                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
+                            <option value="4">Berita Kemacetan Lalu Lintas</option>
+                            <option value="5">Berita Satpas</option>
+                            <option value="6">Berita ETLE</option>
+                            <option value="7">Berita Kontijensi</option>
 
-							</select>
-							<label class="labelmui">Kategori Berita</label>
-						</div>
-						<div class="material-textfield">
-							<input type="text" name="title" id="title" style="width:100% ;">
-							<label for="title" class="labelmui">Judul Berita</label>
-						</div>
-						<div class="material-textfield">
-							<input type="text" name="content" id="content" style="width:100% ;">
-							<label for="content" class="labelmui">Isi Berita</label>
-						</div>
-						<div class="material-textfield">
-							<input type="file" name="" id="" style="width:100% ;" class="form-control">
-							<label for="" class="labelmui">Foto Berita</label>
-						</div>
+                        </select>
+                        <label for="category">Kategori Berita</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="title" class="form-control" name="title" placeholder="judul">
+                        <label for="title">Judul Berita</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
+						<label for="content">Isi Berita</label>
+					</div>
 					</form>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+	
 
 
 <div class="modal fade UploadBerita" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -266,6 +269,7 @@
                     return result.aaData;
 
                 }
+				
 
             },
 
@@ -287,9 +291,8 @@
                     data: 'author'
                 },
                 {
-                    data: 'created_at'
+                    data: 'date'
                 },
-
                 {
                     data: 'action',
                     orderable: false
@@ -298,7 +301,7 @@
             ],
 
             order: [
-                [0, "ASC"]
+                [0, "DESC"]
             ],
 
             drawCallback: function(settings) {
@@ -353,11 +356,16 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.DetailBerita,input').attr('readonly', true)
-                $('.DetailBerita,input,#category').attr('disabled', true)
+                // console.log(results)
+                $('.DetailBerita,#title').attr('disabled', true)
+                $('.DetailBerita,#category').attr('disabled', true)
+                $('.DetailBerita,#content').attr('disabled', true)
+                $('.DetailBerita,#photo').attr('disabled', true)
+
                 $('.DetailBerita,#title').val(results.title)
                 $('.DetailBerita,#category').val(results.news_category)
                 $('.DetailBerita,#content').val(results.content)
+                $('.DetailBerita,#photo').val(results.picture)
             }
         })
     }
@@ -371,12 +379,18 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahBerita,input').attr('readonly', false)
-                $('.UbahBerita,input,#category').attr('disabled', false)
+                // $('.UbahBerita,').attr('readonly', false)
+                $('.UbahBerita,#title').attr('disabled', false)
+                $('.UbahBerita,#category').attr('disabled', false)
+                $('.UbahBerita,#content').attr('disabled', false)
+                $('.UbahBerita,#photo').attr('disabled', false)
+
                 $('#id_berita').val(results.id)
+
                 $('.UbahBerita,#title').val(results.title)
                 $('.UbahBerita,#category').val(results.news_category)
                 $('.UbahBerita,#content').val(results.content)
+                $('.UbahBerita,#photo').val(results.picture)
             }
         })
     }
@@ -454,5 +468,12 @@
             }
         })
     })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
+	$('#btnEdit').on('click', function(e){
+		$('#form_edit')[0].reset()
+	})
 </script>
 

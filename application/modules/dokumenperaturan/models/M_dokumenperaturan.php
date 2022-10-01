@@ -117,25 +117,25 @@ class M_dokumenperaturan extends CI_Model {
 		// kategori berita berdasarkan nomor
 		foreach  ($result['data']['data'] as $field) { 
 			
-			// if ($field['regulation_category'] == 1) {
-			// 	$category = "Undang-undang";
-			// } else if($field['regulation_category'] == 2){
-			// 	$category = "Peraturan Pemerintah";
-			// }else if($field['regulation_category'] == 3){
-			// 	$category = "Peraturan Presiden";
-			// }else if($field['regulation_category'] == 4){
-			// 	$category = "Peraturan Kepolisian";
-			// }else if($field['regulation_category'] == 5){
-			// 	$category = "Peraturan Kapolri";
-			// }else if($field['regulation_category'] == 6){
-			// 	$category = "Peraturan Kakorlantas POLRI";
-			// }else if($field['regulation_category'] == 7){
-			// 	$category = "Peraturan Lain-lain";
-			// }
+			if ($field['regulation_category'] == 1) {
+				$category = "Undang-undang";
+			} else if($field['regulation_category'] == 2){
+				$category = "Peraturan Pemerintah";
+			}else if($field['regulation_category'] == 3){
+				$category = "Peraturan Presiden";
+			}else if($field['regulation_category'] == 4){
+				$category = "Peraturan Kepolisian";
+			}else if($field['regulation_category'] == 5){
+				$category = "Peraturan Kapolri";
+			}else if($field['regulation_category'] == 6){
+				$category = "Peraturan Kakorlantas POLRI";
+			}else if($field['regulation_category'] == 7){
+				$category = "Peraturan Lain-lain";
+			}
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['regulation_category']	= $field['regulation_category']; 
+            $row ['regulation_category']	= $category; 
             $row ['regulation_name']		= $field['regulation_name'];  
             $row ['year']   				= $field['year'];  
             $row ['action']         = ' 
@@ -143,7 +143,7 @@ class M_dokumenperaturan extends CI_Model {
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailDokumenPeraturan">
                     <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                 </button>
-                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahDokumenPeraturan">
+                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahDokumenPeraturan">
                     <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                 </button>
                 <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">

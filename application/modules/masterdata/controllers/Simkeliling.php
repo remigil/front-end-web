@@ -64,6 +64,14 @@ class SimKeliling extends MY_Controller
                 'contents' => $input['address'],
             ], 
 			[
+                'name' => 'latitude',
+                'contents' => $input['latitude'],
+            ], 
+			[
+                'name' => 'longitude',
+                'contents' => $input['longitude'],
+            ], 
+			[
                 'name' => 'sim_keliling_open_time',
                 'contents' => $input['sim_keliling_open_time'],
             ], 
@@ -160,13 +168,24 @@ class SimKeliling extends MY_Controller
             [
                 'name' => 'name_sim_keliling',
                 'contents' => $input['name_sim_keliling'],
-            ], [
+            ], 
+			[
                 'name' => 'address',
                 'contents' => $input['address'],
-            ], [
+            ], 
+			[
+                'name' => 'latitude',
+                'contents' => $input['latitude'],
+            ], 
+			[
+                'name' => 'longitude',
+                'contents' => $input['longitude'],
+            ], 
+			[
                 'name' => 'sim_keliling_open_time',
                 'contents' => $input['sim_keliling_open_time'],
-            ], [
+            ], 
+			[
                 'name' => 'sim_keliling_close_time',
                 'contents' => $input['sim_keliling_close_time'],
             ],
