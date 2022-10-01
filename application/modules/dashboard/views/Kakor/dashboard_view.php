@@ -305,6 +305,8 @@
 
                     data.filterTypeRenpam = $("#typeRenpam").val();
 
+                    data.filterCategoryRenpam = '';
+
                     // data.filterPhone = $('[name=poc_phone]').val();
 
                     // data.filterThreat = $('[name=threat_level]').val();

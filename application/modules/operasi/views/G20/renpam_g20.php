@@ -44,7 +44,8 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
-
+                    <input hidden name="category_renpam" value="<?php echo $data['category']; ?>" type="text">
+                    
                     <div class="row">
 
                         <div class="col-md-6">
@@ -329,6 +330,8 @@
                     data.filterSchedule = '';
 
                     data.filterTypeRenpam = '';
+
+                    data.filterCategoryRenpam = '<?php echo $data['category']; ?>';
 
                     // data.filterPhone = $('[name=poc_phone]').val();
 

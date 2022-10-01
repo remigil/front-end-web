@@ -47,6 +47,91 @@ class Renpam extends MY_Controller
         // echo json_encode($data['getAccount']);
         // die;
 
+        $data["category"] = "";
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function operasi()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Uraian Kegiatan Operasi";
+
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
+            $page_content["page"] = "operasi/G20/renpam_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "operasi/Korlantas/renpam_korlantas";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "operasi/Kapolda/renpam_kapolda";
+        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "operasi/Polres/renpam_polres";
+        } else {
+            redirect(base_url('dashboard'));
+        }
+
+        $getVip = guzzle_request('GET', 'vip', [
+            'headers' => $headers
+        ]);
+        $data['getVip'] = $getVip['data']['data'];
+
+        $getAccount = guzzle_request('GET', 'account', [
+            'headers' => $headers
+        ]);
+        $data['getAccount'] = $getAccount['data']['data'];
+        // echo json_encode($data['getAccount']);
+        // die;
+
+
+        $data["category"] = "1";
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function harian()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Uraian Kegiatan Harian";
+
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
+            $page_content["page"] = "operasi/G20/renpam_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "operasi/Korlantas/renpam_korlantas";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "operasi/Kapolda/renpam_kapolda";
+        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "operasi/Polres/renpam_polres";
+        } else {
+            redirect(base_url('dashboard'));
+        }
+
+        $getVip = guzzle_request('GET', 'vip', [
+            'headers' => $headers
+        ]);
+        $data['getVip'] = $getVip['data']['data'];
+
+        $getAccount = guzzle_request('GET', 'account', [
+            'headers' => $headers
+        ]);
+        $data['getAccount'] = $getAccount['data']['data'];
+        // echo json_encode($data['getAccount']);
+        // die;
+
+        $data["category"] = "2";
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -70,6 +155,8 @@ class Renpam extends MY_Controller
         $dummy['schedule_id']    = null;
         $dummy['name_renpam']    = $input['instruksi'];
         $dummy['type_renpam']    = $input['subjek'];
+        $dummy['category_renpam']    = $input['category_renpam'];
+
         $dummy['date']    = $input['date'];
         $dummy['start_time']    = $input['startTime'];
         // $dummy ['end_time']	= $input['endTime']; 
@@ -93,6 +180,7 @@ class Renpam extends MY_Controller
         $dummy['route_masyarakat']    = $input['coordsAlternative3'];
         $dummy['route_umum']    = $input['coordsAlternative4'];
 
+        
 
 
         $data = guzzle_request('POST', 'renpam/add', [
@@ -129,6 +217,7 @@ class Renpam extends MY_Controller
         $dummy['schedule_id']    = $input['schedule_id'];
         $dummy['name_renpam']    = $input['instruksiR'];
         $dummy['type_renpam']    = $input['subjekR'];
+        $dummy['category_renpam']    = $input['category_renpam'];
         $dummy['date']    = $input['dateR'];
         $dummy['start_time']    = $input['startTimeR'];
         // $dummy ['end_time']	= $input['endTimeR']; 

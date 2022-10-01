@@ -82,11 +82,11 @@
                                         <p style="font-size: 17px;">Laporan</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="panic_button" id="panic" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="titik_laporan" id="panic" class="form-input" >  
                                         <span>Panic Button</span> 
                                     </div>   
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="operasi" id="operasi" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="titik_laporan" id="operasi" class="form-input" >  
                                         <span>Operasi</span> 
                                     </div>   
     
@@ -283,10 +283,21 @@
                     
                     <div class="row">  
                         
+                        
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksi" placeholder="" type="text">
                                 <label class="labelmui">Uraian Kegiatan</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="category_renpam" class="form-select"> 
+                                    <option selected value="">Pilih Category</option>  
+                                    <option value="1">Operasi</option>  
+                                    <option value="2">Harian</option>  
+                                </select>
+                                <label class="labelmui">Categori Rengiat</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -606,6 +617,9 @@
     var markerArray = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
+    var markerLaporanPanic = new Array();
+    var markerLaporan = new Array();
+    var markerCCTV = new Array();
     var markerFasum = new Array();
     var markerPolres = new Array();
     var routingJadwal = new Array();
@@ -780,7 +794,7 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
                                                 <div class="avatar-xl me-3">
                                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                                 </div>
@@ -788,47 +802,47 @@
                                                 ${call_wa_dan_biasa(ress[i].handphone)}
                                             </div> 
 
-                                            <div class="row text-start">
+                                            <div class="row text-start mt-3">
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">Nama</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</span>
                                                 </div> 
 
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">NRP</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</span>
                                                 </div>  
                                                 
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">Tim</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">Tim</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</span>
                                                 </div>
                                                 
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</span>
                                                 </div>
                                                 
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</span>
                                                 </div>
                                                 
                                                 <div class="col-md-4">
-                                                    <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                                    <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</p>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
                                                 </div>
                                             </div> 
                                         </div>  
@@ -844,7 +858,7 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
                                                 <div class="avatar-xl me-3">
                                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                                 </div>
@@ -854,19 +868,19 @@
                                         </div>
 
                                         
-                                        <div class="row text-start">
+                                        <div class="row text-start mt-3">
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">Nama</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</span>
                                             </div> 
 
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">NRP</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</span>
                                             </div>
                                             
                                            
@@ -874,31 +888,31 @@
                                             
                                             
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">Tim</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">Tim</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</span>
                                             </div>
                                             
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</span>
                                             </div>
                                             
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</span>
                                             </div>
                                             
                                             <div class="col-md-4">
-                                                <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                                <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</p>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
                                             </div>
                                         </div> 
                                           
@@ -1008,7 +1022,7 @@
                 noTelp = noTelp;
             }
             return `  
-                <div style="" class="text-center">
+                <div class="text-center">
                     <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
                         <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
                     </a>
@@ -1103,7 +1117,7 @@
                     }) }).bindPopup(`
                     <div class="text-center" style="width: 300px;"> 
                         <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;">
                                 <div class="avatar-xl me-3">
                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                 </div>
@@ -1112,50 +1126,50 @@
                         </div>
 
 
-                            <div class="row text-start">
+                            <div class="row text-start mt-3">
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Nama</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</span>
                                 </div> 
 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">NRP</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
                                 </div>
                                 
                                 
  
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Tim</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Tim</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
                                 </div>
                             </div>  
                         
@@ -1171,7 +1185,7 @@
                     }) }).bindPopup(`
                     <div class="text-center" style="width: 300px;"> 
                         <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;">
                                 <div class="avatar-xl me-3">
                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                 </div>
@@ -1180,50 +1194,50 @@
                         </div>
 
 
-                            <div class="row text-start">
+                            <div class="row text-start mt-3">
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Nama</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</span>
                                 </div> 
 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">NRP</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">NRP</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
                                 </div>
                                 
                                 
  
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Tim</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Tim</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Ketua Tim</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">Kendaraan</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <p style="font-size: 12px;font-weight: bold;">No Kendaraan</p>  
+                                    <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</p>
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
                                 </div>
                             </div>  
                         
@@ -1319,7 +1333,7 @@
                     var ressTurjawali = result['data']['turjawali'];
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
-                    var ressLaporan = result['data']['titik_laporan'];
+                    var ressLAP = result['data']['titik_laporan'];
                     var ressFasum = result['data']['fasum'];
                     var ressTroublespot = result['data']['troublespot'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
@@ -1364,52 +1378,52 @@
                                                     <div class="col-md-12 col-12 mt-3">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
-                                                                <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                                <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
                                                             </div>
                                                             <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
+                                                                <span style="font-size: 12px;"> : </span>
                                                             </div>
                                                             <div class="col-md-6 col-6">
-                                                                <p style="font-size: 12px;">${filterpolres[i].address}</p>
+                                                                <span style="font-size: 12px;">${filterpolres[i].address}</span>
                                                             </div>
                                                         </div> 
                                                     </div> 
                                                     <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
-                                                                <p style="font-size: 12px;font-weight: bold;">Kode</p>  
+                                                                <span style="font-size: 12px;font-weight: bold;">Kode</span>  
                                                             </div>
                                                             <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
+                                                                <span style="font-size: 12px;"> : </span>
                                                             </div>
                                                             <div class="col-md-6 col-6">
-                                                                <p style="font-size: 12px;">${filterpolres[i].code_satpas}</p>
+                                                                <span style="font-size: 12px;">${filterpolres[i].code_satpas}</span>
                                                             </div>
                                                         </div> 
                                                     </div>  
                                                     <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
-                                                                <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                                <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
                                                             </div>
                                                             <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
+                                                                <span style="font-size: 12px;"> : </span>
                                                             </div>
                                                             <div class="col-md-6 col-6">
-                                                                <p style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</p>
+                                                                <span style="font-size: 12px;">${filterpolres[i].phone_polres != null ? filterpolres[i].phone_polres : '-'}</span>
                                                             </div>
                                                         </div> 
                                                     </div>  
                                                     <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
-                                                                <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                                <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
                                                             </div>
                                                             <div class="col-md-1">
-                                                                <p style="font-size: 12px;"> : </p>
+                                                                <span style="font-size: 12px;"> : </span>
                                                             </div>
                                                             <div class="col-md-6 col-6">
-                                                                <p style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</p>
+                                                                <span style="font-size: 12px;">${filterpolres[i].open_time != null ? filterpolres[i].open_time : '00:00'} - ${filterpolres[i].close_time != null ? filterpolres[i].close_time : '00:00'} WITA</span>
                                                             </div>
                                                         </div> 
                                                     </div>   
@@ -1421,6 +1435,7 @@
                             }
                         }
                     }
+
                     if(ressCctv && ressCctv.length > 0){  
                         var filterCctv = ressCctv.filter(function (e) {
                             return e.lat_cctv != null && e.lng_cctv != null;
@@ -1461,11 +1476,201 @@
                             }
                         }
                     } 
-                    if(ressLaporan && ressLaporan.length > 0){  
-                        var filterLaporan = ressLaporan.filter(function (e) {
-                            return e.coordinate.latitude != null && e.coordinate.longitude != null;
+
+                    if(ressLAP && ressLAP.length > 0){  
+                        var ressLaporan = ressLAP.filter(function (e) {
+                            return e.coordinate.latitude != "" && e.coordinate.longitude != "";
                         });   
+
+
+                        var filterLaporanPanic = ressLaporan.filter(function (e) {
+                            return e.type == 'PNC';
+                        });   
+                        if(filterLaporanPanic.length > 0){  
+                            for (let i = 0; i < filterLaporanPanic.length; i++) {     
+                                id = i;  
+                                var latitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.latitude);
+                                var longitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.longitude); 
+                                var iconLapPanic;
+
+                                if(filterLaporanPanic[i].categori == 1){
+                                    kategoriLaporan = 'Tindakan Kriminal';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporanPanic[i].categori == 2){
+                                    kategoriLaporan = 'Kecelakaan Lalu Lintas';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporanPanic[i].categori == 3){
+                                    kategoriLaporan = 'Bencana Alam';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporanPanic[i].categori == 4){
+                                    kategoriLaporan = 'Kemacetan';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporanPanic[i].categori == 99){
+                                    kategoriLaporan = 'Lainnya';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else{
+                                    kategoriLaporan = 'Lainnya Other';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }
+
+                                if(filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null){
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                    `;
+                                
+                                }else{
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-success">Selesai</span> 
+                                    `;
+                                }
+
+                                markerLaporanPanic[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: iconLapPanic,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div style="width: 300px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <a href="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporanPanic[i].foto}" target="_blank"><img src="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporanPanic[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                ${call_wa_dan_biasa(filterLaporanPanic[i].officer.phone_officer)}
+                                            </div>
+
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <h5>${filterLaporanPanic[i].code}</h5>
+                                            </div>
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].officer.name_officer} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Kategori Laporan</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Waktu Insiden</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].created_at} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Status</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${$statusLapPnc} </span> 
+                                            </div>  
+                                        </div>  
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description} </span> 
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                        
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                            }
+                        }
+
+                        var filterLaporan = ressLaporan.filter(function (e) {
+                            return e.type == 'LAP';
+                        });  
+                        if(filterLaporan.length > 0){  
+                            for (let i = 0; i < filterLaporan.length; i++) {     
+                                id = i;  
+                                var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
+                                var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude); 
+                                var iconLapPanic; 
+
+                                if(filterLaporan[i].status == 0 || filterLaporan[i].status == null){
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                    `;
+                                
+                                }else{
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-success">Selesai</span> 
+                                    `;
+                                }
+
+                                markerLaporanPanic[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div style="width: 300px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <a href="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" target="_blank"><img src="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer)}
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <h5>${filterLaporan[i].code}</h5>
+                                            </div>
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
+                                            </div>  
+                                        </div>   
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description} </span> 
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                        
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                            }
+                        }
+
                     }
+
                     if(ressFasum && ressFasum.length > 0){ 
                         var filterFasum = ressFasum.filter(function (e) {
                             return e.geometry.location.lat != null && e.geometry.location.lng != null;

@@ -111,19 +111,29 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Pengamanan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
                 <form class="formR" method="post" enctype="multipart/form-data"> 
-                    <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" >
-
+                    <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" > 
                     <div class="row">  
 
+                        
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
-                                <label class="labelmui">Judul Renpam</label>
+                                <label class="labelmui">Uraian Kegiatan</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="category_renpam" class="form-select"> 
+                                    <option selected value="">Pilih Category</option>  
+                                    <option value="1">Operasi</option>  
+                                    <option value="2">Harian</option>  
+                                </select>
+                                <label class="labelmui">Categori Rengiat</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -133,7 +143,7 @@
                                         <option value="<?php echo $row['id'];?>"><?php echo $row['name_account'];?></option> 
                                     <?php endforeach; ?> 
                                 </select>
-                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Tim</label>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Unit Pengawalan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -226,7 +236,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Rencana Pengamanan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Rencana Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
@@ -753,6 +763,8 @@
                     data.filterSchedule = $('#schedule_id_detail').val();
 
                     data.filterTypeRenpam = '';
+
+                    data.filterCategoryRenpam = '';
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 

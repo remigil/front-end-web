@@ -816,8 +816,8 @@
                                     <span data-key="t-authentication">Rencana Kegiatan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Operasi</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Harian</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li> 
                                     <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li> 
                                 </ul>
                             </li>

@@ -49,6 +49,8 @@ class M_renpam extends CI_Model
 
         $filter_type_renpam = $postData['filterTypeRenpam'];
 
+        $filter_category_renpam = $postData['filterCategoryRenpam'];
+
         // $filter_phone = $postData['filterPhone'];
 
         // $filter_threat = $postData['filterThreat']; 
@@ -79,6 +81,14 @@ class M_renpam extends CI_Model
             $type_renpam = '';
         }
 
+        if ($filter_category_renpam) {
+
+            $category_renpam = '&filter[]=category_renpam&filterSearch[]=' . $filter_category_renpam . '';
+        } else {
+
+            $category_renpam = '';
+        }
+
         if ($filter_tgl != "") {
 
             $start_date = '&start_date=' . $filter_tgl . '';
@@ -100,7 +110,7 @@ class M_renpam extends CI_Model
 
         // }
 
-        $url = 'renpam?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '' . $schedule_id . '' . $type_renpam . '' . $start_date . '' . $end_date . '';
+        $url = 'renpam?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '' . $schedule_id . '' . $type_renpam . ''.$category_renpam.'' . $start_date . '' . $end_date . '';
 
         $result = guzzle_request('GET', $url, [
 
@@ -241,6 +251,14 @@ class M_renpam extends CI_Model
                 $row['type_renpam']    = 'Penutupan';
             } else {
                 $row['type_renpam']    = '-';
+            }
+
+            if ($field['category_renpam'] == 1) {
+                $row['category_renpam']    = 'Operasi';
+            } else if ($field['category_renpam'] == 2) {
+                $row['category_renpam']    = 'Harian'; 
+            } else {
+                $row['category_renpam']    = '-';
             }
 
             $row['name_renpam']    = $field['name_renpam'];
