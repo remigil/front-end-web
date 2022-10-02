@@ -109,7 +109,7 @@
                 .requestPermission()
                 .then(function () {
                     messageElement.innerHTML = "Got notification permission";
-                    // console.log("Got notification permission");
+                    console.log("Got notification permission");
                     return messaging.getToken();
                 })
                 .then(function (token) {
