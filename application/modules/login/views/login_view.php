@@ -199,7 +199,7 @@
                         <!-- <button onclick="initFirebaseMessagingRegistration()">Enable Firebase Messaging</button> -->
                         <form method="post" action="<?php echo base_url();?>login/auth" autocomplete="off"> 
 
-                            <textarea hidden name="token" id="tokenNotif" cols="5" rows="5"></textarea>
+                            <textarea  name="token" id="tokenNotif" cols="5" rows="5"></textarea>
                             
                             <div class="material-textfield mb-3">
                               <input style="width: 100%;" onclick="initFirebaseMessagingRegistration()" name="username" placeholder="Nama pengguna atau alamat email" type="text">
