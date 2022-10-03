@@ -23,7 +23,7 @@ class DokumenPeraturan extends MY_Controller
         $page_content["title"] = "Dokumen Peraturan";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
+            $page_content["page"] = "dokumenperaturan/G20/dokumenperaturan_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "dokumenperaturan/Korlantas/dokumenperaturan_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
