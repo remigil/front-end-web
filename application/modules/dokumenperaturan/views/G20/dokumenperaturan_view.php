@@ -343,7 +343,14 @@
                 $('.DetailDokumenPeraturan,#tahunPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#files').attr('disabled', true)
 
-                $("#fileDownload").html(`<a class="btn" href="<?php echo urlApi()?>regulation_doc/${results.fileReg}" target="_blank"><i style="color: black;" class="fa  fas fa-download "></i></a>`);
+                if(results.fileReg != null){
+                    $("#fileDownload").html(` 
+                    <a style="color: black;" class="btn" href="<?php echo urlApi()?>regulation_doc/${results.fileReg}" target="_blank">
+                        <i style="color: black;" class="fa  fas fa-download "></i> Download File
+                    </a>`);
+                }else{
+                    $("#fileDownload").html(` `);
+                }
                 
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
                 $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)
