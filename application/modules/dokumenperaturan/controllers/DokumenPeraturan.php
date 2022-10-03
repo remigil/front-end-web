@@ -127,6 +127,7 @@ class DokumenPeraturan extends MY_Controller
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data']['data'];
+        // eho
 
         echo json_encode($data['getDetail']);
     }
