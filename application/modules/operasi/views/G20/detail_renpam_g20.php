@@ -28,7 +28,8 @@
                     <div class="row">
                         <div class="col-2">
                             <p>SUBJEK</p>
-                            <p>INSTRUKSI</p>
+                            <p>INSTRUKSI</p> 
+                            <p>LOKASI</p>
                             <p>TANGGAL</p>
                             <p>WAKTU</p>
                             <p>INSTRUKSI KAKOR</p>
@@ -55,6 +56,7 @@
                                 <?php } ?>
                             </p> 
                             <p><?php echo $data['getDetail']['data']['name_renpam'];?></p> 
+                            <p><?php echo ($data['getDetail']['data']['title_start'] != null ? $data['getDetail']['data']['title_start'] : '-'); ?> To <?php echo ($data['getDetail']['data']['title_end'] !=  null ? $data['getDetail']['data']['title_end'] : '-'); ?></p> 
                             <p><?php echo format_indo($data['getDetail']['data']['date']);?></p>
                             <p><?php echo $data['getDetail']['data']['start_time'];?> - <?php echo $data['getDetail']['data']['start_time'];?>  WITA</p>
                             <p><?php echo ($data['getDetail']['data']['note_kakor'] != null ? $data['getDetail']['data']['note_kakor'] : '-');?></p>
@@ -143,6 +145,11 @@
         }
 
 
+        var awal = '<?php echo json_encode($data['getDetail']['data']['title_start']) ?>';
+        var akhir = '<?php echo json_encode($data['getDetail']['data']['title_end']) ?>';
+        var titikAwal = awal == null ? '-' : awal;
+        var titikAkhir = akhir == null ? '-' : akhir;
+
         var route1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1']) ?>';
         if (route1 != 'null') {
             routingRenpam1[0] = L.Routing.control({
@@ -172,7 +179,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAwal}</h3>
+                            </div> 
+                        `);
                     } else if (i === nWps - 1) {
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
@@ -183,7 +194,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAkhir}</h3>
+                            </div> 
+                        `);
                     } else {
                         // here change all the others
                         var options = {
@@ -236,7 +251,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAwal}</h3>
+                            </div> 
+                        `);
                     } else if (i === nWps - 1) {
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
@@ -247,7 +266,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAkhir}</h3>
+                            </div> 
+                        `);
                     } else {
                         // here change all the others
                         var options = {
@@ -300,7 +323,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAwal}</h3>
+                            </div> 
+                        `);
                     } else if (i === nWps - 1) {
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
@@ -311,7 +338,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAkhir}</h3>
+                            </div> 
+                        `);
                     } else {
                         // here change all the others
                         var options = {
@@ -364,7 +395,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAwal}</h3>
+                            </div> 
+                        `);
                     } else if (i === nWps - 1) {
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
@@ -375,7 +410,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAkhir}</h3>
+                            </div> 
+                        `);
                     } else {
                         // here change all the others
                         var options = {
@@ -429,7 +468,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAwal}</h3>
+                            </div> 
+                        `);
                     } else if (i === nWps - 1) {
                         return L.marker(wp.latLng, {
                             icon: L.divIcon({
@@ -440,7 +483,11 @@
                                 iconAnchor: [5, 10],
                             }),
                             draggable: this.draggableWaypoints,
-                        });
+                        }).bindPopup(`
+                            <div class="text-center"> 
+                                <h3>${titikAkhir}</h3>
+                            </div> 
+                        `);
                     } else {
                         // here change all the others
                         var options = {

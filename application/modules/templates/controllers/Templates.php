@@ -16,11 +16,15 @@ class Templates extends MY_Controller {
         $data["title"] = $page_content["title"];
         $data["data"] = $page_content["data"]; 
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token']
-        // ];
-        // $user = guzzle_request('GET','user?limit=1&filterField%5B%5D=user_id&filterValue%5B%5D='.$this->session->userdata['user_id'].'', ['headers' => $headers]);
-        // $data['user'] = $user['data']['data'];
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $notif = guzzle_request('GET', 'notifikasi?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=is_read&filterSearch[]=0', [
+            'headers' => $headers
+        ]);
+        $data['notif'] = $notif['data'];
+        // echo json_encode($data['notif']);
+        // die;
         
         // $compenyProfile = guzzle_request('GET','company?limit=1&filterField%5B%5D=company_id&filterValue%5B%5D='.$this->session->userdata['company'].'', ['headers' => $headers]);
         // $data['compenyProfile'] = $compenyProfile['data']['data'];

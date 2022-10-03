@@ -133,56 +133,48 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Akun</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail CCTV</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form class="formDetail" method="post" enctype="multipart/form-data"> 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="nama" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama CCTV</label>
+                                <input readonly type="text" class="form-control" name="type_cctvDetail" id="type_cctvDetail" placeholder="Type CCTV">
+                                <label for="type_cctvDetail">Type CCTV</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="provinsi" placeholder="isi nama samsat">
-                                <label for="nama_akun">Provinsi</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="username" placeholder="isi nama samsat">
-                                <label for="nama_akun">Username</label>
-                            </div>
+                                <input readonly type="text" class="form-control" name="ip_cctvDetail" id="ip_cctvDetail" placeholder="Alamat Ip">
+                                <label for="ip_cctvDetail">Alamat IP</label>
+                            </div> 
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="alamat" placeholder="isi nama samsat">
-                                <label for="nama_akun">Alamat IP</label>
+                                <input readonly type="text" class="form-control" name="link_cctvDetail" id="link_cctvDetail" placeholder="isi nama samsat">
+                                <label for="link_cctvDetail">Link CCTV</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="kota" placeholder="isi nama samsat">
-                                <label for="nama_akun">Kota</label>
-                            </div>
+                                <input readonly type="text" class="form-control" name="gateway_cctvDetail" id="gateway_cctvDetail" placeholder="isi nama samsat">
+                                <label for="gateway_cctvDetail">Gateway CCTV</label>
+                            </div> 
+                        </div>
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="password" placeholder="isi nama samsat">
-                                <label for="nama_akun">Password</label>
+                                <input readonly name="addressDetail" id="addressDetail" class="form-control" placeholder="Alamat" type="text" required>
+                                <label for="addressDetail">Alamat</label>
+                            </div>  
+                        </div>  
+                        <div class="col-md-6">
+                            <div id="mapG20DashboardDetail" style="height: 300px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
+                        </div>
+                        <div class="col-md-6" id="videoCCTV">
+
                         </div>
                     </div>
-                    <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="latitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" name="longitude" placeholder="isi nama samsat">
-                                <label for="nama_akun">Longitude</label>
-                            </div>
-                        </div>
-                    </div>
+                     
                     <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
                 </form>
             </div>
@@ -193,9 +185,10 @@
 
 
 <script>
+    var userDataTable;
     $(document).ready(function() { 
 
-        var userDataTable = $('#datatable').DataTable({
+        userDataTable = $('#datatable').DataTable({
 
             responsive: true,
 
@@ -315,7 +308,7 @@
 
 
 
-        $('[name=cordinate]').val('-8.451740, 115.089643');
+         
         var initialCenter = [-8.451740, 115.089643];
         var initialZoom = 9.65;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -475,52 +468,159 @@
 
     });
 
+ 
+
+    function detail(id) {
+        $('#detailModal').modal('show');
+        
+        $('#detailModal').on('shown.bs.modal', function(event) { 
+
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>masterdata/cctv/getIdCCTV", 
+                data : {
+                    "id" : id, 
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    var ress = result['data'];
+                    console.log(ress.ip_cctv);
+                    if(ress){ 
+                       
+                        $('#type_cctvDetail').val(ress.type_cctv);
+                        $('#ip_cctvDetail').val(ress.ip_cctv);
+                        $('#link_cctvDetail').val(ress.link_cctv);
+                        $('#gateway_cctvDetail').val(ress.gateway_cctv);
+                        $('#addressDetail').val(ress.address_cctv); 
 
 
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail CCTV')
-        $('[name="nama"]').val($(this).data('nama'))
-        $('[name="alamat"]').val($(this).data('ip'))
-        $('[name="provinsi"]').val($(this).data('provinsi'))
-        $('[name="kota"]').val($(this).data('kota'))
-        $('[name="latitude"]').val($(this).data('lat'))
-        $('[name="longitude"]').val($(this).data('long'))
-        $('[name="username"]').val($(this).data('username'))
-        $('[name="password"]').val($(this).data('password'))
-        $('#submit_edit').hide()
-    })
+                        var resource = '';
+                        if(ress.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                            resource = `<iframe id="myIframe" src="${ress.link_cctv}" style="width: 100%; height: 100%"></iframe>`;
+                        }else{
+                            resource = `<img style="width: 100%;  height: 100%" src="${ress.link_cctv}" />`;
+                        }
+                        $("#videoCCTV").html(resource);
 
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
+                        // videoCCTV
+                        
+                        var initialCenter = [-8.451740, 115.089643];
+                        var initialZoom = 9.65;
+                        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                            maxZoom: 20,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                        });
+                        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                            maxZoom: 20,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                        });
+                        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                            maxZoom: 20,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                        });
+                        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+                            maxZoom: 20,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                        });
 
-    function hapus() {
+                        // StART MAP SECTION
+                        var mapContainer = L.map('mapG20DashboardDetail', {
+                            maxZoom: 20,
+                            minZoom: 1,
+                            zoomSnap: 0.25,
+                            zoomControl: false,
+                            layers: [googleStreet]
+                        }).setView(initialCenter, initialZoom);
+                
+                        var baseMaps = {
+                            "Google Map Street": googleStreet,
+                            "Google Map Satelite": googleSatelite,
+                            "Google Map Hybrid": googleHybrid,
+                            "Google Map Terrain": googleTerrain,
+                        };
+                        var overlayMaps = {};
+                        L.control.layers(baseMaps, overlayMaps, {
+                            position: 'topright'
+                        }).addTo(mapContainer);
+                        L.control.zoom({
+                            position: 'bottomleft'
+                        }).addTo(mapContainer);
+                    }else{
+                        Swal.fire(
+                            `Terjadi Kesalahan Pada System`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+            
+        });
+    }
+
+    function editData(id) {
+        
+    }
+
+    function hapus(id) { 
         Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
+
+        title: 'Anda yakin ingin menghapus ?',
+
+        text: "",
+
+        icon: 'warning',
+
+        showCancelButton: true,
+
+        confirmButtonColor: '#3085d6',
+
+        cancelButtonColor: '#d33',
+
+        confirmButtonText: 'Yes'
+
         }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+
+            if (result.value == true) {
+                $("#overlay").fadeIn(300);
+
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/cctv/hapusCCTV",
+                    method: "POST",
+                    data: {
+                        "id": id,
+                    },
+                    dataType: 'JSON',
+                    // contentType: false,
+                    // processData: false,  
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                userDataTable.ajax.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+
+            } else { 
+                userDataTable.ajax.reload(); 
             }
-        })
+
+        });
     }
 </script>
