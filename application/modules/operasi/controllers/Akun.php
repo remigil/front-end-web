@@ -36,7 +36,7 @@ class Akun extends MY_Controller
         }
 
 
-        $getOfficer = guzzle_request('GET', 'officer', [
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=100000&start=1', [
             'headers' => $headers
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];

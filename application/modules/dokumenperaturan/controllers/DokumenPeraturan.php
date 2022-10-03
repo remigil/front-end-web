@@ -30,9 +30,7 @@ class DokumenPeraturan extends MY_Controller
             $page_content["page"] = "dokumenperaturan/Kapolda/dokumenperaturan_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dokumenperaturan/Polres/dokumenperaturan_view";
-        }
-
-
+        } 
 
 
         $page_content["data"] = '';
@@ -63,10 +61,9 @@ class DokumenPeraturan extends MY_Controller
                 [
                     'name' => 'regulation_name',
                     'contents' => $input['judulPeraturan'],
-                ],
-                
+                ], 
 				[
-					'name' => 'picture',
+					'name' => 'fileReg',
 					'contents' => fopen($path,'r'),
 					'filename' => $filename
 				], 
@@ -123,10 +120,10 @@ class DokumenPeraturan extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
+ 
+        $input      = $this->input->post(); 
 
-        $id = $this->input->post('id_peraturan');
-
-        $getDetail = guzzle_request('GET', 'regulation_doc/getId/' . $id . '', [
+        $getDetail = guzzle_request('GET', 'regulation_doc/getId/' . $input['id_peraturan'] . '', [
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data']['data'];
@@ -192,7 +189,7 @@ class DokumenPeraturan extends MY_Controller
                 ],
                 
 				[
-					'name' => 'picture',
+					'name' => 'fileReg',
 					'contents' => fopen($path,'r'),
 					'filename' => $filename
 				], 
