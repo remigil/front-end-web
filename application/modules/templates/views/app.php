@@ -81,6 +81,8 @@
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.common.css" />
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.light.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
     <style>
         .animateLine {
             stroke-dasharray: 10;
@@ -465,10 +467,9 @@
 
 
     
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
-    <script> 
-        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   
+    <!-- <script>  
         firebase.initializeApp({
             'messagingSenderId': '475022830226'
         })
@@ -505,6 +506,7 @@
                 });
         }
         messaging.onMessage(function (payload) {
+            alert('notif masuk');
             console.log("Message received. ", JSON.stringify(payload));
             notificationElement.innerHTML = notificationElement.innerHTML + " " + payload.data.notification;
         });
@@ -517,11 +519,9 @@
                     errorElement.innerHTML = "Error: " + err;
                     console.log('Unable to retrieve refreshed token ', err);
                 });
-        });
-    </script>
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/firebase-messaging-sw.js"></script>
-
+        }); 
+    </script> -->
+ 
  
     <!-- <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-messaging.js"></script> -->
@@ -1096,20 +1096,7 @@
         <div class="main-content">
 
             <div class="page-content" style="background-color: #f5f3f4;">
-                <div class="container-fluid"> 
-
-                <!-- <h1>This is a test page</h1>
-                <div id="token" style="color:lightblue"></div>
-                <div id="message" style="color:lightblue"></div>
-                <div id="notification" style="color:green"></div>
-                <div id="error" style="color:red"></div>
-                <script>
-                    messageElement = document.getElementById("message")
-                    tokenElement = document.getElementById("token")
-                    notificationElement = document.getElementById("notification")
-                    errorElement = document.getElementById("error")
-                </script>
-                <button onclick="initFirebaseMessagingRegistration()">Enable Firebase Messaging</button> -->
+                <div class="container-fluid">  
 
                     <!-- Page Content-->
                     <?php $this->load->view($page_content) ?>
@@ -1401,6 +1388,120 @@
     </script>
 
 
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+    <script>
+        // Initialize the Firebase app by passing in the messagingSenderId
+        var config = {
+            apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+
+            authDomain: "g20k3i.firebaseapp.com",
+
+            projectId: "g20k3i",
+
+            storageBucket: "g20k3i.appspot.com",
+
+            messagingSenderId: "475022830226",
+
+            appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+
+        };
+        firebase.initializeApp(config);
+        const messaging = firebase.messaging();
+
+        // messaging.onBackgroundMessage((payload) => {
+        //     console.log('onBackgroundMessage ', payload);
+        //     // Customize notification here
+        //     // const {title, body} = payload.notification;
+        //     // const notificationTitle = title;
+        //     // const notificationOptions = {
+        //     //     body: body,
+        //     //     icon: '/firebase-logo.png'
+        //     // };
+        //     // self.registration.showNotification(notificationTitle,
+        //     //     notificationOptions);
+
+
+
+        // });
+
+
+        navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then(function (registration) {
+            messaging.useServiceWorker(registration);
+                
+            // Request for permission
+            messaging.requestPermission()
+                .then(function() {
+                    console.log('Notification permission granted.');
+                    // TODO(developer): Retrieve an Instance ID token for use with FCM.
+                    messaging.getToken()
+                .then(function(currentToken) {
+                    if (currentToken) {
+                    console.log('Token: ' + currentToken)
+                    sendTokenToServer(currentToken);
+                    } else {
+                    console.log('No Instance ID token available. Request permission to generate one.');
+                    setTokenSentToServer(false);
+                    }
+                })
+                .catch(function(err) {
+                    console.log('An error occurred while retrieving token. ', err);
+                    setTokenSentToServer(false);
+                });
+            })
+            .catch(function(err) {
+                console.log('Unable to get permission to notify.', err);
+            });
+        });
+
+ 
+        // Handle incoming messages
+        messaging.onMessage(function(payload) {
+            console.log("Notification received: ", payload);
+            // toastr["info"](payload.notification.body, payload.notification.title);
+        });
+
+        // Callback fired if Instance ID token is updated.
+        messaging.onTokenRefresh(function() {
+            messaging.getToken()
+            .then(function(refreshedToken) {
+                console.log('Token refreshed.');
+                // Indicate that the new Instance ID token has not yet been sent 
+                // to the app server.
+                setTokenSentToServer(false);
+                // Send Instance ID token to app server.
+                sendTokenToServer(refreshedToken);
+            })
+            .catch(function(err) {
+                console.log('Unable to retrieve refreshed token ', err);
+            });
+        });
+
+        // Send the Instance ID token your application server, so that it can:
+        // - send messages back to this app
+        // - subscribe/unsubscribe the token from topics
+        function sendTokenToServer(currentToken) {
+            if (!isTokenSentToServer()) {
+                console.log('Sending token to server...');
+                // TODO(developer): Send the current token to your server.
+                setTokenSentToServer(true);
+            } else {
+                console.log('Token already sent to server so won\'t send it again ' +
+                    'unless it changes');
+            }
+        }
+
+        function isTokenSentToServer() {
+        return window.localStorage.getItem('sentToServer') == 1;
+        }
+
+        function setTokenSentToServer(sent) {
+            window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+        }
+    </script>
+
+    <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
 
 
 </body>
