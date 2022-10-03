@@ -331,7 +331,7 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan/',
+            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan',
             type: 'POST',
             data: {
                 "id_peraturan": id
