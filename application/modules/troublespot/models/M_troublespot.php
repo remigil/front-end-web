@@ -133,7 +133,7 @@ class M_troublespot extends CI_Model
             $row['polda_id']    = $field['polda']['name_polda'];
             $row['polres_id']    = $field['polre']['name_polres'];
             $row['location']            = $field['location'];
-            $row['created_at']           = $field['created_at'];
+            $row['created_at']           = date('H:i:s d-m-Y', strtotime($field['report_date']));
 
             $row['action']         = '
             

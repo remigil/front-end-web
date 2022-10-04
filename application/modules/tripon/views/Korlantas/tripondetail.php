@@ -136,12 +136,12 @@
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU PENGISIAN DATA</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo $data['getDetail']['data']['created_at'];?></td>
+                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo date('H:i:s d-m-Y', strtotime($data['getDetail']['data']['created_at']));?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU KEBERANGKATAN</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo $data['getDetail']['data']['departure_date'];?>, <?php echo $data['getDetail']['data']['departure_time'];?></td>
+                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_date']));?>, <?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_time']));?></td>
                             </tr>
                             
                             <tr>
