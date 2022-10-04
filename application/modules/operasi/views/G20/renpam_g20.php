@@ -11,6 +11,24 @@
     <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal">Tambah Uraian Kegiatan</button>
     <div class="card mt-3">
         <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="waktu">Tanggal</label>
+                    <div id="reportrange"  style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <span style="font-size: 14px;"></span> <b class="caret"></b>
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <input hidden type="date" id="startdate" name="startdate">
+                    <input hidden type="date" id="enddate" name="enddate">
+                </div> 
+            </div>
+
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
@@ -414,7 +432,6 @@
 
         });
 
-
         function client() {
 
             $(".deletedata").on("click", function(event) {
@@ -483,7 +500,33 @@
             });
         }
 
+        var start = moment();
+        var end = moment(); 
+        // alert(start);
+        
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#startdate').val(start.format('YYYY-MM-DD'));
+            $('#enddate').val(end.format('YYYY-MM-DD')); 
+            // userDataTable.draw(); 
+        }
 
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Hari Ini': [moment(), moment()],
+            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+            }
+        }, cb);
+
+        cb(start, end);   
 
         let arrayWaypoint = [];
         var obj = {};

@@ -18,8 +18,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Petugas</th>
-                            <th>NRP</th>
                             <th>Pangkat</th>
+                            <th>NRP</th>
                             <th style="width:20% ;">Strukturan</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
@@ -204,8 +204,8 @@
 
                 { data: 'id'}, 
                 { data: 'name_officer'},
-                { data: 'nrp_officer'}, 
                 { data: 'rank_officer'},
+                { data: 'nrp_officer'}, 
                 { data: 'structural_officer'},  
                 { data: 'pam_officer'},  
                 { data: 'phone_officer'},  

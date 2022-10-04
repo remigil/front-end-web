@@ -223,7 +223,16 @@ class M_renpam extends CI_Model
             if ($field['accounts'] != null) {
                 $accounts = '';
                 foreach ($field['accounts'] as $fieldAccount) {
-                    $accounts .= '' . $fieldAccount['name_account'] . ', ';
+                    $resultAkun = guzzle_request('GET', 'account/getId/'.$fieldAccount['id'].'', [ 
+                        'headers' => [ 
+                            'Authorization' => $this->session->userdata['token'] 
+                        ] 
+                    ]);
+                    foreach ($resultAkun['data']['data']['officers'] as $fieldPetugas) {
+                        // $petugas .= ''.$fieldPetugas['name_officer'].'';
+                        $accounts .= ' '.$fieldPetugas['name_officer'].', ';
+                    }
+
                 }
                 $row['accounts']    = $accounts;
             } else {
@@ -232,7 +241,7 @@ class M_renpam extends CI_Model
             if ($field['vips'] != null) {
                 $vips = '';
                 foreach ($field['vips'] as $fieldVips) {
-                    $vips .= '' . $fieldVips['name_vip'] . ', ';
+                    $vips .= '' . $fieldVips['country_arrival_vip'] . ' - '.$fieldVips['position_vip'].', ';
                 }
                 $row['vips']    = $vips;
             } else {
