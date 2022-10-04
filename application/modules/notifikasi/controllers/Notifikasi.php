@@ -39,4 +39,29 @@ class Notifikasi extends MY_Controller
         // die;
     
     }
+
+    public function getCountNotif()
+    {  
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $input = $this->input->post();
+
+        if($input['page']){
+            $page = ''.$input['page'].'';
+        }else{
+            $page = '1';
+        } 
+
+
+        $url = 'notifikasi/countNotif';
+        $getCountNotif = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getCountNotif'] = $getCountNotif['data'];
+        
+        echo json_encode($data['getCountNotif']); 
+        // die;
+    
+    }
 }

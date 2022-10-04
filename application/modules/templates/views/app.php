@@ -584,7 +584,7 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="bell" class="icon-lg"></i>
-                            <span class="badge bg-danger rounded-pill"><?= $notif['recordsTotal']?></span>
+                            <span class="badge bg-danger rounded-pill" id="totalNotif"><?= $notif['recordsFiltered']?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
@@ -1369,14 +1369,21 @@
                     // console.log(ressData);
                     countlistNotif = 0;
                     listNotif = "";
+                    let linkWeb = "";
 
                     $("#overlay").fadeOut(300);
                     if(ressData.length > 0){   
                         listNotif += `<div data-simplebar style="max-height: 230px;" >`;
                         ressData.forEach(el => {
+                            if(el.type == "laporan"){
+                                linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
+                            }else{
+                                linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
+                            }
+                            // console.log(linkWeb);
                             countlistNotif += 1;
                             listNotif += `
-                                <a href="k3ig20${el.web}" target="_blank" class="text-reset notification-item">
+                                <a href="${linkWeb}" target="_blank" class="text-reset notification-item">
                                     <div class="d-flex">
                                         <div class="flex-shrink-0 me-3">
                                             <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
@@ -1403,10 +1410,31 @@
             });
         }
 
+    
+
         $(`.openNotif`).click(function(){ 
             $("#overlay").fadeIn(300);
             serverSideGetNotif();
         });
+ 
+        var jumlahNotif = "";
+        setInterval(function() {
+            // console.log('idowae')
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>notifikasi/getCountNotif", 
+                data : {
+                    "page" : null
+                }, 
+                dataType : "JSON",
+                success : function(res){  
+                    jumlahNotif = res.total_data;
+
+                    $("#totalNotif").html(res.total_data);
+                }
+            });
+        }, 10000);
+     
     </script>
 
     <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
