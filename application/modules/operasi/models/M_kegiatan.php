@@ -38,9 +38,9 @@ class M_kegiatan extends CI_Model {
 
         $search = $postData['search']['value'];
 
-        // $filter_tgl = $postData['filterTgl'];
+        $filter_tgl = $postData['filterTgl'];
 
-        // $filter_tgl2 = $postData['filterTgl2'];
+        $filter_tgl2 = $postData['filterTgl2'];
 
 		// $filter_status = $postData['filterStatus'];
 
@@ -74,28 +74,24 @@ class M_kegiatan extends CI_Model {
 
         // }
 
-        // if($filter_tgl != ""){
+        if ($filter_tgl != "") {
 
-        //     $event_date = '&startDate='.$filter_tgl.'';
+            $start_date = '&start_date=' . $filter_tgl . '';
+        } else {
 
-        // }else{
+            $start_date = '';
+        }
 
-        //     $event_date = '';
+        if ($filter_tgl2 != "") {
 
-        // }
+            $end_date = '&end_date=' . $filter_tgl2 . '';
+        } else {
 
-        // if($filter_tgl2 != ""){
-
-        //     $event_date_to = '&endDate='.$filter_tgl2.'';
-
-        // }else{
-
-        //     $event_date_to = '';
-
-        // } 
+            $end_date = '';
+        }
 
 
-        $url = 'schedule?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url = 'schedule?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$start_date.''.$end_date.''.$searchData.'';
 
         $result = guzzle_request('GET', $url, [
 

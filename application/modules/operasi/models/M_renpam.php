@@ -218,6 +218,7 @@ class M_renpam extends CI_Model
                 $row['route_umum']    = '-';
             }
 
+            $row['note_kakor'] = $field['note_kakor'];
             $row['note']    = '-';
 
             if ($field['accounts'] != null) {
@@ -249,15 +250,15 @@ class M_renpam extends CI_Model
             }
 
             if ($field['type_renpam'] == 1) {
-                $row['type_renpam']    = 'Patroli';
+                $row['type_renpam']    = 'Patroli - '.$field['name_renpam'].'';
             } else if ($field['type_renpam'] == 2) {
-                $row['type_renpam']    = 'Pengawalan';
+                $row['type_renpam']    = 'Pengawalan - '.$field['name_renpam'].'';
             } else if ($field['type_renpam'] == 3) {
-                $row['type_renpam']    = 'Penjagaan';
+                $row['type_renpam']    = 'Penjagaan - '.$field['name_renpam'].'';
             } else if ($field['type_renpam'] == 4) {
-                $row['type_renpam']    = 'Pengaturan';
+                $row['type_renpam']    = 'Pengaturan - '.$field['name_renpam'].'';
             } else if ($field['type_renpam'] == 5) {
-                $row['type_renpam']    = 'Penutupan';
+                $row['type_renpam']    = 'Penutupan - '.$field['name_renpam'].'';
             } else {
                 $row['type_renpam']    = '-';
             }

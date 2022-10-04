@@ -11,6 +11,14 @@
     <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target="#myModal">Tambah Kegiatan</button>
     <div class="card mt-3">
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3" style="display: flex;">  
+                    <input required class="form-control" type="date" id="startdate" name="startdate"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                    <input required class="form-control" type="date" id="enddate" name="enddate">
+                    &nbsp;&nbsp;<button class="btn btn-primary" id="searchtgl">Cari</button>
+                </div> 
+            </div>
+
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
@@ -311,9 +319,9 @@
 
                     // console.log(data);
 
-                    // data.filterTgl = $('[name=event_date]').val();
+                    data.filterTgl = $('#startdate').val();
 
-                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+                    data.filterTgl2 = $('#enddate').val();
 
                     // data.filterStatus = $('[name=status]').val();
 
@@ -384,7 +392,36 @@
 
         });   
 
+        var start = moment();
+        var end = moment(); 
 
+        $("#searchtgl").on("click", function (e) { 
+            userDataTable.draw(); 
+        });
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+            $('#startdate').val(start.format('YYYY-MM-DD'));
+            $('#enddate').val(end.format('YYYY-MM-DD')); 
+            userDataTable.draw(); 
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Hari Ini': [moment(), moment()],
+            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+            }
+        }, cb);
+
+        cb(start, end);
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);

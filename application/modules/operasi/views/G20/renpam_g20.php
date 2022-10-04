@@ -13,19 +13,10 @@
         <div class="card-body">
 
             <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="waktu">Tanggal</label>
-                    <div id="reportrange"  style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <span style="font-size: 14px;"></span> <b class="caret"></b>
-                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            </div> 
-                        </div>
-                    </div>
-                    
-                    <input hidden type="date" id="startdate" name="startdate">
-                    <input hidden type="date" id="enddate" name="enddate">
+                <div class="col-md-4 mb-3" style="display: flex;">  
+                    <input required class="form-control" type="date" id="startdate" name="startdate"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                    <input required class="form-control" type="date" id="enddate" name="enddate">
+                    &nbsp;&nbsp;<button class="btn btn-primary" id="searchtgl">Cari</button>
                 </div> 
             </div>
 
@@ -35,7 +26,7 @@
                         <th>No</th>
                         <th>Tanggal</th>
                         <th>Unit Pengawalan</th>
-                        <th>VIP</th>
+                        <th>Delegasi</th>
                         <th>Subjek</th>
                         <!-- <th>Waktu</th> -->
                         <th>Uraian Kegiatan</th>
@@ -339,9 +330,9 @@
 
                     // console.log(data);
 
-                    data.filterTgl = "";
+                    data.filterTgl = $('#startdate').val();
 
-                    data.filterTgl2 = "";
+                    data.filterTgl2 = $('#enddate').val();
 
                     // data.filterStatus = $('[name=status]').val();
 
@@ -407,7 +398,7 @@
                     data: 'route'
                 },
                 {
-                    data: 'name_renpam',
+                    data: 'note_kakor',
                 },
                 {
                     data: 'keterangan',
@@ -503,12 +494,16 @@
         var start = moment();
         var end = moment(); 
         // alert(start);
+
+        $("#searchtgl").on("click", function (e) { 
+            userDataTable.draw(); 
+        });
         
         function cb(start, end) {
             $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
             $('#startdate').val(start.format('YYYY-MM-DD'));
             $('#enddate').val(end.format('YYYY-MM-DD')); 
-            // userDataTable.draw(); 
+            userDataTable.draw(); 
         }
 
         $('#reportrange').daterangepicker({

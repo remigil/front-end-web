@@ -190,7 +190,7 @@
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                                Jadwal Kegiatan
+                                Jadwal Kegiatan &nbsp;<span class="badge bg-danger rounded-pill" id="totalKegiatanOn"></span>
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
@@ -209,7 +209,7 @@
                         <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Rencana Pengamanan
+                                Rencana Pengamanan &nbsp;<span class="badge bg-danger rounded-pill" id="totalRenpamOn"></span>
                             </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
@@ -249,7 +249,7 @@
                         <h2 class="accordion-header" id="flush-heading3">
                             <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                                Petugas
+                                Petugas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
                             </button>
                         </h2>
                         <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3"
@@ -928,6 +928,7 @@
                         list = "";
                         sortRess = ress.sort((a,b) => a.name_officer + b.name_officer);
                         
+                        $("#totalPetugasOn").html(`${sortRess.length}`);
                         sortRess.forEach(el => { 
                             countlist += 1;
                             list += `
@@ -2046,6 +2047,7 @@
 
 
                         openModalFilter = true; 
+                        $("#totalRenpamOn").html(`${ress.length}`);
                         ress.forEach(el => {
                             route.push(el.route);
                             route1.push(el.route_alternatif_1);
@@ -2698,7 +2700,9 @@
                     countlist = 0;
                     list = "";
                     var status = ""; 
+
                     if($('#jadwal').is(':checked')){
+                        $("#totalKegiatanOn").html(ress.length);
                         ress.forEach(el => {
                             if(el.status_schedule == 1){
                                 status = `

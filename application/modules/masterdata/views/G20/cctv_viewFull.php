@@ -518,6 +518,14 @@
         display: none;
         }
 
+        .showcctv {
+        display: show;
+        }
+
+        .hidecctv {
+        display: none;
+        }
+
         .cloned {
         opacity: 0.5;
         
@@ -774,14 +782,13 @@
         </div>
                     
                     <script>
+                        let countlistCCTV = 0;
                         $(document).ready(function() { 
                             
 
-                            serverSideGetCCTV(); 
-
+                            serverSideGetCCTV();  
                             
                             
-                            let countlistCCTV = 0;
                             let listSideCCTV = ""; 
                             let listCCTV = ""; 
                             $('[name=kategoriFilter]').on("change", function (e) {
@@ -868,8 +875,10 @@
                                                         <div class="panel-heading">
                                                             <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
                                                         </div>
-                                                        <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}">
+                                                        <div class="panel-body hidecctv" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}">
+                                                            <div id="viewcctv" class="row">
                                                             ${resource}
+                                                            </div>
                                                         </div>
                                                     </div>  
                                                 `;
@@ -1096,6 +1105,12 @@
                         var clone;
                         var cloneId;
 
+                        var ipcctv;
+                        var linkcctv;
+                        var resourceview;
+
+                        
+
                         function dragStart(ev, ipcctv, linkcctv) {  
                             ev.dataTransfer.effectsAllowed = "copy";
                             ev.dataTransfer.setData("text", ev.target.getAttribute("id"));
@@ -1119,6 +1134,21 @@
                         }
 
                         function dragDrop(ev) {   
+                            console.log(document.getElementById("viewcctv"));
+                            console.log(ev.target.appendChild(document.getElementById("viewcctv")));
+                            // ev.target.appendChild(document.getElementById(`#viewcctv`)).show();
+                            // ev.target.getAttribute("viewcctv").show();
+                            
+                            // ev.target.appendChild(document.getElementById("viewcctv"))
+
+                            // if(ipcctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                            //     resourceview = `<iframe id="myIframe" src="${el.linkcctv}" style="width: 100%; height: 100%;"></iframe>`;
+                            // }else{
+                            //     resourceview = `<img style="width: 100%; height: 100%;" src="${el.linkcctv}" />`;
+                            // } 
+
+                            // ev.target.appendChild(document.getElementById("viewcctv")).html('oke');
+
                             var src = ev.dataTransfer.getData("text");
                             clone.className += " " + "cloned";
                             clone.id = cloneId + "_cloned";

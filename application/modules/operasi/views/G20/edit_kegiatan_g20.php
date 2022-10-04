@@ -26,6 +26,15 @@
                 <div class="card">
                     <div class="card-body">
                     <div class="row">  
+                            <div class="col-md-12 mb-3"> 
+                                <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" 
+                                <?php if($data['getDetail']['data']['photo_schedule'] != null){?>
+                                    data-default-file="<?php echo url_api();?>uploads/schedule/<?php echo $data['getDetail']['data']['photo_schedule'];?>"  
+                                <?php }else{?>
+                                    data-default-file="<?php echo base_url();?>assets/no_image.png"
+                                <?php }?>
+                                /> 
+                            </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input required style="width: 100%;" name="kegiatan" value="<?php echo $data['getDetail']['data']['activity'];?>" type="text">
@@ -115,6 +124,8 @@
 
     <script>
     $(document).ready(function() {
+        $('.dropify').dropify();
+
         $('#startTime').clockpicker({
             autoclose: true
         });
