@@ -16,8 +16,10 @@
                     <p class="fs-3 fw-bold text-primary">Detail Operasi</p>
                 </div>
                 <div class="col-md-6 mt-2">
-                    <button type="button" class="btn btn-primary waves-effect float-end me-4" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi" style=" letter-spacing: 2px;">EDIT</button>
-                    <button type="button" class="btn btn-danger waves-effect float-end me-4" id="HapusRencanaOperasi" style=" letter-spacing: 2px;">HAPUS</button>
+                <a href="<?php echo base_url()?>operasi/RencanaOperasi/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
+                
+                    <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end me-4" style="width: 25%; letter-spacing:2px">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
+                   
                 </div>
             </div>
             <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -28,18 +30,24 @@
                         <tr>
                             <td>Nama Operasi</td>
                             <td>:</td>
-                            <td>Operasi Keselamatan</td>
+                            <td><?= $data['getDetail']['data']['name_operation'];?></td>
+                        </tr>
+                        <!-- <tr>
+                            <td>Polda</td>
+                            <td>:</td>
+                            <td><?= $data['getDetail']['data']['polda']['name_polda'];?></td>
+                        </tr> -->
+                        <tr>
+                            <td>Tanggal Pelakasaan</td>
+                            <td>:</td>
+                            <td><?= date('d/m/Y',strtotime($data['getDetail']['data']['date_start_operation']))?></td>
                         </tr>
                         <tr>
-                            <td>Jenis Operasi</td>
+                            <td>Tanggal Selesai</td>
                             <td>:</td>
-                            <td>Operasi Keselamatan 2022</td>
+                            <td><?= date('d/m/Y',strtotime($data['getDetail']['data']['date_end_operation']))?></td>
                         </tr>
-                        <tr>
-                            <td>Nama Operasi</td>
-                            <td>:</td>
-                            <td>13/06/2022 - 26/06/2022</td>
-                        </tr>
+                       
                     </table>
                 </div>
                 <div class="col-md-7" style="margin-left:-4vh ;">
@@ -63,7 +71,7 @@
             <hr class="mt-5" style="height:5px;border-width:0;color:gray;background-color:gray">
             <div class="row">
                 <div class="col-md-5 mt-4">
-                    <p class="fs-4 fw-bold text-primary">Identitas Operasi</p>
+                    <p class="fs-4 fw-bold text-primary">List Akun Operasi</p>
                 </div>
                 <table id="datatable" class="table dt-responsive w-100">
                     <thead>
@@ -133,77 +141,14 @@
                 </table>
             </div>
             <div class="col-md-12 ">
-                <a href="<?= base_url('operasi/RencanaOperasi'); ?>"><button class="btn btn-primary float-end" style="width:15%; letter-spacing:2px">KEMBALI</button></a>
+                <a href="<?= base_url('operasi/RencanaOperasi'); ?>"><button class="btn btn-primary float-end" style="width:15%; letter-spacing:2px">Kembali</button></a>
 
             </div>
         </div>
     </div>
     <!-- End Page -->
 
-
-    <div class="modal fade UbahRencanaOperasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-primary ">
-                    <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Rencana Operasi</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="fw-bold ms-4"> Identitas Operasi</p>
-                    <form action="" class="form">
-                        <div class="material-textfield">
-                            <input type="text" name="" id="" style="width:100% ;">
-                            <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                        </div>
-                        <div class="material-textfield">
-                            <input type="text" name="" id="" style="width:100% ;">
-                            <label for="" class="labelmui">Nama Operasi</label>
-                        </div>
-                        <div class="material-selectfield mb-3">
-                            <select name="" id="">
-                                <!-- <select name="" id=""  multiple required> -->
-                                <option value="">Jawa Barat</option>
-                                <option value="">Jawa Tengah</option>
-                                <option value="">Jawa Timur</option>
-                            </select>
-                            <label class="labelmui">Polda</label>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="material-textfield">
-                                    <input type="date" name="" id="" style="width:100% ;">
-                                    <label for="" class="labelmui">Tanggal Mulai</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="material-textfield">
-                                    <input type="date" name="" id="" style="width:100% ;">
-                                    <label for="" class="labelmui">Tanggal Selesai</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="material-textfield">
-                            <input type="file" name="" id="" style="width:100%;" class="form-control">
-                            <label for="" class="labelmui">Logo</label>
-                        </div>
-                        <div class="material-textfield">
-                            <input type="file" name="" id="" style="width:100%;" class="form-control">
-                            <label for="" class="labelmui">Background Image</label>
-                        </div>
-                        <div class="material-textfield">
-                            <input type="file" name="" id="" style="width:100%;" class="form-control">
-                            <label for="" class="labelmui">Banner</label>
-                        </div>
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
+   
 
     <script>
         $(document).ready(function() {
@@ -217,25 +162,40 @@
         });
 
 
-        $("#HapusRencanaOperasi").click(function() {
-            Swal.fire({
-                title: 'Apakah anda ingin menghapus data ini?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#C61318',
-                cancelButtonColor: '#003A91',
-                cancelButtonText: 'Batal',
-                confirmButtonText: 'Hapus'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: 'Berhasil',
-                        text: "Data berhasil dihapus",
-                        icon: 'success',
-                        confirmButtonColor: '#003A91',
-                        confirmButtonText: 'OK'
-                    })
-                }
-            })
-        })
+        $("#delete").on('click', function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault();  
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/RencanaOperasi/delete",
+            method: "POST",
+            data: {
+                "id": $(this).data("id"),
+            },
+            dataType: 'JSON',
+            // contentType: false,
+            // processData: false,  
+            success: function (data) {
+                $("#overlay").fadeOut(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'success'
+                    ).then(function() {  
+                        window.location.href = "<?php echo base_url();?>operasi/RencanaOperasi";
+                    }); 
+                }else{
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'error'
+                    ).then(function() { 
+                    });
+                } 
+            }
+        }); 
+    });
+
+
+
     </script>

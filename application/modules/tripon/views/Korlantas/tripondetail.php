@@ -238,17 +238,12 @@
             }).addTo(mapContainer);
    
             $('[name=cordinate]').on("change", function (e) {
-
-// var cordLat = parseFloat(cordLatLong[0]); 
-// var corLong = parseFloat(cordLatLong[1]); 
-
-// // console.log({a:cordLat, b:corLong});
-
-// $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-//     $('[name=address]').html(data['display_name']); 
-//     mapContainer.flyTo([cordLat, corLong], 17);  
-// }); 
-// });
+            // console.log({a:cordLat, b:corLong});
+            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${startCordLat}&lon=${startCordLng}`, function(data){
+             $('[name=alamatLat]').html(data['display_name']); 
+             mapContainer.flyTo([startCordLat, startCordLng], 17);  
+            }); 
+            });
 
   
             mapContainer.setView(initialCenter, initialZoom);

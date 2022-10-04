@@ -16,33 +16,14 @@
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Nama Operasi</th>
-                        <th>Jenis Operasi</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Akhir</th>
+                        <th>Tanggal Pelaksanaan</th>
+                        <th>Tanggal Selesai</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>OPERASI KESELAMATAN 2022</td>
-                        <td>OPERASI KESELAMATAN</td>
-                        <td>2022-06-13</td>
-                        <td>2022-06-26</td>
-                        <td>
-                            <a href="RencanaOperasi/Detail"> <button style="background-color:transparent ; border:none">
-                                    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button></a>
-
-                            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" data-bs-target=".UbahRencanaOperasi">
-                                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                            </button>
-                            <button style="background-color:transparent ; border:none" id="HapusRencanaOperasi">
-                                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -59,49 +40,54 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="fw-bold ms-4"> Identitas Operasi</p>
+                
                 <form action="" class="form">
                     <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Jenis Operasi yang Akan Dilaksanakan</label>
-                    </div>
-                    <div class="material-textfield">
-                        <input type="text" name="" id="" style="width:100% ;">
+                        <input type="text" name="name_operation" id="" style="width:100% ;">
                         <label for="" class="labelmui">Nama Operasi</label>
                     </div>
-                    <div class="material-selectfield mb-3">
-                        <select name="" id="">
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option value="">Jawa Barat</option>
-                            <option value="">Jawa Tengah</option>
-                            <option value="">Jawa Timur</option>
-                        </select>
-                        <label class="labelmui">Polda</label>
-                    </div>
+                    <div class="">
+                            <div class="material-selectfield">
+                            <select name="polda_id" class="form-select" style="width:100%" id="polda" required>
+                        <option selected value="">Pilih Polda</option>
+                        <?php
+                        foreach ($data['getPolda'] as $row) : ?>
+                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                                <label for="" class="labelmui">Polda</label>
+                            </div>
+                        </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
-                                <label for="" class="labelmui">Tanggal Mulai</label>
+                                <input type="date" name="date_start_operation" id="" style="width:100% ;">
+                                <label for="" class="labelmui">Tanggal Pelaksanaan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="date" name="" id="" style="width:100% ;">
+                                <input type="date" name="date_end_operation" id="" style="width:100% ;">
                                 <label for="" class="labelmui">Tanggal Selesai</label>
                             </div>
                         </div>
                     </div>
+                   
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
+                        <label for="" class="labelmui">Document Sprint</label>
+                    </div>
+                    <div class="material-textfield">
+                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Logo</label>
                     </div>
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Background Image</label>
                     </div>
+                    
                     <div class="material-textfield">
-                        <input type="file" name="" id="" style="width:100%;" class="form-control">
+                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Banner</label>
                     </div>
                     <div class="col-md-12">
@@ -181,9 +167,150 @@
     $(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable();
+        userDataTable = $('#datatable').DataTable({
+            
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>operasi/RencanaOperasi/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+				{
+					data: 'name_operation'
+                },
+				{
+					data: 'date_start_operation'
+				},
+				{
+					data: 'date_end_operation'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
     });
 
+    $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>operasi/RencanaOperasi/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahRencanaOperasi").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
 
     $("#HapusRencanaOperasi").click(function() {
         Swal.fire({

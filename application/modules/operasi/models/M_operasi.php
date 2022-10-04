@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_troublespot extends CI_Model
+class M_operasi extends CI_Model
 {
 
 
@@ -94,52 +94,43 @@ class M_troublespot extends CI_Model
         // } 
 
 
-        $url = 'troublespot?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
-
+        $url = 'operation-profile?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
             'headers' => [
-
                 'Authorization' => $this->session->userdata['token']
-
             ]
 
         ]);
 
+        // var_dump($result);die;
+
+
         $no = 1;
-        // var_dump($result);
-        // die;
-        // kategori berita berdasarkan nomor
+
         foreach ($result['data']['data'] as $field) {
-            // if ($field['polda_id'] == 1) {
-            //     $polda = "Polda jawa barat";
-            // } else if ($field['polda_id'] == 2) {
-            //     $polda = "Polda metro jaya";
-            // } else if ($field['polda_id'] == 3) {
-            //     $polda = "Polda banten";
-            // }
-            // if ($field['polres_id'] == 1) {
-            //     $polres = "polrestabes bandung";
-            // } else if ($field['polres_id'] == 2) {
-            //     $polres = "polresta bogor";
-            // } else if ($field['polres_id'] == 3) {
-            //     $polres = "polres bogor";
-            // }
+
+			// if ($field['polda_id'] == 1) {
+			// 	$polda = "Polda Metro Jaya";
+			// }else if($field['polda_id'] == 2){
+			// 	$polda = "Polda Jawa Barat";
+			// }
+			// else if($field['polda_id'] == 3){
+			// 	$polda = "Polda Bali";
+			// }
 
             $row = array();
             // $row ['id']	=  $field['id']; 
-            $row['id']    =  $no++;
-            $row['polda_id']    = $field['polda']['name_polda'];
-            $row['polres_id']    = $field['polre']['name_polres'];
-            $row['location']            = $field['location'];
-            $row['created_at']           = $field['created_at'];
-
-            $row['action']         = '
-            
-            <a href="' . base_url() . 'troublespot/Troublespot/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-
-			
+            $row['id']    			=  $no++;
+            $row['name_operation'] 		= $field['name_operation'];
+            $row['date_start_operation']     = $field['date_start_operation'];
+            $row['date_end_operation']     = $field['date_end_operation'];
+    
+            $row['action']         = '   
+                
+			<a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+                
             ';
 
             $data[] = $row;
