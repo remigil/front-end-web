@@ -181,6 +181,25 @@ class Cctv extends MY_Controller
         echo json_encode($data['getCCTV']);
     }
 
+    public function getIdCCTV()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post();   
+
+        $url = 'cctv/getId/'.$input['id'].'';
+        // print_r($url);
+        // die;
+        $getIdCCTV = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getIdCCTV'] = $getIdCCTV['data'];
+
+        echo json_encode($data['getIdCCTV']);
+    }
+
     public function store() 
     {  
         $headers = [ 
@@ -193,31 +212,31 @@ class Cctv extends MY_Controller
         $dummy = [
             [
                 'name' => 'address_cctv',
-                'contents' => $input['lokasiCCTV'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'vms_cctv',
-                'contents' => $input['vmsCCTV'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'jenis_cctv',
-                'contents' => $input['jenisCCTV'],
+                'contents' => "CCTV",
             ],
 			[
                 'name' => 'merek_cctv',
-                'contents' => $input['merekCCTV'],
+                'contents' => "CCTV",
             ],
 			[
                 'name' => 'type_cctv',
-                'contents' => $input['tipeCCTV'],
+                'contents' => $input['type_cctv'],
             ],
             [
                 'name' => 'ip_cctv',
-                'contents' => $input['ipCCTV'],
+                'contents' => $input['ip_cctv'],
             ],
 			[
 				'name' => 'gateway_cctv',
-				'contents' => $input['gatewayCCTV'],
+				'contents' => $input['gateway_cctv'],
 			],
 			[
 				'name' => 'username_cctv',
@@ -237,11 +256,11 @@ class Cctv extends MY_Controller
             ],
 			[
 				'name' => 'link_cctv',
-				'contents' => $input['linkCCTV'],
+				'contents' => $input['link_cctv'],
 			],
             [
                 'name' => 'status_cctv',
-                'contents' => $input['status'],
+                'contents' => 1,
             ]
         ];
 
@@ -383,7 +402,7 @@ class Cctv extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $id = $this->input->post('id_cctv');
+        $id = $this->input->post('id');
 
         $dummy = [
             [

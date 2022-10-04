@@ -81,6 +81,8 @@
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.common.css" />
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.light.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
     <style>
         .animateLine {
             stroke-dasharray: 10;
@@ -465,149 +467,8 @@
 
 
     
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
-    <script> 
-        
-        firebase.initializeApp({
-            'messagingSenderId': '475022830226'
-        })
-            
-        const messaging = firebase.messaging();
-        function initFirebaseMessagingRegistration() {
-            messaging
-                .requestPermission()
-                .then(function () {
-                    messageElement.innerHTML = "Got notification permission";
-                    console.log("Got notification permission");
-                    return messaging.getToken();
-                })
-                .then(function (token) {
-                    // print the token on the HTML page
-                    tokenElement.innerHTML = "Token is " + token;
-                })
-                .catch(function (err) {
-                    errorElement.innerHTML = "Error: " + err;
-                    console.log("Didn't get notification permission", err);
-            
-                    Notification.requestPermission(function() {
-                        if (Notification.permission === 'granted') {
-                            // user approved.
-                            // use of new Notification(...) syntax will now be successful
-                        } else if (Notification.permission === 'denied') {
-                            // user denied.
-                        } else { // Notification.permission === 'default'
-                            // user didn’t make a decision.
-                            // You can’t send notifications until they grant permission.
-                        }
-                    });
-
-                });
-        }
-        messaging.onMessage(function (payload) {
-            console.log("Message received. ", JSON.stringify(payload));
-            notificationElement.innerHTML = notificationElement.innerHTML + " " + payload.data.notification;
-        });
-        messaging.onTokenRefresh(function () {
-            messaging.getToken()
-                .then(function (refreshedToken) {
-                    console.log('Token refreshed.');
-                    tokenElement.innerHTML = "Token is " + refreshedToken;
-                }).catch(function (err) {
-                    errorElement.innerHTML = "Error: " + err;
-                    console.log('Unable to retrieve refreshed token ', err);
-                });
-        });
-    </script>
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/firebase-messaging-sw.js"></script>
-
- 
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-messaging.js"></script> -->
-
-    <!-- <script>
-        // alert('yuuu');
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
-            authDomain: "g20k3i.firebaseapp.com",
-            projectId: "g20k3i",
-            storageBucket: "g20k3i.appspot.com",
-            messagingSenderId: "475022830226",
-            appId: "1:475022830226:web:51022ccfb162eac1b0144b"
-        };
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        console.log(app);
-
-        // const messaging = firebase.messaging();
-        // console.log(messaging);
-
-        // // //Custom function made to run firebase service 
-        // getStartToken();
-
-        // messaging.onMessage(function(payload){
-        //     console.log("on Message",payload);
-        // });
-
-
-        // function getStartToken(){ 
-        //     console.log(messaging.getToken());
-        //     messaging.getToken().then((currentToken) => {
-        //         console.log(currentToken);
-        //         // if (currentToken) {
-        //         //     sendTokenToServer(currentToken);
-        //         // } else {
-        //         //     // Show permission request.
-        //         //     RequestPermission();
-        //         //     setTokenSentToServer(false);
-        //         // }
-        //     }).catch((err) => {
-        //         // setTokenSentToServer(false);
-        //     });
-        // }
-
-        // function RequestPermission(){
-        //     messaging.requestPermission()
-        //     .then(function(permission){
-        //         if (permission === 'granted') {
-        //             console.log("have Permission");
-        //             //calls method again and to sent token to server
-        //             getStartToken();
-        //         }else{
-        //             console.log("Permission Denied");
-        //         }
-        //     });
-        //     .catch(function(err){
-        //         console.log(err);
-        //     });
-        // }
-
-        // function sendTokenToServer(token){ 
-        //     if (!isTokensendTokenToServer()) {
-        //         $.ajax({
-        //             url: URL,type: 'POST',data: {
-        //             //whatever you wanna send
-        //             push_token:token,},
-        //             success: function (response) {
-        //                 setTokenSentToServer(true);
-        //             },
-        //             error: function (err) {
-        //                 setTokenSentToServer(false);
-        //             },
-        //         });
-        //     }
-        // }
-
-        // function isTokensendTokenToServer() {
-        //     return window.localStorage.getItem('sendTokenToServer') === '1';
-        // }
-        // function setTokenSentToServer(sent) {
-        //     window.localStorage.setItem('sendTokenToServer', sent ? '1' : '0');
-        // }
-  
-    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
 
     <!-- <script type="module">
         // Import the functions you need from the SDKs you need
@@ -721,39 +582,24 @@
 
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item noti-icon position-relative" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="bell" class="icon-lg"></i>
-                            <!-- <span class="badge bg-danger rounded-pill">5</span> -->
+                            <span class="badge bg-danger rounded-pill" id="totalNotif"><?= $notif['recordsFiltered']?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h6 class="m-0"> Notifications </h6>
+                                        <h6 class="m-0"> Notifications</h6>
                                     </div>
                                     <!-- <div class="col-auto">
                                         <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
                                     </div> -->
                                 </div>
                             </div>
-                            <div data-simplebar style="max-height: 230px;">
+                            <div id="listDataNotif">
 
-                                <a href="#!" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 me-3">
-                                            <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-1">James Lemire</h6>
-                                            <div class="font-size-13 text-muted">
-                                                <p class="mb-1">It will seem like simplified English.</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                 
-                            </div>
+                            </div> 
                             <div class="p-2 border-top d-grid">
                                 <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
                                     <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
@@ -866,6 +712,13 @@
                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">CCTV</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
                                 </a>
                             </li>
 
@@ -1096,20 +949,7 @@
         <div class="main-content">
 
             <div class="page-content" style="background-color: #f5f3f4;">
-                <div class="container-fluid"> 
-
-                <!-- <h1>This is a test page</h1>
-                <div id="token" style="color:lightblue"></div>
-                <div id="message" style="color:lightblue"></div>
-                <div id="notification" style="color:green"></div>
-                <div id="error" style="color:red"></div>
-                <script>
-                    messageElement = document.getElementById("message")
-                    tokenElement = document.getElementById("token")
-                    notificationElement = document.getElementById("notification")
-                    errorElement = document.getElementById("error")
-                </script>
-                <button onclick="initFirebaseMessagingRegistration()">Enable Firebase Messaging</button> -->
+                <div class="container-fluid">  
 
                     <!-- Page Content-->
                     <?php $this->load->view($page_content) ?>
@@ -1401,6 +1241,203 @@
     </script>
 
 
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+    <script>
+        // Initialize the Firebase app by passing in the messagingSenderId
+        var config = {
+            apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+
+            authDomain: "g20k3i.firebaseapp.com",
+
+            projectId: "g20k3i",
+
+            storageBucket: "g20k3i.appspot.com",
+
+            messagingSenderId: "475022830226",
+
+            appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+
+        };
+        firebase.initializeApp(config);
+        const messaging = firebase.messaging();
+
+        // messaging.onBackgroundMessage((payload) => {
+        //     console.log('onBackgroundMessage ', payload);
+        //     // Customize notification here
+        //     // const {title, body} = payload.notification;
+        //     // const notificationTitle = title;
+        //     // const notificationOptions = {
+        //     //     body: body,
+        //     //     icon: '/firebase-logo.png'
+        //     // };
+        //     // self.registration.showNotification(notificationTitle,
+        //     //     notificationOptions);
+
+
+
+        // });
+
+
+        navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then(function (registration) {
+            messaging.useServiceWorker(registration);
+                
+            // Request for permission
+            messaging.requestPermission()
+                .then(function() {
+                    console.log('Notification permission granted.');
+                    // TODO(developer): Retrieve an Instance ID token for use with FCM.
+                    messaging.getToken()
+                .then(function(currentToken) {
+                    if (currentToken) {
+                    console.log('Token: ' + currentToken)
+                    sendTokenToServer(currentToken);
+                    } else {
+                    console.log('No Instance ID token available. Request permission to generate one.');
+                    setTokenSentToServer(false);
+                    }
+                })
+                .catch(function(err) {
+                    console.log('An error occurred while retrieving token. ', err);
+                    setTokenSentToServer(false);
+                });
+            })
+            .catch(function(err) {
+                console.log('Unable to get permission to notify.', err);
+            });
+        });
+
+ 
+        // Handle incoming messages
+        messaging.onMessage(function(payload) {
+            console.log("Notification received: ", payload);
+            // toastr["info"](payload.notification.body, payload.notification.title);
+        });
+
+        // Callback fired if Instance ID token is updated.
+        messaging.onTokenRefresh(function() {
+            messaging.getToken()
+            .then(function(refreshedToken) {
+                console.log('Token refreshed.');
+                // Indicate that the new Instance ID token has not yet been sent 
+                // to the app server.
+                setTokenSentToServer(false);
+                // Send Instance ID token to app server.
+                sendTokenToServer(refreshedToken);
+            })
+            .catch(function(err) {
+                console.log('Unable to retrieve refreshed token ', err);
+            });
+        });
+
+        // Send the Instance ID token your application server, so that it can:
+        // - send messages back to this app
+        // - subscribe/unsubscribe the token from topics
+        function sendTokenToServer(currentToken) {
+            if (!isTokenSentToServer()) {
+                console.log('Sending token to server...');
+                // TODO(developer): Send the current token to your server.
+                setTokenSentToServer(true);
+            } else {
+                console.log('Token already sent to server so won\'t send it again ' +
+                    'unless it changes');
+            }
+        }
+
+        function isTokenSentToServer() {
+        return window.localStorage.getItem('sentToServer') == 1;
+        }
+
+        function setTokenSentToServer(sent) {
+            window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+        }
+
+
+        var countlistNotif;
+        var listNotif = "";
+        function serverSideGetNotif(){
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>notifikasi/getNotif", 
+                data : {
+                    "page" : null
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    let ressData = result['data'];
+                    // console.log(ressData);
+                    countlistNotif = 0;
+                    listNotif = "";
+                    let linkWeb = "";
+
+                    $("#overlay").fadeOut(300);
+                    if(ressData.length > 0){   
+                        listNotif += `<div data-simplebar style="max-height: 230px;" >`;
+                        ressData.forEach(el => {
+                            if(el.type == "laporan"){
+                                linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
+                            }else{
+                                linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
+                            }
+                            // console.log(linkWeb);
+                            countlistNotif += 1;
+                            listNotif += `
+                                <a href="${linkWeb}" target="_blank" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">${el.title}</h6>
+                                            <div class="font-size-13 text-muted">
+                                                <p class="mb-1">${el.description}</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>${el.created_at}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            `;
+                            $("#listDataNotif").html(listNotif);
+                        });
+                        listNotif += `</div>`;
+                    }else{ 
+                        listNotif = "Tidak ada notifikasi!";
+                        $('#listDataNotif').html(listNotif); 
+                    }
+
+                }
+            });
+        }
+
+    
+
+        $(`.openNotif`).click(function(){ 
+            $("#overlay").fadeIn(300);
+            serverSideGetNotif();
+        });
+ 
+        var jumlahNotif = "";
+        setInterval(function() {
+            // console.log('idowae')
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>notifikasi/getCountNotif", 
+                data : {
+                    "page" : null
+                }, 
+                dataType : "JSON",
+                success : function(res){  
+                    jumlahNotif = res.total_data;
+
+                    $("#totalNotif").html(res.total_data);
+                }
+            });
+        }, 10000);
+     
+    </script>
+
+    <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
 
 
 </body>

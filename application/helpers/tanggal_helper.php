@@ -36,7 +36,7 @@ if (!function_exists('format_indoTglWkt')) {
     $waktu = substr($date,11,5);
     $hari = date("w",strtotime($date));
     // $result = $Hari[$hari].", ".$tgl." ".$Bulan[(int)$bulan-1]." ".$tahun;
-    $result = $tgl." ".$Bulan[(int)$bulan-1]." ".$tahun." ".$waktu;
+    $result = $tgl." ".$Bulan[(int)$bulan-1]." ".$tahun." - ".$waktu;
 
     return $result;
   }
@@ -46,7 +46,7 @@ if (!function_exists('format_indoTglWkt')) {
 if (!function_exists('time_since')) {
   function time_since($original)
   {
-    date_default_timezone_set('Asia/Jakarta');
+    // date_default_timezone_set('Asia/Jakarta');
     $chunks = array(
             array(60 * 60 * 24 * 365, 'tahun'),
             array(60 * 60 * 24 * 30, 'bulan'),
