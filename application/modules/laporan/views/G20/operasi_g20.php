@@ -3,7 +3,7 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Kegiatan</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">KTT G20 Bali</li>
     </ol>
 </nav>
 <!-- </div> -->

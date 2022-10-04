@@ -21,7 +21,7 @@ class Operasi extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Laporan";
+        $page_content["title"] = "Laporan Harian Kegiatan Pengawalan Dan Pengamanan";
 
         if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "laporan/G20/operasi_g20";

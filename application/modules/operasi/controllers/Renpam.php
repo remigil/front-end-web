@@ -62,7 +62,7 @@ class Renpam extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Rencana Kegiatan Operasi - G20";
+        $page_content["title"] = "PAMWAL KTT - G20 Bali";
 
         if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "operasi/G20/renpam_g20";

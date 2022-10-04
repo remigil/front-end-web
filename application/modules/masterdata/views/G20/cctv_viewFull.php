@@ -876,7 +876,7 @@
                                                             <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
                                                         </div>
                                                         <div class="panel-body hidecctv" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}">
-                                                            <div id="viewcctv" class="row">
+                                                            <div id="viewcctv" class="col-md-6">
                                                             ${resource}
                                                             </div>
                                                         </div>
@@ -1134,8 +1134,7 @@
                         }
 
                         function dragDrop(ev) {   
-                            console.log(document.getElementById("viewcctv"));
-                            console.log(ev.target.appendChild(document.getElementById("viewcctv")));
+                            console.log(document.getElementById("viewcctv")); 
                             // ev.target.appendChild(document.getElementById(`#viewcctv`)).show();
                             // ev.target.getAttribute("viewcctv").show();
                             
@@ -1148,6 +1147,8 @@
                             // } 
 
                             // ev.target.appendChild(document.getElementById("viewcctv")).html('oke');
+
+                            // ev.target.appendChild(document.getElementById("viewcctv"))
 
                             var src = ev.dataTransfer.getData("text");
                             clone.className += " " + "cloned";
