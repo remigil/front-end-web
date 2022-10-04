@@ -13,19 +13,19 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
-                    <!-- <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['vehicle_id'];?></p> -->
-                    <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle'];?></p>
+                    <!-- <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['vehicle_id']; ?></p> -->
+                    <p class="fs-4 fw-bold">DETAIL DATA TRIPON <?php echo $data['getDetail']['data']['public_vehicle']['no_vehicle']; ?></p>
                 </div>
                 <div class="col-md-7">
                     <!-- ini belum -->
                     <div class="border fw-bold rounded">
                         <div class="ms-3 mt-2 mb-2">
                             <span class="text-primary"> No TRP </span>
-                            <span> | <?php echo $data['getDetail']['data']['code'];?></span>
+                            <span> | <?php echo $data['getDetail']['data']['code']; ?></span>
                             <span style=" height: 500px; border-left: 6px solid green;" class="ms-2 me-2"></span>
                             <span class="text-primary">Jumlah Penumpang </span>
-                            <?php $jumlah = $data['getDetail']['data']['passenger_trip_ons'];?>
-                            <span>| <?= count($jumlah);?></span>
+                            <?php $jumlah = $data['getDetail']['data']['passenger_trip_ons']; ?>
+                            <span>| <?= count($jumlah); ?></span>
                         </div>
                     </div>
                 </div>
@@ -69,9 +69,9 @@
                                         <p class=" fw-bold text-primary">:</p>
                                     </div>
                                     <div class="col-md-7">
-                                        <p class=" fw-bold text-primary mt-3"><?php echo $data['getDetail']['data']['society']['person_name'];?></p>
-                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nik'];?></p>
-                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nationality'];?></p>
+                                        <p class=" fw-bold text-primary mt-3"><?php echo $data['getDetail']['data']['society']['person_name']; ?></p>
+                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nik']; ?></p>
+                                        <p class=" fw-bold text-primary"><?php echo $data['getDetail']['data']['society']['nationality']; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -91,14 +91,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php $no = 1;
-                                foreach ($data['getDetail']['data']['passenger_trip_ons'] as $row) : ?>
-                                    <tr>
-                                    <td> <?php echo $no++ ?> </td>
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['nik']; ?></td>
-                                        <td><?php echo $row['nationality']; ?></td>
-                                    </tr>
+                                    <?php $no = 1;
+                                    foreach ($data['getDetail']['data']['passenger_trip_ons'] as $row) : ?>
+                                        <tr>
+                                            <td> <?php echo $no++ ?> </td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['nik']; ?></td>
+                                            <td><?php echo $row['nationality']; ?></td>
+                                        </tr>
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
@@ -126,36 +126,37 @@
                             <tr>
                                 <td width="30%" class="text-primary">TIPE KENDARAAN</td>
                                 <td width="5%">:</td>
-                                <td><?php echo $data['getDetail']['data']['type_vehicle']['type_name'];?></td>
+                                <td><?php echo $data['getDetail']['data']['type_vehicle']['type_name']; ?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">MEREK KENDARAAN</td>
                                 <td width="5%">:</td>
-                                <td><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name'];?></td>
+                                <td><?php echo $data['getDetail']['data']['brand_vehicle']['brand_name']; ?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU PENGISIAN DATA</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo date('H:i:s d-m-Y', strtotime($data['getDetail']['data']['created_at']));?></td>
+                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo date('H:i:s d-m-Y', strtotime($data['getDetail']['data']['created_at'])); ?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU KEBERANGKATAN</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_date']));?>, <?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_time']));?></td>
+                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo date('H:i', strtotime($data['getDetail']['data']['departure_time'])); ?>, <?php echo date('d-m-Y', strtotime($data['getDetail']['data']['departure_date'])); ?></td>
                             </tr>
-                            
+
                             <tr>
                                 <td width="30%" class="text-primary">TITIK LOKASI AWAL</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?> 
-                                <div id="alamatLat"></div></td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude']; ?>
+                                    <div id="alamatLat"></div>
+                                </td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">TITIK DESTINASI</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?> 
-                                <div id="alamatLat"></div>
-                            </td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude']; ?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?>
+                                    <div id="alamatLat"></div>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -210,42 +211,45 @@
             }).setView(initialCenter, initialZoom);
 
 
-            var startCordLat = '<?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>';
-            var startCordLng = '<?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?>';
+            var startCordLat = '<?php echo $data['getDetail']['data']['start_coordinate']['latitude']; ?>';
+            var startCordLng = '<?php echo $data['getDetail']['data']['start_coordinate']['longitude']; ?>';
 
-            var endCordLat = '<?php echo $data['getDetail']['data']['end_coordinate']['latitude'];?>';
-            var endCordLng = '<?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?>';
+            var endCordLat = '<?php echo $data['getDetail']['data']['end_coordinate']['latitude']; ?>';
+            var endCordLng = '<?php echo $data['getDetail']['data']['end_coordinate']['longitude']; ?>';
 
             // console.log(parseFloat(startCordLat)); 
- 
+
 
             L.Routing.control({
-                show: false, 
+                show: false,
                 draggableWaypoints: false,
                 addWaypoints: false,
                 waypoints: [
                     L.latLng(parseFloat(startCordLat), parseFloat(startCordLng)),
-                    L.latLng(parseFloat(endCordLat), parseFloat(endCordLng)) 
+                    L.latLng(parseFloat(endCordLat), parseFloat(endCordLng))
                 ],
                 router: new L.Routing.osrmv1({
                     language: 'en',
                     profile: 'car'
                 }),
                 lineOptions: {
-                    styles: [{color: "red", className: 'animateRoute'}]
-                }, 
+                    styles: [{
+                        color: "red",
+                        className: 'animateRoute'
+                    }]
+                },
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);
-   
-            $('[name=cordinate]').on("change", function (e) {
-            // console.log({a:cordLat, b:corLong});
-            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${startCordLat}&lon=${startCordLng}`, function(data){
-             $('[name=alamatLat]').html(data['display_name']); 
-             mapContainer.flyTo([startCordLat, startCordLng], 17);  
-            }); 
+
+            $('[name=cordinate]').on("change", function(e) {
+                // console.log({a:cordLat, b:corLong});
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${startCordLat}&lon=${startCordLng}`, function(data) {
+                    $('[name=alamatLat]').html(data['display_name']);
+                    mapContainer.flyTo([startCordLat, startCordLng], 17);
+                });
             });
 
-  
+
             mapContainer.setView(initialCenter, initialZoom);
 
             var baseMaps = {
