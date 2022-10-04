@@ -33,8 +33,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="border rounded" style="height:7vh;background-color:#D5D5D4;">
-                        <div class="mt-2 mb-2 text-center ">
-                            <div style="border:1px solid #003A91; margin-top:2.1%"></div>
+                        <div class="mt-2 mb-2 ">
+                            <div style="border:1px solid #003A91; margin-top:3%"></div>
                             <span class=" fw-bolder text-primary" style="position:absolute; height:15px; left:37px; top: 2%;background:#D5D5D4; padding:0 15px 0 15px;">IDENTITAS PENGENDARA</span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-md-4">
                     <div class="border rounded" style="height:7vh;background-color:#B7D9EC ;">
                         <div class="mt-2 mb-2 text-center">
-                            <div style="border:1px solid #003A91; margin-top:2.1%"></div>
+                            <div style="border:1px solid #003A91; margin-top:6.47%"></div>
                             <span class="fw-bolder  text-primary" style="position:absolute; height:15px; left:25%; top: 2%;background:#B7D9EC; padding:0 15px 0 15px;">RUTE PENGENDARA</span>
                         </div>
                     </div>
@@ -147,12 +147,15 @@
                             <tr>
                                 <td width="30%" class="text-primary">TITIK LOKASI AWAL</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?> Botani Square, Jalan Sholeh Iskandar, RT.01/RW.10, Kedungbadak, Kota Bogor, Jawa Barat</td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?> 
+                                <div id="alamatLat"></div></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">TITIK DESTINASI</td>
                                 <td width="5%">:</td>
-                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?> Monas, Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta</td>
+                                <td class=" fw-bold rounded" style="background-color:#F1F1F1; color:#515151"><?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>, <?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?> 
+                                <div id="alamatLat"></div>
+                            </td>
                             </tr>
                         </table>
                     </div>
@@ -206,99 +209,43 @@
                 layers: [googleStreet]
             }).setView(initialCenter, initialZoom);
 
-            var markerClusterGroup = L.markerClusterGroup();
-            var icon = L.icon({
-                iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-                iconSize: [80, 80], // size of the icon
+
+            var startCordLat = '<?php echo $data['getDetail']['data']['start_coordinate']['latitude'];?>';
+            var startCordLng = '<?php echo $data['getDetail']['data']['start_coordinate']['longitude'];?>';
+
+            var endCordLat = '<?php echo $data['getDetail']['data']['end_coordinate']['latitude'];?>';
+            var endCordLng = '<?php echo $data['getDetail']['data']['end_coordinate']['longitude'];?>';
+
+            // console.log(parseFloat(startCordLat)); 
+ 
+
+            L.Routing.control({
+                show: false, 
+                draggableWaypoints: false,
+                addWaypoints: false,
+                waypoints: [
+                    L.latLng(parseFloat(startCordLat), parseFloat(startCordLng)),
+                    L.latLng(parseFloat(endCordLat), parseFloat(endCordLng)) 
+                ],
+                router: new L.Routing.osrmv1({
+                    language: 'en',
+                    profile: 'car'
+                }),
+                lineOptions: {
+                    styles: [{color: "red", className: 'animateRoute'}]
+                }, 
+                geocoder: L.Control.Geocoder.nominatim({})
+            }).addTo(mapContainer);
+   
+            $('[name=cordinate]').on("change", function (e) {
+            // console.log({a:cordLat, b:corLong});
+            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${startCordLat}&lon=${startCordLng}`, function(data){
+             $('[name=alamatLat]').html(data['display_name']); 
+             mapContainer.flyTo([startCordLat, startCordLng], 17);  
+            }); 
             });
 
-            var arrayData = $.grep(data, function(element, index) {
-                return element.coordinate != null && element.coordinate != '';
-            });
-            // console.log(arrayData); 
-
-            for (let i = 0; i < arrayData.length; i++) {
-                var cordinate = arrayData[i].coordinate;
-                var latlong = cordinate.split(',');
-                var latitude = parseFloat(latlong[0]);
-                var longitude = parseFloat(latlong[1]);
-                // console.log({a:latitude , b:longitude});
-
-                markerClusterGroup.addLayer(
-                    L.marker([latitude, longitude], {
-                        icon
-                    }).bindPopup(`
-                <div class="text-center" style="width: 300px;">
-                    <div class="card-block">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-                        </a>
-                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Location :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">POC :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Demand :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                    </div>
-                    <div class="card-footer">
-                        <div class="row no-space">
-                            <div class="col-4" style="display: grid">
-                                <span>Participant/s</span>
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Threat Level</span> 
-                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Event Date</span> 
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `)
-                );
-            }
-            mapContainer.addLayer(markerClusterGroup);
+  
             mapContainer.setView(initialCenter, initialZoom);
 
             var baseMaps = {

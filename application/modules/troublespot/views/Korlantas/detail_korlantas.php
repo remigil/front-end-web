@@ -8,7 +8,7 @@
 <div class="page">
 <div class="row"> 
 <div class="col-md-12 mb-2">
-                    <a href="<?php echo base_url()?>troublespot/Troublespot/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 15%;">Edit <i class="mdi mdi-square-edit-outline"></i></button>
+                    <a href="<?php echo base_url()?>troublespot/Troublespot/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 15%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
                 </div>
 <div class="card">
 <!-- <div class="col-md-12"> -->
@@ -93,8 +93,13 @@
                             </div>
                         </div>
                         <div class="row mt-2">
+                        <div class="col-md-12 mt-3">
+                            <div id="mapG20Troublespot" style="height: 350px"></div>
+                        </div>
+                        </div>
+                        <div class="row mt-2">
                             <div class="col-md-3 text-left">
-                                LATITUDE, LONGTITUDE
+                                LATITUDE, LONGITUDE
                             </div> 
                             <div class="col-md-1 text-center">
                                 :
@@ -230,8 +235,8 @@
     });
      
 
-    var initialCenter = [-8.451740, 115.089643];
-    var initialZoom = 9.65;
+    var initialCenter = [-2.548926, 118.0148634];
+    var initialZoom = 5;
     var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],

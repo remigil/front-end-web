@@ -136,12 +136,12 @@
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU PENGISIAN DATA</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo $data['getDetail']['data']['created_at'];?></td>
+                                <td class="fw-bold rounded" style="background-color:#1E7916; color:#FFF;"><?php echo date('H:i:s d-m-Y', strtotime($data['getDetail']['data']['created_at']));?></td>
                             </tr>
                             <tr>
                                 <td width="30%" class="text-primary">WAKTU KEBERANGKATAN</td>
                                 <td width="5%">:</td>
-                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo $data['getDetail']['data']['departure_date'];?>, <?php echo $data['getDetail']['data']['departure_time'];?></td>
+                                <td class="fw-bold rounded" style="background-color:#BEE5F3; color:#515151"><?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_date']));?>, <?php echo date('H:i d-m-Y', strtotime($data['getDetail']['data']['departure_time']));?></td>
                             </tr>
                             
                             <tr>
@@ -238,17 +238,12 @@
             }).addTo(mapContainer);
    
             $('[name=cordinate]').on("change", function (e) {
-
-// var cordLat = parseFloat(cordLatLong[0]); 
-// var corLong = parseFloat(cordLatLong[1]); 
-
-// // console.log({a:cordLat, b:corLong});
-
-// $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-//     $('[name=address]').html(data['display_name']); 
-//     mapContainer.flyTo([cordLat, corLong], 17);  
-// }); 
-// });
+            // console.log({a:cordLat, b:corLong});
+            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${startCordLat}&lon=${startCordLng}`, function(data){
+             $('[name=alamatLat]').html(data['display_name']); 
+             mapContainer.flyTo([startCordLat, startCordLng], 17);  
+            }); 
+            });
 
   
             mapContainer.setView(initialCenter, initialZoom);

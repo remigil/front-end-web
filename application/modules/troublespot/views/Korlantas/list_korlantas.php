@@ -23,8 +23,11 @@
                     <label class="form-label">Jenis Permasalahan</label>
                     <select class="form-select">
                         <option>Semua Permasalahan</option>
-                        <option>Permaslahan 1</option>
-                        <option>Permaslahan 2</option>
+                        <option value="1">Tindak Kriminal</option>
+                        <option value="2">Kecelakaan</option>
+                        <option value="3">Bencana Alam</option>
+                        <option value="4">Kemacetan</option>
+                        <option value="999">Lainnya</option>
                     </select>
                 </div>
                 <div class="col-md-3 ">
@@ -71,7 +74,7 @@
 </div>
 <!-- End Page -->
 
-<div class="modal fade TambahTroublespot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahTroublespot" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -103,24 +106,21 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield">
-                                <select class="form-select" name="polda">
-                                    <option value="1">POLDA METRO JAYA</option>
-                                    <option value="2">POLDA JAWA BARAT</option>
-                                    <option value="3">POLDA JAWA TENGAH</option>
-                                    <option value="4">POLDA JAWA TIMUR</option>
-                                </select>
+                            <select name="polda_id" class="form-select" style="width:100%" id="polda" required>
+                        <option selected value="">Pilih Polda</option>
+                        <?php
+                        foreach ($data['getPolda'] as $row) : ?>
+                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                                 <label for="" class="labelmui">Polda</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield">
-                                <select class="form-select" name="polres">
-                                    <option value="1">POLRESTABES BANDUNG</option>
-                                    <option value="2">POLRES BOGOR</option>
-                                    <option value="3">POLRESTA BOGOR</option>
-                                    <option value="4">POLRESTA SUKABUMI</option>
-
-                                </select>
+                            <select class="form-select" style="width:100%" id="polres" required>
+                        <option>Pilih Polres</option>
+                    </select>
                                 <label for="" class="labelmui">Polres</label>
                             </div>
                         </div>
@@ -130,27 +130,38 @@
                                 <label for="" class="labelmui">Penyebab Kemacetan</label>
                             </div>
                         </div>
+                        
                         <div class="col-md-12">
-                            <div class="material-textfield">
-                                <input type="text" name="lokasi_kejadian" id="">
-                                <label for="" class="labelmui">Lokasi Kejadian</label>
+                            <div class="form-floating mb-3">
+								<textarea class="form-control" style="height: 100px" placeholder="Alamat" id="lokasi_kejadian" name="lokasi_kejadian"></textarea>
+                                <label for="">Lokasi Kejadian</label>
+                            </div> 
+                            <div class="list-group" id="listAddress"></div>
+                        </div> 
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
                             </div>
                         </div>
-
-
-                        <div class="col-md-12 mt-3">
-                            <div id="mapG20Dashboard" style="height: 250px"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="latitude" id="">
-                                <label for="" class=" labelmui">Latitude</label>
+							<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div>
+								
                             </div>
-                        </div>
-                        <div class="col-md-6 ">
-                            <div class="material-textfield">
-                                <input type="text" name="longitude" id="">
-                                <label for="" class=" labelmui">Longitude</label>
+                            <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -199,6 +210,140 @@
 
 <script>
     $(document).ready(function() {
+
+        $('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Kegiatan', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+		
+	$('#myModal').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
+
+            $('.dropify').dropify();
+
+
+
+            let countlist = 0;
+            let list = ""; 
+            $('[name=lokasi_kejadian]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddress').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=lokasi_kejadian]').val($(this).data('alamat'));
+                            $('[name=cordinate]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);    
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinate]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=lokasi_kejadian]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinate]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=lokasi_kejadian]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
+        });
 
         // City change
         $('#polda').change(function() {
@@ -420,6 +565,24 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         });
+        // StART MAP SECTION
+        var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 19,
+            minZoom: 1,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+
+        var markerClusterGroup = L.markerClusterGroup();
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        });
+
+        var arrayData = $.grep(data, function(element, index) {
+            return element.coordinate != null && element.coordinate != '';
+        });
+        // console.log(arrayData); 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
             maxZoom: 19,
