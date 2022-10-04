@@ -54,7 +54,7 @@
                     <div class="row mb-3">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <img src="https://k3ig20korlantas.id:3001/uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
+                            <img src="http://k3ig20korlantas.id:3001/uploads/laporan/<?= $data['getDetail']['foto']; ?>" class="rounded float-end" style="height:100%; width: 100%;">
                         </div>
                         <div class="col-3"></div>
                     </div> 
@@ -184,7 +184,7 @@
         }).setView(initialCenter, initialZoom);
  
         var icon = L.icon({
-            iconUrl: 'https://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
             iconSize: [80, 80], // size of the icon
         });
 
