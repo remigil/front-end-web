@@ -83,7 +83,7 @@ class Cctv extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Thumbnail CCTV";
+        $page_content["title"] = "Full Screen CCTV";
 
         // if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor'  || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
         //     $page_content["page"] = "masterdata/G20/cctv_viewFull";
@@ -132,7 +132,7 @@ class Cctv extends MY_Controller
         } 
 
 
-        $url = 'cctv?serverSide=True&length=10&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
+        $url = 'cctv?serverSide=True&length=900000&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
         // print_r($url);
         // die;
         $getCCTV = guzzle_request('GET', $url, [

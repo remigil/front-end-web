@@ -606,7 +606,132 @@
  
                 <!-- Left Menu Start -->
                 <main>
-                <div class="row" id="side-menuCCTV" style="margin: 5px;"> 
+                <div class="row"  style="margin: 5px;"> 
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item" id="clickRoad">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                    CCTV MAINROAD &nbsp;<span class="badge bg-danger rounded-pill" id="tlistMainroad"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listMainroad"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" id="clickGerbang">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    CCTV GERBANG &nbsp;<span class="badge bg-danger rounded-pill" id="tlistGerbang"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listGerbang"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="accordion-item" id="clickRamp">
+                            <h2 class="accordion-header" id="flush-heading3">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                                    ETHLE RAMP &nbsp;<span class="badge bg-danger rounded-pill" id="tlistRamp"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listRamp"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="accordion-item" id="clickEthle">
+                            <h2 class="accordion-header" id="flush-heading4">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
+                                    CCTV ETHLE &nbsp;<span class="badge bg-danger rounded-pill" id="tlistEthle"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listEthle"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="accordion-item" id="clickBaliSatu">
+                            <h2 class="accordion-header" id="flush-heading5">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
+                                    BALI SATU DATA &nbsp;<span class="badge bg-danger rounded-pill" id="tlistBaliSatu"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listBaliSatu"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="accordion-item" id="clickCctv">
+                            <h2 class="accordion-header" id="flush-heading6">
+                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
+                                    CCTV &nbsp;<span class="badge bg-danger rounded-pill" id="tlistCctv"></span>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-muted">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="listCctv"> 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                    </div>
                 </div>
             </main>
         </div> 
@@ -619,12 +744,12 @@
 
                     <!-- Page -->
                     <!-- <div class="kotak" style="border-style:solid ;"> -->
-                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; ">
+                    <!-- <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; ">
                         <ol class="breadcrumb shadow-sm">
                             <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV</a></li>
                             <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
                         </ol>
-                    </nav>
+                    </nav> -->
 
                     <div class="row align-items-center">
                         <!-- <div class="col-md-6">
@@ -633,7 +758,7 @@
                             </div>
                         </div> -->
                         <div class="col-md-8">
-                            <div style="display: flex;"> 
+                            <div style="display: none;"> 
                                 <input hidden type="text" name="halaman" id="halaman" value="1"> 
                                 <nav aria-label="Page navigation example" style="padding-top: 11px;">
                                     <ul class="pagination">
@@ -662,6 +787,15 @@
                                 </div> 
                                 
                             </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; margin-top: 5px; ">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV</a></li>
+                                    <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
+                                </ol>
+                            </nav>
                         </div>
 
                         <div class="col-md-4">
@@ -851,6 +985,7 @@
 
                                         $("#overlay").fadeOut(300);
                                         if(ress.length > 0){   
+                                            
                                             // countlistCCTV = 0;
                                             listSideCCTV = "";
                                             // listCCTV = "";
@@ -862,45 +997,246 @@
                                             // `;
                                             // $('#listCCTV').html(listCCTV);  
                                             
-                                            ress.forEach(el => {
-                                                countlistCCTV += 1;
-                                                if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                    resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                }else{
-                                                    resource = `<img style="width: 100%; height: 100%;" src="${el.link_cctv}" />`;
-                                                } 
+                                            var ressMainRoad = ress.filter(function (e) {
+                                                return e.type_cctv == "CCTV MAINROAD";
+                                            }); 
+                                            var openMainRoad = false;
+                                            var countRoad;
 
-                                                listSideCCTV += `    
-                                                    <div class="panel panel-default col-md-6" id="${el.address_cctv}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${el.address_cctv}')">
-                                                        <div class="panel-heading">
-                                                            <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
-                                                        </div>
-                                                        <div class="panel-body hidecctv" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}">
-                                                            <div id="viewcctv" class="col-md-6">
-                                                            ${resource}
-                                                            </div>
-                                                        </div>
-                                                    </div>  
-                                                `;
-                                                $("#side-menuCCTV").html(listSideCCTV);
+                                            var ressMainGerbang = ress.filter(function (e) {
+                                                return e.type_cctv == "CCTV GERBANG";
+                                            }); 
+                                            var openGerbang = false;
+                                            var countGerbang;
 
-                                                
-                                                // listCCTV += `
-                                                //     <div class="col-md-6"> 
-                                                //         <div class="droptarget" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                //             ${resource}
-                                                //             <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
-                                                //             <p class="text-muted mb-2">${el.address_cctv}</p> 
-                                                //         </div> 
-                                                //     </div>
-                                                // `;
-                                                // $('#listCCTV').html(listCCTV);  
-                                            });   
-                                           
+                                            var ressMainRamp = ress.filter(function (e) {
+                                                return e.type_cctv == "CCTV RAMP";
+                                            }); 
+                                            var openRamp = false;
+                                            var countRamp;
+
+                                            var ressMainEthle = ress.filter(function (e) {
+                                                return e.type_cctv == "CCTV ETHLE";
+                                            }); 
+                                            var openEthle = false;
+                                            var countEthle;
+
+                                            var ressMainBali = ress.filter(function (e) {
+                                                return e.type_cctv == "BALISATUDATA";
+                                            }); 
+                                            var openBali = false;
+                                            var countBali;
+
+                                            var ressMainCctv = ress.filter(function (e) {
+                                                return e.type_cctv == "CCTV";
+                                            }); 
+                                            var openCctv = false;
+                                            var countCctv;
+
+                                            // console.log(ressMainRoad);
+                                            
+                                            if(ressMainRoad.length > 0){ 
+                                                if(openMainRoad == false){
+                                                    // $("#clickRoad").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistMainroad").html(`${ressMainRoad.length}`);
+                                                        ressMainRoad.forEach(el => {
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listMainroad").html(listSideCCTV); 
+                                                        });  
+                                                        openMainRoad = true;  
+                                                    // }); 
+                                                }
+                                            }else{
+                                                $("#tlistMainroad").html(`0`);
+                                            }
 
                                             
-                                            for (let i = 0; i < countlistCCTV; i++){  
-                                                $(`#openFullscreen${i}`).on("click", function (event) { 
+                                            if(ressMainGerbang.length > 0){
+                                                if(openGerbang == false){
+                                                    // $("#clickGerbang").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistGerbang").html(`${ressMainGerbang.length}`);
+                                                        ressMainGerbang.forEach(el => {
+                                                            console.log(countlistCCTV);
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listGerbang").html(listSideCCTV); 
+                                                        });  
+
+                                                         
+                                                        openGerbang = true;     
+                                                    // });  
+                                                }
+                                            }else{
+                                                $("#tlistGerbang").html(`0`);
+                                            }
+                                           
+                                            if(ressMainRamp.length > 0){
+                                                if(openRamp == false){
+                                                    // $("#clickRamp").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistRamp").html(`${ressMainRamp.length}`);
+                                                        ressMainRamp.forEach(el => {
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listRamp").html(listSideCCTV); 
+                                                        });   
+                                                    // });
+                                                    openRamp = true;
+                                                }
+                                            }else{
+                                                $("#tlistRamp").html(`0`);
+                                            }
+
+                                            if(ressMainEthle.length > 0){
+                                                if(openEthle == false){
+                                                    // $("#clickEthle").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistEthle").html(`${ressMainEthle.length}`);
+                                                        ressMainEthle.forEach(el => {
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listEthle").html(listSideCCTV); 
+                                                        });   
+                                                    // });
+                                                    openEthle = true;
+                                                }
+                                            }else{
+                                                $("#tlistEthle").html(`0`);
+                                            }
+
+                                            if(ressMainBali.length > 0){
+                                                if(openBali == false){
+                                                    // $("#clickBaliSatu").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistBaliSatu").html(`${ressMainBali.length}`);
+                                                        ressMainBali.forEach(el => {
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listBaliSatu").html(listSideCCTV); 
+                                                        });   
+                                                    // });
+                                                    openBali = true;
+                                                }
+                                            }else{
+                                                $("#tlistBaliSatu").html(`0`);
+                                            }
+
+                                            if(ressMainCctv.length > 0){
+                                                if(openCctv == false){
+                                                    // $("#clickCctv").on("click", function (e) { 
+                                                        listSideCCTV = '';
+                                                        $("#tlistCctv").html(`${ressMainCctv.length}`);
+                                                        ressMainCctv.forEach(el => {
+                                                            countlistCCTV += 1;
+                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
+                                                            }else{
+                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                            } 
+            
+                                                            listSideCCTV += `    
+                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
+                                                                    <div class="panel-heading">
+                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                    </div>
+                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                        ${resource} 
+                                                                    </div>
+                                                                </div>  
+                                                            `;
+                                                            $("#listCctv").html(listSideCCTV); 
+                                                        });     
+                                                    // });
+                                                    openCctv = true;
+                                                }
+                                            }else{
+                                                $("#tlistCctv").html(`0`);
+                                            }
+
+                                            
+                                            for (let i = 0; i < ress.length; i++){  
+                                                $(`#viewcctv${i+1}`).hide();
+                                                // console.log(`urutan ke ${i+1}`);
+
+                                                $(`#openFullscreen${i+1}`).on("click", function (event) { 
                                                     var myIp = $(this).data('ip'); 
                                                     var myLink = $(this).data('resource'); 
                                                     var myType = $(this).data('type'); 
@@ -911,7 +1247,7 @@
                                                     }else{
                                                         resource = `<img style="width: 100%;" src="${myLink}" />`;
                                                     }
-                                                    console.log(myLink);
+                                                    // console.log(myLink);
                                                     $("#fullModal").modal('show');
                                                     $("#layarFull").html(`${resource}`);
                                                     $("#judulModal").html(`
@@ -1107,14 +1443,16 @@
 
                         var ipcctv;
                         var linkcctv;
-                        var resourceview;
-
-                        
-
-                        function dragStart(ev, ipcctv, linkcctv) {  
+                        var nourut;
+  
+                        function dragStart(ev, ipcctv, linkcctv, nourut) {  
                             ev.dataTransfer.effectsAllowed = "copy";
                             ev.dataTransfer.setData("text", ev.target.getAttribute("id"));
                             ev.dataTransfer.setDragImage(ev.target, 0, 0);
+
+                            // console.log(nourut);
+                            $(`#viewcctv${nourut}`).show();
+                            $(`#idsidemenu${nourut}`).addClass("col-md-6");
 
                             clone = ev.target.cloneNode(true);
                             cloneId = ev.target.getAttribute("id");
@@ -1134,19 +1472,7 @@
                         }
 
                         function dragDrop(ev) {   
-                            console.log(document.getElementById("viewcctv")); 
-                            // ev.target.appendChild(document.getElementById(`#viewcctv`)).show();
-                            // ev.target.getAttribute("viewcctv").show();
-                            
-                            // ev.target.appendChild(document.getElementById("viewcctv"))
-
-                            // if(ipcctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                            //     resourceview = `<iframe id="myIframe" src="${el.linkcctv}" style="width: 100%; height: 100%;"></iframe>`;
-                            // }else{
-                            //     resourceview = `<img style="width: 100%; height: 100%;" src="${el.linkcctv}" />`;
-                            // } 
-
-                            // ev.target.appendChild(document.getElementById("viewcctv")).html('oke');
+                            // console.log(document.getElementById("viewcctv"));  
 
                             // ev.target.appendChild(document.getElementById("viewcctv"))
 
