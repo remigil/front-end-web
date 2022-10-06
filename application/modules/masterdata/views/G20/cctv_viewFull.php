@@ -1051,7 +1051,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
@@ -1085,7 +1085,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
@@ -1119,7 +1119,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
@@ -1151,7 +1151,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
@@ -1183,7 +1183,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
@@ -1215,7 +1215,7 @@
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
                                                                     <div class="panel-heading">
-                                                                        <h5 class="panel-title">${el.type_cctv} - ${el.address_cctv}</h5>
+                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                                                     </div>
                                                                     <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
                                                                         ${resource} 
