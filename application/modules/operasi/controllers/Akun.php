@@ -41,6 +41,8 @@ class Akun extends MY_Controller
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
 
+
+
         $getVehicle = guzzle_request('GET', 'vehicle', [
             'headers' => $headers
         ]);
@@ -53,11 +55,30 @@ class Akun extends MY_Controller
         // ]);
         // $data['getPolres'] = $getPolres['data']['data']; 
 
-        // echo json_encode($data['getVip']['data']); 
+        // echo json_encode($data['getOfficer']); 
         // die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function GetPetugasList()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input = $this->input->post();  
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=100000&start=1', [
+            'headers' => $headers
+        ]);
+        $data = $getOfficer['data']['data'];
+        // $getpetugas = array_filter($data, function ($get) {
+        //     $name_officer = $this->input->get('Petugas');
+        //     return $get['name_officer'] != $name_officer;
+        // });
+
+        echo json_encode($data);
     }
 
     public function GetPetugas()
