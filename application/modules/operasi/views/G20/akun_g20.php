@@ -135,7 +135,7 @@
             }, 
             dataType : "JSON",
             success : function(result){ 
-                console.log(result);
+                // console.log(result);
                 Petugas = result;
                 PetugasOrigin = result;
                 Petugasbaru = result;
@@ -277,7 +277,7 @@
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
-            console.log(formData);
+            // console.log(formData); 
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Akun/store",
                 method: "POST",
