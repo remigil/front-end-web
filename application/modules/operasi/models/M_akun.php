@@ -125,7 +125,11 @@ class M_akun extends CI_Model
                 $row ['officers']	= '-'; 
             } 
 
-            $row['leader_team']    = $field['officer']['name_officer']; 
+            if($field['officer'] != null){
+                $row['leader_team']    = $field['officer']['name_officer']; 
+            }else{
+                $row['leader_team']    = '-';
+            }
             // $row['vehicle']       = $field['vehicle']['no_vehicle']; 
             $row['action']         = ' 
                 <a href="' . base_url() . 'operasi/akun/Detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
