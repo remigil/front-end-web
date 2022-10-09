@@ -8,6 +8,7 @@ class Dashboard extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model('operasi/m_renpam');
     }
 
     public function index()
@@ -108,6 +109,13 @@ class Dashboard extends MY_Controller
 
         $this->templates->loadTemplate($page_content);
         // $this->load->view('dashboard/dashboard_g20',);
+    }
+
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_renpam->get_datatables($postData);
+        echo json_encode($data);
     }
 
     public function getIdRenpam()

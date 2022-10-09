@@ -28,24 +28,14 @@
                 
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
-                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: -10px;">
+                    <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
                         <div style="margin-left: 0px;overflow-x: scroll;height: 435px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
                                 <div class="row">
-                                    <div class="col-md-12 mb-1">
-                                        <label for="waktu">Tanggal</label>
-                                        <div id="reportrange" class="pull-right" style="border-radius: 0.25rem; height: 40px; background: #fff; cursor: pointer; padding: 10px 10px; border: 1px solid #ccc;">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-12">
-                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> &nbsp;<span style="font-size: 14px;"></span> <b class="caret"></b>
-                                                </div>
-                                                <!-- <div class="col-md-2 col-sm-2">
-                                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                                </div> -->
-                                            </div>
-                                        </div>
-                                        <input hidden type="date" id="startdate" name="startdate">
-                                        <input hidden type="date" id="enddate" name="enddate">
+                                    <label for="waktu">Tanggal</label>
+                                    <div class="col-md-12" style="display: flex;">  
+                                        <input required class="form-control" type="date" id="startdate" name="startdate"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                                        <input required class="form-control" type="date" id="enddate" name="enddate"> 
                                     </div>  
                                     <div class="dropdown-divider"></div>
 
@@ -82,7 +72,7 @@
                                         <p style="font-size: 17px;">Laporan</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="titik_laporan" id="panic" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="titik_panicButton" id="panic" class="form-input" >  
                                         <span>Panic Button</span> 
                                     </div>   
                                     <div class="col-md-6">
@@ -98,6 +88,10 @@
                                         <input type="checkbox" name="filter" value="fasum" id="fasum" class="form-input" >  
                                         <span>Fasilitas Umum</span> 
                                     </div>  
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="fasum_khusus" id="fasum_khusus" class="form-input" >  
+                                        <span>Fasilitas Khusus</span> 
+                                    </div> 
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
                                         <span>Trouble Spot</span> 
@@ -166,10 +160,64 @@
                     </div>
                     <!-- item-->
                 </div>
+
+                <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
+                    <label>
+                        <input type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="mdi mdi-account-group"></i> Fasum Khusus</span>
+                    </label>
+                </div>
+
+                <div class="cat panicDisplay">
+                    <label>
+                        <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
+                    </label>
+                </div>
+
+                <div class="cat operasiDisplay">
+                    <label>
+                        <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Operasi</span>
+                    </label>
+                </div>
+
+                <div class="cat cctvDisplay">
+                    <label>
+                        <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                    </label>
+                </div>
+
+                <div class="cat kegiatanDisplay">
+                    <label>
+                        <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                    </label>
+                </div>
                 
             </div>  
         </div>
         <div id="mapG20Dashboard"></div>
+    </div>
+    <div class="col-md-12 mt-3"> 
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable" class="table dt-responsive w-100">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Waktu Mulai</th>
+                            <th>Nama Tim</th>
+                            <th>Unit Pengawalan</th>
+                            <th>Penugasan</th>
+                            <th>Delegasi</th>
+                            <th>Subjek</th>
+                            <!-- <th>Waktu</th> -->
+                            <th>Jarak Tempuh</th> 
+                            <th>Waktu Tempuh</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -541,7 +589,7 @@
                 <form class="formNoteKakor" method="post" enctype="multipart/form-data"> 
                     
                     <div class="row">   
-                        <textarea name="accountsNoteKakor" id="accountsNoteKakor" cols="5" rows="5"></textarea>
+                        <textarea hidden name="accountsNoteKakor" id="accountsNoteKakor" cols="5" rows="5"></textarea>
                         <div class="col-md-12">
                             <div class="material-textfield mb-3">
                                 <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
@@ -618,9 +666,9 @@
     var markerJadwal = new Array();
     var markerCCTV = new Array();
     var markerLaporanPanic = new Array();
-    var markerLaporan = new Array();
-    var markerCCTV = new Array();
+    var markerLaporan = new Array(); 
     var markerFasum = new Array();
+    var markerFasumKhusus = new Array();
     var markerPolres = new Array();
     var routingJadwal = new Array();
     var routingRenpam = new Array();
@@ -631,6 +679,12 @@
     var arrayFilter = [];
     var arrayFilterFasumKategori = [];
 
+    var cctvClusterGroup;
+    var jadwalClusterGroup;
+    var fasumKhususClusterGroup;
+    var laporanClusterGroup;
+    var panicClusterGroup;
+    var userDataTable;
 
     $(document).ready(function() { 
         // alert('oke');
@@ -642,6 +696,141 @@
         //     {-8.452198812821242,115.09396433830263},
         //     {-8.5068977,115.2622931},
         // ];  
+
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>dashboard/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    data.filterTgl = $('#startdate').val();
+
+                    data.filterTgl2 = $('#enddate').val();
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    data.filterSchedule = '';
+
+                    data.filterTypeRenpam = '';
+
+                    data.filterCategoryRenpam = '';
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'date'
+                },
+                {
+                    data: 'waktu'
+                },
+                {
+                    data: 'nama_tim',
+                    orderable: false
+                },
+                {
+                    data: 'accounts',
+                    orderable: false
+                },
+                {
+                    data: 'name_renpam'
+                },
+                {
+                    data: 'vips',
+                    orderable: false
+                },
+                {
+                    data: 'type_renpam'
+                },
+                {
+                    data: 'estimasi',
+                }, 
+                
+                {
+                    data: 'estimasi_time',
+                }, 
+
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "DESC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+                client();
+            }
+
+        });
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -707,6 +896,14 @@
         //     lat: 1234,
         //     lon: 1234234
         // })
+
+        function client() {
+            $(".goPetugas").on("click", function(event) {
+                mapContainer.flyTo([parseFloat($(this).data("lat")), parseFloat($(this).data("lng"))], 17);  
+                $('html, body').animate({scrollTop:0}, '300');
+                // alert($(this).data("lat"));
+            });
+        }
 
 
         $("[name=searchAlamat]").on("change", function (e) {
@@ -1090,8 +1287,8 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log('ido3');
-            console.log(ress); 
+            // console.log('ido3');
+            // console.log(ress); 
 
 
         
@@ -1282,12 +1479,62 @@
             }
         });
 
+
+        cctvClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({ html: `
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#d3a53a;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-cctv"></i>${cluster.getChildCount()}</b>
+                    </div>` 
+                });
+            }
+        });
+        jadwalClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({ html: `
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#c41f30;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-card-account-details-star"></i>${cluster.getChildCount()}</b>
+                    </div>` 
+                });
+            }
+        });
+        laporanClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({ html: `
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#049901;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-clipboard-flow"></i>${cluster.getChildCount()}</b>
+                    </div>` 
+                });
+            }
+        });
+        panicClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({ html: `
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-chat-alert"></i>${cluster.getChildCount()}</b>
+                    </div>` 
+                });
+            }
+        }); 
+        fasumKhususClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({ html: `
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#4389d6;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-account-group"></i>${cluster.getChildCount()}</b>
+                    </div>` 
+                });
+            }
+        });
+
         function serverSideFilter(){
+            userDataTable.draw();
+
             $("#overlay").fadeIn(300);   
             arrayFilter = [];
             $("input:checkbox[name=filter]:checked").each(function(){
                 arrayFilter.push($(this).val());
             });  
+            console.log(arrayFilter);
 
             arrayFilterFasumKategori = [];
             $("input:checkbox[name=filterFasumKateg]:checked").each(function(){
@@ -1297,28 +1544,47 @@
 
             for (let i = 0; i < markerJadwal.length; i++) { 
                 mapContainer.removeLayer(markerJadwal[i]);
+                mapContainer.removeLayer(jadwalClusterGroup);
             }
             markerJadwal = new Array();
 
             for (let i = 0; i < markerCCTV.length; i++) { 
                 mapContainer.removeLayer(markerCCTV[i]);
+                mapContainer.removeLayer(cctvClusterGroup);
             } 
             markerCCTV = new Array();  
 
             for (let i = 0; i < markerFasum.length; i++) { 
                 mapContainer.removeLayer(markerFasum[i]);
             }
-            markerFasum = new Array();  
+            markerFasum = new Array(); 
+            
+            for (let i = 0; i < markerFasumKhusus.length; i++) { 
+                mapContainer.removeLayer(markerFasumKhusus[i]);
+                mapContainer.removeLayer(fasumKhususClusterGroup);
+            }
+            markerFasumKhusus = new Array(); 
 
             for (let i = 0; i < markerPolres.length; i++) { 
                 mapContainer.removeLayer(markerPolres[i]);
             }
             markerPolres = new Array(); 
 
+            for (let i = 0; i < markerLaporan.length; i++) { 
+                mapContainer.removeLayer(markerLaporan[i]);
+                mapContainer.removeLayer(laporanClusterGroup);
+            }
+            markerLaporan = new Array();
+
+            for (let i = 0; i < markerLaporanPanic.length; i++) { 
+                mapContainer.removeLayer(markerLaporanPanic[i]);
+                mapContainer.removeLayer(panicClusterGroup);
+            }
+            markerLaporanPanic = new Array();
+
             // console.log(`${centerLat},${centerLng}`);  
             
-            
-
+             
             $.ajax({
                 type : "POST",
                 url : "<?php echo base_url();?>dashboard/getFilter", 
@@ -1327,6 +1593,8 @@
                     "radius" : 15000,
                     "coordinate" : `${centerLat},${centerLng}`,
                     "type" : arrayFilterFasumKategori.toString(), 
+                    "startdate" : $("#startdate").val(),
+                    "enddate" : $("#enddate").val(),
                 }, 
                 dataType : "JSON",
                 success : function(result){  
@@ -1335,7 +1603,9 @@
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
                     var ressLAP = result['data']['titik_laporan'];
+                    var ressPanic = result['data']['titik_panicButton'];
                     var ressFasum = result['data']['fasum'];
+                    var ressFasumKhusus = result['data']['fasum_khusus'];
                     var ressTroublespot = result['data']['troublespot'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
@@ -1455,7 +1725,7 @@
                                     resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
                                 }
 
-                                markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                                cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
                                     // className: 'location-pin',
                                     html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
                                     iconSize: [5, 5],
@@ -1473,20 +1743,123 @@
                                         </div>
                                     </div>
                                         
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                                    `,{minWidth : 100,maxWidth : 560,width : 400})
+                                );
                             }
+                            mapContainer.addLayer(cctvClusterGroup);
                         }
                     } 
 
                     if(ressLAP && ressLAP.length > 0){  
-                        var ressLaporan = ressLAP.filter(function (e) {
+                        var filterLaporan = ressLAP.filter(function (e) {
                             return e.coordinate.latitude != "" && e.coordinate.longitude != "";
                         });   
 
+ 
+                        if(filterLaporan.length > 0){  
+                            for (let i = 0; i < filterLaporan.length; i++) {     
+                                id = i;  
+                                var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
+                                var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude); 
+                                var iconLapPanic; 
 
-                        var filterLaporanPanic = ressLaporan.filter(function (e) {
-                            return e.type == 'PNC';
+                                if(filterLaporan[i].status == 0 || filterLaporan[i].status == null){
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
+                                    `;
+                                
+                                }else{
+                                    $statusLapPnc = ` 
+                                        <span class="badge rounded-pill bg-success">Selesai</span> 
+                                    `;
+                                }
+
+                                if(filterLaporan[i].categori == 1){
+                                    kategoriLaporan = 'Tindakan Kriminal';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporan[i].categori == 2){
+                                    kategoriLaporan = 'Kecelakaan Lalu Lintas';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporan[i].categori == 3){
+                                    kategoriLaporan = 'Bencana Alam';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporan[i].categori == 4){
+                                    kategoriLaporan = 'Kemacetan';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else if(filterLaporan[i].categori == 99){
+                                    kategoriLaporan = 'Lainnya';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }else{
+                                    kategoriLaporan = 'Lainnya Other';
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                }
+
+                                laporanClusterGroup.addLayer( markerLaporan[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div style="width: 300px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <a href="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" target="_blank"><img src="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer)}
+                                            </div>
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <h5>${filterLaporan[i].code}</h5>
+                                            </div>
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
+                                            </div>  
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
+                                            </div>  
+                                        </div>   
+                                        <div class="row"> 
+                                            <div class="col-md-5">  
+                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
+                                            </div>  
+                                            <div class="col-md-7">  
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description} </span> 
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                        
+                                `,{minWidth : 100,maxWidth : 560,width : 400}) 
+                                ); 
+                            }
+                            mapContainer.addLayer(laporanClusterGroup);
+                        }
+
+                    }
+
+                    if(ressPanic && ressPanic.length > 0){  
+                        var filterLaporanPanic = ressPanic.filter(function (e) {
+                            return e.coordinate.latitude != "" && e.coordinate.longitude != "";
                         });   
+                        
                         if(filterLaporanPanic.length > 0){  
                             for (let i = 0; i < filterLaporanPanic.length; i++) {     
                                 id = i;  
@@ -1525,7 +1898,7 @@
                                     `;
                                 }
 
-                                markerLaporanPanic[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
+                                panicClusterGroup.addLayer( markerLaporanPanic[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
                                     // className: 'location-pin',
                                     html: iconLapPanic,
                                     iconSize: [5, 5],
@@ -1588,88 +1961,122 @@
                                         </div> 
                                     </div>
                                         
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
+                                `,{minWidth : 100,maxWidth : 560,width : 400}) 
+                                );
                             }
+                            mapContainer.addLayer(panicClusterGroup);
                         }
+ 
 
-                        var filterLaporan = ressLaporan.filter(function (e) {
-                            return e.type == 'LAP';
-                        });  
-                        if(filterLaporan.length > 0){  
-                            for (let i = 0; i < filterLaporan.length; i++) {     
-                                id = i;  
-                                var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
-                                var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude); 
-                                var iconLapPanic; 
+                    }
 
-                                if(filterLaporan[i].status == 0 || filterLaporan[i].status == null){
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-danger">Tidak Selesai</span> 
-                                    `;
-                                
-                                }else{
-                                    $statusLapPnc = ` 
-                                        <span class="badge rounded-pill bg-success">Selesai</span> 
-                                    `;
-                                }
-
-                                markerLaporanPanic[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
+                    if(ressFasumKhusus && ressFasumKhusus.length > 0){  
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressFasumKhusus.length; i++) {  
+                            if(ressFasumKhusus[i].fasum_type == 1){
+                                logoMarker = `hotel.png`;
+                                logoBody = `hotel.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 2){
+                                logoMarker = `rumah ibadah.png`;
+                                logoBody = `rumah ibadah.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 3){
+                                logoMarker = `pom bensin.png`;
+                                logoBody = `pom bensin.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 4){
+                                logoMarker = `rest_area.png`;
+                                logoBody = `rest_area.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 5){
+                                logoMarker = `rumah makan.png`;
+                                logoBody = `rumah makan.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 6){
+                                logoMarker = `wisata.png`;
+                                logoBody = `wisata.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 7){
+                                logoMarker = `damkar.png`;
+                                logoBody = `damkar.png`;
+                            }else if(ressFasumKhusus[i].fasum_type == 8){
+                                logoMarker = `rumah sakit umum.png`;
+                                logoBody = `rumah sakit umum.png`;
+                            }
+                            
+                                var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+                                var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+                                fasumKhususClusterGroup.addLayer( markerFasumKhusus[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
                                     }) }).bindPopup(`
-                                    <div style="width: 300px;">
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <a href="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" target="_blank"><img src="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressFasumKhusus[i].category_fasum.name_category_fasum}</h5> 
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_name}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div> 
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>   
                                             </div>
-                                            <div class="col-md-12" style="text-align: center;">
-                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer)}
-                                            </div>
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterLaporan[i].code}</h5>
-                                            </div>
                                         </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Nama Petugas</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].officer.name_officer} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Kategori</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${kategoriLaporan} </span> 
-                                            </div>  
-                                        </div> 
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Waktu</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].created_at} </span> 
-                                            </div>  
-                                        </div>   
-                                        <div class="row"> 
-                                            <div class="col-md-5">  
-                                                <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
-                                            </div>  
-                                            <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description} </span> 
-                                            </div>  
-                                        </div> 
-                                    </div>
-                                        
-                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);   
-                            }
+                                `,{minWidth : 100,maxWidth : 560,width : 400})
+                                );  
                         }
-
+                        mapContainer.addLayer(fasumKhususClusterGroup);
                     }
 
                     if(ressFasum && ressFasum.length > 0){ 
@@ -1767,7 +2174,7 @@
                                 var longitudeJadwal = parseFloat(latlongJadwal[1]);
                                 
 
-                                    markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
+                                jadwalClusterGroup.addLayer( markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
                                         // className: 'location-pin',
                                         html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
                                         iconSize: [5, 5],
@@ -1838,11 +2245,13 @@
                                                     </div>   
                                                 </div>
                                             </div>
-                                    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                                
+                                    `,{minWidth : 100,maxWidth : 560,width : 400})
+                                    ); 
                             }
+                            mapContainer.addLayer(jadwalClusterGroup);
                         }
                     }   
+
                     if(ressOperasi && ressOperasi.length > 0){ 
                         var filterOperasi = ressOperasi.filter(function (e) {
                             return e.lat_cctv != null && e.lng_cctv != null;
@@ -1857,6 +2266,85 @@
         }
 
         $("#filterCari").on("click", function (e) { 
+            if($("#cctv").is(':checked')){ 
+                $("#cctvDisplay").prop('checked', true); 
+            }else{
+                $("#cctvDisplay").prop('checked', false); 
+                $("#cctvDisplay").val();
+            }
+            if($("#fasum_khusus").is(':checked')){ 
+                $("#fasumKhususDisplay").prop('checked', true); 
+            }else{
+                $("#fasumKhususDisplay").prop('checked', false); 
+                $("#fasumKhususDisplay").val();
+            }
+            if($("#jadwal").is(':checked')){ 
+                $("#kegiatanDisplay").prop('checked', true); 
+            }else{
+                $("#kegiatanDisplay").prop('checked', false); 
+                $("#kegiatanDisplay").val();
+            }
+            if($("#panic").is(':checked')){ 
+                $("#panicDisplay").prop('checked', true); 
+            }else{
+                $("#panicDisplay").prop('checked', false); 
+                $("#panicDisplay").val();
+            }
+            if($("#operasi").is(':checked')){ 
+                $("#operasiDisplay").prop('checked', true); 
+            }else{
+                $("#operasiDisplay").prop('checked', false); 
+                $("#operasiDisplay").val();
+            }
+
+            console.log({a: $("#startdate").val(),b:$("#enddate").val()});
+            serverSideFilter();
+        });
+
+
+        $("#kegiatanDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#jadwal").prop('checked', true); 
+            }else{
+                $("#jadwal").prop('checked', false); 
+                $("#jadwal").val();
+            }
+            serverSideFilter();
+        }); 
+        $("#cctvDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#cctv").prop('checked', true); 
+            }else{
+                $("#cctv").prop('checked', false); 
+                $("#cctv").val();
+            }
+            serverSideFilter();
+        });
+        $("#fasumKhususDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#fasum_khusus").prop('checked', true); 
+            }else{
+                $("#fasum_khusus").prop('checked', false); 
+                $("#fasum_khusus").val();
+            }
+            serverSideFilter();
+        });
+        $("#panicDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#panic").prop('checked', true); 
+            }else{
+                $("#panic").prop('checked', false); 
+                $("#panic").val();
+            }
+            serverSideFilter();
+        });
+        $("#operasiDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#operasi").prop('checked', true); 
+            }else{
+                $("#operasi").prop('checked', false); 
+                $("#operasi").val();
+            }
             serverSideFilter();
         });
 

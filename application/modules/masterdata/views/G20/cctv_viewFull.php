@@ -458,56 +458,56 @@
         padding: 20px;
         transition: background-color 0.25s ease-in;
         
-        &:hover {
-            background-color: #fcfcfc;
-            border-color: #5bc0de;
-        }
-        
-        .panel {
-            border-color: #5bc0de;
-            
             &:hover {
-                cursor: default;
+                background-color: #fcfcfc;
+                border-color: #5bc0de;
             }
-        }
-        
-        .panel-heading {
-            border-color: #5bc0de;
-            background-color: #5bc0de;
-            color: #fff;
-        }
-        
-        .panel-title {
-            position: relative;
             
-            .fa {
-                display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 15px;
-                height: 15px;
-                z-index: 2;
-                color: #fff;
+            .panel {
+                border-color: #5bc0de;
                 
                 &:hover {
-                    cursor: pointer;
+                    cursor: default;
                 }
             }
-        }
-        }
-
-        .panel {
-        &:hover {
-            border-color: #5bc0de;
-            cursor: move;
             
             .panel-heading {
                 border-color: #5bc0de;
                 background-color: #5bc0de;
                 color: #fff;
             }
+            
+            .panel-title {
+                position: relative;
+                
+                .fa {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 15px;
+                    height: 15px;
+                    z-index: 2;
+                    color: #fff;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
+
+        .panel {
+            &:hover {
+                border-color: #5bc0de;
+                cursor: move;
+                
+                .panel-heading {
+                    border-color: #5bc0de;
+                    background-color: #5bc0de;
+                    color: #fff;
+                }
+            }
         }
 
         .over {
@@ -516,22 +516,15 @@
 
         .selected {
         display: none;
-        }
-
-        .showcctv {
-        display: show;
-        }
-
-        .hidecctv {
-        display: none;
-        }
+        } 
+ 
 
         .cloned {
-        opacity: 0.5;
+            opacity: 0.5;
         
-        &.selected {
-            display: block;
-        }
+            &.selected {
+                display: block;
+            }
         }
 
 
@@ -543,9 +536,132 @@
             }
         }
 
-        .isiCCTV {
-        display: show;
-        }
+
+
+
+#thumbs {
+    text-align: center;
+    margin-bottom: 2em;
+    background: #ccc;
+    padding: 0.5em;
+}
+#thumbs img {
+    width: 150px;
+    height: 140px;
+    margin: 0 1em;
+    cursor: move;
+}
+#layout-area table {
+    width: 100%;
+    border-spacing: 2%;
+    table-layout: fixed;
+}
+#target, #target2 {
+    display: none;
+}
+#target td {
+    width: 30%;
+    height: 140px;
+    vertical-align: top;
+}
+textarea.caption {
+    display: block;
+    width: 95%;
+    margin: 10px auto;
+    height: 50px;
+    border: none;
+    background: #eee;
+}
+#layout-area .sized {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+#layout-area .img-container {
+    width: 100%;
+    height: 150px;
+    background: #eee;
+    overflow: hidden;
+    position: relative;
+}
+#layout-area .img-inserted {
+    background: #fff;
+}
+img.ui-draggable {
+    z-index: 100000;
+}
+#layout-area .remove {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 26px;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+#target td.header {
+    width: 100%;
+}
+#target td.header input, #target2 td.text input {
+    width: 100%;
+    margin-bottom: 0.5em;
+    display: block;
+    padding: 0.3em;
+    border: none;
+    text-align: center;
+    background: #eee;
+}
+#choose-layout {
+    width: 480px;
+    margin: 2em auto;
+    overflow: hidden;
+}
+#choose-layout div {
+    width: 230px;
+    text-align: center;
+}
+#choose-layout .layout {
+    height: 180px;
+    line-height: 180px;
+    background: #eee;
+}
+#layout-1 {
+    float: left;
+}
+#layout-2 {
+    float: right;
+}
+#choose-layout img {
+    display: block;
+    max-width: 100%;
+}
+#target2 td {
+    vertical-align: top;
+}
+#target2 td.logo {
+    width: 50%;
+}
+#target2 td.text {
+    width: 50%;
+}
+#target2 td[colspan] {
+    width: 100%;
+}
+#target2 td[colspan] input {
+    width: 100%;
+    margin-bottom: 0.5em;
+    display: block;
+    padding: 0.3em;
+    border: none;
+    background: #eee;
+    text-align: center;
+}
+ 
     </style>
 
     <!-- JAVASCRIPT -->
@@ -741,799 +857,262 @@
 
         <div class="page-content" style="background-color: #f5f3f4; padding: 0;">
             <div class="container-fluid">
-
-                    <!-- Page -->
-                    <!-- <div class="kotak" style="border-style:solid ;"> -->
-                    <!-- <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; ">
-                        <ol class="breadcrumb shadow-sm">
-                            <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV</a></li>
-                            <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
-                        </ol>
-                    </nav> -->
-
-                    <div class="row align-items-center">
-                        <!-- <div class="col-md-6">
-                            <div class="mb-3">
-                                <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Tambah CCTV</button>
-                            </div>
-                        </div> -->
-                        <div class="col-md-8">
-                            <div style="display: none;"> 
-                                <input hidden type="text" name="halaman" id="halaman" value="1"> 
-                                <nav aria-label="Page navigation example" style="padding-top: 11px;">
-                                    <ul class="pagination">
-                                        <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
-                                        <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
-                                        <li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
-                                    </ul>
-                                </nav> 
-                                <div class="form-floating mb-3" style="margin: 5px; width: 50%;"> 
-                                    <select class="form-select" name="kategoriFilter" style="height: 50px;">
-                                        <option selected value="">Pilih Kategori CCTV</option>
-                                        <option value="CCTV MAINROAD">CCTV MAINROAD</option>
-                                        <option value="CCTV GERBANG">CCTV GERBANG</option>
-                                        <option value="CCTV RAMP">CCTV RAMP</option>
-                                        <option value="CCTV ETHLE">CCTV ETHLE</option>
-                                        <option value="BALISATUDATA">BALI SATU DATA</option>
-                                        <option value="CCTV">CCTV</option> 
-                                    </select>
-                                    <label for="kategoriFilter">Filter CCTV</label>
-                                </div>
-                                <div class="form-floating mb-3" style="margin: 5px; width: 50%;">
-                                    <input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
-                                    <label for="searchFilter">Search</label>
-                                </div> 
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; margin-top: 5px; ">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV</a></li>
-                                    <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2" style="margin: 5px;">
-                                <div>
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv" data-bs-toggle="tooltip" data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="<?php echo base_url()?>masterdata/cctv/thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="<?php echo base_url()?>masterdata/cctv/fullscreen" data-bs-toggle="tooltip" data-bs-placement="top" title="FullScreen"><i class="bx bx bx-fullscreen"></i></a>
-                                        </li>
-                                    </ul>
-                                </div> 
-                            </div> 
-                        </div>
-
-                         
-
+   
+            <div id="thumbs">
+                <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+                <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+                <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+            </div>
+            <div id="layout-area">
+                <div id="choose-layout">
+                    <h3>Choose a layout</h3>
+                    <div id="layout-1">
+                        <div class="layout">1</div>
+                        <p>
+                            <input type="radio" value="target2" id="l1" />
+                        </p>
                     </div>
-                    <!-- end row --> 
-                    <aside class="col-sm-12 col-md-12"> 
-                        <div class="dropzone row" style="height: auto;margin: 0px;" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
-                         
-                        </div>
-                    </aside>
-                    <!-- <div class="row" id="listCCTV"></div> -->
-
-                    
-
-
-                    <!-- ADD Modals -->
-                    <div class="modal fade " id="addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary">
-                                    <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah CCTV</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="formAdd" method="post" enctype="multipart/form-data"> 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="type_cctv" placeholder="Type CCTV">
-                                                    <label for="type_cctv">Type CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="ip_cctv" placeholder="Alamat Ip">
-                                                    <label for="ip_cctv">Alamat IP</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="username" placeholder="isi nama samsat">
-                                                    <label for="username">Username</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="link_cctv" placeholder="isi nama samsat">
-                                                    <label for="link_cctv">Link CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="gateway_cctv" placeholder="isi nama samsat">
-                                                    <label for="gateway_cctv">Gateway CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="password" placeholder="isi nama samsat">
-                                                    <label for="password">Password</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-floating mb-3">
-                                                    <input name="address" class="form-control" placeholder="Alamat" type="text" required>
-                                                    <label for="address">Alamat</label>
-                                                </div> 
-                                                <div class="list-group" id="listAddress"></div>
-                                            </div> 
-                                            <div class="col-md-6" style="display: none;">
-                                                <div class="form-floating mb-3">
-                                                <input style="width: 100%;" name="cordinate" class="form-control" type="text">
-                                                    <label for="cordinate">Coordinate</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mt-3">
-                                                <div id="mapG20Dashboard" style="height: 400px">
-                                                    <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="layout-2">
+                        <div class="layout">2</div>
+                        <p>
+                            <input type="radio" value="target" id="l2" />
+                        </p>
                     </div>
-
-
-                    <!-- FullScreen Modals -->
-                    <div class="modal fade " id="fullModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
-                        <div class="modal-dialog modal-fullscreen">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary" id="judulModal">
-                                    
-                                </div>
-                                <div class="modal-body">
-                                    <div id="layarFull"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                <table id="target2">
+                    <tr>
+                        <td class="logo">
+                            <div class="img-container"></div>
+                        </td>
+                        <td class="text">
+                            <input type="text" id="title" value="Title" />
+                            <input type="text" id="sub-title" value="Subtitle" />
+                            <input type="text" id="evident" value="Title" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="half">
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                        <td class="half">
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="data">
+                            <input type="text" id="dati" value="Data" />
+                        </td>
+                    </tr>
+                </table>
+                <table id="target">
+                    <tr>
+                        <td class="header" colspan="3">
+                            <input type="text" id="name" value="Details" />
+                            <input type="text" id="data" value="Details" />
+                            <input type="text" id="speciality" value="Details" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                        <td>
+                            <div class="img-container"></div>
+                            <textarea class="caption"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                <button id="html">HTML</button>
+            </p>
+            <div id="output"></div>
+
+
+            <script>
+                var LayoutHandler = {
+    fn: {
+        start: function () {
+            $('div.img-container').each(function () {
+                var div = $(this);
+                $('<span class="remove"/>').text('X').appendTo(div);
+            });
+
+
+            $('img.thumb').draggable({
+                containment: '#layout-area',
+                revert: 'invalid',
+                helper: 'clone'
+            });
+
+            $('div.img-container').droppable({
+                accept: 'img.thumb',
+                drop: function (event, ui) {
+                    var div = $(this);
+                    var img = ui.draggable;
+                    var copy = img.clone();
+                    $(copy).addClass('sized').appendTo(div);
+                    div.addClass('img-inserted');
+                    $('span.remove', div).show();
+                }
+
+            });
+
+
+        },
+
+        remove: function () {
+            $('span.remove').on('click', function () {
+                var span = $(this);
+                span.parent().find('img').remove();
+                span.parent().removeClass('img-inserted');
+                span.hide();
+            });
+
+        },
+
+        oninput: function () {
+            $('input[type="text"]', '#layout-area').focus(function () {
+                $(this).val('');
+            });
+        },
+
+        chooseLayout: function () {
+            $('input[type="radio"]', '#choose-layout').change(function () {
+                var $input = $(this);
+                if ($input.prop('checked')) {
+                    var target = $('#' + $input.val());
+                    target.show().siblings('table').hide();
+                    $input.parents('#choose-layout').find('input').not($input).removeAttr('checked');
+                    $('#choose-layout').hide();
+                }
+            });
+
+        },
+
+        toHTML: function () {
+            $('#html').click(function () {
+                var html = '<table style="table-layout: fixed; width: 100%; border-spacing: 3%; border-collapse: separate;">';
+                if ($('#target').is(':visible')) {
+                    $('tr', '#target').each(function () {
+                        var tr = $(this);
+                        html += '<tr>';
+                        $('td', tr).each(function () {
+                            var td = $(this);
+                            if (!td.is('td.header')) {
+                                var img = $('img', td);
+                                var text = $('textarea', td).val();
+                                html += '<td style="width: 33%;">';
+                                html += (img.length) ? '<img src="' + img.attr('src') + '" style="display: block; max-width: 100%;" />' : '<div style="width: 100%;"></div>';
+                                html += '<p style="text-align: center;">' + text + '</p>';
+                                html += '</td>';
+                            } else {
+                                var name = $('#name', td).val();
+                                var data = $('#data', td).val();
+                                var speciality = $('#speciality', td).val();
+                                html += '<td colspan="3" style="width: 100%;">';
+                                html += '<h1 style="text-align: center;">' + name + '</h1>';
+                                html += '<p style="text-align: center;"><strong>' + data + '</strong></p>';
+                                html += '<p style="text-align: center;"><strong>' + speciality + '</strong></p>';
+                                html += '</td>';
+                            }
+                        });
+                        html += '</tr>';
+                    });
+                }
+                if ($('#target2').is(':visible')) {
+                    $('tr', '#target2').each(function () {
+                        var $tr = $(this);
+                        html += '<tr>';
+                        $('td', $tr).each(function () {
+                            var $td = $(this);
+                            if ($td.is('td.logo')) {
+                                var $img = $('img', $td);
+                                html += '<td style="width: 50%;">';
+                                html += ($img.length) ? '<img src="' + $img.attr('src') + '" style="display: block; margin: 0 auto; max-width: 100%;" />' : '<div style="width: 100%;"></div>';
+                                html += '</td>';
+                            }
+                            if ($td.is('td.text')) {
+                                var title = $('#title', $td).val();
+                                var subtitle = $('#sub-title', $td).val();
+                                var evident = $('#evident', $td).val();
+
+                                html += '<td style="width: 50%; text-align: center;">';
+                                html += '<h1>' + title + '</h1>';
+                                html += '<p><strong>' + subtitle + '</strong></p>';
+                                html += '<p><strong>' + evident + '</strong></p>';
+                                html += '</td>';
+                            }
+                            if ($td.is('td.half')) {
+                                var img = $('img', $td);
+                                var text = $('textarea', $td).val();
+                                html += '<td style="width: 50%;">';
+                                html += (img.length) ? '<img src="' + img.attr('src') + '" style="display: block; max-width: 100%;" />' : '<div style="width: 100%;"></div>';
+                                html += '<p style="text-align: center;">' + text + '</p>';
+                                html += '</td>';
+
+                            }
+
+                            if ($td.is('td.data')) {
+                                var $text = $('#dati').val();
+                                html += '<td colspan="2" style="width: 100%; text-align: center;">';
+                                html += '<p><strong>' + $text + '</strong></p>';
+                                html += '</td>';
+                            }
+
+                        });
+                        html += '</tr>';
+                    });
+
+                }
+                html += '</table>';
+                $('#output').html(html);
+                $('html, body').animate({
+                    scrollTop: $('#output').offset().top
+                }, 400);
+            });
+
+        }
+    },
+
+    init: function () {
+        for (var method in this.fn) {
+            this.fn[method]();
+        }
+
+    }
+};
+
+$(function () {
+    LayoutHandler.init();
+});
+            </script>
+
             </div>
         </div>
                     
-                    <script>
-                        let countlistCCTV = 0;
-                        $(document).ready(function() { 
-                            
-
-                            serverSideGetCCTV();  
-                            
-                            
-                            let listSideCCTV = ""; 
-                            let listCCTV = ""; 
-                            $('[name=kategoriFilter]').on("change", function (e) {
-                                countlistCCTV = 0;
-                                listCCTV = "";
-                                $('#listCCTV').html(listCCTV); 
-                                serverSideGetCCTV();
-                            });
-                            $('[name=searchFilter]').on("change", function (e) {
-                                countlistCCTV = 0;
-                                listCCTV = "";
-                                $('#listCCTV').html(listCCTV); 
-                                serverSideGetCCTV();
-                            });
-
-                            // if($('[name=halaman]').val() == 1){
-                            //     $("#backHalaman").addClass("disabled");
-                            // }
-                            $("#backHalaman").on("click", function (e) {
-                                var nilaiHalaman = parseFloat($('[name=halaman]').val()) - 1;
-                                if(nilaiHalaman < 1){
-                                    $("#backHalaman").addClass("disabled");
-                                }else{
-                                    $('[name=halaman]').val(nilaiHalaman);
-                                    serverSideGetCCTV()
-                                } 
-                            });
-                            $("#nextHalaman").on("click", function (e) {
-                                var nilaiHalaman = parseFloat($('[name=halaman]').val()) + 1;
-                                if(nilaiHalaman > 1){
-                                    $("#backHalaman").removeClass("disabled");
-                                    $('[name=halaman]').val(nilaiHalaman);
-                                    serverSideGetCCTV()
-                                }
-                            });
-
-
-
-
-                           
-
-                            function serverSideGetCCTV(){
-                                $("#overlay").fadeIn(300); 
-                                $.ajax({
-                                    type : "POST",
-                                    url : "<?php echo base_url();?>masterdata/cctv/getCCTVFullScreen", 
-                                    data : {
-                                        "kategoriFilter" : $('[name=kategoriFilter]').val(),
-                                        "searchFilter": $('[name=searchFilter]').val(),
-                                        "page": $('[name=halaman]').val(),
-                                    }, 
-                                    dataType : "JSON",
-                                    success : function(result){  
-                                        let ressData = result['data'];
-                                         
-                                        let ress = ressData.filter(function (e) {
-                                            return e.lat_cctv != null && e.lng_cctv != null;
-                                        });   
-                                        // console.log(result);
-
-                                        $("#overlay").fadeOut(300);
-                                        if(ress.length > 0){   
-                                            
-                                            // countlistCCTV = 0;
-                                            listSideCCTV = "";
-                                            // listCCTV = "";
-
-                                            // listCCTV += ` 
-                                            //     <aside class="col-sm-12 col-md-12"> 
-                                            //         <div class="dropzone" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"></div>
-                                            //     </aside>
-                                            // `;
-                                            // $('#listCCTV').html(listCCTV);  
-                                            
-                                            var ressMainRoad = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV MAINROAD";
-                                            }); 
-                                            var openMainRoad = false;
-                                            var countRoad;
-
-                                            var ressMainGerbang = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV GERBANG";
-                                            }); 
-                                            var openGerbang = false;
-                                            var countGerbang;
-
-                                            var ressMainRamp = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV RAMP";
-                                            }); 
-                                            var openRamp = false;
-                                            var countRamp;
-
-                                            var ressMainEthle = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV ETHLE";
-                                            }); 
-                                            var openEthle = false;
-                                            var countEthle;
-
-                                            var ressMainBali = ress.filter(function (e) {
-                                                return e.type_cctv == "BALISATUDATA";
-                                            }); 
-                                            var openBali = false;
-                                            var countBali;
-
-                                            var ressMainCctv = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV";
-                                            }); 
-                                            var openCctv = false;
-                                            var countCctv;
-
-                                            // console.log(ressMainRoad);
-                                            
-                                            if(ressMainRoad.length > 0){ 
-                                                if(openMainRoad == false){
-                                                    // $("#clickRoad").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistMainroad").html(`${ressMainRoad.length}`);
-                                                        ressMainRoad.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listMainroad").html(listSideCCTV); 
-                                                        });  
-                                                        openMainRoad = true;  
-                                                    // }); 
-                                                }
-                                            }else{
-                                                $("#tlistMainroad").html(`0`);
-                                            }
-
-                                            
-                                            if(ressMainGerbang.length > 0){
-                                                if(openGerbang == false){
-                                                    // $("#clickGerbang").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistGerbang").html(`${ressMainGerbang.length}`);
-                                                        ressMainGerbang.forEach(el => {
-                                                            console.log(countlistCCTV);
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listGerbang").html(listSideCCTV); 
-                                                        });  
-
-                                                         
-                                                        openGerbang = true;     
-                                                    // });  
-                                                }
-                                            }else{
-                                                $("#tlistGerbang").html(`0`);
-                                            }
-                                           
-                                            if(ressMainRamp.length > 0){
-                                                if(openRamp == false){
-                                                    // $("#clickRamp").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistRamp").html(`${ressMainRamp.length}`);
-                                                        ressMainRamp.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listRamp").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openRamp = true;
-                                                }
-                                            }else{
-                                                $("#tlistRamp").html(`0`);
-                                            }
-
-                                            if(ressMainEthle.length > 0){
-                                                if(openEthle == false){
-                                                    // $("#clickEthle").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistEthle").html(`${ressMainEthle.length}`);
-                                                        ressMainEthle.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listEthle").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openEthle = true;
-                                                }
-                                            }else{
-                                                $("#tlistEthle").html(`0`);
-                                            }
-
-                                            if(ressMainBali.length > 0){
-                                                if(openBali == false){
-                                                    // $("#clickBaliSatu").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistBaliSatu").html(`${ressMainBali.length}`);
-                                                        ressMainBali.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listBaliSatu").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openBali = true;
-                                                }
-                                            }else{
-                                                $("#tlistBaliSatu").html(`0`);
-                                            }
-
-                                            if(ressMainCctv.length > 0){
-                                                if(openCctv == false){
-                                                    // $("#clickCctv").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistCctv").html(`${ressMainCctv.length}`);
-                                                        ressMainCctv.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listCctv").html(listSideCCTV); 
-                                                        });     
-                                                    // });
-                                                    openCctv = true;
-                                                }
-                                            }else{
-                                                $("#tlistCctv").html(`0`);
-                                            }
-
-                                            
-                                            for (let i = 0; i < ress.length; i++){  
-                                                $(`#viewcctv${i+1}`).hide();
-                                                // console.log(`urutan ke ${i+1}`);
-
-                                                $(`#openFullscreen${i+1}`).on("click", function (event) { 
-                                                    var myIp = $(this).data('ip'); 
-                                                    var myLink = $(this).data('resource'); 
-                                                    var myType = $(this).data('type'); 
-                                                    var myAlamat = $(this).data('alamat');
-
-                                                    if(myIp == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                        resource = `<iframe id="myIframe" src="${myLink}" style="width: 100%; height: 100%;"></iframe>`;
-                                                    }else{
-                                                        resource = `<img style="width: 100%;" src="${myLink}" />`;
-                                                    }
-                                                    // console.log(myLink);
-                                                    $("#fullModal").modal('show');
-                                                    $("#layarFull").html(`${resource}`);
-                                                    $("#judulModal").html(`
-                                                        <h5 class="modal-title" id="myLargeModalLabel1" style="color:white">${myType} - ${myAlamat}</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    `);
-                                                    
-                                                });
-                                            }
-                                            
-                                            $('#fullModal').on('shown.bs.modal', function(event) {
-                                                
-                                                // alert('oke');
-                                                // $("#fullModal").modal('hide');
-                                            });
-                                            
-                                        }else{
-                                            listCCTV = "";
-                                            $('#listCCTV').html(listCCTV); 
-                                        }
-                                    }
-                                });
-                            } 
-
-
-                            
-                            
-
-
-                            $('[name=cordinate]').val('-8.451740, 115.089643');
-                            var initialCenter = [-8.451740, 115.089643];
-                            var initialZoom = 9.65;
-                            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-
-                            // StART MAP SECTION
-                            var mapContainer = L.map('mapG20Dashboard', {
-                                maxZoom: 20,
-                                minZoom: 1,
-                                zoomSnap: 0.25,
-                                zoomControl: false,
-                                layers: [googleStreet]
-                            }).setView(initialCenter, initialZoom);
-                    
-                            var baseMaps = {
-                                "Google Map Street": googleStreet,
-                                "Google Map Satelite": googleSatelite,
-                                "Google Map Hybrid": googleHybrid,
-                                "Google Map Terrain": googleTerrain,
-                            };
-                            var overlayMaps = {};
-                            L.control.layers(baseMaps, overlayMaps, {
-                                position: 'topright'
-                            }).addTo(mapContainer);
-                            L.control.zoom({
-                                position: 'bottomleft'
-                            }).addTo(mapContainer);
-
-                            $('#addModal').on('shown.bs.modal', function() { 
-                                mapContainer.invalidateSize();
-
-                                let countlist = 0;
-                                let list = ""; 
-                                $('[name=address]').on("change", function (e) {
-                                    // console.log(this.value);
-                                    $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                                        console.log(ress);  
-                                        countlist = 0;
-                                        list = "";
-                                        ress.forEach(el => {
-                                            countlist += 1;
-                                            list += `<a class="list-group-item" 
-                                            id="list${countlist}"   
-                                            data-alamat="${el.display_name}"
-                                            data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                                            $('#listAddress').html(list); 
-                                        });  
-
-                                        if(list == ""){
-                                            countlist = 0;
-                                            list = "";
-                                            $('#listAddress').html(list); 
-                                        }
-
-                                        
-                                        for (let i = 0; i < ress.length; i++){ 
-                                            $(`#list${i+1}`).click(function(){  
-                                                var latlong =  $(this).data('cords').split(',');
-                                                var latitude = parseFloat(latlong[0]);
-                                                var longitude = parseFloat(latlong[1]); 
-
-                                                // console.log({a:latitude, b:longitude});
-                                                $('[name=address]').val($(this).data('alamat'));
-                                                $('[name=cordinate]').val($(this).data('cords'));
-                                                mapContainer.flyTo([latitude, longitude], 17);    
-                                            });
-                                        }
-                                    });
-
-                                });
-
-
-                                $('[name=cordinate]').on("change", function (e) {
-
-                                    var cordLatLong =  this.value.split(','); 
-                                    var cordLat = parseFloat(cordLatLong[0]); 
-                                    var corLong = parseFloat(cordLatLong[1]); 
-
-                                    // console.log({a:cordLat, b:corLong});
-
-                                    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                                        $('[name=address]').val(data['display_name']); 
-                                        mapContainer.flyTo([cordLat, corLong], 17);  
-                                    }); 
-                                });
-
-
-                                mapContainer.on("dragend", function (e) {
-
-                                    var corLat = mapContainer.getCenter()['lat'];
-                                    var corLng = mapContainer.getCenter()['lng'];
-                                    var cord = `${corLat},${corLng}`;
-                                    $('[name=cordinate]').val(cord);
-
-                                    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
-
-                                        $('[name=address]').val(data['display_name']); 
-
-                                    }); 
-
-                                }); 
-
-
-                            }); 
-
-                            $(".formAdd").submit(function(e) {
-                                $("#overlay").fadeIn(300);
-                                e.preventDefault(); 
-                                var formData = new FormData($('.formAdd')[0]); 
-                                $.ajax({
-                                    url: "<?php echo base_url();?>masterdata/cctv/store",
-                                    method: "POST",
-                                    data: formData,
-                                    dataType: 'JSON',
-                                    contentType: false,
-                                    processData: false,  
-                                    success: function (data) {
-                                        $("#overlay").fadeOut(300);
-                                        if(data['status'] == true){
-                                            Swal.fire(
-                                            `${data['message']}`, 
-                                            '',
-                                            'success'
-                                            ).then(function() { 
-                                                $("#addModal").modal('hide');
-                                                // userDataTable.draw(); 
-                                            }); 
-                                        }else{
-                                            Swal.fire(
-                                            `${data['message']}`, 
-                                            '',
-                                            'error'
-                                            ).then(function() { 
-                                            });
-                                        } 
-                                    }
-                                }); 
-                            });
-
-                        });
-
-
-                        var clone;
-                        var cloneId;
-
-                        var ipcctv;
-                        var linkcctv;
-                        var nourut;
-  
-                        function dragStart(ev, ipcctv, linkcctv, nourut) {  
-                            ev.dataTransfer.effectsAllowed = "copy";
-                            ev.dataTransfer.setData("text", ev.target.getAttribute("id"));
-                            ev.dataTransfer.setDragImage(ev.target, 0, 0);
-
-                            // console.log(nourut);
-                            $(`#viewcctv${nourut}`).show();
-                            $(`#idsidemenu${nourut}`).addClass("col-md-6");
-
-                            clone = ev.target.cloneNode(true);
-                            cloneId = ev.target.getAttribute("id");
-                            clone.className += " " + "selected";
-                            ev.target.parentNode.appendChild(clone);
-
-                            return true;
-                        }
-
-                        function dragEnter(ev) {
-                        event.preventDefault();
-                            return true;
-                        }
-
-                        function dragOver(ev) {
-                            return false;
-                        }
-
-                        function dragDrop(ev) {   
-                            // console.log(document.getElementById("viewcctv"));  
-
-                            // ev.target.appendChild(document.getElementById("viewcctv"))
-
-                            var src = ev.dataTransfer.getData("text");
-                            clone.className += " " + "cloned";
-                            clone.id = cloneId + "_cloned";
-                            ev.target.appendChild(document.getElementById(src));
-                            document.getElementById(src).removeAttribute("draggable");
-                            ev.stopPropagation(); 
-                            return false;
-                        }
-
-
-
-                        $('.detailRow').on('click', function() {
-                            $('#detailModal').modal('show')
-                            $('.modal-title').text('Detail CCTV')
-                            $('[name="nama"]').val($(this).data('nama'))
-                            $('[name="alamat"]').val($(this).data('ip'))
-                            $('[name="provinsi"]').val($(this).data('provinsi'))
-                            $('[name="kota"]').val($(this).data('kota'))
-                            $('[name="latitude"]').val($(this).data('lat'))
-                            $('[name="longitude"]').val($(this).data('long'))
-                            $('[name="username"]').val($(this).data('username'))
-                            $('[name="password"]').val($(this).data('password'))
-                            $('#submit_edit').hide()
-                        })
-
-                        $('.editRow').on('click', function() {
-                            $('.modal-title').text('Ubah Akun')
-                            $('#detailModal').modal('show')
-                            $('[name="nama_akun"]').val($(this).data('akun'))
-                            $('[name="password"]').val($(this).data('password'))
-                            $('[name="tingkat"]').val($(this).data('tingkat'))
-                            $('[name="akses"]').val($(this).data('akses'))
-                            $('#submit_edit').show()
-                        })
-
-                        function hapus() {
-                            Swal.fire({
-                                title: '',
-                                text: "Apakah anda ingin menghapus data ini ?",
-                                icon: 'question',
-                                iconColor: '#ED171D',
-                                showCancelButton: true,
-                                cancelButtonColor: '#003A91',
-                                confirmButtonColor: '#ED171D',
-                                confirmButtonText: 'Hapus',
-                                cancelButtonText: 'Batal',
-                                reverseButtons: true
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
-                                }
-                            })
-                        }
-                    </script>
+               
 
 
  

@@ -449,6 +449,51 @@
             /* color: red; */
             content: "\f506";
         }
+
+
+        .cat{
+        margin: 4px;
+        background-color: white;
+        border-radius: 50rem !important;
+        border: 1px solid #fff;
+        overflow: hidden;
+        float: left;
+        }
+
+        .cat label {
+        float: left; line-height: 1.7em;
+        width: auto; height: 1.5em; 
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        }
+
+        .cat label span {
+        text-align: center;
+        padding: 3px 0;
+        display: block;
+        font-size: 13px;
+        }
+
+        .cat label input {
+        position: absolute;
+        display: none;
+        color: #000 !important;
+        }
+        /* selects all of the text within the input element and changes the color of the text */
+        .cat label input + span{color: #000;}
+
+
+        /* This will declare how a selected input will look giving generic properties */
+        .cat input:checked + span {
+            color: #1967d2;
+            /* text-shadow: 0 0  6px rgba(0, 0, 0, 0.8); */
+        }
+
+        .fasumDisplay input:checked + .cat{background-color: #e8f0fe;} 
+        .hotelDisplay input:checked + .cat{background-color: #e8f0fe;} 
+        .turjawaliDisplay input:checked + .cat{background-color: #e8f0fe;} 
+        .kegiatanDisplay input:checked + .cat{background-color: #e8f0fe;} 
     </style>
 
     <!-- JAVASCRIPT -->
@@ -1260,32 +1305,32 @@
             // Request for permission
             messaging.requestPermission()
                 .then(function() {
-                    console.log('Notification permission granted.');
+                    // console.log('Notification permission granted.');
                     // TODO(developer): Retrieve an Instance ID token for use with FCM.
                     messaging.getToken()
                 .then(function(currentToken) {
                     if (currentToken) {
-                    console.log('Token: ' + currentToken)
+                    // console.log('Token: ' + currentToken)
                     sendTokenToServer(currentToken);
                     } else {
-                    console.log('No Instance ID token available. Request permission to generate one.');
+                    // console.log('No Instance ID token available. Request permission to generate one.');
                     setTokenSentToServer(false);
                     }
                 })
                 .catch(function(err) {
-                    console.log('An error occurred while retrieving token. ', err);
+                    // console.log('An error occurred while retrieving token. ', err);
                     setTokenSentToServer(false);
                 });
             })
             .catch(function(err) {
-                console.log('Unable to get permission to notify.', err);
+                // console.log('Unable to get permission to notify.', err);
             });
         });
 
  
         // Handle incoming messages
         messaging.onMessage(function(payload) {
-            console.log("Notification received: ", payload);
+            // console.log("Notification received: ", payload);
             // toastr["info"](payload.notification.body, payload.notification.title);
         });
 
@@ -1293,7 +1338,7 @@
         messaging.onTokenRefresh(function() {
             messaging.getToken()
             .then(function(refreshedToken) {
-                console.log('Token refreshed.');
+                // console.log('Token refreshed.');
                 // Indicate that the new Instance ID token has not yet been sent 
                 // to the app server.
                 setTokenSentToServer(false);
@@ -1301,7 +1346,7 @@
                 sendTokenToServer(refreshedToken);
             })
             .catch(function(err) {
-                console.log('Unable to retrieve refreshed token ', err);
+                // console.log('Unable to retrieve refreshed token ', err);
             });
         });
 
@@ -1310,11 +1355,11 @@
         // - subscribe/unsubscribe the token from topics
         function sendTokenToServer(currentToken) {
             if (!isTokenSentToServer()) {
-                console.log('Sending token to server...');
+                // console.log('Sending token to server...');
                 // TODO(developer): Send the current token to your server.
                 setTokenSentToServer(true);
             } else {
-                console.log('Token already sent to server so won\'t send it again ' +
+                // console.log('Token already sent to server so won\'t send it again ' +
                     'unless it changes');
             }
         }
