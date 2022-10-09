@@ -9,7 +9,17 @@ class Link_pengecekan_etle extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Link Pengecekan Status ETLE | K3I Korlantas";  
+		$title = "Link Pengecekan Status ETLE | K3I Korlantas";
+		$breadcrumb = "pengecekan status etle";
+		$headline = "LINK KE PENGECEKAN STATUS ETLE";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','lain_lain/link_pengecekan_etle', $data); 
         
 	}

@@ -139,7 +139,7 @@ class M_berita extends CI_Model {
             $row ['title']			= $field['title'];  
             $row ['content']   		= $field['content'];
             $row ['author']  	 	= $field['author'];  
-            $row ['date']   	= $field['date'];  
+            $row ['date']   		= $field['date'];  
             $row ['action']         = ' 
                 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">

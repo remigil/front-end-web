@@ -9,7 +9,17 @@ class Ditkamsel_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Direktorat Keamanan dan Keselamatan | K3I Korlantas";  
+		$title = "Direktorat Keamanan dan Keselamatan | K3I Korlantas";
+		$breadcrumb = "ditkamsel";
+		$headline = "DIREKTORAT KEAMANAN DAN KESELAMATAN";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/ditkamsel', $data); 
         
 	}

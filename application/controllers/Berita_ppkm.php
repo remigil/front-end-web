@@ -9,7 +9,17 @@ class Berita_ppkm extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita PPKM | K3I Korlantas";  
+		$title = "Berita PPKM | K3I Korlantas";
+		$breadcrumb = "berita ppkm";
+		$headline = "BERITA PPKM";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_ppkm', $data); 
         
 	}

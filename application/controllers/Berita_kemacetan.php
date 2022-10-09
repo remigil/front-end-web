@@ -9,7 +9,17 @@ class Berita_kemacetan extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita Kemacetan Lalu Lintas | K3I Korlantas";  
+		$title = "Berita Kemacetan Lalu Lintas | K3I Korlantas";
+		$breadcrumb = "berita kemacetan";
+		$headline = "BERITA KEMACETAN LALU LINTAS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_kemacetan', $data); 
         
 	}

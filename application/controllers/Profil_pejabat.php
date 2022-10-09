@@ -9,7 +9,17 @@ class Profil_pejabat extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Profil Pejabat | K3I Korlantas";  
+		$title = "Profil Pejabat | K3I Korlantas";
+		$breadcrumb = "Profil Pejabat";
+		$headline = "PROFIL PEJABAT";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','profil/profil_pejabat', $data); 
         
 	}

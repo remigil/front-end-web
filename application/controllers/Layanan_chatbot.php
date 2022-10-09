@@ -9,7 +9,17 @@ class Layanan_chatbot extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Layanan Chatbot | K3I Korlantas";  
+		$title = "Layanan Chatbot | K3I Korlantas";
+		$breadcrumb = "chatbot";
+		$headline = "LAYANAN CHATBOT";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','kontak/layanan_chatbot', $data); 
         
 	}

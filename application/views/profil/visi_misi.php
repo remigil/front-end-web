@@ -1,39 +1,27 @@
-<!-- Slider
-================================================== -->
+<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-<!-- Revolution Slider -->
-<div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-
-<!-- 5.0.7 auto mode -->
-	<div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
-		<ul>
-
-			<!-- Slide  -->
-			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/hero.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-				<!-- Caption-->
-				
-			</li>
-
-			<!-- Slide  -->
-			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/SLIDER_2.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
-
-				<!-- Caption-->
-
-			</li>
-
-		</ul>
-		<div class="tp-static-layers"></div>
-
-	</div>
 </div>
-<!-- Revolution Slider / End -->
+<!-- ======= Breadcrumbs ======= -->
+    <div class="pagebreadcrumbs">
+    	<div class="d-flex align-items-center">
+        <div class="container position-relative">
+        	<div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+            	<h2><?= $headline?></h2>
+            	
+            </div>
+        	</div>
+        </div>
+    	</div>
+    	<nav>
+        <div class="container" >
+        	<ol style="list-style: none;">
+            <li><a href="<?= base_url()?>home">Home</a></li>
+            <li><?= $breadcrumb?></li>
+        	</ol>
+        </div>
+    	</nav>
+    </div><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -41,22 +29,37 @@
 
 <!-- Container -->
 <div class="container margin-top-30">
+	
 	<div class="row">
-
-        <div class="col-md-6">
-			<h3 class="headline centered margin-bottom-35 margin-top-50">Sambutan</h3>
+		<div class="col-md-12">
+			<div class="text-center mb-5">
+				<h4 class="mb-5" style="color: #003A91;">Visi & Misi Korlantas Polri</h4>
+				<img src="<?= base_url()?>assets/fe/presisi.jpg" alt="">
+				<p class="mt-5" style="color: #003A91;"><b>Polantas siap mendukung transformasi menuju Polri yang PRESISI ( Prediktif –  Responsibilitas – Transparansi Berkeadilan )</b></p>
+			</div>
 		</div>
-        <div class="col-md-6">
-			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
+		<div class="col-md-6">
+			<h4 class="text-center">Visi Korlantas Polri</h4>
+			<p class="text-break" style="text-align:justify ;">
+			Polisi Lalu Lintas (Polantas) Indonesia adalah mewujudkan pelayanan kamseltibcarlantas yang prima dan unggul melalui penegakan hukum yang tegas, adil, dan humanis; dalam rangka meningkatkan kesadaran dan kepatuhan berlalu lintas, serta terjalinnya sinergi polisional yang proaktif, dalam rangka memantapkan situasi keamanan dalam negeri.
+			</p>
 		</div>
-
-		
-		  
-        
-        
+		<div class="col-md-6">
+			<h4 class="text-center">Misi korlantas Polri</h4>
+			<p class="text-break">
+				<ol style="text-align:justify ;">
+					<li>Memelihara dan mewujudkan pelayanan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas yang prima dan unggul secara cepat, tepat, efisien, transparan dan akuntabel.</li>
+					<li>Menjaga keamanan, ketertiban, dan kelancaran lalu lintas dalam rangka menangkal dan mencegah potensi gangguan keamanan di jalan, serta menjamin keselamatan dan kelancaran arus lalu lintas orang dan barang.</li>
+					<li>Melaksanakan penegakan hukum secara profesional, objektif, proposional, dan efektif di bidang lalu lintas; serta memberikan perlindungan, pengayoman dan pelayanan secara mudah, transparan, akuntabel, dan tidak diskriminatif, dalam rangka menjamin kepastian hukum dan rasa keadilan.</li>
+					<li>Mengembangkan sinergitas polisional yang proaktif berbasis pada masyarakat patuh dan sadar hukum.</li>
+					<li>Menjamin keberhasilan penanggulangan permasalahan lalu lintas guna meningkatkan laju pertumbuhan ekonomi dan stabilitas keamanan dalam negeri.</li>
+					<li>Mengelola secara profesional, transparan, akuntabel, dan modern seluruh sumber daya Polantas guna mendukung tugas Polri.</li>
+					<li>Mewujudkan budaya tertib lalu lintas dengan terus melaksanakan kampanye pelopor keselamatan berlalu lintas.</li>
+					<li>Mengembangkan sarana dan prasarana di bidang lalu lintas sesuai tuntutan dan harapan masyakarat, serta optimalisasi pusat kendali sistem informasi dan komunikasi lalu lintas angkutan jalan dalam rangka menjamin pelayanan keamanan, keselamatan, ketertiban dan kelancaran berlalu lintas kepada masyarakat.</li>
+				</ol>
+			</p>
+		</div>
 	</div>
-
-    
 
 </div>
 <!-- Container / End -->

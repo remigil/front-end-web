@@ -9,7 +9,17 @@ class Kegiatan_khusus extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Kegiatan Khusus | K3I Korlantas";  
+		$title = "Kegiatan Khusus | K3I Korlantas";
+		$breadcrumb = "kegiatan khusus";
+		$headline = "KEGIATAN KHUSUS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','publikasi/kegiatan_khusus', $data); 
         
 	}

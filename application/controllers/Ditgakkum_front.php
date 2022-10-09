@@ -9,7 +9,17 @@ class Ditgakkum_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Direktorat Penegak Hukum | K3I Korlantas";  
+		$title = "Direktorat Penegak Hukum | K3I Korlantas";
+		$breadcrumb = "ditgakkum";
+		$headline = "DIREKTORAT PENEGAK HUKUM";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/ditgakkum', $data); 
         
 	}

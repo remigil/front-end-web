@@ -78,7 +78,7 @@ class Berita extends MY_Controller
 				],
 				[
                     'name' => 'date',
-                    'contents' => date('Y-m-d'),
+                    'contents' => $input['date'],
 				],
             ];
         } else {
@@ -101,7 +101,7 @@ class Berita extends MY_Controller
 				],
 				[
                     'name' => 'date',
-                    'contents' => date('Y-m-d'),
+                    'contents' => $input['date'],
 				],
 
             ];
@@ -210,6 +210,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
+				[
+                    'name' => 'date',
+                    'contents' => $input['date'],
+				],
 
                 [
                     'name' => 'picture',
@@ -235,6 +239,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
+				[
+                    'name' => 'date',
+                    'contents' => $input['date'],
+				],
 
             ];
         }
@@ -351,6 +359,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
+				[
+                    'name' => 'date',
+                    'contents' => $input['date'],
+				],
                 
                 [
                     'name' => 'picture',
@@ -376,6 +388,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
+				[
+                    'name' => 'date',
+                    'contents' => $input['date'],
+				],
 				
             ];
         }

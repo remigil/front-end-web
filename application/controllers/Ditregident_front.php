@@ -9,7 +9,17 @@ class Ditregident_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Direktorat Registrasi dan Identifikasi | K3I Korlantas";  
+		$title = "Direktorat Registrasi dan Identifikasi | K3I Korlantas";
+		$breadcrumb = "ditregident";
+		$headline = "DIREKTORAT REGISTRASI DAN IDENTIFIKASI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/ditregident', $data); 
         
 	}

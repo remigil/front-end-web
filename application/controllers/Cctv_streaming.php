@@ -9,7 +9,17 @@ class Cctv_streaming extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "CCTV Streaming | K3I Korlantas";  
+		$title = "CCTV Streaming | K3I Korlantas";
+		$breadcrumb = "cctv";
+		$headline = "CCTV STREAMING";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','lain_lain/cctv_streaming', $data); 
         
 	}

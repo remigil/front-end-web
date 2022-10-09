@@ -9,7 +9,17 @@ class Berita_kontijensi extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita Kontijensi | K3I Korlantas";  
+		$title = "Berita Kontijensi | K3I Korlantas";
+		$breadcrumb = "berita kontijensi";
+		$headline = "BERITA KONTIJENSI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_kontijensi', $data); 
         
 	}
