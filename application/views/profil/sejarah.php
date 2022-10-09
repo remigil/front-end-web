@@ -31,11 +31,11 @@
 <div class="container margin-top-30">
 	
 <!-- Tabs Navigation -->
-<ul class="tabs-nav">
+	<ul class="tabs-nav">
 			<li class="active"><a href="#tab1b">SEJARAH POLISI LALU LINTAS</a></li>
 			<li><a href="#tab2b">POLANTAS ERA DIGITAL</a></li>
 			<li><a href="#tab3b">ORGANISASI KORLANTAS</a></li>
-			<li><a href="#tab4b">ORGANISASI DAN TATA KERJA</a></li>
+			<!-- <li><a href="#tab4b">ORGANISASI DAN TATA KERJA</a></li> -->
 	</ul>
 
 	<!-- Tabs Content -->
@@ -45,7 +45,7 @@
 		<div class="tab-content" id="tab1b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/-oSayE-k548" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<hr>
 						<h4 class="mt-5 mb-5 text-center" style="color: #003A91;"><b>I. Sejarah Polisi Lalu Lintas</b></h4>
 				</div>
@@ -242,7 +242,7 @@
 		<div class="tab-content" id="tab2b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<!-- <iframe width="100%" height="450" src="https://www.youtube.com/embed/-oSayE-k548" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
 				</div>
 				<div class="col-md-12">
@@ -277,16 +277,19 @@
 		<div class="tab-content" id="tab3b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<!-- <iframe width="100%" height="450" src="https://www.youtube.com/embed/-oSayE-k548" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
 				</div>
 				<div class="col-md-12">
 					<h4 class="mt-3 mb-3 text-center" style="color: #003A91;"><b>ORGANISASI POLISI LALU LINTAS (KORLANTAS POLRI)</b></h4>
 					
-					<hr>
-					<h5 class="mt-5"><b>VISI DAN MISI POLISI LALU LINTAS</b></h5>
-					<div class="row">
-						<div class="col-md-6">
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="mt-5"><b>VISI DAN MISI POLISI LALU LINTAS</b></h5>
+						<hr>
+					</div>
+					<div class="col-md-6">
 							<h5><b>Visi</b></h5>
 							<p style="text-align: justify;">Visi Polisi Lalu Lintas adalah menjamin tegaknya hukum di jalan yang bercirikan Perlindungan, Pengayoman, Pelayanan Masyarakat yang demokratis sehingga terwujud keamanan, ketertiban dan kelancaran lalu lintas.</p>
 						</div>
@@ -296,9 +299,11 @@
 						</div>
 					</div>
 					
-					<hr>
-					<h5 class="mt-5"><b>KEBIJAKSANAAN DAN STRATEGI POLISI LALU LINTAS</b></h5>
 					<div class="row">
+						<div class="col-md-12">
+							<h5 class="mt-5"><b>KEBIJAKSANAAN DAN STRATEGI POLISI LALU LINTAS</b></h5>
+							<hr>
+						</div>
 						<div class="col-md-6">
 							<h5><b>Kebijaksanaan</b></h5>
 							<p style="text-align: justify;">Terwujudnya Polisi Lalu Lintas yang melindungi, mengayomi dan melayani masyarakat yang demokratis dalam rangka keamanan, ketertiban dan kelancaran lalu lintas serta registrasi dan identifikasi kendaraan bermotor.</p>
@@ -314,54 +319,725 @@
 							
 						</div>
 					</div>
-
-					<hr>
-					<h5 class="mt-5"><b>STRUKTUR ORGANISASI POLISI LALU LINTAS</b></h5>
-					<p style="text-align: justify;">Dalam rangka memberikan Perlindungan, Pengayoman dan Pelayanan kepada masyarakat di bidang lalu lintas, maka penyusunan organisasi Polisi Lalu Lintas disusun berdasarkan Peraturan Kapolri Nomor 6 Tahun 2017 Tanggal 6 April 2017 tentang Susunan Organisasi dan Tata Kerja Satuan Organisasi pada Tingkat Markas Besar Kepolisian Negara Republik Indonesia dan Peraturan Kapolri Nomor 14 Tahun 2018 Tanggal 6 April 2017 tentang Susunan Organisasi dan Tata Kerja Kepolisian Daerah (Tingkat Polda). Berikut Organisasi dan Tata Kerja KORLANTAS POLRI, saat ini:</p>
 					
-					
-				</div>
+					<div class="col-md-12">
+						<h5 class="mt-5"><b>STRUKTUR ORGANISASI POLISI LALU LINTAS</b></h5>
+						<hr>
+						<p style="text-align: justify;">Dalam rangka memberikan Perlindungan, Pengayoman dan Pelayanan kepada masyarakat di bidang lalu lintas, maka penyusunan organisasi Polisi Lalu Lintas disusun berdasarkan Peraturan Kapolri Nomor 6 Tahun 2017 Tanggal 6 April 2017 tentang Susunan Organisasi dan Tata Kerja Satuan Organisasi pada Tingkat Markas Besar Kepolisian Negara Republik Indonesia dan Peraturan Kapolri Nomor 14 Tahun 2018 Tanggal 6 April 2017 tentang Susunan Organisasi dan Tata Kerja Kepolisian Daerah (Tingkat Polda). Berikut Organisasi dan Tata Kerja KORLANTAS POLRI, saat ini:</p>
+						<h5><b>Kedudukan, Tugas dan Fungsi</b></h5>
+						<ul style="text-align:justify;">
+							<li>Korlantas Polri merupakan unsur pelaksana tugas pokok yang berada di bawah Kapolri;</li>
+							<li>
+								Korlantas Polri bertugas :
+								<ol>
+									<li>membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya;</li>
+									<li>melaksanakan penertiban lalu lintas, manajemen operasional dan rekayasa lalu lintas (engineering);</li>
+									<li>menyelenggarakan pusat Komunikasi, Koordinasi, Kendali dan Informasi (K3I) tentang lalu lintas;</li>
+									<li>mengkoordinasikan pemangku kepentingan yang berkaitan dengan penyelenggaraan lalu lintas;</li>
+									<li>memberikan rekomendasi dampak lalu lintas; dan</li>
+									<li>melaksanakan koordinasi dan/atau pengawasan PPNS bidang lalu lintas;</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Korlantas Polri menyelenggarakan fungsi:
+								<ol>
+									<li>penyusunan kebijakan strategis yang berkaitan dengan peran dan fungsi Polisi lalu lintas, perumusan dan/atau pengembangan sistem dan metode termasuk petunjuk pelaksanaan fungsi lalu lintas, membangun kemitraan dan kerja sama baik dalam maupun luar negeri, serta menyelenggarakan koordinasi dengan pemangku kepentingan lainnya di bidang lalu lintas;</li>
+									<li>pelaksanaan manajemen operasional lalu lintas yang meliputi kegiatan memelihara dan mewujudkan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas di jalan raya, jalan tol, serta jalan-jalan luar kota sebagai penghubung (linking ping) antarkesatuan lalu lintas melalui kegiatan pengaturan, penjagaan, pengawalan, patroli, TPTKP, Quick Respon Time, dan menjadi jejaring National Traffic Management Centre (NTMC);</li>
+									<li>pengembangan sistem dan metode termasuk petunjuk pelaksanaan teknis penegakan hukum yang meliputi kegiatan penindakan terhadap pelanggaran aturan lalu lintas, penanganan kecelakaan lalu lintas, penyidikan kecelakaan lalu lintas, serta koordinasi dan pengawasan PPNS;</li>
+									<li>pendidikan masyarakat dalam berlalu lintas, melalui kegiatan sosialisasi, penanaman nilai, membangun kesadaran, kepekaan, kepedulian akan tertib lalu lintas, serta pendidikan berlalu lintas secara formal dan informal;</li>
+									<li>pembinaan teknis dan administrasi registrasi serta identifikasi pengemudi dan kendaraan bermotor yang meliputi kegiatan pengecekan administrasi dan fisik kendaraan serta pengujian kompetensi pengemudi untuk menjamin keabsahan dokumen kendaraan bermotor dan sarana kontrol dalam rangka penegakan hukum maupun untuk kepentingan forensik kepolisian;</li>
+									<li>pengkajian bidang lalu lintas yang meliputi kegiatan keamanan dan keselamatan lalu lintas, pemetaan, inventarisasi, identifikasi wilayah, masalah maupun potensi-potensi yang berkaitan dengan lalu lintas dalam sistem pencatatan dan pendataan, baik untuk kepentingan internal maupun eksternal kepolisian, serta perumusan rekomendasi dampak lalu lintas; dan</li>
+									<li>pelaksanaan operasional NTMC, yang meliputi kegiatan pengumpulan, pengolahan dan penyajian data lalu lintas, sebagai pusat kendali, koordinasi, komunikasi, dan informasi, pengembangan sistem dan teknologi informasi dan komunikasi lalu lintas, serta pelayanan informasi lalu lintas yang menyangkut pelanggaran dan kecelakaan lalu lintas dengan lingkup data jajaran Polri;</li>
+								</ol>
+							</li>
+						</ul>
 
-				
-				
+					</div>
+					
+					<div class="col-md-12">
+						<h5 class="mt-5"><b>PEMBAGIAN TUGAS DAN TANGGUNGJAWAB</b></h5>
+						<hr>
+						<h5><b>Unsur Pimpinan</b></h5>
+						<ol style="text-align: justify;">
+							<li>Kakorlantas Polri merupakan unsur pimpinan pada Korlantas Polri yang berkedudukan di bawah dan bertanggung jawab kepada Kapolri dan dalam melaksanakan tugas sehari-hari berada di bawah kendali Wakapolri;</li>
+							<li>Kakorlantas Polri bertugas memimpin, membina, mengawasi, dan mengendalikan Korlantas Polri untuk menyelenggarakan fungsi kepolisian dalam menangani lalu lintas yang meliputi analisis, manajerial ataupun personal, memberdayakan potensi dan sumber daya yang ada, membangun dan mengembangkan inovasi dan kreativitas para petugas Polisi Lalu Lintas (Polantas), serta kemitraan baik tingkat nasional maupun internasional;</li>
+						</ol>
+						<h5 class="mt-5"><b>Unsur Pembantu Pimpinan dan Pelaksana Staf</b></h5>
+
+						<!-- bagopsnal -->
+						<h5 class="mt-5"><b>Bagopsnal</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Bagopsnal merupakan unsur pembantu pimpinan dan pelaksana staf yang berada di bawah Kakorlantas Polri;</li>
+							<li>
+								Bagopsnal bertugas :
+								<ol>
+									<li>merencanakan, mengorganisasikan, mengkoordinir, mengawasi, dan mengendalikan pelaksanaan operasional Korlantas dalam rangka untuk memelihara dan mewujudkan Kamseltibcarlantas;</li>
+									<li>meningkatkan kualitas keselamatan Lalu Lintas dan Angkutan Jalan;</li>
+									<li>menurunkan tingkat fatalitas korban kecelakaan lalu lintas;</li>
+									<li>membangun budaya tertib lalu lintas; dan</li>
+									<li>meningkatkan kualitas pelayanan publik.</li>
+								</ol>
+								<li>
+									Dalam melaksanakan tugas, Bagopsnal menyelenggarakan fungsi:
+									<ol>
+										<li>pelaksanaan koordinasi dan penyelenggaraan kegiatan rutin yang dilaksanakan berdasarkan pada intel dasar, kalender Kamtibmas, rencana kegiatan dan program kegiatan Korlantas;</li>
+										<li>pelaksanaan koordinasi dan penyelenggaraan kegiatan rutin dan operasi kepolisian yang dilaksanakan untuk menghadapi masalah yang berkaitan dengan kegiatan kemasyarakatan, pemerintahan, politik, protokoler kenegaraan;</li>
+										<li>pelaksanaan kerja sama dengan pemangku kepentingan baik dalam maupun luar negeri dalam bidang lalu lintas;</li>
+										<li>pengkajian serta anev tentang berbagai permasalahan lalu lintas;</li>
+									</ol>
+								</li>
+								<li>
+									Dalam melaksanakan tugas, Bagopsnal dibantu oleh :
+									<div class="row">
+										<div class="col-md-6">
+
+										<!-- SUBBAGKERMA -->
+											<h6><b>SUBBAGKERMA, yang bertugas:</b></h6>
+											<hr>
+											<ol>
+												<li>menyelenggarakan kerja sama dengan pemangku kepentingan lainnya di dalam negeri yang berkaitan dengan upaya meningkatkan kualitas kinerja dalam mewujudkan dan memelihara keamanan, keselamatan, ketertiban dan kelancaran lalu lintas (Kamseltibcarlantas);</li>
+												<li>menyelenggarakan kerja sama luar negeri yang berkaitan dengan upaya meningkatkan kualitas kinerja dalam mewujudkan Kamseltibcarlantas maupun meningkatkan kualitas pelayanan kepada publik, yang meliputi:</li>
+												<li>penetapan standar dan prosedur pelaksanaan kerja sama dalam rangka penyusunan program dan kebijakan keamanan lalu lintas dengan pembina LLAJ dan masyarakat;</li>
+												<li>pembuatan pedoman pelaksanaan sosialisasi dan internalisasi program keamanan kepada semua pemangku kepentingan sebagai salah satu cara penciptaan budaya keamanan LLAJ;</li>
+												<li>penetapan standar identifikasi dan inventarisasi kondisi lingkungan di ruang lalu lintas dan menginformasikan kepada pembina LLAJ;</li>
+												<li>pembangunan kerja sama kemitraan yang bersifat global dengan instansi pembina dan penyelenggara LLAJ serta masyarakat dalam rangka pelaksanaan program jangka pendek, menengah, dan panjang pencegahan kecelakaan lalu lintas; dan</li>
+												<li>pembangunan kerja sama dengan kelompok masyarakat dalam rangka pemberian penghargaan bagi masyarakat yang berperanan dalam penciptaan keamanan lalu lintas.</li>
+											</ol>
+										</div>
+
+										<!-- SUBBAGRENOPS -->
+										<div class="col-md-6">
+											<h6><b>SUBBAGRENOPS, yang bertugas:</b></h6>
+											<hr>
+											<ol>
+												<li>merencanakan operasi Kepolisian terpusat;</li>
+												<li>menyusun dan menyiapkan penggelaran kekuatan dan kemampuan operasi Kepolisian dalam rangka penggunaan kekuatan;</li>
+												<li>menyiapkan bahan dan data yang diperlukan dalam operasi;</li>
+												<li>menyiapkan Rakor dengan fungsi, instansi dan satuan kerja terkait;</li>
+												<li>menyiapkan bahan arahan dan petunjuk bagi pimpinan untuk dinamika operasi;</li>
+												<li>melaksanakan evaluasi operasi Kepolisian; dan</li>
+												<li>merencanakan supervisi operasi kewilayahan kendali pusat.</li>
+											</ol>
+										</div>
+
+										<!-- SUBBAGDALOPS -->
+										<div class="col-md-6">
+											<h6><b>SUBBAGDALOPS, yang bertugas:</b></h6>
+											<hr>
+											<ol>
+												<li>mengendalikan operasi kepolisian, yang meliputi pemantauan perkembangan situasi kamseltibcarlantas dan pelaksanaan tugas kepolisian;</li>
+												<li>menyelenggarakan operasional NTMC;</li>
+												<li>mengumpulkan, mengolah, menyajikan data dan informasi, dokumentasi operasi, pemeliharaan kesiapsiagaan operasi, pengelolaan Video Conference (vicon) serta pemeliharaan fasilitas informasi dan pengendalian</li>
+												<li>melaksanakan pemantauan dan pengambilalihan langkah-langkah yang dipandang perlu, guna menjamin kesiapsiagaan operasi seluruh jajaran;</li>
+											</ol>
+										</div>
+
+										<!-- SUBBAGANEV -->
+										<div class="col-md-6">
+											<h6><b>SUBBAGANEV, yang bertugas :</b></h6>
+											<hr>
+											<ol>
+												<li>merencanakan pelaksanaan anev operasi Kepolisian di bidang lalu lintas baik di Korlantas maupun kewilayahan;</li>
+												<li>melaksanakan Anev operasi Kepolisian di bidang lalu lintas baik di Korlantas maupun kewilayahan;</li>
+												<li>mengumpulkan bahan untuk Anev dari setiap pelaksanaan operasi Kepolisian di bidang lalu lintas;</li>
+												<li>melaporkan Anev dari setiap kegiatan kerja sama yang telah dilaksanakan;</li>
+												<li>menyusun bahan arahan dan saran bagi pimpinan untuk dinamika kegiatan operasi Kepolisian di bidang lalu lintas;</li>
+											</ol>
+										</div>
+									</div>
+								</li>
+							</li>
+						</ul>
+
+						<!-- Bagtik -->
+						<h5 class="mt-5"><b>Bagtik</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Bag TIK merupakan unsur pembantu pimpinan dan pelaksana staf yang berada di bawah Kakorlantas Polri;</li>
+							<li>
+								Bag TIK bertugas:
+								<ol>
+									<li>mengembangkan sistem teknologi informasi dan komunikasi lalu lintas;</li>
+									<li>membangun jaringan sistem teknologi informasi dan komunikasi lalu lintas;</li>
+									<li>melaksanakan pemeliharaan dan perawatan sistem teknologi informasi dan komunikasi lalu lintas; dan</li>
+									<li>menganalisa dan mengevaluasi sistem teknologi informasi dan komunikasi lalu lintas.</li>
+									<li>dalam melaksanakan tugas, Bag TIK menyelenggarakan fungsi:</li>
+									<li>penetapan sasaran dan arah pengembangan teknologi informasi dan komunikasi lalu lintas;</li>
+									<li>penetapan norma, standar, pedoman, kriteria, dan prosedur sistem teknologi informasi dan komunikasi lalu lintas;</li>
+									<li>penetapan kompetensi kepada personel yang melaksanakan fungsi sistem teknologi informasi dan komunikasi lalu lintas;</li>
+									<li>pemberian bimbingan, pelatihan, sertifikasi, izin, dan bantuan teknis kepada personel Korlantas Polri dan Polantas daerah di bidang teknologi informasi dan komunikasi lalu lintas; dan</li>
+									<li>pengawasan pelaksanaan norma, standar, pedoman, kriteria, dan prosedur sistem teknologi informasi dan komunikasi lalu lintas;</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Bag TIK dibantu oleh:
+								<div class="row">
+
+								<!-- SUBBAGANBANGSISTEK -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGANBANGSISTEK</b></h6>
+										<hr>
+										<p style="text-align: justify;">yang bertugas melengkapi, menganalisa dan mengembangkan sistem teknologi informasi dan komunikasi sesuai analisa perkembangan ilmu pengetahuan transportasi dan sistem teknologi informasi di dunia guna mendukung penyelenggaraan tugas polisi lalu lintas yang dinamis dan berkembang, yang meliputi:</p>
+										<ol>
+											<li>perencanaan desain utama sistem teknologi dan komunikasi lalu lintas;</li>
+											<li>teknologi informasi dan komunikasi (pusat data, perangkat keras, perangkat lunak, website) berdasarkan grand design; dan</li>
+											<li>pemberian bimbingan, pelatihan, sertifikasi dan izin pengembangan dan pengoperasian sistem teknologi informasi dan komunikasi di tingkat Propinsi dan Kabupaten/Kota;</li>
+											<li>melaksanakan kajian TI secara berkelanjutan yang diikuti oleh bagian TI dari instansi terkait guna pengembangan sistem teknologi informasi dan komunikasi;</li>
+											<li>penetapan rancangan standar minimal sistem teknologi informasi dan komunikasi yang disesuai kan dengan Tupoksi bidang lalu lintas berdasarkan kajian; dan</li>
+											<li>pembuatan laporan tindak lanjut hasil analisa dan evaluasi dari setiap sistem yang telah dilakukan Harwat;</li>
+										</ol>
+									</div>
+
+									<!-- SUBBAGJARSISTEK -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGJARSISTEK</b></h6>
+										<hr>
+										<p style="text-align: justify;">yang bertugas menyusun infrakstruktur pengamanan jaringan, program, aplikasi serta sistem pengamanan informasi dan komunikasi guna mendukung integrasi data dan pelayanan yang berkaitan dengan bidang lalu lintas dan angkutan jalan dari tingkat pusat hingga daerah pada internal maupun eksternal guna tercipta sinegritas, yang meliputi:</p>
+										<ol>
+											<li>penetapan spesifikasi minimal sistem jaringan yang digunakan;</li>
+											<li>penetapan standar dan prosedur pelaksanaan sistem jaringan di tingkat pusat dan daerah; dan</li>
+											<li>pemberian bimbingan, pelatihan, sertifikasi dan izin operator jaringan kepada personel di tingkat pusat dan daerah;</li>
+										</ol>
+									</div>
+
+									<!-- SUBBAGHARSISTEK -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGHARSISTEK</b></h6>
+										<hr>
+										<p style="text-align: justify;">yang bertugas menyusun infrastruktur kebutuhan piranti keras sistem teknologi dan komunikasi dan perawatan sistem teknologi dan komunikasi dari sistem pengamanan Pilun guna menjamin terselenggaranya sistem yang diusulkan oleh internal Polantas, masyarakat dan pemangku kepentingan lainnya, yang meliputi:</p>
+										<ol>
+											<li>penetapan standar piranti keras dan penilaian hasil pekerjaan;</li>
+											<li>pengawasan terhadap pelaksanaan Harwat perangkat keras di tingkat pusat dan daerah; dan</li>
+											<li>pengumpulan, menganalisa dan mengevaluasi hasil Harwat untuk menjadi bahan analisa dan pengembangan sistem teknologi informasi dan komunikasi lalu lintas;</li>
+										</ol>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<!-- Bagrenmin -->
+						<h5 class="mt-5"><b>Bagrenmin</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Bagrenmin merupakan unsur pembantu pimpinan dan pelaksana staf yang berada di bawah Kakorlantas Polri;</li>
+							<li>Bagrenmin bertugas menyusun perencanaan strategis, pengelolaan administrasi, menyelenggarakan manajemen logistik, personalia, dan pelaporan pencapaian hasil kinerja serta mengendalikan pelaksanaan RBP bidang lalu lintas, serta sebagai pembina fungsi lalu lintas;</li>
+							<li>
+								dalam melaksanakan tugas, Bagrenmin menyelenggarakan fungsi:
+								<ol>
+									<li>penyusunan dokumen perencanaan dan anggaran antara lain Renstra, Renja, RKA-KL, DIPA, Perjanjian Kinerja , LKIP, LRA, SMAP, IKU dan IKK, evaluasi kinerja, pelaksanaan RBP dan Sistem Pengendalian Intern Pemerintah (SPIP) Satker serta mengarahkan dan mengawasi pelaksanaan kegiatan dan anggaran;</li>
+									<li>pelaksanaan pemeliharaan, perawatan, serta administrasi personel;</li>
+									<li>pengelolaan logistik dan penyusunan laporan SIMAK-BMN;</li>
+									<li>pelaksanaan dan penyusunan pengadaan barang/ jasa untuk kebutuhan fungsi lalu lintas yang ada di lingkungan Korlantas Polri dan kewilayahan;</li>
+								</ol>
+							</li>
+							<li>
+								dalam melaksanakan tugas, Bagrenmin dibantu oleh:
+								<div class="row">
+
+								<!-- SUBBAGREN -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGREN, yang bertugas:</b></h6>
+										<hr>
+										<ol>
+											<li>menyusun dan merumuskan program perencanaan dan anggaran antara lain Renstra, Rancangan Renja, Renja, Penetapan Kinerja, RKA-KL, DIPA, TOR atau KAK, RAB, dan LKIP, serta menghimpun usulan rencana kegiatan dan rencana kebutuhan anggaran dalam lingkungan Korlantas Polri;</li>
+											<li>mengarahkan, mengawasi penggunaan dan pelaksanaan anggaran sesuai Renja dan anggaran Korlantas Polri serta menyusun laporan realisasi penyerapan anggaran melalui aplikasi SMAP;</li>
+											<li>mengumpulkan dan mengolah data laporan Strategi Manajemen dan Reformasi Birokrasi Polri yang telah dilaksanakan serta melakukan pengkajian, penganalisaan dan evaluasi yang dilaksanakan oleh pengemban fungsi lalu lintas Polri di bidang pembinaan maupun operasional baik di lingkungan Korlantas Polri maupun kewilayahan;</li>
+											<li>membuat laporan kegiatan, dan menganalisis serta mengevaluasi pelaksanaan program dan anggaran;</li>
+										</ol>
+									</div>
+
+								<!-- SUBBAG SDM -->
+									<div class="col-md-6">
+										<h6><b>SUBBAG SDM, yang bertugas:</b></h6>
+										<hr>
+										<ol>
+											<li>menyelenggarakan pembinaan karier antara lain penyiapan UKP, KGB, mutasi personel, dan menyusun data personel antara lain pembuatan DUK PNS dan penyiapan Sistem Manajemen Kinerja (SMK) bagi Polri dan PPK (Penilaian Prestasi Kerja) bagi PNS Polri;</li>
+											<li>menyelenggarakan perawatan dan kesejahteraan personel antara lain pelayanan administrasi cuti, izin, MPP, Khirdin, nikah/ cerai/rujuk, penghargaan dan hukuman, meninggal dunia, KTA, KPI/KPS, Karis/ Karsu, Kartu kesehatan, ASABRI, Psikologi, di lingkungan Korlantas Polri;</li>
+											<li>merumuskan dan merencanakan sistem, metode dan peraturan yang terkait dengan pemantauan, pengawasan atas penerapannya penyelenggaraan pendidikan/pelatihan fungsi teknis lalu lintas serta mengupayakan peningkatan disiplin melalui budaya tertib, budaya bersih, dan budaya kerja di lingkungan Korlantas Polri; dan</li>
+											<li>melaksanakan Sistem Pengendalian Intern Pemerintah (SPIP) Satker;</li>
+										</ol>
+									</div>
+
+								<!-- SUBBAGLOG -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGLOG, yang bertugas:</b></h6>
+										<hr>
+										<ol>
+											<li>membina dan menyelenggarakan fungsi manajemen bidang logistik yang meliputi perbekalan umum, peralatan, angkutan, pemeliharaan, perbaikan, inventory dan pergudangan;</li>
+											<li>menghimpun, mendata, dan mengajukan konsep penghapusan barang milik negara yang sudah tidak layak pakai di lingkungan Korlantas Polri; dan;</li>
+											<li>melaksanakan pendataan administrasi logistik, Inventarisasi BMN dan SIMAK BMN di lingkungan Korlantas Polri;</li>
+										</ol>
+									</div>
+									
+								<!-- SUBBAGADA -->
+									<div class="col-md-6">
+										<h6><b>SUBBAGADA, yang bertugas:</b></h6>
+										<hr>
+										<ol>
+											<li>melaksanakan perencanaan anggaran dan penyusunan dokumen pengadaan barang dan jasa di lingkungan Korlantas Polri;</li>
+											<li>melakukan pengendalian, pendataan dan anev pada kegiatan pengadaan barang dan jasa; dan</li>
+											<li>melakukan kajian teknis kebutuhan operasional Korlantas yang berkaitan dengan pengadaan sarana dan prasarana guna meningkatkan kualitas kinerja dan pelayanan kepada publik;</li>
+										</ol>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<h5 class="mt-5"><b>Unsur Pelaksana Utama</b></h5>
+
+						<!-- Ditkamsel -->
+						<h5 class="mt-5"><b>Ditkamsel</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Ditkamsel merupakan unsur pelaksana utama yang berada di bawah Kakorlantas Polri;</li>
+							<li>
+								Ditkamsel, bertugas:
+								<ol>
+									<li>mensosialisasikan, menanamkan, mengajak, mendidik, membangun kesadaran, kepekaan, kepedulian akan tertib lalu lintas yang diselenggarakan secara formal dan non formal;</li>
+									<li>melakukan pengkajian dalam mengoperasionalkan fungsi rekayasa lalu lintas baik untuk kepentingan Internal Kepolisian maupun Eksternal Kepolisian;</li>
+									<li>menyusun standar dan prosedur dalam memetakan (inventarisisasi dan mengidentifikasi) wilayah, masalah, maupun potensi yang berkaitan dengan lalu lintas dalam sistem; dan</li>
+									<li>melaksanakan pemeriksaan dan audit dalam mengembangkan dan mengoperasionalkan hasil kajian dan rekomendasi terhadap berbagai masalah yang berkaitan dengan Kamseltibcarlantas;</li>
+								</ol>
+							</li>
+							<li>
+								dalam melaksanakan tugas, Ditkamsel menyelenggarakan fungsi:
+								<ol>
+									<li>penetapan norma, standar, pedoman, kriteria, prosedur, sasaran dan arah kebijakan pengembangan pendidikan masyarakat berlalu lintas;</li>
+									<li>penetapan norma, standar, pedoman, kriteria, prosedur, sasaran dan arah kebijakan pengembangan penyelenggaraan manajemen dan rekayasa lalu lintas;</li>
+									<li>penetapan kompetensi pejabat yang melaksanakan fungsi di bidang manajemen dan rekayasa lalu lintas;</li>
+									<li>pemberian bimbingan, pelatihan, sertifikasi, pemberian izin, dan bantuan teknis kepada Polantas daerah di bidang manajemen dan rekayasa lalu lintas; dan</li>
+									<li>pengawasan pelaksanaan norma, standar, pedoman, kriteria, prosedur dan kegiatan audit di bidang lalu lintas.</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Ditkamsel dibantu oleh:
+								<div class="row">
+
+								<!-- Subditdikmas -->
+									<div class="col-md-6">
+										<h6><b>Subditdikmas</b></h6>
+										<hr>
+										<ul>
+											<li>Subditdikmas bertugas mensosialisasikan, menanamkan, mengajak, mendidik, membangun kesadaran, kepekaan, kepedulian akan tertib lalu lintas yang diselenggarakan secara formal dan non formal;</li>
+											<li>
+												Dalam melaksanakan tugas, Subditdikmas menyelenggarakan fungsi:
+												<ol>
+													<li>pemberian bimbingan, pelatihan, pemberian izin, dan bantuan teknis kepada pemerintah provinsi dan pemerintah Kabupaten/Kota dalam bidang pendidikan masyarakat berlalu lintas;</li>
+													<li>pengawasan pelaksanaan norma, standar, pedoman, kriteria, dan prosedur Pendidikan Masyarakat berlalu lintas oleh Pemerintah Daerah;</li>
+													<li>penetapan kompetensi pejabat yang melaksanakan fungsi di bidang pendidikan masyarakat berlalu lintas; dan</li>
+													<li>pendataan dan pengkajian kegiatan dikmas lantas guna menyusun produk dalam mendukung kegiatan dikmas lantas;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subdit jemenopsrek -->
+									<div class="col-md-6">
+										<h6><b>Subdit jemenopsrek</b></h6>
+										<hr>
+										<ul>
+											<li>Subditjemenopsrek bertugas memanajemen dan mengoperasionalkan hasil kajian dan rekomendasi terhadap berbagai masalah yang berkaitan dengan rekayasa lalu lintas;</li>
+											<li>
+												dalam melaksanakan tugas, Subditjemenopsrek menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan kompetensi pejabat yang akan ditunjuk sebagai anggota tim uji kelaikan fungsi jalan;</li>
+													<li>penetapan standar dan prosedur operasional rekayasa lalu lintas termasuk koordinasi dengan instansi terkait; dan</li>
+													<li>penciptaan lingkungan ruang lalu lintas yang mendorong pengguna jalan berperilaku tertib berupa wilayah percontohan kawasan tertib lalu lintas (KTL) atau lainnya.</li>
+												</ol>
+											</li>
+											<li>
+												dalam melaksanakan tugas, Subditjemenopsrek dibantu oleh:
+												<ol>
+													<li>Siinvidrek, yang bertugas melaksanakan inventarisasi dan identifikasi kegiatan rekayasa lalu lintas untuk menghasilkan pedoman dan acuan yang dapat digunakan dalam meningkatkan kualitas kinerja dan pengembangan tugas rekayasa lalu lintas;</li>
+													<li>Sijianrek, yang bertugas melakukan pengkajian atau survei maupun penelitian serta ilmu pengetahuan untuk menghasilkan pedoman dan acuan dalam rangka meningkatkan dan menumbuh kembangkan penyelenggaraan rekayasa lalu lintas dan produknya dapat dimanfaatkan sebagai bahan perbaikan atau peningkatan kualitas rekayasa dan penyajian kepada publik;</li>
+													<li>Siopsnalrek, yang bertugas mengembangkan dan mengoperasionalkan hasil kajian dan rekomendasi terhadap berbagai masalah yang berkaitan rekayasa lalu lintas;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subdit standar cegah dan tindak -->
+									<div class="col-md-6">
+										<h6><b>Subdit standar cegah dan tindak</b></h6>
+										<hr>
+										<ul>
+											<li>Subditstandarcegah dan tindak bertugas mendukung dan melaksanakan tugas Standarisasi di bidang keamanan dan keselamatan lalu lintas dan angkutan jalan;</li>
+											<li>
+												Dalam melaksanakan tugas, Subditstandarcegah dan tindak menyelenggarakan fungsi:
+												<ol>
+													<li>perencanaan Program kerja di bidang standarisasi, pencegahan dan penindakan;</li>
+													<li>penetapan standardisasi pencegahan dan penindakan dibidang kamseltibcarlantas;</li>
+													<li>pelaksanaan identifikasi, menginventarisir, serta menganalisa permasalahan terkait standardisasi pencegahan dan penindakan di bidang Kamseltibcarlantas;</li>
+													<li>pelaksanaan koordinasi terkait pelaksanaan standardisasi pencegahan dan penindakan bidang Kamseltibcarlantas;</li>
+													<li>pelaksanaan kegiatan Monitoring dan Evaluasi standardisasi pencegahan dan penindakan di bidang Kamseltibcarlantas;</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subditstandarcegah dan tindak dibantu oleh:
+												<ol>
+													<li>Sistandarcegah, bertugas memonitoring, mengevaluasi dan mengidentifikasi secara periodik produk standarisasi pencegahan baik preemtif maupun preventif yang telah disusun oleh masing-masing bagian di jajaran Korlantas Polri dan membuat rekomendasi sebagai bahan pengambilan kebijakan;</li>
+													<li>Sistandartindak, bertugas momonitoring mengevaluasi dan mengidentifikasi secara periodik produk standardisasi penindakan pelanggaran, kemacetan dan kecelakaan lalu lintas yang telah disusun oleh masing-masing bagian di jajaran Korlantas Polri dan membuat rekomendasi sebagai bahan pengambilan kebijakan;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subditaudit dan inspeksi -->
+									<div class="col-md-6">
+										<h6><b>Subditaudit dan inspeksi</b></h6>
+										<hr>
+										<ul>
+											<li>Subditaudit dan inspeksi bertugas mendukung dan melaksanakan tugas audit, inspeksi di bidang keamanan, keselamatan lalu lintas dan angkutan jalan;</li>
+											<li>
+												dalam melaksanakan tugas, Subditaudit dan inspeksi menyelenggarakan fungsi:
+												<ol>
+													<li>perencanaan Program kerja di bidang audit dan inspeksi direktorat keamanan dan keselamatan;</li>
+													<li>penetapan pedoman pelaksanaan Audit dan Inspeksi bidang Keamanan dan Keselamatan Lalu lintas dan angkutan Jalan (manual audit bidang kamseltibcarlantaslantas);</li>
+													<li>penetapan tim Audit yang terdiri dari tim Korlantas Polri dan tim Auditor Independen dengan surat penetapan Kakorlantas Polri;</li>
+													<li>pelaksanaan koordinasi dan menyusun laporan hasil pelaksanaan Audit dan Inspeksi bidang Kamseltibcarlantaslantas;</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subditaudit dan inspeksi dibantu oleh :
+												<ol>
+													<li>Siauditkamsel, bertugas melakukan pemeriksaan, pengamatan dan penyusunan tim auditor independen yang bertujuan mengetahui perkembangan keadaan dan kinerja tentang keamanan dan keselamatan lalu lintas untuk menghasilkan suatu laporan dan atau rekomendasi;</li>
+													<li>Siinspeksikamsel, bertugas melakukan pemeriksaan, pengamatan dan penyusunan tim auditor independen yang bertujuan mengetahui perkembangan keadaan dan kinerja tentang ketertiban dan kelancaran lalu lintas untuk menghasilkan suatu laporan dan atau rekomendasi;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+
+						<!-- Ditgakkum -->
+						<h5 class="mt-5"><b>Ditgakkum</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Ditgakkum merupakan unsur pelaksana utama yang berada di bawah Kakorlantas Polri;</li>
+							<li>
+								Ditgakkum bertugas:
+								<ol>
+									<li>menyelenggarakan kegiatan pengaturan, penjagaan, pengawalan, dan patroli (Turjawali), TPTKP, dan menjembatani antarwilayah dalam mewujudkan dan memelihara Kamseltibcarlantas;</li>
+									<li>menyusun produk hukum, pedoman, ketentuan dan penegakan hukum secara manual dan elektronik yang berkaitan dengan Kamseltibcarlantas;</li>
+									<li>melaksanakan penindakan terhadap pelanggaran aturan lalu lintas dalam rangka meningkatkan Kamseltibcarlantas dan pelayanan publik;</li>
+									<li>melaksanakan penyelidikan dan penyidikan kecelakaan lalu lintas;</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Ditgakkum menyelenggarakan fungsi:
+								<ol>
+									<li>pengaturan, penjagaan, pengawalan dan patroli lalu lintas, TPTKP kecelakaan lalu lintas dan penanggulangan gangguan kamtibmas di ruang jalan;</li>
+									<li>penetapan norma, standar, pedoman, kriteria, dan prosedur penyelenggaraan penegakan hukum lalu lintas serta sasaran dan arah kebijakan pengembangan penegakan hukum lalu lintas;</li>
+									<li>penindakan pelanggaran, pelaksanaan kerja sama/koordinasi dengan satuan fungsi Kepolisian lainnya dan instansi terkait dalam rangka untuk mewujudkan Kamseltibcarlantas;</li>
+									<li>melaksanakan dan memberikan dukungan teknis penyelidikan dan penyidikan Laka Lantas dalam rangka menurunkan fatalitas korban kecelakaan lantas;</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Ditgakkum dibantu oleh:
+								<div class="row">
+
+								<!-- Subditwal dan PJR -->
+									<div class="col-md-6">
+										<h6><b>Subditwal dan PJR</b></h6>
+										<hr>
+										<ul>
+											<li>Subditwal dan PJR, bertugas memberikan pembinaan fungsi teknis PJR dalam penyelenggaraan kegiatan yang meliputi pengaturan, penjagaan, pengawalan, TPTKP laka lantas dan patroli sampai pada tingkat Kepolisian Daerah serta penetapan standar kompetensi dan meningkatkan profesionalisme;</li>
+											<li>
+												dalam melaksanakan tugas, Subditwal dan PJR menyelenggarakan fungsi:
+												<ol>
+													<li>pengaturan, penjagaan dan pengawalan lalu lintas dalam rangka peningkatan kamseltibcarlantas dan menurunkan fatalitas korban kecelakaan;</li>
+													<li>pengaturan, penjagaan dan patroli lalu lintas dalam rangka peningkatan kamseltibcarlantas dan menurunkan fatalitas korban kecelakaan serta meningkatkan pelayanan publik.</li>
+												</ol>
+											</li>
+											<li>
+												dalam melaksanakan tugas, Subditwal dan PJR dibantu oleh:
+												<ol>
+													<li>Siwal, bertugas melaksanakan pengawalan umum maupun khusus VIP/ VVIP</li>
+													<li>Si PJR, bertugas melaksanakan pengaturan, penjagaan, patroli, Dakgar dan TPTKP Laka Lantas di ruang jalan;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subdittatib -->
+									<div class="col-md-6">
+										<h6><b>Subdittatib</b></h6>
+										<hr>
+										<ul>
+											<li>Subdittatib, yang bertugas mendatakan dan mengkaji kegiatan pengaturan, penjagaan, pengawalan, patroli dan pemicu timbulnya masalah lalu lintas untuk menghasilkan produk atau rekomendasi guna meningkatkan kualitas kinerja petugas Polantas dalam menyelenggarakan kegiatan pengaturan, penjagaan, pengawalan, patroli serta pemantauan dan penindakan pemicu timbulnya masalah lalu lintas;</li>
+											<li>
+												Dalam melaksanakan tugas, Subdittatib menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan persyaratan, standar, dan prosedur serta peralatan dalam pelaksanaan tindakan pengaturan dan penertiban arus lalu lintas;</li>
+													<li>penetapan standar dan prosedur penggunaan atau penutupan jalan selain untuk kegiatan lalu lintas serta pemberian izinnya;</li>
+													<li>penetapan persyaratan, standar, dan prosedur pengawalan atau pengaturan jalan bagi pengguna jalan yang memperoleh hak utama;</li>
+													<li>penetapan persyaratan, standar, dan prosedur pengawalan atau pengaturan jalan bagi kendaraan umum yang tidak memperoleh hak utama namun mengangkut alat berat dengan dimensi melebihi dimensi yang ditetapkan;</li>
+													<li>penetapan prosedur dan bimbingan pemberian perizinan penggunaan lampu isyarat dan sirene;</li>
+													<li>penetapan persyaratan, kriteria dan prosedur penggunaan kendaraan bermotor angkutan barang untuk angkutan orang;</li>
+													<li>penetapan prosedur pengoperasian bersama alat penimbangan yang dapat dipindahkan antara kepolisian dan PPNS terkait;</li>
+													<li>penetapan kompetensi pejabat yang akan ditugaskan untuk menjaga Kamseltibcarlantas selama proses preservasi dan peningkatan kapasitas jalan;</li>
+												</ol>
+											</li>
+											<li>
+												dalam melaksanakan tugas, Subdittatib dibantu oleh:
+												<ul>
+													<li>
+														Sijianta dan Turjawali, bertugas:
+														<ol>
+															<li>melaksanakan penetapan persyaratan, standar, dan prosedur peralatan dalam pelaksanaan tindakan Turjawali, rekomendasi penggunaan atau penutupan jalan, pengawalan atau pengaturan jalan bagi pengguna jalan;</li>
+															<li>menganalisa data untuk menghasilkan produk-produk yang berupa potret Kamseltibcarlantas di suatu daerah dan menetapkan kompetensi petugas yang akan ditugaskan untuk menjaga Kamseltibcarlantas selama proses preservasi dan peningkatan kapasitas jalan;</li>
+														</ol>
+													</li>
+													<li>Sigunranmor, bertugas menetapkan persyaratan, standar, dan prosedur pengawalan atau pengaturan jalan bagi kendaraan umum yang melebihi dimensi yang ditetapkan, pengoperasian bersama alat penimbangan yang dapat dipindahkan antara kepolisian dan PPNS terkait dan memberikan rekomendasi penggunaan kendaraan bermotor angkutan barang untuk angkutan orang;</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subditdakgar -->
+									<div class="col-md-6">
+										<h6><b>Subditdakgar</b></h6>
+										<hr>
+										<ul>
+											<li>Subditdakgar, bertugas mendatakan dan mengkaji berbagai penindakan pelanggaran lalu lintas guna menghasilkan suatu produk atau rekomendasi untuk meningkatkan kualitas kinerja petugas polisi lalu lintas dalam menyelenggarakan penindakan pelanggaran maupun untuk pencegahan dan edukasi serta pembinaan dan pengawasan PPNS;</li>
+											<li>
+												dalam melaksanakan tugas, Subditdakgar menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan standar dan prosedur penindakan terhadap pelanggaran lalu lintas;</li>
+													<li>penetapan prosedur dan bentuk penandaan SIM yang melakukan pelanggaran lalu lintas;</li>
+													<li>penyusunan standar dan spesifikasi teknis dokumen tanda bukti pelanggaran lalu lintas (surat tilang);</li>
+													<li>penyusunan materi serta standar dan prosedur pembinaan dan pengawasan terhadap PPNS di bidang penindakan pelanggaran; dan</li>
+													<li>pendataan dan pengkajian pelanggaran lalu lintas;</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subditdakgar dibantu oleh:
+												<ol>
+													<li>Sitapstandar, bertugas menyusun dan menetapkan standar dan prosedur penindakan penandaan SIM terhadap pelanggaran lalu lintas dan menetapkan spesifikasi teknis dokumen tilang;</li>
+													<li>Sibinwas, bertugas menyusun materi serta standar dan prosedur pembinaan dan pengawasan terhadap penyidik Polri dan PPNS di bidang penindakan pelanggaran lalu lintas;</li>
+													<li>Sipulahjiantadakgar, bertugas mengumpulkan, mengolah, mengkaji data dan permasalahan dalam pelaksanaan Dakgar Lantas;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subditlaka -->
+									<div class="col-md-6">
+										<h6><b>Subditlaka</b></h6>
+										<hr>
+										<ul>
+											<li>Subditlaka, bertugas melakukan penyelidikan dan penyidikan, bantuan teknis penyidikan pada kewilayahan, mendata dan mengkaji hasil penyidikan serta memberikan rekomendasi untuk meningkatkan kualitas penyidikan kecelakaan lalu lintas;</li>
+											<li>
+												Dalam melaksanakan tugas, Subditlaka menyelenggarakan fungsi:
+												<ol>
+													<li>penyidikan, bantuan perkuatan dan teknis, pengkajian hasil penyidikan, serta penanganan pasca kecelakaan lalu lintas;</li>
+													<li>pelaksanaan kemitraan dengan pemangku kepentingan dalam rangka meningkatkan kualitas keselamatan, penurunan fatalitas korban kecelakaan lalu lintas;</li>
+													<li>pengumpulan, pengolahan dan penyajian data laka lantas, asistensi dan supervisi sidik laka lantas.</li>
+												</ol>
+											</li>
+											<li>
+												dalam melaksanakan tugas, Subditlaka dibantu oleh :
+												<ol>
+													<li>Sisidiklaka bertugas melakukan penyelidikan dan penyidikan, bantuan perkuatan dan teknis, pengkajian hasil penyidikan, serta penanganan pasca kecelakaan lalu lintas;</li>
+													<li>Simitra bertugas melaksanakan kemitraan dengan pemangku kepentingan dalam rangka meningkatkan kualitas keselamatan, dan penurunan fatalitas korban kecelakaan lalu lintas;</li>
+													<li>Sipulahjiantalaka bertugas mengumpulkan, mengolah dan menyajikan data laka lantas, asistensi dan supervisi sidik laka lantas;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								</div>
+							</li>
+						</ul>
+
+
+						<h5 class="mt-5"><b>Ditregident</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Ditregident merupakan unsur pelaksana utama yang berada di bawah Kakorlantas Polri;</li>
+							<li>
+								Ditregident bertugas:
+								<ol>
+									<li>melaksanakan registrasi dan identifikasi pengemudi kendaraan bermotor dalam rangka memberi jaminan kompetensi bagi pengemudi;</li>
+									<li>melaksanakan registrasi dan identifikasi kendaraan bermotor dalam rangka memberi jaminan legitimasi kepemilikan dan operasional kendaraan bermotor;</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Ditregident menyelenggarakan fungsi:
+								<ol>
+									<li>pelaksanaan registrasi dan identifikasi, pengecekan bagi pengemudi dalam penerbitan Surat Izin Mengemudi (SIM), penetapan spesifikasi teknis serta kompetensi penguji SIM;</li>
+									<li>pelaksanaan registrasi dan identifikasi penomoran kendaraan bermotor (Ranmor), penetapan spesifikasi teknis dan kompetensi petugas penerbit dokumen ranmor dalam rangka memberi jaminan legitimasi kepemilikan;</li>
+									<li>pemberian jaminan legitimasi operasional kendaraan bermotor melalui penerbitan Surat Tanda Nomor Kendaraan (STNK), Buku Pemilik Kendaraan Bermotor (BPKB) dan Tanda Nomor Kendaraan Bermotor (TNKB);</li>
+									<li>penyusunan rencana kebutuhan dan pendistribusian material SIM, BPKB, STNK, dan TNKB;</li>
+									<li>penetapan sasaran dan arah kebijakan pengembangan manajemen regident;</li>
+									<li>penetapan norma, standar, pedoman, kriteria, dan prosedur penyelenggaraan manajemen regident;</li>
+									<li>penetapan kompetensi pejabat yang melaksanakan fungsi di bidang manajemen regident;</li>
+									<li>mengembangkan sistem layanan regident berbasis tehnologi informasi;</li>
+									<li>pengawasan pelaksanaan norma, standar, pedoman, kriteria, dan prosedur manajemen regident di Ditlantas Polda.</li>
+								</ol>
+							</li>
+							<li>
+								Dalam melaksanakan tugas, Ditregident dibantu oleh :
+								<div class="row">
+
+								<!-- Subdit SIM -->
+									<div class="col-md-6">
+										<h6><b>Subdit SIM</b></h6>
+										<hr>
+										<ul>
+											<li>Subdit SIM, bertugas mendatakan dan mengkaji penyelenggaraan sistem pengujian bagi calon pengemudi dan pengemudi untuk meningkatkan kualitas penyelenggaraan sistem uji di Satpas baik pra uji, saat uji, dan pascauji maupun bagi penyelenggara sekolah mengemudi;</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit SIM menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan standar kompetensi pengemudi kendaraan bermotor;</li>
+													<li>penetapan standar persyaratan dan prosedur pengujian kompetensi pengemudi ranmor;</li>
+													<li>penetapan standar dan spesifikasi teknis dokumen SIM dan SIM Internasional serta komponen pendukungnya; dan</li>
+													<li>penetapan persyaratan dan prosedur penerbitan SIM serta standar kompetensi pejabat penerbit SIM;</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit SIM di bantu oleh:
+												<ol>
+													<li>Sistandarpengemudi, bertugas menetapkan standar persyaratan dan pendataan Regident SIM, penyusunan SOP, prosedur penghapusan SIM, sarana dan prasarana pelayanan Satpas serta penetapan spesifikasi teknis Surat Izin Mengemudi (SIM) dan dokumen pendukungnya, spesifikasi Harwat SIM online dan Harwat Simulator;</li>
+													<li>Sibinyan SIM, bertugas melaksanakan pembinaan teknis, mengembangkan dan mengendalikan manajemen Regident SIM, pelatihan dan sertifikasi kompetensi petugas penguji SIM serta penetapan prototype Satpas seluruh jajaran;</li>
+													<li>Sianev SIM, bertugas melaksanakan pengumpulan, pengolahan, inventarisasi permasalahan pelayanan penerbitan dan pengujian SIM, membuat Anev data penerbitan SIM secara rutin dan berkala;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subdit BPKB -->
+									<div class="col-md-6">
+										<h6><b>Subdit BPKB</b></h6>
+										<hr>
+										<ul>
+											<li>Subdit BPKB, bertugas menjamin terselenggaranya Unit Layanan BPKB, terbangunnya sistem verifikasi data melalui unit layanan cek fisik dan terbangunnya sistem layanan dan sistem data berbasis teknologi informasi, melakukan kajian sesuai dinamika perkembangan masyarakat untuk meningkatkan kualitas penyelenggaraan unit layanan BPKB dan Cek Fisik;</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit BPKB menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan sasaran dan arah kebijakan pengembangan regident pada unit layanan BPKB dan unit layanan Cek Fisik Ranmor;</li>
+													<li>penetapan persyaratan administrasi pendaftaran kepemilikan Ranmor pada Unit Layanan BPKB dan Unit Layanan Cek Fisik Ranmor;</li>
+													<li>penetapan standar pendataan regident Ranmor pelayanan BPKB berbasis teknologi informasi</li>
+													<li>pengumpulan dan pengolahan data Ranmor sebagai basis penyelenggaraan Forensik Kepolisian melalui sistem data Ranmor.</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit BPKB di bantu oleh:
+												<ol>
+													<li>Sistandarmilikranmor, bertugas menetapkan standar prosedur persyaratan dan pendataan Regident BPKB dan Cek Fisik Ranmor, prosedur penghapusan Ranmor, standar sarana dan prasarana pelayanan BPKB, penetapan spesifikasi teknis Buku Pemilik Kendaraan Bermotor (BPKB) dan Cek Fisik Ranmor serta dokumen pendukungnya dan spesifikasi teknis Harwat komputerisasi BPKB online;</li>
+													<li>Sibinyan BPKB, bertugas melaksanakan pembinaan teknis, mengembangkan dan mengendalikan manajemen Regident BPKB dan Cek Fisik Ranmor, pelatihan dan sertifikasi kompetensi petugas penerbit BPKB;</li>
+													<li>Sianev BPKB, bertugas melaksanakan pengumpulan, pengolahan, inventarisasi permasalahan pelayanan BPKB dan Cek Fisik Ranmor dan membuat Anev data penerbitan BPKB secara rutin dan berkala;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subdit STNK -->
+									<div class="col-md-6">
+										<h6><b>Subdit STNK</b></h6>
+										<hr>
+										<ul>
+											<li>Subdit STNK, bertugas menjamin terselenggaranya unit layanan di Kantor bersama SAMSAT, membangun sistem dan data berbasis teknologi informasi, melakukan kajian serta membangun sinergitas dengan pemangku kepentingan dalam penerbitan STNK dan TNKB;</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit STNK menyelenggarakan fungsi :
+												<ol>
+													<li>penetapan sasaran dan arah kebijakan pengembangan regident Ranmor pada Unit Layanan STNK dan TNKB di Kantor Bersama Samsat;</li>
+													<li>penetapan persyaratan administrasi STNK dan TNKB;</li>
+													<li>penetapan norma, standar, pedoman, kriteria, dan prosedur penyelenggaraan manajemen pengujian persyaratan administrasi STNK dan TNKB; dan</li>
+													<li>penetapan standar dan spesifikasi teknis STCK, TCKB, Mutasi, STNK-LBN, TNKBLBN, dan NRKB Pilihan serta dokumen pendukungnya.</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subdit STNK di bantu oleh :
+												<ol>
+													<li>Sitandar STNK, bertugas menetapkan standar prosedur, persyaratan dan pendataan Regident STNK dan TNKB, standar sarana dan prasarana pelayanan STNK dan TNKB, spesifikasi teknis STNK, TNKB dan dokumen pendukungnya serta spesifikasi teknis STCK, TCKB, Mutasi, STNK Lintas Batas Negara, TNKB Lintas Batas Negara dan NRKB Pilihan dan dokumen pendukungnya serta Harwat sistem Komputerisasi STNK dan TNKB;</li>
+													<li>Sibinyan STNK, bertugas melaksanakan pembinaan teknis, mengembangkan dan mengendalikan manajemen Regident STNK dan TNKB, pelatihan dan sertifikasi kompetensi petugas penerbit STNK;</li>
+													<li>Sianev STNK, bertugas melaksanakan pengumpulan, pengolahan, inventarisasi permasalahan pelayanan STNK dan TNKB serta membuat anev data penerbitan STNK, TNKB, Mutasi, STCK, STNK-LBN, TNKB-LBN dan NRKB pilihan secara rutin dan berkala;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+
+								<!-- Subditfasmat SBST -->
+									<div class="col-md-6">
+										<h6><b>Subditfasmat SBST</b></h6>
+										<hr>
+										<ul>
+											<li>Subditfasmat SBST, bertugas menyelenggaran dan mengkaji manajemen material regident yaitu SIM, BPKB, STNK, TNKB, STCK, TCKB, Mutasi, STNK-LBN, TNKB-LBN dan NRKB Pilihan berikut dengan komponen pendukungnya serta bertanggung jawab terhadap merencanakan kebutuhan, menjamin ketersediaan, mendistribusikan dan mengendalikan penggunaan material dan penerimaan PNBP;</li>
+											<li>
+												Dalam melaksanakan tugas, Subditfasmat SBST menyelenggarakan fungsi:
+												<ol>
+													<li>penetapan sasaran dan arah kebijakan pengembangan manajemen Material SBST dan komponen pendukungnya;</li>
+													<li>penetapan standar perencanaan kebutuhan, penyediaan dan pendistribusian Material SBST dan komponen pendukungnya ke Ditlantas Polda dan Satlantas Polres/Ta;</li>
+													<li>penetapan standar sistem pendataan dan pemantauan Material SBST serta sistem penerimaan PNBP SBST berbasis teknologi informasi; dan</li>
+													<li>pengumpulan dan pengolahan data serta sistem pelaporan penggunaan Material SBST dan Penerimaan PNBP SBST;</li>
+												</ol>
+											</li>
+											<li>
+												Dalam melaksanakan tugas, Subditfasmat SBST di bantu oleh:
+												<ol>
+													<li>Sidapanmat SBST, bertugas mengembangkan dan mengendalikan sistem manajemen material SBST di seluruh jajaran serta menetapkan standar sistem penerimaan PNBP dan pendataan serta sistem pelaporan penggunaan material SBST berbasis teknologi informasi;</li>
+													<li>Sidismat SBST, bertugas membuat rencana kebutuhan dan pendistribusian material ke jajaran serta menetapkan standar pendistribusian dan pendataan material SBST;</li>
+													<li>Sianevmat SBST, bertugas mengumpukan dan mengolah data kebutuhan, penggunaan Material SBST, penerimaan PNBP SBST dan menginventarisir permasalahan material SBST untuk dianev secara rutin dan berkala;</li>
+												</ol>
+											</li>
+										</ul>
+									</div>
+									
+								</div>
+							</li>
+						</ul>
+
+						<h5 class="mt-5"><b>Lain–lain:</b></h5>
+						<hr>
+						<ol>
+							<li>Sikeu bertugas menyelenggarakan pengelolaan administrasi keuangan antara lain dalam bentuk pembiayaan, pengendalian, pembukuan, akuntansi, dan penyusunan laporan SAIBA serta pertanggungjawaban keuangan;</li>
+							<li>Taud bertugas menyelenggarakan administrasi ketatausahaan dan urusan dalam;</li>
+							<li>Urtu bertugas menyelenggarakan fungsi perencanaan program pelayanan ketatausahaan dan urusan dalam, termasuk administrasi personel dan materiil;</li>
+							<li>Urmin bertugas mengurus fungsi administrasi umum;</li>
+						</ol>
+					</div>
+					<div class="col-md-12">
+						<h5 class="mt-5"><b>Tata Kerja:</b></h5>
+						<hr>
+						<p style="text-align: justify;">Dalam melaksanakan tugasnya Kakorlantas Polri wajib menerapkan prinsip koordinasi, integrasi dan sinkronisasi baik dalam lingkungan Polri maupun dalam hubungan dengan instansi pemerintah dan lembaga lain; Setiap pimpinan Subsatker Organisasi Korlantas Polri wajib :</p>
+						<ol style="text-align: justify;">
+							<li>mengawasi bawahannya masing-masing dan apabila terjadi penyimpangan agar mengambil langkah-langkah yang diperlukan sesuai dengan peraturan perundang-undangan yang berlaku;</li>
+							<li>mengelola sumber daya yang tersedia secara efektif dan efisien serta meningkatkan kemampuan dan daya guna;</li>
+							<li>menjamin ketertiban administrasi keuangan atau perbendaharaan baik yang diadakan melalui program APBN maupun bantuan dari Pemda/Masyarakat serta menggunakannya seoptimal mungkin dan seefisien mungkin bagi keberhasilan pelaksanaan tugas;</li>
+							<li>mengarahkan perencanaan bidang fungsinya ke seluruh jajaran dan mengawasi pelaksanaannya; dan</li>
+							<li>menjabarkan dan menindaklanjuti setiap kebijaksanaan pimpinan.</li>
+						</ol>
+					</div>
+					<div class="col-md-12">
+						<h5 class="mt-5"><b>DIREKTORAT LALU LINTAS POLDA (Organisasi dan Tata Kerja)</b></h5>
+						<hr>
+						<ul style="text-align: justify;">
+							<li>Ditlantas bertugas membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya yang didukung teknologi Informasi dan Komunikasi serta mewujudkan Kamseltibcarlantas;</li>
+							<li>
+								Dalam melaksanakan tugas, Ditlantas menyelenggarakan fungsi:
+								<ol>
+									<li>penyusunan rencana kerja dan anggaran, pengelolaan dan pembinaan manajemen personel dan logistik, administrasi dan ketatausahaan, serta pengelolaan keuangan;</li>
+									<li>pembinaan manajemen operasional dan pelatihan, mengembangkan sistem teknologi informasi dan komunikasi lalu lintas, penyelenggaraan Anev serta pengelolaan informasi dan dokumentasi lalu lintas;</li>
+									<li>penyelenggaraan Dikmas Lantas, pengoperasionalan rekayasa lalu lintas dan angkutan jalan, penyelenggaraan standardisasi cegah dan tindak serta pelaksanaan audit dan inspeksi dibidang lalu lintas;</li>
+									<li>pelaksanaan penyelidikan dan penyidikan Lalu lintas, penegakan hukum termasuk tata tertib, penanganan kecelakaan, pelanggaran, dan, TPTKP laka lantas;</li>
+									<li>penyelenggaraan dan pembinaan pelaksanaan Regident kendaraan bermotor, SIM, STNK, dan BPKB serta penyiapan material SBST; dan</li>
+									<li>penyelenggaraan kegiatan Turjagwali.</li>
+								</ol>
+							</li>
+						</ul>
+					</div>
+
 			</div>
 		</div>
 		
 		<!-- ORGANISASI DAN TATA KERJA -->
-		<div class="tab-content" id="tab4b">
-			<div class="row">
-				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-				</div>
-				<div class="col-md-6">
-					<h4>KORLANTAS POLRI BERTUGAS</h4>
-					<ol style="text-align: justify ;">
-						<li>membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya;</li>
-						<li>melaksanakan penertiban lalu lintas, manajemen operasional dan rekayasa lalu lintas (engineering);</li>
-						<li>menyelenggarakan pusat Komunikasi, Koordinasi, Kendali dan Informasi (K3I) tentang lalu lintas;</li>
-						<li>mengkoordinasikan pemangku kepentingan yang berkaitan dengan penyelenggaraan lalu lintas;</li>
-						<li>memberikan rekomendasi dampak lalu lintas; dan</li>
-						<li>melaksanakan koordinasi dan/atau pengawasan PPNS.</li>
-					</ol>
-				</div>
-				<div class="col-md-6">
-					<img src="<?= base_url()?>assets/fe/tugas/img-korlantas.jpg" alt="">
-				</div>
-				<div class="col-md-12">
-					<h4>KORLANTAS POLRI MENYELENGGARAKAN FUNGSI</h4>
-					<ol style="text-align: justify;">
-						<li>penyusunan kebijakan strategis yang berkaitan dengan peran dan fungsi polisi lalu lintas, perumusan dan atau pengembangan sistem dan metode termasuk petunjuk pelaksanaan fungsi lalu lintas, membangun kemitraan dan kerjasama baik dalam maupun luar negeri, serta menyelenggarakan koordinasi dengan pemangku kepentingan lainnya di bidang lalu lintas;</li>
-						<li>pelaksanaan manajemen operasional lalu lintas yang meliputi kegiatan memelihara dan mewujudkan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas di jalan raya, jalan tol, serta jalan-jalan luar kota sebagai penghubung (linking ping) antar kesatuan lalu lintas melalui kegiatan pengaturan, penjagaan, pengawalan, patroli, TPKP, Quick Respon Time, dan menjadi jejaring National Traffic Management Centre (NTMC);</li>
-						<li>pengembangan sistem dan metode termasuk petunjuk pelaksanaan teknis penegakan hukum yang meliputi kegiatan penindakan terhadap pelanggaran aturan lalu lintas, penanganan kecelakaan lalu lintas,penyidikan kecelakaan lalu lintas, serta koordinasi dan pengawasan PPNS;</li>
-						<li>pendidikan masyarakat dalam berlalu lintas, melalui kegiatan sosialisasi, penanaman nilai, membangun kesadaran, kepekaan, kepedulian akan tertib lalu lintas, serta pendidikan berlalu lintas secara formal dan informal;</li>
-						<li>pembinaan teknis dan administrasi registrasi serta identifikasi pengemudi dan kendaraan bermotor yang meliputi kegiatan pengecekan administrasi dan fisik kendaraan serta pengujian kompetensi pengemudi untuk menjamin keabsahan dokumen kendaraan bermotor dan sarana kontrol dalam rangka penegakan hukum maupun untuk kepentingan forensik kepolisian;</li>
-						<li>pengkajian bidang lalu lintas yang meliputi kegiatan keamanan dan keselamatan lalu lintas, pemetaan, inventarisasi, identifikasi wilayah, masalah maupun potensi-potensi yang berkaitan dengan lalu lintas dalam sistem Filling and Recording, baik untuk kepentingan internal maupun eksternal kepolisian, serta perumusan rekomendasi dampak lalu lintas; dan</li>
-						<li>pelaksanaan operasional NTMC, yang meliputi kegiatan pengumpulan, pengolahan dan penyajian data lalu lintas, sebagai pusat kendali, koordinasi, komunikasi, dan informasi, pengembangan sistem dan teknologi informasi dan komunikasi lalu lintas, serta pelayanan informasi lalu lintas yang menyangkut pelanggaran dan kecelakaan lalu lintas dengan lingkup data jajaran Polri.</li>
-					</ol>
-				</div>
-			</div>
-		</div>
+		<!-- <div class="tab-content" id="tab4b">
+			
+		</div> -->
 
 		
 	</div>

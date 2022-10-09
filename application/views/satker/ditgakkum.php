@@ -3,24 +3,45 @@
 </div>
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
-    	<div class="d-flex align-items-center">
-        <div class="container position-relative">
-        	<div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-            	<h2><?= $headline?></h2>
-            	
-            </div>
-        	</div>
-        </div>
-    	</div>
     	<nav>
-        <div class="container" >
-        	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home">Home</a></li>
-            <li><?= $breadcrumb?></li>
-        	</ol>
-        </div>
+			<div class="container p-4" >
+				<ol style="list-style: none;">
+				<li><a href="<?= base_url()?>home">Home</a></li>
+				<li><?= $breadcrumb?></li>
+				</ol>
+			</div>
     	</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1 text-center">
+					<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
+				</div>
+				<div class="col-md-7">
+					<h3><?= $headline?></h3>
+					<hr>
+					<p>	
+						Informasi Lalu Lintas Indonesia on Korlantas Polri, Jl. MT Haryono Kav. 37-38 <br>
+						Call Center : 1-500-669 || SMS center : 9119<br>
+						Email: <a href="mailto:ditgakkum.korlantas@polri.go.id">ditgakkum.korlantas@polri.go.id</a> 
+					</p>
+				</div>
+				<div class="col-md-4">
+					<p>Website:</p>
+					<a href="https://korlantas.polri.go.id/">https://korlantas.polri.go.id/</a>
+					<p>Social Media:</p>
+					<ul class="social-icons margin-top-20">
+						<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
+						<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
+						<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
+						<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
+					</ul>
+				</div>
+	
+			</div>
+
+		</div>
+	</div>
+
     </div><!-- End Breadcrumbs -->
 
 
@@ -29,19 +50,77 @@
 
 <!-- Container -->
 <div class="container margin-top-30">
-	
+
 	<div class="row">
-		<div class="col-md-2">
-			<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
-		</div>
-		<div class="col-md-6">
-			<h3>Direktorat Penegak Hukum</h3>
+		<div class="col-md-8">
+			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
 		</div>
 		<div class="col-md-4">
-			<ul>
+			<h3>Dokumen Peraturan</h3>
+			<ol>
 				<li>test</li>
-			</ul>
+				<li>test</li>
+			</ol>
 		</div>
+	</div>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Media Channel</h3>
+			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+		</div>
+		<div class="col-md-8">
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> 
+		<div class="col-md-4">
+			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div> 
+	</div>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
+		</div>
+		<div class="col-md-8">
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> 
+		<div class="col-md-4">
+			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div> 
 	</div>
 
 </div>

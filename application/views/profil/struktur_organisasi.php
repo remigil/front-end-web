@@ -41,7 +41,7 @@
 		<div class="col-md-12">
 			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Tugas Korlantas Polri</h4>
 			<p class="text-break" style="text-align:justify ;">
-				<ol>
+				<ol style="text-align: justify;">
 					<li>Membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya;</li>
 					<li>Melaksanakan penertiban lalu lintas, manajemen operasional dan rekayasa lalu lintas (engineering);</li>
 					<li>Menyelenggarakan pusat Komunikasi, Koordinasi, Kendali dan Informasi (K3I) tentang lalu lintas;</li>
@@ -54,7 +54,7 @@
 		<div class="col-md-12">
 			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Fungsi Korlantas Polri</h4>
 			<p class="text-break" style="text-align:justify ;">
-				<ol>
+				<ol style="text-align: justify;">
 					<li>Penyusunan kebijakan strategis yang berkaitan dengan peran dan fungsi polisi lalu lintas, perumusan dan atau pengembangan sistem dan metode termasuk petunjuk pelaksanaan fungsi lalu lintas, membangun kemitraan dan kerjasama baik dalam maupun luar negeri, serta menyelenggarakan koordinasi dengan pemangku kepentingan lainnya di bidang lalu lintas;</li>
 					<li>Pelaksanaan manajemen operasional lalu lintas yang meliputi kegiatan memelihara dan mewujudkan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas di jalan raya, jalan tol, serta jalan-jalan luar kota sebagai penghubung (linking ping) antar kesatuan lalu lintas melalui kegiatan pengaturan, penjagaan, pengawalan, patroli, TPKP, Quick Respon Time, dan menjadi jejaring National Traffic Management Centre (NTMC);</li>
 					<li>Pengembangan sistem dan metode termasuk petunjuk pelaksanaan teknis penegakan hukum yang meliputi kegiatan penindakan terhadap pelanggaran aturan lalu lintas, penanganan kecelakaan lalu lintas,penyidikan kecelakaan lalu lintas, serta koordinasi dan pengawasan PPNS;</li>

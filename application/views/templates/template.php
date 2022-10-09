@@ -236,12 +236,13 @@
 								<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
 								<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
 								<li><a href="<?= base_url()?>tugas_fungsi">Tugas dan Fungsi</a></li>
+								<li><a href="<?= base_url()?>organisasi_tatakerja">Organisasi dan Tata Kerja</a></li>
 								<li><a href="<?= base_url()?>sejarah">Sejarah POLANTAS</a></li>
 							</ul>
 						</li>
 
 						<li><a href="#">SATKER MABES</a>
-							<div class="mega-menu mobile-styles three-columns">
+							<div class="mega-menu mobile-styles two-columns">
 
 									<div class="mega-menu-section">
 										<ul>

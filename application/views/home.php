@@ -224,7 +224,7 @@
 						</div>
 						<div class="col-md-10">
 							<h4>SIGNAL (Samsat Digital Nasional)</h4>
-							<p>SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
+							<p style="text-align:justify;">SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
 
 						</div>
 					</div>
@@ -237,7 +237,7 @@
 						</div>
 						<div class="col-md-10">
 							<h4>SINAR (SIM Nasional Presisi)</h4>
-                    		<p>SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
+                    		<p style="text-align:justify;">SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
 
 						</div>
 					</div>
@@ -251,7 +251,7 @@
 						</div>
 						<div class="col-md-10">
 							<h4>SIM Internasional</h4>
-                    		<p>Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+                    		<p style="text-align:justify;">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
 
 						</div>
 					</div>
@@ -265,7 +265,7 @@
 						</div>
 						<div class="col-md-10">
 							<h4>NTMC</h4>
-                    		<p>NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
+                    		<p style="text-align:justify;">NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
 
 						</div>
 					</div>
@@ -373,8 +373,8 @@
             <!-- Tabs Navigation -->
             <ul class="tabs-nav">
                 <li class="active"><a href="#tab1b">News Flash NTMC</a></li>
-                <li><a href="#tab2b">CCTV Report</a></li>
-                <li><a href="#tab3b">NTMC Channel</a></li>
+                <li><a href="#tab2b">NTMC Channel</a></li>
+                <li><a href="#tab3b">CCTV Report</a></li>
             </ul>
 
             <!-- Tabs Content -->
@@ -400,12 +400,49 @@
                         </div> 
                     </div> 
                 </div> 
-                <div class="tab-content" id="tab2b">
-                    Aenean dolor mi, luctus et laoreet hendrerit, condimentum faucibus mi. Nam et sem eros. Sed sed eros nec massa pellentesque accumsan in nec magna. Donec sollicitudin enim nec justo mollis bibendum. Nulla eleifend mollis velit. Ut sed risus eget metus egestas sagittis. Etiam vestibulum interdum turpis.
-                </div> 
-                <div class="tab-content" id="tab3b">
-                    Suspendisse ut laoreet massa. Etiam vel dolor eu quam varius tempor eu eu mi. Duis auctor interdum ligula ut faucibus. Vivamus lorem ipsum dolor sit amet in tincidunt augue. Aenean at ligula justo, sed gravida metus. 
+				<div class="tab-content" id="tab2b">
+					<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+                    <div class="row margin-top-20">
+                        <div class="col-md-8">
+                            <iframe width="760" height="450" src="https://www.youtube.com/embed/yuXCQVd_zaU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/yaAJ07UKoY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                </div>
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/xUoqcbpdrMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/R8hWWkrBvRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
                 </div>
+                <div class="tab-content" id="tab3b">
+					<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+                    <div class="row margin-top-20">
+                        <div class="col-md-8">
+                            <iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                </div>
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="col-md-12">
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+                
             </div>
 
         </div> 

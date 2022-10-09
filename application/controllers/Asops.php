@@ -10,7 +10,7 @@ class Asops extends MX_Controller {
 	public function index()
 	{ 
 		$title = "Asisten Kapolri Bidang Operasi | K3I Korlantas";
-		$breadcrumb = "aspos";
+		$breadcrumb = "asops";
 		$headline = "ASISTEN KAPOLRI BIDANG OPERASI";
 
         $data = [

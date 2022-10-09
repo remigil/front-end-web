@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bagtik_front extends MX_Controller {
+class Organisasi_tatakerja extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -9,9 +9,9 @@ class Bagtik_front extends MX_Controller {
  
 	public function index()
 	{ 
-		$title = "Bagian Teknologi Informasi Korlantas | K3I Korlantas";
-		$breadcrumb = "bagtik";
-		$headline = "BAGIAN TEKNOLOGI INFORMASI KORLANTAS";
+		$title = "Organisasi dan Tata Kerja | K3I Korlantas";
+		$breadcrumb = "organisasi dan tata kerja";
+		$headline = "ORGANISASI DAN TATA KERJA";
 
         $data = [
 			'title' => $title,
@@ -20,7 +20,7 @@ class Bagtik_front extends MX_Controller {
 		
 	];
         
-        $this->template->load('templates/template','satker/bagtik', $data); 
+        $this->template->load('templates/template','profil/organisasi_tatakerja', $data); 
         
 	}
 	public function error()

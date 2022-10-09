@@ -48,7 +48,8 @@
 		<div class="tab-content" id="tab1b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/ow8-5ukIXbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -84,7 +85,8 @@
 		<div class="tab-content" id="tab2b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/3o2E47KJGkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -116,7 +118,8 @@
 		<div class="tab-content" id="tab3b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/7BOTFrY-O3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -147,7 +150,8 @@
 		<div class="tab-content" id="tab4b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/JEFV0P0Oflo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -181,7 +185,8 @@
 		<div class="tab-content" id="tab5b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/nnHfRSQJAEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -213,7 +218,8 @@
 		<div class="tab-content" id="tab6b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/hqVeznyAhX4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -239,7 +245,8 @@
 		<div class="tab-content" id="tab7b">
 			<div class="row">
 				<div class="col-md-12">
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/0G74EWxXuus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
