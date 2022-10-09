@@ -9,7 +9,16 @@ class Sambutan extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Sambutan | K3I Korlantas";  
+		$title = "Sambutan | K3I Korlantas";
+		$breadcrumb = "Sambutan";
+		$headline = "SAMBUTAN KORLANTAS POLRI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];   
         $this->template->load('templates/template','profil/sambutan', $data); 
         
 	}

@@ -9,7 +9,17 @@ class Konferensi_pers extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Konferensi Pers | K3I Korlantas";  
+		$title = "Konferensi Pers | K3I Korlantas";
+		$breadcrumb = "konferensi pers";
+		$headline = "KONFERENSI PERS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','publikasi/konferensi_pers', $data); 
         
 	}

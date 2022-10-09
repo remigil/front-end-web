@@ -49,26 +49,25 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="jenis" name="jenisKendaraan">
-                                <label for="">Jenis Kendaraan</label>
+								<select name="jenisKendaraan" class="form-select" required>
+									<option selected>Pilih Jenis Kendaraan</option>
+									<option value="Sepeda Motor">Sepeda Motor</option>
+									<option value="Mobil">Mobil</option>
+                                    
+                                </select>
+                                <label for="jenis">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="merek" name="merekKendaraan">
+                                <input type="text" class="form-control" id="merekKendaraan" placeholder="merek" name="merekKendaraan">
                                 <label for="">Merk</label>
                             </div>
                         </div>
                         <div class="col-md-12">
-						<div class="form-floating mb-3">
-                                <select name="kepemilikan" class="form-select" style="width:100%" required>
-									<option selected value="">Pilih Kepemilikan</option>
-                                    <?php
-                        				foreach ($data['getPolda'] as $row) : ?>
-                            			<option value="<?php $row['name_polda']; ?>"><?php echo $row['name_polda']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="owner">Kepemilikan</label>
+							<div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kepemilikan" placeholder="owner" name="kepemilikan">
+                                <label for="">Kepemilikan</label>
                             </div>
                         </div>
                     </div>
@@ -93,7 +92,7 @@
             <div class="modal-body">
 			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="" id="id_kendaraan" type="text">
-					<div class="row">
+			<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="noKendaraan" placeholder="no" name="noKendaraan">
@@ -102,8 +101,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jenisKendaraan" placeholder="jenis" name="jenisKendaraan">
-                                <label for="">Jenis Kendaraan</label>
+								<select name="jenisKendaraan" id="jenisKendaraan" class="form-select">
+									<option value="Sepeda Motor">Sepeda Motor</option>
+									<option value="Mobil">Mobil</option>
+                                    
+                                </select>
+                                <label for="jenis">Jenis Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -113,15 +116,9 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-						<div class="form-floating mb-3">
-                                <select name="kepemilikan" id="kepemilikan" class="form-select" style="width:100%" required>
-									<option selected value="">Pilih Kepemilikan</option>
-                                    <?php
-                        				foreach ($data['getPolda'] as $row) : ?>
-                            			<option value="<?php $row['name_polda']; ?>"><?php echo $row['name_polda']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="owner">Kepemilikan</label>
+							<div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kepemilikan" placeholder="owner" name="kepemilikan">
+                                <label for="">Kepemilikan</label>
                             </div>
                         </div>
                     </div>

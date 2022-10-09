@@ -126,7 +126,7 @@
 						<div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="nomor" name="phone_polres">
-                                <label for="">Nomor Telepon Polda</label>
+                                <label for="">Nomor Telepon Polres</label>
                             </div>
                         </div>
 
@@ -156,7 +156,6 @@
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <select name="namaPolda" id="namaPolda" class="form-select" style="width:100%" required>
-									<option selected value="">Pilih Polda</option>
                                     <?php
                         				foreach ($data['getPolda'] as $row) : ?>
                             			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
@@ -230,7 +229,7 @@
 						<div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="phone_polres" placeholder="nomor" name="phone_polres">
-                                <label for="">Nomor Telepon Polda</label>
+                                <label for="">Nomor Telepon Polres</label>
                             </div>
                         </div>
 
@@ -820,7 +819,7 @@
                 $('#id_polres').val(results.id)
 
                 $('.UbahPolres,#logo_polres').val(results.logo_polres)
-                $('.UbahPolres,#namaPolda').val(results.id_polda)
+                $('.UbahPolres,#namaPolda').val(results.name_polda)
                 $('.UbahPolres,#namaPolres').val(results.name_polres)
                 $('.UbahPolres,#kodeSatpas').val(results.code_satpas)
                 $('.UbahPolres,#address').val(results.address)

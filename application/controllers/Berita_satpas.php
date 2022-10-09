@@ -9,7 +9,17 @@ class Berita_satpas extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita Satpas | K3I Korlantas";  
+		$title = "Berita Satpas | K3I Korlantas";
+		$breadcrumb = "berita satpas";
+		$headline = "BERITA SATPAS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_satpas', $data); 
         
 	}

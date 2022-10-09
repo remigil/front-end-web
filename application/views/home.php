@@ -130,7 +130,7 @@
         <div class="col-md-6">
 			<h3 class="headline centered margin-bottom-35 margin-top-50">www.k3i.korlantas.polri.go.id</h3>
 		</div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-5">
 			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
 		</div>
 
@@ -165,7 +165,7 @@
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
+                    <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
                         <div class="img-box-content visible">
                             <h2 style="color: white">47.965</h2>
                             <h4>Kecelakaan Lalu Lintas </h4>
@@ -175,7 +175,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
+                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
                             <h2 style="color: white">47.965</h2>
                             <h4>Kendaraan Bermotor </h4>
@@ -185,7 +185,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
+                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
                         <div class="img-box-content visible">
                             <h2 style="color: white">47.965</h2>
                             <h4>Pelanggaran Lalu Lintas </h4>
@@ -195,7 +195,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
+                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
                         <div class="img-box-content visible">
                             <h2 style="color: white">47.965</h2>
                             <h4>Jumlah SIM </h4>
@@ -217,21 +217,59 @@
 
             <div class="row">
                 <div class="col-md-6">
-					
-                    <h4>SIGNAL (Samsat Digital Nasional)</h4>
-                    <p>SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt="">
+
+						</div>
+						<div class="col-md-10">
+							<h4>SIGNAL (Samsat Digital Nasional)</h4>
+							<p>SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
+
+						</div>
+					</div>
                 </div>
                 <div class="col-md-6">
-                    <h4>SINAR (SIM Nasional Presisi)</h4>
-                    <p>SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt="">
+
+						</div>
+						<div class="col-md-10">
+							<h4>SINAR (SIM Nasional Presisi)</h4>
+                    		<p>SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
+
+						</div>
+					</div>
+                    
                 </div>
                 <div class="col-md-6">
-                    <h4>SIM Internasional</h4>
-                    <p>Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="">
+
+						</div>
+						<div class="col-md-10">
+							<h4>SIM Internasional</h4>
+                    		<p>Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+
+						</div>
+					</div>
+                    
                 </div>
                 <div class="col-md-6">
-                    <h4>NTMC</h4>
-                    <p>NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
+					<div class="row">
+						<div class="col-md-2">
+							<img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt="">
+
+						</div>
+						<div class="col-md-10">
+							<h4>NTMC</h4>
+                    		<p>NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
+
+						</div>
+					</div>
+                    
                 </div>
             </div>
         </div>

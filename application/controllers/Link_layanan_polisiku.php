@@ -9,7 +9,17 @@ class Link_layanan_polisiku extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Link ke Layanan Polisiku  | K3I Korlantas";  
+		$title = "Link ke Layanan Polisiku  | K3I Korlantas";
+		$breadcrumb = "polisiku";
+		$headline = "LINK KE LAYANAN POLISIKU";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','lain_lain/link_layanan_polisiku', $data); 
         
 	}

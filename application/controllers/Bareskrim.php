@@ -9,7 +9,17 @@ class Bareskrim extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "BARESKRIM POLRI | K3I Korlantas";  
+		$title = "BARESKRIM POLRI | K3I Korlantas";
+		$breadcrumb = "bareskrim";
+		$headline = "BARESKRIM POLRI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/bareskrim', $data); 
         
 	}

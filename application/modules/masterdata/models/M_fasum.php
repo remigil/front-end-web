@@ -114,12 +114,12 @@ class M_fasum extends CI_Model
         foreach ($result['data']['data'] as $field) {
             $row = array();
             // $row ['id']	=  $field['id']; 
-            $row['id']    			=  $no++;
-            $row['fasum_name']     = $field['fasum_name'];
-            $row['category_fasum'] 			= $field['category_fasum']['name_category_fasum'];
-            $row['address']       	= $field['fasum_address'];
+            $row['id']    				= $no++;
+            $row['fasum_name']     		= $field['fasum_name'];
+            $row['category_fasum'] 		= $field['category_fasum']['name_category_fasum'];
+            $row['address']       		= $field['fasum_address'];
             $row['fasum_phone']       	= $field['fasum_phone'];
-            $row['jam_operasional']       	= $field['fasum_open_time']."-".$field['fasum_close_time'];
+            $row['jam_operasional']     = $field['fasum_open_time']."-".$field['fasum_close_time'];
             $row['action']         = '   
                 
 			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailFasum">

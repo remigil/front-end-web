@@ -9,7 +9,17 @@ class Informasi_setiap_saat extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Informasi Setiap Saat | K3I Korlantas";  
+		$title = "Informasi Setiap Saat | K3I Korlantas";
+		$breadcrumb = "informasi setiap saat";
+		$headline = "INFORMASI SETIAP SAAT";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','informasi_publik/informasi_setiap_saat', $data); 
         
 	}

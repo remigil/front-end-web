@@ -9,7 +9,17 @@ class Divtik extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "DIVTIK POLRI | K3I Korlantas";  
+		$title = "DIVTIK POLRI | K3I Korlantas";
+		$breadcrumb = "divtik";
+		$headline = "DIVISI TEKNOLOGI INFORMASI DAN KOMUNIKASI POLRI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/divtik', $data); 
         
 	}

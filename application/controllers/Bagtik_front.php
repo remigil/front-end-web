@@ -9,7 +9,17 @@ class Bagtik_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Bagian Teknologi Informasi Korlantas | K3I Korlantas";  
+		$title = "Bagian Teknologi Informasi Korlantas | K3I Korlantas";
+		$breadcrumb = "bagtik";
+		$headline = "BAGIAN TEKNOLOGI INFORMASI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/bagtik', $data); 
         
 	}

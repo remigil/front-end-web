@@ -9,7 +9,17 @@ class Kegiatan_kakor extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Kegiatan Kakorlantas POLRI | K3I Korlantas";  
+		$title = "Kegiatan Kakorlantas POLRI | K3I Korlantas";
+		$breadcrumb = "kegiatan kakorlantas";
+		$headline = "KEGIATAN KAKORLANTAS POLRI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','publikasi/kegiatan_kakor', $data); 
         
 	}

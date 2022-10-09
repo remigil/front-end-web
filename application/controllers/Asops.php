@@ -9,7 +9,16 @@ class Asops extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Asisten Kapolri Bidang Operasi | K3I Korlantas";  
+		$title = "Asisten Kapolri Bidang Operasi | K3I Korlantas";
+		$breadcrumb = "aspos";
+		$headline = "ASISTEN KAPOLRI BIDANG OPERASI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
         $this->template->load('templates/template','satker/asops', $data); 
         
 	}

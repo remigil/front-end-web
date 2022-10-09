@@ -9,7 +9,17 @@ class Tugas_fungsi extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Tugas dan Fungsi | K3I Korlantas";  
+		$title = "Tugas dan Fungsi | K3I Korlantas";
+		$breadcrumb = "Tugas dan fungsi";
+		$headline = "TUGAS DAN FUNGSI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','profil/tugas_fungsi', $data); 
         
 	}

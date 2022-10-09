@@ -47,21 +47,32 @@
 					<div class="col-md-12 mb-3"> 
                         <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/> 
                     </div>
-                    <div class="form-floating mb-3">
-                        <select name="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option selected>Pilih Kategori</option>
-                            <option value="1">Berita PPKM</option>
-                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
-                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
-                            <option value="4">Berita Kemacetan Lalu Lintas</option>
-                            <option value="5">Berita Satpas</option>
-                            <option value="6">Berita ETLE</option>
-                            <option value="7">Berita Kontijensi</option>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-floating mb-3">
+								<select name="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<!-- <select name="" id=""  multiple required> -->
+									<option selected>Pilih Kategori</option>
+									<option value="1">Berita PPKM</option>
+									<option value="2">Berita Kecelakaan Lalu Lintas</option>
+									<option value="3">Berita Pelanggaran Lalu Lintas</option>
+									<option value="4">Berita Kemacetan Lalu Lintas</option>
+									<option value="5">Berita Satpas</option>
+									<option value="6">Berita ETLE</option>
+									<option value="7">Berita Kontijensi</option>
+		
+								</select>
+								<label for="category">Kategori Berita</label>
+							</div>
 
-                        </select>
-                        <label for="category">Kategori Berita</label>
-                    </div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="date" class="form-control" name="date" placeholder="date">
+								<label for="date">Tanggal Berita</label>
+							</div>
+						</div>
+					</div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="title" placeholder="judul">
                         <label for="title">Judul Berita</label>
@@ -90,25 +101,36 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="" id="id_berita" type="text">
-					<div class="col-md-12 mb-3"> 
+						<div class="col-md-12 mb-3"> 
 							<!-- get data foto dari server -->
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
                         </div>
-						<div class="form-floating mb-3">
-                        <select name="category" id="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option selected>Pilih Kategori</option>
-                            <option value="1">Berita PPKM</option>
-                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
-                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
-                            <option value="4">Berita Kemacetan Lalu Lintas</option>
-                            <option value="5">Berita Satpas</option>
-                            <option value="6">Berita ETLE</option>
-                            <option value="7">Berita Kontijensi</option>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<select name="category" id="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<!-- <select name="" id=""  multiple required> -->
+										<option selected>Pilih Kategori</option>
+										<option value="1">Berita PPKM</option>
+										<option value="2">Berita Kecelakaan Lalu Lintas</option>
+										<option value="3">Berita Pelanggaran Lalu Lintas</option>
+										<option value="4">Berita Kemacetan Lalu Lintas</option>
+										<option value="5">Berita Satpas</option>
+										<option value="6">Berita ETLE</option>
+										<option value="7">Berita Kontijensi</option>
+		
+									</select>
+									<label for="category">Kategori Berita</label>
+								</div>
 
-                        </select>
-                        <label for="category">Kategori Berita</label>
-                    </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<input type="date" id="date" class="form-control" name="date" placeholder="date">
+									<label for="date">Tanggal Berita</label>
+								</div>
+							</div>
+						</div>
                     <div class="form-floating mb-3">
                         <input type="text" id="title" class="form-control" name="title" placeholder="judul">
                         <label for="title">Judul Berita</label>
@@ -141,21 +163,32 @@
 							<!-- get data foto dari server -->
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
                         </div>
-						<div class="form-floating mb-3">
-                        <select name="category" id="category" class="form-control" aria-label="Floating label select" style="width:100%" required>
-                            <!-- <select name="" id=""  multiple required> -->
-                            <option selected>Pilih Kategori</option>
-                            <option value="1">Berita PPKM</option>
-                            <option value="2">Berita Kecelakaan Lalu Lintas</option>
-                            <option value="3">Berita Pelanggaran Lalu Lintas</option>
-                            <option value="4">Berita Kemacetan Lalu Lintas</option>
-                            <option value="5">Berita Satpas</option>
-                            <option value="6">Berita ETLE</option>
-                            <option value="7">Berita Kontijensi</option>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<select name="category" id="category" class="form-control" aria-label="Floating label select" style="width:100%" required>
+									<!-- <select name="" id=""  multiple required> -->
+										<option selected>Pilih Kategori</option>
+										<option value="1">Berita PPKM</option>
+										<option value="2">Berita Kecelakaan Lalu Lintas</option>
+										<option value="3">Berita Pelanggaran Lalu Lintas</option>
+										<option value="4">Berita Kemacetan Lalu Lintas</option>
+										<option value="5">Berita Satpas</option>
+										<option value="6">Berita ETLE</option>
+										<option value="7">Berita Kontijensi</option>
+		
+									</select>
+									<label for="category">Kategori Berita</label>
+								</div>
 
-                        </select>
-                        <label for="category">Kategori Berita</label>
-                    </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+									<input type="text" id="date" class="form-control" name="date" placeholder="date">
+									<label for="date">Tanggal Berita</label>
+								</div>
+							</div>
+						</div>
                     <div class="form-floating mb-3">
                         <input type="text" id="title" class="form-control" name="title" placeholder="judul">
                         <label for="title">Judul Berita</label>
@@ -361,11 +394,13 @@
                 $('.DetailBerita,#category').attr('disabled', true)
                 $('.DetailBerita,#content').attr('disabled', true)
                 $('.DetailBerita,#photo').attr('disabled', true)
+                $('.DetailBerita,#date').attr('disabled', true)
 
                 $('.DetailBerita,#title').val(results.title)
                 $('.DetailBerita,#category').val(results.news_category)
                 $('.DetailBerita,#content').val(results.content)
                 $('.DetailBerita,#photo').val(results.picture)
+                $('.DetailBerita,#date').val(results.date)
             }
         })
     }
@@ -384,6 +419,7 @@
                 $('.UbahBerita,#category').attr('disabled', false)
                 $('.UbahBerita,#content').attr('disabled', false)
                 $('.UbahBerita,#photo').attr('disabled', false)
+                $('.UbahBerita,#date').attr('disabled', false)
 
                 $('#id_berita').val(results.id)
 
@@ -391,6 +427,7 @@
                 $('.UbahBerita,#category').val(results.news_category)
                 $('.UbahBerita,#content').val(results.content)
                 $('.UbahBerita,#photo').val(results.picture)
+                $('.UbahBerita,#date').val(results.date)
             }
         })
     }

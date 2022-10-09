@@ -9,7 +9,16 @@ class Struktur_organisasi extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Struktur Organisasi | K3I Korlantas";  
+		$title = "Struktur Organisasi | K3I Korlantas";
+		$breadcrumb = "Struktur Organisasi";
+		$headline = "STRUKTUR ORGANISASI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
         $this->template->load('templates/template','profil/struktur_organisasi', $data); 
         
 	}

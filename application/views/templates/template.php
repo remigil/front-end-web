@@ -22,6 +22,8 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/leaflet-routing-machine.css" /> 
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
 
 
@@ -226,7 +228,7 @@
 					<ul id="responsive">
 
 						<li><a class="current" href="<?php echo base_url()?>home">&nbsp;<i class="im im-icon-Home"></i></a></li>
-
+						
 						<li><a  href="#">PROFIL</a>
 							<ul>
 								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
@@ -278,7 +280,7 @@
 						</li>
  
 
-						<li><a href="#">INFORMASI PUBLIC</a>
+						<li><a href="#">INFORMASI PUBLIK</a>
 							<ul>
 								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
 								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
@@ -312,9 +314,12 @@
 						<li><a href="#">LAIN - LAIN</a>
 							<ul>
 								<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
-								<li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li>
-								<li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li>
-								<li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li> 
+								<!-- <li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li> -->
+								<li><a href="https://etle-pmj.info/id">Link Pengecekan Status ETLE</a></li>
+								<!-- <li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li> -->
+								<li><a href="https://polri.go.id/polisiku">Link ke Layanan Polisiku</a></li>
+								<!-- <li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li>  -->
+								<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
 						</li>
 						
@@ -357,10 +362,10 @@
 			<div class="col-md-3">
 				<h4>Tentang Korlantas</h4>
 				<ul class="footer-links">
-					<li><a href="#">Strukture Organisasi</a></li>
-					<li><a href="#">Profile Pejabat</a></li>
-					<li><a href="#">Visi dan Misi</a></li>
-					<li><a href="#">Sejarah Porlantas</a></li>
+					<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
+					<li><a href="<?= base_url()?>profil_pejabat">Profil Pejabat</a></li>
+					<li><a href="<?= base_url()?>visi_misi">Visi dan Misi</a></li>
+					<li><a href="<?= base_url()?>sejarah">Sejarah Porlantas</a></li>
 					<li><a href="#">Sitemap</a></li> 
 				</ul> 
 				<div class="clearfix"></div>
@@ -396,10 +401,10 @@
 			<div class="col-md-3"> 
 				<h4>Social Media</h4>
 				<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
+					<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
+					<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
+					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
+					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
 				</ul>
 			</div>
 
@@ -457,6 +462,16 @@
 		
 </div>
 <!-- Style Switcher / End -->
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
 
 
 </body>

@@ -157,7 +157,7 @@ class SimKeliling extends MY_Controller
         echo json_encode($results);
     }
 
-    public function update()
+    public function updateSimkel()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -168,28 +168,27 @@ class SimKeliling extends MY_Controller
             [
                 'name' => 'name_sim_keliling',
                 'contents' => $input['name_sim_keliling'],
-            ], 
-			[
+            ],
+            [
                 'name' => 'address',
                 'contents' => $input['address'],
-            ], 
-			[
+            ],
+            [
                 'name' => 'latitude',
                 'contents' => $input['latitude'],
-            ], 
-			[
+            ],
+            [
                 'name' => 'longitude',
                 'contents' => $input['longitude'],
-            ], 
-			[
+            ],
+            [
                 'name' => 'sim_keliling_open_time',
                 'contents' => $input['sim_keliling_open_time'],
-            ], 
-			[
+            ],
+            [
                 'name' => 'sim_keliling_close_time',
                 'contents' => $input['sim_keliling_close_time'],
-            ],
-
+            ]
 
         ];
         $data = guzzle_request('PUT', 'sim_keliling/edit/' . $input['id'] . '', [

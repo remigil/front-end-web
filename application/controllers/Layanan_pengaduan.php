@@ -9,7 +9,17 @@ class Layanan_pengaduan extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Layanan Pengaduan | K3I Korlantas";  
+		$title = "Layanan Pengaduan | K3I Korlantas";
+		$breadcrumb = "pengaduan";
+		$headline = "LAYANAN PENGADUAN";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','kontak/layanan_pengaduan', $data); 
         
 	}

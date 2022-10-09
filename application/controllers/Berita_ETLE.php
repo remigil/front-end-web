@@ -9,7 +9,17 @@ class Berita_etle extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita ETLE | K3I Korlantas";  
+		$title = "Berita ETLE | K3I Korlantas";
+		$breadcrumb = "berita etle";
+		$headline = "BERITA ETLE";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_etle', $data); 
         
 	}

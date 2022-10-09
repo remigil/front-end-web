@@ -9,7 +9,17 @@ class Divhumas extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Div HUMAS POLRI | K3I Korlantas";  
+		$title = "Div HUMAS POLRI | K3I Korlantas";
+		$breadcrumb = "div humas";
+		$headline = "DIVISI HUMAS POLRI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/divhumas', $data); 
         
 	}

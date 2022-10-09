@@ -9,7 +9,17 @@ class Visi_misi extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Visi dan Misi | K3I Korlantas";  
+		$title = "Visi dan Misi | K3I Korlantas";
+		$breadcrumb = "Visi dan misi";
+		$headline = "VISI DAN MISI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+    
         $this->template->load('templates/template','profil/visi_misi', $data); 
         
 	}
