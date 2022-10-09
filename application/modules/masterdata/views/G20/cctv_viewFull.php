@@ -1444,7 +1444,7 @@
 
                             // console.log(nourut);
                             $(`#viewcctv${nourut}`).show();
-                            $(`#idsidemenu${nourut}`).addClass("col-md-6");
+                            $(`#idsidemenu${nourut}`).addClass("col-md-4");
 
                             clone = ev.target.cloneNode(true);
                             cloneId = ev.target.getAttribute("id");
