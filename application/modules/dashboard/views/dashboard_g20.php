@@ -980,25 +980,107 @@
                                 jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
                             }
 
-                            
-                            if(markerArray[ress[i].id_officer] != null){ 
-                                markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: jenis,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
-                                                <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                                </div>
-
+                            var cordLat = parseFloat(ress[i].latitude); 
+                            var corLong = parseFloat(ress[i].longitude); 
+                            var lokasiPetugas = '';
+                            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                                // $('[name=address]').val(data['display_name']); 
+                                // mapContainer.flyTo([cordLat, corLong], 17);  
+                                lokasiPetugas = data['display_name'];
+                                if(markerArray[ress[i].id_officer] != null){ 
+                                    markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: jenis,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                    </div>
+    
+                                                    ${call_wa_dan_biasa(ress[i].handphone)}
+                                                </div> 
+    
+                                                <div class="row text-start mt-3">
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                                    </div> 
+    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">NRP</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</span>
+                                                    </div>  
+                                                    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Tim</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</span>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</span>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</span>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
+                                                    </div>
+    
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
+                                                    </div> 
+                                                    <div class="col-md-1">
+                                                        <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                        </div>
+                                    `).update();  
+                                }else{ 
+                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: jenis,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                                    <div class="avatar-xl me-3">
+                                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                    </div>
+                                                </div> 
+    
                                                 ${call_wa_dan_biasa(ress[i].handphone)}
-                                            </div> 
-
+                                            </div>
+    
+                                            
                                             <div class="row text-start mt-3">
                                                 <div class="col-md-4">
                                                     <span style="font-size: 12px;font-weight: bold;">Nama</span>  
@@ -1006,13 +1088,17 @@
                                                 <div class="col-md-8">
                                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</span>
                                                 </div> 
-
+    
                                                 <div class="col-md-4">
                                                     <span style="font-size: 12px;font-weight: bold;">NRP</span>  
                                                 </div>
                                                 <div class="col-md-8">
                                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</span>
-                                                </div>  
+                                                </div>
+                                                
+                                               
+    
+                                                
                                                 
                                                 <div class="col-md-4">
                                                     <span style="font-size: 12px;font-weight: bold;">Tim</span>  
@@ -1041,81 +1127,23 @@
                                                 <div class="col-md-8">
                                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
                                                 </div>
-                                            </div> 
-                                        </div>  
-                                    </div>
-                                `).update();  
-                            }else{ 
-                                markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: jenis,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
-                                                <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+    
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${lokasiPetugas}</span>
                                                 </div>
                                             </div> 
-
-                                            ${call_wa_dan_biasa(ress[i].handphone)}
+                                              
                                         </div>
-
-                                        
-                                        <div class="row text-start mt-3">
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_officer}</span>
-                                            </div> 
-
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">NRP</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].nrp_user}</span>
-                                            </div>
-                                            
-                                           
-
-                                            
-                                            
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Tim</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_account}</span>
-                                            </div>
-                                            
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].name_team}</span>
-                                            </div>
-                                            
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].type_vehicle} / ${ress[i].fuel_vehicle == null ? '' : ress[i].fuel_vehicle}</span>
-                                            </div>
-                                            
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
-                                            </div>
-                                        </div> 
-                                          
-                                    </div>
-                                `).addTo(mapContainer);    
-                            }
+                                    `).addTo(mapContainer);    
+                                }
+                            }); 
+                             
                         
                         }
 
@@ -1305,143 +1333,168 @@
                     jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
                 }
     
-                if(markerArray[ress.id_officer] != null){ 
-                markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                    //   className: 'location-pin',
-                    html: jenis,
-                    iconSize: [5, 5],
-                    iconAnchor: [5, 10]
-                    // iconAnchor: [10, 33]
-                    }) }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
-                        <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;">
-                                <div class="avatar-xl me-3">
-                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                var lokasiPetugas = '';
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                
+                    lokasiPetugas = data['display_name'];
+                    if(markerArray[ress.id_officer] != null){ 
+                        markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            //   className: 'location-pin',
+                            html: jenis,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                            <div class="text-center" style="width: 300px;"> 
+                                <div class="row mt-3">
+                                    <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                        <div class="avatar-xl me-3">
+                                            <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                        </div>
+                                    </div> 
+                                    ${call_wa_dan_biasa(ress.handphone)}
                                 </div>
-                            </div> 
-                            ${call_wa_dan_biasa(ress.handphone)}
-                        </div>
+    
+    
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                        </div> 
+    
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">NRP</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
+                                        </div>
+                                        
+                                        
+        
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Tim</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Jenis Kendaraan</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
+                                        </div>
 
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                        </div>
+                                    </div>  
+                                
+                            </div>
+                        `).update();  
+                    }else{ 
+                        markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            //   className: 'location-pin',
+                            html: jenis,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                            <div class="text-center" style="width: 300px;"> 
+                                <div class="row mt-3">
+                                    <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                        <div class="avatar-xl me-3">
+                                            <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                        </div>
+                                    </div> 
+                                    ${call_wa_dan_biasa(ress.handphone)}
+                                </div>
+    
+    
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</span>
+                                        </div> 
+    
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">NRP</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
+                                        </div>
+                                        
+                                        
+        
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Tim</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
+                                        </div>
 
-                            <div class="row text-start mt-3">
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</span>
-                                </div> 
-
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">NRP</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
-                                </div>
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
+                                        </div> 
+                                        <div class="col-md-1">
+                                            <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                        </div>
+                                    </div>  
                                 
-                                
- 
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Tim</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
-                                </div>
-                            </div>  
-                        
-                    </div>
-                `).update();  
-                }else{ 
-                markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-                    //   className: 'location-pin',
-                    html: jenis,
-                    iconSize: [5, 5],
-                    iconAnchor: [5, 10]
-                    // iconAnchor: [10, 33]
-                    }) }).bindPopup(`
-                    <div class="text-center" style="width: 300px;"> 
-                        <div class="row mt-3">
-                            <div class="col-md-12 col-12" style="margin-left: 110px;">
-                                <div class="avatar-xl me-3">
-                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
-                                </div>
-                            </div> 
-                            ${call_wa_dan_biasa(ress.handphone)}
-                        </div>
-
-
-                            <div class="row text-start mt-3">
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_officer}</span>
-                                </div> 
-
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">NRP</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.nrp_user}</span>
-                                </div>
-                                
-                                
- 
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Tim</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_account}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Ketua Tim</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.name_team}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">Kendaraan</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.type_vehicle} / ${ress.fuel_vehicle == null ? '' : ress.fuel_vehicle}</span>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <span style="font-size: 12px;font-weight: bold;">No Kendaraan</span>  
-                                </div>
-                                <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
-                                </div>
-                            </div>  
-                        
-                    </div>
-                `).addTo(mapContainer);    
-                }
+                            </div>
+                        `).addTo(mapContainer);    
+                    }
+                });
             
 
             // } 
