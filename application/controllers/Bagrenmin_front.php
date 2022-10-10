@@ -9,7 +9,17 @@ class Bagrenmin_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Bagian Perencanaan dan Administrasi | K3I Korlantas";  
+		$title = "Bagian Perencanaan dan Administrasi | K3I Korlantas";
+		$breadcrumb = "bagrenmin";
+		$headline = "BAGIAN PERENCANAAN DAN ADMINISTRASI";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/bagrenmin', $data); 
         
 	}

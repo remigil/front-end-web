@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-6">
                         <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
-                        <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end" style="width: 25%;">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
+                        <a href="javascript:void(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end" style="width: 25%;">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
                     </div>
                 </div>
                 <div class="row">
@@ -141,45 +141,71 @@
  
 
 <script>
-    var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
-    var PetugasOrigin = JSON.parse(Petugas);
-    var Petugasbaru = JSON.parse(Petugas);
+    var Petugas; 
+    var PetugasOrigin;
+    var Petugasbaru;
+    // var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
+    // var PetugasOrigin = JSON.parse(Petugas);
+    // var Petugasbaru = JSON.parse(Petugas);
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
     
     
     // EDIIT
-    var dataGetId = '<?php echo json_encode($data['getDetail']['data'])?>';
-    var parseGet = JSON.parse(dataGetId);;
-    // console.log(parseGet['officer']);  
+    var dataGetId;
+    var parseGet;
+    
+    
 
-    // var listKendaraan = '';
-    // var dummyKendaraan = '<?= json_encode($data['getVehicle'])?>';
-    // var dataKendaraan = JSON.parse(dummyKendaraan);
-    // // console.log(dataKendaraan);
-    
-    // dataKendaraan.forEach(el => {
-    //     listKendaraan += `<option ${el.no_vehicle == parseGet['officers'][1]['trx_account_officer']['vehicle_id'] ? 'selected' : ''} value="${el.id}" >${el.no_vehicle}</option>`; 
-    //     for (let i = 0; i < parseGet['officers'].length; i++) {     
-    //         $(`#kendaraanEdit${i+1}`).html(listKendaraan);
-    //     }
-    // });
-    // console.log(parseGet['vehicles']);
+
+    $(document).ready(function() {
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
+            data : {
+                "search" : null, 
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                // console.log(result);
+                Petugas = result;
+                PetugasOrigin = result;
+                Petugasbaru = result;
+            }
+        });
+
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>operasi/Akun/GetPetugasId", 
+            data : {
+                "id" : $("[name=id]").val(), 
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                console.log(result);
+                parseGet = result; 
+                for (let i = 0; i < parseGet['officers'].length; i++) { 
+                    console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
+                    if(parseGet['officer']['name_officer'] == parseGet['officers'][i]['name_officer']){
+                        $(`#flexRadioDefault${i+1}`).prop('checked',true);
+                    }
+                }
+            }
+        });
+        
+        new Choices('#officers', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
+    });
 
     
-    // for (let i = 0; i < parseGet['officers'].length; i++) { 
-    //     // console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
-    //     if(parseGet['officer']['name_officer'] == parseGet['officers'][i]['name_officer']){
-    //         $(`#flexRadioDefault${i+1}`).prop('checked',true);
-    //     }
-    // }
-    
-    for (let i = 0; i < parseGet['officers'].length; i++) { 
-        console.log({a:parseGet['officer']['name_officer'] , b:parseGet['officers'][i]['name_officer']});
-        if(parseGet['officer']['name_officer'] == parseGet['officers'][i]['name_officer']){
-            $(`#flexRadioDefault${i+1}`).prop('checked',true);
-        }
-    }
     
      
 
@@ -338,21 +364,6 @@
             petugasLain: PetugasUntukSelectLain.length
         })
     }
-
-
-    $(document).ready(function() {
-        
-        new Choices('#officers', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
-
-    });
     
     $(".form").submit(function(e) {
         $("#overlay").fadeIn(300);

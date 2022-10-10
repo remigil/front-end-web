@@ -9,7 +9,17 @@ class Sejarah extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Sejarah POLANTAS | K3I Korlantas";  
+		$title = "Sejarah POLANTAS | K3I Korlantas";
+		$breadcrumb = "Sejarah";
+		$headline = "SEJARAH POLISI LALU LINTAS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','profil/sejarah', $data); 
         
 	}

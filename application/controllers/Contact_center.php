@@ -9,7 +9,17 @@ class contact_center extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Contact Center NTMC | K3I Korlantas";  
+		$title = "Contact Center NTMC | K3I Korlantas";
+		$breadcrumb = "ntmc";
+		$headline = "CONTACT CENTER NTMC";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','kontak/contact_center', $data); 
         
 	}

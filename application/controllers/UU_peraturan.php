@@ -9,7 +9,17 @@ class UU_peraturan extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "UU dan Peraturan | K3I Korlantas";  
+		$title = "UU dan Peraturan | K3I Korlantas";
+		$breadcrumb = "uu dan peraturan";
+		$headline = "UU DAN PERATURAN";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','informasi_publik/uu_peraturan', $data); 
         
 	}

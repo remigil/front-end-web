@@ -106,132 +106,42 @@
     </div>
 </div>
 
+
 <script>
-    var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
-    var PetugasOrigin = JSON.parse(Petugas)
-    var Petugasbaru = JSON.parse(Petugas);
-    let PetugasUntukSelectLain = []
-    let PetugasChoose = [];
+ 
+    var Petugas; 
+    var PetugasOrigin;
+    var Petugasbaru;
 
-
-
+    // let Petugas = '<?php echo json_encode($data['getOfficer']) ?>'; 
+    // var PetugasOrigin = JSON.parse(Petugas);
+    // var Petugasbaru = JSON.parse(Petugas);
+    let PetugasUntukSelectLain = [];
+    let PetugasChoose = []; 
 
     var room = 1;
 
-    function getOption(no) {
-        let select = $('#select' + no).find(":selected").val();
-        let list = '';
-        if (select == '') {
-            list += ` <option selected value="">Pilih Petugas</option>`
-        } else {
-            if (select) {
-                for (let i = 0; i < PetugasUntukSelectLain.length; i++) {
-                    // const element = PetugasUntukSelectLain[i];
-                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer} - ${PetugasUntukSelectLain[i].nrp_officer}</option>`
-                }
-            }
-
-        }
-        for (let i = 0; i < Petugasbaru.length; i++) {
-            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
-        }
-        $('#select' + no).html(list);
-    }
+    
 
 
 
-    function education_fields() {
-        room++;
-        check()
-        var objTo = document.getElementById('education_fields')
-        var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass" + room);
-        var rdiv = 'removeclass' + room;
-        divtest.innerHTML =
-            '<div class="row" style="margin-top:-10px">' +
-            '<div class="col-md-5">' +
-            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
-            ' <option selected value="">Pilih Petugas</option>' +
-            '</select>' +
-            '<label class="labelmui">Petugas</label>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-md-4">' +
-            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
-            '<option selected value="">Pilih No Kendaraan</option>' +
-            '<?php foreach ($data['getVehicle'] as $row) : ?>' +
-            '<option value="<?php echo $row['id']; ?>">' +
-            '<?php echo $row['no_vehicle']; ?> </option>' +
-            '<?php endforeach; ?>' +
-
-
-            '</select>' +
-            '<label class="labelmui">No Kendaraan</label>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-md-2">' +
-            '<div class="position-absolute top-50 start-50 translate-middle">' +
-            '<div class="form-check">' +
-            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault1">' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-md-1">' +
-            '<div class="position-absolute top-50 start-50 translate-middle">' +
-            '<button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> - </button>' +
-            '</div>' +
-            '</div>' +
-            '<div class="clear"></div>';
-
-        objTo.appendChild(divtest)
-        list = ''
-        list += `<option value ="">Pilih Petugas</option>`
-        for (let i = 0; i < Petugasbaru.length; i++) {
-            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
-        }
-        $('#select' + room).html(list);
-        return room;
-    }
-    var totalId = [1];
-
-
-    $('#addId').click(function() {
-        totalId.push(room);
-        return totalId;
-    })
-
-    function remove_education_fields(rid) {
-        var myIndex = totalId.indexOf(rid);
-        if (myIndex !== -1) {
-            totalId.splice(myIndex, 1);
-        }
-        $('.removeclass' + rid).remove();
-        return totalId;
-    }
-
-
-
-
-    function getvalue(id) {
-        PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())
-        Petugasbaru = Petugasbaru.filter((petugas) => petugas.id != $('#select' + id).val())
-        list = ''
-        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer} - ${PetugasUntukSelectLain[0].nrp_officer}</option>`
-        PetugasChoose.push(PetugasUntukSelectLain);
-        return PetugasChoose
-    }
-
-
-    function check() {
-        console.log({
-            petugasLama: Petugasbaru.length,
-            petugasBaru: PetugasChoose.length,
-            petugasLain: PetugasUntukSelectLain.length
-        })
-    }
+    
     $(document).ready(function() {
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
+            data : {
+                "search" : null, 
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                // console.log(result);
+                Petugas = result;
+                PetugasOrigin = result;
+                Petugasbaru = result;
+            }
+        });
+
         // new Choices('#officers', {
         //     searchEnabled: true,
         //     removeItemButton: true,
@@ -367,7 +277,7 @@
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
-            console.log(formData);
+            // console.log(formData); 
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Akun/store",
                 method: "POST",
@@ -398,5 +308,120 @@
         });
     });
  
+
+
+    function getOption(no) {
+        let select = $('#select' + no).find(":selected").val();
+        let list = '';
+        if (select == '') {
+            list += ` <option selected value="">Pilih Petugas</option>`
+        } else {
+            if (select) {
+                for (let i = 0; i < PetugasUntukSelectLain.length; i++) {
+                    // const element = PetugasUntukSelectLain[i];
+                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer} - ${PetugasUntukSelectLain[i].nrp_officer}</option>`
+                }
+            }
+
+        }
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
+        }
+        $('#select' + no).html(list);
+    }
+
+
+
+    function education_fields() {
+        room++;
+        check()
+        var objTo = document.getElementById('education_fields')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML =
+            '<div class="row" style="margin-top:-10px">' +
+            '<div class="col-md-5">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
+            ' <option selected value="">Pilih Petugas</option>' +
+            '</select>' +
+            '<label class="labelmui">Petugas</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-4">' +
+            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
+            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
+            '<option selected value="">Pilih No Kendaraan</option>' +
+            '<?php foreach ($data['getVehicle'] as $row) : ?>' +
+            '<option value="<?php echo $row['id']; ?>">' +
+            '<?php echo $row['no_vehicle']; ?> </option>' +
+            '<?php endforeach; ?>' +
+
+
+            '</select>' +
+            '<label class="labelmui">No Kendaraan</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-2">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<div class="form-check">' +
+            '<input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" type="radio" value="' + room + '" name="flexRadioDefault" id="flexRadioDefault1">' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-md-1">' +
+            '<div class="position-absolute top-50 start-50 translate-middle">' +
+            '<button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> - </button>' +
+            '</div>' +
+            '</div>' +
+            '<div class="clear"></div>';
+
+        objTo.appendChild(divtest)
+        list = ''
+        list += `<option value ="">Pilih Petugas</option>`
+        for (let i = 0; i < Petugasbaru.length; i++) {
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
+        }
+        $('#select' + room).html(list);
+        return room;
+    }
+    var totalId = [1];
+
+
+    $('#addId').click(function() {
+        totalId.push(room);
+        return totalId;
+    })
+
+    function remove_education_fields(rid) {
+        var myIndex = totalId.indexOf(rid);
+        if (myIndex !== -1) {
+            totalId.splice(myIndex, 1);
+        }
+        $('.removeclass' + rid).remove();
+        return totalId;
+    }
+
+
+
+
+    function getvalue(id) {
+        PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())
+        Petugasbaru = Petugasbaru.filter((petugas) => petugas.id != $('#select' + id).val())
+        list = ''
+        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer} - ${PetugasUntukSelectLain[0].nrp_officer}</option>`
+        PetugasChoose.push(PetugasUntukSelectLain);
+        return PetugasChoose
+    }
+
+
+    function check() {
+        console.log({
+            petugasLama: Petugasbaru.length,
+            petugasBaru: PetugasChoose.length,
+            petugasLain: PetugasUntukSelectLain.length
+        })
+    }
 
 </script>

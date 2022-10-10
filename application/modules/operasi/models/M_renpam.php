@@ -123,9 +123,7 @@ class M_renpam extends CI_Model
         ]);
 
 
-
-        // print_r($url);
-        // die;
+       
 
         $no = 1;
 
@@ -221,17 +219,46 @@ class M_renpam extends CI_Model
             $row['note_kakor'] = $field['note_kakor'];
             $row['note']    = '-';
 
+
+            
+
             if ($field['accounts'] != null) {
                 $accounts = '';
+                $ketuaTim = '';
+                $dummyTrack = '';
                 foreach ($field['accounts'] as $fieldAccount) {
                     $resultAkun = guzzle_request('GET', 'account/getId/'.$fieldAccount['id'].'', [ 
                         'headers' => [ 
                             'Authorization' => $this->session->userdata['token'] 
                         ] 
-                    ]);
+                    ]); 
+                     
                     foreach ($resultAkun['data']['data']['officers'] as $fieldPetugas) {
                         // $petugas .= ''.$fieldPetugas['name_officer'].'';
-                        $accounts .= ' '.$fieldPetugas['name_officer'].', ';
+                        if($resultAkun['data']['data']['officer'] != null && $resultAkun['data']['data']['officer']['name_officer'] == $fieldPetugas['name_officer']){
+                            $ketuaTim = '<span class="badge rounded-pill bg-primary">Ketua Tim</span> </br>';
+                        }else{
+                            $ketuaTim = '';
+                        }
+ 
+                        if($this->uri->segment(1) == "dashboard"){ 
+                            $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$fieldPetugas['name_officer'].'';
+                            // $url = 'getMe?date=2022-10-09&name_officer='.$fieldPetugas['name_officer'].'';
+                            $filterTracking = guzzle_requestTracking('GET', $url, [
+                                'headers' => [ 
+                                    'Authorization' => $this->session->userdata['token'] 
+                                ]
+                            ]);
+                            if(count($filterTracking['data']) > 0){
+                                $dummyTrack = '<button type="button" class="btn btn-primary goPetugas" data-lat="'.$filterTracking['data'][0]['latitude'].'"  data-lng="'.$filterTracking['data'][0]['longitude'].'"><i class="mdi mdi-eye "></i></button>';
+                            }else{
+                                $dummyTrack = '';
+                            }
+                        }else{
+                            $dummyTrack = '';
+                        }
+
+                        $accounts .= '<p>'.$ketuaTim.' Pangkat : '.$fieldPetugas['rank_officer'].' </br> Nama : '.$fieldPetugas['name_officer'].' </br> NRP : '.$fieldPetugas['nrp_officer'].' </br> '.$dummyTrack.'</p> ';
                     }
 
                 }
@@ -288,8 +315,21 @@ class M_renpam extends CI_Model
                 $row['choose_rute']    = '-';
             }
 
+            if($field['accounts'] != null){
+                // $row['nama_tim']    = $field['accounts'][0]['name_account'];
+                $accounts = '';
+                foreach ($field['accounts'] as $fieldAccounts) {
+                    $accounts .= '<p>'.$fieldAccounts['name_account'] . '</p> ';
+                }
+                $row['nama_tim']    = $accounts;
+            }else{
+                $row['nama_tim']    = '-';
+            }
             $row['date']    = format_indo($field['date']);
-            // $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
+            $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
+
+            $row['estimasi']    = $field['estimasi'];
+            $row['estimasi_time']    = $field['estimasi_time'];
 
             $row['action']         = ' 
 

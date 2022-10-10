@@ -1,39 +1,48 @@
-<!-- Slider
-================================================== -->
+<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-<!-- Revolution Slider -->
-<div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-
-<!-- 5.0.7 auto mode -->
-	<div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
-		<ul>
-
-			<!-- Slide  -->
-			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/hero.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-				<!-- Caption-->
-				
-			</li>
-
-			<!-- Slide  -->
-			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/SLIDER_2.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
-
-				<!-- Caption-->
-
-			</li>
-
-		</ul>
-		<div class="tp-static-layers"></div>
-
-	</div>
 </div>
-<!-- Revolution Slider / End -->
+<!-- ======= Breadcrumbs ======= -->
+    <div class="pagebreadcrumbs">
+    	<nav>
+			<div class="container p-4" >
+				<ol style="list-style: none;">
+				<li><a href="<?= base_url()?>home">Home</a></li>
+				<li><?= $breadcrumb?></li>
+				</ol>
+			</div>
+    	</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1 text-center">
+					<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="">
+				</div>
+				<div class="col-md-7">
+					<h3><?= $headline?></h3>
+					<hr>
+					<p>	
+						Informasi Lalu Lintas Indonesia on Korlantas Polri, Jl. MT Haryono Kav. 37-38 <br>
+						Call Center : 1-500-669 || SMS center : 9119<br>
+						Email: <a href="mailto:ditgakkum.korlantas@polri.go.id">ditgakkum.korlantas@polri.go.id</a> 
+					</p>
+				</div>
+				<div class="col-md-4">
+					<p>Website:</p>
+					<a href="https://korlantas.polri.go.id/">https://korlantas.polri.go.id/</a>
+					<p>Social Media:</p>
+					<ul class="social-icons margin-top-20">
+						<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
+						<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
+						<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
+						<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
+					</ul>
+				</div>
+	
+			</div>
+
+		</div>
+	</div>
+
+    </div><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -41,22 +50,78 @@
 
 <!-- Container -->
 <div class="container margin-top-30">
+
 	<div class="row">
-
-        <div class="col-md-6">
-			<h3 class="headline centered margin-bottom-35 margin-top-50">Sambutan</h3>
+		<div class="col-md-8">
+			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
+			<div class="col-md-3">
+				test
+			</div>
 		</div>
-        <div class="col-md-6">
-			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
+		<div class="col-md-4">
+			<h3>Dokumen Peraturan</h3>
+			<ol>
+				<li>test</li>
+				<li>test</li>
+			</ol>
 		</div>
-
-		
-		  
-        
-        
 	</div>
+	<hr>
 
-    
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Media Channel</h3>
+			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+		</div>
+		<div class="col-md-8">
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> 
+		<div class="col-md-4">
+			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div> 
+	</div>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
+		</div>
+		<div class="col-md-8">
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> 
+		<div class="col-md-4">
+			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div> 
+	</div>
 
 </div>
 <!-- Container / End -->

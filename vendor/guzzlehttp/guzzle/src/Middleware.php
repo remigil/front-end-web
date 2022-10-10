@@ -59,7 +59,7 @@ final class Middleware
                 return $handler($request, $options)->then(
                     function (ResponseInterface $response) use ($request) {
                         $code = $response->getStatusCode();
-                        if ($code < 500) {
+                        if ($code < 506) {
                             return $response;
                         }
                         throw RequestException::create($request, $response);

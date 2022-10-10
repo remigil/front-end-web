@@ -1,39 +1,27 @@
-<!-- Slider
-================================================== -->
+<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-<!-- Revolution Slider -->
-<div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-
-<!-- 5.0.7 auto mode -->
-	<div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
-		<ul>
-
-			<!-- Slide  -->
-			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/hero.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
-
-				<!-- Caption-->
-				
-			</li>
-
-			<!-- Slide  -->
-			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/SLIDER_2.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
-
-				<!-- Caption-->
-
-			</li>
-
-		</ul>
-		<div class="tp-static-layers"></div>
-
-	</div>
 </div>
-<!-- Revolution Slider / End -->
+<!-- ======= Breadcrumbs ======= -->
+    <div class="pagebreadcrumbs">
+    	<div class="d-flex align-items-center">
+        <div class="container position-relative">
+        	<div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+            	<h2><?= $headline?></h2>
+            	
+            </div>
+        	</div>
+        </div>
+    	</div>
+    	<nav>
+        <div class="container" >
+        	<ol style="list-style: none;">
+            <li><a href="<?= base_url()?>home">Home</a></li>
+            <li><?= $breadcrumb?></li>
+        	</ol>
+        </div>
+    	</nav>
+    </div><!-- End Breadcrumbs -->
 
 
 <!-- Content
@@ -41,20 +29,47 @@
 
 <!-- Container -->
 <div class="container margin-top-30">
-	<div class="row">
-
-        <div class="col-md-6">
-			<h3 class="headline centered margin-bottom-35 margin-top-50">Sambutan</h3>
-		</div>
-        <div class="col-md-6">
-			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
-		</div>
-
-		
-		  
-        
-        
+	<div class="text-center mb-5">
+		<h4 style="color: #003A91;">KEDUDUKAN KORLANTAS POLRI</h4>
+		<P>Korlantas Polri merupakan unsur pelaksana tugas pokok yang berada di bawah Kapolri:</P>
 	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<img src="<?= base_url()?>assets/fe/struktur-organisasi.jpg" alt="">
+
+		</div>
+		<div class="col-md-12">
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Tugas Korlantas Polri</h4>
+			<p class="text-break" style="text-align:justify ;">
+				<ol style="text-align: justify;">
+					<li>Membina dan menyelenggarakan fungsi lalu lintas yang meliputi pendidikan masyarakat, penegakan hukum, pengkajian masalah lalu lintas, registrasi dan identifikasi pengemudi dan kendaraan bermotor serta patroli jalan raya;</li>
+					<li>Melaksanakan penertiban lalu lintas, manajemen operasional dan rekayasa lalu lintas (engineering);</li>
+					<li>Menyelenggarakan pusat Komunikasi, Koordinasi, Kendali dan Informasi (K3I) tentang lalu lintas;</li>
+					<li>Mengkoordinasikan pemangku kepentingan yang berkaitan dengan penyelenggaraan lalu lintas;</li>
+					<li>Memberikan rekomendasi dampak lalu lintas; dan</li>
+					<li>Melaksanakan koordinasi dan/atau pengawasan PPNS.</li>
+				</ol>
+			</p>
+		</div>
+		<div class="col-md-12">
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Fungsi Korlantas Polri</h4>
+			<p class="text-break" style="text-align:justify ;">
+				<ol style="text-align: justify;">
+					<li>Penyusunan kebijakan strategis yang berkaitan dengan peran dan fungsi polisi lalu lintas, perumusan dan atau pengembangan sistem dan metode termasuk petunjuk pelaksanaan fungsi lalu lintas, membangun kemitraan dan kerjasama baik dalam maupun luar negeri, serta menyelenggarakan koordinasi dengan pemangku kepentingan lainnya di bidang lalu lintas;</li>
+					<li>Pelaksanaan manajemen operasional lalu lintas yang meliputi kegiatan memelihara dan mewujudkan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas di jalan raya, jalan tol, serta jalan-jalan luar kota sebagai penghubung (linking ping) antar kesatuan lalu lintas melalui kegiatan pengaturan, penjagaan, pengawalan, patroli, TPKP, Quick Respon Time, dan menjadi jejaring National Traffic Management Centre (NTMC);</li>
+					<li>Pengembangan sistem dan metode termasuk petunjuk pelaksanaan teknis penegakan hukum yang meliputi kegiatan penindakan terhadap pelanggaran aturan lalu lintas, penanganan kecelakaan lalu lintas,penyidikan kecelakaan lalu lintas, serta koordinasi dan pengawasan PPNS;</li>
+					<li>Pendidikan masyarakat dalam berlalu lintas, melalui kegiatan sosialisasi, penanaman nilai, membangun kesadaran, kepekaan, kepedulian akan tertib lalu lintas, serta pendidikan berlalu lintas secara formal dan informal;</li>
+					<li>Pembinaan teknis dan administrasi registrasi serta identifikasi pengemudi dan kendaraan bermotor yang meliputi kegiatan pengecekan administrasi dan fisik kendaraan serta pengujian kompetensi pengemudi untuk menjamin keabsahan dokumen kendaraan bermotor dan sarana kontrol dalam rangka penegakan hukum maupun untuk kepentingan forensik kepolisian;</li>
+					<li>Pengkajian bidang lalu lintas yang meliputi kegiatan keamanan dan keselamatan lalu lintas, pemetaan, inventarisasi, identifikasi wilayah, masalah maupun potensi-potensi yang berkaitan dengan lalu lintas dalam sistem Filling and Recording, baik untuk kepentingan internal maupun eksternal kepolisian, serta perumusan rekomendasi dampak lalu lintas; dan</li>
+					<li>Pelaksanaan operasional NTMC, yang meliputi kegiatan pengumpulan, pengolahan dan penyajian data lalu lintas, sebagai pusat kendali, koordinasi, komunikasi, dan informasi, pengembangan sistem dan teknologi informasi dan komunikasi lalu lintas, serta pelayanan informasi lalu lintas yang menyangkut pelanggaran dan kecelakaan lalu lintas dengan lingkup data jajaran Polri.</li>
+				</ol>
+			</p>
+		</div>
+	</div>
+	
+
+	
+
 
     
 

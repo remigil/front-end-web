@@ -458,56 +458,56 @@
         padding: 20px;
         transition: background-color 0.25s ease-in;
         
-        &:hover {
-            background-color: #fcfcfc;
-            border-color: #5bc0de;
-        }
-        
-        .panel {
-            border-color: #5bc0de;
-            
             &:hover {
-                cursor: default;
+                background-color: #fcfcfc;
+                border-color: #5bc0de;
             }
-        }
-        
-        .panel-heading {
-            border-color: #5bc0de;
-            background-color: #5bc0de;
-            color: #fff;
-        }
-        
-        .panel-title {
-            position: relative;
             
-            .fa {
-                display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 15px;
-                height: 15px;
-                z-index: 2;
-                color: #fff;
+            .panel {
+                border-color: #5bc0de;
                 
                 &:hover {
-                    cursor: pointer;
+                    cursor: default;
                 }
             }
-        }
-        }
-
-        .panel {
-        &:hover {
-            border-color: #5bc0de;
-            cursor: move;
             
             .panel-heading {
                 border-color: #5bc0de;
                 background-color: #5bc0de;
                 color: #fff;
             }
+            
+            .panel-title {
+                position: relative;
+                
+                .fa {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 15px;
+                    height: 15px;
+                    z-index: 2;
+                    color: #fff;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
+
+        .panel {
+            &:hover {
+                border-color: #5bc0de;
+                cursor: move;
+                
+                .panel-heading {
+                    border-color: #5bc0de;
+                    background-color: #5bc0de;
+                    color: #fff;
+                }
+            }
         }
 
         .over {
@@ -516,22 +516,15 @@
 
         .selected {
         display: none;
-        }
-
-        .showcctv {
-        display: show;
-        }
-
-        .hidecctv {
-        display: none;
-        }
+        } 
+ 
 
         .cloned {
-        opacity: 0.5;
+            opacity: 0.5;
         
-        &.selected {
-            display: block;
-        }
+            &.selected {
+                display: block;
+            }
         }
 
 
@@ -542,10 +535,7 @@
                 display: none;
             }
         }
-
-        .isiCCTV {
-        display: show;
-        }
+ 
     </style>
 
     <!-- JAVASCRIPT -->
@@ -1045,16 +1035,18 @@
                                                             if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
                                                                 resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
                                                             }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
+                                                                resource = `<img id="viewcctv${countlistCCTV}" style="width: 100%; height: 100%;"  src="${el.link_cctv}" />`;
                                                             } 
             
                                                             listSideCCTV += `    
                                                                 <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
+                                                                    <div class="panel-heading">  
                                                                         <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
+                                                                        <button onClick="dragDelete(this, event, 'idsidemenu${countlistCCTV}', 'viewcctv${countlistCCTV}')" class="btn"><i class="fa fa-times-circle" ></i></button>
+                                                                       
+                                                                        <a href="javascript:void(0);"class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
+                                                                            ${resource} 
+                                                                        </a>
                                                                     </div>
                                                                 </div>  
                                                             `;
@@ -1452,7 +1444,7 @@
 
                             // console.log(nourut);
                             $(`#viewcctv${nourut}`).show();
-                            $(`#idsidemenu${nourut}`).addClass("col-md-6");
+                            $(`#idsidemenu${nourut}`).addClass("col-md-4");
 
                             clone = ev.target.cloneNode(true);
                             cloneId = ev.target.getAttribute("id");
@@ -1463,7 +1455,7 @@
                         }
 
                         function dragEnter(ev) {
-                        event.preventDefault();
+                            event.preventDefault();
                             return true;
                         }
 
@@ -1483,6 +1475,15 @@
                             document.getElementById(src).removeAttribute("draggable");
                             ev.stopPropagation(); 
                             return false;
+                        }
+
+                        function dragDelete(ev, event, idCard, idView) {
+                            // alert('ada');
+                            // console.log(event.target.getAttribute(`${idView}`));
+                            // var idViewCctv = event.target.getAttribute(`${idView}`);
+                            // idViewCctv.hide();
+                            var clones = ev.parentNode;
+                            clones.parentNode.removeChild(clones); 
                         }
 
 

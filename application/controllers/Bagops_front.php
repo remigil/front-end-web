@@ -9,7 +9,17 @@ class Bagops_front extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Bagian Operasional | K3I Korlantas";  
+		$title = "Bagian Operasional | K3I Korlantas";
+		$breadcrumb = "bagops";
+		$headline = "BAGIAN OPERASIONAL";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','satker/bagops', $data); 
         
 	}

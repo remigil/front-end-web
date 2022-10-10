@@ -41,6 +41,8 @@ class Akun extends MY_Controller
         ]);
         $data['getOfficer'] = $getOfficer['data']['data'];
 
+
+
         $getVehicle = guzzle_request('GET', 'vehicle', [
             'headers' => $headers
         ]);
@@ -53,11 +55,49 @@ class Akun extends MY_Controller
         // ]);
         // $data['getPolres'] = $getPolres['data']['data']; 
 
-        // echo json_encode($data['getVip']['data']); 
+        // echo json_encode($data['getOfficer']); 
         // die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
+    }
+
+    public function GetPetugasList()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input = $this->input->post();  
+        $getOfficer = guzzle_request('GET', 'officer?serverSide=True&order=name_officer&orderDirection=asc&length=100000&start=1', [
+            'headers' => $headers
+        ]);
+        $data = $getOfficer['data']['data'];
+        // $getpetugas = array_filter($data, function ($get) {
+        //     $name_officer = $this->input->get('Petugas');
+        //     return $get['name_officer'] != $name_officer;
+        // });
+
+        echo json_encode($data);
+    }
+
+    public function GetPetugasId()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input = $this->input->post();  
+        $getOfficer = guzzle_request('GET', 'account/getId/'.$input['id'].'', [
+            'headers' => $headers
+        ]);
+        $data = $getOfficer['data']['data'];
+        // $getpetugas = array_filter($data, function ($get) {
+        //     $name_officer = $this->input->get('Petugas');
+        //     return $get['name_officer'] != $name_officer;
+        // });
+
+        echo json_encode($data);
     }
 
     public function GetPetugas()
@@ -135,7 +175,17 @@ class Akun extends MY_Controller
         $dummy['password']    = $input['password'];
         $dummy['officers'] = json_encode($input['officers']);
         $dummy['vehicles'] = json_encode($input['id_kendaraan']);
-        $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
+        if(isset($input['flexRadioDefault'])){
+            $dummy['flexRadioDefault'] = $input['flexRadioDefault'];
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Ketua Tim Wajib Di Isi !',
+                'data' => null
+            );
+            echo json_encode($res);
+            die;
+        }
 
         $pilihKetua = floatval($input['flexRadioDefault']) - 1;
         $ketua = $input['officers'][$pilihKetua];

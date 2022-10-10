@@ -59,7 +59,7 @@
                                 <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
 									<option selected value="">Pilih Jenis Fasum</option>
                                     <?php
-                        				foreach ($data['getFasum'] as $row) : ?>
+                        				foreach ($data['getCategory'] as $row) : ?>
                             			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
                         			<?php endforeach; ?>
                                 </select>
@@ -168,11 +168,17 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
-                                <label for="jenisFasum">Jenis Fasilitas Umum</label>
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getCategory'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label>
                             </div>
-                        </div>
+						</div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -262,11 +268,17 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jenisFasum" name="jenisFasum">
-                                <label for="">Jenis Fasilitas Umum</label>
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" id="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getCategory'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label>
                             </div>
-                        </div>
+						</div>
                     </div>
                     <div class="col-md-12">
                             <div class="form-floating mb-3">
@@ -844,7 +856,13 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahFasum,#namaFasum').attr('disabled', false)
+				// console.log(results.category_fasum.id)
+				$.ajax({
+					url: '<?= base_url() ?>masterdata/Fasilitasumum/getCategory/' + results.category_fasum.id,
+					type: 'POST',
+					dataType: 'JSON',
+					success: function(result) {
+						$('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
                 $('.UbahFasum,#address').attr('disabled', false)
                 $('.UbahFasum,#latitude').attr('disabled', false)
@@ -859,7 +877,8 @@
 				$('#id_fasum').val(results.id)
 
                 $('.UbahFasum,#namaFasum').val(results.fasum_name)
-                $('.UbahFasum,#jenisFasum').val(results.fasum_type)
+                $('.UbahFasum,#jenisFasum').val(result.name_category_fasum)
+
                 $('.UbahFasum,#address').val(results.fasum_address)
                 $('.UbahFasum,#cordinateEdit').val((results.fasum_lat) + ',' + (results.fasum_lng))
                 $('.UbahFasum,#latitude').val(results.fasum_lat)
@@ -870,6 +889,10 @@
                 $('.UbahFasum,#photo').val(results.fasum_logo)
                 $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
                 $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+					}
+				})
+    
+                
             }
         })
     }

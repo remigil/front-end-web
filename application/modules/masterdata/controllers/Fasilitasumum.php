@@ -14,7 +14,7 @@ class Fasilitasumum extends MY_Controller
     public function index()
     {
 		$headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -31,18 +31,29 @@ class Fasilitasumum extends MY_Controller
             $page_content["page"] = "masterdata/Polres/fasum_view";
         }
 
-        $getFasum = guzzle_request('GET', 'category_fasum', [
+        $getCategory = guzzle_request('GET', 'category_fasum', [
             'headers' => $headers
         ]);
-        $data['getFasum'] = $getFasum['data'];
+        $data['getCategory'] = $getCategory['data']['data'];
 
-        // var_dump($getFasum);
+        // var_dump($getCategory);
         // die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
+	public function getCategory($id){
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+		$getCategory = guzzle_request('GET', 'category_fasum/getId/' .$id, [
+            'headers' => $headers
+        ]);
+
+		echo json_encode($getCategory['data']['data']);
+	}
 	public function serverSideTable()
     {
         $postData = $this->input->post();

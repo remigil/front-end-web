@@ -119,9 +119,10 @@
 				<div class="row m-3">
                     <div class="col-md-12">
                         <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="id" value="" id="id_simkel" type="text">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="name_sim_keliling" id="name_sim_keliling" placeholder="Sim Keliling">
-                                <label for="name_sim_keliling">Nama SIM Keliling</label>
+                                <label for="">Nama SIM Keliling</label>
                             </div>
 							
                             <div class="col-md-12">
@@ -161,18 +162,18 @@
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control" name="sim_keliling_open_time" id="sim_keliling_open_time" placeholder="">
-                                        <label for="sim_keliling_open_time">Jam Buka</label>
+                                        <label for="">Jam Buka</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control" name="sim_keliling_close_time" id="sim_keliling_close_time" placeholder="">
-                                        <label for="sim_keliling_close_time">Jam Tutup</label>
+                                        <label for="">Jam Tutup</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                                <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                             </div>
                         </form>
                     </div>
@@ -234,9 +235,6 @@
                                         <label for="sim_keliling_close_time">Jam Tutup</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                             </div>
                         </form>
                     </div>
@@ -691,6 +689,8 @@ $('#myModalEdit').on('shown.bs.modal', function() {
 
                 $('.DetailSimkel,#name_sim_keliling').val(results.name_sim_keliling)
                 $('.DetailSimkel,#address').val(results.address)
+                $('.DetailSimkel,#latitude').val(results.latitude)
+                $('.DetailSimkel,#longitude').val(results.longitude)
                 $('.DetailSimkel,#sim_keliling_open_time').val(results.sim_keliling_open_time)
                 $('.DetailSimkel,#sim_keliling_close_time').val(results.sim_keliling_close_time)
             }
@@ -773,7 +773,7 @@ $('#myModalEdit').on('shown.bs.modal', function() {
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/SimKeliling/update',
+            url: '<?= base_url() ?>masterdata/SimKeliling/updateSimkel',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

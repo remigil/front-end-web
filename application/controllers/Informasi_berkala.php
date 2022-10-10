@@ -9,7 +9,17 @@ class Informasi_berkala extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Informasi Berkala | K3I Korlantas";  
+		$title = "Informasi Berkala | K3I Korlantas";
+		$breadcrumb = "informasi berkala";
+		$headline = "INFORMASI BERKALA";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','informasi_publik/informasi_berkala', $data); 
         
 	}

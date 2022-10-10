@@ -8,7 +8,7 @@ class Polda extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model('masterdata/M_polda');
+        $this->load->model('masterdata/m_polda');
     }
 
     public function index()
@@ -44,7 +44,7 @@ class Polda extends MY_Controller
     public function serverSideTable()
     {
         $postData = $this->input->post();
-        $data = $this->M_polda->get_datatables($postData);
+        $data = $this->m_polda->get_datatables($postData);
 		// var_dump($data);
 		// die;
         echo json_encode($data);

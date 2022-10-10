@@ -148,27 +148,27 @@
                         </div>
                     </div>
 					<div class="row mb-3">
-                                <div class="material-textfield">
-                                    <input type="hidden" name="status">
-                                    <label for="" class="labelmui">Status</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="active" checked>
-                                        <label class="form-check-label" for="active">
-                                            ACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-check" style="margin: -1vh 0 0 2.7vh"">
-                                        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="inactive">
-                                        <label class="form-check-label" for="inactive">
-                                            INACTIVE
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+						<div class="material-textfield">
+							<input type="hidden">
+							<label for="" class="labelmui">Status</label>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check" style="margin: -1vh 0 0 2.7vh" required>
+								<input class="form-check-input" type="radio" name="status" id="active" value="1">
+								<label class="form-check-label" for="active">
+									ACTIVE
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check" style="margin: -1vh 0 0 2.7vh">
+								<input class=" form-check-input" type="radio" name="status" id="inactive" value="0">
+								<label class="form-check-label" for="inactive">
+									INACTIVE
+								</label>
+							</div>
+						</div>
+					</div>
                      
                     <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
                 </form>
@@ -179,11 +179,11 @@
 
 <!-- Ubah Modals -->
 <div class="modal fade UbahCCTV" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Ubah Akun</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Ubah CCTV</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 			<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
@@ -225,6 +225,7 @@
                                 <label for="linkCCTV">Link CCTV</label>
                             </div>
                         </div>
+						
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -234,9 +235,10 @@
                             </div> 
                             <div class="list-group" id="listAddress"></div>
                         </div> 
+                        <!-- <div class="col-md-6"> -->
                         <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
-                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" class="form-control" type="text">
+                            <input style="width: 100%;" name="cordinate" id="cordinateEdit" class="form-control" type="text">
                                 <label for="cordinate">Coordinate</label>
                             </div>
                         </div>
@@ -247,12 +249,22 @@
                         </div>
                     </div>
 					<div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
 								<input type="text" class="form-control" id="vmsCCTV" name="vmsCCTV" placeholder="CCTV">
                                 <label for="vmsCCTV">VMS CCTV</label>
                             </div>
                         </div>
+						<div class="col-md-6">
+							<div class="form-floating mb-3">
+								<select name="statusCCTV" id="statusCCTV" class="form-select">
+									<option value="0">Inactive</option>
+									<option value="1">Active</option>
+									
+								</select>
+								<label for="CCTV">Status CCTV</label>
+							</div>
+						</div>
 						<div class="col-md-6">
                             <div class="form-floating mb-3">
 								<input type="text" class="form-control" id="username" name="username" placeholder="CCTV">
@@ -265,7 +277,10 @@
                                 <label for="password">Password</label>
                             </div>
                         </div>
+                        
+						
                     </div>
+					
 
 					<div class="col-md-12">
                                 <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
@@ -823,9 +838,9 @@ mapContainer.flyTo([latitude11, longitude11], 17);
         })
     }
 
-    function detailEdit(id) {
+    function editData(id) {
         $.ajax({
-            url: '<?= base_url() ?>masterdata/Cctv/detailCCTV',
+            url: '<?= base_url() ?>masterdata/Cctv/detailCCTV/',
             type: 'POST',
             data: {
                 id_cctv: id
@@ -853,10 +868,11 @@ mapContainer.flyTo([latitude11, longitude11], 17);
                 $('.UbahCCTV,#gatewayCCTV').val(results.gateway_cctv)
                 $('.UbahCCTV,#linkCCTV').val(results.link_cctv)
                 $('.UbahCCTV,#lokasiCCTV').val(results.address_cctv)
+                $('.UbahCCTV,#cordinateEdit').val((results.lat_cctv) + ',' +(results.lng_cctv))
                 $('.UbahCCTV,#vmsCCTV').val(results.vms_cctv)
                 $('.UbahCCTV,#username').val(results.username_cctv)
                 $('.UbahCCTV,#password').val(results.password)
-                $('.UbahCCTV,#status').val(results.status_cctv)
+                $('.UbahCCTV,#statusCCTV').val(results.status_cctv)
             }
         })
     }

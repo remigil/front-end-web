@@ -113,9 +113,9 @@ class M_polda extends CI_Model
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
             $row['name_polda']      = $field['name_polda'];
-            $row['code_satpas']      = $field['code_satpas'];
+            $row['code_satpas']     = $field['code_satpas'];
             $row['address']       	= $field['address'];
-            $row['phone_polda']       	= $field['phone_polda'];
+            $row['phone_polda']     = $field['phone_polda'];
             $row['action']         	= '   
                 
 				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailPolda">

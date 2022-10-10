@@ -130,9 +130,9 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-				<div class="col-md-12 mb-3"> 
-                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
-                    </div>
+				<div class="col-md-12 mb-3" id="fileDownload"> 
+                        
+                </div>
 				<div class="form-floating mb-3">
                         <select name="kategoriPeraturan" id="kategoriPeraturan" class="form-control" aria-label="Floating label select" style="width:100%" required>
                             <!-- <select name="" id=""  multiple required> -->
@@ -283,7 +283,7 @@
             ],
 
             order: [
-                [0, "ASC"]
+                [0, "DESC"]
             ],
 
             drawCallback: function(settings) {
@@ -331,10 +331,10 @@
 
     function detail(id) {
         $.ajax({
-            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan/',
+            url: '<?= base_url() ?>dokumenperaturan/DokumenPeraturan/detailPeraturan/',
             type: 'POST',
             data: {
-                id_peraturan: id
+                "id_peraturan": id
             },
             dataType: 'JSON',
             success: function(results) {
@@ -342,6 +342,15 @@
                 $('.DetailDokumenPeraturan,#judulPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#tahunPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#files').attr('disabled', true)
+
+                if(results.fileReg != null){
+                    $("#fileDownload").html(` 
+                    <a style="color: black;" class="btn" href="<?php echo urlApi()?>regulation_doc/${results.fileReg}" target="_blank">
+                        <i style="color: black;" class="fa  fas fa-download "></i> Download File
+                    </a>`);
+                }else{
+                    $("#fileDownload").html(` `);
+                }
                 
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').val(results.regulation_category)
                 $('.DetailDokumenPeraturan,#judulPeraturan').val(results.regulation_name)

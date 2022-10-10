@@ -9,7 +9,17 @@ class Riset_media extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Riset Media Center NTMC | K3I Korlantas";  
+		$title = "Riset Media Center NTMC | K3I Korlantas";
+		$breadcrumb = "riset media";
+		$headline = "RISET MEDIA CENTER NTMC";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','publikasi/riset_media', $data); 
         
 	}

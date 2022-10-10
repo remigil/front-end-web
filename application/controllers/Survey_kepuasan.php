@@ -9,7 +9,17 @@ class Survey_kepuasan extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Survey Kepuasan | K3I Korlantas";  
+		$title = "Survey Kepuasan | K3I Korlantas";
+		$breadcrumb = "survey";
+		$headline = "SURVEY KEPUASAN";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','kontak/survey_kepuasan', $data); 
         
 	}

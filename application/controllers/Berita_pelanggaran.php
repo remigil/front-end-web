@@ -9,7 +9,17 @@ class Berita_pelanggaran extends MX_Controller {
  
 	public function index()
 	{ 
-        $data['title'] = "Berita Pelanggaran Lalu Lintas | K3I Korlantas";  
+		$title = "Berita Pelanggaran Lalu Lintas | K3I Korlantas";
+		$breadcrumb = "berita gar lantas";
+		$headline = "BERITA PELANGGARAN LALU LINTAS";
+
+        $data = [
+			'title' => $title,
+			'breadcrumb' => $breadcrumb,
+			'headline' => $headline
+		
+	];
+        
         $this->template->load('templates/template','media_update/berita_pelanggaran', $data); 
         
 	}
