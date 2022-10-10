@@ -27,7 +27,7 @@
                                 <h4 class="text-light fw-light">Mobil Penumpang</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">538</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['mobil_penumpang'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <h4 class="text-light d-inline fw-light">Mobil Barang</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">928</h1>
+                                <h1 class="red-card-text"><?= $data['mobil_barang'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4 class="text-light fw-light">Mobil Bus</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="green-card-text text-center">45</h1>
+                                <h1 class="green-card-text text-center"><?= $data['mobil_bus'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <h4 class="text-light fw-light">Ransus</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">380</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['ransus'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                                 <h4 class="text-light fw-light">Sepeda Motor</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="orange-card-text text-center">145</h1>
+                                <h1 class="orange-card-text text-center"><?= $data['sepeda_motor'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -92,96 +92,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Jawa Barat</td>
-                                    <td>65</td>
-                                    <td>8</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jawa Tengah</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Sulawesi Selatan</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Bali</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Banten</td>
-                                    <td>25</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>19</td>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Riau</td>
-                                    <td>23</td>
-                                    <td>18</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>DI Yogyakarta</td>
-                                    <td>23</td>
-                                    <td>18</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Nusa Tenggara Barat</td>
-                                    <td>22</td>
-                                    <td>17</td>
-                                    <td>10</td>
-                                    <td>9</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Lampung</td>
-                                    <td>21</td>
-                                    <td>15</td>
-                                    <td>8</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                </tr>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['mobil_penumpang'] ?></td>
+                                        <td><?= $key['mobil_barang'] ?></td>
+                                        <td><?= $key['mobil_bus'] ?></td>
+                                        <td><?= $key['ransus'] ?></td>
+                                        <td><?= $key['sepeda_motor'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -246,11 +169,11 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data BPKB Indonesia</h4>
+                    <h4 class="card-title mb-0">Data Ranmor Indonesia</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll;">
                     <div class="main-chart">
-                        <div id="chart"></div>
+                        <div id="chart" style="width:350vw;"></div>
                     </div>
                 </div>
             </div>
@@ -277,43 +200,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>78</td>
-                                <td>78</td>
-                                <td>78</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>METRO JAYA</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>59</td>
-                                <td>59</td>
-                                <td>78</td>
-
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>JATENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>592</td>
-                                <td>592</td>
-                                <td>592</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>JABAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>532</td>
-                                <td>532</td>
-                                <td>532</td>
-                            </tr>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['polda'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td><?= $key['mobil_penumpang'] ?></td>
+                                    <td><?= $key['mobil_barang'] ?></td>
+                                    <td><?= $key['mobil_bus'] ?></td>
+                                    <td><?= $key['ransus'] ?></td>
+                                    <td><?= $key['sepeda_motor'] ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -327,11 +226,11 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data BPKB 2021</h4>
+                    <h4 class="card-title mb-0">Data Ranmor 2021</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart1"></div>
+                        <div id="chart1" style="width: 100vw"></div>
                     </div>
                 </div>
             </div>
@@ -352,42 +251,24 @@
                                 <th>Mobil Penumpang</th>
                                 <th>Mobil Barang</th>
                                 <th>Mobil Bus</th>
+                                <th>Ransus</th>
                                 <th>Sepeda Motor</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>6127</td>
-                                <td>6127</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Januari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>617</td>
-                                <td>617</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Februari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>8787</td>
-                                <td>8787</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Maret</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>778</td>
-                                <td>778</td>
-                            </tr>
+                            <?php $i = 1 ?>
+                            <?php foreach ($data['poldaMonth'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['date'] ?></td>
+                                    <td><?= $key['mobil_penumpang'] ?></td>
+                                    <td><?= $key['mobil_barang'] ?></td>
+                                    <td><?= $key['mobil_bus'] ?></td>
+                                    <td><?= $key['ransus'] ?></td>
+                                    <td><?= $key['sepeda_motor'] ?></td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -402,33 +283,49 @@
         $('#tb_bpkb').DataTable()
         $('#tb_bpkb_tahun').DataTable()
 
+        var poldaName = JSON.parse('<?= json_encode($data['poldaName']); ?>');
+        var polda_mobil_penumpang = JSON.parse('<?= json_encode($data['polda_mobil_penumpang']); ?>');
+        var polda_mobil_barang = JSON.parse('<?= json_encode($data['polda_mobil_barang']); ?>');
+        var polda_mobil_bus = JSON.parse('<?= json_encode($data['polda_mobil_bus']); ?>');
+        var polda_ransus = JSON.parse('<?= json_encode($data['polda_ransus']); ?>');
+        var polda_sepeda_motor = JSON.parse('<?= json_encode($data['polda_sepeda_motor']); ?>');
+
+
+
+        var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
+        var month_mobil_penumpang = JSON.parse('<?= json_encode($data['month_mobil_penumpang']); ?>');
+        var month_mobil_barang = JSON.parse('<?= json_encode($data['month_mobil_barang']); ?>');
+        var month_mobil_bus = JSON.parse('<?= json_encode($data['month_mobil_bus']); ?>');
+        var month_ransus = JSON.parse('<?= json_encode($data['month_ransus']); ?>');
+        var month_sepeda_motor = JSON.parse('<?= json_encode($data['month_sepeda_motor']); ?>');
+
         //    STNK
         var options_stnk = {
             series: [{
                     name: 'Mobil Penumpang',
                     type: 'column',
-                    data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                    data: polda_mobil_penumpang,
                     color: "#003A91"
                 }, {
                     name: 'Mobil Barang',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: polda_mobil_barang,
                     color: "#CB2D3E"
                 },
                 {
                     name: 'Mobil Bus',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: polda_mobil_bus,
                     color: "#E8D42F"
                 }, {
                     name: 'Ransus',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: polda_ransus,
                     color: "#3CA55C"
                 }, {
-                    name: 'Ransus',
+                    name: 'Sepeda Motor',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: polda_sepeda_motor,
                     color: "#11617A"
                 },
             ],
@@ -452,7 +349,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName
             },
             yaxis: [{
                 axisTicks: {
@@ -481,28 +378,28 @@
             series: [{
                     name: 'Mobil Penumpang',
                     type: 'column',
-                    data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                    data: month_mobil_penumpang,
                     color: "#003A91"
                 }, {
                     name: 'Mobil Barang',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: month_mobil_barang,
                     color: "#CB2D3E"
                 },
                 {
                     name: 'Mobil Bus',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: month_mobil_bus,
                     color: "#E8D42F"
                 }, {
                     name: 'Ransus',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: month_ransus,
                     color: "#3CA55C"
                 }, {
                     name: 'Ransus',
                     type: 'column',
-                    data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                    data: month_sepeda_motor,
                     color: "#11617A"
                 },
             ],
@@ -526,7 +423,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth
             },
             yaxis: [{
                 axisTicks: {

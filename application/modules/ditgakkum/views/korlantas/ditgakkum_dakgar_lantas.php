@@ -13,8 +13,8 @@
 
 <!-- data statistik -->
 <section class="shadow-sm">
-	<div class="card rounded">
-		<!-- title & last update -->
+    <div class="card rounded">
+        <!-- title & last update -->
         <div class="card-header card-headline">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -25,10 +25,10 @@
                 </div>
             </div>
         </div>
-		<!-- end title & last update -->
+        <!-- end title & last update -->
         <div class="card-body">
-			<div class="row">
-				<!-- statistik -->
+            <div class="row">
+                <!-- statistik -->
                 <div class="col-md-4">
                     <div class="card-body blue-card">
                         <div class="row align-items-center text-center">
@@ -36,7 +36,7 @@
                                 <h4 class="text-light fw-light">Capture Kamera</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">706</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['capture_camera'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 <h4 class="text-light d-inline fw-light">Validasi Petugas</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">56</h1>
+                                <h1 class="red-card-text"><?= $data['validasi_petugas'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <h4 class="text-light fw-light">Konfirmasi Masyarakat</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="green-card-text text-center">401</h1>
+                                <h1 class="green-card-text text-center"><?= $data['konfirmasi_masyarakat'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -66,15 +66,15 @@
                                 <h4 class="text-light fw-light">ODOL</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">385</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['odol'] ?></h1>
                             </div>
                         </div>
                     </div>
 
                 </div>
-				<!-- end statistik -->
+                <!-- end statistik -->
 
-				<!-- rangking statistik -->
+                <!-- rangking statistik -->
                 <div class="col-md-8">
                     <div class="top-five-headline">
                         <h2 class="text-center">10 RANGKING DAKGAR LANTAS TERTINGGI</h2>
@@ -92,91 +92,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jawa Tengah</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Sulawesi Selatan</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Bali</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Banten</td>
-                                    <td>11</td>
-                                    <td>7</td>
-                                    <td>17</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Riau</td>
-                                    <td>16</td>
-                                    <td>7</td>
-                                    <td>10</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>DI Yogyakarta</td>
-                                    <td>18</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Nusa Tenggara Barat</td>
-                                    <td>14</td>
-                                    <td>7</td>
-                                    <td>15</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Lampung</td>
-                                    <td>22</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['capture_camera'] ?></td>
+                                        <td><?= $key['validasi_petugas'] ?></td>
+                                        <td><?= $key['konfirmasi_masyarakat'] ?></td>
+                                        <td><?= $key['odol'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-				<!-- end rangking statistik -->
+                <!-- end rangking statistik -->
             </div>
         </div>
     </div>
@@ -655,7 +587,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>4</td>
                                 <td>APRIL</td>
                                 <td>67645</td>
@@ -670,7 +602,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>5</td>
                                 <td>MEI</td>
                                 <td>67645</td>
@@ -685,7 +617,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>6</td>
                                 <td>JUNI</td>
                                 <td>67645</td>
@@ -700,7 +632,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>7</td>
                                 <td>JULI</td>
                                 <td>67645</td>
@@ -715,7 +647,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>8</td>
                                 <td>AGUSTUS</td>
                                 <td>67645</td>
@@ -730,7 +662,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							<tr>
+                            <tr>
                                 <td>9</td>
                                 <td>SEPTEMBER</td>
                                 <td>67645</td>
@@ -745,7 +677,7 @@
                                 <td>21</td>
                                 <td>34084</td>
                             </tr>
-							
+
 
                         </tbody>
                     </table>
@@ -762,18 +694,32 @@
     $(document).ready(function() {
         $('#tb_dakgar_lantas').DataTable()
         $('#tb_dakgar_lantas_tahun').DataTable()
+
+        var poldaName = JSON.parse('<?= json_encode($data['poldaName']); ?>');
+        var polda_capture_camera = JSON.parse('<?= json_encode($data['polda_capture_camera']); ?>');
+        var polda_validasi_petugas = JSON.parse('<?= json_encode($data['polda_validasi_petugas']); ?>');
+        var polda_konfirmasi_masyarakat = JSON.parse('<?= json_encode($data['polda_konfirmasi_masyarakat']); ?>');
+        var polda_odol = JSON.parse('<?= json_encode($data['polda_odol']); ?>');
+
+
+        var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
+        var month_capture_camera = JSON.parse('<?= json_encode($data['month_capture_camera']); ?>');
+        var month_validasi_petugas = JSON.parse('<?= json_encode($data['month_validasi_petugas']); ?>');
+        var month_konfirmasi_masyarakat = JSON.parse('<?= json_encode($data['month_konfirmasi_masyarakat']); ?>');
+        var month_odol = JSON.parse('<?= json_encode($data['month_odol']); ?>');
+
         // Capture Kamera
         var options_capture_camera = {
             series: [{
                 name: 'JUMLAH CAPTURE CAMERA',
-                data: [25061, 2113, 7832, 8076, 1387, 2119, 106, 235, 1052, 1262, 7810],
+                data: polda_capture_camera,
                 color: '#11347A'
             }, ],
             chart: {
                 type: 'bar',
                 height: 350
             },
-			
+
             plotOptions: {
                 bar: {
                     horizontal: false,
@@ -783,7 +729,7 @@
                         position: 'top'
                     }
                 },
-				
+
             },
             dataLabels: {
                 enabled: true,
@@ -798,7 +744,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'NTT'],
+                categories: poldaName,
             },
             yaxis: {
                 title: {
@@ -851,7 +797,7 @@
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
-						
+
                     }
                 },
             },
@@ -861,7 +807,7 @@
                     colors: ['#333']
                 },
                 offsetY: -15,
-				
+
             },
 
             stroke: {
@@ -923,9 +869,9 @@
                     horizontal: false,
                     columnWidth: '40%',
                     endingShape: 'rounded',
-					padding:{
-						right: 10,
-					},
+                    padding: {
+                        right: 10,
+                    },
                     dataLabels: {
                         position: 'top'
                     }
@@ -999,7 +945,7 @@
                     horizontal: false,
                     columnWidth: '50%',
                     endingShape: 'rounded',
-					
+
                     dataLabels: {
                         position: 'top'
                     }
@@ -1039,7 +985,7 @@
         var options_capture_camera_tahun = {
             series: [{
                 name: 'JUMLAH CAPTURE CAMERA',
-                data: [25061, 2113, 7832, 8076, 1387, 2119, 106, 235, 1052, 1262, 7810, 1000],
+                data: month_capture_camera,
                 color: '#11347A'
             }, ],
             chart: {
@@ -1069,7 +1015,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                categories: poldaMonth
             },
             yaxis: {
                 title: {
