@@ -600,10 +600,11 @@
                 <div class="d-flex">
 
 
+                <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="bell" class="icon-lg"></i>
-                            <span class="badge bg-danger rounded-pill" id="totalNotif"><?= $notif['recordsFiltered']?></span>
+                            <span class="badge bg-danger rounded-pill" id="totalNotif"></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
@@ -626,6 +627,7 @@
                             </div>
                         </div>
                     </div>
+                <?php } ?>
 
                     <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item right-bar-toggle me-2">
