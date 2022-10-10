@@ -2004,7 +2004,7 @@
                                 var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
                                 fasumKhususClusterGroup.addLayer( markerFasumKhusus[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 32px; margin-top: -10px;margin-left: -10px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
