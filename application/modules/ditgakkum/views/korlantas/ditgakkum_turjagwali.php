@@ -27,7 +27,7 @@
                                 <h4 class="text-light fw-light">Pengaturan</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">538</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['pengaturan'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <h4 class="text-light d-inline fw-light">Penjagaan</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">928</h1>
+                                <h1 class="red-card-text"><?= $data['penjagaan'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4 class="text-light fw-light">Pengawalan</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="green-card-text text-center">45</h1>
+                                <h1 class="green-card-text text-center"><?= $data['pengawalan'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <h4 class="text-light fw-light">Patroli</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">380</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['patroli'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -80,86 +80,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Jawa Barat</td>
-                                    <td>86</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jawa Tengah</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Sulawesi Selatan</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Bali</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Banten</td>
-                                    <td>11</td>
-                                    <td>7</td>
-                                    <td>17</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Riau</td>
-                                    <td>16</td>
-                                    <td>7</td>
-                                    <td>10</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>DI Yogyakarta</td>
-                                    <td>18</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Nusa Tenggara Barat</td>
-                                    <td>14</td>
-                                    <td>7</td>
-                                    <td>15</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Lampung</td>
-                                    <td>22</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['pengaturan'] ?></td>
+                                        <td><?= $key['penjagaan'] ?></td>
+                                        <td><?= $key['pengawalan'] ?></td>
+                                        <td><?= $key['patroli'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -228,7 +160,7 @@
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart" style="width: 100vw"></div>
+                        <div id="chart" style="width: 350vw"></div>
                     </div>
                 </div>
             </div>
@@ -254,42 +186,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>JATIM</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>JATENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>JABAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['polda'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td><?= $key['jumlah'] ?></td>
+                                    <td><?= $key['pengaturan'] ?></td>
+                                    <td><?= $key['penjagaan'] ?></td>
+                                    <td><?= $key['pengawalan'] ?></td>
+                                    <td><?= $key['patroli'] ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -337,42 +246,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Januari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Februari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Maret</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
+                            <?php $i = 1 ?>
+                            <?php foreach ($data['poldaMonth'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['date'] ?></td>
+                                    <td><?= $key['jumlah'] ?></td>
+                                    <td><?= $key['pengaturan'] ?></td>
+                                    <td><?= $key['penjagaan'] ?></td>
+                                    <td><?= $key['pengawalan'] ?></td>
+                                    <td><?= $key['patroli'] ?></td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -387,28 +273,41 @@
         $('#tb_turjagwali').DataTable()
         $('#tb_turjawali_tahun').DataTable()
 
+        var poldaName = JSON.parse('<?= json_encode($data['poldaName']); ?>');
+        var polda_pengawalan = JSON.parse('<?= json_encode($data['polda_pengawalan']); ?>');
+        var polda_penjagaan = JSON.parse('<?= json_encode($data['polda_penjagaan']); ?>');
+        var polda_pengaturan = JSON.parse('<?= json_encode($data['polda_pengaturan']); ?>');
+        var polda_patroli = JSON.parse('<?= json_encode($data['polda_patroli']); ?>');
+
+
+        var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
+        var month_pengawalan = JSON.parse('<?= json_encode($data['month_pengawalan']); ?>');
+        var month_penjagaan = JSON.parse('<?= json_encode($data['month_penjagaan']); ?>');
+        var month_pengaturan = JSON.parse('<?= json_encode($data['month_pengaturan']); ?>');
+        var month_patroli = JSON.parse('<?= json_encode($data['month_patroli']); ?>');
+
 
         // Turjawali seluruh indonesia
         var options_turjawali = {
             series: [{
                 name: 'Pengaturan',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_pengaturan,
                 color: "#11347A"
             }, {
                 name: 'Penjagaan',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_penjagaan,
                 color: "#3CA55C"
             }, {
                 name: 'Pengawalan',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_pengawalan,
                 color: "#E8D42F"
             }, {
                 name: 'Patroli',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_patroli,
                 color: "#3CA55C"
             }],
             chart: {
@@ -440,7 +339,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName,
             },
             yaxis: [{
                 axisTicks: {
@@ -470,22 +369,22 @@
             series: [{
                 name: 'Pengaturan',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: month_pengaturan,
                 color: "#11347A"
             }, {
                 name: 'Penjagaan',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: month_penjagaan,
                 color: "#CB2D3E"
             }, {
                 name: 'Pengawalan',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_pengawalan,
                 color: "#E8D42F"
             }, {
                 name: 'Patroli',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_patroli,
                 color: "#3CA55C"
             }],
             chart: {
@@ -517,7 +416,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth
             },
             yaxis: [{
                 axisTicks: {

@@ -163,8 +163,10 @@
                         <h5>DITGAKKUM NASIONAL</h5>
                     </div>
                     <div>
-                        <div class="main-chart">
-                            <div id="chart"></div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chart" style="width: 80vw"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -304,8 +306,10 @@
                     <h5>DITKAMSEL NASIONAL</h5>
                 </div>
                 <div>
-                    <div class="main-chart">
-                        <div id="chart2"></div>
+                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                        <div class="main-chart">
+                            <div id="chart2" style="width: 80vw"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -346,8 +350,10 @@
                     <h5>DITREGIDENT NASIONAL</h5>
                 </div>
                 <div>
-                    <div class="main-chart">
-                        <div id="chart5"></div>
+                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                        <div class="main-chart">
+                            <div id="chart5" style="width: 80vw"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -461,26 +467,43 @@
 
 
         $(document).ready(function() {
+
+            var polda_ditkamsel = JSON.parse('<?= json_encode($data['polda_ditkamsel']); ?>');
+            var dikmaslantas = JSON.parse('<?= json_encode($data['dikmaslantas']); ?>');
+            var penyebaran = JSON.parse('<?= json_encode($data['penyebaran']); ?>');
+
+            var polda_ditgakkum = JSON.parse('<?= json_encode($data['polda_ditgakkum']); ?>');
+            var lakalantas = JSON.parse('<?= json_encode($data['lakalantas']); ?>');
+            var lakalanggar = JSON.parse('<?= json_encode($data['lakalanggar']); ?>');
+            var garlantas = JSON.parse('<?= json_encode($data['garlantas']); ?>');
+            var turjagwali = JSON.parse('<?= json_encode($data['turjagwali']); ?>');
+
+            var polda_ditregident = JSON.parse('<?= json_encode($data['polda_ditregident']); ?>');
+            var sim = JSON.parse('<?= json_encode($data['sim']); ?>');
+            var bpkb = JSON.parse('<?= json_encode($data['bpkb']); ?>');
+            var stnk = JSON.parse('<?= json_encode($data['stnk']); ?>');
+            var ranmor = JSON.parse('<?= json_encode($data['ranmor']); ?>');
+
             var options_ditgakkum = {
                 series: [{
                     name: 'Data Dakgar Lantas',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    data: lakalanggar,
                     color: "#003A91"
                 }, {
                     name: 'Kecelakaan Lalu Lintas',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    data: lakalantas,
                     color: "#CB2D3E"
                 }, {
                     name: 'Gar Lantas',
                     type: 'column',
-                    data: [89, 678, 21, 345, 78, 65, 34, 91, 87, 11],
+                    data: garlantas,
                     color: "#E8D42F"
                 }, {
                     name: 'Data Turjagwali',
                     type: 'column',
-                    data: [890, 171, 212, 124, 65, 321, 121, 111, 123, 34],
+                    data: turjagwali,
                     color: "#3CA55C"
                 }],
                 chart: {
@@ -491,7 +514,7 @@
                 plotOptions: {
                     bar: {
                         horizontal: false,
-                        columnWidth: '80%',
+                        columnWidth: '100%',
                         endingShape: 'rounded',
                         dataLabels: {
                             position: 'top'
@@ -516,7 +539,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                    categories: polda_ditgakkum
                 },
                 yaxis: [{
                     axisTicks: {
@@ -545,12 +568,12 @@
                 series: [{
                     name: 'Dikmas Lantas',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99, 100, 123, 134],
+                    data: dikmaslantas,
                     color: "#003A91"
                 }, {
                     name: 'Penyabaran/Pemasangan',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16, 89, 156, 165],
+                    data: penyebaran,
                     color: "#3CA55C"
                 }, ],
                 chart: {
@@ -586,7 +609,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
+                    categories: polda_ditkamsel,
                 },
                 yaxis: [{
                     axisTicks: {
@@ -707,22 +730,22 @@
                 series: [{
                     name: 'SIM',
                     type: 'column',
-                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99, 100, 123, 134],
+                    data: sim,
                     color: "#003A91"
                 }, {
                     name: 'STNK',
                     type: 'column',
-                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16, 89, 156, 165],
+                    data: stnk,
                     color: "#CB2D3E"
                 }, {
                     name: 'BPKB',
                     type: 'column',
-                    data: [90, 111, 178, 16, 89, 27, 34, 100, 23, 98, 75, 151, 158],
+                    data: bpkb,
                     color: "#E8D42F"
                 }, {
                     name: 'RANMOR',
                     type: 'column',
-                    data: [95, 128, 195, 617, 516, 99, 39, 89, 17, 78, 89, 126, 165],
+                    data: ranmor,
                     color: "#3CA55C"
                 }, ],
                 chart: {
@@ -733,7 +756,7 @@
                 plotOptions: {
                     bar: {
                         horizontal: false,
-                        columnWidth: '80%',
+                        columnWidth: '100%',
                         endingShape: 'rounded',
                         dataLabels: {
                             position: 'top'
@@ -758,7 +781,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
+                    categories: polda_ditregident
                 },
                 yaxis: [{
                     axisTicks: {

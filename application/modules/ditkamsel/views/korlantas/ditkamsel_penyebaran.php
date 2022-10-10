@@ -27,7 +27,7 @@
                                 <h4 class="text-light fw-light">Spanduk</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">296</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['spanduk'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <h4 class="text-light d-inline fw-light">Leafflet</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">160</h1>
+                                <h1 class="red-card-text"><?= $data['leaflet'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4 class="text-light fw-light">Sticker</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="green-card-text text-center">324</h1>
+                                <h1 class="green-card-text text-center"><?= $data['stiker'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <h4 class="text-light fw-light">Bilboard</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">91</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['billboard'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -80,86 +80,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-							<tr>
-                                    <th scope="row">1</th>
-                                    <td>Metro Jaya</td>
-                                    <td>65</td>
-                                    <td>8</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Jawa Tengah</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Sumatra barat</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">6</th>
-                                    <td>Sumatra Selatan</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">7</th>
-                                    <td>Kalimantan Utara</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">8</th>
-                                    <td>Kalimantan Tengah</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">9</th>
-                                    <td>Sulawesi barat</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">10</th>
-                                    <td>Bali</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
+                                <?php $i = 1; ?>
+                                <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['spanduk'] ?></td>
+                                        <td><?= $key['leaflet'] ?></td>
+                                        <td><?= $key['stiker'] ?></td>
+                                        <td><?= $key['billboard'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -179,34 +111,34 @@
                     <h6>Wilayah</h6>
                     <div class="form-group">
                         <select class="form-select">
-						<option>Polda</option>
-							<option>Semua Polda</option>
-							<option>Metro Jaya</option>
-							<option>Jawa Barat</option>
-							<option>Jawa Tengah</option>
-							<option>Jawa Timur</option>
-							<option>Sumatra Barat</option>
-							<option>Sumatra Selatan</option>
-							<option>Kalimantan Utara</option>
-							<option>Kalimantan Tengah</option>
-							<option>Sulawesi barat</option>
-							<option>Bali</option>
+                            <option>Polda</option>
+                            <option>Semua Polda</option>
+                            <option>Metro Jaya</option>
+                            <option>Jawa Barat</option>
+                            <option>Jawa Tengah</option>
+                            <option>Jawa Timur</option>
+                            <option>Sumatra Barat</option>
+                            <option>Sumatra Selatan</option>
+                            <option>Kalimantan Utara</option>
+                            <option>Kalimantan Tengah</option>
+                            <option>Sulawesi barat</option>
+                            <option>Bali</option>
                         </select>
                     </div>
                     <div class="form-group mt-1">
                         <select class="form-select">
-						<option>Polres</option>
-							<option>Semua Polres</option>
+                            <option>Polres</option>
+                            <option>Semua Polres</option>
                             <option>POLRESTABES BANDUNG</option>
-							<option>POLRESTA BOGOR</option>
-							<option>POLRES BOGOR</option>
-							<option>POLRESTA SUKABUMI</option>
-							<option>POLRES SUKABUMI</option>
-							<option>POLRES CIANJUR</option>
-							<option>POLRES PURWAKARTAPURWAKARTA</option>
-							<option>POLRES KARAWANG</option>
-							<option>POLRES SUBANG</option>
-							<option>POLRES CIMAHI</option>
+                            <option>POLRESTA BOGOR</option>
+                            <option>POLRES BOGOR</option>
+                            <option>POLRESTA SUKABUMI</option>
+                            <option>POLRES SUKABUMI</option>
+                            <option>POLRES CIANJUR</option>
+                            <option>POLRES PURWAKARTAPURWAKARTA</option>
+                            <option>POLRES KARAWANG</option>
+                            <option>POLRES SUBANG</option>
+                            <option>POLRES CIMAHI</option>
                         </select>
                     </div>
                 </div>
@@ -240,9 +172,9 @@
                 <div class="card-header">
                     <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Seluruh Indonesia</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll;">
                     <div class="main-chart">
-                        <div id="chart"></div>
+                        <div id="chart" style="width:350vw;"></div>
                     </div>
                 </div>
             </div>
@@ -269,96 +201,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Metro Jaya</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>JATENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>JABAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>4</td>
-                                <td>JATIM</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>5</td>
-                                <td>SUMBAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>6</td>
-                                <td>SUMSEL</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>7</td>
-                                <td>KALUT</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>8</td>
-                                <td>KALTENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>9</td>
-                                <td>SULBAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['polda'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td><?= $key['spanduk'] ?></td>
+                                    <td><?= $key['leaflet'] ?></td>
+                                    <td><?= $key['stiker'] ?></td>
+                                    <td><?= $key['billboard'] ?></td>
+                                    <td>0</td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -374,9 +229,9 @@
                 <div class="card-header">
                     <h4 class="card-title mb-0">Data Penyebaran dan Pemasangan Tahun 2021</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart1"></div>
+                        <div id="chart1" style="width: 100vw"></div>
                     </div>
                 </div>
             </div>
@@ -402,96 +257,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Januari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Februari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Maret</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>4</td>
-                                <td>April</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>5</td>
-                                <td>Mei</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>6</td>
-                                <td>Juni</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>7</td>
-                                <td>Juli</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>8</td>
-                                <td>Agustus</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>9</td>
-                                <td>September</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['poldaMonth'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['date'] ?></td>
+                                    <td><?= $key['spanduk'] ?></td>
+                                    <td><?= $key['leaflet'] ?></td>
+                                    <td><?= $key['stiker'] ?></td>
+                                    <td><?= $key['billboard'] ?></td>
+                                    <td>0</td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -507,31 +285,49 @@
         $('#tb_penyebaran_tahun').DataTable()
 
         // Dikmas penyebaran
+
+        var poldaName = JSON.parse('<?= json_encode($data['poldaName']); ?>');
+        var polda_stiker = JSON.parse('<?= json_encode($data['polda_stiker']); ?>');
+        var polda_spanduk = JSON.parse('<?= json_encode($data['polda_spanduk']); ?>');
+        var polda_leaflet = JSON.parse('<?= json_encode($data['polda_leaflet']); ?>');
+        var polda_billboard = JSON.parse('<?= json_encode($data['polda_billboard']); ?>');
+        var polda_jemensosprek = JSON.parse('<?= json_encode($data['polda_jemensosprek']); ?>');
+
+
+
+        var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
+        var month_stiker = JSON.parse('<?= json_encode($data['month_stiker']); ?>');
+        var month_spanduk = JSON.parse('<?= json_encode($data['month_spanduk']); ?>');
+        var month_leaflet = JSON.parse('<?= json_encode($data['month_leaflet']); ?>');
+        var month_billboard = JSON.parse('<?= json_encode($data['month_billboard']); ?>');
+        var month_jemensosprek = JSON.parse('<?= json_encode($data['month_jemensosprek']); ?>');
+
+
         var options_penyebaran = {
             series: [{
                 name: 'Spanduk',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_spanduk,
                 color: "#11347A"
             }, {
                 name: 'Leaflet',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_leaflet,
                 color: "#CB2D3E"
             }, {
                 name: 'Stiker',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_stiker,
                 color: "#E8D42F"
             }, {
                 name: 'Billboard',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_billboard,
                 color: "#3CA55C"
             }, {
                 name: 'JEMENSOSPREK',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_jemensosprek,
                 color: "#11617A"
             }],
             chart: {
@@ -561,7 +357,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName,
             },
             yaxis: [{
                 axisTicks: {
@@ -590,27 +386,27 @@
             series: [{
                 name: 'Spanduk',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: month_spanduk,
                 color: "#11347A"
             }, {
                 name: 'Leaflet',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: month_leaflet,
                 color: "#CB2D3E"
             }, {
                 name: 'Stiker',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_stiker,
                 color: "#E8D42F"
             }, {
                 name: 'Billboard',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_billboard,
                 color: "#3CA55C"
             }, {
                 name: 'JEMENSOSPREK',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_jemensosprek,
                 color: "#69B8DB"
             }],
             chart: {
@@ -640,7 +436,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth,
             },
             yaxis: [{
                 axisTicks: {

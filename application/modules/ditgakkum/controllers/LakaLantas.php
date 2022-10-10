@@ -6,6 +6,8 @@ class LakaLantas extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model('ditgakkum/M_Lakalantas');
+
     }
 
     public function index()
@@ -23,6 +25,62 @@ class LakaLantas extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $lakalantasNasional = $this->M_Lakalantas->getNasional();
+            $lakalantasMonth = $this->M_Lakalantas->getMonth();
+
+
+            // lakalantas nasional
+            $meninggal_dunia = $lakalantasNasional['data']['jumlah']['meninggal_dunia'];
+            $luka_berat = $lakalantasNasional['data']['jumlah']['luka_berat'];
+            $luka_ringan = $lakalantasNasional['data']['jumlah']['luka_ringan'];
+            $jumlah = $lakalantasNasional['data']['jumlah']['jumlah'];
+
+            $dataNasional = $lakalantasNasional['data']['data'];
+            array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
+            $topPolda = array_slice($dataNasional, 0, 10);
+
+            $poldaName = array();
+            $polda_meninggal_dunia = array();
+            $polda_luka_berat = array();
+            $polda_luka_ringan = array();
+            $polda_jumlah = array();
+            foreach ($dataNasional as $key) {
+                $poldaName[] = $key['name_polda'];
+                $polda_meninggal_dunia[] = $key['meninggal_dunia'];
+                $polda_luka_berat[] = $key['luka_berat'];
+                $polda_luka_ringan[] = $key['luka_ringan'];
+                $polda_jumlah[] = $key['jumlah'];
+            }
+
+            // lakalantas month 
+            foreach ($lakalantasMonth['data']['data'] as $field) {
+                $row = array();
+                $row['date'] = $field['date'];
+                $row['sort'] = $this->getmonth($field['date']);
+                $row['meninggal_dunia'] = $field['meninggal_dunia'];
+                $row['luka_ringan'] = $field['luka_ringan'];
+                $row['luka_berat'] = $field['luka_berat'];
+                $row['jumlah'] = $field['jumlah'];
+                $row['jumlah'] = $field['jumlah'];
+
+                $dataMonth[] = $row;
+            }
+            array_multisort(array_column($dataMonth, "sort"), SORT_ASC, $dataMonth);
+
+            $poldaMonth = array();
+            $month_meninggal_dunia = array();
+            $month_luka_berat = array();
+            $month_luka_ringan = array();
+            $month_jumlah = array();
+            foreach ($dataMonth as $key) {
+                $poldaMonth[] = $key['date'];
+                $month_meninggal_dunia[] = $key['meninggal_dunia'];
+                $month_luka_berat[] = $key['luka_berat'];
+                $month_luka_ringan[] = $key['luka_ringan'];
+                $month_jumlah[] = $key['jumlah'];
+            }
+
+            $page_content["data"] = ['meninggal_dunia' => $meninggal_dunia, 'luka_berat' => $luka_berat, 'luka_ringan' => $luka_ringan, 'jumlah' => $jumlah, 'menu' => 'Ditgakkum', 'submenu' => 'Kecelakaan Lalu Lintas', 'headline' => 'Kecelakaan Lalu Lintas', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_meninggal_dunia' => $polda_meninggal_dunia, 'polda_luka_berat' => $polda_luka_berat, 'polda_luka_ringan' => $polda_luka_ringan, 'polda_jumlah' => $polda_jumlah, 'month' => $poldaMonth, 'month_meninggal_dunia' => $month_meninggal_dunia, 'month_luka_berat' => $month_luka_berat, 'month_luka_ringan' => $month_luka_ringan, 'month_jumlah' => $month_jumlah];
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_kecelakaan_lalulintas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "ditgakkum/polda/ditgakkum_kecelakaan_lalulintas";
@@ -32,5 +90,60 @@ class LakaLantas extends MY_Controller
 
 
         $this->templates->loadTemplate($page_content);
+    }
+
+    function getmonth($value)
+    {
+        $month = '';
+        switch ($value) {
+            case 'January':
+                $month = "1";
+                break;
+
+            case 'February':
+                $month = "2";
+                break;
+
+            case 'March':
+                $month = "3";
+                break;
+
+            case 'April':
+                $month = "4";
+                break;
+
+            case 'Mei':
+                $month = "5";
+                break;
+
+            case 'June':
+                $month = "6";
+                break;
+
+            case 'July':
+                $month = "7";
+                break;
+
+            case 'August':
+                $month = "8";
+                break;
+
+            case 'September':
+                $month = "9";
+                break;
+
+            case 'October':
+                $month = "10";
+                break;
+
+            case "November":
+                $month = "11";
+                break;
+
+            case "December":
+                $month = "12";
+                break;
+        }
+        return $month;
     }
 }

@@ -27,7 +27,7 @@
                                 <h4 class="text-light fw-light">Media Cetak</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="text-center blue-card-text">283</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['media_cetak'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <h4 class="text-light d-inline fw-light">Media Elektronik</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="red-card-text">860</h1>
+                                <h1 class="red-card-text"><?= $data['media_elektronik'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4 class="text-light fw-light">Media Sosial</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="green-card-text text-center">324</h1>
+                                <h1 class="green-card-text text-center"><?= $data['media_sosial'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <h4 class="text-light fw-light">Laka Langgar</h4>
                             </div>
                             <div class="col-md-6">
-                                <h1 class="yellow-card-text text-center">931</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['laka_langgar'] ?></h1>
                             </div>
                         </div>
                     </div>
@@ -80,86 +80,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Metro Jaya</td>
-                                    <td>65</td>
-                                    <td>8</td>
-                                    <td>2</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jawa Barat</td>
-                                    <td>75</td>
-                                    <td>42</td>
-                                    <td>2</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jawa Timur</td>
-                                    <td>43</td>
-                                    <td>24</td>
-                                    <td>1</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Jawa Tengah</td>
-                                    <td>31</td>
-                                    <td>21</td>
-                                    <td>6</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Sumatra barat</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">6</th>
-                                    <td>Sumatra Selatan</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">7</th>
-                                    <td>Kalimantan Utara</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">8</th>
-                                    <td>Kalimantan Tengah</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">9</th>
-                                    <td>Sulawesi barat</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
-								<tr>
-                                    <th scope="row">10</th>
-                                    <td>Bali</td>
-                                    <td>22</td>
-                                    <td>7</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                </tr>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['media_cetak'] ?></td>
+                                        <td><?= $key['media_elektronik'] ?></td>
+                                        <td><?= $key['media_sosial'] ?></td>
+                                        <td><?= $key['laka_langgar'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -181,32 +113,32 @@
                         <select class="form-select">
                             <option>Polda</option>
                             <option>Semua Polda</option>
-							<option>Metro Jaya</option>
-							<option>Jawa Barat</option>
-							<option>Jawa Tengah</option>
-							<option>Jawa Timur</option>
-							<option>Sumatra Barat</option>
-							<option>Sumatra Selatan</option>
-							<option>Kalimantan Utara</option>
-							<option>Kalimantan Tengah</option>
-							<option>Sulawesi barat</option>
-							<option>Bali</option>
+                            <option>Metro Jaya</option>
+                            <option>Jawa Barat</option>
+                            <option>Jawa Tengah</option>
+                            <option>Jawa Timur</option>
+                            <option>Sumatra Barat</option>
+                            <option>Sumatra Selatan</option>
+                            <option>Kalimantan Utara</option>
+                            <option>Kalimantan Tengah</option>
+                            <option>Sulawesi barat</option>
+                            <option>Bali</option>
                         </select>
                     </div>
                     <div class="form-group mt-1">
                         <select class="form-select">
-							<option>Polres</option>
+                            <option>Polres</option>
                             <option>Semua Polres</option>
                             <option>POLRESTABES BANDUNG</option>
-							<option>POLRESTA BOGOR</option>
-							<option>POLRES BOGOR</option>
-							<option>POLRESTA SUKABUMI</option>
-							<option>POLRES SUKABUMI</option>
-							<option>POLRES CIANJUR</option>
-							<option>POLRES PURWAKARTAPURWAKARTA</option>
-							<option>POLRES KARAWANG</option>
-							<option>POLRES SUBANG</option>
-							<option>POLRES CIMAHI</option>
+                            <option>POLRESTA BOGOR</option>
+                            <option>POLRES BOGOR</option>
+                            <option>POLRESTA SUKABUMI</option>
+                            <option>POLRES SUKABUMI</option>
+                            <option>POLRES CIANJUR</option>
+                            <option>POLRES PURWAKARTAPURWAKARTA</option>
+                            <option>POLRES KARAWANG</option>
+                            <option>POLRES SUBANG</option>
+                            <option>POLRES CIMAHI</option>
                         </select>
                     </div>
                 </div>
@@ -240,9 +172,9 @@
                 <div class="card-header">
                     <h4 class="card-title mb-0">Data Dikmas Lantas Seluruh Indonesia</h4>
                 </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                <div class="card-body" style="overflow:hidden; overflow-x:scroll;">
                     <div class="main-chart">
-                        <div id="chart" style="width: 100vw"></div>
+                        <div id="chart" style="width:350vw;"></div>
                     </div>
                 </div>
             </div>
@@ -261,7 +193,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Polda</th>
-                                <th>Penluh</th>
+                                <th>Jumlah</th>
                                 <th>Media Cetak</th>
                                 <th>Media Elektronik</th>
                                 <th>Media Sosial</th>
@@ -269,97 +201,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Metro Jaya</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>JATENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>JABAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>4</td>
-                                <td>JATIM</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>5</td>
-                                <td>SUMBAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>6</td>
-                                <td>SUMSEL</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>7</td>
-                                <td>KALUT</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>8</td>
-                                <td>KALTENG</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>9</td>
-                                <td>SULBAR</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['polda'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td><?= $key['jumlah'] ?></td>
+                                    <td><?= $key['media_cetak'] ?></td>
+                                    <td><?= $key['media_elektronik'] ?></td>
+                                    <td><?= $key['media_sosial'] ?></td>
+                                    <td><?= $key['laka_langgar'] ?></td>
+                                    <?php $i++ ?>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -395,7 +249,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Bulan</th>
-                                <th>Penluh</th>
+                                <th>Jumlah</th>
                                 <th>Media Cetak</th>
                                 <th>Media Elektronik</th>
                                 <th>Media Sosial</th>
@@ -403,97 +257,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>11012</td>
-                                <td>5932</td>
-                                <td>1700</td>
-                                <td>5935</td>
-                                <td>10412</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Januari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Februari</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Maret</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>4</td>
-                                <td>April</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>5</td>
-                                <td>Mei</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>6</td>
-                                <td>Juni</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>7</td>
-                                <td>Juli</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>8</td>
-                                <td>Agustus</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-							<tr>
-                                <td>9</td>
-                                <td>September</td>
-                                <td>2896</td>
-                                <td>1860</td>
-                                <td>324</td>
-                                <td>931</td>
-                                <td>1875</td>
-                            </tr>
-
+                            <?php $i = 1 ?>
+                            <?php foreach ($data['poldaMonth'] as $key) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['date'] ?></td>
+                                    <td><?= $key['jumlah'] ?></td>
+                                    <td><?= $key['media_cetak'] ?></td>
+                                    <td><?= $key['media_elektronik'] ?></td>
+                                    <td><?= $key['media_sosial'] ?></td>
+                                    <td><?= $key['laka_langgar'] ?></td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -505,41 +281,168 @@
 
 <script>
     $(document).ready(function() {
-        $('#tb_dikmaslantas').DataTable()
-        $('#tb_dikmaslantas_tahun').DataTable()
+        // $('#tb_dikmaslantas').DataTable({
 
+        //     responsive: true,
+
+        //     scrollX: true,
+
+        //     // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+        //     // buttons: ["excel", "csv", "pdf"],
+
+        //     oLanguage: {
+
+        //         sSearch: 'Search:'
+
+        //     },
+
+        //     initComplete: function(settings, json) {},
+
+        //     retrieve: true,
+
+        //     processing: true,
+
+        //     serverSide: true,
+
+        //     serverMethod: 'POST',
+
+        //     ajax: {
+
+        //         dataType: 'json',
+
+        //         url: '<?php echo base_url(); ?>ditkamsel/DikmasLantas/tableByPolda',
+
+        //         data: function(data) {
+
+        //             $("#overlay").fadeIn(300);
+
+        //             // console.log(data);
+
+        //             // data.filterTgl = $('[name=event_date]').val();
+
+        //             // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+        //             // data.filterStatus = $('[name=status]').val();
+
+        //             // data.filterName = $('[name=group_name]').val();
+
+        //             // data.filterPocName = $('[name=group_poc_name]').val();
+
+        //             // data.filterPhone = $('[name=poc_phone]').val();
+
+        //             // data.filterThreat = $('[name=threat_level]').val();
+
+        //             data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+        //             data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+        //             data.page = Number(data.start / data.length) + 1
+
+        //         },
+
+        //         beforeSend: function(xhr, settings) {
+
+        //         },
+
+        //         "dataSrc": function(result) {
+
+        //             result.iTotalRecords = result.iTotalRecords;
+
+        //             result.iTotalDisplayRecords = result.iTotalRecords;
+
+        //             return result.aaData;
+
+        //         }
+
+        //     },
+
+        //     columns: [
+
+        //         {
+        //             data: 'id'
+        //         },
+        //         {
+        //             data: 'name_polda'
+        //         },
+        //         {
+        //             data: 'jumlah'
+        //         },
+        //         {
+        //             data: 'media_cetak'
+        //         },
+        //         {
+        //             data: 'media_elektronik'
+        //         },
+        //         {
+        //             data: 'media_sosial'
+        //         },
+        //         {
+        //             data: 'laka_langgar'
+        //         },
+
+        //     ],
+
+        //     order: [
+        //         [0, "DESC"]
+        //     ],
+
+        //     drawCallback: function(settings) {
+
+        //         $("#overlay").fadeOut(300);
+
+        //     }
+
+        // })
         // Dikmas Lantas
+
+        var poldaName = JSON.parse('<?= json_encode($data['poldaName']); ?>');
+        var polda_media_cetak = JSON.parse('<?= json_encode($data['polda_media_cetak']); ?>');
+        var polda_media_elektronik = JSON.parse('<?= json_encode($data['polda_media_elektronik']); ?>');
+        var polda_media_sosial = JSON.parse('<?= json_encode($data['polda_media_sosial']); ?>');
+        var polda_laka_langgar = JSON.parse('<?= json_encode($data['polda_laka_langgar']); ?>');
+
+
+        var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
+        var month_media_cetak = JSON.parse('<?= json_encode($data['month_media_cetak']); ?>');
+        var month_media_elektronik = JSON.parse('<?= json_encode($data['month_media_elektronik']); ?>');
+        var month_media_sosial = JSON.parse('<?= json_encode($data['month_media_sosial']); ?>');
+        var month_laka_langgar = JSON.parse('<?= json_encode($data['month_laka_langgar']); ?>');
+
+
+        console.log(poldaName)
         var options_dikmas_lantas = {
             series: [{
                 name: 'Media Cetak',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_media_cetak,
                 color: "#11347A"
             }, {
                 name: 'Media Elektronik',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_media_elektronik,
                 color: "#CB2D3E"
             }, {
                 name: 'Media Sosial',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_media_sosial,
                 color: "#E8D42F"
             }, {
                 name: 'Laka langgar',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_laka_langgar,
                 color: "#3CA55C"
             }],
             chart: {
                 height: 350,
                 type: 'line',
-                stacked: false
+                stacked: false,
+                offsetY: 10
             },
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '50%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -553,14 +456,13 @@
                 },
                 offsetY: -15
             },
-
             stroke: {
                 show: true,
                 width: [1, 1, 4, 4],
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName,
             },
             yaxis: [{
                 axisTicks: {
@@ -589,22 +491,22 @@
             series: [{
                 name: 'Media Cetak',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: month_media_cetak,
                 color: "#11347A"
             }, {
                 name: 'Media Elektronik',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: month_media_elektronik,
                 color: "#CB2D3E"
             }, {
                 name: 'Media Sosial',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_media_sosial,
                 color: "#E8D42F"
             }, {
                 name: 'Laka langgar',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_laka_langgar,
                 color: "#3CA55C"
             }],
             chart: {
@@ -636,7 +538,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth
             },
             yaxis: [{
                 axisTicks: {
@@ -659,5 +561,8 @@
 
         var dikmas_lantas_tahun = new ApexCharts(document.querySelector("#chart2"), options_dikmas_lantas_tahun);
         dikmas_lantas_tahun.render();
+
+        $('#tb_dikmaslantas').DataTable()
+        $('#tb_dikmaslantas_tahun').DataTable()
     })
 </script>
