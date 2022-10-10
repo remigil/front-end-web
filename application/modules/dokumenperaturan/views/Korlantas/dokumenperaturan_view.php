@@ -338,6 +338,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
+                // $('.DetailDokumenPeraturan,#kategoriPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#kategoriPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#judulPeraturan').attr('disabled', true)
                 $('.DetailDokumenPeraturan,#tahunPeraturan').attr('disabled', true)
