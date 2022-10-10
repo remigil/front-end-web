@@ -82,7 +82,7 @@
 
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="id_vip[]" id="id_vip" style="height: 200px" multiple>
+                                <select  name="id_vip[]" id="id_vip" style="height: 200px" multiple>
                                     <?php foreach ($data['getVip'] as $row) : ?>
                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )</option>
                                     <?php endforeach; ?>

@@ -671,6 +671,13 @@
     var markerFasumKhusus = new Array();
     var markerPolres = new Array();
     var routingJadwal = new Array();
+
+    var routingJadwalRenpam = new Array();
+    var routingJadwalRenpam1 = new Array();
+    var routingJadwalRenpam2 = new Array();
+    var routingJadwalRenpam3 = new Array();
+    var routingJadwalRenpam4 = new Array(); 
+
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
@@ -972,12 +979,12 @@
                             var jenis = '';
                             if(ress[i].type_vehicle == 'Sepeda Motor'){
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                             }else if(ress[i].type_vehicle == 'Mobil'){
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                             }else{
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                             }
 
                             var cordLat = parseFloat(ress[i].latitude); 
@@ -1315,14 +1322,16 @@
                 var jenis = '';
                 if(ress.type_vehicle == 'Sepeda Motor'){
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                 }else if(ress.type_vehicle == 'Mobil'){
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                 }else{
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
                 }
     
+                var cordLat = parseFloat(ress.latitude); 
+                var corLong = parseFloat(ress.longitude); 
                 var lokasiPetugas = '';
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
                 
@@ -1664,7 +1673,7 @@
             
                                     markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
+                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -1760,7 +1769,7 @@
 
                                 cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -12px;margin-left: -12px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -1809,27 +1818,27 @@
 
                                 if(filterLaporan[i].categori == 1){
                                     kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporan[i].categori == 2){
                                     kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporan[i].categori == 3){
                                     kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporan[i].categori == 4){
                                     kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporan[i].categori == 99){
                                     kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else{
                                     kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }
 
                                 laporanClusterGroup.addLayer( markerLaporan[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -1902,22 +1911,22 @@
 
                                 if(filterLaporanPanic[i].categori == 1){
                                     kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 2){
                                     kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 3){
                                     kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 4){
                                     kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 99){
                                     kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else{
                                     kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }
 
                                 if(filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null){
@@ -2037,7 +2046,7 @@
                                 var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
                                 fasumKhususClusterGroup.addLayer( markerFasumKhusus[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -12px;margin-left: -12px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -2193,6 +2202,7 @@
                             return e.lat_cctv != null && e.lng_cctv != null;
                         }); 
                     }   
+
                     if(ressSchedule && ressSchedule.length > 0){  
                         var filterSchedule = ressSchedule.filter(function (e) {
                             return e.coordinate_schedule != null;
@@ -2209,7 +2219,7 @@
 
                                 jadwalClusterGroup.addLayer( markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
+                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -2420,7 +2430,7 @@
 
         //                         markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]
@@ -3221,10 +3231,40 @@
                     countlist = 0;
                     list = "";
                     var status = ""; 
+                    var checkboxJadwal = "";
+                    var nameJadwalRenpam = [];
+                    var typeJadwalRenpam = [];
+                    var awalJadwalRenpam = [];
+                    var akhirJadwalRenpam = [];
+
+                    var dummyName = [];
+                    var dummyType = [];
+                    var dummyAwal = [];
+                    var dummyAkhir = [];
+                    
+
+                    var dummyJadwalRenpam = [];
+                    var dummyJadwalRenpamAlter = [];
+                    var dummyJadwalRenpamAlterr = [];
+                    var dummyJadwalRenpamAlterrr = [];
+                    var dummyJadwalRenpamAlterrrr = []; 
 
                     if($('#jadwal').is(':checked')){
                         $("#totalKegiatanOn").html(ress.length);
                         ress.forEach(el => {
+
+                            dummyName = [];
+                            dummyType = [];
+                            dummyAwal = [];
+                            dummyAkhir = [];
+
+                            dummyJadwalRenpam = [];
+                            dummyJadwalRenpamAlter = [];
+                            dummyJadwalRenpamAlterr = [];
+                            dummyJadwalRenpamAlterrr = [];
+                            dummyJadwalRenpamAlterrrr = [];
+
+                            countlist += 1;
                             if(el.status_schedule == 1){
                                 status = `
                                 <div>
@@ -3237,22 +3277,193 @@
                                 </div>
                                 `;
                             }
-                            countlist += 1;
-                            list += `<a class="list-group-item text-start" style="display: flex;"
-                            id="listJadwalClick${countlist}"   
-                            data-alamat="${el.address_schedule}"  
-                            data-cord="${el.coordinate_schedule}"
-                            href="javascript:void(0)">${status} &nbsp;&nbsp; ${el.activity}</a>`;
+
+                            if(el.renpams.length > 0){
+                                for (let i = 0; i < el.renpams.length; i++){  
+                                    dummyName.push(el.renpams[i]['name_renpam']);
+                                    dummyType.push(el.renpams[i]['type_renpam']);
+                                    dummyAwal.push(el.renpams[i]['awal_renpam']);
+                                    dummyAkhir.push(el.renpams[i]['akhir_renpam']);
+
+                                    nameJadwalRenpam[countlist] = dummyName;
+                                    typeJadwalRenpam[countlist] = dummyType; 
+                                    awalJadwalRenpam[countlist] = dummyAwal; 
+                                    akhirJadwalRenpam[countlist] = dummyAkhir; 
+
+                                    dummyJadwalRenpam[countlist] = el.renpams[i]['route']; 
+                                    dummyJadwalRenpamAlter[countlist] = el.renpams[i]['route_alternatif_1']; 
+                                    dummyJadwalRenpamAlterr[countlist] = el.renpams[i]['route_alternatif_2']; 
+                                    dummyJadwalRenpamAlterrr[countlist] = el.renpams[i]['route_masyarakat'];  
+                                    dummyJadwalRenpamAlterrrr[countlist] = el.renpams[i]['route_umum'];  
+                                }
+                                checkboxJadwal = `
+                                    <input type="checkbox" class="form-input" name="selectRenpam" id="listJadwalRenpamClick${countlist}" >
+                                `;
+                            }else{
+                                checkboxJadwal = ``;
+                            }
+
+                            console.log(dummyJadwalRenpam);
+                            
+                            list += ` 
+
+                            <li class="list-group-item text-start" style="display: flex;">
+                                <div class="row">
+                                    <div class="col-md-2" style="display: flex;align-items: center;">
+                                        ${status}
+                                    </div>
+                                    <div class="col-md-7">
+                                        ${el.activity}
+                                    </div>
+                                    <div class="col-md-3" style="display: flex;align-items: center;">
+                                        <a class="list-group-item text-start" style="display: flex;"
+                                            id="listJadwalClick${countlist}"   
+                                            data-alamat="${el.address_schedule}"  
+                                            data-cord="${el.coordinate_schedule}"
+                                            href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a>
+                                        ${checkboxJadwal}
+                                    </div>
+                                </div>
+                            </li>
+                            `;
                             $('#listJadwal').html(list); 
                         });  
                         for (let i = 0; i < ress.length; i++){ 
+                            $(`#listJadwalRenpamClick${i+1}`).on("change", function (e) {
+                                // console.log(
+                                //     {
+                                //     name: nameJadwalRenpam[i+1],
+                                //     route: dummyJadwalRenpam[i+1],
+                                //     route1: dummyJadwalRenpamAlter[i+1],
+                                //     route2: dummyJadwalRenpamAlterr[i+1],
+                                //     route3: dummyJadwalRenpamAlterrr[i+1],
+                                //     route4: dummyJadwalRenpamAlterrrr[i+1],
+                                //     }
+                                // );
+
+
+                                for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
+                                    var titikAwal = nameJadwalRenpam[i+1][ii] == null ? '-' : nameJadwalRenpam[i+1][ii];
+                                    var titikAkhir = akhirJadwalRenpam[i+1][ii] == null ? '-' : akhirJadwalRenpam[i+1][ii];
+
+                                    var typeRenpam = awalJadwalRenpam[i+1][ii];
+                                    if(typeRenpam == 3){ //penjagaan
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                    }else if(typeRenpam == 4){ //pengaturan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                    }else if(typeRenpam == 5){ //penutupan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                    }else{
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                    }
+
+
+                                    if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam[i] = null;
+                                            routingJadwalRenpam[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpam[i+1][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h3>${titikAwal}</h3>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h3>${titikAkhir}</h3>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam[i]);  
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam[i]);   
+                                        }
+                                    }else{
+                                        // Swal.fire(
+                                        // `Route Alternative tidak ada, atau belum di daftarkan!`, 
+                                        // '',
+                                        // 'warning'
+                                        // ).then(function() { 
+                                        // });
+                                    }   
+                                }
+
+                                console.log(routingJadwalRenpam);
+
+                                // console.log(dummyTest);
+                            });
+
                             $(`#listJadwalClick${i+1}`).click(function(){   
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 17); 
-        
-        
+                                mapContainer.flyTo([latitude, longitude], 17);  
                             });
                         } 
                     }else{
@@ -3304,7 +3515,7 @@
 
         //                     markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
         //                         // className: 'location-pin',
-        //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
+        //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`,
         //                         iconSize: [5, 5],
         //                         iconAnchor: [5, 10]
         //                         // iconAnchor: [10, 33]
@@ -3390,7 +3601,7 @@
         //                         var longitudeFasum = parseFloat(ress[i].fasum_lng); 
         //                         markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]
@@ -3507,7 +3718,7 @@
         
         //                         markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]
