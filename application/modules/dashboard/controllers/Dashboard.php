@@ -39,9 +39,82 @@ class Dashboard extends MY_Controller
 
             $page_content["data"] = $data;
         } else if ($this->session->userdata['role'] == 'Korlantas') {
+
+
+            // Ditkamsel
+            $ditkamsel = guzzle_request('GET', 'ditkamsel?nasional=true', [
+
+                'headers' => [
+
+                    'Authorization' => $this->session->userdata['token']
+
+                ]
+
+            ]);
+
+            $polda_ditkamsel = array();
+            $dikmaslantas = array();
+            $penyebaran = array();
+            foreach ($ditkamsel['data'] as $key) {
+                $polda_ditkamsel[] = $key['name_polda'];
+                $dikmaslantas[] = $key['dikmaslantas'];
+                $penyebaran[] = $key['penyebaran'];
+            }
+
+            // Ditgakkum
+            $ditgakkum = guzzle_request('GET', 'ditgakkum?nasional=true', [
+
+                'headers' => [
+
+                    'Authorization' => $this->session->userdata['token']
+
+                ]
+
+            ]);
+
+            $polda_ditgakkum = array();
+            $lakalanggar = array();
+            $lakalantas = array();
+            $garlantas = array();
+            $turjagwali = array();
+            foreach ($ditgakkum['data'] as $key) {
+                $polda_ditgakkum[] = $key['name_polda'];
+                $lakalantas[] = $key['lakalantas'];
+                $lakalanggar[] = $key["lakalanggar"];
+                $garlantas[] = $key['garlantas'];
+                $turjagwali[] = $key['turjagwali'];
+            }
+
+
+            // Ditregident
+            $ditregident = guzzle_request('GET', 'ditregident?nasional=true', [
+
+                'headers' => [
+
+                    'Authorization' => $this->session->userdata['token']
+
+                ]
+
+            ]);
+
+            $polda_ditregident = array();
+            $sim = array();
+            $stnk = array();
+            $bpkb = array();
+            $ranmor = array();
+            foreach ($ditregident['data'] as $key) {
+                $polda_ditregident[] = $key['name_polda'];
+                $stnk[] = $key['stnk'];
+                $sim[] = $key["sim"];
+                $bpkb[] = $key['bpkb'];
+                $ranmor[] = $key['ranmor'];
+            }
+
+
+
+            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor];
             $page_content["page"] = "dashboard/dashboard_view";
 
-            $page_content["data"] = '';
             // } else if ($this->session->userdata['role'] == 'Kapolda') {
         } else if ($this->session->userdata['role'] == 'Kapolda') {
 
