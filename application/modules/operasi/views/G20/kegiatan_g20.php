@@ -29,7 +29,7 @@
                         <th>Alamat Tujuan</th>
                         <th>Tanggal</th>
                         <th>Waktu</th> 
-                        <th>Renpam</th>
+                        <th>Uraian Kegiatan</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -119,7 +119,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Rencana Kegiatan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Uraian Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
@@ -138,8 +138,8 @@
                             <div class="material-selectfield mb-3">
                                 <select required name="category_renpam" class="form-select"> 
                                     <option  value="">Pilih Category</option>  
-                                    <option value="1">Operasi</option>  
-                                    <option selected value="2">Harian</option>  
+                                    <option selected value="1">Operasi</option>  
+                                    <option  value="2">Harian</option>  
                                 </select>
                                 <label class="labelmui">Categori Rengiat</label>
                             </div>
@@ -375,7 +375,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Rencana Kegiatan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Detail Uraian Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 

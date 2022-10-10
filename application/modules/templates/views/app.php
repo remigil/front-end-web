@@ -674,13 +674,13 @@
                             <!-- <li>
                                 <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Rencana Kegiatan</span>
+                                    <span data-key="t-dashboard">Uraian Kegiatan</span>
                                 </a>
                             </li> -->
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Rencana Kegiatan</span>
+                                    <span data-key="t-authentication">Uraian Kegiatan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>

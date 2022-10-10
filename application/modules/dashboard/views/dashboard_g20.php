@@ -229,7 +229,7 @@
         <!-- Modal content-->
         <div class="modal-content" style="width: 350px;">
             <div class="modal-header bg-primary">
-                <h4 class="modal-title text-white" id="myLargeModalLabel">Filters Map</h4>
+                <h4 class="modal-title text-white" id="myLargeModalLabel">Turjawali Filter</h4>
                 <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -257,7 +257,7 @@
                         <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Rencana Pengamanan &nbsp;<span class="badge bg-danger rounded-pill" id="totalRenpamOn"></span>
+                                Uraian Kegiatan &nbsp;<span class="badge bg-danger rounded-pill" id="totalRenpamOn"></span>
                             </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
@@ -297,7 +297,7 @@
                         <h2 class="accordion-header" id="flush-heading3">
                             <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                                Petugas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                                Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
                             </button>
                         </h2>
                         <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3"
@@ -972,12 +972,12 @@
                             var jenis = '';
                             if(ress[i].type_vehicle == 'Sepeda Motor'){
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                             }else if(ress[i].type_vehicle == 'Mobil'){
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                             }else{
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                             }
 
                             var cordLat = parseFloat(ress[i].latitude); 
@@ -1048,13 +1048,10 @@
                                                         <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
                                                     </div>
     
-                                                    <div class="col-md-4">
-                                                        <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
-                                                    </div> 
-                                                    
-                                                    <div class="col-md-7">
-                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
-                                                    </div>
+                                                    <div class="col-md-12 text-center mt-3">
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span> 
+                                                        <p style="font-size: 12px;">${lokasiPetugas}</p>
+                                                    </div>  
                                                 </div> 
                                             </div>  
                                         </div>
@@ -1126,13 +1123,10 @@
                                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].no_vehicle} / ${ress[i].back_number_vehicle == null ? '' : ress[i].back_number_vehicle}</span>
                                                 </div>
     
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
-                                                </div>
-                                                
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
-                                                </div>
+                                                <div class="col-md-12 text-center  mt-3">
+                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                    <p style="font-size: 12px;">${lokasiPetugas}</p>
+                                                </div> 
                                             </div> 
                                               
                                         </div>
@@ -1321,12 +1315,12 @@
                 var jenis = '';
                 if(ress.type_vehicle == 'Sepeda Motor'){
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                 }else if(ress.type_vehicle == 'Mobil'){
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                 }else{
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -12px;margin-left: -12px;">`;
                 }
     
                 var lokasiPetugas = '';
@@ -1398,13 +1392,10 @@
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
-                                        </div>
-                                        
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
-                                        </div>
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                            <p style="font-size: 12px;">${lokasiPetugas}</p>
+                                        </div> 
                                     </div>  
                                 
                             </div>
@@ -1474,13 +1465,10 @@
                                             <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.no_vehicle} / ${ress.back_number_vehicle == null ? '' : ress.back_number_vehicle}</span>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                            <p style="font-size: 12px;">${lokasiPetugas}</p>
                                         </div> 
-                                        
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
-                                        </div>
                                     </div>  
                                 
                             </div>
@@ -1676,7 +1664,7 @@
             
                                     markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -1772,7 +1760,7 @@
 
                                 cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -12px;margin-left: -12px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -1821,27 +1809,27 @@
 
                                 if(filterLaporan[i].categori == 1){
                                     kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporan[i].categori == 2){
                                     kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporan[i].categori == 3){
                                     kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporan[i].categori == 4){
                                     kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporan[i].categori == 99){
                                     kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else{
                                     kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }
 
                                 laporanClusterGroup.addLayer( markerLaporan[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/laporan penugasan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -1914,22 +1902,22 @@
 
                                 if(filterLaporanPanic[i].categori == 1){
                                     kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporanPanic[i].categori == 2){
                                     kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporanPanic[i].categori == 3){
                                     kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporanPanic[i].categori == 4){
                                     kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else if(filterLaporanPanic[i].categori == 99){
                                     kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }else{
                                     kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`;
                                 }
 
                                 if(filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null){
@@ -2049,7 +2037,7 @@
                                 var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
                                 fasumKhususClusterGroup.addLayer( markerFasumKhusus[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -12px;margin-left: -12px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
@@ -2221,7 +2209,7 @@
 
                                 jadwalClusterGroup.addLayer( markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -2432,7 +2420,7 @@
 
         //                         markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]
@@ -3316,7 +3304,7 @@
 
         //                     markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
         //                         // className: 'location-pin',
-        //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+        //                         html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
         //                         iconSize: [5, 5],
         //                         iconAnchor: [5, 10]
         //                         // iconAnchor: [10, 33]
@@ -3402,7 +3390,7 @@
         //                         var longitudeFasum = parseFloat(ress[i].fasum_lng); 
         //                         markerFasum[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/${logoMarker}" style="width: 22px; margin-top: -12px;margin-left: -12px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]
@@ -3519,7 +3507,7 @@
         
         //                         markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
         //                             // className: 'location-pin',
-        //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`,
+        //                             html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -12px;margin-left: -12px;">`,
         //                             iconSize: [5, 5],
         //                             iconAnchor: [5, 10]
         //                             // iconAnchor: [10, 33]

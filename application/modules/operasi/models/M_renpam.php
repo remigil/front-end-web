@@ -122,12 +122,17 @@ class M_renpam extends CI_Model
 
         ]);
 
-
+        if($this->uri->segment(1) == "dashboard"){ 
+            $filterRenpam = array_filter($result['data']['data'], fn ($n) => $n['start_time'] != null );
+            $dataGet = $filterRenpam;
+        }else{
+            $dataGet = $result['data']['data'];
+        }
        
 
         $no = 1;
 
-        foreach ($result['data']['data'] as $field) {
+        foreach ($dataGet as $field) {
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
