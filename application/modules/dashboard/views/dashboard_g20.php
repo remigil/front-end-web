@@ -1572,7 +1572,7 @@
         fasumKhususClusterGroup = L.markerClusterGroup({
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({ html: `
-                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#4389d6;text-align: center;margin-top: -1px;margin-left: -1px;">
+                    <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#000;text-align: center;margin-top: -1px;margin-left: -1px;">
                     <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-account-group"></i>${cluster.getChildCount()}</b>
                     </div>` 
                 });
