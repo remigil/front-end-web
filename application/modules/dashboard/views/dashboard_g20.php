@@ -1051,11 +1051,9 @@
                                                     <div class="col-md-4">
                                                         <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
                                                     </div> 
-                                                    <div class="col-md-1">
-                                                        <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
-                                                    </div>
+                                                    
                                                     <div class="col-md-7">
-                                                        <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                                        <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
                                                     </div>
                                                 </div> 
                                             </div>  
@@ -1131,11 +1129,9 @@
                                                 <div class="col-md-4">
                                                     <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
                                                 </div>
-                                                <div class="col-md-1">
-                                                    <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
-                                                </div>
+                                                
                                                 <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
                                                 </div>
                                             </div> 
                                               
@@ -1405,11 +1401,9 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
                                         </div>
-                                        <div class="col-md-1">
-                                            <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
-                                        </div>
+                                        
                                         <div class="col-md-7">
-                                            <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
                                         </div>
                                     </div>  
                                 
@@ -1483,11 +1477,9 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Lokasi Petugas</span>  
                                         </div> 
-                                        <div class="col-md-1">
-                                            <span style="font-size: 12px;font-weight: bold;">: &nbsp;&nbsp;&nbsp;</span>  
-                                        </div>
+                                        
                                         <div class="col-md-7">
-                                            <span style="font-size: 12px;">${lokasiPetugas}</span>
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp; ${lokasiPetugas}</span>
                                         </div>
                                     </div>  
                                 
@@ -1587,7 +1579,7 @@
             $("input:checkbox[name=filter]:checked").each(function(){
                 arrayFilter.push($(this).val());
             });  
-            console.log(arrayFilter);
+            // console.log(arrayFilter);
 
             arrayFilterFasumKategori = [];
             $("input:checkbox[name=filterFasumKateg]:checked").each(function(){
