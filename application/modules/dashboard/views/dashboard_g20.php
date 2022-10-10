@@ -972,12 +972,12 @@
                             var jenis = '';
                             if(ress[i].type_vehicle == 'Sepeda Motor'){
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                             }else if(ress[i].type_vehicle == 'Mobil'){
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                             }else{
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                             }
 
                             var cordLat = parseFloat(ress[i].latitude); 
@@ -1325,12 +1325,12 @@
                 var jenis = '';
                 if(ress.type_vehicle == 'Sepeda Motor'){
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                 }else if(ress.type_vehicle == 'Mobil'){
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                 }else{
                     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 22px;margin-top: -10px;margin-left: -10px;">`;
+                    jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -10px;margin-left: -10px;">`;
                 }
     
                 var lokasiPetugas = '';
@@ -1780,7 +1780,7 @@
 
                                 cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
                                     // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 22px; margin-top: -10px;margin-left: -10px;">`,
+                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -10px;margin-left: -10px;">`,
                                     iconSize: [5, 5],
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
