@@ -1363,8 +1363,7 @@
                     // TODO(developer): Send the current token to your server.
                     setTokenSentToServer(true);
                 } else {
-                    // console.log('Token already sent to server so won\'t send it again ' +
-                        'unless it changes');
+                    // console.log('Token already sent to server so won\'t send it again ' + 'unless it changes');
                 }
             }
 
