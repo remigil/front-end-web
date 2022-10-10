@@ -246,8 +246,8 @@
                             <div class="accordion-body text-muted">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="list-group" id="listJadwal"> 
-                                        </div>
+                                        <ul class="list-group" id="listJadwal" style="height: 400px;overflow-y: auto;scrollbar-width: thin;"> 
+                                        </ul>
                                     </div> 
                                 </div>
                             </div>
@@ -3212,6 +3212,9 @@
         });
         
          
+
+
+        var checkedRoutJadwal = [];
         $('#myModalFilter').on('shown.bs.modal', function() { 
 
 
@@ -3241,6 +3244,12 @@
                     var dummyType = [];
                     var dummyAwal = [];
                     var dummyAkhir = [];
+
+                    var dummy= []; 
+                    var dummy1= []; 
+                    var dummy2= []; 
+                    var dummy3= []; 
+                    var dummy4= []; 
                     
 
                     var dummyJadwalRenpam = [];
@@ -3258,11 +3267,16 @@
                             dummyAwal = [];
                             dummyAkhir = [];
 
-                            dummyJadwalRenpam = [];
-                            dummyJadwalRenpamAlter = [];
-                            dummyJadwalRenpamAlterr = [];
-                            dummyJadwalRenpamAlterrr = [];
-                            dummyJadwalRenpamAlterrrr = [];
+                            dummy= []; 
+                            dummy1= []; 
+                            dummy2= []; 
+                            dummy3= []; 
+                            dummy4= []; 
+
+                            checkedRoutJadwal.push({
+                                activity : el.activity,
+                                checked : 0,
+                            });
 
                             countlist += 1;
                             if(el.status_schedule == 1){
@@ -3290,11 +3304,17 @@
                                     awalJadwalRenpam[countlist] = dummyAwal; 
                                     akhirJadwalRenpam[countlist] = dummyAkhir; 
 
-                                    dummyJadwalRenpam[countlist] = el.renpams[i]['route']; 
-                                    dummyJadwalRenpamAlter[countlist] = el.renpams[i]['route_alternatif_1']; 
-                                    dummyJadwalRenpamAlterr[countlist] = el.renpams[i]['route_alternatif_2']; 
-                                    dummyJadwalRenpamAlterrr[countlist] = el.renpams[i]['route_masyarakat'];  
-                                    dummyJadwalRenpamAlterrrr[countlist] = el.renpams[i]['route_umum'];  
+                                    dummy.push(el.renpams[i]['route']); 
+                                    dummy1.push(el.renpams[i]['route_alternatif_1']); 
+                                    dummy2.push(el.renpams[i]['route_alternatif_2']); 
+                                    dummy3.push(el.renpams[i]['route_masyarakat']); 
+                                    dummy4.push(el.renpams[i]['route_umum']); 
+
+                                    dummyJadwalRenpam[countlist] = dummy; 
+                                    dummyJadwalRenpamAlter[countlist] = dummy1; 
+                                    dummyJadwalRenpamAlterr[countlist] = dummy2; 
+                                    dummyJadwalRenpamAlterrr[countlist] = dummy3; 
+                                    dummyJadwalRenpamAlterrrr[countlist] = dummy4;
                                 }
                                 checkboxJadwal = `
                                     <input type="checkbox" class="form-input" name="selectRenpam" id="listJadwalRenpamClick${countlist}" >
@@ -3303,49 +3323,54 @@
                                 checkboxJadwal = ``;
                             }
 
-                            console.log(dummyJadwalRenpam);
-                            
-                            list += ` 
-
-                            <li class="list-group-item text-start" style="display: flex;">
-                                <div class="row">
-                                    <div class="col-md-2" style="display: flex;align-items: center;">
-                                        ${status}
+                            // console.log(dummyJadwalRenpam); 
+                            list += `  
+                                <li class="list-group-item text-start" style="display: flex;">
+                                    <div class="row">
+                                        <div class="col-md-2" style="display: flex;align-items: center;">
+                                            ${status}
+                                        </div>
+                                        <div class="col-md-7">
+                                            ${el.activity}
+                                        </div>
+                                        <div class="col-md-3" style="display: flex;align-items: center;">
+                                            <a class="btn" style="display: flex;"
+                                                id="listJadwalClick${countlist}"   
+                                                data-alamat="${el.address_schedule}"  
+                                                data-cord="${el.coordinate_schedule}"
+                                                href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a>
+                                            ${checkboxJadwal}
+                                        </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        ${el.activity}
-                                    </div>
-                                    <div class="col-md-3" style="display: flex;align-items: center;">
-                                        <a class="list-group-item text-start" style="display: flex;"
-                                            id="listJadwalClick${countlist}"   
-                                            data-alamat="${el.address_schedule}"  
-                                            data-cord="${el.coordinate_schedule}"
-                                            href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
-                                        </a>
-                                        ${checkboxJadwal}
-                                    </div>
-                                </div>
-                            </li>
+                                </li>   
                             `;
-                            $('#listJadwal').html(list); 
+                            $('#listJadwal').html(list);  
                         });  
+
+
                         for (let i = 0; i < ress.length; i++){ 
-                            $(`#listJadwalRenpamClick${i+1}`).on("change", function (e) {
-                                // console.log(
-                                //     {
-                                //     name: nameJadwalRenpam[i+1],
-                                //     route: dummyJadwalRenpam[i+1],
-                                //     route1: dummyJadwalRenpamAlter[i+1],
-                                //     route2: dummyJadwalRenpamAlterr[i+1],
-                                //     route3: dummyJadwalRenpamAlterrr[i+1],
-                                //     route4: dummyJadwalRenpamAlterrrr[i+1],
-                                //     }
-                                // );
-
-
+                            $(`#listJadwalRenpamClick${i+1}`).on("change", function (e) { 
+                                
                                 for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
+                                    //Find index of specific object using findIndex method.    
+                                    objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == ress[i+1]['activity']));
+                                    // console.log(objIndex);
+    
+                                    //Log object to Console.
+                                    // console.log("Before update: ", checkedRoutJadwal[objIndex]);
+    
+                                    //Update object's name property.
+                                    if($(this).is(':checked')){  
+                                        checkedRoutJadwal[objIndex].checked = 1;
+                                    }else{
+                                        checkedRoutJadwal[objIndex].checked = 0;
+                                    } 
+
                                     var titikAwal = nameJadwalRenpam[i+1][ii] == null ? '-' : nameJadwalRenpam[i+1][ii];
                                     var titikAkhir = akhirJadwalRenpam[i+1][ii] == null ? '-' : akhirJadwalRenpam[i+1][ii];
+
+                                    // console.log(dummyJadwalRenpam[i+1][ii]);
 
                                     var typeRenpam = awalJadwalRenpam[i+1][ii];
                                     if(typeRenpam == 3){ //penjagaan
@@ -3371,11 +3396,11 @@
                                     }
 
 
-                                    if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii]['latLng'] != null){
-                                        
+                                    if(dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
+                                         
                                         if($(this).is(':checked')){  
-                                            routingJadwalRenpam[i] = null;
-                                            routingJadwalRenpam[i] = L.Routing.control({
+                                            routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                            routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
                                                 show:false,
                                                 draggableWaypoints: false,
                                                 addWaypoints: false,
@@ -3440,11 +3465,12 @@
                                                 },
                                                 geocoder: L.Control.Geocoder.nominatim({})
                                             }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam[i]);  
+                                            // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                         }else{
-                                            mapContainer.removeControl(routingJadwalRenpam[i]);   
+                                            mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
                                         }
                                     }else{
+                                        console.log('error ini mah');
                                         // Swal.fire(
                                         // `Route Alternative tidak ada, atau belum di daftarkan!`, 
                                         // '',
@@ -3453,10 +3479,8 @@
                                         // });
                                     }   
                                 }
-
-                                console.log(routingJadwalRenpam);
-
-                                // console.log(dummyTest);
+ 
+ 
                             });
 
                             $(`#listJadwalClick${i+1}`).click(function(){   
