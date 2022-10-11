@@ -32,9 +32,9 @@ class DakgarLantas extends MY_Controller
 
             // lakalanggar nasional
             $capture_camera = $lakalanggarNasional['data']['jumlah']['capture_camera'];
-            $validasi_petugas = $lakalanggarNasional['data']['jumlah']['validasi_petugas'];
-            $konfirmasi_masyarakat = $lakalanggarNasional['data']['jumlah']['konfirmasi_masyarakat'];
-            $odol = $lakalanggarNasional['data']['jumlah']['odol'];
+            $validasi_petugas = $lakalanggarNasional['data']['jumlah']['mobile'] + $lakalanggarNasional['data']['jumlah']['statis'];
+            $konfirmasi_masyarakat = $lakalanggarNasional['data']['jumlah']['online'] + $lakalanggarNasional['data']['jumlah']['posko'];
+            $odol = $lakalanggarNasional['data']['jumlah']['preemtif'] + $lakalanggarNasional['data']['jumlah']['preventif'] + $lakalanggarNasional['data']['jumlah']['odol_227'] + $lakalanggarNasional['data']['jumlah']['odol_307'];
             $jumlah = $lakalanggarNasional['data']['jumlah']['jumlah'];
 
             $dataNasional = $lakalanggarNasional['data']['data'];
@@ -43,16 +43,37 @@ class DakgarLantas extends MY_Controller
 
             $poldaName = array();
             $polda_capture_camera = array();
+            $polda_statis = array();
+            $polda_mobile = array();
             $polda_validasi_petugas = array();
+            $polda_posko = array();
+            $polda_online = array();
             $polda_konfirmasi_masyarakat = array();
+            $polda_preemtif = array();
+            $polda_preventif = array();
+            $polda_227 = array();
+            $polda_307 = array();
             $polda_odol = array();
             $polda_jumlah = array();
             foreach ($dataNasional as $key) {
                 $poldaName[] = $key['name_polda'];
                 $polda_capture_camera[] = $key['capture_camera'];
-                $polda_validasi_petugas[] = $key['validasi_petugas'];
-                $polda_konfirmasi_masyarakat[] = $key['konfirmasi_masyarakat'];
-                $polda_odol[] = $key['odol'];
+
+                $polda_statis[] = $key['statis'];
+                $polda_mobile[] = $key['mobile'];
+                $polda_validasi_petugas[] = $key['statis'] + $key['mobile'];
+
+                $polda_posko[] = $key['posko'];
+                $polda_online[] = $key['online'];
+                $polda_konfirmasi_masyarakat[] = $key['posko'] + $key['online'];
+
+                $polda_preemtif[] = $key['preemtif'];
+                $polda_preventif[] = $key['preventif'];
+                $polda_227[] = $key['odol_227'];
+                $polda_307[] = $key['odol_307'];
+                $polda_odol[] = $key['preemtif'] + $key['preventif'] + $key['odol_227'] + $key['odol_307'];
+
+
                 $polda_jumlah[] = $key['jumlah'];
             }
 
@@ -62,9 +83,21 @@ class DakgarLantas extends MY_Controller
                 $row['date'] = $field['date'];
                 $row['sort'] = $this->getmonth($field['date']);
                 $row['capture_camera'] = $field['capture_camera'];
-                $row['konfirmasi_masyarakat'] = $field['konfirmasi_masyarakat'];
-                $row['validasi_petugas'] = $field['validasi_petugas'];
-                $row['odol'] = $field['odol'];
+
+                $row['statis'] = $field['statis'];
+                $row['mobile'] = $field['mobile'];
+                $row['validasi_petugas'] = $field['statis'] + $field['mobile'];
+
+                $row['posko'] = $field['posko'];
+                $row['online'] = $field['online'];
+                $row['konfirmasi_masyarakat'] = $field['posko'] + $field['online'];
+
+                $row['preemtif'] = $field['preemtif'];
+                $row['preventif'] = $field['preventif'];
+                $row['odol_227'] = $field['odol_227'];
+                $row['odol_307'] = $field['odol_307'];
+                $row['odol'] = $field['preemtif'] + $field['preventif'] + $field['odol_227'] + $field['odol_307'];
+
                 $row['jumlah'] = $field['jumlah'];
 
                 $dataMonth[] = $row;
@@ -73,19 +106,41 @@ class DakgarLantas extends MY_Controller
 
             $poldaMonth = array();
             $month_capture_camera = array();
+            $month_statis = array();
+            $month_mobile = array();
             $month_validasi_petugas = array();
+            $month_posko = array();
+            $month_online = array();
             $month_konfirmasi_masyarakat = array();
+            $month_preemtif = array();
+            $month_preventif = array();
+            $month_227 = array();
+            $month_307 = array();
             $month_odol = array();
             $month_jumlah = array();
+
             foreach ($dataMonth as $key) {
                 $poldaMonth[] = $key['date'];
                 $month_capture_camera[] = $key['capture_camera'];
-                $month_validasi_petugas[] = $key['validasi_petugas'];
-                $month_konfirmasi_masyarakat[] = $key['konfirmasi_masyarakat'];
-                $month_odol[] = $key['odol'];
+
+                $month_statis[] = $key['statis'];
+                $month_mobile[] = $key['mobile'];
+                $month_validasi_petugas[] = $key['statis'] + $key['mobile'];
+
+                $month_posko[] = $key['posko'];
+                $month_online[] = $key['online'];
+                $month_konfirmasi_masyarakat[] = $key['posko'] + $key['online'];
+
+                $month_preemtif[] = $key['preemtif'];
+                $month_preventif[] = $key['preventif'];
+                $month_227[] = $key['odol_227'];
+                $month_307[] = $key['odol_307'];
+                $month_odol[] = $key['preemtif'] + $key['preventif'] + $key['odol_227'] + $key['odol_307'];
+
+
                 $month_jumlah[] = $key['jumlah'];
             }
-            $page_content["data"] = ['capture_camera' => $capture_camera, 'validasi_petugas' => $validasi_petugas, 'konfirmasi_masyarakat' => $konfirmasi_masyarakat, 'odol' => $odol, 'jumlah' => $jumlah, 'menu' => 'Ditgakkum', 'submenu' => 'Data Dakgar Lantas', 'headline' => 'Data dakgar lalu lintas', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_capture_camera' => $polda_capture_camera, 'polda_validasi_petugas' => $polda_validasi_petugas, 'polda_konfirmasi_masyarakat' => $polda_konfirmasi_masyarakat, 'polda_odol' => $polda_odol, 'polda_jumlah' => $polda_jumlah, 'month' => $poldaMonth, 'month_capture_camera' => $month_capture_camera, 'month_validasi_petugas' => $month_validasi_petugas, 'month_konfirmasi_masyarakat' => $month_konfirmasi_masyarakat, 'month_odol' => $month_odol, 'month_jumlah' => $month_jumlah];
+            $page_content["data"] = ['capture_camera' => $capture_camera, 'validasi_petugas' => $validasi_petugas, 'konfirmasi_masyarakat' => $konfirmasi_masyarakat, 'odol' => $odol, 'jumlah' => $jumlah, 'menu' => 'Ditgakkum', 'submenu' => 'Data Dakgar Lantas', 'headline' => 'Data dakgar lalu lintas', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_capture_camera' => $polda_capture_camera, 'polda_validasi_petugas' => $polda_validasi_petugas, 'polda_konfirmasi_masyarakat' => $polda_konfirmasi_masyarakat, 'polda_odol' => $polda_odol, 'polda_jumlah' => $polda_jumlah, 'polda_statis' => $polda_statis, 'polda_mobile' => $polda_mobile, 'polda_online' => $polda_online, 'polda_posko' => $polda_posko, 'polda_preemtif' => $polda_preemtif, 'polda_preventif' => $polda_preventif, 'polda_227' => $polda_227, 'polda_307' => $polda_307, 'month' => $poldaMonth, 'month_capture_camera' => $month_capture_camera, 'month_validasi_petugas' => $month_validasi_petugas, 'month_konfirmasi_masyarakat' => $month_konfirmasi_masyarakat, 'month_odol' => $month_odol, 'month_jumlah' => $month_jumlah, 'month_statis' => $month_statis, 'month_mobile' => $month_mobile, 'month_online' => $month_online, 'month_posko' => $month_posko, 'month_preemtif' => $month_preemtif, 'month_preventif' => $month_preventif, 'month_227' => $month_227, 'month_307' => $month_307];
 
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_dakgar_lantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {

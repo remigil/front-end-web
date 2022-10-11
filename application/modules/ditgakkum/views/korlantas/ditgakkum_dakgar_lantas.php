@@ -21,7 +21,7 @@
                     <h2 class="text-white"><?= strtoupper($data['headline'])  ?></h2>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update 13 Agustus 2022') ?></p>
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
                 </div>
             </div>
         </div>
@@ -94,13 +94,19 @@
                             <tbody>
                                 <?php $i = 1 ?>
                                 <?php foreach ($data['topPolda'] as $key) : ?>
+                                    <?php
+                                    $validasi_petugas = $key['statis'] + $key['mobile'];
+                                    $konfirmasi_masyarakat = $key['posko'] + $key['online'];
+                                    $odol = $key['preemtif'] + $key['preventif'] + $key['odol_227'] + $key['odol_307']
+
+                                    ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
                                         <td><?= $key['name_polda'] ?></td>
                                         <td><?= $key['capture_camera'] ?></td>
-                                        <td><?= $key['validasi_petugas'] ?></td>
-                                        <td><?= $key['konfirmasi_masyarakat'] ?></td>
-                                        <td><?= $key['odol'] ?></td>
+                                        <td><?= $validasi_petugas ?></td>
+                                        <td><?= $konfirmasi_masyarakat ?></td>
+                                        <td><?= $odol ?></td>
                                     </tr>
                                     <?php $i++ ?>
                                 <?php endforeach; ?>
@@ -194,7 +200,7 @@
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart2" style="width: 100vw"></div>
+                        <div id="chart2" style="width: 350vw"></div>
                     </div>
                 </div>
             </div>
@@ -211,7 +217,7 @@
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart3" style="width: 100vw"></div>
+                        <div id="chart3" style="width: 350vw"></div>
                     </div>
                 </div>
             </div>
@@ -228,7 +234,7 @@
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart4" style="width: 100vw"></div>
+                        <div id="chart4" style="width: 350vw"></div>
                     </div>
                 </div>
             </div>
@@ -267,156 +273,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Metro Jaya</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jawa Barat</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Jawa Timur</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Jawa Tengah</td>
-                                <td>67621</td>
-                                <td>2213</td>
-                                <td>18131</td>
-                                <td>3312</td>
-                                <td>8126</td>
-                                <td>1213</td>
-                                <td>3421</td>
-                                <td>7221</td>
-                                <td>4223</td>
-                                <td>212</td>
-                                <td>34134</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Riau</td>
-                                <td>67135</td>
-                                <td>2111</td>
-                                <td>1821</td>
-                                <td>33316</td>
-                                <td>8176</td>
-                                <td>5123</td>
-                                <td>1123</td>
-                                <td>72412</td>
-                                <td>4211</td>
-                                <td>2121</td>
-                                <td>3474</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Banten</td>
-                                <td>67625</td>
-                                <td>2123</td>
-                                <td>1279</td>
-                                <td>3986</td>
-                                <td>1992</td>
-                                <td>1278</td>
-                                <td>1213</td>
-                                <td>7242</td>
-                                <td>8217</td>
-                                <td>1878</td>
-                                <td>34193</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Bali</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Jawa Timur</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Jawa Timur</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['polda'] as $key) : ?>
+                                <?php $validasi_petugas = $key['statis'] + $key['mobile'];
+                                $konfirmasi_masyarakat = $key['posko'] + $key['online'];
+                                ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['name_polda'] ?></td>
+                                    <td><?= $key['capture_camera'] ?></td>
+                                    <td><?= $key['statis'] ?></td>
+                                    <td><?= $key['mobile'] ?></td>
+                                    <td><?= $validasi_petugas ?></td>
+                                    <td><?= $key['online'] ?></td>
+                                    <td><?= $key['posko'] ?></td>
+                                    <td><?= $konfirmasi_masyarakat ?></td>
+                                    <td><?= $key['preemtif'] ?></td>
+                                    <td><?= $key['preventif'] ?></td>
+                                    <td><?= $key['odol_227'] ?></td>
+                                    <td><?= $key['odol_307'] ?></td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -433,7 +311,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA - TAHUN 2021</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA - TAHUN <b><?= date('Y') ?></b></h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
@@ -450,7 +328,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - VALIDASI PETUGAS</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - VALIDASI PETUGAS - TAHUN <b><?= date('Y') ?></h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
@@ -467,7 +345,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - KONFIRMASI MASYARAKAT</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - KONFIRMASI MASYARAKAT - TAHUN <b><?= date('Y') ?></h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
@@ -484,7 +362,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - ODOL</h4>
+                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - ODOL - TAHUN <b><?= date('Y') ?></h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
@@ -527,158 +405,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="1" style="border-right:none">Total</td>
-                                <td class="hide"></td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>JANUARI</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>FEBRUARI</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>MARET</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>APRIL</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>MEI</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>JUNI</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>JULI</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>AGUSTUS</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>SEPTEMBER</td>
-                                <td>67645</td>
-                                <td>2100</td>
-                                <td>1846</td>
-                                <td>3946</td>
-                                <td>886</td>
-                                <td>583</td>
-                                <td>1469</td>
-                                <td>724212</td>
-                                <td>429941</td>
-                                <td>21</td>
-                                <td>34084</td>
-                            </tr>
-
-
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['poldaMonth'] as $key) : ?>
+                                <?php $validasi_petugas = $key['statis'] + $key['mobile'];
+                                $konfirmasi_masyarakat = $key['posko'] + $key['online'];
+                                ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $key['date'] ?></td>
+                                    <td><?= $key['capture_camera'] ?></td>
+                                    <td><?= $key['statis'] ?></td>
+                                    <td><?= $key['mobile'] ?></td>
+                                    <td><?= $validasi_petugas ?></td>
+                                    <td><?= $key['online'] ?></td>
+                                    <td><?= $key['posko'] ?></td>
+                                    <td><?= $konfirmasi_masyarakat ?></td>
+                                    <td><?= $key['preemtif'] ?></td>
+                                    <td><?= $key['preventif'] ?></td>
+                                    <td><?= $key['odol_227'] ?></td>
+                                    <td><?= $key['odol_307'] ?></td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -701,12 +449,36 @@
         var polda_konfirmasi_masyarakat = JSON.parse('<?= json_encode($data['polda_konfirmasi_masyarakat']); ?>');
         var polda_odol = JSON.parse('<?= json_encode($data['polda_odol']); ?>');
 
+        var polda_statis = JSON.parse('<?= json_encode($data['polda_statis']); ?>');
+        var polda_mobile = JSON.parse('<?= json_encode($data['polda_mobile']); ?>');
+
+
+        var polda_online = JSON.parse('<?= json_encode($data['polda_online']); ?>');
+        var polda_posko = JSON.parse('<?= json_encode($data['polda_posko']); ?>');
+
+        var polda_227 = JSON.parse('<?= json_encode($data['polda_227']); ?>');
+        var polda_307 = JSON.parse('<?= json_encode($data['polda_307']); ?>');
+        var polda_preemtif = JSON.parse('<?= json_encode($data['polda_preemtif']); ?>');
+        var polda_preventif = JSON.parse('<?= json_encode($data['polda_preventif']); ?>');
+
 
         var poldaMonth = JSON.parse('<?= json_encode($data['month']); ?>');
         var month_capture_camera = JSON.parse('<?= json_encode($data['month_capture_camera']); ?>');
         var month_validasi_petugas = JSON.parse('<?= json_encode($data['month_validasi_petugas']); ?>');
         var month_konfirmasi_masyarakat = JSON.parse('<?= json_encode($data['month_konfirmasi_masyarakat']); ?>');
         var month_odol = JSON.parse('<?= json_encode($data['month_odol']); ?>');
+
+        var month_statis = JSON.parse('<?= json_encode($data['month_statis']); ?>');
+        var month_mobile = JSON.parse('<?= json_encode($data['month_mobile']); ?>');
+
+
+        var month_online = JSON.parse('<?= json_encode($data['month_online']); ?>');
+        var month_posko = JSON.parse('<?= json_encode($data['month_posko']); ?>');
+
+        var month_227 = JSON.parse('<?= json_encode($data['month_227']); ?>');
+        var month_307 = JSON.parse('<?= json_encode($data['month_307']); ?>');
+        var month_preemtif = JSON.parse('<?= json_encode($data['month_preemtif']); ?>');
+        var month_preventif = JSON.parse('<?= json_encode($data['month_preventif']); ?>');
 
         // Capture Kamera
         var options_capture_camera = {
@@ -772,17 +544,17 @@
             series: [{
                 name: 'Total',
                 type: 'column',
-                data: [917, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_validasi_petugas,
                 color: "#11347A"
             }, {
                 name: 'Statis',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_statis,
                 color: "#3CA55C"
             }, {
                 name: 'Mobile',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_mobile,
                 color: "#E8D42F"
             }],
             chart: {
@@ -816,7 +588,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName,
             },
             yaxis: [{
                 axisTicks: {
@@ -846,17 +618,17 @@
             series: [{
                 name: 'Total',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_konfirmasi_masyarakat,
                 color: "#11347A"
             }, {
                 name: 'Posko',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: polda_posko,
                 color: "#3CA55C"
             }, {
                 name: 'Online',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: polda_online,
                 color: "#E8D42F"
             }],
             chart: {
@@ -888,7 +660,7 @@
                 width: [1, 1, 4]
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG'],
+                categories: poldaName,
             },
             yaxis: [{
                 axisTicks: {
@@ -918,21 +690,21 @@
             series: [{
                 name: 'PREMTIF',
                 type: 'column',
-                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                data: polda_preemtif,
                 color: "#11347A",
             }, {
                 name: 'PREVENTIF',
-                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                data: polda_preventif,
                 type: "column",
                 color: "#3CA55C",
             }, {
                 name: '227',
-                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                data: polda_227,
                 type: "column",
                 color: "#E8D42F"
             }, {
                 name: '307',
-                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                data: polda_307,
                 type: "column",
                 color: "#CB2D3E"
             }],
@@ -964,11 +736,11 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU'],
+                categories: poldaName,
             },
             yaxis: {
                 title: {
-                    text: '$ (thousands)'
+                    text: ''
                 }
             },
             fill: {
@@ -1042,17 +814,17 @@
             series: [{
                 name: 'Total',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: month_validasi_petugas,
                 color: "#11347A"
             }, {
                 name: 'Statis',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: month_statis,
                 color: "#3CA55C"
             }, {
                 name: 'Mobile',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_mobile,
                 color: "#E8D42F"
             }],
             chart: {
@@ -1084,7 +856,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth,
             },
             yaxis: [{
                 axisTicks: {
@@ -1114,17 +886,17 @@
             series: [{
                 name: 'Total',
                 type: 'column',
-                data: [607, 1992, 295, 350, 60, 186, 9, 9, 9, 9],
+                data: month_konfirmasi_masyarakat,
                 color: "#11347A"
             }, {
-                name: 'Statis',
+                name: 'Online',
                 type: 'column',
-                data: [607, 125, 0, 350, 60, 186, 9, 9, 9, 9],
+                data: month_online,
                 color: "#3CA55C"
             }, {
-                name: 'Mobile',
+                name: 'Posko',
                 type: 'column',
-                data: [0, 1777, 295, 0, 0, 0, 0, 0, 0, 0],
+                data: month_posko,
                 color: "#E8D42F"
             }],
             chart: {
@@ -1156,7 +928,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth,
             },
             yaxis: [{
                 axisTicks: {
@@ -1184,23 +956,23 @@
 
         var options_odol_tahun = {
             series: [{
-                name: 'PREMTIF',
+                name: 'PREEMTIF',
                 type: 'column',
-                data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                data: month_preemtif,
                 color: "#11347A",
             }, {
                 name: 'PREVENTIF',
-                data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                data: month_preventif,
                 type: "column",
                 color: "#3CA55C",
             }, {
                 name: '227',
-                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                data: month_227,
                 type: "column",
                 color: "#E8D42F"
             }, {
                 name: '307',
-                data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+                data: month_307,
                 type: "column",
                 color: "#CB2D3E"
             }],
@@ -1233,7 +1005,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober'],
+                categories: poldaMonth
             },
             yaxis: [{
                 axisTicks: {
