@@ -125,9 +125,8 @@
             <div class="modal-body"> 
                 <form class="formR" method="post" enctype="multipart/form-data"> 
                     <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" > 
-                    <div class="row">  
 
-                        
+                    <div class="row">   
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
@@ -179,12 +178,13 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select  name="subjekR" class="form-select">
+                                <select required name="subjekR" class="form-select">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
                                     <option value="3">Penjagaan</option> 
                                     <option value="4">Pengaturan</option> 
+                                    <option value="5">Penutupan</option> 
                                 </select>
                                 <label class="labelmui">Subjek</label>
                             </div>
@@ -403,6 +403,10 @@
 
 
 <script>
+
+    var userDataTable;
+    var userDataTableRD;
+
     $(document).ready(function() { 
         // $('#datepicker').datepicker(); 
         $('#startTime').clockpicker({
@@ -412,7 +416,7 @@
             autoclose: true
         }); 
 
-        var userDataTable = $('#datatable').DataTable({ 
+        userDataTable = $('#datatable').DataTable({ 
 
             responsive: true, 
 
@@ -716,287 +720,283 @@
 
             }); 
 
-        });
+        }); 
         
-
-
-
-
-        let arrayWaypoint = []; 
-        var obj = {}; 
-        $('#myModalR').on('shown.bs.modal', function() {
-            console.log(arrayWaypoint);
-            
-            $('#startTimeR').clockpicker({
-                autoclose: true
-            }); 
-
-            new Choices('#id_vipR', {
-                searchEnabled: true,
-                removeItemButton: true,
-                removeItems: true,
-                itemSelectText: '',
-                classNames: {
-                    containerOuter: 'choices select-choices',
-                },
-            });
-
-            new Choices('#id_accountR', {
-                searchEnabled: true,
-                removeItemButton: true,
-                removeItems: true,
-                itemSelectText: '',
-                classNames: {
-                    containerOuter: 'choices select-choices',
-                },
-            });
-            
+    });
     
-            var initialCenter = [-8.751740, 115.149643];
+    
+    
+    
+    
+    
+
+    let arrayWaypoint = []; 
+    var obj = {}; 
+    $('#myModalR').on('shown.bs.modal', function() {
+        // console.log(arrayWaypoint);
+        
+        $('#startTimeR').clockpicker({
+            autoclose: true
+        }); 
+
+        new Choices('#id_vipR', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
+        new Choices('#id_accountR', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+        
+
+        var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
-            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
 
-            // StART MAP SECTION
-            var mapContainerInstruksi = L.map('mapG20KegiatanR', {
-                maxZoom: 20,
-                minZoom: 1,
-                zoomSnap: 0.25,
-                zoomControl: false,
-                layers: [googleHybrid]
-            }).setView(initialCenter, initialZoom);
+        // StART MAP SECTION
+        var mapContainerInstruksi = L.map('mapG20KegiatanR', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleHybrid]
+        }).setView(initialCenter, initialZoom);
 
-            var baseMaps = {
-                "Google Map Street": googleStreet,
-                "Google Map Satelite": googleSatelite,
-                "Google Map Hybrid": googleHybrid,
-                "Google Map Terrain": googleTerrain,
-            };
-            var overlayMaps = {};
-            L.control.layers(baseMaps, overlayMaps, {
-                position: 'topleft'
-            }).addTo(mapContainerInstruksi);
-            L.control.zoom({
-                position: 'bottomleft'
-            }).addTo(mapContainerInstruksi);
-            
-            // mapContainerInstruksi.invalidateSize(); 
-            
-            var control = L.Routing.control({
-                waypoints: arrayWaypoint,
-                router: new L.Routing.osrmv1({
-                    language: 'en',
-                    profile: 'car'
-                }),
-                showAlternatives: true,
-                geocoder: L.Control.Geocoder.nominatim({})
-            }).addTo(mapContainerInstruksi);
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topleft'
+        }).addTo(mapContainerInstruksi);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainerInstruksi);
+        
+        // mapContainerInstruksi.invalidateSize(); 
+        
+        var control = L.Routing.control({
+            waypoints: arrayWaypoint,
+            router: new L.Routing.osrmv1({
+                language: 'en',
+                profile: 'car'
+            }),
+            showAlternatives: true,
+            geocoder: L.Control.Geocoder.nominatim({})
+        }).addTo(mapContainerInstruksi);
 
 
-            function createButton(label, container) {
-                var btn = L.DomUtil.create('button', '', container);
-                btn.setAttribute('type', 'button');
-                btn.innerHTML = label;
-                return btn;
-            }
+        function createButton(label, container) {
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
 
-            mapContainerInstruksi.on('click', function(e) {
-                var container = L.DomUtil.create('div'),
-                    startBtn = createButton('Start from this location', container), 
-                    destBtn = createButton('Go to this location', container);
+        mapContainerInstruksi.on('click', function(e) {
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container), 
+                destBtn = createButton('Go to this location', container);
 
-                L.DomEvent.on(startBtn, 'click', function() {  
+            L.DomEvent.on(startBtn, 'click', function() {  
 
-                    control.spliceWaypoints(0, 1, e.latlng);
-                    mapContainerInstruksi.closePopup();
-                }); 
-                L.DomEvent.on(destBtn, 'click', function() { 
-
-                    control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-                    mapContainerInstruksi.closePopup();
-                });
-                L.popup()
-                    .setContent(container)
-                    .setLatLng(e.latlng)
-                    .openOn(mapContainerInstruksi);
+                control.spliceWaypoints(0, 1, e.latlng);
+                mapContainerInstruksi.closePopup();
             }); 
+            L.DomEvent.on(destBtn, 'click', function() { 
 
-
-            $(".formR").submit(function(e) {
-                $("#overlay").fadeIn(300);
-                e.preventDefault(); 
-        
-                // var routeArray = new Array();
-                // routeArray = control.getWaypoints();
-                // $('#ruteawalR').val(JSON.stringify(routeArray)); 
-        
-                var formData = new FormData($('.formR')[0]); 
-                $.ajax({
-                    url: "<?php echo base_url();?>operasi/Renpam/storeFromJadwal",
-                    method: "POST",
-                    data: formData,
-                    dataType: 'JSON',
-                    contentType: false,
-                    processData: false,  
-                    success: function (data) {
-                        $("#overlay").fadeOut(300);
-                        if(data['status'] == true){
-                            Swal.fire(
-                            `${data['message']}`, 
-                            '',
-                            'success'
-                            ).then(function() { 
-                                $("#myModalR").modal('hide');
-                                userDataTable.draw(); 
-                            }); 
-                        }else{
-                            Swal.fire(
-                            `${data['message']}`, 
-                            '',
-                            'error'
-                            ).then(function() { 
-                            });
-                        } 
-                    }
-                }); 
+                control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+                mapContainerInstruksi.closePopup();
             });
-            
-        });
-
-        
-        $('#myModalRD').on('shown.bs.modal', function() {
-
-            var userDataTableRD = $('#datatableRD').DataTable({ 
-
-            responsive: true, 
-
-            scrollX: true,
-
-            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-            // buttons: ["excel", "csv", "pdf"],
-
-            oLanguage: {
-
-                sSearch: 'Search:'
-
-            },
-
-            initComplete : function (settings, json) { },
-
-            retrieve : true,
-
-            processing : true,
-
-            serverSide: true,
-
-            serverMethod: 'POST',
-
-            ajax : {
-
-                dataType: 'json',
-
-                url: '<?php echo base_url();?>operasi/Renpam/serverSideTable',
-
-                data: function(data){
-
-                    $("#overlay").fadeIn(300);
-
-                    // console.log(data);
-
-                    data.filterTgl = "";
-
-                    data.filterTgl2 = "";
-
-                    // data.filterStatus = $('[name=status]').val();
-
-                    data.filterSchedule = $('#schedule_id_detail').val();
-
-                    data.filterTypeRenpam = '';
-
-                    data.filterCategoryRenpam = '';
-
-                    // data.filterPocName = $('[name=group_poc_name]').val();
-
-                    // data.filterPhone = $('[name=poc_phone]').val();
-
-                    // data.filterThreat = $('[name=threat_level]').val();
-
-                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-                    data.page = Number(data.start / data.length) + 1
-
-                },
-
-                beforeSend: function (xhr, settings) {
-                    
-                },
-
-                "dataSrc": function (result) { 
-
-                    result.iTotalRecords = result.iTotalRecords;
-
-                    result.iTotalDisplayRecords = result.iTotalRecords;
-
-                    return result.aaData;
-
-                }
-
-            },
-
-            columns: [ 
-
-                { data: 'id'}, 
-                { data: 'accounts', orderable : false },
-                { data: 'vips', orderable : false }, 
-                { data: 'type_renpam'},  
-                { data: 'name_renpam'},   
-                { data: 'lokasi'},  
-                { data: 'date'},  
-                { data: 'waktu', orderable : false}, 
-                { data: 'action' , orderable : false }
-
-            ],
-
-            order: [[ 0, "DESC" ]],
-
-            drawCallback : function(settings){
-
-                $("#overlay").fadeOut(300); 
-
-            }   
-
-            });  
-
-            userDataTableRD.draw(); 
-        });
-
-
-
-
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(mapContainerInstruksi);
+        });  
     });
 
+    
+    $(".formR").submit(function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault(); 
 
+        // var routeArray = new Array();
+        // routeArray = control.getWaypoints();
+        // $('#ruteawalR').val(JSON.stringify(routeArray)); 
+        alert('asa');
+
+        var formData = new FormData($('.formR')[0]); 
+        $.ajax({
+            url: "<?php echo base_url();?>operasi/Renpam/storeFromJadwal",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,  
+            success: function (data) {
+                $("#overlay").fadeOut(300);
+                if(data['status'] == true){
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'success'
+                    ).then(function() { 
+                        $("#myModalR").modal('hide');
+                        userDataTable.draw(); 
+                    }); 
+                }else{
+                    Swal.fire(
+                    `${data['message']}`, 
+                    '',
+                    'error'
+                    ).then(function() { 
+                    });
+                } 
+            }
+        }); 
+    });
+    
+    $('#myModalRD').on('shown.bs.modal', function() {
+
+        userDataTableRD = $('#datatableRD').DataTable({ 
+
+        responsive: true, 
+
+        scrollX: true,
+
+        // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+        // buttons: ["excel", "csv", "pdf"],
+
+        oLanguage: {
+
+            sSearch: 'Search:'
+
+        },
+
+        initComplete : function (settings, json) { },
+
+        retrieve : true,
+
+        processing : true,
+
+        serverSide: true,
+
+        serverMethod: 'POST',
+
+        ajax : {
+
+            dataType: 'json',
+
+            url: '<?php echo base_url();?>operasi/Renpam/serverSideTable',
+
+            data: function(data){
+
+                $("#overlay").fadeIn(300);
+
+                // console.log(data);
+
+                data.filterTgl = "";
+
+                data.filterTgl2 = "";
+
+                // data.filterStatus = $('[name=status]').val();
+
+                data.filterSchedule = $('#schedule_id_detail').val();
+
+                data.filterTypeRenpam = '';
+
+                data.filterCategoryRenpam = '';
+
+                // data.filterPocName = $('[name=group_poc_name]').val();
+
+                // data.filterPhone = $('[name=poc_phone]').val();
+
+                // data.filterThreat = $('[name=threat_level]').val();
+
+                data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                data.page = Number(data.start / data.length) + 1
+
+            },
+
+            beforeSend: function (xhr, settings) {
+                
+            },
+
+            "dataSrc": function (result) { 
+
+                result.iTotalRecords = result.iTotalRecords;
+
+                result.iTotalDisplayRecords = result.iTotalRecords;
+
+                return result.aaData;
+
+            }
+
+        },
+
+        columns: [ 
+
+            { data: 'id'}, 
+            { data: 'accounts', orderable : false },
+            { data: 'vips', orderable : false }, 
+            { data: 'type_renpam'},  
+            { data: 'name_renpam'},   
+            { data: 'lokasi'},  
+            { data: 'date'},  
+            { data: 'waktu', orderable : false}, 
+            { data: 'action' , orderable : false }
+
+        ],
+
+        order: [[ 0, "DESC" ]],
+
+        drawCallback : function(settings){
+
+            $("#overlay").fadeOut(300); 
+
+        }   
+
+        });  
+
+        userDataTableRD.draw(); 
+    });
     
     var routingUtama = new Array();
     var routingAlternative1 = new Array();

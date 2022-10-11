@@ -213,7 +213,7 @@ class Renpam extends MY_Controller
         $input      = $this->input->post();
         $dummy = array();
 
-        $dummy['operation_id']    = 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0';
+        $dummy['operation_id']    = $this->session->userdata['operation_id'];
         $dummy['schedule_id']    = $input['schedule_id'];
         $dummy['name_renpam']    = $input['instruksiR'];
         $dummy['type_renpam']    = $input['subjekR'];
