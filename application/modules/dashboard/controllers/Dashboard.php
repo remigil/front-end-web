@@ -368,6 +368,23 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getRenpam']);
     }
 
+    public function getRenpamForSoket()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+        $input = $this->input->post(); 
+
+        // $url = 'renpam?serverSide=True&length=1000&start=1&start_date=2022-11-01&end_date=2022-11-01';
+        $url = 'renpam?serverSide=True&length=1000&start=1&start_date='.date('Y-m-d').'&end_date='.date('Y-m-d').'';
+        $getRenpamForSoket = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getRenpamForSoket'] = $getRenpamForSoket['data'];
+
+        echo json_encode($data['getRenpamForSoket']);
+    }
+
 
     public function peta()
     {

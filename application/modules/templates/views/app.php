@@ -1440,22 +1440,22 @@
             });
     
             var jumlahNotif = "";
-            setInterval(function() {
-                // console.log('idowae')
-                $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>notifikasi/getCountNotif", 
-                    data : {
-                        "page" : null
-                    }, 
-                    dataType : "JSON",
-                    success : function(res){  
-                        jumlahNotif = res.total_data;
+            // setInterval(function() {
+            //     // console.log('idowae')
+            //     $.ajax({
+            //         type : "POST",
+            //         url : "<?php echo base_url();?>notifikasi/getCountNotif", 
+            //         data : {
+            //             "page" : null
+            //         }, 
+            //         dataType : "JSON",
+            //         success : function(res){  
+            //             jumlahNotif = res.total_data;
 
-                        $("#totalNotif").html(res.total_data);
-                    }
-                });
-            }, 10000);
+            //             $("#totalNotif").html(res.total_data);
+            //         }
+            //     });
+            // }, 10000);
         
         </script>
     <?php } ?>
