@@ -254,7 +254,7 @@ class M_renpam extends CI_Model
                                     'Authorization' => $this->session->userdata['token'] 
                                 ]
                             ]);
-                            if(count($filterTracking['data']) > 0){
+                            if($filterTracking['data']){
                                 $dummyTrack = '<button type="button" class="btn btn-primary goPetugas" data-lat="'.$filterTracking['data'][0]['latitude'].'"  data-lng="'.$filterTracking['data'][0]['longitude'].'"><i class="mdi mdi-eye "></i></button>';
                             }else{
                                 $dummyTrack = '';

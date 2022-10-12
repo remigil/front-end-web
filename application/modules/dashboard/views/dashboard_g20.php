@@ -209,7 +209,7 @@
                             <th>Penugasan</th>
                             <th>Delegasi</th>
                             <th>Subjek</th>
-                            <!-- <th>Waktu</th> -->
+                            <th>Icon</th>
                             <th>Jarak Tempuh</th> 
                             <th>Waktu Tempuh</th>
                             <th>Aksi</th>
@@ -811,6 +811,10 @@
                 },
                 {
                     data: 'type_renpam'
+                },
+
+                {
+                    data: 'icon'
                 },
                 {
                     data: 'estimasi',
