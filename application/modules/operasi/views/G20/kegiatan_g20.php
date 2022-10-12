@@ -860,7 +860,7 @@
         // var routeArray = new Array();
         // routeArray = control.getWaypoints();
         // $('#ruteawalR').val(JSON.stringify(routeArray)); 
-        alert('asa');
+        // alert('asa');
 
         var formData = new FormData($('.formR')[0]); 
         $.ajax({
