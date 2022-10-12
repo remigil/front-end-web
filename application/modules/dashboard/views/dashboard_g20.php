@@ -209,7 +209,7 @@
                             <th>Penugasan</th>
                             <th>Delegasi</th>
                             <th>Subjek</th>
-                            <!-- <th>Icon</th> -->
+                            <th>Icon</th>
                             <th>Jarak Tempuh</th> 
                             <th>Waktu Tempuh</th>
                             <th>Aksi</th>
