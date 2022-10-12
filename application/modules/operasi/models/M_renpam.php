@@ -264,7 +264,7 @@ class M_renpam extends CI_Model
                                 $dummyTrack = '';
                             }
     
-                            $accounts .= '<p>'.$ketuaTim.' Pangkat : '.$fieldPetugas['rank_officer'].' </br> Nama : '.$fieldPetugas['name_officer'].' </br> NRP : '.$fieldPetugas['nrp_officer'].' </br> '.$dummyTrack.'</p> ';
+                            $accounts .= '<p>'.$ketuaTim.' '.$fieldPetugas['rank_officer'].' - '.$fieldPetugas['name_officer'].' </br>'.$fieldPetugas['nrp_officer'].' </br> '.$dummyTrack.'</p> ';
                         }
                     }
 
@@ -335,8 +335,40 @@ class M_renpam extends CI_Model
             $row['date']    = format_indo($field['date']);
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
 
-            $row['estimasi']    = $field['estimasi'];
-            $row['estimasi_time']    = $field['estimasi_time'];
+
+
+            // $sum = strtotime('00:00:00');
+ 
+            // $totaltime = 0;
+             
+         
+                 
+            //     // Converting the time into seconds
+            //     $timeinsec = strtotime($element) - $sum;
+                 
+            //     // Sum the time with previous value
+            //     $totaltime = $totaltime + $timeinsec;
+       
+            
+            
+            if($field['start_time'] != null && $field['end_time'] != null){
+                $totalTime = strtotime( $field['end_time']) - strtotime($field['start_time']); 
+                $h = intval($totalTime / 3600);
+                 
+                $totalTime = $totalTime - ($h * 3600);
+                  
+                $m = intval($totalTime / 60);
+            
+                $s = $totalTime - ($m * 60); 
+                
+                
+
+                $row['estimasi']    = $field['estimasi'];
+                $row['estimasi_time']    = ("$h:$m:$s");
+            }else{
+                $row['estimasi']    = '-';
+                $row['estimasi_time']    = '-';
+            }
 
             // $row['icon']    = '';
 

@@ -203,13 +203,11 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Waktu Mulai</th>
-                            <th>Nama Tim</th>
+                            <th>Waktu Mulai</th> 
                             <th>Unit Pengawalan</th>
                             <th>Penugasan</th>
                             <th>Delegasi</th>
-                            <th>Subjek</th>
-                            <th>Icon</th>
+                            <th>Subjek</th> 
                             <th>Jarak Tempuh</th> 
                             <th>Waktu Tempuh</th>
                             <th>Aksi</th>
@@ -794,10 +792,7 @@
                 {
                     data: 'waktu'
                 },
-                {
-                    data: 'nama_tim',
-                    orderable: false
-                },
+                 
                 {
                     data: 'accounts',
                     orderable: false
