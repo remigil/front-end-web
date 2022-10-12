@@ -338,6 +338,8 @@ class M_renpam extends CI_Model
             $row['estimasi']    = $field['estimasi'];
             $row['estimasi_time']    = $field['estimasi_time'];
 
+            $row['icon']    = '';
+
             $row['action']         = ' 
 
             <div style="position: absolute;">
