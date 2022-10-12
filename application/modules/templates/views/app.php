@@ -1379,57 +1379,57 @@
             var countlistNotif;
             var listNotif = "";
             function serverSideGetNotif(){
-                $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>notifikasi/getNotif", 
-                    data : {
-                        "page" : null
-                    }, 
-                    dataType : "JSON",
-                    success : function(result){  
-                        let ressData = result['data'];
-                        // console.log(ressData);
-                        countlistNotif = 0;
-                        listNotif = "";
-                        let linkWeb = "";
+                // $.ajax({
+                //     type : "POST",
+                //     url : "<?php echo base_url();?>notifikasi/getNotif", 
+                //     data : {
+                //         "page" : null
+                //     }, 
+                //     dataType : "JSON",
+                //     success : function(result){  
+                //         let ressData = result['data'];
+                //         // console.log(ressData);
+                //         countlistNotif = 0;
+                //         listNotif = "";
+                //         let linkWeb = "";
 
-                        $("#overlay").fadeOut(300);
-                        if(ressData.length > 0){   
-                            listNotif += `<div data-simplebar style="max-height: 230px;" >`;
-                            ressData.forEach(el => {
-                                if(el.type == "laporan"){
-                                    linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
-                                }else{
-                                    linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
-                                }
-                                // console.log(linkWeb);
-                                countlistNotif += 1;
-                                listNotif += `
-                                    <a href="${linkWeb}" target="_blank" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 me-3">
-                                                <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">${el.title}</h6>
-                                                <div class="font-size-13 text-muted">
-                                                    <p class="mb-1">${el.description}</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>${el.created_at}</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                `;
-                                $("#listDataNotif").html(listNotif);
-                            });
-                            listNotif += `</div>`;
-                        }else{ 
-                            listNotif = "Tidak ada notifikasi!";
-                            $('#listDataNotif').html(listNotif); 
-                        }
+                //         $("#overlay").fadeOut(300);
+                //         if(ressData.length > 0){   
+                //             listNotif += `<div data-simplebar style="max-height: 230px;" >`;
+                //             ressData.forEach(el => {
+                //                 if(el.type == "laporan"){
+                //                     linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
+                //                 }else{
+                //                     linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
+                //                 }
+                //                 // console.log(linkWeb);
+                //                 countlistNotif += 1;
+                //                 listNotif += `
+                //                     <a href="${linkWeb}" target="_blank" class="text-reset notification-item">
+                //                         <div class="d-flex">
+                //                             <div class="flex-shrink-0 me-3">
+                //                                 <img src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                //                             </div>
+                //                             <div class="flex-grow-1">
+                //                                 <h6 class="mb-1">${el.title}</h6>
+                //                                 <div class="font-size-13 text-muted">
+                //                                     <p class="mb-1">${el.description}</p>
+                //                                     <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>${el.created_at}</span></p>
+                //                                 </div>
+                //                             </div>
+                //                         </div>
+                //                     </a>
+                //                 `;
+                //                 $("#listDataNotif").html(listNotif);
+                //             });
+                //             listNotif += `</div>`;
+                //         }else{ 
+                //             listNotif = "Tidak ada notifikasi!";
+                //             $('#listDataNotif').html(listNotif); 
+                //         }
 
-                    }
-                });
+                //     }
+                // });
             }
 
         
