@@ -257,7 +257,7 @@
             <div class="modal-body">  
                 <div class="row">   
                     <div class="col-md-12">
-                        <div id="mapG20Kegiatan" style="height: 500px"></div> 
+                        <div id="mapG20KegiatanUtama" style="height: 500px"></div> 
                     </div>
                 </div>   
 
@@ -1036,7 +1036,7 @@
         });
 
         // StART MAP SECTION
-        var mapContainerRenpamUtama = L.map('mapG20Kegiatan', {
+        var mapContainerRenpamUtama = L.map('mapG20KegiatanUtama', {
             maxZoom: 20,
             minZoom: 1,
             zoomSnap: 0.25,
