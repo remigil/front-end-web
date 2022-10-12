@@ -238,7 +238,7 @@ class M_renpam extends CI_Model
                         ] 
                     ]); 
                      
-                    if($resultAkun['data']['data']['officers'] != null){
+                    if(isset($resultAkun['data']['data']['officers'])  || count($resultAkun['data']['data']['officers']) > 0){
                         foreach ($resultAkun['data']['data']['officers'] as $fieldPetugas) {
                             // $petugas .= ''.$fieldPetugas['name_officer'].'';
                             if($resultAkun['data']['data']['officer'] != null && $resultAkun['data']['data']['officer']['name_officer'] == $fieldPetugas['name_officer']){
