@@ -238,32 +238,34 @@ class M_renpam extends CI_Model
                         ] 
                     ]); 
                      
-                    foreach ($resultAkun['data']['data']['officers'] as $fieldPetugas) {
-                        // $petugas .= ''.$fieldPetugas['name_officer'].'';
-                        if($resultAkun['data']['data']['officer'] != null && $resultAkun['data']['data']['officer']['name_officer'] == $fieldPetugas['name_officer']){
-                            $ketuaTim = '<span class="badge rounded-pill bg-primary">Ketua Tim</span> </br>';
-                        }else{
-                            $ketuaTim = '';
+                    if($resultAkun['data']['data']['officers'] > 0){
+                        foreach ($resultAkun['data']['data']['officers'] as $fieldPetugas) {
+                            // $petugas .= ''.$fieldPetugas['name_officer'].'';
+                            if($resultAkun['data']['data']['officer'] != null && $resultAkun['data']['data']['officer']['name_officer'] == $fieldPetugas['name_officer']){
+                                $ketuaTim = '<span class="badge rounded-pill bg-primary">Ketua Tim</span> </br>';
+                            }else{
+                                $ketuaTim = '';
+                            }
+     
+                            // if($this->uri->segment(1) == "dashboard"){ 
+                            //     $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$fieldPetugas['name_officer'].'';
+                            //     // $url = 'getMe?date=2022-10-09&name_officer='.$fieldPetugas['name_officer'].'';
+                            //     $filterTracking = guzzle_requestTracking('GET', $url, [
+                            //         'headers' => [ 
+                            //             'Authorization' => $this->session->userdata['token'] 
+                            //         ]
+                            //     ]);
+                            //     if($filterTracking['data']){
+                            //         $dummyTrack = '<button type="button" class="btn btn-primary goPetugas" data-lat="'.$filterTracking['data'][0]['latitude'].'"  data-lng="'.$filterTracking['data'][0]['longitude'].'"><i class="mdi mdi-eye "></i></button>';
+                            //     }else{
+                            //         $dummyTrack = '';
+                            //     }
+                            // }else{
+                            //     $dummyTrack = '';
+                            // }
+    
+                            $accounts .= '<p>'.$ketuaTim.' Pangkat : '.$fieldPetugas['rank_officer'].' </br> Nama : '.$fieldPetugas['name_officer'].' </br> NRP : '.$fieldPetugas['nrp_officer'].' </br> '.$dummyTrack.'</p> ';
                         }
- 
-                        // if($this->uri->segment(1) == "dashboard"){ 
-                        //     $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$fieldPetugas['name_officer'].'';
-                        //     // $url = 'getMe?date=2022-10-09&name_officer='.$fieldPetugas['name_officer'].'';
-                        //     $filterTracking = guzzle_requestTracking('GET', $url, [
-                        //         'headers' => [ 
-                        //             'Authorization' => $this->session->userdata['token'] 
-                        //         ]
-                        //     ]);
-                        //     if($filterTracking['data']){
-                        //         $dummyTrack = '<button type="button" class="btn btn-primary goPetugas" data-lat="'.$filterTracking['data'][0]['latitude'].'"  data-lng="'.$filterTracking['data'][0]['longitude'].'"><i class="mdi mdi-eye "></i></button>';
-                        //     }else{
-                        //         $dummyTrack = '';
-                        //     }
-                        // }else{
-                        //     $dummyTrack = '';
-                        // }
-
-                        $accounts .= '<p>'.$ketuaTim.' Pangkat : '.$fieldPetugas['rank_officer'].' </br> Nama : '.$fieldPetugas['name_officer'].' </br> NRP : '.$fieldPetugas['nrp_officer'].' </br> '.$dummyTrack.'</p> ';
                     }
 
                 }
