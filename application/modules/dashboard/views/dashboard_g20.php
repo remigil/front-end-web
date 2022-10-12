@@ -813,9 +813,7 @@
                     data: 'type_renpam'
                 },
 
-                {
-                    data: 'icon'
-                },
+                 
                 {
                     data: 'estimasi',
                 }, 
