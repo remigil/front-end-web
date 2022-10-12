@@ -693,145 +693,6 @@
     var panicClusterGroup;
     var userDataTable;
 
-
-    userDataTable = $('#datatable').DataTable({
-
-        responsive: true,
-
-        scrollX: true,
-
-        // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-        // buttons: ["excel", "csv", "pdf"],
-
-        oLanguage: {
-
-            sSearch: 'Search:'
-
-        },
-
-        initComplete: function(settings, json) {},
-
-        retrieve: true,
-
-        processing: true,
-
-        serverSide: true,
-
-        serverMethod: 'POST',
-
-        ajax: {
-
-            dataType: 'json',
-
-            url: '<?php echo base_url(); ?>dashboard/serverSideTable',
-
-            data: function(data) {
-
-                $("#overlay").fadeIn(300);
-
-                // console.log(data);
-
-                data.filterTgl = $('#startdate').val();
-
-                data.filterTgl2 = $('#enddate').val();
-
-                // data.filterStatus = $('[name=status]').val();
-
-                data.filterSchedule = '';
-
-                data.filterTypeRenpam = '';
-
-                data.filterCategoryRenpam = '';
-
-                // data.filterPhone = $('[name=poc_phone]').val();
-
-                // data.filterThreat = $('[name=threat_level]').val();
-
-                data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-                data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-                data.page = Number(data.start / data.length) + 1
-
-            },
-
-            beforeSend: function(xhr, settings) {
-
-            },
-
-            "dataSrc": function(result) {
-
-                result.iTotalRecords = result.iTotalRecords;
-
-                result.iTotalDisplayRecords = result.iTotalRecords;
-
-                return result.aaData;
-
-            }
-
-        },
-
-        columns: [
-
-            {
-                data: 'id'
-            },
-            {
-                data: 'date'
-            },
-            {
-                data: 'waktu'
-            },
-            {
-                data: 'nama_tim',
-                orderable: false
-            },
-            {
-                data: 'accounts',
-                orderable: false
-            },
-            {
-                data: 'name_renpam'
-            },
-            {
-                data: 'vips',
-                orderable: false
-            },
-            {
-                data: 'type_renpam'
-            },
-
-            {
-                data: 'icon'
-            },
-            {
-                data: 'estimasi',
-            }, 
-            
-            {
-                data: 'estimasi_time',
-            }, 
-
-            {
-                data: 'action',
-                orderable: false
-            }
-
-        ],
-
-        order: [
-            [0, "DESC"]
-        ],
-
-        drawCallback: function(settings) {
-
-            $("#overlay").fadeOut(300);
-            client();
-        }
-
-    });
-
     $(document).ready(function() { 
         // alert('oke');
         
@@ -844,7 +705,143 @@
         // ];  
 
 
-        
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>dashboard/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    data.filterTgl = $('#startdate').val();
+
+                    data.filterTgl2 = $('#enddate').val();
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    data.filterSchedule = '';
+
+                    data.filterTypeRenpam = '';
+
+                    data.filterCategoryRenpam = '';
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'date'
+                },
+                {
+                    data: 'waktu'
+                },
+                {
+                    data: 'nama_tim',
+                    orderable: false
+                },
+                {
+                    data: 'accounts',
+                    orderable: false
+                },
+                {
+                    data: 'name_renpam'
+                },
+                {
+                    data: 'vips',
+                    orderable: false
+                },
+                {
+                    data: 'type_renpam'
+                },
+
+                {
+                    data: 'icon'
+                },
+                {
+                    data: 'estimasi',
+                }, 
+                
+                {
+                    data: 'estimasi_time',
+                }, 
+
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "DESC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+                client();
+            }
+
+        });
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -1576,7 +1573,7 @@
         });
 
         function serverSideFilter(){
-            userDataTable.draw();
+            // userDataTable.draw();
 
             $("#overlay").fadeIn(300);   
             arrayFilter = [];
