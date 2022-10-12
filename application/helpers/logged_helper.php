@@ -17,8 +17,8 @@ if (!isset($this->session->userdata['logged'])) {
     $response = $request->getBody();
     $cek = json_decode($response, true);
 
-    if ($cek['data']['success'] != true) {
-        $this->session->sess_destroy();
-        redirect(base_url('login'));
-    }
+    // if ($cek['data']['success'] != true) {
+    //     $this->session->sess_destroy();
+    //     redirect(base_url('login'));
+    // }
 }

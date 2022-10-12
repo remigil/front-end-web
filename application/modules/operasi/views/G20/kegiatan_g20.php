@@ -534,27 +534,27 @@
             userDataTable.draw(); 
         });
 
-        function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
-            $('#startdate').val(start.format('YYYY-MM-DD'));
-            $('#enddate').val(end.format('YYYY-MM-DD')); 
-            userDataTable.draw(); 
-        }
+        // function cb(start, end) {
+        //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+        //     $('#startdate').val(start.format('YYYY-MM-DD'));
+        //     $('#enddate').val(end.format('YYYY-MM-DD')); 
+        //     userDataTable.draw(); 
+        // }
 
-        $('#reportrange').daterangepicker({
-            startDate: start,
-            endDate: end,
-            ranges: {
-            'Hari Ini': [moment(), moment()],
-            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
-            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
-            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
-            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
-            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
-            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
-            }
-        }, cb);
+        // $('#reportrange').daterangepicker({
+        //     startDate: start,
+        //     endDate: end,
+        //     ranges: {
+        //     'Hari Ini': [moment(), moment()],
+        //     'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        //     '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+        //     '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+        //     'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+        //     'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+        //     'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+        //     'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+        //     }
+        // }, cb);
 
         // cb(start, end);
 

@@ -977,19 +977,11 @@
                     // console.log(result['data']);
                     // console.log('get Controller');
 
+                    var jenis = '';
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {  
 
-                            var jenis = '';
-                            if(ress[i].type_vehicle == 'Sepeda Motor'){
-                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                            }else if(ress[i].type_vehicle == 'Mobil'){
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                            }else{
-                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                                jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
-                            }
+                            
 
                             var cordLat = parseFloat(ress[i].latitude); 
                             var corLong = parseFloat(ress[i].longitude); 
@@ -997,6 +989,42 @@
                             $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
                                 // $('[name=address]').val(data['display_name']); 
                                 // mapContainer.flyTo([cordLat, corLong], 17);  
+
+                                jenis = '';
+                                if(ress[i].type_vehicle == 'Sepeda Motor'){
+                                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                                    jenis = `
+                                    <div>
+                                        <div>
+                                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                        </div>
+                                        <div style="margin-top: -70px;width: 50px;background-color: #ffffff;border: 1px solid;border-radius: 5px;">
+                                            <p>${ress[i].name_officer}</p>
+                                        </div>
+                                    </div>`;
+                                }else if(ress[i].type_vehicle == 'Mobil'){
+                                    jenis = `
+                                    <div>
+                                        <div>
+                                            <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                        </div>
+                                        <div style="margin-top: -70px;width: 50px;background-color: #ffffff;border: 1px solid;border-radius: 5px;">
+                                            <p>${ress[i].name_officer}</p>
+                                        </div>
+                                    </div>`;
+                                }else{
+                                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                                    jenis = `
+                                    <div>
+                                        <div>
+                                            <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                        </div>
+                                        <div style="margin-top: -70px;width: 50px;background-color: #ffffff;border: 1px solid;border-radius: 5px;">
+                                            <p>${ress[i].name_officer}</p>
+                                        </div>
+                                    </div>`;
+                                }
+
                                 lokasiPetugas = data['display_name'];
                                 if(markerArray[ress[i].id_officer] != null){ 
                                     markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
