@@ -634,7 +634,7 @@
                                     
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listGerbang"> 
+                                            <div class="drag-container" id="listGerbang"> 
                                                 
                                             </div>
                                         </div> 
@@ -656,7 +656,7 @@
                                 <div class="accordion-body text-muted">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listRamp"> 
+                                            <div class="drag-container" id="listRamp"> 
                                             </div>
                                         </div> 
                                     </div>
@@ -676,7 +676,7 @@
                                 <div class="accordion-body text-muted">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listEthle"> 
+                                            <div class="drag-container" id="listEthle"> 
                                             </div>
                                         </div> 
                                     </div>
@@ -696,7 +696,7 @@
                                 <div class="accordion-body text-muted">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listBaliSatu"> 
+                                            <div class="drag-container" id="listBaliSatu"> 
                                             </div>
                                         </div> 
                                     </div>
@@ -716,7 +716,7 @@
                                 <div class="accordion-body text-muted">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listCctv"> 
+                                            <div class="drag-container" id="listCctv"> 
                                             </div>
                                         </div> 
                                     </div>
@@ -817,7 +817,7 @@
                     <!-- end row -->  
 
                     <div class="col-sm-12 col-md-12">
-                        <div id="container" class="row" >
+                        <div id="container" class="row taro" >
                             
                         </div>
                     </div>
@@ -1432,6 +1432,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
@@ -1648,6 +1650,9 @@
                         }
                     }
                 });
+
+
+                
             })();
         });
 
@@ -1727,7 +1732,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `   
-                                            <div data-type="text" data-vms="${el.vms_cctv}" data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}" data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>  
                                         `;
@@ -1773,7 +1778,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `    
-                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>    
                                         `;
@@ -1797,7 +1802,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `    
-                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>  
                                         `;
@@ -1819,7 +1824,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `    
-                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>  
                                         `;
@@ -1841,7 +1846,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `    
-                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>  
                                         `;
@@ -1863,7 +1868,7 @@
                                         countlistCCTV += 1; 
 
                                         listSideCCTV += `    
-                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item" style="padding: calc(var(--bs-gutter-x) * 0.1);">
                                                 <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
                                             </div>  
                                         `;
@@ -1877,7 +1882,7 @@
                         }
 
                          
-                    
+                        $(".drag-container .drag-item").addClass('col-md-12');
                         
                         // for (let i = 0; i < ress.length; i++){   
                         //     // console.log(`urutan ke ${i+1}`);
@@ -1935,7 +1940,7 @@
         }
 
         function deleteView(ev, nomor){
-            alert(nomor);
+            // alert(nomor);
             var clones = ev.parentNode;
             clones.parentNode.removeChild(clones); 
         }
