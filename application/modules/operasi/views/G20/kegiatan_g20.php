@@ -13,8 +13,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 mb-3" style="display: flex;">  
-                    <input required class="form-control" type="date" id="startdate" name="startdate"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
-                    <input required class="form-control" type="date" id="enddate" name="enddate">
+                    <input required class="form-control" type="date" id="startdate" name="startdate" value="2022-11-01"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                    <input required class="form-control" type="date" id="enddate" name="enddate" value="2022-11-20">
                     &nbsp;&nbsp;<button class="btn btn-primary" id="searchtgl">Cari</button>
                 </div> 
             </div>
@@ -527,8 +527,8 @@
 
         });   
 
-        var start = moment();
-        var end = moment(); 
+        // var start = moment();
+        // var end = moment(); 
 
         $("#searchtgl").on("click", function (e) { 
             userDataTable.draw(); 
@@ -556,7 +556,7 @@
             }
         }, cb);
 
-        cb(start, end);
+        // cb(start, end);
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
@@ -657,33 +657,37 @@
                     console.log(ress);  
                     countlist = 0;
                     list = "";
-                    ress.forEach(el => {
-                        countlist += 1;
-                        list += `<a class="list-group-item" 
-                        id="list${countlist}"   
-                        data-alamat="${el.display_name}"
-                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                        $('#listAddress').html(list); 
-                    });  
 
-                    if(list == ""){
+                    $('#listAddress').show();
+                    if(ress.length > 0 || list == ""){
+                        ress.forEach(el => {
+                            countlist += 1;
+                            list += `<a class="list-group-item" 
+                            id="list${countlist}"   
+                            data-alamat="${el.display_name}"
+                            data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                            $('#listAddress').html(list); 
+                        });   
+    
+                        
+                        for (let i = 0; i < ress.length; i++){ 
+                            $(`#list${i+1}`).click(function(){  
+                                var latlong =  $(this).data('cords').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+    
+                                $('#listAddress').hide();
+                                // console.log({a:latitude, b:longitude});
+                                $('[name=address]').val($(this).data('alamat'));
+                                $('[name=cordinate]').val($(this).data('cords'));
+                                mapContainer.flyTo([latitude, longitude], 17);  
+
+                            });
+                        }
+                    }else{
                         countlist = 0;
                         list = "";
                         $('#listAddress').html(list); 
-                    }
-
-                    
-                    for (let i = 0; i < ress.length; i++){ 
-                        $(`#list${i+1}`).click(function(){  
-                            var latlong =  $(this).data('cords').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]); 
-
-                            // console.log({a:latitude, b:longitude});
-                            $('[name=address]').val($(this).data('alamat'));
-                            $('[name=cordinate]').val($(this).data('cords'));
-                            mapContainer.flyTo([latitude, longitude], 17);    
-                        });
                     }
                 });
 
@@ -1104,7 +1108,7 @@
 
         $("#submitAlternativeUtama").on('click', function(e){ 
             routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
-            $('#ruteawal').val(JSON.stringify(routingAlternativeUtama));  
+            $('#ruteawalR').val(JSON.stringify(routingAlternativeUtama));  
             // $("#myModal1").modal('hide');
         });
     });

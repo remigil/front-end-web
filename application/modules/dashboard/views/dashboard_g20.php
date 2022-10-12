@@ -34,8 +34,8 @@
                                 <div class="row">
                                     <label for="waktu">Tanggal</label>
                                     <div class="col-md-12" style="display: flex;">  
-                                        <input required class="form-control" type="date" id="startdate" name="startdate"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
-                                        <input required class="form-control" type="date" id="enddate" name="enddate"> 
+                                        <input required class="form-control" type="date" id="startdate" name="startdate" value="2022-11-01"> &nbsp;&nbsp;<span style="margin-top: 7px;">To</span>&nbsp;&nbsp;
+                                        <input required class="form-control" type="date" id="enddate" name="enddate" value="2022-11-20"> 
                                     </div>  
                                     <div class="dropdown-divider"></div>
 
@@ -611,35 +611,35 @@
 
 <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
 <script>
-    $(function() {
+    // $(function() {
 
-        var start = moment();
-        var end = moment();
+    //     // var start = moment();
+    //     // var end = moment();
 
-        function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D') + ' - ' + end.format('MMMM D')); 
-            $('#startdate').val(start.format('YYYY-MM-DD'));
-            $('#enddate').val(end.format('YYYY-MM-DD'));
-        }
+    //     function cb(start, end) {
+    //         $('#reportrange span').html(start.format('MMMM D') + ' - ' + end.format('MMMM D')); 
+    //         $('#startdate').val(start.format('YYYY-MM-DD'));
+    //         $('#enddate').val(end.format('YYYY-MM-DD'));
+    //     }
 
-        $('#reportrange').daterangepicker({
-            startDate: start,
-            endDate: end,
-            ranges: {
-            'Hari Ini': [moment(), moment()],
-            'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
-            '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
-            'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
-            'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
-            'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
-            'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
-            }
-        }, cb);
+    //     $('#reportrange').daterangepicker({
+    //         startDate: start,
+    //         endDate: end,
+    //         ranges: {
+    //         'Hari Ini': [moment(), moment()],
+    //         'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //         '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
+    //         '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
+    //         'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+    //         'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
+    //         'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
+    //         'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+    //         }
+    //     }, cb);
 
-        cb(start, end);     
+    //     // cb(start, end);     
 
-    });
+    // });
 
 
     let app_url = '<%-app_url%>' 
