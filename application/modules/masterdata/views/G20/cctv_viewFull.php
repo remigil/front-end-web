@@ -1,9 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
     <title><?php echo $title; ?> | K3I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
@@ -611,7 +610,10 @@
                                 <div class="accordion-body text-muted">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="list-group" id="listMainroad"> 
+                                            <div class="drag-container" id="listMainroad">  
+
+                                                     
+ 
                                             </div>
                                         </div> 
                                     </div>
@@ -633,6 +635,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="list-group" id="listGerbang"> 
+                                                
                                             </div>
                                         </div> 
                                     </div>
@@ -727,6 +730,8 @@
         </div> 
     </div>
 
+
+
     <div class="main-content">
 
         <div class="page-content" style="background-color: #f5f3f4; padding: 0;">
@@ -809,83 +814,18 @@
                          
 
                     </div>
-                    <!-- end row --> 
-                    <aside class="col-sm-12 col-md-12"> 
-                        <div class="dropzone row" style="height: auto;margin: 0px;" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
-                         
+                    <!-- end row -->  
+
+                    <div class="col-sm-12 col-md-12">
+                        <div id="container" class="row" >
+                            
                         </div>
-                    </aside>
+                    </div>
                     <!-- <div class="row" id="listCCTV"></div> -->
 
                     
 
-
-                    <!-- ADD Modals -->
-                    <div class="modal fade " id="addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary">
-                                    <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah CCTV</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="formAdd" method="post" enctype="multipart/form-data"> 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="type_cctv" placeholder="Type CCTV">
-                                                    <label for="type_cctv">Type CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="ip_cctv" placeholder="Alamat Ip">
-                                                    <label for="ip_cctv">Alamat IP</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="username" placeholder="isi nama samsat">
-                                                    <label for="username">Username</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="link_cctv" placeholder="isi nama samsat">
-                                                    <label for="link_cctv">Link CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="gateway_cctv" placeholder="isi nama samsat">
-                                                    <label for="gateway_cctv">Gateway CCTV</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" name="password" placeholder="isi nama samsat">
-                                                    <label for="password">Password</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-floating mb-3">
-                                                    <input name="address" class="form-control" placeholder="Alamat" type="text" required>
-                                                    <label for="address">Alamat</label>
-                                                </div> 
-                                                <div class="list-group" id="listAddress"></div>
-                                            </div> 
-                                            <div class="col-md-6" style="display: none;">
-                                                <div class="form-floating mb-3">
-                                                <input style="width: 100%;" name="cordinate" class="form-control" type="text">
-                                                    <label for="cordinate">Coordinate</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mt-3">
-                                                <div id="mapG20Dashboard" style="height: 400px">
-                                                    <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+ 
 
                     <!-- FullScreen Modals -->
                     <div class="modal fade " id="fullModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
@@ -904,644 +844,11 @@
                 </div>
             </div>
         </div>
-                    
-                    <script>
-                        let countlistCCTV = 0;
-                        $(document).ready(function() { 
-                            
 
-                            serverSideGetCCTV();  
-                            
-                            
-                            let listSideCCTV = ""; 
-                            let listCCTV = ""; 
-                            $('[name=kategoriFilter]').on("change", function (e) {
-                                countlistCCTV = 0;
-                                listCCTV = "";
-                                $('#listCCTV').html(listCCTV); 
-                                serverSideGetCCTV();
-                            });
-                            $('[name=searchFilter]').on("change", function (e) {
-                                countlistCCTV = 0;
-                                listCCTV = "";
-                                $('#listCCTV').html(listCCTV); 
-                                serverSideGetCCTV();
-                            });
-
-                            // if($('[name=halaman]').val() == 1){
-                            //     $("#backHalaman").addClass("disabled");
-                            // }
-                            $("#backHalaman").on("click", function (e) {
-                                var nilaiHalaman = parseFloat($('[name=halaman]').val()) - 1;
-                                if(nilaiHalaman < 1){
-                                    $("#backHalaman").addClass("disabled");
-                                }else{
-                                    $('[name=halaman]').val(nilaiHalaman);
-                                    serverSideGetCCTV()
-                                } 
-                            });
-                            $("#nextHalaman").on("click", function (e) {
-                                var nilaiHalaman = parseFloat($('[name=halaman]').val()) + 1;
-                                if(nilaiHalaman > 1){
-                                    $("#backHalaman").removeClass("disabled");
-                                    $('[name=halaman]').val(nilaiHalaman);
-                                    serverSideGetCCTV()
-                                }
-                            });
-
-
-
-
-                           
-
-                            function serverSideGetCCTV(){
-                                $("#overlay").fadeIn(300); 
-                                $.ajax({
-                                    type : "POST",
-                                    url : "<?php echo base_url();?>masterdata/cctv/getCCTVFullScreen", 
-                                    data : {
-                                        "kategoriFilter" : $('[name=kategoriFilter]').val(),
-                                        "searchFilter": $('[name=searchFilter]').val(),
-                                        "page": $('[name=halaman]').val(),
-                                    }, 
-                                    dataType : "JSON",
-                                    success : function(result){  
-                                        let ressData = result['data'];
-                                         
-                                        let ress = ressData.filter(function (e) {
-                                            return e.lat_cctv != null && e.lng_cctv != null;
-                                        });   
-                                        // console.log(result);
-
-                                        $("#overlay").fadeOut(300);
-                                        if(ress.length > 0){   
-                                            
-                                            // countlistCCTV = 0;
-                                            listSideCCTV = "";
-                                            // listCCTV = "";
-
-                                            // listCCTV += ` 
-                                            //     <aside class="col-sm-12 col-md-12"> 
-                                            //         <div class="dropzone" id="dropzone" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"></div>
-                                            //     </aside>
-                                            // `;
-                                            // $('#listCCTV').html(listCCTV);  
-                                            
-                                            var ressMainRoad = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV MAINROAD";
-                                            }); 
-                                            var openMainRoad = false;
-                                            var countRoad;
-
-                                            var ressMainGerbang = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV GERBANG";
-                                            }); 
-                                            var openGerbang = false;
-                                            var countGerbang;
-
-                                            var ressMainRamp = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV RAMP";
-                                            }); 
-                                            var openRamp = false;
-                                            var countRamp;
-
-                                            var ressMainEthle = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV ETHLE";
-                                            }); 
-                                            var openEthle = false;
-                                            var countEthle;
-
-                                            var ressMainBali = ress.filter(function (e) {
-                                                return e.type_cctv == "BALISATUDATA";
-                                            }); 
-                                            var openBali = false;
-                                            var countBali;
-
-                                            var ressMainCctv = ress.filter(function (e) {
-                                                return e.type_cctv == "CCTV";
-                                            }); 
-                                            var openCctv = false;
-                                            var countCctv;
-
-                                            // console.log(ressMainRoad);
-                                            
-                                            if(ressMainRoad.length > 0){ 
-                                                if(openMainRoad == false){
-                                                    // $("#clickRoad").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistMainroad").html(`${ressMainRoad.length}`);
-                                                        ressMainRoad.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img id="viewcctv${countlistCCTV}" style="width: 100%; height: 100%;"  src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">  
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                        <button onClick="dragDelete(this, event, 'idsidemenu${countlistCCTV}', 'viewcctv${countlistCCTV}')" class="btn"><i class="fa fa-times-circle" ></i></button>
-                                                                       
-                                                                        <a href="javascript:void(0);"class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                            ${resource} 
-                                                                        </a>
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listMainroad").html(listSideCCTV); 
-                                                        });  
-                                                        openMainRoad = true;  
-                                                    // }); 
-                                                }
-                                            }else{
-                                                $("#tlistMainroad").html(`0`);
-                                            }
-
-                                            
-                                            if(ressMainGerbang.length > 0){
-                                                if(openGerbang == false){
-                                                    // $("#clickGerbang").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistGerbang").html(`${ressMainGerbang.length}`);
-                                                        ressMainGerbang.forEach(el => {
-                                                            console.log(countlistCCTV);
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listGerbang").html(listSideCCTV); 
-                                                        });  
-
-                                                         
-                                                        openGerbang = true;     
-                                                    // });  
-                                                }
-                                            }else{
-                                                $("#tlistGerbang").html(`0`);
-                                            }
-                                           
-                                            if(ressMainRamp.length > 0){
-                                                if(openRamp == false){
-                                                    // $("#clickRamp").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistRamp").html(`${ressMainRamp.length}`);
-                                                        ressMainRamp.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listRamp").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openRamp = true;
-                                                }
-                                            }else{
-                                                $("#tlistRamp").html(`0`);
-                                            }
-
-                                            if(ressMainEthle.length > 0){
-                                                if(openEthle == false){
-                                                    // $("#clickEthle").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistEthle").html(`${ressMainEthle.length}`);
-                                                        ressMainEthle.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listEthle").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openEthle = true;
-                                                }
-                                            }else{
-                                                $("#tlistEthle").html(`0`);
-                                            }
-
-                                            if(ressMainBali.length > 0){
-                                                if(openBali == false){
-                                                    // $("#clickBaliSatu").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistBaliSatu").html(`${ressMainBali.length}`);
-                                                        ressMainBali.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listBaliSatu").html(listSideCCTV); 
-                                                        });   
-                                                    // });
-                                                    openBali = true;
-                                                }
-                                            }else{
-                                                $("#tlistBaliSatu").html(`0`);
-                                            }
-
-                                            if(ressMainCctv.length > 0){
-                                                if(openCctv == false){
-                                                    // $("#clickCctv").on("click", function (e) { 
-                                                        listSideCCTV = '';
-                                                        $("#tlistCctv").html(`${ressMainCctv.length}`);
-                                                        ressMainCctv.forEach(el => {
-                                                            countlistCCTV += 1;
-                                                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                                resource = `<iframe id="myIframe" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" style="width: 100%; height: 100%;"></iframe>`;
-                                                            }else{
-                                                                resource = `<img style="width: 100%; height: 100%;" id="viewcctv${countlistCCTV}" src="${el.link_cctv}" />`;
-                                                            } 
-            
-                                                            listSideCCTV += `    
-                                                                <div class="panel panel-default" id="idsidemenu${countlistCCTV}" data-ip="${el.ip_cctv}" data-link="${el.link_cctv}" data-nourut="${countlistCCTV}" draggable="true" ondragstart="return dragStart(event, '${el.ip_cctv}', '${el.link_cctv}', '${countlistCCTV}')">
-                                                                    <div class="panel-heading">
-                                                                        <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
-                                                                    </div>
-                                                                    <div class="panel-body" data-ip="${el.ip_cctv}" data-resource="${el.link_cctv}" data-alamat="${el.address_cctv}" data-type="${el.type_cctv}" id="openFullscreen${countlistCCTV}"> 
-                                                                        ${resource} 
-                                                                    </div>
-                                                                </div>  
-                                                            `;
-                                                            $("#listCctv").html(listSideCCTV); 
-                                                        });     
-                                                    // });
-                                                    openCctv = true;
-                                                }
-                                            }else{
-                                                $("#tlistCctv").html(`0`);
-                                            }
-
-                                            
-                                            for (let i = 0; i < ress.length; i++){  
-                                                $(`#viewcctv${i+1}`).hide();
-                                                // console.log(`urutan ke ${i+1}`);
-
-                                                $(`#openFullscreen${i+1}`).on("click", function (event) { 
-                                                    var myIp = $(this).data('ip'); 
-                                                    var myLink = $(this).data('resource'); 
-                                                    var myType = $(this).data('type'); 
-                                                    var myAlamat = $(this).data('alamat');
-
-                                                    if(myIp == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                                        resource = `<iframe id="myIframe" src="${myLink}" style="width: 100%; height: 100%;"></iframe>`;
-                                                    }else{
-                                                        resource = `<img style="width: 100%;" src="${myLink}" />`;
-                                                    }
-                                                    // console.log(myLink);
-                                                    $("#fullModal").modal('show');
-                                                    $("#layarFull").html(`${resource}`);
-                                                    $("#judulModal").html(`
-                                                        <h5 class="modal-title" id="myLargeModalLabel1" style="color:white">${myType} - ${myAlamat}</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    `);
-                                                    
-                                                });
-                                            }
-                                            
-                                            $('#fullModal').on('shown.bs.modal', function(event) {
-                                                
-                                                // alert('oke');
-                                                // $("#fullModal").modal('hide');
-                                            });
-                                            
-                                        }else{
-                                            listCCTV = "";
-                                            $('#listCCTV').html(listCCTV); 
-                                        }
-                                    }
-                                });
-                            } 
-
-
-                            
-                            
-
-
-                            $('[name=cordinate]').val('-8.451740, 115.089643');
-                            var initialCenter = [-8.451740, 115.089643];
-                            var initialZoom = 9.65;
-                            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-                            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-                                maxZoom: 20,
-                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-                            });
-
-                            // StART MAP SECTION
-                            var mapContainer = L.map('mapG20Dashboard', {
-                                maxZoom: 20,
-                                minZoom: 1,
-                                zoomSnap: 0.25,
-                                zoomControl: false,
-                                layers: [googleStreet]
-                            }).setView(initialCenter, initialZoom);
-                    
-                            var baseMaps = {
-                                "Google Map Street": googleStreet,
-                                "Google Map Satelite": googleSatelite,
-                                "Google Map Hybrid": googleHybrid,
-                                "Google Map Terrain": googleTerrain,
-                            };
-                            var overlayMaps = {};
-                            L.control.layers(baseMaps, overlayMaps, {
-                                position: 'topright'
-                            }).addTo(mapContainer);
-                            L.control.zoom({
-                                position: 'bottomleft'
-                            }).addTo(mapContainer);
-
-                            $('#addModal').on('shown.bs.modal', function() { 
-                                mapContainer.invalidateSize();
-
-                                let countlist = 0;
-                                let list = ""; 
-                                $('[name=address]').on("change", function (e) {
-                                    // console.log(this.value);
-                                    $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
-                                        console.log(ress);  
-                                        countlist = 0;
-                                        list = "";
-                                        ress.forEach(el => {
-                                            countlist += 1;
-                                            list += `<a class="list-group-item" 
-                                            id="list${countlist}"   
-                                            data-alamat="${el.display_name}"
-                                            data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
-                                            $('#listAddress').html(list); 
-                                        });  
-
-                                        if(list == ""){
-                                            countlist = 0;
-                                            list = "";
-                                            $('#listAddress').html(list); 
-                                        }
-
-                                        
-                                        for (let i = 0; i < ress.length; i++){ 
-                                            $(`#list${i+1}`).click(function(){  
-                                                var latlong =  $(this).data('cords').split(',');
-                                                var latitude = parseFloat(latlong[0]);
-                                                var longitude = parseFloat(latlong[1]); 
-
-                                                // console.log({a:latitude, b:longitude});
-                                                $('[name=address]').val($(this).data('alamat'));
-                                                $('[name=cordinate]').val($(this).data('cords'));
-                                                mapContainer.flyTo([latitude, longitude], 17);    
-                                            });
-                                        }
-                                    });
-
-                                });
-
-
-                                $('[name=cordinate]').on("change", function (e) {
-
-                                    var cordLatLong =  this.value.split(','); 
-                                    var cordLat = parseFloat(cordLatLong[0]); 
-                                    var corLong = parseFloat(cordLatLong[1]); 
-
-                                    // console.log({a:cordLat, b:corLong});
-
-                                    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                                        $('[name=address]').val(data['display_name']); 
-                                        mapContainer.flyTo([cordLat, corLong], 17);  
-                                    }); 
-                                });
-
-
-                                mapContainer.on("dragend", function (e) {
-
-                                    var corLat = mapContainer.getCenter()['lat'];
-                                    var corLng = mapContainer.getCenter()['lng'];
-                                    var cord = `${corLat},${corLng}`;
-                                    $('[name=cordinate]').val(cord);
-
-                                    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
-
-                                        $('[name=address]').val(data['display_name']); 
-
-                                    }); 
-
-                                }); 
-
-
-                            }); 
-
-                            $(".formAdd").submit(function(e) {
-                                $("#overlay").fadeIn(300);
-                                e.preventDefault(); 
-                                var formData = new FormData($('.formAdd')[0]); 
-                                $.ajax({
-                                    url: "<?php echo base_url();?>masterdata/cctv/store",
-                                    method: "POST",
-                                    data: formData,
-                                    dataType: 'JSON',
-                                    contentType: false,
-                                    processData: false,  
-                                    success: function (data) {
-                                        $("#overlay").fadeOut(300);
-                                        if(data['status'] == true){
-                                            Swal.fire(
-                                            `${data['message']}`, 
-                                            '',
-                                            'success'
-                                            ).then(function() { 
-                                                $("#addModal").modal('hide');
-                                                // userDataTable.draw(); 
-                                            }); 
-                                        }else{
-                                            Swal.fire(
-                                            `${data['message']}`, 
-                                            '',
-                                            'error'
-                                            ).then(function() { 
-                                            });
-                                        } 
-                                    }
-                                }); 
-                            });
-
-                        });
-
-
-                        var clone;
-                        var cloneId;
-
-                        var ipcctv;
-                        var linkcctv;
-                        var nourut;
-  
-                        function dragStart(ev, ipcctv, linkcctv, nourut) {  
-                            ev.dataTransfer.effectsAllowed = "copy";
-                            ev.dataTransfer.setData("text", ev.target.getAttribute("id"));
-                            ev.dataTransfer.setDragImage(ev.target, 0, 0);
-
-                            // console.log(nourut);
-                            $(`#viewcctv${nourut}`).show();
-                            $(`#idsidemenu${nourut}`).addClass("col-md-4");
-
-                            clone = ev.target.cloneNode(true);
-                            cloneId = ev.target.getAttribute("id");
-                            clone.className += " " + "selected";
-                            ev.target.parentNode.appendChild(clone);
-
-                            return true;
-                        }
-
-                        function dragEnter(ev) {
-                            event.preventDefault();
-                            return true;
-                        }
-
-                        function dragOver(ev) {
-                            return false;
-                        }
-
-                        function dragDrop(ev) {   
-                            // console.log(document.getElementById("viewcctv"));  
-
-                            // ev.target.appendChild(document.getElementById("viewcctv"))
-
-                            var src = ev.dataTransfer.getData("text");
-                            clone.className += " " + "cloned";
-                            clone.id = cloneId + "_cloned";
-                            ev.target.appendChild(document.getElementById(src));
-                            document.getElementById(src).removeAttribute("draggable");
-                            ev.stopPropagation(); 
-                            return false;
-                        }
-
-                        function dragDelete(ev, event, idCard, idView) {
-                            // alert('ada');
-                            // console.log(event.target.getAttribute(`${idView}`));
-                            // var idViewCctv = event.target.getAttribute(`${idView}`);
-                            // idViewCctv.hide();
-                            var clones = ev.parentNode;
-                            clones.parentNode.removeChild(clones); 
-                        }
-
-
-
-                        $('.detailRow').on('click', function() {
-                            $('#detailModal').modal('show')
-                            $('.modal-title').text('Detail CCTV')
-                            $('[name="nama"]').val($(this).data('nama'))
-                            $('[name="alamat"]').val($(this).data('ip'))
-                            $('[name="provinsi"]').val($(this).data('provinsi'))
-                            $('[name="kota"]').val($(this).data('kota'))
-                            $('[name="latitude"]').val($(this).data('lat'))
-                            $('[name="longitude"]').val($(this).data('long'))
-                            $('[name="username"]').val($(this).data('username'))
-                            $('[name="password"]').val($(this).data('password'))
-                            $('#submit_edit').hide()
-                        })
-
-                        $('.editRow').on('click', function() {
-                            $('.modal-title').text('Ubah Akun')
-                            $('#detailModal').modal('show')
-                            $('[name="nama_akun"]').val($(this).data('akun'))
-                            $('[name="password"]').val($(this).data('password'))
-                            $('[name="tingkat"]').val($(this).data('tingkat'))
-                            $('[name="akses"]').val($(this).data('akses'))
-                            $('#submit_edit').show()
-                        })
-
-                        function hapus() {
-                            Swal.fire({
-                                title: '',
-                                text: "Apakah anda ingin menghapus data ini ?",
-                                icon: 'question',
-                                iconColor: '#ED171D',
-                                showCancelButton: true,
-                                cancelButtonColor: '#003A91',
-                                confirmButtonColor: '#ED171D',
-                                confirmButtonText: 'Hapus',
-                                cancelButtonText: 'Batal',
-                                reverseButtons: true
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
-                                }
-                            })
-                        }
-                    </script>
-
-
- 
 
     </div>
-    <!-- END layout-wrapper -->
- 
+
+
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
@@ -1651,39 +958,994 @@
 
     <?php echo $js ?>
 
+
     <script>
-        var sidebar = localStorage.getItem('data-sidebar-size');
-        var topbar = localStorage.getItem('data-topbar');
-        var layoutMode = localStorage.getItem('data-layout-mode');
-        $(document).ready(function() {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
-            }
 
-            document.body.setAttribute('data-sidebar-size', sidebar);
-            document.body.setAttribute('data-topbar', topbar)
-            document.body.setAttribute("data-layout-mode", layoutMode);
+        let countlistCCTV = 0;
+        let clickViewCctv = 0;
+        var dummyCCTV = [];
+
+        $(document).ready(function() {  
+            serverSideGetCCTV();  
         });
 
-        $("#vertical-menu-btn").on("click", function(event) {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
+        
+
+        const EVENTS = {
+        TOUCH_MOVE: "touchmove",
+        MOUSE_MOVE: "mousemove",
+        MOUSE_UP: "mouseup",
+        MOUSE_DOWN: "mousedown",
+        TOUCH_END: "touchend",
+        TOUCH_START: "touchstart",
+        TOUCH_CANCEL: "touchcancel",
+        DRAG_START: "dragstart",
+        DRAG_END: "dragend"
+        };
+        const DIRECTIONS = {
+        LEFT: "left",
+        RIGHT: "right",
+        UP: "up",
+        DOWN: "down",
+        TOP: "top",
+        BOTTOM: "bottom",
+        AFTEREND: "afterend",
+        BEFOREBEGIN: "beforebegin"
+        };
+        const CLASS_NAMES = {
+        guideLine: "__sortable_draggable-guide-line"
+        };
+        const containerStack = [];
+
+        function detectLeftButton(evt) {
+        evt = evt || window.event;
+        if ("buttons" in evt) {
+            return evt.buttons === 1;
+        }
+        let button = evt.which || evt.button;
+        return button === 1;
+        }
+        const getParent = (el) =>
+        el && el.parentNode === document.body ? null : el && el.parentNode;
+
+        function getImmediateChild(dropTarget, target) {
+        let immediate = target;
+        // eslint-disable-next-line max-len
+        while (
+            immediate &&
+            immediate !== dropTarget &&
+            immediate &&
+            getParent(immediate) !== dropTarget
+        ) {
+            immediate = getParent(immediate);
+        }
+        if (immediate === document.body) {
+            return null;
+        }
+        if (target === dropTarget) {
+            return null;
+        }
+        return immediate;
+        }
+
+        function renderMirrorImage(dragEl, clientX, clientY) {
+        if (!dragEl) {
+            return;
+        }
+        let rect = dragEl.getBoundingClientRect();
+        const _mirror = dragEl.cloneNode(true);
+        _mirror.style.position = "fixed";
+        _mirror.classList.add("mirror");
+        _mirror.style.opacity = 0.5;
+        _mirror.style.width = `${rect.width}px`;
+        _mirror.style.height = `${rect.height}px`;
+        _mirror.style.top = `${rect.top}px`;
+        _mirror.style.left = `${rect.left}px`;
+        _mirror.__offsetX = clientX - rect.left;
+        _mirror.__offsetY = clientY - rect.top;
+        // _mirror.style.transform = `translate(${Math.abs(clientX - rect.left - rect.width/2)}px, -${Math.abs(clientY - rect.top - rect.height / 2)}px)`;
+        document.body.appendChild(_mirror);
+        return _mirror;
+        }
+
+        class Dragoned {
+        constructor(container, options = {}) {
+            if (typeof container === "string") {
+            container = document.querySelector(container);
             }
+            if (!container || !container instanceof HTMLElement) {
+            return new Error(
+                "Dragoned: container must be a string or an HTMLElement"
+            );
+            }
+            this.createGuideLine();
+            this.onMouseUp = this.onMouseUp.bind(this);
+            this.dragStart = this.dragStart.bind(this);
+            this.onMouseMove = this.onMouseMove.bind(this);
+            this.dragEnd = this.dragEnd.bind(this);
+            this.container = container;
+            this.moveY = 0;
+            this.moveX = 0;
+            this.mouseUp = false;
+            this.optionsInit(options);
+            containerStack.push(this);
+            this.init();
+        }
+        optionsInit(options) {
+            this.options = {
+            draggable: options.draggable,
+            handle: options.handle,
+            delay: typeof options.delay === "number" ? options.delay : 0,
+            preventDefault: options.preventDefault,
+            direction: options.direction,
+            onStart: options.onStart,
+            onMove: options.onMove,
+            onClone: options.onClone,
+            onEnd: options.onEnd,
+            body: options.body || document.body,
+            clone: options.clone,
+            group: options.group,
+            sort: options.sort
+            };
+        }
+
+        createGuideLine() {
+            this.guideLine = document.createElement("div");
+            this.guideLine.className = CLASS_NAMES.guideLine;
+            this.guideLine.style.position = "absolute";
+            this.guideLine.style.borderRadius = `.5rem`;
+            this.guideLine.style.backgroundColor = "rgb(70, 25, 194)";
+        }
+
+        init() {
+            this.bindDrag(this.container);
+        }
+        dragEnd() {
+            this.mouseUp = true;
+            if (this.mirror) {
+            this.mirror.remove();
+            this.mirror = null;
+            }
+
+            this.dragEl.style.opacity = 1;
+            this.guideLine.remove();
+            this.guideLine.style.left = `${-9999}px`;
+            this.guideLine.style.top = `${-9999}px`;
+            document.removeEventListener(EVENTS.MOUSE_MOVE, this.onMouseMove);
+            document.removeEventListener(EVENTS.TOUCH_MOVE, this.onMouseMove, {
+            passive: false
+            });
+            document.removeEventListener(EVENTS.MOUSE_UP, this.dragEnd);
+            document.removeEventListener(EVENTS.TOUCH_END, this.dragEnd);
+            if (this.direction && this.dropEl) {
+            const cloneEl =
+                this.options.clone === true ? this.dragEl.cloneNode(true) : this.dragEl;
+            if (
+                this.options.clone === true &&
+                typeof this.options.onClone === "function"
+            ) {
+                this.options.onClone({
+                from: this.container,
+                oldIndex: this.oldIndex,
+                clone: this.cloneEl
+                });
+            }
+            this.dropEl.insertAdjacentElement(this.direction, cloneEl);
+            const to = this.dropEl.Sortable__container__;
+            const from = this.container;
+            this.newIndex = Array.prototype.indexOf.call(to.children, cloneEl);
+
+            delete this.dragEl.Sortable__container__;
+            delete this.dragEl.Sortable__container__;
+
+            if (typeof this.options.onEnd === "function") {
+                this.options.onEnd({
+                item: cloneEl,
+                to,
+                from,
+                newIndex: this.newIndex,
+                oldIndex: this.oldIndex,
+                direction: this.direction
+                });
+            }
+            }
+        }
+        onMouseMove(event) {
+            event.preventDefault();
+            if (event.type === EVENTS.MOUSE_MOVE && !detectLeftButton(event)) {
+            this.guideLine.remove();
+            document.removeEventListener(EVENTS.MOUSE_MOVE, this.onMouseMove);
+            }
+            const clientY =
+            event.type === EVENTS.TOUCH_MOVE
+                ? event.touches[0].clientY
+                : event.clientY;
+            const clientX =
+            event.type === EVENTS.TOUCH_MOVE
+                ? event.touches[0].clientX
+                : event.clientX;
+            const pageY =
+            event.type === EVENTS.TOUCH_MOVE ? event.touches[0].pageY : event.pageY;
+            if (clientY < this.moveY) {
+            this.mouseDirection = DIRECTIONS.TOP;
+            } else if (clientY > this.moveY) {
+            this.mouseDirection = DIRECTIONS.BOTTOM;
+            }
+            this.moveY = clientY;
+            this.moveX = clientX;
+            function getScrollParent(node) {
+            if (node == null) {
+                return null;
+            }
+
+            if (node.scrollHeight > node.clientHeight) {
+                return node;
+            } else {
+                return getScrollParent(node.parentNode);
+            }
+            }
+
+            const scroller = (_target) => {
+            let scrollableEl = getScrollParent(_target) || document.body;
+            // console.log(scrollableEl);
+            const scrollUp = () => scrollableEl.scroll(0, scrollableEl.scrollTop - 1);
+            const scrollBottom = () =>
+                scrollableEl.scroll(0, scrollableEl.scrollTop + 1);
+            if (
+                this.mirror &&
+                this.moveY < 100 &&
+                this.mouseDirection === DIRECTIONS.TOP
+            ) {
+                scrollUp();
+                setTimeout(() => {
+                scroller();
+                }, 100);
+            } else if (
+                this.mirror &&
+                window.innerHeight - this.moveY < 100 &&
+                this.mouseDirection === DIRECTIONS.BOTTOM
+            ) {
+                scrollBottom();
+                setTimeout(() => {
+                scroller();
+                }, 100);
+            }
+            };
+
+            if (this.mirror && this.dragEl) {
+            this.mirror.style.left = `${
+                clientX - document.body.offsetLeft - this.mirror.__offsetX
+            }px`;
+            this.mirror.style.top = `${
+                clientY - document.body.offsetTop - this.mirror.__offsetY
+            }px`;
+            this.mirror.style.display = "none";
+            }
+            const _target = document.elementFromPoint(clientX, clientY);
+            scroller(_target);
+            // here
+            let dropEl;
+            let dropInstance;
+            for (let index = 0; index < containerStack.length; index++) {
+            const current = containerStack[index];
+            const immediate = getImmediateChild(current.container, _target);
+            if (immediate) {
+                dropInstance = current;
+                dropEl = immediate;
+                dropEl.Sortable__container__ = current.container;
+                break;
+            }
+            }
+            if (this.mirror) {
+            this.mirror.style.display = "block";
+            }
+            if (dropEl && dropEl !== this.dragEl) {
+            if (dropInstance.options.sort === false) {
+                return;
+            }
+            if (typeof this.options.onMove === "function") {
+                this.options.onMove({
+                item: this.dragEl,
+                to: dropInstance.container,
+                from: this.container,
+                newIndex: Array.prototype.indexOf.call(
+                    dropInstance.container.children,
+                    dropEl
+                ),
+                oldIndex: Array.prototype.indexOf.call(
+                    this.container.children,
+                    this.dragEl
+                )
+                });
+            }
+            this.dragEl.style.opacity = 0.2;
+            this.guideLine.style.opacity = 1;
+            const rect = dropEl.getBoundingClientRect();
+            this.guideLine.style.width = `${rect.width}px`;
+            this.guideLine.style.height = "4px";
+            // is mouse is on the top of the element
+            if (
+                rect.bottom > this.moveY &&
+                rect.bottom - rect.height / 2 < this.moveY
+            ) {
+                this.direction = DIRECTIONS.AFTEREND;
+                this.dropEl = dropEl;
+                this.dragEl = this.dragEl;
+                this.guideLine.style.top = `${
+                pageY - pageY + window.pageYOffset + rect.top + rect.height
+                }px`;
+                this.guideLine.style.left = `${rect.left}px`;
+            } else if (
+                rect.top < this.moveY &&
+                rect.top + rect.height / 2 > this.moveY
+            ) {
+                this.dropEl = dropEl;
+                this.direction = DIRECTIONS.BEFOREBEGIN;
+                this.guideLine.style.top = `${
+                pageY - pageY + window.pageYOffset + rect.top
+                }px`;
+                this.guideLine.style.left = `${rect.left}px`;
+            }
+            }
+        }
+        onMouseUp() {
+            this.mouseUp = true;
+            clearTimeout(this.pressDelay);
+            document.removeEventListener(EVENTS.MOUSE_UP, this.onMouseUp);
+        }
+        dragStart(event) {
+            this.mouseUp = false;
+            // clickViewCctv += 1;
+            // console.log(event);
+
+            if (event.type === EVENTS.MOUSE_DOWN && !detectLeftButton(event)) {
+            return;
+            }
+            this.can = true;
+            // continue if user clicked for 1 second
+            const start = () => {
+            document.body.appendChild(this.guideLine);
+            const clientY =
+                event.type === EVENTS.TOUCH_START
+                ? event.touches[0].clientY
+                : event.clientY;
+            const clientX =
+                event.type === EVENTS.TOUCH_START
+                ? event.touches[0].clientX
+                : event.clientX;
+            const target = event.target;
+            let draggableEl;
+            let handleEl;
+            if (this.options.draggable) {
+                draggableEl = target.closest(this.options.draggable);
+                if (!draggableEl) {
+                return;
+                }
+            }
+            if (this.options.handle) {
+                handleEl = target.closest(this.options.handle);
+                if (!handleEl) {
+                return;
+                }
+            }
+            const dragEl = getImmediateChild(this.container, target);
+            if (!dragEl) {
+                return;
+            }
+            if (!this.mirror) {
+                this.mirror = renderMirrorImage(dragEl, clientX, clientY);
+            }
+            if (typeof this.options.onStart === "function") {
+                this.options.onStart({
+                from: this.container,
+                oldIndex: this.oldIndex,
+                item: dragEl
+                });
+            }
+            this.dragEl = dragEl;
+            this.dragEl.Sortable__container__ = this.container;
+            this.oldIndex = Array.prototype.indexOf.call(
+                this.container.children,
+                dragEl
+            );
+            document.addEventListener(EVENTS.MOUSE_MOVE, this.onMouseMove);
+            document.addEventListener(EVENTS.TOUCH_MOVE, this.onMouseMove, {
+                passive: false
+            });
+            document.addEventListener(EVENTS.MOUSE_UP, this.dragEnd);
+            document.addEventListener(EVENTS.TOUCH_END, this.dragEnd);
+            };
+            document.addEventListener(EVENTS.MOUSE_UP, this.onMouseUp);
+            this.pressDelay = setTimeout(() => {
+            if (this.mouseUp === false) {
+                start();
+            }
+            }, this.options.delay);
+        }
+
+        bindDrag(container) {
+            container.style.userSelect = "none";
+            container.addEventListener(EVENTS.MOUSE_DOWN, this.dragStart);
+            container.addEventListener(EVENTS.TOUCH_START, this.dragStart);
+        }
+        destroy() {
+            const index = containerStack.findIndex((c) => c === this);
+            if (index !== -1) {
+            containerStack.splice(index, 1);
+            }
+            this.container.removeEventListener(EVENTS.MOUSE_DOWN, this.dragStart);
+            this.container.removeEventListener(EVENTS.TOUCH_START, this.dragStart);
+            if (this.mirror) {
+            this.mirror.remove();
+            }
+            if (this.guideLine) {
+            this.guideLine.remove();
+            }
+        }
+        }
+
+        window.addEventListener("DOMContentLoaded", (event) => {
+            (function () {
+                const container = new Dragoned(document.querySelector("#container"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    group: "blocks-group",
+                    delay: 100,
+                    onEnd: (data) => {}
+                });
+                //=========Initialize start here=========//
+                const draggable = new Dragoned(document.querySelector("#listMainroad"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        const no = item.dataset.no;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        
+
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text": 
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableGerbang = new Dragoned(document.querySelector("#listGerbang"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableRamp = new Dragoned(document.querySelector("#listRamp"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableEthle = new Dragoned(document.querySelector("#listEthle"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableBaliSatu = new Dragoned(document.querySelector("#listBaliSatu"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+                const draggableCctv = new Dragoned(document.querySelector("#listCctv"), {
+                    // draggable:".item",
+                    // handle:".handle",
+                    sort: false,
+                    clone: true,
+                    group: "blocks-group",
+                    onEnd: (data) => {
+                        const { item } = data;
+                        const type = item.dataset.type;
+                        const vms = item.dataset.vms;
+                        var filterDummyCCTV = dummyCCTV.filter(function (e) {
+                                                return e.vms_cctv == vms;
+                                            }); 
+                        // console.log(filterDummyCCTV);
+                        if(filterDummyCCTV.length > 0){
+                            
+                            if(filterDummyCCTV[0]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <iframe id="myIframe"  src="${filterDummyCCTV[0]['link_cctv']}" style="width: 100%; height: 100%;"   ></iframe>`;
+                            }else{
+                                resource = `<button onClick="openFull('${filterDummyCCTV[0]['ip_cctv']}', '${filterDummyCCTV[0]['link_cctv']}', '${filterDummyCCTV[0]['address_cctv']}', '${filterDummyCCTV[0]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                <button onClick="deleteView(this, '${no}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                <img style="width: 100%; height: 100%;"  src="${filterDummyCCTV[0]['link_cctv']}"/>`;
+                            } 
+                        }else{
+                            resource = ``;
+                            console.log('Data tidak ada');
+                        }
+                        
+                        switch (type) { 
+                            case "text":
+                                item.innerHTML = `
+                                    ${resource}
+                                `;
+                                break; 
+                            default:
+                                break;
+                        }
+                    }
+                });
+            })();
         });
+
+
+
+        function serverSideGetCCTV(){
+            $("#overlay").fadeIn(300); 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>masterdata/cctv/getCCTVFullScreen", 
+                data : {
+                    "kategoriFilter" : null,
+                    "searchFilter": null,
+                    "page": null,
+                }, 
+                dataType : "JSON",
+                success : function(result){   
+                    let ressData = result['data'];
+                        
+                    let ress = ressData.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });   
+
+                    dummyCCTV = ress;
+                    // console.log(result);
+
+                    $("#overlay").fadeOut(300);
+                    if(ress.length > 0){   
+                        
+                        // countlistCCTV = 0;
+                        listSideCCTV = ""; 
+                        
+                        var ressMainRoad = ress.filter(function (e) {
+                            return e.type_cctv == "CCTV MAINROAD";
+                        }); 
+                        var openMainRoad = false;
+                        var countRoad;
+
+                        var ressMainGerbang = ress.filter(function (e) {
+                            return e.type_cctv == "CCTV GERBANG";
+                        }); 
+                        var openGerbang = false;
+                        var countGerbang;
+
+                        var ressMainRamp = ress.filter(function (e) {
+                            return e.type_cctv == "CCTV RAMP";
+                        }); 
+                        var openRamp = false;
+                        var countRamp;
+
+                        var ressMainEthle = ress.filter(function (e) {
+                            return e.type_cctv == "CCTV ETHLE";
+                        }); 
+                        var openEthle = false;
+                        var countEthle;
+
+                        var ressMainBali = ress.filter(function (e) {
+                            return e.type_cctv == "BALISATUDATA";
+                        }); 
+                        var openBali = false;
+                        var countBali;
+
+                        var ressMainCctv = ress.filter(function (e) {
+                            return e.type_cctv == "CCTV";
+                        }); 
+                        var openCctv = false;
+                        var countCctv;
+
+                        // console.log(ressMainRoad);
+                        
+                        if(ressMainRoad.length > 0){ 
+                            if(openMainRoad == false){
+                                // $("#clickRoad").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistMainroad").html(`${ressMainRoad.length}`);
+                                    ressMainRoad.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `   
+                                            <div data-type="text" data-vms="${el.vms_cctv}" data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listMainroad").html(listSideCCTV);  
+                                    });  
+                                    openMainRoad = true;  
+                                // }); 
+                            }
+
+                            var listSideContainer = '';
+                            for (let i = 0; i < 12; i++){  
+                                if(ress[i]['ip_cctv'] == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                    resource = `
+                                    <button onClick="openFull('${ress[i]['ip_cctv']}', '${ress[i]['link_cctv']}', '${ress[i]['address_cctv']}', '${ress[i]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                    <button onClick="deleteView(this, '${i+1}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                    <iframe id="myIframe" src="${ress[i]['link_cctv']}" style="width: 100%; height: 100%;"></iframe>`;
+                                }else{
+                                    resource = `
+                                    <button onClick="openFull('${ress[i]['ip_cctv']}', '${ress[i]['link_cctv']}', '${ress[i]['address_cctv']}', '${ress[i]['type_cctv']}')" style="position: absolute;margin-bottom: 5px;margin-left: 5px;bottom: 0;" class="btn btn-primary" ><i class="fa fa-eye" ></i></button>
+                                    <button onClick="deleteView(this, '${i+1}')" style="position: absolute;margin-bottom: 5px;margin-left: 55px;bottom: 0;" class="btn btn-danger" ><i class="fa fa-trash" ></i></button>
+                                    <img style="width: 100%; height: 100%;" src="${ress[i]['link_cctv']}" />`;
+                                } 
+                                listSideContainer += `
+                                    <div data-type="text" class="block col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                        ${resource}
+                                    </div>
+                                `;
+                                $("#container").html(listSideContainer);
+                            }
+                        }else{
+                            $("#tlistMainroad").html(``);
+                        }
+
+
+
+                        
+                        if(ressMainGerbang.length > 0){
+                            if(openGerbang == false){
+                                // $("#clickGerbang").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistGerbang").html(`${ressMainGerbang.length}`);
+                                    ressMainGerbang.forEach(el => { 
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>    
+                                        `;
+                                        $("#listGerbang").html(listSideCCTV); 
+                                    });  
+
+                                        
+                                    openGerbang = true;     
+                                // });  
+                            }
+                        }else{
+                            $("#tlistGerbang").html(``);
+                        }
+                        
+                        if(ressMainRamp.length > 0){
+                            if(openRamp == false){
+                                // $("#clickRamp").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistRamp").html(`${ressMainRamp.length}`);
+                                    ressMainRamp.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listRamp").html(listSideCCTV); 
+                                    });   
+                                // });
+                                openRamp = true;
+                            }
+                        }else{
+                            $("#tlistRamp").html(``);
+                        }
+
+                        if(ressMainEthle.length > 0){
+                            if(openEthle == false){
+                                // $("#clickEthle").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistEthle").html(`${ressMainEthle.length}`);
+                                    ressMainEthle.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listEthle").html(listSideCCTV); 
+                                    });   
+                                // });
+                                openEthle = true;
+                            }
+                        }else{
+                            $("#tlistEthle").html(`0`);
+                        }
+
+                        if(ressMainBali.length > 0){
+                            if(openBali == false){
+                                // $("#clickBaliSatu").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistBaliSatu").html(`${ressMainBali.length}`);
+                                    ressMainBali.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listBaliSatu").html(listSideCCTV); 
+                                    });   
+                                // });
+                                openBali = true;
+                            }
+                        }else{
+                            $("#tlistBaliSatu").html(`0`);
+                        }
+
+                        if(ressMainCctv.length > 0){
+                            if(openCctv == false){
+                                // $("#clickCctv").on("click", function (e) { 
+                                    listSideCCTV = '';
+                                    $("#tlistCctv").html(`${ressMainCctv.length}`);
+                                    ressMainCctv.forEach(el => {
+                                        countlistCCTV += 1; 
+
+                                        listSideCCTV += `    
+                                            <div data-type="text" data-vms="${el.vms_cctv}"  data-no="${countlistCCTV}" class="drag-item${countlistCCTV} col-md-4" style="padding: calc(var(--bs-gutter-x) * 0.1);">
+                                                <h5 class="panel-title" style="font-size: 14px;">${countlistCCTV}. ${el.type_cctv} - ${el.address_cctv}</h5>
+                                            </div>  
+                                        `;
+                                        $("#listCctv").html(listSideCCTV); 
+                                    });     
+                                // });
+                                openCctv = true;
+                            }
+                        }else{
+                            $("#tlistCctv").html(`0`);
+                        }
+
+                         
+                    
+                        
+                        // for (let i = 0; i < ress.length; i++){   
+                        //     // console.log(`urutan ke ${i+1}`);
+
+                        //     $(`#${ress[i]['id']}`).on("click", function (event) { 
+                        //         var myIp = $(this).data('ip'); 
+                        //         var myLink = $(this).data('resource'); 
+                        //         var myType = $(this).data('type'); 
+                        //         var myAlamat = $(this).data('alamat');
+
+                        //         if(myIp == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                        //             resource = `<iframe id="myIframe" src="${myLink}" style="width: 100%; height: 100%;"></iframe>`;
+                        //         }else{
+                        //             resource = `<img style="width: 100%;" src="${myLink}" />`;
+                        //         }
+                        //         // console.log(myLink);
+                        //         $("#fullModal").modal('show');
+                        //         $("#layarFull").html(`${resource}`);
+                        //         $("#judulModal").html(`
+                        //             <h5 class="modal-title" id="myLargeModalLabel1" style="color:white">${myType} - ${myAlamat}</h5>
+                        //             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        //         `);
+                                
+                        //     });
+                        // }
+                        
+                        // $('#fullModal').on('shown.bs.modal', function(event) {
+                            
+                        //     // alert('oke');
+                        //     // $("#fullModal").modal('hide');
+                        // });
+                        
+                    }else{
+                        listCCTV = "";
+                        $('#listCCTV').html(listCCTV); 
+                    }
+                }
+            });
+        } 
+
+        function openFull(myIp, myLink, myType, myAlamat){ 
+
+            if(myIp == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                resource = `<iframe id="myIframe" src="${myLink}" style="width: 100%; height: 100%;"></iframe>`;
+            }else{
+                resource = `<img style="width: 100%;" src="${myLink}" />`;
+            }
+            // console.log(myLink);
+            $("#fullModal").modal('show');
+            $("#layarFull").html(`${resource}`);
+            $("#judulModal").html(`
+                <h5 class="modal-title" id="myLargeModalLabel1" style="color:white">${myType} - ${myAlamat}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            `);
+        }
+
+        function deleteView(ev, nomor){
+            alert(nomor);
+            var clones = ev.parentNode;
+            clones.parentNode.removeChild(clones); 
+        }
+        
+
     </script>
+
+  
 </body>
+
 
 
 </html>
