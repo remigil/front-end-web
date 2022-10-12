@@ -2344,7 +2344,8 @@
                 $("#operasiDisplay").val();
             }
 
-            console.log({a: $("#startdate").val(),b:$("#enddate").val()});
+            // console.log({a: $("#startdate").val(),b:$("#enddate").val()});
+            userDataTable.draw();
             serverSideFilter();
         });
 
