@@ -1256,7 +1256,7 @@
                 },
                 error: function () { 
                     $("#overlay").fadeOut(300);  
-                    console.log("gagal connect");
+                    console.log("gagal connect Tracking");
                 } 
             }); 
             
