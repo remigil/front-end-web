@@ -85,9 +85,14 @@ class LaporanHarian extends MY_Controller
                 $object = (object) [
                     'polres_id' => $this->input->post('polres_id')[$i],
                     'capture_camera' => $this->input->post('capture_camera')[$i],
-                    'konfirmasi_masyarakat' => $this->input->post('konfirmasi_masyarakat')[$i],
-                    'validasi_petugas' => $this->input->post('validasi_petugas')[$i],
-                    'odol' => $this->input->post('odol')[$i]
+                    'statis' => $this->input->post('statis')[$i],
+                    'mobile' => $this->input->post('mobile')[$i],
+                    'online' => $this->input->post('online')[$i],
+                    'posko' => $this->input->post('posko')[$i],
+                    'preemtif' => $this->input->post('preemtif')[$i],
+                    'preventif' => $this->input->post('preventif')[$i],
+                    'odol_227' => $this->input->post('odol_227')[$i],
+                    'odol_307' => $this->input->post('odol_307')[$i]
                 ];
 
                 array_push($value, $object);
@@ -225,7 +230,6 @@ class LaporanHarian extends MY_Controller
                 'contents' => $value
             ]
         ];
-
         // var_dump($date);
         // die;
         $data = guzzle_request('POST', $url, [

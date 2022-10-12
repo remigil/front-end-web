@@ -128,8 +128,7 @@
 
 
                 if (jenis_laporan == 1) {
-                    laporan.push('Konfirmasi Masyarakat', 'Capture Camera', 'Validasi Petugas', 'odol')
-                    field_input.push('<input type="number" name="konfirmasi_masyarakat[]" class="form-control" value="0">', '<input type="number" name="capture_camera[]" class="form-control" value="0">', '<input type="number" name="validasi_petugas[]" class="form-control" value="0">', '<input type="number" name="odol[]" class="form-control" value="0">')
+                    field_input.push(`<input type="number" name="capture_camera[]" class="form-control" value="0">`, `<input type="number" name="statis[]" class="form-control" value="0">`, `<input type="number" name="mobile[]" class="form-control" value="0">`, `<input type="number" name="online[]" class="form-control" value="0">`, `<input type="number" name="posko[]" class="form-control" value="0">`, `<input type="number" name="preemtif[]" class="form-control" value="0">`, `<input type="number" name="preventif[]" class="form-control" value="0">`, `<input type="number" name="odol_227[]" class="form-control" value="0">`, `<input type="number" name="odol_307[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 2) {
                     laporan.push('Pelanggaran Berat', 'Pelanggaran Sedang', 'Pelanggaran Ringan')
                     field_input.push(`<input type="number" name="pelanggaran_berat[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_sedang[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_ringan[]" class="form-control" value="0">`)
@@ -181,8 +180,9 @@
                     coloumn += `<th>${element}</th>`
                 })
 
-
-                let master_tb = `
+                let master_tb = ''
+                if (jenis_laporan != 1) {
+                    master_tb = `
                 <table id="datatable" class="table table-bordered dt-responsive w-100">
                 <thead class="bg-primary text-white">
                     <tr>
@@ -196,6 +196,35 @@
                 <tbody>
                 </table>
                 `
+                } else {
+                    master_tb = `<table id="datatable" class="table table-bordered dt-responsive w-100">
+                <thead class="bg-primary text-white text-center">
+                    <tr>
+                        <th rowspan="2"  style="vertical-align : middle;text-align:center;" >No</th>
+                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Polres</th>
+                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Jumlah Capture Camera</th>
+                        <th colspan="2">Jumlah Validasi Petugas</th>
+                        <th colspan="2">Jumlah Konfirmasi Masyarakat</th>
+                        <th colspan="4">ODOL</th>
+                    </tr>
+                    <tr>
+                        <td>Statis</td>
+                        <td>Mobile</td>
+                        <td>Online</td>
+                        <td>Posko</td>
+                        <td>Pre-Emtif</td>
+                        <td>Pre-Ventif</td>
+                        <td>227</td>
+                        <td>307</td>
+                    </tr>
+                </thead>
+                <tbody id="maintablebody">
+                    ${body}
+                <tbody>
+                </table>`
+                }
+
+
                 $('.isiRow').html(master_tb)
             }
         })

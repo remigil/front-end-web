@@ -14,7 +14,7 @@
                     <h2 class="text-white"><?= strtoupper($data['headline'])  ?></h2>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update 13 Agustus 2022') ?></p>
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data STNK 2021</h4>
+                    <h4 class="card-title mb-0">Data STNK <b><?= date('Y') ?></b></h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
