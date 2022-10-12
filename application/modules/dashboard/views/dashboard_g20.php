@@ -705,141 +705,141 @@
         // ];  
 
 
-        userDataTable = $('#datatable').DataTable({
+        // userDataTable = $('#datatable').DataTable({
 
-            responsive: true,
+        //     responsive: true,
 
-            scrollX: true,
+        //     scrollX: true,
 
-            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+        //     // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-            // buttons: ["excel", "csv", "pdf"],
+        //     // buttons: ["excel", "csv", "pdf"],
 
-            oLanguage: {
+        //     oLanguage: {
 
-                sSearch: 'Search:'
+        //         sSearch: 'Search:'
 
-            },
+        //     },
 
-            initComplete: function(settings, json) {},
+        //     initComplete: function(settings, json) {},
 
-            retrieve: true,
+        //     retrieve: true,
 
-            processing: true,
+        //     processing: true,
 
-            serverSide: true,
+        //     serverSide: true,
 
-            serverMethod: 'POST',
+        //     serverMethod: 'POST',
 
-            ajax: {
+        //     ajax: {
 
-                dataType: 'json',
+        //         dataType: 'json',
 
-                url: '<?php echo base_url(); ?>dashboard/serverSideTable',
+        //         url: '<?php echo base_url(); ?>dashboard/serverSideTable',
 
-                data: function(data) {
+        //         data: function(data) {
 
-                    $("#overlay").fadeIn(300);
+        //             $("#overlay").fadeIn(300);
 
-                    // console.log(data);
+        //             // console.log(data);
 
-                    data.filterTgl = $('#startdate').val();
+        //             data.filterTgl = $('#startdate').val();
 
-                    data.filterTgl2 = $('#enddate').val();
+        //             data.filterTgl2 = $('#enddate').val();
 
-                    // data.filterStatus = $('[name=status]').val();
+        //             // data.filterStatus = $('[name=status]').val();
 
-                    data.filterSchedule = '';
+        //             data.filterSchedule = '';
 
-                    data.filterTypeRenpam = '';
+        //             data.filterTypeRenpam = '';
 
-                    data.filterCategoryRenpam = '';
+        //             data.filterCategoryRenpam = '';
 
-                    // data.filterPhone = $('[name=poc_phone]').val();
+        //             // data.filterPhone = $('[name=poc_phone]').val();
 
-                    // data.filterThreat = $('[name=threat_level]').val();
+        //             // data.filterThreat = $('[name=threat_level]').val();
 
-                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+        //             data.orderField = data.order[0] != undefined ? data.order[0].column : '';
 
-                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+        //             data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
 
-                    data.page = Number(data.start / data.length) + 1
+        //             data.page = Number(data.start / data.length) + 1
 
-                },
+        //         },
 
-                beforeSend: function(xhr, settings) {
+        //         beforeSend: function(xhr, settings) {
 
-                },
+        //         },
 
-                "dataSrc": function(result) {
+        //         "dataSrc": function(result) {
 
-                    result.iTotalRecords = result.iTotalRecords;
+        //             result.iTotalRecords = result.iTotalRecords;
 
-                    result.iTotalDisplayRecords = result.iTotalRecords;
+        //             result.iTotalDisplayRecords = result.iTotalRecords;
 
-                    return result.aaData;
+        //             return result.aaData;
 
-                }
+        //         }
 
-            },
+        //     },
 
-            columns: [
+        //     columns: [
 
-                {
-                    data: 'id'
-                },
-                {
-                    data: 'date'
-                },
-                {
-                    data: 'waktu'
-                },
-                {
-                    data: 'nama_tim',
-                    orderable: false
-                },
-                {
-                    data: 'accounts',
-                    orderable: false
-                },
-                {
-                    data: 'name_renpam'
-                },
-                {
-                    data: 'vips',
-                    orderable: false
-                },
-                {
-                    data: 'type_renpam'
-                },
+        //         {
+        //             data: 'id'
+        //         },
+        //         {
+        //             data: 'date'
+        //         },
+        //         {
+        //             data: 'waktu'
+        //         },
+        //         {
+        //             data: 'nama_tim',
+        //             orderable: false
+        //         },
+        //         {
+        //             data: 'accounts',
+        //             orderable: false
+        //         },
+        //         {
+        //             data: 'name_renpam'
+        //         },
+        //         {
+        //             data: 'vips',
+        //             orderable: false
+        //         },
+        //         {
+        //             data: 'type_renpam'
+        //         },
 
                  
-                {
-                    data: 'estimasi',
-                }, 
+        //         {
+        //             data: 'estimasi',
+        //         }, 
                 
-                {
-                    data: 'estimasi_time',
-                }, 
+        //         {
+        //             data: 'estimasi_time',
+        //         }, 
 
-                {
-                    data: 'action',
-                    orderable: false
-                }
+        //         {
+        //             data: 'action',
+        //             orderable: false
+        //         }
 
-            ],
+        //     ],
 
-            order: [
-                [0, "DESC"]
-            ],
+        //     order: [
+        //         [0, "DESC"]
+        //     ],
 
-            drawCallback: function(settings) {
+        //     drawCallback: function(settings) {
 
-                $("#overlay").fadeOut(300);
-                client();
-            }
+        //         $("#overlay").fadeOut(300);
+        //         client();
+        //     }
 
-        });
+        // });
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -2371,7 +2371,7 @@
             }
 
             // console.log({a: $("#startdate").val(),b:$("#enddate").val()});
-            userDataTable.draw();
+            // userDataTable.draw();
             serverSideFilter();
         });
 
