@@ -4106,7 +4106,7 @@
                     'success'
                     ).then(function() { 
                         $("#myModal").modal('hide');
-                        userDataTable.draw(); 
+                        // userDataTable.draw(); 
                     }); 
                 }else{
                     Swal.fire(
