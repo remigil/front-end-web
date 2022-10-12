@@ -1376,7 +1376,7 @@
             }
 
 
-            var countlistNotif;
+            var countlistNotif; 
             var listNotif = "";
             function serverSideGetNotif(){
                 // $.ajax({
