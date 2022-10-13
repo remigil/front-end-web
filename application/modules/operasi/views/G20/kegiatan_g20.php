@@ -167,7 +167,7 @@
                                         <option value="<?php echo $row['id'];?>"><?php echo $row['name_vip'];?>  ( <?= $row['country_arrival_vip']?> )</option> 
                                     <?php endforeach; ?> 
                                 </select>
-                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">VIP</label>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">VVIP</label>
                             </div>
                         </div>  
                         <div class="col-md-6">
