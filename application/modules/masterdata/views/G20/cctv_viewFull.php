@@ -668,7 +668,7 @@
                             <h2 class="accordion-header" id="flush-heading4">
                                 <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
-                                    CCTV ETHLE &nbsp;<span class="badge bg-danger rounded-pill" id="tlistEthle"></span>
+                                    CCTV ETLE &nbsp;<span class="badge bg-danger rounded-pill" id="tlistEthle"></span>
                                 </button>
                             </h2>
                             <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4"
