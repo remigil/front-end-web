@@ -997,7 +997,7 @@
                                             <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                         </div>
                                         <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer} / ${ress[i].no_vehicle}</span>
                                         </div>
                                     </div>`;
                                 }else if(ress[i].type_vehicle == 'Mobil'){
@@ -1007,7 +1007,7 @@
                                             <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                         </div>
                                         <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer} / ${ress[i].no_vehicle}</span>
                                         </div>
                                     </div>`;
                                 }else{
@@ -1018,7 +1018,7 @@
                                             <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                         </div>
                                         <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer} / ${ress[i].no_vehicle}</span>
                                         </div>
                                     </div>`;
                                 }
@@ -1419,7 +1419,7 @@
                                     </div>
                                     ${iconflagVip}
                                     <div style="position: absolute;margin-top: -7px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer} / ${ress.no_vehicle}</span>
                                     </div>
                                 </div>`;
                             }else if(ress.type_vehicle == 'Mobil'){
@@ -1430,7 +1430,7 @@
                                     </div>
                                     ${iconflagVip}
                                     <div style="position: absolute;margin-top: -7px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer} / ${ress.no_vehicle}</span>
                                     </div>
                                 </div>`;
                             }else{
@@ -1442,7 +1442,7 @@
                                     </div>
                                     ${iconflagVip}
                                     <div style="position: absolute;margin-top: -7px;">
-                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer} / ${ress.no_vehicle}</span>
                                     </div>
                                 </div>`;
                             }
