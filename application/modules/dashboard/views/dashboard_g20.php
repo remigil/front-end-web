@@ -1365,7 +1365,7 @@
                         var filterTime = result['data'].filter(function (e) {
                             return e.vips.length > 0 && e.accounts.length > 0 && e.start_time != null && e.end_time == null;
                         }); 
-                        // console.log(filterTime);
+                        console.log(filterTime);
 
                         if(filterTime.length > 0){
                             for (let i = 0; i < filterTime.length; i++) {   
@@ -1380,15 +1380,11 @@
                         
                     }else{
                         flagVip = '';
-                        // console.log('Data Renpam Tidak ada');
+                        console.log('Data Renpam Tidak ada');
                     }
                     
-                    // console.log({a:flagVip, b:ress.name_account});
-                    if(flagVip != ''){
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
-                    }else{
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px; width: 25px;height: 25px;"></div>`;
-                    }
+                    console.log({a:flagVip, b:ress.name_account});
+                    
 
 
                     // for (let i = 0; i < ress.length; i++) {  
@@ -1407,6 +1403,12 @@
                         
                         $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
                             
+                            if(flagVip != ''){
+                                iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
+                            }else{
+                                iconflagVip = `<div style="margin-top: -50px;margin-left: 6px; width: 25px;height: 25px;"></div>`;
+                            }
+
                             jenis = '';
                             if(ress.type_vehicle == 'Sepeda Motor'){
                                 // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
@@ -3524,7 +3526,7 @@
                                                     profile: 'car'
                                                 }),
                                                 lineOptions: {
-                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
                                                 },
                                                 createMarker: function(i, wp, nWps) {
                                                     if (i === 0 || i === nWps + 1) {
