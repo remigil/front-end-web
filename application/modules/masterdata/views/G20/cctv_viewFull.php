@@ -787,7 +787,7 @@
                         <div class="col-md-8">
                             <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:0px; margin-top: 5px; ">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV</a></li>
+                                    <li class="breadcrumb-item"><a href="<?= base_url()?>masterdata/cctv/">List Data CCTV Bali</a></li>
                                     <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
                                 </ol>
                             </nav>
