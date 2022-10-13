@@ -1699,8 +1699,8 @@
 
 
             for (let i = 0; i < markerJadwal.length; i++) { 
-                mapContainer.removeLayer(markerJadwal[i]);
-                mapContainer.removeLayer(jadwalClusterGroup);
+                jadwalClusterGroup.removeLayer(markerJadwal[i]);
+                // mapContainer.removeLayer(jadwalClusterGroup);
             }
             markerJadwal = new Array();
 
@@ -1717,8 +1717,8 @@
             markerFasum = new Array(); 
             
             for (let i = 0; i < markerFasumKhusus.length; i++) { 
-                mapContainer.removeLayer(markerFasumKhusus[i]);
-                mapContainer.removeLayer(fasumKhususClusterGroup);
+                fasumKhususClusterGroup.removeLayer(markerFasumKhusus[i]);
+                // mapContainer.removeLayer(fasumKhususClusterGroup);
             }
             markerFasumKhusus = new Array(); 
 
@@ -1728,14 +1728,14 @@
             markerPolres = new Array(); 
 
             for (let i = 0; i < markerLaporan.length; i++) { 
-                mapContainer.removeLayer(markerLaporan[i]);
-                mapContainer.removeLayer(laporanClusterGroup);
+                laporanClusterGroup.removeLayer(markerLaporan[i]);
+                // mapContainer.removeLayer(laporanClusterGroup);
             }
             markerLaporan = new Array();
 
             for (let i = 0; i < markerLaporanPanic.length; i++) { 
-                mapContainer.removeLayer(markerLaporanPanic[i]);
-                mapContainer.removeLayer(panicClusterGroup);
+                panicClusterGroup.removeLayer(markerLaporanPanic[i]);
+                // mapContainer.removeLayer(panicClusterGroup);
             }
             markerLaporanPanic = new Array();
 
