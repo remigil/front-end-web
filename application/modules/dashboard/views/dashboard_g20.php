@@ -970,7 +970,7 @@
                 dataType : "JSON",
                 success : function(result){  
                     $("#overlay").fadeOut(300); 
-                    // console.log('get Controller');
+                    console.log('get tracking');
                     
                     dummyGetTracking = result['data'];  
                     let ress = dummyGetTracking; 
@@ -1342,7 +1342,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            // console.log('ido3');
+            console.log('get Track from Soket');
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
