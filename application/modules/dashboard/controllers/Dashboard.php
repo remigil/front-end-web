@@ -110,9 +110,35 @@ class Dashboard extends MY_Controller
                 $ranmor[] = $key['ranmor'];
             }
 
+            // TripOn Pie Chart
+            $TripOn = guzzle_request(
+                'GET',
+                'count-trip-on',
+                [
+                    'headers' => [
+                        'Authorization' => $this->session->userdata['token']
+                    ]
+                ]
+            );
+            $polda_tripOn = array();
+            $polda_tripOn[] = $TripOn['data']['tripOn_mobil'];
+            $polda_tripOn[] = $TripOn['data']['tripOn_motor'];
 
 
-            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor];
+            // TroubleSpot
+            $TroubleSpot = guzzle_request(
+                'GET',
+                'troublespot',
+                [
+                    'headers' => [
+                        'Authorization' => $this->session->userdata['token']
+                    ]
+                ]
+            );
+
+            $polda_troublespot = $TroubleSpot['data'];
+
+            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot];
             $page_content["page"] = "dashboard/dashboard_view";
 
             // } else if ($this->session->userdata['role'] == 'Kapolda') {

@@ -374,62 +374,15 @@
                                 </tr>
                             </thead>
                             <tbody style="overflow:scroll;">
-                                <tr>
-                                    <td>Jakarta</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>5 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jawa Barat</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>4 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jawa Tengah</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bali</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Surabaya</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>4 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Sumatera</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bogor</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Depok</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
+                                <?php foreach ($data['polda_troublespot']['data'] as $key) : ?>
+                                    <tr>
+                                        <td><?= $key['polda']['name_polda'] ?></td>
+                                        <td><?= $key['location'] ?></td>
+                                        <td>
+                                            <h5>5 Jam</h5>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -483,6 +436,8 @@
             var bpkb = JSON.parse('<?= json_encode($data['bpkb']); ?>');
             var stnk = JSON.parse('<?= json_encode($data['stnk']); ?>');
             var ranmor = JSON.parse('<?= json_encode($data['ranmor']); ?>');
+
+            var polda_tripon = JSON.parse('<?= json_encode($data['polda_tripon']); ?>');
 
             var options_ditgakkum = {
                 series: [{
@@ -634,7 +589,7 @@
             ditkamsel.render();
 
             var options_tripon_kendaraan = {
-                series: [87, 60],
+                series: polda_tripon,
                 chart: {
                     width: 380,
                     type: 'pie',

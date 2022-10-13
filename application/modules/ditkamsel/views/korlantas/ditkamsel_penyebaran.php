@@ -210,7 +210,7 @@
                                     <td><?= $key['leaflet'] ?></td>
                                     <td><?= $key['stiker'] ?></td>
                                     <td><?= $key['billboard'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['jemensosprek'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
@@ -266,7 +266,7 @@
                                     <td><?= $key['leaflet'] ?></td>
                                     <td><?= $key['stiker'] ?></td>
                                     <td><?= $key['billboard'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['jemensosprek'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>

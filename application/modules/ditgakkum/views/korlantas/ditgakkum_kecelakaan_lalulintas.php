@@ -211,7 +211,7 @@
                                     <td><?= $key['meninggal_dunia'] ?></td>
                                     <td><?= $key['luka_berat'] ?></td>
                                     <td><?= $key['luka_ringan'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['kerugian_material'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach ?>
@@ -287,7 +287,7 @@
                                     <td><?= $key['meninggal_dunia'] ?></td>
                                     <td><?= $key['luka_berat'] ?></td>
                                     <td><?= $key['luka_ringan'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['kerugian_material'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach ?>
@@ -311,6 +311,7 @@
         var polda_meninggal_dunia = JSON.parse('<?= json_encode($data['polda_meninggal_dunia']); ?>');
         var polda_luka_berat = JSON.parse('<?= json_encode($data['polda_luka_berat']); ?>');
         var polda_luka_ringan = JSON.parse('<?= json_encode($data['polda_luka_ringan']); ?>');
+        var polda_kerugian_material = JSON.parse('<?= json_encode($data['polda_kerugian_material']); ?>');
         var polda_jumlah = JSON.parse('<?= json_encode($data['polda_jumlah']); ?>');
 
 
@@ -318,6 +319,7 @@
         var month_meninggal_dunia = JSON.parse('<?= json_encode($data['month_meninggal_dunia']); ?>');
         var month_luka_berat = JSON.parse('<?= json_encode($data['month_luka_berat']); ?>');
         var month_luka_ringan = JSON.parse('<?= json_encode($data['month_luka_ringan']); ?>');
+        var month_kerugian_material = JSON.parse('<?= json_encode($data['month_kerugian_material']); ?>');
         var month_jumlah = JSON.parse('<?= json_encode($data['month_jumlah']); ?>');
         // Data laka nasional
         var options_laka = {
@@ -400,7 +402,7 @@
         var options_kerugian_material = {
             series: [{
                 name: 'Kerugian Material',
-                data: [25061, 2113, 7832, 8076, 1387, 2119, 106, 235, 1052, 1262, 7810],
+                data: polda_kerugian_material,
                 color: '#11347A'
             }, ],
             chart: {
@@ -430,7 +432,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'NTT'],
+                categories: poldaName
             },
             yaxis: {
                 title: {
@@ -534,7 +536,7 @@
         var options_kerugian_material_tahun = {
             series: [{
                 name: 'Kerugian Material',
-                data: [25061, 2113, 7832, 8076, 1387, 2119, 106, 235, 1052, 1262, 7810],
+                data: month_kerugian_material,
                 color: '#11347A'
             }, ],
             chart: {
@@ -564,7 +566,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November'],
+                categories: poldaMonth
             },
             yaxis: {
                 title: {
