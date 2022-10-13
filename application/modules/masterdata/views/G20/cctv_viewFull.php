@@ -1451,6 +1451,7 @@
                         const { item } = data;
                         const type = item.dataset.type;
                         const vms = item.dataset.vms;
+                        const no = item.dataset.no;
                         var filterDummyCCTV = dummyCCTV.filter(function (e) {
                                                 return e.vms_cctv == vms;
                                             }); 
@@ -1476,6 +1477,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
@@ -1493,6 +1496,7 @@
                         const { item } = data;
                         const type = item.dataset.type;
                         const vms = item.dataset.vms;
+                        const no = item.dataset.no;
                         var filterDummyCCTV = dummyCCTV.filter(function (e) {
                                                 return e.vms_cctv == vms;
                                             }); 
@@ -1518,6 +1522,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
@@ -1535,6 +1541,7 @@
                         const { item } = data;
                         const type = item.dataset.type;
                         const vms = item.dataset.vms;
+                        const no = item.dataset.no;
                         var filterDummyCCTV = dummyCCTV.filter(function (e) {
                                                 return e.vms_cctv == vms;
                                             }); 
@@ -1560,6 +1567,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
@@ -1577,6 +1586,7 @@
                         const { item } = data;
                         const type = item.dataset.type;
                         const vms = item.dataset.vms;
+                        const no = item.dataset.no;
                         var filterDummyCCTV = dummyCCTV.filter(function (e) {
                                                 return e.vms_cctv == vms;
                                             }); 
@@ -1602,6 +1612,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
@@ -1619,6 +1631,7 @@
                         const { item } = data;
                         const type = item.dataset.type;
                         const vms = item.dataset.vms;
+                        const no = item.dataset.no;
                         var filterDummyCCTV = dummyCCTV.filter(function (e) {
                                                 return e.vms_cctv == vms;
                                             }); 
@@ -1644,6 +1657,8 @@
                                 item.innerHTML = `
                                     ${resource}
                                 `;
+                                $(".taro .drag-item").removeClass("col-md-12");
+                                $(".taro .drag-item").addClass('col-md-4');
                                 break; 
                             default:
                                 break;
