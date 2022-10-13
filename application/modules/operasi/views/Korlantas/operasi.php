@@ -42,23 +42,14 @@
             <div class="modal-body">
                 
                 <form action="" class="form">
-                    <div class="material-textfield">
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="material-textfield">
                         <input type="text" name="name_operation" id="" style="width:100% ;">
                         <label for="" class="labelmui">Nama Operasi</label>
                     </div>
-                    <div class="">
-                            <div class="material-selectfield">
-                            <select name="polda_id" class="form-select" style="width:100%" id="polda" required>
-                        <option selected value="">Pilih Polda</option>
-                        <?php
-                        foreach ($data['getPolda'] as $row) : ?>
-                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                                <label for="" class="labelmui">Polda</label>
-                            </div>
                         </div>
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="material-textfield">
                                 <input type="date" name="date_start_operation" id="" style="width:100% ;">
@@ -71,25 +62,35 @@
                                 <label for="" class="labelmui">Tanggal Selesai</label>
                             </div>
                         </div>
-                    </div>
-                   
-                    <div class="material-textfield">
+                        <div class="col-md-12">
+                   <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Document Sprint</label>
                     </div>
-                    <div class="material-textfield">
+                   </div>
+                   <div class="col-md-12">
+                   <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Logo</label>
                     </div>
-                    <div class="material-textfield">
+                   </div>
+                   <div class="col-md-12">
+                   <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Background Image</label>
                     </div>
-                    
-                    <div class="material-textfield">
+                   </div>
+                   <div class="col-md-12">
+                   <div class="material-textfield">
                         <input type="file" name="photo" id="" style="width:100%;" class="form-control">
                         <label for="" class="labelmui">Banner</label>
                     </div>
+                   </div>
+                    </div>
+       
+            
+                    
+                    
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
