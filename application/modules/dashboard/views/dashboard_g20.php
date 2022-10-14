@@ -163,7 +163,24 @@
 
                 <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                     <label>
-                        <input type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="mdi mdi-account-group"></i> Fasum Khusus</span>
+                        <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="mdi mdi-account-group"></i> Fasum Khusus</span>
+                    </label>
+                </div>
+
+                <div class="cat kegiatanDisplay">
+                    <label>
+                        <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                    </label>
+                </div>
+
+                <div class="cat cctvDisplay">
+                    <label>
+                        <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                    </label>
+                </div>
+                <div class="cat operasiDisplay">
+                    <label>
+                        <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Operasi</span>
                     </label>
                 </div>
 
@@ -173,23 +190,11 @@
                     </label>
                 </div>
 
-                <div class="cat operasiDisplay">
-                    <label>
-                        <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Operasi</span>
-                    </label>
-                </div>
+                
 
-                <div class="cat cctvDisplay">
-                    <label>
-                        <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
-                    </label>
-                </div>
+                
 
-                <div class="cat kegiatanDisplay">
-                    <label>
-                        <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
-                    </label>
-                </div>
+               
                 
             </div>  
         </div>
@@ -210,7 +215,7 @@
                             <th>Subjek</th> 
                             <th>Jarak Tempuh</th> 
                             <th>Waktu Tempuh</th>
-                            <!-- <th>Aksi</th> -->
+                            
                         </tr>
                     </thead>
                 </table>
@@ -3488,7 +3493,7 @@
 
                                     // console.log(dummyJadwalRenpam[i+1][ii]);
 
-                                    var typeRenpam = awalJadwalRenpam[i+1][ii];
+                                    var typeRenpam = typeJadwalRenpam[i+1][ii];
                                     if(typeRenpam == 3){ //penjagaan
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -3506,13 +3511,13 @@
                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
                                     }else{
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                     }
 
 
-                                    if(dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
+                                    if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
                                          
                                         if($(this).is(':checked')){  
                                             routingJadwalRenpam[`${i+1}${ii}`] = null;
@@ -3586,14 +3591,323 @@
                                             mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
                                         }
                                     }else{
-                                        console.log('error ini mah');
-                                        // Swal.fire(
-                                        // `Route Alternative tidak ada, atau belum di daftarkan!`, 
-                                        // '',
-                                        // 'warning'
-                                        // ).then(function() { 
-                                        // });
-                                    }   
+                                        console.log('error route utama'); 
+                                    } 
+                                  
+                                    if(dummyJadwalRenpamAlter[i+1][ii] != null && dummyJadwalRenpamAlter[i+1][ii].length > 0 && dummyJadwalRenpamAlter[i+1][ii][0]['latLng'] != null){
+                                          
+                                         if($(this).is(':checked')){  
+                                             routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                             routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                 show:false,
+                                                 draggableWaypoints: false,
+                                                 addWaypoints: false,
+                                                 waypoints: dummyJadwalRenpamAlter[i+1][ii],
+                                                 router: new L.Routing.osrmv1({
+                                                     language: 'en',
+                                                     profile: 'car'
+                                                 }),
+                                                 lineOptions: {
+                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                 },
+                                                 createMarker: function(i, wp, nWps) {
+                                                     if (i === 0 || i === nWps + 1) {
+                                                         // here change the starting and ending icons
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerType,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAwal}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else if (i === nWps - 1) {
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeEnd,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAkhir}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else {
+                                                         // here change all the others
+                                                         var options = {
+                                                                 draggable: this.draggableWaypoints,
+                                                             },
+                                                             marker = L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeOther,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         });
+     
+                                                         return marker;
+                                                     }
+                                                 },
+                                                 geocoder: L.Control.Geocoder.nominatim({})
+                                             }).addTo(mapContainer); 
+                                             // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                         }else{
+                                             mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                         }
+                                     }else{
+                                         console.log('error route utama'); 
+                                     } 
+
+
+                                     if(dummyJadwalRenpamAlterr[i+1][ii] != null && dummyJadwalRenpamAlterr[i+1][ii].length > 0 && dummyJadwalRenpamAlterr[i+1][ii][0]['latLng'] != null){
+                                         
+                                         if($(this).is(':checked')){  
+                                             routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                             routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                 show:false,
+                                                 draggableWaypoints: false,
+                                                 addWaypoints: false,
+                                                 waypoints: dummyJadwalRenpamAlterr[i+1][ii],
+                                                 router: new L.Routing.osrmv1({
+                                                     language: 'en',
+                                                     profile: 'car'
+                                                 }),
+                                                 lineOptions: {
+                                                    styles: [{color: "gray", weight: 5, className: 'animateRoute'}]
+                                                 },
+                                                 createMarker: function(i, wp, nWps) {
+                                                     if (i === 0 || i === nWps + 1) {
+                                                         // here change the starting and ending icons
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerType,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAwal}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else if (i === nWps - 1) {
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeEnd,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAkhir}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else {
+                                                         // here change all the others
+                                                         var options = {
+                                                                 draggable: this.draggableWaypoints,
+                                                             },
+                                                             marker = L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeOther,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         });
+     
+                                                         return marker;
+                                                     }
+                                                 },
+                                                 geocoder: L.Control.Geocoder.nominatim({})
+                                             }).addTo(mapContainer); 
+                                             // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                         }else{
+                                             mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                         }
+                                     }else{
+                                         console.log('error route utama'); 
+                                     }  
+
+
+                                     if(dummyJadwalRenpamAlterrr[i+1][ii] != null && dummyJadwalRenpamAlterrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrr[i+1][ii][0]['latLng'] != null){
+                                         
+                                         if($(this).is(':checked')){  
+                                             routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                             routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                 show:false,
+                                                 draggableWaypoints: false,
+                                                 addWaypoints: false,
+                                                 waypoints: dummyJadwalRenpamAlterrr[i+1][ii],
+                                                 router: new L.Routing.osrmv1({
+                                                     language: 'en',
+                                                     profile: 'car'
+                                                 }),
+                                                 lineOptions: {
+                                                    styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}]
+                                                 },
+                                                 createMarker: function(i, wp, nWps) {
+                                                     if (i === 0 || i === nWps + 1) {
+                                                         // here change the starting and ending icons
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerType,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAwal}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else if (i === nWps - 1) {
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeEnd,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAkhir}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else {
+                                                         // here change all the others
+                                                         var options = {
+                                                                 draggable: this.draggableWaypoints,
+                                                             },
+                                                             marker = L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeOther,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         });
+     
+                                                         return marker;
+                                                     }
+                                                 },
+                                                 geocoder: L.Control.Geocoder.nominatim({})
+                                             }).addTo(mapContainer); 
+                                             // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                         }else{
+                                             mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                         }
+                                     }else{
+                                         console.log('error route utama'); 
+                                     } 
+
+
+                                     if(dummyJadwalRenpamAlterrrr[i+1][ii] != null && dummyJadwalRenpamAlterrrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrrr[i+1][ii][0]['latLng'] != null){
+                                         
+                                         if($(this).is(':checked')){  
+                                             routingJadwalRenpam[`${i+1}${ii}`] = null;
+                                             routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                 show:false,
+                                                 draggableWaypoints: false,
+                                                 addWaypoints: false,
+                                                 waypoints: dummyJadwalRenpamAlterrrr[i+1][ii],
+                                                 router: new L.Routing.osrmv1({
+                                                     language: 'en',
+                                                     profile: 'car'
+                                                 }),
+                                                 lineOptions: {
+                                                    styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}]
+                                                 },
+                                                 createMarker: function(i, wp, nWps) {
+                                                     if (i === 0 || i === nWps + 1) {
+                                                         // here change the starting and ending icons
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerType,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAwal}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else if (i === nWps - 1) {
+                                                         return L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeEnd,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         }).bindPopup(`
+                                                             <div class="text-center"> 
+                                                                 <h3>${titikAkhir}</h3>
+                                                             </div> 
+                                                         `);
+                                                     } else {
+                                                         // here change all the others
+                                                         var options = {
+                                                                 draggable: this.draggableWaypoints,
+                                                             },
+                                                             marker = L.marker(wp.latLng, {
+                                                             icon: L.divIcon({
+                                                                 className: "location-pin",
+                                                                 html: markerTypeOther,
+                                                                 iconSize: [5, 5],
+                                                                 //iconAnchor: [18, 30]
+                                                                 iconAnchor: [5, 10],
+                                                             }),
+                                                             draggable: this.draggableWaypoints,
+                                                         });
+     
+                                                         return marker;
+                                                     }
+                                                 },
+                                                 geocoder: L.Control.Geocoder.nominatim({})
+                                             }).addTo(mapContainer); 
+                                             // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                         }else{
+                                             mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                         }
+                                     }else{
+                                         console.log('error route utama'); 
+                                     } 
+
+
+
+
                                 }
  
  

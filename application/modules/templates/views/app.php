@@ -227,7 +227,7 @@
             z-index: 10;
             position: absolute;
             border-radius: 50%;
-            background: #3f51b5;
+            background: #3f51b5; 
         }
 
         .pin {
@@ -239,7 +239,7 @@
             transform: rotate(-45deg);
             left: 50%;
             top: 50%;
-            margin: -20px 0 0 -20px;
+            margin: -20px 0 0 -20px; 
         }
 
         .pin:after {
