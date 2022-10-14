@@ -44,8 +44,8 @@
                         <label class="labelmui">Nama VIP</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="asalNegara" class="form-select">
-                            <option value="">Pilih Negara Kedatangan</option> 
+                        <select name="asalNegara" class="form-select" id="select">
+                            <option value=""></option> 
                             <?php foreach($data['getCountry'] as $row): ?>
                                 <option value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
                             <?php endforeach; ?> 
@@ -53,8 +53,8 @@
                         <label class="labelmui">Negara Kedatangan</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select name="jabatan" class="form-select">
-                            <option value="">Pilih Jabatan</option>
+                        <select name="jabatan" class="form-select" id="select2">
+                            <option value=""></option>
                             <?php foreach($data['getPosition'] as $row): ?>
                                 <option value="<?php echo $row['name_position'];?>"><?php echo $row['name_position'];?></option> 
                             <?php endforeach; ?> 
@@ -99,6 +99,26 @@
 
 <script>
     $(document).ready(function() {
+        new Choices('#select', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            }); 
+
+            new Choices('#select2', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            }); 
+        
         var userDataTable = $('#datatable').DataTable({ 
 
             responsive: true, 

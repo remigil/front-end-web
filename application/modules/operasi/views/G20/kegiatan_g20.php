@@ -135,7 +135,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="category_renpam" class="form-select"> 
+                                <select required name="category_renpam" class="form-select" id="select"> 
                                     <option  value="">Pilih Category</option>  
                                     <option selected value="1">Operasi</option>  
                                     <option  value="2">Harian</option>  
@@ -178,7 +178,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select required name="subjekR" class="form-select">
+                                <select required name="subjekR" class="form-select" id="select2">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -186,7 +186,7 @@
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option> 
                                 </select>
-                                <label class="labelmui">Subjek</label>
+                                <!-- <label class="labelmui">Subjek</label> -->
                             </div>
                         </div> 
                         <div class="col-md-6">
@@ -741,6 +741,26 @@
         
         $('#startTimeR').clockpicker({
             autoclose: true
+        }); 
+
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
         }); 
 
         new Choices('#id_vipR', {

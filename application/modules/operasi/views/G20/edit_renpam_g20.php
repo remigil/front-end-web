@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select required name="subjek" class="form-select">
+                                    <select required name="subjek" id="select" >
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == null ? 'selected' : ''); ?> value="">Pilih Subjek</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '1' ? 'selected' : ''); ?> value="1">Patroli</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '2' ? 'selected' : ''); ?> value="2">Pengawalan</option>
@@ -78,7 +78,7 @@
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '5' ? 'selected' : ''); ?> value="5">Penutupan</option>
 
                                     </select>
-                                    <label class="labelmui">Subjek</label>
+                                    <!-- <label class="labelmui">Subjek</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -245,6 +245,16 @@
         let arrayWaypoint = [];
 
         $(document).ready(function() {
+            new Choices('#select', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            }); 
+            
             $('#startTime').clockpicker({
                 autoclose: true
             });
