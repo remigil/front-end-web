@@ -44,12 +44,14 @@ class GarlantasKonvensional extends MY_Controller
             $polda_pelanggaran_berat = array();
             $polda_pelanggaran_ringan = array();
             $polda_pelanggaran_sedang = array();
+            $polda_teguran = array();
             $polda_jumlah = array();
             foreach ($dataNasional as $key) {
                 $poldaName[] = $key['name_polda'];
                 $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
                 $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
                 $polda_pelanggaran_sedang[] = $key['pelanggaran_sedang'];
+                $polda_teguran[] = $key['teguran'];
                 $polda_jumlah[] = $key['jumlah'];
             }
 
@@ -61,7 +63,7 @@ class GarlantasKonvensional extends MY_Controller
                 $row['pelanggaran_berat'] = $field['pelanggaran_berat'];
                 $row['pelanggaran_sedang'] = $field['pelanggaran_sedang'];
                 $row['pelanggaran_ringan'] = $field['pelanggaran_ringan'];
-                $row['jumlah'] = $field['jumlah'];
+                $row['teguran'] = $field['teguran'];
                 $row['jumlah'] = $field['jumlah'];
 
                 $dataMonth[] = $row;
@@ -72,12 +74,15 @@ class GarlantasKonvensional extends MY_Controller
             $month_pelanggaran_berat = array();
             $month_pelanggaran_ringan = array();
             $month_pelanggaran_sedang = array();
+            $month_teguran = array();
             $month_jumlah = array();
             foreach ($dataMonth as $key) {
                 $poldaMonth[] = $key['date'];
                 $month_pelanggaran_berat[] = $key['pelanggaran_berat'];
                 $month_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
                 $month_pelanggaran_sedang[] = $key['pelanggaran_sedang'];
+                $month_teguran[] = $key['teguran'];
+
                 $month_jumlah[] = $key['jumlah'];
             }
 

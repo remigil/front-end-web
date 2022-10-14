@@ -43,12 +43,14 @@ class LakaLantas extends MY_Controller
             $polda_meninggal_dunia = array();
             $polda_luka_berat = array();
             $polda_luka_ringan = array();
+            $polda_kerugian_material = array();
             $polda_jumlah = array();
             foreach ($dataNasional as $key) {
                 $poldaName[] = $key['name_polda'];
                 $polda_meninggal_dunia[] = $key['meninggal_dunia'];
                 $polda_luka_berat[] = $key['luka_berat'];
                 $polda_luka_ringan[] = $key['luka_ringan'];
+                $polda_kerugian_material[] = $key['kerugian_material'];
                 $polda_jumlah[] = $key['jumlah'];
             }
 
@@ -60,7 +62,7 @@ class LakaLantas extends MY_Controller
                 $row['meninggal_dunia'] = $field['meninggal_dunia'];
                 $row['luka_ringan'] = $field['luka_ringan'];
                 $row['luka_berat'] = $field['luka_berat'];
-                $row['jumlah'] = $field['jumlah'];
+                $row['kerugian_material'] = $field['kerugian_material'];
                 $row['jumlah'] = $field['jumlah'];
 
                 $dataMonth[] = $row;
@@ -71,16 +73,18 @@ class LakaLantas extends MY_Controller
             $month_meninggal_dunia = array();
             $month_luka_berat = array();
             $month_luka_ringan = array();
+            $month_kerugian_material = array();
             $month_jumlah = array();
             foreach ($dataMonth as $key) {
                 $poldaMonth[] = $key['date'];
                 $month_meninggal_dunia[] = $key['meninggal_dunia'];
                 $month_luka_berat[] = $key['luka_berat'];
                 $month_luka_ringan[] = $key['luka_ringan'];
+                $month_kerugian_material[] = $key['kerugian_material'];
                 $month_jumlah[] = $key['jumlah'];
             }
 
-            $page_content["data"] = ['meninggal_dunia' => $meninggal_dunia, 'luka_berat' => $luka_berat, 'luka_ringan' => $luka_ringan, 'jumlah' => $jumlah, 'menu' => 'Ditgakkum', 'submenu' => 'Kecelakaan Lalu Lintas', 'headline' => 'Kecelakaan Lalu Lintas', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_meninggal_dunia' => $polda_meninggal_dunia, 'polda_luka_berat' => $polda_luka_berat, 'polda_luka_ringan' => $polda_luka_ringan, 'polda_jumlah' => $polda_jumlah, 'month' => $poldaMonth, 'month_meninggal_dunia' => $month_meninggal_dunia, 'month_luka_berat' => $month_luka_berat, 'month_luka_ringan' => $month_luka_ringan, 'month_jumlah' => $month_jumlah];
+            $page_content["data"] = ['meninggal_dunia' => $meninggal_dunia, 'luka_berat' => $luka_berat, 'luka_ringan' => $luka_ringan, 'jumlah' => $jumlah, 'menu' => 'Ditgakkum', 'submenu' => 'Kecelakaan Lalu Lintas', 'headline' => 'Kecelakaan Lalu Lintas', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_meninggal_dunia' => $polda_meninggal_dunia, 'polda_luka_berat' => $polda_luka_berat, 'polda_luka_ringan' => $polda_luka_ringan, 'polda_kerugian_material' => $polda_kerugian_material, 'polda_jumlah' => $polda_jumlah, 'month' => $poldaMonth, 'month_meninggal_dunia' => $month_meninggal_dunia, 'month_luka_berat' => $month_luka_berat, 'month_luka_ringan' => $month_luka_ringan, 'month_kerugian_material' => $month_kerugian_material, 'month_jumlah' => $month_jumlah];
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_kecelakaan_lalulintas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "ditgakkum/polda/ditgakkum_kecelakaan_lalulintas";

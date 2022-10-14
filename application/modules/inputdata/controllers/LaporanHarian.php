@@ -108,6 +108,7 @@ class LaporanHarian extends MY_Controller
                     'pelanggaran_berat' => $this->input->post('pelanggaran_berat')[$i],
                     'pelanggaran_ringan' => $this->input->post('pelanggaran_ringan')[$i],
                     'pelanggaran_sedang' => $this->input->post('pelanggaran_sedang')[$i],
+                    'teguran' => $this->input->post('teguran')[$i]
                 ];
 
                 array_push($value, $object);
@@ -122,6 +123,7 @@ class LaporanHarian extends MY_Controller
                     'meninggal_dunia' => $this->input->post('meninggal_dunia')[$i],
                     'luka_berat' => $this->input->post('luka_berat')[$i],
                     'luka_ringan' => $this->input->post('luka_ringan')[$i],
+                    'kerugian_material' => $this->input->post('kerugian_material')[$i]
                 ];
 
                 array_push($value, $object);
@@ -161,6 +163,7 @@ class LaporanHarian extends MY_Controller
                     'leaflet' => $this->input->post('leaflet')[$i],
                     'spanduk' => $this->input->post('spanduk')[$i],
                     'billboard' => $this->input->post('billboard')[$i],
+                    'jemensosprek' => $this->input->post('jemensosprek')[$i]
                 ];
 
                 array_push($value, $object);
@@ -230,8 +233,8 @@ class LaporanHarian extends MY_Controller
                 'contents' => $value
             ]
         ];
-        // var_dump($date);
-        // die;
+
+        
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'polda_id' => $polda_id,

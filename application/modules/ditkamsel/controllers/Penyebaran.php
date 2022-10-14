@@ -50,7 +50,7 @@ class Penyebaran extends MY_Controller
                 $polda_spanduk[] = $key['spanduk'];
                 $polda_stiker[] = $key['stiker'];
                 $polda_billboard[] = $key['billboard'];
-                $polda_jemensosprek[] = 0;
+                $polda_jemensosprek[] = $key['jemensosprek'];
             }
 
             // Penyebaran Month
@@ -62,6 +62,7 @@ class Penyebaran extends MY_Controller
                 $row['stiker'] = $field['stiker'];
                 $row['spanduk'] = $field['spanduk'];
                 $row['billboard'] = $field['billboard'];
+                $row['jemensosprek'] = $field['jemensosprek'];
                 $row['jumlah'] = $field['jumlah'];
 
                 $dataMonth[] = $row;
@@ -80,7 +81,7 @@ class Penyebaran extends MY_Controller
                 $month_spanduk[] = $key['spanduk'];
                 $month_stiker[] = $key['stiker'];
                 $month_billboard[] = $key['billboard'];
-                $month_jemensosprek[] = 0;
+                $month_jemensosprek[] = $key['jemensosprek'];
             }
 
             $page_content["data"] = ['leaflet' => $leaflet, 'spanduk' => $spanduk, 'stiker' => $stiker, 'billboard' => $billboard, 'menu' => 'Ditkamsel', 'submenu' => 'Penyebaran dan pemasangan', 'headline' => 'Penyebaran dan Pemasangan', 'topPolda' => $topPolda, 'polda' => $dataNasional, 'poldaMonth' => $dataMonth, 'poldaName' => $poldaName, 'polda_leaflet' => $polda_leaflet, 'polda_spanduk' => $polda_spanduk, 'polda_stiker' => $polda_stiker, 'polda_billboard' => $polda_billboard, 'polda_jemensosprek' => $polda_jemensosprek, 'month' => $poldaMonth, 'month_leaflet' => $month_leaflet, 'month_spanduk' => $month_spanduk, 'month_stiker' => $month_stiker, 'month_billboard' => $month_billboard, 'month_jemensosprek' => $month_jemensosprek];

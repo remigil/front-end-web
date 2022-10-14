@@ -178,122 +178,34 @@
                     <div class="mt-5 text-center">
                         <h5>Top 5 Polda Tertinggi</h5>
                     </div>
-                    <div class="mt-2">
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">1. JABAR</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-4">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">2. JATENG</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
+                    <div class="mt-2 mb-2">
+                        <?php $i = 1; ?>
+                        <?php foreach ($data['best_polda'] as $key) : ?>
+                            <div class="card ms-4 me-4 mx-1 my-1">
+                                <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0"><?= $i; ?>. <?= $key['name_polda'] ?></h5>
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <div class="col-md-3 col-sm-4">
+                                            <h5 class="fw-bold p-0 m-0"><?= $key['kemacetan'] ?></h5>
+                                            <p class="p-0 m-0">Kemacematan</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <h5 class="fw-bold p-0 m-0"><?= $key['garlantas'] ?></h5>
+                                            <p class="p-0 m-0">Pelanggaran</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <h5 class="fw-bold p-0 m-0"><?= $key['lakalantas'] ?></h5>
+                                            <p class="p-0 m-0">Kecelakaan</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <h5 class="fw-bold p-0 m-0"><?= $key['total'] ?></h5>
+                                            <p class="p-0 m-0">Total</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">3. METRO JAYA</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">4. JATIM</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">5. BANTEN</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -374,62 +286,15 @@
                                 </tr>
                             </thead>
                             <tbody style="overflow:scroll;">
-                                <tr>
-                                    <td>Jakarta</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>5 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jawa Barat</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>4 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jawa Tengah</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bali</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Surabaya</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>4 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Sumatera</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bogor</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Depok</td>
-                                    <td>Simpang Lima Senen, Kramat, Kota Jakarta Pusat, Daerah Khsusus Ibu Kota jakarta</td>
-                                    <td>
-                                        <h5>3 Jam</h5>
-                                    </td>
-                                </tr>
+                                <?php foreach ($data['polda_troublespot']['data'] as $key) : ?>
+                                    <tr>
+                                        <td><?= $key['polda']['name_polda'] ?></td>
+                                        <td><?= $key['location'] ?></td>
+                                        <td>
+                                            <h5>5 Jam</h5>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -483,6 +348,8 @@
             var bpkb = JSON.parse('<?= json_encode($data['bpkb']); ?>');
             var stnk = JSON.parse('<?= json_encode($data['stnk']); ?>');
             var ranmor = JSON.parse('<?= json_encode($data['ranmor']); ?>');
+
+            var polda_tripon = JSON.parse('<?= json_encode($data['polda_tripon']); ?>');
 
             var options_ditgakkum = {
                 series: [{
@@ -634,7 +501,7 @@
             ditkamsel.render();
 
             var options_tripon_kendaraan = {
-                series: [87, 60],
+                series: polda_tripon,
                 chart: {
                     width: 380,
                     type: 'pie',

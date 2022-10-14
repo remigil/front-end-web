@@ -130,11 +130,11 @@
                 if (jenis_laporan == 1) {
                     field_input.push(`<input type="number" name="capture_camera[]" class="form-control" value="0">`, `<input type="number" name="statis[]" class="form-control" value="0">`, `<input type="number" name="mobile[]" class="form-control" value="0">`, `<input type="number" name="online[]" class="form-control" value="0">`, `<input type="number" name="posko[]" class="form-control" value="0">`, `<input type="number" name="preemtif[]" class="form-control" value="0">`, `<input type="number" name="preventif[]" class="form-control" value="0">`, `<input type="number" name="odol_227[]" class="form-control" value="0">`, `<input type="number" name="odol_307[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 2) {
-                    laporan.push('Pelanggaran Berat', 'Pelanggaran Sedang', 'Pelanggaran Ringan')
-                    field_input.push(`<input type="number" name="pelanggaran_berat[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_sedang[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_ringan[]" class="form-control" value="0">`)
+                    laporan.push('Pelanggaran Berat', 'Pelanggaran Sedang', 'Pelanggaran Ringan', 'Teguran')
+                    field_input.push(`<input type="number" name="pelanggaran_berat[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_sedang[]" class="form-control" value="0">`, `<input type="number" name="pelanggaran_ringan[]" class="form-control" value="0">`, `<input type="number" name="teguran[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 3) {
-                    laporan.push('Meninggal dunia', 'Luka Berat', 'Luka Ringan')
-                    field_input.push(`<input type="number" name="meninggal_dunia[]" class="form-control" value="0">`, `<input type="number" name="luka_berat[]" class="form-control" value="0">`, `<input type="number" name="luka_ringan[]" class="form-control" value="0">`)
+                    laporan.push('Meninggal dunia', 'Luka Berat', 'Luka Ringan', 'Kerugian Material')
+                    field_input.push(`<input type="number" name="meninggal_dunia[]" class="form-control" value="0">`, `<input type="number" name="luka_berat[]" class="form-control" value="0">`, `<input type="number" name="luka_ringan[]" class="form-control" value="0">`, `<input type="number" name="kerugian_material[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 4) {
                     laporan.push('Penjagaan', 'Pengawalan', 'Patroli', 'Pengaturan')
                     field_input.push(`<input type="number" name="penjagaan[]" class="form-control" value="0">`, `<input type="number" name="pengawalan[]" class="form-control" value="0">`, `<input type="number" name="patroli[]" class="form-control" value="0">`, `<input type="number" name="pengaturan[]" class="form-control" value="0">`)
@@ -142,8 +142,8 @@
                     laporan.push('Media Cetak', 'Media Elektronik', 'Media Sosial', 'Laka Langgar')
                     field_input.push(`<input type="number" name="media_cetak[]" class="form-control" value="0">`, `<input type="number" name="media_elektronik[]" class="form-control" value="0">`, `<input type="number" name="media_sosial[]" class="form-control" value="0">`, `<input type="number" name="laka_langgar[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 6) {
-                    laporan.push('Stiker', 'Leaflet', 'Spanduk', 'Billboard')
-                    field_input.push(`<input type="number" name="stiker[]" class="form-control" value="0">`, `<input type="number" name="leaflet[]" class="form-control" value="0">`, `<input type="number" name="spanduk[]" class="form-control" value="0">`, `<input type="number" name="billboard[]" class="form-control" value="0">`)
+                    laporan.push('Stiker', 'Leaflet', 'Spanduk', 'Billboard', 'JEMENSOSPREK')
+                    field_input.push(`<input type="number" name="stiker[]" class="form-control" value="0">`, `<input type="number" name="leaflet[]" class="form-control" value="0">`, `<input type="number" name="spanduk[]" class="form-control" value="0">`, `<input type="number" name="billboard[]" class="form-control" value="0">`, `<input type="number" name="jemensosprek[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 7) {
                     laporan.push('Baru', 'Perpanjangan')
                     field_input.push(`<input type="number" name="baru[]" class="form-control" value="0">`, `<input type="number" name="perpanjangan[]" class="form-control" value="0">`)

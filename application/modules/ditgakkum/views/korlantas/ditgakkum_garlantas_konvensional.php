@@ -182,7 +182,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Polda</th>
-                                <th>Dakgar</th>
                                 <th>Berat</th>
                                 <th>Sedang</th>
                                 <th>Ringan</th>
@@ -195,11 +194,10 @@
                                 <tr>
                                     <th scope="row"><?= $i; ?></th>
                                     <td><?= $key['name_polda'] ?></td>
-                                    <td>0</td>
                                     <td><?= $key['pelanggaran_berat'] ?></td>
                                     <td><?= $key['pelanggaran_sedang'] ?></td>
                                     <td><?= $key['pelanggaran_ringan'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['teguran'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach ?>
@@ -240,7 +238,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Bulan</th>
-                                <th>Dakgar</th>
                                 <th>Berat</th>
                                 <th>Sedang</th>
                                 <th>Ringan</th>
@@ -253,11 +250,10 @@
                                 <tr>
                                     <th scope="row"><?= $i; ?></th>
                                     <td><?= $key['date'] ?></td>
-                                    <td>0</td>
                                     <td><?= $key['pelanggaran_berat'] ?></td>
                                     <td><?= $key['pelanggaran_sedang'] ?></td>
                                     <td><?= $key['pelanggaran_ringan'] ?></td>
-                                    <td>0</td>
+                                    <td><?= $key['teguran'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach ?>
