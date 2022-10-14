@@ -77,12 +77,23 @@ class Dashboard extends MY_Controller
             $lakalantas = array();
             $garlantas = array();
             $turjagwali = array();
+            $topPolda = array();
             foreach ($ditgakkum['data'] as $key) {
+                $row = array();
+
                 $polda_ditgakkum[] = $key['name_polda'];
                 $lakalantas[] = $key['lakalantas'];
                 $lakalanggar[] = $key["lakalanggar"];
                 $garlantas[] = $key['garlantas'];
                 $turjagwali[] = $key['turjagwali'];
+
+                $row['name_polda'] = $key['name_polda'];
+                $row['garlantas'] = $key['garlantas'];
+                $row['lakalantas'] = $key['lakalantas'];
+                $row['kemacetan'] = 0;
+                $row['total'] = $key['garlantas'] + $key['lakalantas'];
+
+                $topPolda[] = $row;
             }
 
 
@@ -138,7 +149,13 @@ class Dashboard extends MY_Controller
 
             $polda_troublespot = $TroubleSpot['data'];
 
-            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot];
+
+            // Top Polda
+            array_multisort(array_column($topPolda, "total"), SORT_DESC, $topPolda);
+            $bestPolda = array_slice($topPolda, 0, 5);
+
+
+            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot, 'best_polda' => $bestPolda];
             $page_content["page"] = "dashboard/dashboard_view";
 
             // } else if ($this->session->userdata['role'] == 'Kapolda') {
