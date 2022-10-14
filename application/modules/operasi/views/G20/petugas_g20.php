@@ -65,8 +65,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
-                            <select name="pangkat" class="form-select">
-                                <option selected>Pilih Pangkat</option>
+                            <select name="pangkat" class="form-select" id="select">
+                                <option selected></option>
 
                                 <?php foreach($data['getRank'] as $row): ?>
                                     <option value="<?php echo $row['name_rankOfficer'];?>"><?php echo $row['name_rankOfficer'];?></option> 
@@ -77,8 +77,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
-                            <select name="struktural" class="form-select">
-                                <option selected>Pilih Strukturan</option>
+                            <select name="struktural" class="form-select" id="select2">
+                                <option selected></option>
 
                                 <?php foreach($data['getStructural'] as $row): ?>
                                     <option value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
@@ -123,6 +123,26 @@
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
+
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
 
         var userDataTable = $('#datatable').DataTable({ 
 

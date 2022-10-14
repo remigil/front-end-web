@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="struktural" class="form-select">
+                                    <select name="struktural" class="form-select" id="select">
                                         <option <?php echo ($data['getDetail']['data']['structural_officer'] == null ? 'selected' : '');?> value="">Pilih Strukturan</option>
 
                                         <?php foreach($data['getStructural'] as $row): ?>
@@ -46,7 +46,7 @@
                                         <?php endforeach; ?>  
                                          
                                     </select>
-                                    <label class="labelmui">Strukturan</label>
+                                    <!-- <label class="labelmui">Strukturan</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="pangkat">
+                                    <select class="form-select" name="pangkat" id="select2">
                                         <option <?php echo ($data['getDetail']['data']['rank_officer'] == null ? 'selected' : '');?> value="">Pilih Pangkat</option>
 
                                         <?php foreach($data['getRank'] as $row): ?>
@@ -71,7 +71,7 @@
                                         <?php endforeach; ?>  
                                          
                                     </select>
-                                    <label class="labelmui">Pangkat </label>
+                                    <!-- <label class="labelmui">Pangkat </label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="status">
+                                    <select class="form-select" name="status" id="select3">
                                         <option <?php echo ($data['getDetail']['data']['status_officer'] == null ? 'selected' : '');?> value="">Pilih Status</option>
                                         <option <?php echo ($data['getDetail']['data']['status_officer'] == '1' ? 'selected' : '');?> value="1">Active</option>
                                         <option <?php echo ($data['getDetail']['data']['status_officer'] == '0' ? 'selected' : '');?> value="0">Inactive</option>
@@ -105,6 +105,36 @@
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
+
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+new Choices('#select3', {
+    searchEnabled: true,
+    removeItemButton: true,
+    removeItems: true,
+    itemSelectText: '',
+    classNames: {
+        containerOuter: 'choices select-choices',
+    },
+}); 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 

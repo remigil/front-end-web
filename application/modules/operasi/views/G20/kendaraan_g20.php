@@ -45,8 +45,8 @@
                         <label class="labelmui">No Kendaraan</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select class="form-select" name="jenisKendaraan">
-                            <option selected>Pilih Jenis Kendaraan</option>
+                        <select class="form-select" name="jenisKendaraan" id="select">
+                            <option selected></option>
                             <option value="Mobil">Mobil</option>
                             <option value="Sepeda Motor">Sepeda Motor</option>
                         </select>
@@ -55,8 +55,8 @@
 
 
                     <div class="material-selectfield mb-3">
-                        <select class="form-select" name="jenisBahanBakar">
-                            <option selected>Pilih Jenis Bahan Bakar</option>
+                        <select class="form-select" name="jenisBahanBakar" id="select2">
+                            <option selected></option>
                             <?php foreach($data['getFuel'] as $row): ?>
                                 <option value="<?php echo $row['name_fuelVehicle'];?>"><?php echo $row['name_fuelVehicle'];?></option> 
                             <?php endforeach; ?>  
@@ -69,8 +69,8 @@
                         <label class="labelmui">Merek</label>
                     </div>
                     <div class="material-selectfield mb-3">
-                        <select class="form-select" name="kepemilikan">
-                            <option selected>Pilih Kepemilikan</option>
+                        <select class="form-select" name="kepemilikan" id="select3">
+                            <option selected></option>
 
                             <?php foreach($data['getOwnership'] as $row): ?>
                                 <option value="<?php echo $row['name_ownershipVehicle'];?>"><?php echo $row['name_ownershipVehicle'];?></option> 
@@ -126,6 +126,35 @@
 <script>
     $(document).ready(function() {
         // $('#datatable').DataTable();
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select3', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
         var userDataTable = $('#datatable').DataTable({ 
 
             responsive: true, 

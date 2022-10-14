@@ -34,26 +34,26 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="jabatan" class="form-select">
-                                        <option <?php echo ($data['getDetail']['data']['position_vip'] == null ? 'selected' : '');?> value="">Pilih Jabatan</option>
+                                    <select name="jabatan" class="form-select" id="select">
+                                        <option <?php echo ($data['getDetail']['data']['position_vip'] == null ? 'selected' : '');?> value=""></option>
                                         <?php foreach($data['getPosition'] as $row): ?>
                                             <option <?php echo ($data['getDetail']['data']['position_vip'] == $row['name_position'] ? 'selected' : '');?> value="<?php echo $row['name_position'];?>"><?php echo $row['name_position'];?></option> 
                                         <?php endforeach; ?>  
                                     </select>
-                                    <label class="labelmui">Jabatan</label>
+                                    <!-- <label class="labelmui">Jabatan</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select name="asalNegara" class="form-select">
-                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == null ? 'selected' : '');?> value="">Pilih Negara Kedatangan</option>
+                                    <select name="asalNegara" class="form-select" id="select2" required>
+                                        <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == null ? 'selected' : '');?> value=""></option>
                                          
                                         <?php foreach($data['getCountry'] as $row): ?>
                                             <option <?php echo ($data['getDetail']['data']['country_arrival_vip'] == $row['name_country'] ? 'selected' : '');?> value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
                                         <?php endforeach; ?> 
  
                                     </select>
-                                    <label class="labelmui">Negara Kedatangan</label>
+                                    <!-- <label class="labelmui">Negara Kedatangan</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -76,6 +76,26 @@
 
 <script>
     $(document).ready(function() {
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 
