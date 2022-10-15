@@ -37,9 +37,15 @@
                                     <select required name="id_account[]" id="id_account" style="height: 200px;" multiple>
                                         <?php foreach ($data['getAccount'] as $row) : ?>
                                             <option 
-                                            <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> 
-                                                <?php echo ($rowSelect['name_account'] == $row['name_account'] ? 'selected' : ''); ?> 
+                                                <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> 
+                                                    <?php if ($rowSelect['name_account'] == $row['name_account']){?>
+                                                        selected
+                                                    <?php }else{ ?>
+                                                        
+                                                    <?php } ?>
+                                                   
                                                 <?php endforeach; ?> 
+
                                                 value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
                                             </option>
                                         <?php endforeach; ?>
