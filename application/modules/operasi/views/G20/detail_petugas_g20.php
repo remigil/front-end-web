@@ -24,7 +24,7 @@
                         <div class="col-12">
                             <div class="row text-primary">
                                 <div class="col-md-3">
-                                    <img src="<?php echo ($data['getDetail']['data']['photo_officer'] != null ? ''.urlApi().'public/uploads/officer/'.$data['getDetail']['data']['photo_officer'].'' : '');?>" alt="">
+                                    <img src="<?php echo ($data['getDetail']['data']['photo_officer'] != null ? ''.url_api().'public/uploads/officer/'.$data['getDetail']['data']['photo_officer'].'' : '');?>" alt="">
                                 </div>
                                 <div class="col-md-2">
                                     <p>NAMA PETUGAS</p>
