@@ -236,8 +236,8 @@ class Renpam extends MY_Controller
         // $dummy ['route_alternatif_2']	= $input['coordsAlternative2']; 
         $dummy['route_masyarakat']    = $input['coordsAlternative3'];
         $dummy['route_umum']    = $input['coordsAlternative4'];
-        // echo json_encode($dummy);
-        // die; 
+        echo json_encode($dummy);
+        die; 
 
 
         $data = guzzle_request('POST', 'renpam/add', [

@@ -315,8 +315,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Tanggal</th>
-                                            <th>Waktu Mulai</th> 
+                                            <th>Tanggal & Waktu</th> 
                                             <th>Unit Pengawalan</th>
                                             <th>Penugasan</th>
                                             <th>Delegasi</th>
@@ -3300,11 +3299,8 @@
                         data: 'id'
                     },
                     {
-                        data: 'date'
-                    },
-                    {
-                        data: 'waktu'
-                    },
+                        data: 'dateTime'
+                    }, 
                     
                     {
                         data: 'accounts',

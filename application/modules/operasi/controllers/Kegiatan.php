@@ -384,7 +384,7 @@ class Kegiatan extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('DELETE', 'schedule/delete', [ 
+        $data = guzzle_request('DELETE', 'schedule/hardDelete', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
