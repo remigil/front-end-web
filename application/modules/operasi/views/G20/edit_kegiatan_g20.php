@@ -29,7 +29,7 @@
                             <div class="col-md-12 mb-3"> 
                                 <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" 
                                 <?php if($data['getDetail']['data']['photo_schedule'] != null){?>
-                                    data-default-file="http://k3ig20korlantas.id:3001/uploads/schedule/<?php echo $data['getDetail']['data']['photo_schedule'];?>"  
+                                    data-default-file="<?php echo url_api();?>schedule/<?php echo $data['getDetail']['data']['photo_schedule'];?>"  
                                 <?php }else{?>
                                     data-default-file="<?php echo base_url();?>assets/no_image.png"
                                 <?php }?>
