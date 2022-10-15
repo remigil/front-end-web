@@ -30,7 +30,7 @@
                                 <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" 
                                 data-default-file="<?php echo base_url();?>assets/no_image.png"  
 
-                                <?php if($data['getDetail']['data']['photo_officer'] != null){?>
+                                <?php if($data['getDetail']['data']['photo_officer'] != null){?> 
                                     data-default-file="<?php echo url_api();?>officer/<?php echo $data['getDetail']['data']['photo_officer'];?>"  
                                 <?php }else{?>
                                     data-default-file="<?php echo base_url();?>assets/no_image.png"

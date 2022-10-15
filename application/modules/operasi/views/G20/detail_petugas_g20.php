@@ -8,7 +8,7 @@
 
 
 <div class="page">
-    <div class="card">
+    <div class="card"> 
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
