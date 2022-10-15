@@ -36,7 +36,11 @@
                                 <div class="material-selectfield mb-3">
                                     <select required name="id_account[]" id="id_account" style="height: 200px;" multiple>
                                         <?php foreach ($data['getAccount'] as $row) : ?>
-                                            <option <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> <?php echo ($rowSelect['name_account'] == $row['name_account'] ? 'selected' : ''); ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
+                                            <option 
+                                            <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> 
+                                                <?php echo ($rowSelect['name_account'] == $row['name_account'] ? 'selected' : ''); ?> 
+                                                <?php endforeach; ?> 
+                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -54,7 +58,11 @@
                                 <div class="material-selectfield mb-3">
                                     <select name="id_vip[]" id="id_vip" style="height: 200px" multiple>
                                         <?php foreach ($data['getVip'] as $row) : ?>
-                                            <option <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
+                                            <option 
+                                                <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> 
+                                                    <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?>
+                                                <?php endforeach; ?> 
+                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
