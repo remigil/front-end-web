@@ -360,6 +360,42 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getPolres']);
     }
 
+    public function getCategorySchedule()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'category_schedule';
+        $getCategorySchedule = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getCategorySchedule'] = $getCategorySchedule['data'];
+
+        echo json_encode($data['getCategorySchedule']);
+    }
+
+    public function getJadwalByidCategori()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
+        $getJadwal = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getJadwal'] = $getJadwal['data'];
+
+        echo json_encode($data['getJadwal']);
+    }
+
     public function getJadwal()
     {
         $headers = [
