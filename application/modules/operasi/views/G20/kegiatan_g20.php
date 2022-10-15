@@ -136,11 +136,11 @@
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select required name="category_renpam" class="form-select" id="select"> 
-                                    <option  value="">Pilih Category</option>  
+                                    <option  value="">Pilih Category Rengiat</option>  
                                     <option selected value="1">Operasi</option>  
                                     <option  value="2">Harian</option>  
                                 </select>
-                                <label class="labelmui">Categori Rengiat</label>
+                                <!-- <label class="labelmui">Categori Rengiat</label> -->
                             </div>
                         </div>
                         <div class="col-md-6">

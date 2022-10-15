@@ -230,13 +230,13 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
     
         <!-- Modal content-->
-        <div class="modal-content" style="width: 350px;">
+        <div class="modal-content" style="width: 550px;">
             <div class="modal-header bg-primary">
                 <h4 class="modal-title text-white" id="myLargeModalLabel">Turjawali Filter</h4>
                 <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <div class="accordion accordion-flush" id="accordionFlushExample">
+                <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item" id="jadwalKegiatan">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
@@ -276,21 +276,12 @@
                                             <option value="4">Pengaturan</option> 
                                             <option value="5">Penutupan</option>
                                         </select>
-                                        <!-- <input hidden type="text" placeholder="Cari Renpam.." id="searchRenpam"> -->
+                                        
                                     </div> 
                                     <div class="list col-md-12 mb-3">
                                         <ul class="list-group" id="listRenpam" style="height: 400px;overflow-y: auto;scrollbar-width: thin;"> 
                                         </ul>
-                                    </div> 
-                                    <!-- <div class="col-md-12">
-                                        <input hidden type="text" name="halaman" id="halaman" value="1">
-                                        <nav aria-label="Page navigation example" style="position: inherit;float: inline-end;">
-                                            <ul class="pagination">
-                                                <li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li> 
-                                                <li class="page-item" id="nextHalaman" ><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div> -->
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -315,7 +306,28 @@
                             </div>
                         </div>
                     </div> 
-                </div><!-- end accordion -->
+                </div> -->
+                <div class="row">
+                    <div class="col-md-12"> 
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="datatable" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Tanggal</th>
+                                            <th>Waktu Mulai</th> 
+                                            <th>Unit Pengawalan</th>
+                                            <th>Penugasan</th>
+                                            <th>Delegasi</th>
+                                            <th>Subjek</th>  
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
       
@@ -709,140 +721,6 @@
         //     {-8.452198812821242,115.09396433830263},
         //     {-8.5068977,115.2622931},
         // ];  
-
-
-        // userDataTable = $('#datatable').DataTable({
-
-        //     responsive: true,
-
-        //     scrollX: true,
-
-        //     // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-        //     // buttons: ["excel", "csv", "pdf"],
-
-        //     oLanguage: {
-
-        //         sSearch: 'Search:'
-
-        //     },
-
-        //     initComplete: function(settings, json) {},
-
-        //     retrieve: true,
-
-        //     processing: true,
-
-        //     serverSide: true,
-
-        //     serverMethod: 'POST',
-
-        //     ajax: {
-
-        //         dataType: 'json',
-
-        //         url: '<?php echo base_url(); ?>dashboard/serverSideTable',
-
-        //         data: function(data) {
-
-        //             $("#overlay").fadeIn(300);
-
-        //             // console.log(data);
-
-        //             data.filterTgl = $('#startdate').val();
-
-        //             data.filterTgl2 = $('#enddate').val();
-
-        //             // data.filterStatus = $('[name=status]').val();
-
-        //             data.filterSchedule = '';
-
-        //             data.filterTypeRenpam = '';
-
-        //             data.filterCategoryRenpam = '';
-
-        //             // data.filterPhone = $('[name=poc_phone]').val();
-
-        //             // data.filterThreat = $('[name=threat_level]').val();
-
-        //             data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-        //             data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-        //             data.page = Number(data.start / data.length) + 1
-
-        //         },
-
-        //         beforeSend: function(xhr, settings) {
-
-        //         },
-
-        //         "dataSrc": function(result) {
-
-        //             result.iTotalRecords = result.iTotalRecords;
-
-        //             result.iTotalDisplayRecords = result.iTotalRecords;
-
-        //             return result.aaData;
-
-        //         }
-
-        //     },
-
-        //     columns: [
-
-        //         {
-        //             data: 'id'
-        //         },
-        //         {
-        //             data: 'date'
-        //         },
-        //         {
-        //             data: 'waktu'
-        //         },
-                 
-        //         {
-        //             data: 'accounts',
-        //             orderable: false
-        //         },
-        //         {
-        //             data: 'name_renpam'
-        //         },
-        //         {
-        //             data: 'vips',
-        //             orderable: false
-        //         },
-        //         {
-        //             data: 'type_renpam'
-        //         },
-
-                 
-        //         {
-        //             data: 'estimasi',
-        //         }, 
-                
-        //         {
-        //             data: 'estimasi_time',
-        //         }, 
-
-        //         // {
-        //         //     data: 'action',
-        //         //     orderable: false
-        //         // }
-
-        //     ],
-
-        //     order: [
-        //         [0, "DESC"]
-        //     ],
-
-        //     drawCallback: function(settings) {
-
-        //         $("#overlay").fadeOut(300);
-        //         client();
-        //     }
-
-        // });
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -3337,6 +3215,139 @@
 
         var checkedRoutJadwal = [];
         $('#myModalFilter').on('shown.bs.modal', function() { 
+            $("#overlay").fadeIn(300);
+            userDataTable = $('#datatable').DataTable({
+
+                responsive: true,
+
+                scrollX: true,
+
+                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                // buttons: ["excel", "csv", "pdf"],
+
+                oLanguage: {
+
+                    sSearch: 'Search:'
+
+                },
+
+                initComplete: function(settings, json) {},
+
+                retrieve: true,
+
+                processing: true,
+
+                serverSide: true,
+
+                serverMethod: 'POST',
+
+                ajax: {
+
+                    dataType: 'json',
+
+                    url: '<?php echo base_url(); ?>dashboard/serverSideTable',
+
+                    data: function(data) {
+
+                        $("#overlay").fadeIn(300);
+
+                        // console.log(data);
+
+                        data.filterTgl = $('#startdate').val();
+
+                        data.filterTgl2 = $('#enddate').val();
+
+                        // data.filterStatus = $('[name=status]').val();
+
+                        data.filterSchedule = '';
+
+                        data.filterTypeRenpam = '';
+
+                        data.filterCategoryRenpam = '';
+
+                        // data.filterPhone = $('[name=poc_phone]').val();
+
+                        // data.filterThreat = $('[name=threat_level]').val();
+
+                        data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                        data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                        data.page = Number(data.start / data.length) + 1
+
+                    },
+
+                    beforeSend: function(xhr, settings) {
+
+                    },
+
+                    "dataSrc": function(result) {
+
+                        result.iTotalRecords = result.iTotalRecords;
+
+                        result.iTotalDisplayRecords = result.iTotalRecords;
+
+                        return result.aaData;
+
+                    }
+
+                },
+
+                columns: [
+
+                    {
+                        data: 'id'
+                    },
+                    {
+                        data: 'date'
+                    },
+                    {
+                        data: 'waktu'
+                    },
+                    
+                    {
+                        data: 'accounts',
+                        orderable: false
+                    },
+                    {
+                        data: 'name_renpam'
+                    },
+                    {
+                        data: 'vips',
+                        orderable: false
+                    },
+                    {
+                        data: 'type_renpam'
+                    },
+
+                    
+                    // {
+                    //     data: 'estimasi',
+                    // }, 
+                    
+                    // {
+                    //     data: 'estimasi_time',
+                    // }, 
+
+                    // {
+                    //     data: 'action',
+                    //     orderable: false
+                    // }
+
+                ],
+
+                order: [
+                    [0, "DESC"]
+                ],
+
+                drawCallback: function(settings) {
+
+                    $("#overlay").fadeOut(300);
+                    client();
+                }
+
+            });
 
 
             let countlist = 0;

@@ -66,26 +66,26 @@
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
                             <select name="pangkat" class="form-select" id="select">
-                                <option selected></option>
+                                <option selected value="">Pangkat</option>
 
                                 <?php foreach($data['getRank'] as $row): ?>
                                     <option value="<?php echo $row['name_rankOfficer'];?>"><?php echo $row['name_rankOfficer'];?></option> 
                                 <?php endforeach; ?>  
                             </select>
-                            <label class="labelmui">Pangkat</label>
+                            <!-- <label class="labelmui">Pangkat</label> -->
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
                             <select name="struktural" class="form-select" id="select2">
-                                <option selected></option>
+                                <option selected value="">Strukturan</option>
 
                                 <?php foreach($data['getStructural'] as $row): ?>
                                     <option value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
                                 <?php endforeach; ?>   
 
                             </select>
-                            <label class="labelmui">Strukturan</label>
+                            <!-- <label class="labelmui">Strukturan</label> -->
                         </div>
                     </div>
                     <div class="col-md-12">

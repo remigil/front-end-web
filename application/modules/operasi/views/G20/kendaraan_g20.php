@@ -46,22 +46,22 @@
                     </div>
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="jenisKendaraan" id="select">
-                            <option selected></option>
+                            <option selected value=""> Jenis Kendaraan</option>
                             <option value="Mobil">Mobil</option>
                             <option value="Sepeda Motor">Sepeda Motor</option>
                         </select>
-                        <label class="labelmui">Jenis Kendaraan</label>
+                        <!-- <label class="labelmui">Jenis Kendaraan</label> -->
                     </div>
 
 
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="jenisBahanBakar" id="select2">
-                            <option selected></option>
+                            <option selected value="">Jenis Bahan Bakar</option>
                             <?php foreach($data['getFuel'] as $row): ?>
                                 <option value="<?php echo $row['name_fuelVehicle'];?>"><?php echo $row['name_fuelVehicle'];?></option> 
                             <?php endforeach; ?>  
                         </select>
-                        <label class="labelmui">Jenis Bahan Bakar</label>
+                        <!-- <label class="labelmui">Jenis Bahan Bakar</label> -->
                     </div>
 
                     <div class="material-textfield mb-3">
@@ -70,14 +70,14 @@
                     </div>
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="kepemilikan" id="select3">
-                            <option selected></option>
+                            <option selected value="">Kepemilikan</option>
 
                             <?php foreach($data['getOwnership'] as $row): ?>
                                 <option value="<?php echo $row['name_ownershipVehicle'];?>"><?php echo $row['name_ownershipVehicle'];?></option> 
                             <?php endforeach; ?>  
  
                         </select>
-                        <label class="labelmui">Kepemilikan</label>
+                        <!-- <label class="labelmui">Kepemilikan</label> -->
                     </div>
                     <div class="col-md-6 float-end">
                         <button class="btn btn-primary float-end" type="submit">Simpan</button>

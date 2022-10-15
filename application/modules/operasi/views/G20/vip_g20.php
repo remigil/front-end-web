@@ -45,21 +45,21 @@
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="asalNegara" class="form-select" id="select">
-                            <option value=""></option> 
+                            <option selected value="">Negara Kedatangan</option> 
                             <?php foreach($data['getCountry'] as $row): ?>
                                 <option value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
                             <?php endforeach; ?> 
                         </select>
-                        <label class="labelmui">Negara Kedatangan</label>
+                        <!-- <label class="labelmui">Negara Kedatangan</label> -->
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="jabatan" class="form-select" id="select2">
-                            <option value=""></option>
+                            <option selected value="">Jabatan</option>
                             <?php foreach($data['getPosition'] as $row): ?>
                                 <option value="<?php echo $row['name_position'];?>"><?php echo $row['name_position'];?></option> 
                             <?php endforeach; ?> 
                         </select>
-                        <label class="labelmui">Jabatan</label>
+                        <!-- <label class="labelmui">Jabatan</label> -->
                     </div>
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="keterangan" placeholder="" type="text">

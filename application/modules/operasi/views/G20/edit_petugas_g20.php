@@ -87,7 +87,7 @@
                                         <option <?php echo ($data['getDetail']['data']['status_officer'] == '1' ? 'selected' : '');?> value="1">Active</option>
                                         <option <?php echo ($data['getDetail']['data']['status_officer'] == '0' ? 'selected' : '');?> value="0">Inactive</option>
                                     </select>
-                                    <label class="labelmui">Status </label>
+                                    <!-- <label class="labelmui">Status </label> -->
                                 </div>
                             </div>
                         </div>
