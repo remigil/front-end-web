@@ -64,6 +64,17 @@
                                 <label class="labelmui">Kegiatan</label>
                             </div>
                         </div> 
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="id_category" id="id_category" style="height: 200px;" > 
+                                    <option selected value="">Pilih Kategori</option>  
+                                    <?php foreach($data['getCategorySchedule'] as $row): ?>
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_category_schedule'];?></option> 
+                                    <?php endforeach; ?> 
+                                </select>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Kategori</label>
+                            </div>
+                        </div>
 
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
@@ -132,7 +143,7 @@
                                 <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
                                 <label class="labelmui">Uraian Kegiatan</label>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
                                 <select required name="category_renpam" class="form-select" id="select"> 
@@ -646,7 +657,15 @@
             mapContainer.invalidateSize();
 
             $('.dropify').dropify();
-
+            new Choices('#id_category', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });
 
 
             let countlist = 0;
