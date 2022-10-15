@@ -181,7 +181,16 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
+
 <script>
+    var userDataTable;
+
+
     $(document).ready(function() {
         $('.dropify').dropify();
 
@@ -345,7 +354,7 @@
 
                 if(results.fileReg != null){
                     $("#fileDownload").html(` 
-                    <a style="color: black;" class="btn" href="<?php echo urlApi()?>regulation_doc/${results.fileReg}" target="_blank">
+                    <a style="color: black;" class="btn" href="<?php echo url_api()?>regulation_doc/${results.fileReg}" target="_blank">
                         <i style="color: black;" class="fa  fas fa-download "></i> Download File
                     </a>`);
                 }else{
@@ -358,6 +367,7 @@
             }
         })
     }
+
 
     function detailEdit(id) {
         $.ajax({
@@ -463,4 +473,5 @@
 	$('#btnEdit').on('click', function(e){
 		$('#form_edit')[0].reset()
 	})
+ 
 </script>
