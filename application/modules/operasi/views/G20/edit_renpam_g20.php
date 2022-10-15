@@ -41,9 +41,8 @@
                                                     <?php if ($rowSelect['name_account'] == $row['name_account']){?>
                                                         selected
                                                     <?php }else{ ?>
-                                                        
-                                                    <?php } ?>
-                                                   
+
+                                                    <?php } ?> 
                                                 <?php endforeach; ?> 
 
                                                 value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
