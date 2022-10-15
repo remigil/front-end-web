@@ -1155,6 +1155,9 @@
                     <a href="tel:+${noTelp}" target="_blank">
                         <img src="https://img.icons8.com/color/48/000000/phone.png" style="width: 35px;height: 35px"/>
                     </a>
+                    <a class="btn" style="color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank">
+                        <i class="fa  fas fa-video "></i>
+                    </a> 
                 </div>
             `
         }
@@ -3203,8 +3206,25 @@
         
          
 
+        function groupBy(list, callback) {
+            return list.reduce((acc, x) => {
+                const key = callback(x);
+                if (!acc[key]) {
+                    return {
+                        ...acc,
+                        [key]: [x]
+                    }
+                }
+                return {
+                    ...acc,
+                    [key]: [...acc[key], x]
+                }
 
+            }, {})
+        }
+        
         var checkedRoutJadwal = [];
+        var dummyDataJadwal = [];
         $('#myModalFilter').on('shown.bs.modal', function() { 
 
 
@@ -3220,54 +3240,60 @@
                 }, 
                 dataType : "JSON",
                 success : function(result){ 
-                    let ress = result['data'];
-                    // console.log(result['test']);
+                    dummyDataJadwal = result['data'];
+                    let ress = dummyDataJadwal;
+                 
                     countlistCategori = 0;
                     listCategori = ""; 
 
-                    var listJadwalByIdCategetori = '';
-                    
+                    let dataGroupBy = groupBy(dummyDataJadwal, v => v.id_category_schedule);
+                    console.log(dataGroupBy);
+                    // let data = ressData.filter(function (e) {
+                    //     return e.lat_cctv != null && e.lng_cctv != null;
+                    // });  
+
+                    var listJadwalByIdCategetori = ''; 
                     ress.forEach(el => {
                         countlistCategori += 1;
                         dataJadwalbyIdCategori = []; 
 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalByidCategori", 
-                            data : {
-                                "id_category_schedule" : el.id,
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){ 
-                                let ressJadwal = result['data'];
+                        // $.ajax({
+                        //     type : "POST",
+                        //     url : "<?php echo base_url();?>dashboard/getJadwalByidCategori", 
+                        //     data : {
+                        //         "id_category_schedule" : el.id,
+                        //     }, 
+                        //     dataType : "JSON",
+                        //     success : function(result){ 
+                        //         let ressJadwal = result['data'];
 
-                                listJadwalByIdCategetori = '';
-                                ressJadwal.forEach(el => {
-                                    listJadwalByIdCategetori += `
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="flush-heading${countlistCategori}">
-                                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                                    ${el.name_category_schedule}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="list-group" id="listJadwalbyCateg${countlistCategori}"> 
-                                                            </div>
-                                                        </div> 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                    `;
-                                    $(`#listJadwalbyCateg${countlistCategori}`).html(listJadwalByIdCategetori);
-                                });
-                            }
-                        });
+                        //         listJadwalByIdCategetori = '';
+                        //         ressJadwal.forEach(el => {
+                        //             listJadwalByIdCategetori += `
+                        //                 <div class="accordion-item">
+                        //                     <h2 class="accordion-header" id="flush-heading${countlistCategori}">
+                        //                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                        //                             data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
+                        //                             ${el.name_category_schedule}
+                        //                         </button>
+                        //                     </h2>
+                        //                     <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
+                        //                         data-bs-parent="#accordionFlushExample">
+                        //                         <div class="accordion-body text-muted">
+                        //                             <div class="row">
+                        //                                 <div class="col-md-12">
+                        //                                     <div class="list-group" id="listJadwalbyCateg${countlistCategori}"> 
+                        //                                     </div>
+                        //                                 </div> 
+                        //                             </div>
+                        //                         </div>
+                        //                     </div>
+                        //                 </div> 
+                        //             `;
+                        //             $(`#listJadwalbyCateg${countlistCategori}`).html(listJadwalByIdCategetori);
+                        //         });
+                        //     }
+                        // });
 
                         listCategori += `  
                             <div class="accordion-item">
