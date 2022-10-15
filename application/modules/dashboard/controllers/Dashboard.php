@@ -152,7 +152,7 @@ class Dashboard extends MY_Controller
 
             // Top Polda
             array_multisort(array_column($topPolda, "total"), SORT_DESC, $topPolda);
-            $bestPolda = array_slice($topPolda, 0, 5);
+            $bestPolda = array_slice($topPolda, 0, 10);
 
 
             $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot, 'best_polda' => $bestPolda];
