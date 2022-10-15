@@ -170,6 +170,8 @@ class Renpam extends MY_Controller
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+
+        $dummy['order_renpam']    = $input['order_renpam'];
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
 
@@ -228,6 +230,8 @@ class Renpam extends MY_Controller
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+        $dummy['order_renpam']    = $input['order_renpam'];
+        
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
         $dummy['route']    = $input['ruteawalR'];
@@ -410,6 +414,7 @@ class Renpam extends MY_Controller
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+        $dummy['order_renpam']    = $input['order_renpam'];
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
         $dummy['route']    = $input['ruteawal'];
