@@ -29,6 +29,12 @@ if (!function_exists('guzzle_request')) {
         // return 'http://localhost:3001/uploads/';
         return 'http://k3ig20korlantas.id:3001/uploads/'; 
     }
+
+    function urlApi()
+    {
+        // return 'http://localhost:3001/uploads/';
+        return 'http://k3ig20korlantas.id:3001/uploads/'; 
+    }
 }
 
 if (!function_exists('guzzle_requestTracking')) {

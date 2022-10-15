@@ -115,6 +115,13 @@
                                 <label class="labelmui">Jumlah kendaraan yang dikawal</label>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="order_renpam" placeholder="" type="text">
+                                <label class="labelmui">Urutan</label>
+                            </div>
+                        </div>
                         <!-- <div class="col-md-6"></div> -->
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
@@ -292,6 +299,9 @@
 <script>
 
     $(document).ready(function() {
+        $( '[name=total_vehicle]' ).mask('000000000');
+        $( '[name=order_renpam]' ).mask('000000000');
+
         new Choices('#select', {
             searchEnabled: true,
             removeItemButton: true,

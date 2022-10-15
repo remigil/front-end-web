@@ -1271,6 +1271,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
+    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
 
     <?php echo $js ?>
 
