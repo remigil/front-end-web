@@ -227,7 +227,7 @@
             z-index: 10;
             position: absolute;
             border-radius: 50%;
-            background: #3f51b5; 
+            background: #3f51b5;
         }
 
         .pin {
@@ -239,7 +239,7 @@
             transform: rotate(-45deg);
             left: 50%;
             top: 50%;
-            margin: -20px 0 0 -20px; 
+            margin: -20px 0 0 -20px;
         }
 
         .pin:after {
@@ -451,49 +451,65 @@
         }
 
 
-        .cat{
-        margin: 4px;
-        background-color: white;
-        border-radius: 50rem !important;
-        border: 1px solid #fff;
-        overflow: hidden;
-        float: left;
+        .cat {
+            margin: 4px;
+            background-color: white;
+            border-radius: 50rem !important;
+            border: 1px solid #fff;
+            overflow: hidden;
+            float: left;
         }
 
         .cat label {
-        float: left; line-height: 1.7em;
-        width: auto; height: 1.5em; 
-        padding-left: 10px;
-        padding-right: 10px;
-        cursor: pointer;
+            float: left;
+            line-height: 1.7em;
+            width: auto;
+            height: 1.5em;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
         }
 
         .cat label span {
-        text-align: center;
-        padding: 3px 0;
-        display: block;
-        font-size: 13px;
+            text-align: center;
+            padding: 3px 0;
+            display: block;
+            font-size: 13px;
         }
 
         .cat label input {
-        position: absolute;
-        display: none;
-        color: #000 !important;
+            position: absolute;
+            display: none;
+            color: #000 !important;
         }
+
         /* selects all of the text within the input element and changes the color of the text */
-        .cat label input + span{color: #000;}
+        .cat label input+span {
+            color: #000;
+        }
 
 
         /* This will declare how a selected input will look giving generic properties */
-        .cat input:checked + span {
+        .cat input:checked+span {
             color: #1967d2;
             /* text-shadow: 0 0  6px rgba(0, 0, 0, 0.8); */
         }
 
-        .fasumDisplay input:checked + .cat{background-color: #e8f0fe;} 
-        .hotelDisplay input:checked + .cat{background-color: #e8f0fe;} 
-        .turjawaliDisplay input:checked + .cat{background-color: #e8f0fe;} 
-        .kegiatanDisplay input:checked + .cat{background-color: #e8f0fe;} 
+        .fasumDisplay input:checked+.cat {
+            background-color: #e8f0fe;
+        }
+
+        .hotelDisplay input:checked+.cat {
+            background-color: #e8f0fe;
+        }
+
+        .turjawaliDisplay input:checked+.cat {
+            background-color: #e8f0fe;
+        }
+
+        .kegiatanDisplay input:checked+.cat {
+            background-color: #e8f0fe;
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -511,11 +527,11 @@
     <script src="https://cdn3.devexpress.com/jslib/18.2.6/js/dx.all.js"></script>
 
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
- 
-    
+
+
+
 
     <?php echo $css ?>
 </head>
@@ -600,34 +616,34 @@
                 <div class="d-flex">
 
 
-                <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
-                    <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i data-feather="bell" class="icon-lg"></i>
-                            <span class="badge bg-danger rounded-pill" id="totalNotif"></span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-                            <div class="p-3">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h6 class="m-0"> Notifications</h6>
-                                    </div>
-                                    <!-- <div class="col-auto">
+                    <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="bell" class="icon-lg"></i>
+                                <span class="badge bg-danger rounded-pill" id="totalNotif"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0"> Notifications</h6>
+                                        </div>
+                                        <!-- <div class="col-auto">
                                         <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
                                     </div> -->
+                                    </div>
+                                </div>
+                                <div id="listDataNotif">
+
+                                </div>
+                                <div class="p-2 border-top d-grid">
+                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
+                                    </a>
                                 </div>
                             </div>
-                            <div id="listDataNotif">
-
-                            </div> 
-                            <div class="p-2 border-top d-grid">
-                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                                    <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
-                                </a>
-                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
 
                     <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item right-bar-toggle me-2">
@@ -684,8 +700,8 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li> 
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li> 
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
+                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -835,7 +851,7 @@
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Laporan</span>
+                                    <span data-key="t-laporan">Sub Satker</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
@@ -873,20 +889,45 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('tripon') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">TripOn</span>
+                                        <a href="<?= base_url('Bagops') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditregident">BagOps</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('troublespot') ?>">
+                                        <a href="<?= base_url('Bagtik') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">TroubleSpot</span>
+                                            <span data-key="t-ditregident">BagTik</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('Bagrenmin') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditregident">BagRenmin</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-inputdata">Masyarakat</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url('tripon') ?>" data-key="t-read-email">TripOn</a></li>
+                                    <!-- <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li> -->
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-inputdata">Spot</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url('troublespot/troublespot') ?>" data-key="t-read-email">Troublespot</a></li>
+                                    <li><a href="<?= base_url('troublespot/blackspot') ?>" data-key="t-read-email">Blackspot</a></li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -894,14 +935,17 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
-                                    <!-- <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li> -->
                                 </ul>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
+                                <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-operasi">Rencana Operasi</span>
+                                    <span data-key="t-inputdata">Operasi</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo base_url('operasi/RencanaOperasi'); ?>" data-key="t-read-email">Khusus</a></li>
+                                    <li><a href="<?= base_url('operasi/OperasiRutin') ?>" data-key="t-read-email">Rutin</a></li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('berita'); ?>">
@@ -972,7 +1016,7 @@
         <div class="main-content">
 
             <div class="page-content" style="background-color: #f5f3f4;">
-                <div class="container-fluid">  
+                <div class="container-fluid">
 
                     <!-- Page Content-->
                     <?php $this->load->view($page_content) ?>
@@ -1305,35 +1349,35 @@
 
 
             navigator.serviceWorker.register('firebase-messaging-sw.js')
-            .then(function (registration) {
-                messaging.useServiceWorker(registration);
-                    
-                // Request for permission
-                messaging.requestPermission()
-                    .then(function() {
-                        // console.log('Notification permission granted.');
-                        // TODO(developer): Retrieve an Instance ID token for use with FCM.
-                        messaging.getToken()
-                    .then(function(currentToken) {
-                        if (currentToken) {
-                        // console.log('Token: ' + currentToken)
-                        sendTokenToServer(currentToken);
-                        } else {
-                        // console.log('No Instance ID token available. Request permission to generate one.');
-                        setTokenSentToServer(false);
-                        }
-                    })
-                    .catch(function(err) {
-                        // console.log('An error occurred while retrieving token. ', err);
-                        setTokenSentToServer(false);
-                    });
-                })
-                .catch(function(err) {
-                    // console.log('Unable to get permission to notify.', err);
-                });
-            });
+                .then(function(registration) {
+                    messaging.useServiceWorker(registration);
 
-    
+                    // Request for permission
+                    messaging.requestPermission()
+                        .then(function() {
+                            // console.log('Notification permission granted.');
+                            // TODO(developer): Retrieve an Instance ID token for use with FCM.
+                            messaging.getToken()
+                                .then(function(currentToken) {
+                                    if (currentToken) {
+                                        // console.log('Token: ' + currentToken)
+                                        sendTokenToServer(currentToken);
+                                    } else {
+                                        // console.log('No Instance ID token available. Request permission to generate one.');
+                                        setTokenSentToServer(false);
+                                    }
+                                })
+                                .catch(function(err) {
+                                    // console.log('An error occurred while retrieving token. ', err);
+                                    setTokenSentToServer(false);
+                                });
+                        })
+                        .catch(function(err) {
+                            // console.log('Unable to get permission to notify.', err);
+                        });
+                });
+
+
             // Handle incoming messages
             messaging.onMessage(function(payload) {
                 // console.log("Notification received: ", payload);
@@ -1343,17 +1387,17 @@
             // Callback fired if Instance ID token is updated.
             messaging.onTokenRefresh(function() {
                 messaging.getToken()
-                .then(function(refreshedToken) {
-                    // console.log('Token refreshed.');
-                    // Indicate that the new Instance ID token has not yet been sent 
-                    // to the app server.
-                    setTokenSentToServer(false);
-                    // Send Instance ID token to app server.
-                    sendTokenToServer(refreshedToken);
-                })
-                .catch(function(err) {
-                    // console.log('Unable to retrieve refreshed token ', err);
-                });
+                    .then(function(refreshedToken) {
+                        // console.log('Token refreshed.');
+                        // Indicate that the new Instance ID token has not yet been sent 
+                        // to the app server.
+                        setTokenSentToServer(false);
+                        // Send Instance ID token to app server.
+                        sendTokenToServer(refreshedToken);
+                    })
+                    .catch(function(err) {
+                        // console.log('Unable to retrieve refreshed token ', err);
+                    });
             });
 
             // Send the Instance ID token your application server, so that it can:
@@ -1370,7 +1414,7 @@
             }
 
             function isTokenSentToServer() {
-            return window.localStorage.getItem('sentToServer') == 1;
+                return window.localStorage.getItem('sentToServer') == 1;
             }
 
             function setTokenSentToServer(sent) {
@@ -1380,15 +1424,16 @@
 
             var countlistNotif;
             var listNotif = "";
-            function serverSideGetNotif(){
+
+            function serverSideGetNotif() {
                 $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>notifikasi/getNotif", 
-                    data : {
-                        "page" : null
-                    }, 
-                    dataType : "JSON",
-                    success : function(result){  
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>notifikasi/getNotif",
+                    data: {
+                        "page": null
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
                         let ressData = result['data'];
                         // console.log(ressData);
                         countlistNotif = 0;
@@ -1396,12 +1441,12 @@
                         let linkWeb = "";
 
                         $("#overlay").fadeOut(300);
-                        if(ressData.length > 0){   
+                        if (ressData.length > 0) {
                             listNotif += `<div data-simplebar style="max-height: 230px;" >`;
                             ressData.forEach(el => {
-                                if(el.type == "laporan"){
+                                if (el.type == "laporan") {
                                     linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
-                                }else{
+                                } else {
                                     linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
                                 }
                                 // console.log(linkWeb);
@@ -1425,28 +1470,28 @@
                                 $("#listDataNotif").html(listNotif);
                             });
                             listNotif += `</div>`;
-                        }else{ 
+                        } else {
                             listNotif = "Tidak ada notifikasi!";
-                            $('#listDataNotif').html(listNotif); 
+                            $('#listDataNotif').html(listNotif);
                         }
 
                     }
                 });
             }
 
-        
 
-            $(`.openNotif`).click(function(){ 
+
+            $(`.openNotif`).click(function() {
                 $("#overlay").fadeIn(300);
                 serverSideGetNotif();
             });
-    
+
             var jumlahNotif = "";
             // setInterval(function() {
             //     // console.log('idowae')
             //     $.ajax({
             //         type : "POST",
-            //         url : "<?php echo base_url();?>notifikasi/getCountNotif", 
+            //         url : "<?php echo base_url(); ?>notifikasi/getCountNotif", 
             //         data : {
             //             "page" : null
             //         }, 
@@ -1458,7 +1503,6 @@
             //         }
             //     });
             // }, 10000);
-        
         </script>
     <?php } ?>
 
