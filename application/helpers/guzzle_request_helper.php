@@ -24,7 +24,7 @@ if (!function_exists('guzzle_request')) {
         return $data;
     }  
 
-    function urlApi()
+    function url_api()
     {
         // return 'http://localhost:3001/uploads/';
         return 'http://k3ig20korlantas.id:3001/uploads/'; 
@@ -42,12 +42,18 @@ if (!function_exists('guzzle_requestTracking')) {
      */
     function guzzle_requestTracking($method, $uri, $body)
     {
-        $client = new Client();
-        // $request = $client->request($method, 'http://localhost:3001/track-location/' . $uri, $body);
-        $request = $client->request($method, 'http://k3ig20korlantas.id:3001/track-location/' . $uri, $body);
-        $response = $request->getBody();
-        $data = json_decode($response, true);
+        try {
+            $client = new Client();
+            // $request = $client->request($method, 'http://localhost:3001/track-location/' . $uri, $body);
+            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/track-location/' . $uri, $body);
+            $response = $request->getBody();
+            $data = json_decode($response, true);
+            return $data;
+            
+        } catch (Exception $e) {
+            return 'Cek sinyal';
+        }
 
-        return $data;
+
     }
 }
