@@ -3,9 +3,7 @@
     <div class="col-md-12"> 
 
     <!-- <a href='#' id='export'>Export Features</a> -->
-        <div style="top: 50px;right: 10px;position: relative;z-index: 999;text-align: end;"> 
-           
-        </div>
+        
         <div style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,8 +22,7 @@
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
                     <div id="listAddress" style="margin-left: 10px;"></div>
-                </div>
-                
+                </div> 
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
                     <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
@@ -197,8 +194,13 @@
                
                 
             </div>  
+            
         </div>
-        <div id="mapG20Dashboard"></div>
+        <div id="mapG20Dashboard">
+        <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */"> 
+            <img src="<?= base_url()?>assets/legenda_web.png" style="width: 15vw;"/>
+            </div>
+        </div>
     </div>
     <!-- <div class="col-md-12 mt-3"> 
         <div class="card">

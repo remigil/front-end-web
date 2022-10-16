@@ -372,6 +372,9 @@ class Kegiatan extends MY_Controller
             ];
         }
 
+        // echo json_encode($dummy);
+        // die;
+
         $data = guzzle_request('PUT', 'schedule/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
