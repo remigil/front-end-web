@@ -3939,10 +3939,15 @@
                                     $("#overlay").fadeOut(300);
                                     let ress = result['data'];
                                     // console.log(ress);
-    
+                                    let dummyRenpam = '';
                                    
                                     for (let i = 0; i < ress.length; i++){ 
                                         countlistCategoriByCateg += 1;   
+
+                                        dummyRenpam = '';
+                                        for (let ii = 0; ii < ress[i]['renpams'].length; ii++){ 
+                                            dummyRenpam += `<li>${ress[i]['renpams'][ii]['name_renpam']}</li>`;
+                                        }
                                         listCategoriByCateg += `  
                                             <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
                                                 <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
@@ -3956,8 +3961,9 @@
                                                     <div class="accordion-body text-muted">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                                </div>
+                                                                <ul>
+                                                                ${dummyRenpam}
+                                                                <ul>
                                                             </div> 
                                                         </div>
                                                     </div>
@@ -3986,11 +3992,17 @@
                                 success : function(result){
                                     $("#overlay").fadeOut(300);
                                     let ress = result['data'];
-                                    // console.log(ress);
-
+                                    console.log(ress);
+                                    let dummyRenpam = '';
+                                    
                                 
                                     for (let i = 0; i < ress.length; i++){ 
-                                        countlistCategoriByCateg += 1;   
+                                        countlistCategoriByCateg += 1;  
+                                        
+                                        dummyRenpam = '';
+                                        for (let ii = 0; ii < ress[i]['renpams'].length; ii++){ 
+                                            dummyRenpam += `<li>${ress[i]['renpams'][ii]['name_renpam']}</li>`;
+                                        }
                                         listCategoriByCateg += `  
                                             <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
                                                 <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
@@ -4004,8 +4016,9 @@
                                                     <div class="accordion-body text-muted">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                                </div>
+                                                                <ul>
+                                                                ${dummyRenpam}
+                                                                <ul>
                                                             </div> 
                                                         </div>
                                                     </div>
@@ -4013,7 +4026,6 @@
                                             </div>      
                                         `; 
                                         $(".listJadwalbyCateg2").html(listCategoriByCateg);  
-
                                     } 
                                 }
                             });
@@ -4035,31 +4047,37 @@
                                     $("#overlay").fadeOut(300);
                                     let ress = result['data'];
                                     // console.log(ress);
-
-                                
+                                    let dummyRenpam = '';
+                                   
                                     for (let i = 0; i < ress.length; i++){ 
-                                        countlistCategoriByCateg += 1;   
-                                        listCategoriByCateg += `  
-                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                        ${ress[i]['activity']}
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                    data-bs-parent="#accordionFlushExampleByCateg1">
-                                                    <div class="accordion-body text-muted">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                                </div>
-                                                            </div> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>      
-                                        `; 
+                                       countlistCategoriByCateg += 1;   
+
+                                       dummyRenpam = '';
+                                       for (let ii = 0; ii < ress[i]['renpams'].length; ii++){ 
+                                           dummyRenpam += `<li>${ress[i]['renpams'][ii]['name_renpam']}</li>`;
+                                       }
+                                       listCategoriByCateg += `  
+                                           <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                               <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                   <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                       data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                       ${ress[i]['activity']}
+                                                   </button>
+                                               </h2>
+                                               <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                   data-bs-parent="#accordionFlushExampleByCateg1">
+                                                   <div class="accordion-body text-muted">
+                                                       <div class="row">
+                                                           <div class="col-md-12">
+                                                               <ul>
+                                                               ${dummyRenpam}
+                                                               <ul>
+                                                           </div> 
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>      
+                                       `; 
                                         $(".listJadwalbyCateg3").html(listCategoriByCateg);  
 
                                     } 
@@ -4084,30 +4102,37 @@
                                     let ress = result['data'];
                                     // console.log(ress);
 
-                                
-                                    for (let i = 0; i < ress.length; i++){ 
-                                        countlistCategoriByCateg += 1;   
-                                        listCategoriByCateg += `  
-                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                        ${ress[i]['activity']}
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                    data-bs-parent="#accordionFlushExampleByCateg1">
-                                                    <div class="accordion-body text-muted">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                                </div>
-                                                            </div> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>      
-                                        `; 
+                                    let dummyRenpam = '';
+                                   
+                                   for (let i = 0; i < ress.length; i++){ 
+                                       countlistCategoriByCateg += 1;   
+
+                                       dummyRenpam = '';
+                                       for (let ii = 0; ii < ress[i]['renpams'].length; ii++){ 
+                                           dummyRenpam += `<li>${ress[i]['renpams'][ii]['name_renpam']}</li>`;
+                                       }
+                                       listCategoriByCateg += `  
+                                           <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                               <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                   <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                       data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                       ${ress[i]['activity']}
+                                                   </button>
+                                               </h2>
+                                               <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                   data-bs-parent="#accordionFlushExampleByCateg1">
+                                                   <div class="accordion-body text-muted">
+                                                       <div class="row">
+                                                           <div class="col-md-12">
+                                                               <ul>
+                                                               ${dummyRenpam}
+                                                               <ul>
+                                                           </div> 
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>      
+                                       `; 
                                         $(".listJadwalbyCateg4").html(listCategoriByCateg);  
 
                                     } 
@@ -4131,31 +4156,37 @@
                                     $("#overlay").fadeOut(300);
                                     let ress = result['data'];
                                     // console.log(ress);
+                                    let dummyRenpam = '';
+                                   
+                                   for (let i = 0; i < ress.length; i++){ 
+                                       countlistCategoriByCateg += 1;   
 
-                                
-                                    for (let i = 0; i < ress.length; i++){ 
-                                        countlistCategoriByCateg += 1;   
-                                        listCategoriByCateg += `  
-                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                        ${ress[i]['activity']}
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                    data-bs-parent="#accordionFlushExampleByCateg1">
-                                                    <div class="accordion-body text-muted">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                                </div>
-                                                            </div> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>      
-                                        `; 
+                                       dummyRenpam = '';
+                                       for (let ii = 0; ii < ress[i]['renpams'].length; ii++){ 
+                                           dummyRenpam += `<li>${ress[i]['renpams'][ii]['name_renpam']}</li>`;
+                                       }
+                                       listCategoriByCateg += `  
+                                           <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                               <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                   <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                       data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                       ${ress[i]['activity']}
+                                                   </button>
+                                               </h2>
+                                               <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                   data-bs-parent="#accordionFlushExampleByCateg1">
+                                                   <div class="accordion-body text-muted">
+                                                       <div class="row">
+                                                           <div class="col-md-12">
+                                                               <ul>
+                                                               ${dummyRenpam}
+                                                               <ul>
+                                                           </div> 
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>      
+                                       `; 
                                         $(".listJadwalbyCateg4").html(listCategoriByCateg);  
 
                                     } 
