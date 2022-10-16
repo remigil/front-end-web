@@ -2779,11 +2779,24 @@
                                                     dummyJadwalRenpamAlterr[countlist] = dummy2; 
                                                     dummyJadwalRenpamAlterrr[countlist] = dummy3; 
                                                     dummyJadwalRenpamAlterrrr[countlist] = dummy4;
+
+                                                    if(el.renpams[i]['accounts'].length > 0){ 
+
+                                                    }
+
+                                                    var dataVIP = '';
+                                                    if(el.renpams[i]['vips'].length > 0){ 
+                                                        for (let ii = 0; ii < el.renpams[i]['vips'].length; ii++){  
+                                                            dataVIP += `${el.renpams[i]['vips'][ii]['name_vip']} - (${el.renpams[i]['vips'][ii]['country_arrival_vip']}),`;
+                                                        }
+                                                    }else{
+                                                        dataVIP = '-';
+                                                    }
     
                                                     dummyRenpam += `
                                                         <tr>
                                                             <td>${i+1}</td>
-                                                            <td>${el.renpams[i]['name_renpam']}</td>
+                                                            <td>${dataVIP}</td>
                                                             <td>${el.renpams[i]['title_start']}</td>
                                                             <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td>
                                                             <td>${el.renpams[i]['end_time'] != null ? el.renpams[i]['end_time'].substr(0, 5) : '-'}</td>
