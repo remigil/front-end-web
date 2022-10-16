@@ -612,6 +612,21 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="myModalPetugas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPetugas" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPetugas">Daftar Petugas Pengawalan</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="isiModalPetugas"> 
+                 
+            </div>
+        </div>
+    </div>
+</div>
   
 
 <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
@@ -1149,7 +1164,7 @@
             }
 
             if(statusEncrypt == 'encrypt'){
-                sendNotifZ = `onClick="sendZoomEncrypt('${officer_id}')"`;
+                sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
             }else{
                 sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
             }
@@ -2780,8 +2795,11 @@
                                                     dummyJadwalRenpamAlterrr[countlist] = dummy3; 
                                                     dummyJadwalRenpamAlterrrr[countlist] = dummy4;
 
+                                                    var dataAccounts;
                                                     if(el.renpams[i]['accounts'].length > 0){ 
-
+                                                        dataAccounts = el.renpams[i]['accounts'];
+                                                    }else{
+                                                        dataAccounts = [];
                                                     }
 
                                                     var dataVIP = '';
@@ -2800,8 +2818,24 @@
                                                             <td>${el.renpams[i]['title_start']}</td>
                                                             <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td>
                                                             <td>${el.renpams[i]['end_time'] != null ? el.renpams[i]['end_time'].substr(0, 5) : '-'}</td>
-                                                            <td><a class="btn" href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i></a></td>
-                                                            <td><a class="btn" href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-edit"></i></a></td>
+                                                            <td>
+                                                                <a class="btn" 
+                                                                    data-accounts='${JSON.stringify(dataAccounts)}'
+                                                                    title="Petugas" data-bs-toggle="modal" data-bs-target="#myModalPetugas"
+                                                                    href="javascript:void(0)">
+                                                                    <i style="color: #495057;" class="fa fas fa-user-shield"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td> 
+                                                                <a class="btn" href="javascripte:void(0);"
+                                                                    style="font-size: 16px;"  
+                                                                    data-idnote="${el.renpams[i]['id']}" 
+                                                                    data-note="${el.renpams[i]['note_kakor']}"
+                                                                    data-accounts='${JSON.stringify(dataAccounts)}'
+                                                                    title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                                                    <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     `;
                                                 }
@@ -5357,6 +5391,86 @@
     }); 
 
     
+    
+    $('#myModalPetugas').on('shown.bs.modal', function(event) { 
+        var myAccounts = $(event.relatedTarget).data('accounts'); 
+        var modal          = $(this);
+
+        console.log(myAccounts);
+
+        var isiTable = '';
+        if(myAccounts.length > 0){
+            for (let i = 0; i < myAccounts.length; i++){ 
+                $.ajax({
+                    type : "POST",
+                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                    data : {
+                        "id" : myAccounts[i]['id'],
+                    }, 
+                    dataType : "JSON",
+                    success : function(result){
+                        var ress = result['data'];
+                        console.log(ress['officers']);
+                        for (let ii = 0; ii < ress['officers'].length; ii++){ 
+                            isiTable += `
+                                <tr>
+                                    <td>${ii+1}</td>
+                                    <td>${ress['officers'][ii]['rank_officer']}</td>
+                                    <td>${ress['officers'][ii]['name_officer']}</td>
+                                    <td>${ress['officers'][ii]['nrp_officer']}</td>
+                                    <td>
+                                        <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                        <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                         
+                                    </td>
+                                </tr>
+                            `;
+                        }
+                        $("#isiModalPetugas").html(`
+                            <table id="datatablePetugas" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Pangkat</th>
+                                        <th>Nama</th>
+                                        <th>NRP</th>
+                                        <th></th> 
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                                    ${isiTable}
+                                </tbody>
+                            </table>
+                        `);
+                    }
+                });
+            }
+        }else{ 
+            $("#isiModalPetugas").html(`
+                <table id="datatablePetugas" class="table dt-responsive w-100">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Pangkat</th>
+                            <th>Nama</th>
+                            <th>NRP</th>
+                            <th></th> 
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            `);
+        }
+ 
+    });
 
     $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
         var myId = $(event.relatedTarget).data('idnote'); 
@@ -5423,10 +5537,10 @@
         });
 
 
-        function sendZoomEncrypt(id){
+        function sendZoomNonEncrypt(id){
             $.ajax({ 
                 type : "POST",
-                url : "<?php echo base_url();?>dashboard/sendZoomEncrpyt", 
+                url : "<?php echo base_url();?>dashboard/sendZoomNonEncrpyt", 
                 data : {
                     "officer_id" : id,
                 }, 

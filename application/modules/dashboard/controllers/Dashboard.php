@@ -397,6 +397,25 @@ class Dashboard extends MY_Controller
     }
 
 
+    public function getAkunId()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'account/getId/'.$input['id'].'';
+        $getAkun = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getAkun'] = $getAkun['data'];
+
+        echo json_encode($data['getAkun']);
+    }
+
+
     public function sendZoom()
     {
         $headers = [
@@ -417,7 +436,7 @@ class Dashboard extends MY_Controller
             ],
         ]; 
 
-        $data = guzzle_request('POST', 'notifikasi/send-zoom-noencrypt', [ 
+        $data = guzzle_request('POST', 'notifikasi/send-zoom', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);
@@ -439,7 +458,7 @@ class Dashboard extends MY_Controller
         echo json_encode($res);
     }
 
-    public function sendZoomEncrpyt()
+    public function sendZoomNonEncrpyt()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
