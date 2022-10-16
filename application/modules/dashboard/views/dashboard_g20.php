@@ -3869,6 +3869,12 @@
             var listJadwalByIdCategetori = ''; 
             var dataJadwalbyIdCategori = [];  
 
+            var openGet1 = false;
+            var openGet2 = false;
+            var openGet3 = false;
+            var openGet4 = false;
+            var openGet5 = false;
+
             $.ajax({
                 type : "POST",
                 url : "<?php echo base_url();?>dashboard/getCategorySchedule", 
@@ -3918,229 +3924,244 @@
                     var countlistCategoriByCateg = 0;
                     var listCategoriByCateg = ""; 
                     $(`#openCateg1`).on('click', function(e) {
-                        $("#overlay").fadeIn(300);
-                        listCategoriByCateg = ""; 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
-                            data : {
-                                "id_category_schedule" : '1',
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){
-                                $("#overlay").fadeOut(300);
-                                let ress = result['data'];
-                                // console.log(ress);
-
-                               
-                                for (let i = 0; i < ress.length; i++){ 
-                                    countlistCategoriByCateg += 1;   
-                                    listCategoriByCateg += `  
-                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                    ${ress[i]['activity']}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                data-bs-parent="#accordionFlushExampleByCateg1">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                            </div>
-                                                        </div> 
+                        if(openGet1 == false){
+                            $("#overlay").fadeIn(300);
+                            openGet1 = true;
+                            listCategoriByCateg = ""; 
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                                data : {
+                                    "id_category_schedule" : '1',
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){
+                                    $("#overlay").fadeOut(300);
+                                    let ress = result['data'];
+                                    // console.log(ress);
+    
+                                   
+                                    for (let i = 0; i < ress.length; i++){ 
+                                        countlistCategoriByCateg += 1;   
+                                        listCategoriByCateg += `  
+                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                        ${ress[i]['activity']}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                    data-bs-parent="#accordionFlushExampleByCateg1">
+                                                    <div class="accordion-body text-muted">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                                </div>
+                                                            </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>      
-                                    `; 
-                                    $(".listJadwalbyCateg1").html(listCategoriByCateg);  
-
-                                } 
-                            }
-                        });
+                                            </div>      
+                                        `; 
+                                        $(".listJadwalbyCateg1").html(listCategoriByCateg);  
+    
+                                    } 
+                                }
+                            }); 
+                        }
                     }); 
                     $(`#openCateg2`).on('click', function(e) {
-                        $("#overlay").fadeIn(300);
-                        listCategoriByCateg = ""; 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
-                            data : {
-                                "id_category_schedule" : '2',
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){
-                                $("#overlay").fadeOut(300);
-                                let ress = result['data'];
-                                // console.log(ress);
+                        if(openGet2 == false){
+                            $("#overlay").fadeIn(300);
+                            openGet2 = true;
+                            listCategoriByCateg = ""; 
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                                data : {
+                                    "id_category_schedule" : '2',
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){
+                                    $("#overlay").fadeOut(300);
+                                    let ress = result['data'];
+                                    // console.log(ress);
 
-                               
-                                for (let i = 0; i < ress.length; i++){ 
-                                    countlistCategoriByCateg += 1;   
-                                    listCategoriByCateg += `  
-                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                    ${ress[i]['activity']}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                data-bs-parent="#accordionFlushExampleByCateg1">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                            </div>
-                                                        </div> 
+                                
+                                    for (let i = 0; i < ress.length; i++){ 
+                                        countlistCategoriByCateg += 1;   
+                                        listCategoriByCateg += `  
+                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                        ${ress[i]['activity']}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                    data-bs-parent="#accordionFlushExampleByCateg1">
+                                                    <div class="accordion-body text-muted">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                                </div>
+                                                            </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>      
-                                    `; 
-                                    $(".listJadwalbyCateg2").html(listCategoriByCateg);  
+                                            </div>      
+                                        `; 
+                                        $(".listJadwalbyCateg2").html(listCategoriByCateg);  
 
-                                } 
-                            }
-                        });
+                                    } 
+                                }
+                            });
+                        }
                     }); 
                     $(`#openCateg3`).on('click', function(e) {
-                        $("#overlay").fadeIn(300);
-                        listCategoriByCateg = ""; 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
-                            data : {
-                                "id_category_schedule" : '3',
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){
-                                $("#overlay").fadeOut(300);
-                                let ress = result['data'];
-                                // console.log(ress);
+                        if(openGet3 == false){
+                            $("#overlay").fadeIn(300);
+                            openGet3 = true;
+                            listCategoriByCateg = ""; 
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                                data : {
+                                    "id_category_schedule" : '3',
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){
+                                    $("#overlay").fadeOut(300);
+                                    let ress = result['data'];
+                                    // console.log(ress);
 
-                               
-                                for (let i = 0; i < ress.length; i++){ 
-                                    countlistCategoriByCateg += 1;   
-                                    listCategoriByCateg += `  
-                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                    ${ress[i]['activity']}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                data-bs-parent="#accordionFlushExampleByCateg1">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                            </div>
-                                                        </div> 
+                                
+                                    for (let i = 0; i < ress.length; i++){ 
+                                        countlistCategoriByCateg += 1;   
+                                        listCategoriByCateg += `  
+                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                        ${ress[i]['activity']}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                    data-bs-parent="#accordionFlushExampleByCateg1">
+                                                    <div class="accordion-body text-muted">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                                </div>
+                                                            </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>      
-                                    `; 
-                                    $(".listJadwalbyCateg3").html(listCategoriByCateg);  
+                                            </div>      
+                                        `; 
+                                        $(".listJadwalbyCateg3").html(listCategoriByCateg);  
 
-                                } 
-                            }
-                        });
+                                    } 
+                                }
+                            });
+                        }
                     }); 
                     $(`#openCateg4`).on('click', function(e) {
-                        $("#overlay").fadeIn(300);
-                        listCategoriByCateg = ""; 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
-                            data : {
-                                "id_category_schedule" : '4',
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){
-                                $("#overlay").fadeOut(300);
-                                let ress = result['data'];
-                                // console.log(ress);
+                        if(openGet4 == false){
+                            $("#overlay").fadeIn(300);
+                            openGet4 = true;
+                            listCategoriByCateg = ""; 
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                                data : {
+                                    "id_category_schedule" : '4',
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){
+                                    $("#overlay").fadeOut(300);
+                                    let ress = result['data'];
+                                    // console.log(ress);
 
-                               
-                                for (let i = 0; i < ress.length; i++){ 
-                                    countlistCategoriByCateg += 1;   
-                                    listCategoriByCateg += `  
-                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                    ${ress[i]['activity']}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                data-bs-parent="#accordionFlushExampleByCateg1">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                            </div>
-                                                        </div> 
+                                
+                                    for (let i = 0; i < ress.length; i++){ 
+                                        countlistCategoriByCateg += 1;   
+                                        listCategoriByCateg += `  
+                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                        ${ress[i]['activity']}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                    data-bs-parent="#accordionFlushExampleByCateg1">
+                                                    <div class="accordion-body text-muted">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                                </div>
+                                                            </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>      
-                                    `; 
-                                    $(".listJadwalbyCateg4").html(listCategoriByCateg);  
+                                            </div>      
+                                        `; 
+                                        $(".listJadwalbyCateg4").html(listCategoriByCateg);  
 
-                                } 
-                            }
-                        });
+                                    } 
+                                }
+                            });
+                        }
                     }); 
                     $(`#openCateg5`).on('click', function(e) {
-                        $("#overlay").fadeIn(300);
-                        listCategoriByCateg = ""; 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
-                            data : {
-                                "id_category_schedule" : '4',
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){
-                                $("#overlay").fadeOut(300);
-                                let ress = result['data'];
-                                // console.log(ress);
+                        if(openGet5 == false){
+                            $("#overlay").fadeIn(300);
+                            openGet5 = true;
+                            listCategoriByCateg = ""; 
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                                data : {
+                                    "id_category_schedule" : '4',
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){
+                                    $("#overlay").fadeOut(300);
+                                    let ress = result['data'];
+                                    // console.log(ress);
 
-                               
-                                for (let i = 0; i < ress.length; i++){ 
-                                    countlistCategoriByCateg += 1;   
-                                    listCategoriByCateg += `  
-                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
-                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
-                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
-                                                    ${ress[i]['activity']}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
-                                                data-bs-parent="#accordionFlushExampleByCateg1">
-                                                <div class="accordion-body text-muted">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
-                                                            </div>
-                                                        </div> 
+                                
+                                    for (let i = 0; i < ress.length; i++){ 
+                                        countlistCategoriByCateg += 1;   
+                                        listCategoriByCateg += `  
+                                            <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                                <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                    <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                        ${ress[i]['activity']}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                    data-bs-parent="#accordionFlushExampleByCateg1">
+                                                    <div class="accordion-body text-muted">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                                </div>
+                                                            </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>      
-                                    `; 
-                                    $(".listJadwalbyCateg4").html(listCategoriByCateg);  
+                                            </div>      
+                                        `; 
+                                        $(".listJadwalbyCateg4").html(listCategoriByCateg);  
 
-                                } 
-                            }
-                        });
+                                    } 
+                                }
+                            });
+                        }
                     }); 
                 
                
