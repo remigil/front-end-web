@@ -378,7 +378,7 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getCategorySchedule']);
     }
 
-    public function getJadwalByidCategori()
+    public function getJadwalId()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
@@ -387,13 +387,98 @@ class Dashboard extends MY_Controller
         $input = $this->input->post(); 
 
 
-        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
+        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=50&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
         $getJadwal = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
         $data['getJadwal'] = $getJadwal['data'];
 
         echo json_encode($data['getJadwal']);
+    }
+
+
+    public function sendZoom()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $dummy = [
+            [
+                'name' => 'officer_id',
+                'contents' => $input['officer_id'],
+            ],
+            [
+                'name' => 'link',
+                'contents' => 'https://bit.ly/k3izoom',
+            ],
+        ]; 
+
+        $data = guzzle_request('POST', 'notifikasi/send-zoom-noencrypt', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+    }
+
+    public function sendZoomEncrpyt()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $dummy = [
+            [
+                'name' => 'officer_id',
+                'contents' => $input['officer_id'],
+            ],
+            [
+                'name' => 'link',
+                'contents' => 'https://bit.ly/k3izoom',
+            ],
+        ]; 
+
+        $data = guzzle_request('POST', 'notifikasi/send-zoom-noencrypt', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
     }
 
     public function getJadwal()

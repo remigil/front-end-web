@@ -912,7 +912,7 @@
                                                         <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                                     </div>
     
-                                                    ${call_wa_dan_biasa(ress[i].handphone)}
+                                                    ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                                 </div> 
     
                                                 <div class="row text-start mt-3">
@@ -982,7 +982,7 @@
                                                     </div>
                                                 </div> 
     
-                                                ${call_wa_dan_biasa(ress[i].handphone)}
+                                                ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                             </div>
     
                                             
@@ -1135,7 +1135,7 @@
             
         }
 
-        const call_wa_dan_biasa = (noTelp) => {
+        const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
             let noDepan = noTelp.substring(0, 2);
             if (noDepan === "62") {
@@ -1147,6 +1147,12 @@
             } else {
                 noTelp = noTelp;
             }
+
+            if(statusEncrypt == 'encrypt'){
+                sendNotifZ = `onClick="sendZoomEncrypt('${officer_id}')"`;
+            }else{
+                sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
+            }
             return `  
                 <div class="text-center">
                     <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
@@ -1155,7 +1161,7 @@
                     <a href="tel:+${noTelp}" target="_blank">
                         <img src="https://img.icons8.com/color/48/000000/phone.png" style="width: 35px;height: 35px"/>
                     </a>
-                    <a class="btn" style="color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank">
+                    <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
                         <i class="fa  fas fa-video "></i>
                     </a> 
                 </div>
@@ -1339,7 +1345,7 @@
                                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                                 </div>
                                             </div> 
-                                            ${call_wa_dan_biasa(ress.handphone)}
+                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
                                         </div>
             
             
@@ -1412,7 +1418,7 @@
                                                     <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
                                                 </div>
                                             </div> 
-                                            ${call_wa_dan_biasa(ress.handphone)}
+                                            ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                         </div>
             
             
@@ -1841,7 +1847,7 @@
                                                 <a href="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" target="_blank"><img src="http://k3ig20korlantas.id:3001/uploads/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
                                             </div>
                                             <div class="col-md-12" style="text-align: center;">
-                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer)}
+                                                ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
                                             </div>
                                             <div class="col-md-12" style="text-align: center;">
                                                 <h5>${filterLaporan[i].code}</h5>
@@ -1946,7 +1952,7 @@
                                             </div>
 
                                             <div class="col-md-12" style="text-align: center;">
-                                                ${call_wa_dan_biasa(filterLaporanPanic[i].officer.phone_officer)}
+                                                ${call_wa_dan_biasa(filterLaporanPanic[i].officer.phone_officer, filterLaporanPanic[i].officer.id, 'encrypt')}
                                             </div>
 
                                             <div class="col-md-12" style="text-align: center;">
@@ -3206,854 +3212,25 @@
         
          
 
-        function groupBy(list, callback) {
-            return list.reduce((acc, x) => {
-                const key = callback(x);
-                if (!acc[key]) {
-                    return {
-                        ...acc,
-                        [key]: [x]
-                    }
+        const groupBy = (array, key) => {
+            // Return the end result
+            return array.reduce((result, currentValue) => {
+                // If an array already present for key, push it to the array. Else create an array and push the object
+                (result[currentValue[key]] = result[currentValue[key]] || []).push(
+                    currentValue
+                );
+                // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
+                // This is how the above code in multiple line
+                if (!result[currentValue[key]]) {
+                result[currentValue[key]] = [];
                 }
-                return {
-                    ...acc,
-                    [key]: [...acc[key], x]
-                }
+                result[currentValue[key]].push(currentValue);
+            }, {}); // empty object is the initial value for result object
+        };
 
-            }, {})
-        }
         
-        var checkedRoutJadwal = [];
-        var dummyDataJadwal = [];
-        $('#myModalFilter').on('shown.bs.modal', function() { 
-
-
-            let countlistCategori = 0;
-            let listCategori = ""; 
-            var dataJadwalbyIdCategori = []; 
-            
-            $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>dashboard/getCategorySchedule", 
-                data : {
-                    "status" : '1',
-                }, 
-                dataType : "JSON",
-                success : function(result){ 
-                    dummyDataJadwal = result['data'];
-                    let ress = dummyDataJadwal;
-                 
-                    countlistCategori = 0;
-                    listCategori = ""; 
-
-                    let dataGroupBy = groupBy(dummyDataJadwal, v => v.id_category_schedule);
-                    console.log(dataGroupBy);
-                    // let data = ressData.filter(function (e) {
-                    //     return e.lat_cctv != null && e.lng_cctv != null;
-                    // });  
-
-                    var listJadwalByIdCategetori = ''; 
-                    ress.forEach(el => {
-                        countlistCategori += 1;
-                        dataJadwalbyIdCategori = []; 
-
-                        // $.ajax({
-                        //     type : "POST",
-                        //     url : "<?php echo base_url();?>dashboard/getJadwalByidCategori", 
-                        //     data : {
-                        //         "id_category_schedule" : el.id,
-                        //     }, 
-                        //     dataType : "JSON",
-                        //     success : function(result){ 
-                        //         let ressJadwal = result['data'];
-
-                        //         listJadwalByIdCategetori = '';
-                        //         ressJadwal.forEach(el => {
-                        //             listJadwalByIdCategetori += `
-                        //                 <div class="accordion-item">
-                        //                     <h2 class="accordion-header" id="flush-heading${countlistCategori}">
-                        //                         <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                        //                             data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                        //                             ${el.name_category_schedule}
-                        //                         </button>
-                        //                     </h2>
-                        //                     <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
-                        //                         data-bs-parent="#accordionFlushExample">
-                        //                         <div class="accordion-body text-muted">
-                        //                             <div class="row">
-                        //                                 <div class="col-md-12">
-                        //                                     <div class="list-group" id="listJadwalbyCateg${countlistCategori}"> 
-                        //                                     </div>
-                        //                                 </div> 
-                        //                             </div>
-                        //                         </div>
-                        //                     </div>
-                        //                 </div> 
-                        //             `;
-                        //             $(`#listJadwalbyCateg${countlistCategori}`).html(listJadwalByIdCategetori);
-                        //         });
-                        //     }
-                        // });
-
-                        listCategori += `  
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-heading${countlistCategori}">
-                                    <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                        ${el.name_category_schedule}
-                                    </button>
-                                </h2>
-                                <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body text-muted">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="list-group" id="listJadwalbyCateg${countlistCategori}"> 
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>      
-                        `;
-                        $(".listCategoriSchedule").html(listCategori);
-                    });
-
-                }
-            });
-
-
-
-
-            // $("#overlay").fadeIn(300);
-            // userDataTable = $('#datatable').DataTable({
-
-            //     responsive: true,
-
-            //     scrollX: true,
-
-            //     // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-            //     // buttons: ["excel", "csv", "pdf"],
-
-            //     oLanguage: {
-
-            //         sSearch: 'Search:'
-
-            //     },
-
-            //     initComplete: function(settings, json) {},
-
-            //     retrieve: true,
-
-            //     processing: true,
-
-            //     serverSide: true,
-
-            //     serverMethod: 'POST',
-
-            //     ajax: {
-
-            //         dataType: 'json',
-
-            //         url: '<?php echo base_url(); ?>dashboard/serverSideTable',
-
-            //         data: function(data) {
-
-            //             $("#overlay").fadeIn(300);
-
-            //             // console.log(data);
-
-            //             data.filterTgl = $('#startdate').val();
-
-            //             data.filterTgl2 = $('#enddate').val();
-
-            //             // data.filterStatus = $('[name=status]').val();
-
-            //             data.filterSchedule = '';
-
-            //             data.filterTypeRenpam = '';
-
-            //             data.filterCategoryRenpam = '';
-
-            //             // data.filterPhone = $('[name=poc_phone]').val();
-
-            //             // data.filterThreat = $('[name=threat_level]').val();
-
-            //             data.orderField = data.order[0] != undefined ? data.order[0].column : '';
-
-            //             data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-
-            //             data.page = Number(data.start / data.length) + 1
-
-            //         },
-
-            //         beforeSend: function(xhr, settings) {
-
-            //         },
-
-            //         "dataSrc": function(result) {
-
-            //             result.iTotalRecords = result.iTotalRecords;
-
-            //             result.iTotalDisplayRecords = result.iTotalRecords;
-
-            //             return result.aaData;
-
-            //         }
-
-            //     },
-
-            //     columns: [
-
-            //         {
-            //             data: 'id'
-            //         },
-            //         {
-            //             data: 'dateTime'
-            //         }, 
-                    
-            //         {
-            //             data: 'accounts',
-            //             orderable: false
-            //         },
-            //         {
-            //             data: 'name_renpam'
-            //         },
-            //         {
-            //             data: 'vips',
-            //             orderable: false
-            //         },
-            //         {
-            //             data: 'type_renpam'
-            //         },
-
-                    
-            //         // {
-            //         //     data: 'estimasi',
-            //         // }, 
-                    
-            //         // {
-            //         //     data: 'estimasi_time',
-            //         // }, 
-
-            //         // {
-            //         //     data: 'action',
-            //         //     orderable: false
-            //         // }
-
-            //     ],
-
-            //     order: [
-            //         [0, "DESC"]
-            //     ],
-
-            //     drawCallback: function(settings) {
-
-            //         $("#overlay").fadeOut(300);
-            //         client();
-            //     }
-
-            // });
-
-
-            // let countlist = 0;
-            // let list = ""; 
-            // var data = []; 
-            // $.ajax({
-            //     type : "POST",
-            //     url : "<?php echo base_url();?>dashboard/getJadwal", 
-            //     data : {
-            //         "status" : '1',
-            //     }, 
-            //     dataType : "JSON",
-            //     success : function(result){ 
-            //         let ress = result['data'];
-            //         // console.log(result['test']);
-            //         countlist = 0;
-            //         list = "";
-            //         var status = ""; 
-            //         var checkboxJadwal = "";
-            //         var nameJadwalRenpam = [];
-            //         var typeJadwalRenpam = [];
-            //         var awalJadwalRenpam = [];
-            //         var akhirJadwalRenpam = [];
-
-            //         var dummyName = [];
-            //         var dummyType = [];
-            //         var dummyAwal = [];
-            //         var dummyAkhir = [];
-
-            //         var dummy= []; 
-            //         var dummy1= []; 
-            //         var dummy2= []; 
-            //         var dummy3= []; 
-            //         var dummy4= []; 
-                    
-
-            //         var dummyJadwalRenpam = [];
-            //         var dummyJadwalRenpamAlter = [];
-            //         var dummyJadwalRenpamAlterr = [];
-            //         var dummyJadwalRenpamAlterrr = [];
-            //         var dummyJadwalRenpamAlterrrr = []; 
-
-            //         if($('#jadwal').is(':checked')){
-            //             $("#totalKegiatanOn").html(ress.length);
-            //             ress.forEach(el => {
-
-            //                 dummyName = [];
-            //                 dummyType = [];
-            //                 dummyAwal = [];
-            //                 dummyAkhir = [];
-
-            //                 dummy= []; 
-            //                 dummy1= []; 
-            //                 dummy2= []; 
-            //                 dummy3= []; 
-            //                 dummy4= []; 
-
-            //                 checkedRoutJadwal.push({
-            //                     activity : el.activity,
-            //                     checked : 0,
-            //                 });
-
-            //                 countlist += 1;
-            //                 if(el.status_schedule == 1){
-            //                     status = `
-            //                     <div>
-            //                         <div class="rounded-circle m-auto" style="background:green; height:20px ; width:20px"></div>
-            //                     </div>`;
-            //                 }else{
-            //                     status = `
-            //                     <div>
-            //                         <div class="rounded-circle m-auto" style="background:red; height:20px ; width:20px"></div>
-            //                     </div>
-            //                     `;
-            //                 }
-
-            //                 if(el.renpams.length > 0){
-            //                     for (let i = 0; i < el.renpams.length; i++){  
-            //                         dummyName.push(el.renpams[i]['name_renpam']);
-            //                         dummyType.push(el.renpams[i]['type_renpam']);
-            //                         dummyAwal.push(el.renpams[i]['awal_renpam']);
-            //                         dummyAkhir.push(el.renpams[i]['akhir_renpam']);
-
-            //                         nameJadwalRenpam[countlist] = dummyName;
-            //                         typeJadwalRenpam[countlist] = dummyType; 
-            //                         awalJadwalRenpam[countlist] = dummyAwal; 
-            //                         akhirJadwalRenpam[countlist] = dummyAkhir; 
-
-            //                         dummy.push(el.renpams[i]['route']); 
-            //                         dummy1.push(el.renpams[i]['route_alternatif_1']); 
-            //                         dummy2.push(el.renpams[i]['route_alternatif_2']); 
-            //                         dummy3.push(el.renpams[i]['route_masyarakat']); 
-            //                         dummy4.push(el.renpams[i]['route_umum']); 
-
-            //                         dummyJadwalRenpam[countlist] = dummy; 
-            //                         dummyJadwalRenpamAlter[countlist] = dummy1; 
-            //                         dummyJadwalRenpamAlterr[countlist] = dummy2; 
-            //                         dummyJadwalRenpamAlterrr[countlist] = dummy3; 
-            //                         dummyJadwalRenpamAlterrrr[countlist] = dummy4;
-            //                     }
-            //                     checkboxJadwal = `
-            //                         <input type="checkbox" class="form-input" name="selectRenpam" id="listJadwalRenpamClick${countlist}" >
-            //                     `;
-            //                 }else{
-            //                     checkboxJadwal = ``;
-            //                 }
-
-            //                 // console.log(dummyJadwalRenpam); 
-            //                 list += `  
-            //                     <li class="list-group-item text-start" style="display: flex;">
-            //                         <div class="row">
-            //                             <div class="col-md-2" style="display: flex;align-items: center;">
-            //                                 ${status}
-            //                             </div>
-            //                             <div class="col-md-7">
-            //                                 ${el.activity}
-            //                             </div>
-            //                             <div class="col-md-3" style="display: flex;align-items: center;">
-            //                                 <a class="btn" style="display: flex;"
-            //                                     id="listJadwalClick${countlist}"   
-            //                                     data-alamat="${el.address_schedule}"  
-            //                                     data-cord="${el.coordinate_schedule}"
-            //                                     href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
-            //                                 </a>
-            //                                 ${checkboxJadwal}
-            //                             </div>
-            //                         </div>
-            //                     </li>   
-            //                 `;
-            //                 $('#listJadwal').html(list);  
-            //             });  
-
-
-            //             for (let i = 0; i < ress.length; i++){ 
-            //                 $(`#listJadwalRenpamClick${i+1}`).on("change", function (e) { 
-                                
-            //                     for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
-            //                         //Find index of specific object using findIndex method.    
-            //                         objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == ress[i+1]['activity']));
-            //                         // console.log(objIndex);
     
-            //                         //Log object to Console.
-            //                         // console.log("Before update: ", checkedRoutJadwal[objIndex]);
-    
-            //                         //Update object's name property.
-            //                         if($(this).is(':checked')){  
-            //                             checkedRoutJadwal[objIndex].checked = 1;
-            //                         }else{
-            //                             checkedRoutJadwal[objIndex].checked = 0;
-            //                         } 
-
-            //                         var titikAwal = nameJadwalRenpam[i+1][ii] == null ? '-' : nameJadwalRenpam[i+1][ii];
-            //                         var titikAkhir = akhirJadwalRenpam[i+1][ii] == null ? '-' : akhirJadwalRenpam[i+1][ii];
-
-            //                         // console.log(dummyJadwalRenpam[i+1][ii]);
-
-            //                         var typeRenpam = typeJadwalRenpam[i+1][ii];
-            //                         if(typeRenpam == 3){ //penjagaan
-            //                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
-            //                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-            //                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-            //                             markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-            //                         }else if(typeRenpam == 4){ //pengaturan 
-            //                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
-            //                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-            //                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-            //                             markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-            //                         }else if(typeRenpam == 5){ //penutupan 
-            //                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
-            //                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-            //                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-            //                             markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-            //                         }else{
-            //                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-            //                             markerType = `<img src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
-            //                             markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-            //                             markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
-            //                         }
-
-
-            //                         if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
-                                         
-            //                             if($(this).is(':checked')){  
-            //                                 routingJadwalRenpam[`${i+1}${ii}`] = null;
-            //                                 routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-            //                                     show:false,
-            //                                     draggableWaypoints: false,
-            //                                     addWaypoints: false,
-            //                                     waypoints: dummyJadwalRenpam[i+1][ii],
-            //                                     router: new L.Routing.osrmv1({
-            //                                         language: 'en',
-            //                                         profile: 'car'
-            //                                     }),
-            //                                     lineOptions: {
-            //                                         styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
-            //                                     },
-            //                                     createMarker: function(i, wp, nWps) {
-            //                                         if (i === 0 || i === nWps + 1) {
-            //                                             // here change the starting and ending icons
-            //                                             return L.marker(wp.latLng, {
-            //                                                 icon: L.divIcon({
-            //                                                     className: "location-pin",
-            //                                                     html: markerType,
-            //                                                     iconSize: [5, 5],
-            //                                                     //iconAnchor: [18, 30]
-            //                                                     iconAnchor: [5, 10],
-            //                                                 }),
-            //                                                 draggable: this.draggableWaypoints,
-            //                                             }).bindPopup(`
-            //                                                 <div class="text-center"> 
-            //                                                     <h3>${titikAwal}</h3>
-            //                                                 </div> 
-            //                                             `);
-            //                                         } else if (i === nWps - 1) {
-            //                                             return L.marker(wp.latLng, {
-            //                                                 icon: L.divIcon({
-            //                                                     className: "location-pin",
-            //                                                     html: markerTypeEnd,
-            //                                                     iconSize: [5, 5],
-            //                                                     //iconAnchor: [18, 30]
-            //                                                     iconAnchor: [5, 10],
-            //                                                 }),
-            //                                                 draggable: this.draggableWaypoints,
-            //                                             }).bindPopup(`
-            //                                                 <div class="text-center"> 
-            //                                                     <h3>${titikAkhir}</h3>
-            //                                                 </div> 
-            //                                             `);
-            //                                         } else {
-            //                                             // here change all the others
-            //                                             var options = {
-            //                                                     draggable: this.draggableWaypoints,
-            //                                                 },
-            //                                                 marker = L.marker(wp.latLng, {
-            //                                                 icon: L.divIcon({
-            //                                                     className: "location-pin",
-            //                                                     html: markerTypeOther,
-            //                                                     iconSize: [5, 5],
-            //                                                     //iconAnchor: [18, 30]
-            //                                                     iconAnchor: [5, 10],
-            //                                                 }),
-            //                                                 draggable: this.draggableWaypoints,
-            //                                             });
-    
-            //                                             return marker;
-            //                                         }
-            //                                     },
-            //                                     geocoder: L.Control.Geocoder.nominatim({})
-            //                                 }).addTo(mapContainer); 
-            //                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-            //                             }else{
-            //                                 mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
-            //                             }
-            //                         }else{
-            //                             console.log('error route utama'); 
-            //                         } 
-                                  
-            //                         if(dummyJadwalRenpamAlter[i+1][ii] != null && dummyJadwalRenpamAlter[i+1][ii].length > 0 && dummyJadwalRenpamAlter[i+1][ii][0]['latLng'] != null){
-                                          
-            //                              if($(this).is(':checked')){  
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = null;
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-            //                                      show:false,
-            //                                      draggableWaypoints: false,
-            //                                      addWaypoints: false,
-            //                                      waypoints: dummyJadwalRenpamAlter[i+1][ii],
-            //                                      router: new L.Routing.osrmv1({
-            //                                          language: 'en',
-            //                                          profile: 'car'
-            //                                      }),
-            //                                      lineOptions: {
-            //                                         styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
-            //                                      },
-            //                                      createMarker: function(i, wp, nWps) {
-            //                                          if (i === 0 || i === nWps + 1) {
-            //                                              // here change the starting and ending icons
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerType,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAwal}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else if (i === nWps - 1) {
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeEnd,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAkhir}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else {
-            //                                              // here change all the others
-            //                                              var options = {
-            //                                                      draggable: this.draggableWaypoints,
-            //                                                  },
-            //                                                  marker = L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeOther,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              });
-     
-            //                                              return marker;
-            //                                          }
-            //                                      },
-            //                                      geocoder: L.Control.Geocoder.nominatim({})
-            //                                  }).addTo(mapContainer); 
-            //                                  // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-            //                              }else{
-            //                                  mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
-            //                              }
-            //                          }else{
-            //                              console.log('error route utama'); 
-            //                          } 
-
-
-            //                          if(dummyJadwalRenpamAlterr[i+1][ii] != null && dummyJadwalRenpamAlterr[i+1][ii].length > 0 && dummyJadwalRenpamAlterr[i+1][ii][0]['latLng'] != null){
-                                         
-            //                              if($(this).is(':checked')){  
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = null;
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-            //                                      show:false,
-            //                                      draggableWaypoints: false,
-            //                                      addWaypoints: false,
-            //                                      waypoints: dummyJadwalRenpamAlterr[i+1][ii],
-            //                                      router: new L.Routing.osrmv1({
-            //                                          language: 'en',
-            //                                          profile: 'car'
-            //                                      }),
-            //                                      lineOptions: {
-            //                                         styles: [{color: "gray", weight: 5, className: 'animateRoute'}]
-            //                                      },
-            //                                      createMarker: function(i, wp, nWps) {
-            //                                          if (i === 0 || i === nWps + 1) {
-            //                                              // here change the starting and ending icons
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerType,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAwal}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else if (i === nWps - 1) {
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeEnd,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAkhir}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else {
-            //                                              // here change all the others
-            //                                              var options = {
-            //                                                      draggable: this.draggableWaypoints,
-            //                                                  },
-            //                                                  marker = L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeOther,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              });
-     
-            //                                              return marker;
-            //                                          }
-            //                                      },
-            //                                      geocoder: L.Control.Geocoder.nominatim({})
-            //                                  }).addTo(mapContainer); 
-            //                                  // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-            //                              }else{
-            //                                  mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
-            //                              }
-            //                          }else{
-            //                              console.log('error route utama'); 
-            //                          }  
-
-
-            //                          if(dummyJadwalRenpamAlterrr[i+1][ii] != null && dummyJadwalRenpamAlterrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrr[i+1][ii][0]['latLng'] != null){
-                                         
-            //                              if($(this).is(':checked')){  
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = null;
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-            //                                      show:false,
-            //                                      draggableWaypoints: false,
-            //                                      addWaypoints: false,
-            //                                      waypoints: dummyJadwalRenpamAlterrr[i+1][ii],
-            //                                      router: new L.Routing.osrmv1({
-            //                                          language: 'en',
-            //                                          profile: 'car'
-            //                                      }),
-            //                                      lineOptions: {
-            //                                         styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}]
-            //                                      },
-            //                                      createMarker: function(i, wp, nWps) {
-            //                                          if (i === 0 || i === nWps + 1) {
-            //                                              // here change the starting and ending icons
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerType,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAwal}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else if (i === nWps - 1) {
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeEnd,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAkhir}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else {
-            //                                              // here change all the others
-            //                                              var options = {
-            //                                                      draggable: this.draggableWaypoints,
-            //                                                  },
-            //                                                  marker = L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeOther,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              });
-     
-            //                                              return marker;
-            //                                          }
-            //                                      },
-            //                                      geocoder: L.Control.Geocoder.nominatim({})
-            //                                  }).addTo(mapContainer); 
-            //                                  // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-            //                              }else{
-            //                                  mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
-            //                              }
-            //                          }else{
-            //                              console.log('error route utama'); 
-            //                          } 
-
-
-            //                          if(dummyJadwalRenpamAlterrrr[i+1][ii] != null && dummyJadwalRenpamAlterrrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrrr[i+1][ii][0]['latLng'] != null){
-                                         
-            //                              if($(this).is(':checked')){  
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = null;
-            //                                  routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
-            //                                      show:false,
-            //                                      draggableWaypoints: false,
-            //                                      addWaypoints: false,
-            //                                      waypoints: dummyJadwalRenpamAlterrrr[i+1][ii],
-            //                                      router: new L.Routing.osrmv1({
-            //                                          language: 'en',
-            //                                          profile: 'car'
-            //                                      }),
-            //                                      lineOptions: {
-            //                                         styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}]
-            //                                      },
-            //                                      createMarker: function(i, wp, nWps) {
-            //                                          if (i === 0 || i === nWps + 1) {
-            //                                              // here change the starting and ending icons
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerType,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAwal}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else if (i === nWps - 1) {
-            //                                              return L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeEnd,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              }).bindPopup(`
-            //                                                  <div class="text-center"> 
-            //                                                      <h3>${titikAkhir}</h3>
-            //                                                  </div> 
-            //                                              `);
-            //                                          } else {
-            //                                              // here change all the others
-            //                                              var options = {
-            //                                                      draggable: this.draggableWaypoints,
-            //                                                  },
-            //                                                  marker = L.marker(wp.latLng, {
-            //                                                  icon: L.divIcon({
-            //                                                      className: "location-pin",
-            //                                                      html: markerTypeOther,
-            //                                                      iconSize: [5, 5],
-            //                                                      //iconAnchor: [18, 30]
-            //                                                      iconAnchor: [5, 10],
-            //                                                  }),
-            //                                                  draggable: this.draggableWaypoints,
-            //                                              });
-     
-            //                                              return marker;
-            //                                          }
-            //                                      },
-            //                                      geocoder: L.Control.Geocoder.nominatim({})
-            //                                  }).addTo(mapContainer); 
-            //                                  // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
-            //                              }else{
-            //                                  mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
-            //                              }
-            //                          }else{
-            //                              console.log('error route utama'); 
-            //                          } 
-
-
-
-
-            //                     }
- 
- 
-            //                 });
-
-            //                 $(`#listJadwalClick${i+1}`).click(function(){   
-            //                     var latlong =  $(this).data('cord').split(',');
-            //                     var latitude = parseFloat(latlong[0]);
-            //                     var longitude = parseFloat(latlong[1]); 
-            //                     mapContainer.flyTo([latitude, longitude], 17);  
-            //                 });
-            //             } 
-            //         }else{
-            //             $('#listJadwal').html('Mohon untuk pilih filter Jadwal!'); 
-            //         }
-    
-            //     }
-            // });
-
-            
-            // if(openModalFilter == false){ 
-            //     getRenpam();
-            // } 
-
-    
-        });
-    
-
+               
 
         // function serverSideGetCCTV(){
         //     $("#overlay").fadeIn(300);  
@@ -4666,6 +3843,313 @@
         }); 
     });
 
+
+
+
+
+        function groupArrayOfObjects(list, key) {
+            return list.reduce(function(rv, x) {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        };
+ 
+        
+
+
+        
+        var checkedRoutJadwal = [];
+        var dummyDataJadwal = [];
+        $('#myModalFilter').on('shown.bs.modal', function(e) { 
+
+
+            let countlistCategori = 0;
+            let countlistByIdCategetori = 0;
+            let listCategori = ""; 
+            var listJadwalByIdCategetori = ''; 
+            var dataJadwalbyIdCategori = [];  
+
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getCategorySchedule", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    let ress = result['data'];
+                    console.log(ress); 
+                 
+                    countlistCategori = 0;
+                    listCategori = "";  
+ 
+
+                    
+                    // dataGroupBy.forEach(el => {
+                    for (let i = 0; i < ress.length; i++){ 
+                        countlistCategori += 1;   
+                        listCategori += `  
+                            <div class="accordion-item" >
+                                <h2 class="accordion-header" id="flush-heading${countlistCategori}">
+                                    <button id="openCateg${countlistCategori}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
+                                        ${ress[i]['name_category_schedule']}
+                                    </button>
+                                </h2>
+                                <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body text-muted">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="accordion accordion-flush listJadwalbyCateg${countlistCategori}" id="accordionFlushExampleByCateg${countlistCategori}"> 
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>      
+                        `; 
+                        $(".listCategoriSchedule").html(listCategori);  
+
+                    }   
+                    
+                
+
+                    var countlistCategoriByCateg = 0;
+                    var listCategoriByCateg = ""; 
+                    $(`#openCateg1`).on('click', function(e) {
+                        $("#overlay").fadeIn(300);
+                        listCategoriByCateg = ""; 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                            data : {
+                                "id_category_schedule" : '1',
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){
+                                $("#overlay").fadeOut(300);
+                                let ress = result['data'];
+                                // console.log(ress);
+
+                               
+                                for (let i = 0; i < ress.length; i++){ 
+                                    countlistCategoriByCateg += 1;   
+                                    listCategoriByCateg += `  
+                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                    ${ress[i]['activity']}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                data-bs-parent="#accordionFlushExampleByCateg1">
+                                                <div class="accordion-body text-muted">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    `; 
+                                    $(".listJadwalbyCateg1").html(listCategoriByCateg);  
+
+                                } 
+                            }
+                        });
+                    }); 
+                    $(`#openCateg2`).on('click', function(e) {
+                        $("#overlay").fadeIn(300);
+                        listCategoriByCateg = ""; 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                            data : {
+                                "id_category_schedule" : '2',
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){
+                                $("#overlay").fadeOut(300);
+                                let ress = result['data'];
+                                // console.log(ress);
+
+                               
+                                for (let i = 0; i < ress.length; i++){ 
+                                    countlistCategoriByCateg += 1;   
+                                    listCategoriByCateg += `  
+                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                    ${ress[i]['activity']}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                data-bs-parent="#accordionFlushExampleByCateg1">
+                                                <div class="accordion-body text-muted">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    `; 
+                                    $(".listJadwalbyCateg2").html(listCategoriByCateg);  
+
+                                } 
+                            }
+                        });
+                    }); 
+                    $(`#openCateg3`).on('click', function(e) {
+                        $("#overlay").fadeIn(300);
+                        listCategoriByCateg = ""; 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                            data : {
+                                "id_category_schedule" : '3',
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){
+                                $("#overlay").fadeOut(300);
+                                let ress = result['data'];
+                                // console.log(ress);
+
+                               
+                                for (let i = 0; i < ress.length; i++){ 
+                                    countlistCategoriByCateg += 1;   
+                                    listCategoriByCateg += `  
+                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                    ${ress[i]['activity']}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                data-bs-parent="#accordionFlushExampleByCateg1">
+                                                <div class="accordion-body text-muted">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    `; 
+                                    $(".listJadwalbyCateg3").html(listCategoriByCateg);  
+
+                                } 
+                            }
+                        });
+                    }); 
+                    $(`#openCateg4`).on('click', function(e) {
+                        $("#overlay").fadeIn(300);
+                        listCategoriByCateg = ""; 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                            data : {
+                                "id_category_schedule" : '4',
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){
+                                $("#overlay").fadeOut(300);
+                                let ress = result['data'];
+                                // console.log(ress);
+
+                               
+                                for (let i = 0; i < ress.length; i++){ 
+                                    countlistCategoriByCateg += 1;   
+                                    listCategoriByCateg += `  
+                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                    ${ress[i]['activity']}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                data-bs-parent="#accordionFlushExampleByCateg1">
+                                                <div class="accordion-body text-muted">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    `; 
+                                    $(".listJadwalbyCateg4").html(listCategoriByCateg);  
+
+                                } 
+                            }
+                        });
+                    }); 
+                    $(`#openCateg5`).on('click', function(e) {
+                        $("#overlay").fadeIn(300);
+                        listCategoriByCateg = ""; 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getJadwalId", 
+                            data : {
+                                "id_category_schedule" : '4',
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){
+                                $("#overlay").fadeOut(300);
+                                let ress = result['data'];
+                                // console.log(ress);
+
+                               
+                                for (let i = 0; i < ress.length; i++){ 
+                                    countlistCategoriByCateg += 1;   
+                                    listCategoriByCateg += `  
+                                        <div class="accordion-item" id="openCategByCateg${countlistCategoriByCateg}">
+                                            <h2 class="accordion-header" id="flush-headingByCateg${countlistCategoriByCateg}">
+                                                <button id="openCategByCateg${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseByCateg${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${countlistCategoriByCateg}">
+                                                    ${ress[i]['activity']}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseByCateg${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${countlistCategoriByCateg}"
+                                                data-bs-parent="#accordionFlushExampleByCateg1">
+                                                <div class="accordion-body text-muted">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="accordion accordion-flush listJadwalbyCateg${countlistCategoriByCateg}" id="accordionFlushExampleByCateg${countlistCategoriByCateg}"> 
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    `; 
+                                    $(".listJadwalbyCateg4").html(listCategoriByCateg);  
+
+                                } 
+                            }
+                        });
+                    }); 
+                
+               
+                }
+            });
+
+ 
+        });
+
     var routingUtama = new Array();
     var routingAlternative1 = new Array();
     var routingAlternative2 = new Array();
@@ -5244,6 +4728,70 @@
                 }
             }); 
         });
+
+
+        function sendZoomEncrypt(id){
+            $.ajax({ 
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/sendZoomEncrpyt", 
+                data : {
+                    "officer_id" : id,
+                }, 
+                dataType : "JSON",
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `Notifikasi Berhasil Terkirim`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            // $(".TambahPetugas").modal('hide');
+                            // userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            });
+        }
+
+        function sendZoom(id){ 
+            $.ajax({ 
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/sendZoom", 
+                data : {
+                    "officer_id" : id,
+                }, 
+                dataType : "JSON",
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `Notifikasi Berhasil Terkirim`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            // $(".TambahPetugas").modal('hide');
+                            // userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            });
+
+        }
 
     
 </script> 

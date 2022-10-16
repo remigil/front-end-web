@@ -530,7 +530,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-
+    <script type="text/javascript" src=
+        "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js">
+        </script>
 
 
     <?php echo $css ?>
