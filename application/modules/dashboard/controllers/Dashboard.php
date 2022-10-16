@@ -306,6 +306,21 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function getTrackingName()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $input = $this->input->post(); 
+
+        $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
     public function getCCTV()
     {
         $headers = [

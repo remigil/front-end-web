@@ -418,10 +418,10 @@
                                 <label class="labelmui">Lokasi Akhir</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="display: none;">
                             <div class="material-textfield mb-3">
                                 <input  type="text" name="note_kakor" class="form-control" id="note_kakor"> 
-                                <label class="labelmui">Instruksi Kakor</label>
+                                <label class="labelmui">Catatan Uraian Kegiatan</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6">
@@ -587,7 +587,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelNoteKakor">Tambah Instruksi Kakor</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabelNoteKakor">Tambah Catatan Uraian Kegiatan</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> 
@@ -599,7 +599,7 @@
                             <div class="material-textfield mb-3">
                                 <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
                                 <input required style="width: 100%;" name="note_kakor" id="noteKakor" placeholder="" type="text">
-                                <label class="labelmui">Instruksi Kakor</label>
+                                <label class="labelmui">Catatan Uraian Kegiatan</label>
                             </div>
                         </div>
                            
@@ -667,12 +667,13 @@
     
     let data = [];  
     let connected = false; 
-    var socket = io('https://k3ig20korlantas.id/api/socket.io/', {
+    var socket = io('https://k3ig20korlantas.id/', {
     // query: {
     //     token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJWVEpHYzJSSFZtdFlNU3RWTDJodWIxRnFjbFZMZW5wUmNHcEdUSGRIUzJnMVptMWlUelowYmtGV1JUMCIsIm5ycF91c2VyIjoiVlRKR2MyUkhWbXRZTVRoNmVIVnhNWFZ5TkcxRk1XdFZZa1ZKTkRCVWNWQjNUakJZWWs4M1NWbHZkejAiLCJvZmZpY2VyIjoiVlRKR2MyUkhWbXRZTVN0VFQwYzRNVzh3UVhOamNtWkNMeXQyTmxSdVlsaE1SRm94Umpodk9XTnVhejAiLCJ0aW1lc3RhbXAiOjE2NjA5ODc0NDksImlhdCI6MTY2MDk4NzQ0OSwiZXhwIjoxNjYwOTkxMDQ5LCJhdWQiOiJHMjAiLCJpc3MiOiJLb3JsYW50YXNQb2xyaSIsInN1YiI6IkszSUcyMCJ9.vapdm1lwH-ifw72nfFtCE39XmNFg0N46CvaDFvafp-A2jidKC2_Nn_rwZCTy_I5BI3Usb1028Bwx6kZbXg3WoQ",
     //     user_nrp: "3232912480",
     //     type: "operator", //['admin', 'kakor', 'operator'],
     // }
+        path:'/api/socket.io',
         query: {
         
             username: "Kakor",
@@ -681,7 +682,7 @@
             type: "Admin"
         }
     });
-    console.log(socket);
+    console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
@@ -2599,6 +2600,27 @@
     
                         
                         // dataGroupBy.forEach(el => {
+                        listCategori = `
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugas">
+                                    <button id="openPetugas" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas">
+                                        Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body text-muted">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="list-group" id="listPetugas"> 
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        `;
                         for (let i = 0; i < ress.length; i++){ 
                             countlistCategori += 1;   
                             listCategori += `  
@@ -2626,7 +2648,10 @@
                             $(".listCategoriSchedule").html(listCategori);  
     
                         }   
-                        
+
+                        $(`#openPetugas`).on('click', function(e) {
+                            serverSideGet(); 
+                        });
                     
     
                         var countlistCategoriByCateg = 0;
@@ -2832,7 +2857,7 @@
                                                                     data-idnote="${el.renpams[i]['id']}" 
                                                                     data-note="${el.renpams[i]['note_kakor']}"
                                                                     data-accounts='${JSON.stringify(dataAccounts)}'
-                                                                    title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                                                    title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                                                     <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                                                                 </a>
                                                             </td>
@@ -3646,7 +3671,7 @@
                                         data-idnote="${el.id}" 
                                         data-note="${el.note_kakor}"
                                         data-accounts='${JSON.stringify(el.accounts)}'
-                                        title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                        title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                             <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                                         </a>
                                         <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}"  data-name="${el.name_renpam}" data-cord=${JSON.stringify(el.route)} data-type="${el.type_renpam}" data-awal="${el.title_start}" data-akhir="${el.title_end}">
@@ -3721,7 +3746,7 @@
                         //                             style="font-size: 16px;"  
                         //                             data-idnote="${data.id}" 
                         //                             data-note="${data.note_kakor}"
-                        //                             title="Instruksi Kakor" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                        //                             title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                         //                                 <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                         //                             </a>
                         //                             <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${data.id}"  data-name="${data.name_renpam}" data-cord=${JSON.stringify(data.route)} data-type="${data.type_renpam}" >
@@ -5398,6 +5423,8 @@
 
         console.log(myAccounts);
 
+        
+
         var isiTable = '';
         if(myAccounts.length > 0){
             for (let i = 0; i < myAccounts.length; i++){ 
@@ -5411,40 +5438,80 @@
                     success : function(result){
                         var ress = result['data'];
                         console.log(ress['officers']);
+                        var getIdTracking = '';
                         for (let ii = 0; ii < ress['officers'].length; ii++){ 
-                            isiTable += `
-                                <tr>
-                                    <td>${ii+1}</td>
-                                    <td>${ress['officers'][ii]['rank_officer']}</td>
-                                    <td>${ress['officers'][ii]['name_officer']}</td>
-                                    <td>${ress['officers'][ii]['nrp_officer']}</td>
-                                    <td>
-                                        <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                        <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
-                                         
-                                    </td>
-                                </tr>
-                            `;
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getTrackingName", 
+                                data : {
+                                    "name_officer" : ress['officers'][ii]['name_officer'],
+                                }, 
+                                dataType : "JSON",
+                                success : function(result1){
+                                    // console.log(result1);
+                                    if(result1['data'].length > 0){
+                                        var trackPetugas = result1['data'][0];  
+                                        getIdTracking = `
+                                            <a class="btn" style="margin-top: -10px;" 
+                                                id="listPetugasClickModal${trackPetugas['nrp_user']}"   
+                                                data-nama="${trackPetugas['name_team']}"  
+                                                data-akun="${trackPetugas['name_account']}" 
+                                                data-nrp="${trackPetugas['nrp_user']}"
+                                                data-telp="${trackPetugas['handphone']}"
+                                                data-cord="${trackPetugas['latitude']},${trackPetugas['longitude']}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        `;
+                                        console.log('ada');
+                                    }else{
+                                        getIdTracking = `<div style="margin-top: -10px;"></div>`;
+                                        console.log('ga ada');
+                                    }
+
+
+                                    isiTable += `
+                                        <tr>
+                                            <td>${ii+1}</td>
+                                            <td>${ress['officers'][ii]['rank_officer']}</td>
+                                            <td>${ress['officers'][ii]['name_officer']}</td>
+                                            <td>${ress['officers'][ii]['nrp_officer']}</td>
+                                            <td>
+                                                ${getIdTracking}
+                                                <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $("#isiModalPetugas").html(`
+                                        <table id="datatablePetugas" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Pangkat</th>
+                                                    <th>Nama</th>
+                                                    <th>NRP</th>
+                                                    <th></th> 
+                                                </tr>
+                                            </thead> 
+                                            <tbody>
+                                                ${isiTable}
+                                            </tbody>
+                                        </table>
+                                    `);
+                                }
+                            });
+                            
                         }
-                        $("#isiModalPetugas").html(`
-                            <table id="datatablePetugas" class="table dt-responsive w-100">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Pangkat</th>
-                                        <th>Nama</th>
-                                        <th>NRP</th>
-                                        <th></th> 
-                                    </tr>
-                                </thead> 
-                                <tbody>
-                                    ${isiTable}
-                                </tbody>
-                            </table>
-                        `);
+                        
                     }
                 });
             }
+
+
+            
+            
+            
         }else{ 
             $("#isiModalPetugas").html(`
                 <table id="datatablePetugas" class="table dt-responsive w-100">
@@ -5470,6 +5537,9 @@
             `);
         }
  
+        $("#listPetugasClickModal9002").on('click', function(e){ 
+                alert('ada');
+            });
     });
 
     $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
