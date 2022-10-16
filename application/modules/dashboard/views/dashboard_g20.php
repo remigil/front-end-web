@@ -2726,7 +2726,8 @@
                                         $("#overlay").fadeOut(300);
                                         let ress = result['data'];
                                         console.log(ress);
-                                        var countlist = 0;
+                                        var countlist = 0; 
+                                        var countlistRenpam = 0;
                                         var list = "";
                                         var status = ""; 
                                         var checkboxJadwal = "";
@@ -2756,6 +2757,14 @@
                                         var checkedRoutJadwal = [];
     
                                         let dummyRenpam = '';
+
+                                        var checkedRenpam1 = [];
+
+                                        var route = []; 
+                                        var route1 = []; 
+                                        var route2 = []; 
+                                        var route3 = []; 
+                                        var route4 = []; 
     
                                        
                                         ress.forEach(el => {
@@ -2770,6 +2779,12 @@
                                             dummy2= []; 
                                             dummy3= []; 
                                             dummy4= []; 
+
+                                            route = []; 
+                                            route1 = []; 
+                                            route2 = []; 
+                                            route3 = []; 
+                                            route4 = []; 
     
                                             dummyRenpam = ''; 
     
@@ -2797,6 +2812,12 @@
                                                
                                                 for (let i = 0; i < el.renpams.length; i++){  
                                                   
+                                                    countlistRenpam += 1;
+
+                                                    checkedRenpam1.push({
+                                                        name_renpam : el.renpams[i]['name_renpam'],
+                                                        checked : 0,
+                                                    }); 
 
                                                     dummyName.push(el.renpams[i]['name_renpam']);
                                                     dummyType.push(el.renpams[i]['type_renpam']);
@@ -2827,6 +2848,8 @@
                                                         dataAccounts = [];
                                                     }
 
+                                                    // console.log(dummyJadwalRenpam);
+
                                                     var dataVIP = '';
                                                     if(el.renpams[i]['vips'].length > 0){ 
                                                         for (let ii = 0; ii < el.renpams[i]['vips'].length; ii++){  
@@ -2838,6 +2861,20 @@
     
                                                     dummyRenpam += `
                                                         <tr>
+                                                            <td>
+                                                                <input type="checkbox" class="form-input" name="selectRenpam" 
+                                                                id="listRenpamModalClick${countlistRenpam}"  
+                                                                data-name="${el.renpams[i]['name_renpam']}" 
+                                                                data-cord='${JSON.stringify(el.renpams[i]['route'])}' 
+                                                                data-cord1='${JSON.stringify(el.renpams[i]['route_alternatif_1'])}' 
+                                                                data-cord2='${JSON.stringify(el.renpams[i]['route_alternatif_2'])}' 
+                                                                data-cord3='${JSON.stringify(el.renpams[i]['route_masyarakat'])}' 
+                                                                data-cord4='${JSON.stringify(el.renpams[i]['route_umum'])}' 
+                                                                data-type="${el.renpams[i]['type_renpam']}" 
+                                                                data-awal="${el.renpams[i]['title_start']}" 
+                                                                data-akhir="${el.renpams[i]['title_end']}">
+                                                                ${el.renpams[i]['name_renpam']}
+                                                            </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
                                                             <td>${el.renpams[i]['title_start']}</td>
@@ -2865,7 +2902,10 @@
                                                     `;
                                                 }
                                                 checkboxJadwal = `
-                                                    <input type="checkbox" class="form-input" name="selectRenpam" id="listJadwalRenpamClick${countlist}" >
+                                                    <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
+                                                    id="listJadwalRenpamClick${countlist}" 
+                                                    data-totaldata="${el.renpams.length}"
+                                                    >
                                                 `;
                                             }else{
                                                 checkboxJadwal = ``;
@@ -2902,6 +2942,7 @@
                                                                     <table id="datatableByCateg${countlistCategoriByCateg}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
+                                                                                <th></th>
                                                                                 <th>No</th>
                                                                                 <th>Negara</th>
                                                                                 <th>Hotel</th>
@@ -2923,15 +2964,458 @@
                                                 </div>   
                                             `;
                                             $('.listJadwalbyCateg2').html(list);  
+
+                                            
     
                                         }); 
     
+                                        for (let i = 0; i < countlistRenpam; i++){ 
+                                            $(`#listRenpamModalClick${i+1}`).on("change", function (e) { 
+                                                console.log(checkedRenpam1);  
+                                                //Find index of specific object using findIndex method.    
+                                                objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
+                                                console.log(objIndex);
+
+                                                //Log object to Console.
+                                                console.log("Before update: ", checkedRenpam1[objIndex]);
+
+                                                //Update object's name property.
+                                                if($(this).is(':checked')){  
+                                                    checkedRenpam1[objIndex].checked = 1;
+                                                }else{
+                                                    checkedRenpam1[objIndex].checked = 0;
+                                                } 
+
+                                                //Log object to console again.
+                                                console.log("After update: ", checkedRenpam1[objIndex]);
+                                                
+                                                var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
+                                                var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
+                
+
+                                                var typeRenpam = $(this).data('type');
+                                                if(typeRenpam == 3){ //penjagaan
+                                                    iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                                    markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                    markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                    markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                }else if(typeRenpam == 4){ //pengaturan 
+                                                    iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                                    markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                    markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                    markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                }else if(typeRenpam == 5){ //penutupan 
+                                                    iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                                    markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                    markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                    markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                }else{
+                                                    iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                                    markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                    markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                    markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                }
+
+                                                var cordRute1 = $(this).data('cord1'); 
+                                                if(cordRute1 != null && cordRute1[0]['latLng'] != null){ 
+                                                    if($(this).is(':checked')){   
+                                                        routingRenpam[i] = null;
+                                                        routingRenpam[i] = L.Routing.control({
+                                                            show:false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRute1,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            },  
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerType,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAwal}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else if (i === nWps - 1) {
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeEnd,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAkhir}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    var options = {
+                                                                            draggable: this.draggableWaypoints,
+                                                                        },
+                                                                        marker = L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeOther,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    });
+                    
+                                                                    return marker;
+                                                                }
+                                                            },
+                                                            geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);  
+                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                    }else{ 
+                                                        mapContainer.removeControl(routingRenpam[i]);  
+                                                    }
+                                                    
+                                                    
+                                                }else{ 
+                                                }
+
+                                                var cordRute2 = $(this).data('cord2'); 
+                                                if(cordRute2 != null && cordRute2[0]['latLng'] != null){ 
+                                                    if($(this).is(':checked')){   
+                                                        routingRenpam[i] = null;
+                                                        routingRenpam[i] = L.Routing.control({
+                                                            show:false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRute2,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            },  
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerType,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAwal}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else if (i === nWps - 1) {
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeEnd,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAkhir}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    var options = {
+                                                                            draggable: this.draggableWaypoints,
+                                                                        },
+                                                                        marker = L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeOther,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    });
+                    
+                                                                    return marker;
+                                                                }
+                                                            },
+                                                            geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);  
+                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                    }else{ 
+                                                        mapContainer.removeControl(routingRenpam[i]);  
+                                                    }
+                                                    
+                                                    
+                                                }else{ 
+                                                }
+
+                                                var cordRute3 = $(this).data('cord3'); 
+                                                if(cordRute3 != null && cordRute3[0]['latLng'] != null){ 
+                                                    if($(this).is(':checked')){   
+                                                        routingRenpam[i] = null;
+                                                        routingRenpam[i] = L.Routing.control({
+                                                            show:false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRute3,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            },  
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerType,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAwal}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else if (i === nWps - 1) {
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeEnd,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAkhir}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    var options = {
+                                                                            draggable: this.draggableWaypoints,
+                                                                        },
+                                                                        marker = L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeOther,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    });
+                    
+                                                                    return marker;
+                                                                }
+                                                            },
+                                                            geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);  
+                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                    }else{ 
+                                                        mapContainer.removeControl(routingRenpam[i]);  
+                                                    }
+                                                    
+                                                    
+                                                }else{ 
+                                                }
+
+                                                var cordRute4 = $(this).data('cord4'); 
+                                                if(cordRute4 != null && cordRute4[0]['latLng'] != null){ 
+                                                    if($(this).is(':checked')){   
+                                                        routingRenpam[i] = null;
+                                                        routingRenpam[i] = L.Routing.control({
+                                                            show:false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRute4,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            },  
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerType,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAwal}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else if (i === nWps - 1) {
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeEnd,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAkhir}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    var options = {
+                                                                            draggable: this.draggableWaypoints,
+                                                                        },
+                                                                        marker = L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeOther,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    });
+                    
+                                                                    return marker;
+                                                                }
+                                                            },
+                                                            geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);  
+                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                    }else{ 
+                                                        mapContainer.removeControl(routingRenpam[i]);  
+                                                    }
+                                                    
+                                                    
+                                                }else{ 
+                                                }
+
+                                                var cordRuteUtama = $(this).data('cord'); 
+                                                if(cordRuteUtama != null && cordRuteUtama[0]['latLng'] != null){ 
+                                                    if($(this).is(':checked')){   
+                                                        routingRenpam[i] = null;
+                                                        routingRenpam[i] = L.Routing.control({
+                                                            show:false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRuteUtama,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            },  
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerType,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAwal}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else if (i === nWps - 1) {
+                                                                    return L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeEnd,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    }).bindPopup(`
+                                                                        <div class="text-center"> 
+                                                                            <h3>${titikAkhir}</h3>
+                                                                        </div> 
+                                                                    `);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    var options = {
+                                                                            draggable: this.draggableWaypoints,
+                                                                        },
+                                                                        marker = L.marker(wp.latLng, {
+                                                                        icon: L.divIcon({
+                                                                            className: "location-pin",
+                                                                            html: markerTypeOther,
+                                                                            iconSize: [5, 5],
+                                                                            //iconAnchor: [18, 30]
+                                                                            iconAnchor: [5, 10],
+                                                                        }),
+                                                                        draggable: this.draggableWaypoints,
+                                                                    });
+                    
+                                                                    return marker;
+                                                                }
+                                                            },
+                                                            geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);  
+                                                        // mapContainer.addControl(routingRenpam[i]); 
+                                                    }else{ 
+                                                        mapContainer.removeControl(routingRenpam[i]);  
+                                                    }
+                                                    
+                                                    
+                                                }else{ 
+                                                }
+                                            });
+                                        }   
+
                                         for (let i = 0; i < ress.length; i++){ 
                                             $(`#listJadwalRenpamClick${i+1}`).on("change", function (e) { 
                                                 
+                                                // console.log($(this).data('cordutama'));
+                                                // console.log(dummyJadwalRenpam[i+1]);
                                                 for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
                                                     //Find index of specific object using findIndex method.    
-                                                    objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == ress[i+1]['activity']));
+                                                    objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == nameJadwalRenpam[i+1]));
                                                     // console.log(objIndex);
                     
                                                     //Log object to Console.
@@ -3583,10 +4067,143 @@
             } 
         });
 
+        
+
+        $('#myModalPetugas').on('shown.bs.modal', function(event) { 
+            var myAccounts = $(event.relatedTarget).data('accounts'); 
+            var modal          = $(this);
+
+            console.log(myAccounts);
+
+            
+
+            var isiTable = '';
+            if(myAccounts.length > 0){
+                for (let i = 0; i < myAccounts.length; i++){ 
+                    $.ajax({
+                        type : "POST",
+                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                        data : {
+                            "id" : myAccounts[i]['id'],
+                        }, 
+                        dataType : "JSON",
+                        success : function(result){
+                            var ress = result['data'];
+                            console.log(ress['officers']);
+                            var getIdTracking = '';
+                            for (let ii = 0; ii < ress['officers'].length; ii++){ 
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getTrackingName", 
+                                    data : {
+                                        "name_officer" : ress['officers'][ii]['name_officer'],
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result1){
+                                        // console.log(result1);
+                                        if(result1['data'].length > 0){
+                                            var trackPetugas = result1['data'][0];  
+                                            getIdTracking = `
+                                                <a class="btn" style="margin-top: -10px;" 
+                                                    id="listPetugasClickModal${trackPetugas['nrp_user']}"    
+                                                    data-nama="${trackPetugas['name_team']}"  
+                                                    data-akun="${trackPetugas['name_account']}" 
+                                                    data-nrp="${trackPetugas['nrp_user']}"
+                                                    data-telp="${trackPetugas['handphone']}"
+                                                    data-cord="${trackPetugas['latitude']},${trackPetugas['longitude']}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            `;
+                                            console.log('ada');
+                                            
+                                        }else{
+                                            getIdTracking = `<div style="margin-top: -10px;"></div>`;
+                                            console.log('ga ada');
+                                        }
 
 
+                                        isiTable += `
+                                            <tr>
+                                                <td>${ii+1}</td>
+                                                <td>${ress['officers'][ii]['rank_officer']}</td>
+                                                <td>${ress['officers'][ii]['name_officer']}</td>
+                                                <td>${ress['officers'][ii]['nrp_officer']}</td>
+                                                <td>
+                                                    ${getIdTracking}
+                                                    <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                    <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                                </td>
+                                            </tr>
+                                        `;
+                                        $("#isiModalPetugas").html(`
+                                            <table id="datatablePetugas" class="table dt-responsive w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Pangkat</th>
+                                                        <th>Nama</th>
+                                                        <th>NRP</th>
+                                                        <th></th> 
+                                                    </tr>
+                                                </thead> 
+                                                <tbody>
+                                                    ${isiTable}
+                                                </tbody>
+                                            </table>
+                                        `);
+                                        
+                                        for (let x = 0; x < ress['officers'].length; x++){
+                                            $(`#listPetugasClickModal${ress['officers'][x]['nrp_officer']}`).on("click", function (e) {
+                                                var latlong =  $(this).data('cord').split(',');
+                                                var latitude = parseFloat(latlong[0]);
+                                                var longitude = parseFloat(latlong[1]); 
+                                                $("#myModalPetugas").modal('hide');
+                                                mapContainer.flyTo([latitude, longitude], 17);  
+                                            });
+                                        }
+                                    }
+                                });
+                                
+                            }
+                            
+                        }
+                    });
+                }
 
 
+                
+                
+                
+            }else{ 
+                $("#isiModalPetugas").html(`
+                    <table id="datatablePetugas" class="table dt-responsive w-100">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Pangkat</th>
+                                <th>Nama</th>
+                                <th>NRP</th>
+                                <th></th> 
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `);
+            }
+    
+        });
+
+
+    
 
 
 
@@ -5417,131 +6034,9 @@
 
     
     
-    $('#myModalPetugas').on('shown.bs.modal', function(event) { 
-        var myAccounts = $(event.relatedTarget).data('accounts'); 
-        var modal          = $(this);
-
-        console.log(myAccounts);
-
-        
-
-        var isiTable = '';
-        if(myAccounts.length > 0){
-            for (let i = 0; i < myAccounts.length; i++){ 
-                $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                    data : {
-                        "id" : myAccounts[i]['id'],
-                    }, 
-                    dataType : "JSON",
-                    success : function(result){
-                        var ress = result['data'];
-                        console.log(ress['officers']);
-                        var getIdTracking = '';
-                        for (let ii = 0; ii < ress['officers'].length; ii++){ 
-                            $.ajax({
-                                type : "POST",
-                                url : "<?php echo base_url();?>dashboard/getTrackingName", 
-                                data : {
-                                    "name_officer" : ress['officers'][ii]['name_officer'],
-                                }, 
-                                dataType : "JSON",
-                                success : function(result1){
-                                    // console.log(result1);
-                                    if(result1['data'].length > 0){
-                                        var trackPetugas = result1['data'][0];  
-                                        getIdTracking = `
-                                            <a class="btn" style="margin-top: -10px;" 
-                                                id="listPetugasClickModal${trackPetugas['nrp_user']}"   
-                                                data-nama="${trackPetugas['name_team']}"  
-                                                data-akun="${trackPetugas['name_account']}" 
-                                                data-nrp="${trackPetugas['nrp_user']}"
-                                                data-telp="${trackPetugas['handphone']}"
-                                                data-cord="${trackPetugas['latitude']},${trackPetugas['longitude']}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        `;
-                                        console.log('ada');
-                                    }else{
-                                        getIdTracking = `<div style="margin-top: -10px;"></div>`;
-                                        console.log('ga ada');
-                                    }
-
-
-                                    isiTable += `
-                                        <tr>
-                                            <td>${ii+1}</td>
-                                            <td>${ress['officers'][ii]['rank_officer']}</td>
-                                            <td>${ress['officers'][ii]['name_officer']}</td>
-                                            <td>${ress['officers'][ii]['nrp_officer']}</td>
-                                            <td>
-                                                ${getIdTracking}
-                                                <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
-                                            </td>
-                                        </tr>
-                                    `;
-                                    $("#isiModalPetugas").html(`
-                                        <table id="datatablePetugas" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Pangkat</th>
-                                                    <th>Nama</th>
-                                                    <th>NRP</th>
-                                                    <th></th> 
-                                                </tr>
-                                            </thead> 
-                                            <tbody>
-                                                ${isiTable}
-                                            </tbody>
-                                        </table>
-                                    `);
-                                }
-                            });
-                            
-                        }
-                        
-                    }
-                });
-            }
-
-
-            
-            
-            
-        }else{ 
-            $("#isiModalPetugas").html(`
-                <table id="datatablePetugas" class="table dt-responsive w-100">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Pangkat</th>
-                            <th>Nama</th>
-                            <th>NRP</th>
-                            <th></th> 
-                        </tr>
-                    </thead> 
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            `);
-        }
- 
-        $("#listPetugasClickModal9002").on('click', function(e){ 
-                alert('ada');
-            });
-    });
-
+    
+    
+   
     $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
         var myId = $(event.relatedTarget).data('idnote'); 
         var myNote = $(event.relatedTarget).data('note'); 
