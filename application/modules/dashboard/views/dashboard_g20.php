@@ -163,7 +163,7 @@
 
                 <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                     <label>
-                        <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="mdi mdi-account-group"></i> Fasum Khusus</span>
+                        <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
                     </label>
                 </div>
 
@@ -2813,8 +2813,7 @@
                                                                 data-cord4='${JSON.stringify(el.renpams[i]['route_umum'])}' 
                                                                 data-type="${el.renpams[i]['type_renpam']}" 
                                                                 data-awal="${el.renpams[i]['title_start']}" 
-                                                                data-akhir="${el.renpams[i]['title_end']}">
-                                                                ${el.renpams[i]['name_renpam']}
+                                                                data-akhir="${el.renpams[i]['title_end']}"> 
                                                             </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
@@ -2880,7 +2879,7 @@
                                                              
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <table id="datatableByCateg1${countlistCategoriByCateg}" class="table dt-responsive w-100">
+                                                                    <table id="datatableByCateg1${countlist}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
@@ -2909,6 +2908,9 @@
                                             
     
                                         }); 
+
+
+                                        
     
                                         for (let i = 0; i < countlistRenpam; i++){ 
                                             $(`#listRenpamModalClick1${i+1}`).on("change", function (e) { 
@@ -3392,7 +3394,7 @@
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
                                                     }else{
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                                     }
@@ -3800,6 +3802,22 @@
                                                 var longitude = parseFloat(latlong[1]); 
                                                 mapContainer.flyTo([latitude, longitude], 17);  
                                             });
+
+                                            $(`#datatableByCateg1${i+1}`).DataTable({
+                                                responsive: true,
+
+                                                scrollX: true,
+
+                                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                // buttons: ["excel", "csv", "pdf"],
+                                                processing: true,
+                                                oLanguage: {
+
+                                                    sSearch: 'Search:'
+
+                                                },
+                                            });
                                         } 
                                          
                                     }
@@ -3969,7 +3987,7 @@
                                                                 data-type="${el.renpams[i]['type_renpam']}" 
                                                                 data-awal="${el.renpams[i]['title_start']}" 
                                                                 data-akhir="${el.renpams[i]['title_end']}">
-                                                                ${el.renpams[i]['name_renpam']}
+                                                                
                                                             </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
@@ -4035,7 +4053,7 @@
                                                              
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <table id="datatableByCateg${countlistCategoriByCateg}" class="table dt-responsive w-100">
+                                                                    <table id="datatableByCateg${countlist}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
@@ -4955,6 +4973,22 @@
                                                 var longitude = parseFloat(latlong[1]); 
                                                 mapContainer.flyTo([latitude, longitude], 17);  
                                             });
+
+                                            $(`#datatableByCateg${i+1}`).DataTable({
+                                                responsive: true,
+
+                                                scrollX: true,
+
+                                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                // buttons: ["excel", "csv", "pdf"],
+                                                processing: true,
+                                                oLanguage: {
+
+                                                    sSearch: 'Search:'
+
+                                                },
+                                            });
                                         } 
                                          
                                     }
@@ -5124,7 +5158,7 @@
                                                                 data-type="${el.renpams[i]['type_renpam']}" 
                                                                 data-awal="${el.renpams[i]['title_start']}" 
                                                                 data-akhir="${el.renpams[i]['title_end']}">
-                                                                ${el.renpams[i]['name_renpam']}
+                                                                
                                                             </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
@@ -5190,7 +5224,7 @@
                                                              
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <table id="datatableByCateg3${countlistCategoriByCateg}" class="table dt-responsive w-100">
+                                                                    <table id="datatableByCateg3${countlist}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
@@ -6110,6 +6144,22 @@
                                                 var longitude = parseFloat(latlong[1]); 
                                                 mapContainer.flyTo([latitude, longitude], 17);  
                                             });
+
+                                            $(`#datatableByCateg3${i+1}`).DataTable({
+                                                responsive: true,
+
+                                                scrollX: true,
+
+                                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                // buttons: ["excel", "csv", "pdf"],
+                                                processing: true,
+                                                oLanguage: {
+
+                                                    sSearch: 'Search:'
+
+                                                },
+                                            });
                                         } 
                                          
                                     }
@@ -6279,7 +6329,7 @@
                                                                 data-type="${el.renpams[i]['type_renpam']}" 
                                                                 data-awal="${el.renpams[i]['title_start']}" 
                                                                 data-akhir="${el.renpams[i]['title_end']}">
-                                                                ${el.renpams[i]['name_renpam']}
+                                                               
                                                             </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
@@ -6345,7 +6395,7 @@
                                                              
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <table id="datatableByCateg4${countlistCategoriByCateg}" class="table dt-responsive w-100">
+                                                                    <table id="datatableByCateg4${countlist}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
@@ -7265,6 +7315,22 @@
                                                 var longitude = parseFloat(latlong[1]); 
                                                 mapContainer.flyTo([latitude, longitude], 17);  
                                             });
+
+                                            $(`#datatableByCateg4${i+1}`).DataTable({
+                                                responsive: true,
+
+                                                scrollX: true,
+
+                                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                // buttons: ["excel", "csv", "pdf"],
+                                                processing: true,
+                                                oLanguage: {
+
+                                                    sSearch: 'Search:'
+
+                                                },
+                                            });
                                         } 
                                          
                                     }
@@ -7434,7 +7500,7 @@
                                                                 data-type="${el.renpams[i]['type_renpam']}" 
                                                                 data-awal="${el.renpams[i]['title_start']}" 
                                                                 data-akhir="${el.renpams[i]['title_end']}">
-                                                                ${el.renpams[i]['name_renpam']}
+                                                                
                                                             </td>
                                                             <td>${i+1}</td>
                                                             <td>${dataVIP}</td>
@@ -7500,7 +7566,7 @@
                                                              
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <table id="datatableByCateg5${countlistCategoriByCateg}" class="table dt-responsive w-100">
+                                                                    <table id="datatableByCateg5${countlist}" class="table dt-responsive w-100">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
@@ -8419,6 +8485,22 @@
                                                 var latitude = parseFloat(latlong[0]);
                                                 var longitude = parseFloat(latlong[1]); 
                                                 mapContainer.flyTo([latitude, longitude], 17);  
+                                            });
+
+                                            $(`#datatableByCateg5${i+1}`).DataTable({
+                                                responsive: true,
+
+                                                scrollX: true,
+
+                                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                                // buttons: ["excel", "csv", "pdf"],
+                                                processing: true,
+                                                oLanguage: {
+
+                                                    sSearch: 'Search:'
+
+                                                },
                                             });
                                         } 
                                          
