@@ -411,6 +411,8 @@ class Renpam extends MY_Controller
 
         if (isset($input['id_vip'])) {
             $dummy['vips']    = json_encode($input['id_vip']);
+        }else{
+            $dummy['vips'] = [];
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];

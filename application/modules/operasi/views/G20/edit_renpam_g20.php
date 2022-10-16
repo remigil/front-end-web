@@ -141,7 +141,7 @@
                                 <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"><?php echo ($data['getDetail']['data']['route_umum'] > 0 ? 'Edit' : 'Add'); ?> Rute Umum</a>
                             </div>
 
-                            <textarea  name="ruteawal" id="ruteawal" cols="5" rows="5"></textarea>
+                            <textarea hidden name="ruteawal" id="ruteawal" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
@@ -878,7 +878,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            // window.location.href = "<?php echo base_url(); ?>operasi/Renpam";
+                            window.location.href = "<?php echo base_url(); ?>operasi/Renpam";
                         });
                     } else {
                         Swal.fire(
