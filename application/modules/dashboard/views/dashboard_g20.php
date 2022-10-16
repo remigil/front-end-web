@@ -1575,7 +1575,7 @@
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({ html: `
                     <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#000;text-align: center;margin-top: -1px;margin-left: -1px;">
-                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-account-group"></i>${cluster.getChildCount()}</b>
+                    <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="fa far fa-building "></i>${cluster.getChildCount()}</b>
                     </div>` 
                 });
             }
@@ -2073,22 +2073,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 col-12 mt-3">
-                                                    <h5>${ressFasumKhusus[i].category_fasum.name_category_fasum}</h5> 
+                                                    <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                                    <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                                                 </div>
-                                                <div class="col-md-12 col-12 mt-3">
-                                                    <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Nama Fasilitas</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_name}</p>
-                                                        </div>
-                                                    </div> 
-                                                </div> 
-                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                
+                                                <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-5 col-6">
                                                             <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
@@ -2229,11 +2218,17 @@
                                 var latlongJadwal =  cordinateJadwal.split(',');
                                 var latitudeJadwal = parseFloat(latlongJadwal[0]);
                                 var longitudeJadwal = parseFloat(latlongJadwal[1]);
+                                var iconJadwal = '';
                                 
+                                if(filterSchedule[i].id_category_schedule == '4'){
+                                    iconJadwal = `<img src="<?php echo url_api();?>schedule/${filterSchedule[i].photo_schedule}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
+                                }else{
+                                    iconJadwal = `<img src="<?php echo url_api();?>schedule/${filterSchedule[i].photo_schedule}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
+                                }
 
                                 jadwalClusterGroup.addLayer( markerJadwal[i] = L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
+                                        html: iconJadwal,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
@@ -2242,7 +2237,7 @@
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                         <div class="avatar-xl me-3">
-                                                            <img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                            <img src="<?php echo url_api();?>schedule/${filterSchedule[i].photo_schedule}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3">
