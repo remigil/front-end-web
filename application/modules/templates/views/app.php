@@ -729,12 +729,12 @@
                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>troublespot">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Troublespot</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow">
