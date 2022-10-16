@@ -141,7 +141,7 @@
                                 <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"><?php echo ($data['getDetail']['data']['route_umum'] > 0 ? 'Edit' : 'Add'); ?> Rute Umum</a>
                             </div>
 
-                            <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
+                            <textarea  name="ruteawal" id="ruteawal" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
@@ -343,11 +343,15 @@
                     language: 'en',
                     profile: 'car'
                 }),
+                draggableWaypoints: false,
                 routeWhileDragging: false,
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);
+         
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
+            
+            function createButton(label, container) { 
 
-            function createButton(label, container) {
                 var btn = L.DomUtil.create('button', '', container);
                 btn.setAttribute('type', 'button');
                 btn.innerHTML = label;
@@ -854,10 +858,10 @@
         });
 
         $(".form").submit(function(e) {
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
-            console.log(formData);
 
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Renpam/storeEdit",
@@ -874,7 +878,7 @@
                             '',
                             'success'
                         ).then(function() {
-                            window.location.href = "<?php echo base_url(); ?>operasi/Renpam";
+                            // window.location.href = "<?php echo base_url(); ?>operasi/Renpam";
                         });
                     } else {
                         Swal.fire(
