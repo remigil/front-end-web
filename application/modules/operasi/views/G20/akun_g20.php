@@ -67,7 +67,8 @@
                                 <select name="officers[]" class="form-select" style="width:100%" id="select1" onchange="getvalue(1)" onclick="getOption(1)" required>
                                     <option selected value="">Pilih Petugas</option>
                                 </select>
-                                <label class="labelmui">Petugas</label>
+                                <!-- <label class="labelmui">Petugas</label> -->
+                                <label style="margin-top: -30px;font-size: 14px;" class="labelmui">Petugas</label>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -78,7 +79,8 @@
                                         <option value="<?php echo $row['id']; ?>"><?php echo $row['no_vehicle']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <label class="labelmui">No Kendaraan</label>
+                                <!-- <label class="labelmui">No Kendaraan</label> -->
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">No Kendaraan</label>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -127,6 +129,9 @@
 
     
     $(document).ready(function() {
+        
+        
+
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
@@ -142,15 +147,15 @@
             }
         });
 
-        // new Choices('#officers', {
-        //     searchEnabled: true,
-        //     removeItemButton: true,
-        //     removeItems: true,
-        //     itemSelectText: '',
-        //     classNames: {
-        //         containerOuter: 'choices select-choices',
-        //     },
-        // });
+        new Choices('#kendaraan', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
 
         var userDataTable = $('#datatable').DataTable({
 
@@ -311,6 +316,7 @@
 
 
     function getOption(no) {
+       
         let select = $('#select' + no).find(":selected").val();
         let list = '';
         if (select == '') {
@@ -328,6 +334,27 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
         }
         $('#select' + no).html(list);
+        // $('#select' + no).select2({
+        //     dropdownParent: $(".modal")
+        // })
+        new Choices('#select'+no , {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });  
+    //   new Choices('#select' + no, {
+    //             searchEnabled: true,
+    //             removeItemButton: true,
+    //             removeItems: true,
+    //             itemSelectText: '',
+    //             classNames: {
+    //                 containerOuter: 'choices select-choices',
+    //             },
+    //         });   
     }
 
 
@@ -351,7 +378,7 @@
             '</div>' +
             '<div class="col-md-4">' +
             '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
+            '<select name="id_kendaraan[]" class="form-select" id="kendaraan'+room+'" style="width:100%" required>' +
             '<option selected value="">Pilih No Kendaraan</option>' +
             '<?php foreach ($data['getVehicle'] as $row) : ?>' +
             '<option value="<?php echo $row['id']; ?>">' +
@@ -384,6 +411,30 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
         }
         $('#select' + room).html(list);
+        new Choices('#kendaraan' + room, {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });   
+        new Choices('#select' + room, {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });   
+        // $('#select' + room).select2({
+        //     dropdownParent: $(".modal")
+        // })
+        // $('#kendaraan' + room).select2({
+        //     dropdownParent: $(".modal")
+        // })
         return room;
     }
     var totalId = [1];

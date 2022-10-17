@@ -36,7 +36,16 @@
                                 <div class="material-selectfield mb-3">
                                     <select required name="id_account[]" id="id_account" style="height: 200px;" multiple>
                                         <?php foreach ($data['getAccount'] as $row) : ?>
-                                            <option <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> <?php echo ($rowSelect['name_account'] == $row['name_account'] ? 'selected' : ''); ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
+                                            <option 
+                                                <?php foreach ($data['getDetail']['data']['accounts'] as $rowSelect) : ?> 
+                                                    <?php if ($rowSelect['name_account'] == $row['name_account']){?>
+                                                        selected
+                                                    <?php }else{ ?>
+
+                                                    <?php } ?> 
+                                                <?php endforeach; ?> 
+
+                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_account']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -54,7 +63,11 @@
                                 <div class="material-selectfield mb-3">
                                     <select name="id_vip[]" id="id_vip" style="height: 200px" multiple>
                                         <?php foreach ($data['getVip'] as $row) : ?>
-                                            <option <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?> <?php endforeach; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
+                                            <option 
+                                                <?php foreach ($data['getDetail']['data']['vips'] as $rowSelect) : ?> 
+                                                    <?php echo ($rowSelect['name_vip'] == $row['name_vip'] ? 'selected' : ''); ?>
+                                                <?php endforeach; ?> 
+                                                value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -69,7 +82,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select required name="subjek" class="form-select">
+                                    <select required name="subjek" id="select" >
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == null ? 'selected' : ''); ?> value="">Pilih Subjek</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '1' ? 'selected' : ''); ?> value="1">Patroli</option>
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '2' ? 'selected' : ''); ?> value="2">Pengawalan</option>
@@ -78,7 +91,7 @@
                                         <option <?php echo ($data['getDetail']['data']['type_renpam'] == '5' ? 'selected' : ''); ?> value="5">Penutupan</option>
 
                                     </select>
-                                    <label class="labelmui">Subjek</label>
+                                    <!-- <label class="labelmui">Subjek</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -87,7 +100,13 @@
                                     <label class="labelmui">Jumlah kendaraan yang dikawal</label>
                                 </div>
                             </div>
-                            <div class="col-md-6"></div>
+                            
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
+                                    <input style="width: 100%;" name="order_renpam" placeholder="" value="<?php echo $data['getDetail']['data']['order_renpam']; ?>" type="text">
+                                    <label class="labelmui">Urutan</label>
+                                </div>
+                            </div>
 
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
@@ -122,7 +141,7 @@
                                 <a href="javascript:void(0);" class="btn btn-primary waves-effect" style="background: #bdbd0b" data-bs-toggle="modal" data-bs-target="#myModal4"><?php echo ($data['getDetail']['data']['route_umum'] > 0 ? 'Edit' : 'Add'); ?> Rute Umum</a>
                             </div>
 
-                            <input hidden style="width: 100%;" name="ruteawal" id="ruteawal" placeholder="" type="text">
+                            <textarea hidden name="ruteawal" id="ruteawal" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative1" id="coordsAlternative1" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative2" id="coordsAlternative2" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
@@ -245,6 +264,19 @@
         let arrayWaypoint = [];
 
         $(document).ready(function() {
+            $( '[name=total_vehicle]' ).mask('000000000');
+            $( '[name=order_renpam]' ).mask('000000000');
+
+            new Choices('#select', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            }); 
+            
             $('#startTime').clockpicker({
                 autoclose: true
             });
@@ -311,11 +343,15 @@
                     language: 'en',
                     profile: 'car'
                 }),
+                draggableWaypoints: false,
                 routeWhileDragging: false,
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);
+         
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
+            
+            function createButton(label, container) { 
 
-            function createButton(label, container) {
                 var btn = L.DomUtil.create('button', '', container);
                 btn.setAttribute('type', 'button');
                 btn.innerHTML = label;
@@ -822,10 +858,10 @@
         });
 
         $(".form").submit(function(e) {
+            $('#ruteawal').val(JSON.stringify(routingRenpam[0].getWaypoints())); 
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
-            console.log(formData);
 
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Renpam/storeEdit",

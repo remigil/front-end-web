@@ -77,12 +77,23 @@ class Dashboard extends MY_Controller
             $lakalantas = array();
             $garlantas = array();
             $turjagwali = array();
+            $topPolda = array();
             foreach ($ditgakkum['data'] as $key) {
+                $row = array();
+
                 $polda_ditgakkum[] = $key['name_polda'];
                 $lakalantas[] = $key['lakalantas'];
                 $lakalanggar[] = $key["lakalanggar"];
                 $garlantas[] = $key['garlantas'];
                 $turjagwali[] = $key['turjagwali'];
+
+                $row['name_polda'] = $key['name_polda'];
+                $row['garlantas'] = $key['garlantas'];
+                $row['lakalantas'] = $key['lakalantas'];
+                $row['kemacetan'] = 0;
+                $row['total'] = $key['garlantas'] + $key['lakalantas'];
+
+                $topPolda[] = $row;
             }
 
 
@@ -138,7 +149,13 @@ class Dashboard extends MY_Controller
 
             $polda_troublespot = $TroubleSpot['data'];
 
-            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot];
+
+            // Top Polda
+            array_multisort(array_column($topPolda, "total"), SORT_DESC, $topPolda);
+            $bestPolda = array_slice($topPolda, 0, 10);
+
+
+            $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot, 'best_polda' => $bestPolda];
             $page_content["page"] = "dashboard/dashboard_view";
 
             // } else if ($this->session->userdata['role'] == 'Kapolda') {
@@ -289,6 +306,21 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function getTrackingName()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $input = $this->input->post(); 
+
+        $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
     public function getCCTV()
     {
         $headers = [
@@ -341,6 +373,146 @@ class Dashboard extends MY_Controller
         $data['getPolres'] = $getPolres['data'];
 
         echo json_encode($data['getPolres']);
+    }
+
+    public function getCategorySchedule()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'category_schedule';
+        $getCategorySchedule = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getCategorySchedule'] = $getCategorySchedule['data'];
+
+        echo json_encode($data['getCategorySchedule']);
+    }
+
+    public function getJadwalId()
+    { 
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'schedule?serverSide=True&order=status_schedule&orderDirection=asc&length=100&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
+        $getJadwal = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getJadwal'] = $getJadwal['data'];
+
+        echo json_encode($data['getJadwal']);
+    }
+
+
+    public function getAkunId()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'account/getId/'.$input['id'].'';
+        $getAkun = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getAkun'] = $getAkun['data'];
+
+        echo json_encode($data['getAkun']);
+    }
+
+
+    public function sendZoom()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $dummy = [
+            [
+                'name' => 'officer_id',
+                'contents' => $input['officer_id'],
+            ],
+            [
+                'name' => 'link',
+                'contents' => 'https://bit.ly/k3izoom',
+            ],
+        ]; 
+
+        $data = guzzle_request('POST', 'notifikasi/send-zoom', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+    }
+
+    public function sendZoomNonEncrpyt()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $dummy = [
+            [
+                'name' => 'officer_id',
+                'contents' => $input['officer_id'],
+            ],
+            [
+                'name' => 'link',
+                'contents' => 'https://bit.ly/k3izoom',
+            ],
+        ]; 
+
+        $data = guzzle_request('POST', 'notifikasi/send-zoom-noencrypt', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
     }
 
     public function getJadwal()

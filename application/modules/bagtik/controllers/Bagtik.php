@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class TroubleSpot extends MY_Controller
+class Bagtik extends MY_Controller
 {
 
     public function __construct()
@@ -13,24 +13,23 @@ class TroubleSpot extends MY_Controller
     public function index()
     {
 
-        // $headers = [
-        //     'Token' => $this->session->userdata['token'],    
-        // ];
+        $headers = [
+            'Token' => $this->session->userdata['token'],
+        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Trouble Spot";
+        $page_content["title"] = "BagTik";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "inputdata/Korlantas/TroubleSpot_Korlantas";
+            $page_content["page"] = "bagtik/Korlantas/bagtik_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "inputdata/Kapolda/TroubleSpot_Kapolda";
+            $page_content["page"] = "bagtik/Kapolda/bagtik_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "inputdata/Polres/TroubleSpot_Polres";
+            $page_content["page"] = "bagtik/Polres/bagtik_view";
         }
-
 
 
 

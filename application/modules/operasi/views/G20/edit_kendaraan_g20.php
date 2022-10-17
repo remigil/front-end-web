@@ -39,35 +39,35 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="jenisKendaraan">
+                                    <select class="form-select" name="jenisKendaraan" id="select">
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == null ? 'selected' : '');?> value="">Pilih Jenis Kendaraan</option>
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == 'Sepeda Motor' ? 'selected' : '');?> value="Sepeda Motor">Sepeda Motor</option>
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == 'Mobil' ? 'selected' : '');?> value="Mobil">Mobil</option>
                                     </select>
-                                    <label class="labelmui">Jenis</label>
+                                    <!-- <label class="labelmui">Jenis</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="jenisBahanBakar">
+                                    <select class="form-select" name="jenisBahanBakar" id="select2">
                                         <option selected>Pilih Jenis Bahan Bakar</option>
                                         <?php foreach($data['getFuel'] as $row): ?>
                                             <option <?php echo ($data['getDetail']['data']['fuel_vehicle'] == $row['name_fuelVehicle'] ? 'selected' : '');?> value="<?php echo $row['name_fuelVehicle'];?>"><?php echo $row['name_fuelVehicle'];?></option> 
                                         <?php endforeach; ?>  
                                     </select>
-                                    <label class="labelmui">Jenis Bahan Bakar</label>
+                                    <!-- <label class="labelmui">Jenis Bahan Bakar</label> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="material-selectfield mb-3">
-                                    <select class="form-select" name="kepemilikan">
+                                    <select class="form-select" name="kepemilikan" id="select3">
                                         <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == null ? 'selected' : '');?>  value="">Pilih Kepemilikan</option>
 
                                         <?php foreach($data['getOwnership'] as $row): ?>
                                             <option <?php echo ($data['getDetail']['data']['ownership_vehicle'] == $row['name_ownershipVehicle'] ? 'selected' : '');?> value="<?php echo $row['name_ownershipVehicle'];?>"><?php echo $row['name_ownershipVehicle'];?></option> 
                                         <?php endforeach; ?>  
                                     </select>
-                                    <label class="labelmui">Kepemilikan</label>
+                                    <!-- <label class="labelmui">Kepemilikan</label> -->
                                 </div>
                             </div>
                         </div> 
@@ -85,6 +85,35 @@
 
 <script>
     $(document).ready(function() {
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select3', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 

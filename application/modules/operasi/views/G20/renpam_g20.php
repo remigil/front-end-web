@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select name="subjek" class="form-select">
+                                <select name="subjek" id="select" class="form-select">
                                     <option selected value="">Pilih Subjek</option>
                                     <option value="1">Patroli</option>
                                     <option value="2">Pengawalan</option>
@@ -106,13 +106,20 @@
                                     <option value="4">Pengaturan</option>
                                     <option value="5">Penutupan</option>
                                 </select>
-                                <label class="labelmui">Subjek</label>
-                            </div>
+                                <!-- <label class="labelmui">Subjek</label> -->
+                            </div> 
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input style="width: 100%;" name="total_vehicle" placeholder="" type="text">
                                 <label class="labelmui">Jumlah kendaraan yang dikawal</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="order_renpam" placeholder="" type="text">
+                                <label class="labelmui">Urutan</label>
                             </div>
                         </div>
                         <!-- <div class="col-md-6"></div> -->
@@ -290,8 +297,21 @@
 </div>
 
 <script>
-    $(document).ready(function() {
 
+    $(document).ready(function() {
+        $( '[name=total_vehicle]' ).mask('000000000');
+        $( '[name=order_renpam]' ).mask('000000000');
+
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });   
+        
         var userDataTable = $('#datatable').DataTable({
 
             responsive: true,

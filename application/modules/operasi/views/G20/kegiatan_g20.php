@@ -64,6 +64,17 @@
                                 <label class="labelmui">Kegiatan</label>
                             </div>
                         </div> 
+                        <div class="col-md-6">
+                            <div class="material-selectfield mb-3">
+                                <select required name="id_category" id="id_category" style="height: 200px;" > 
+                                    <option selected value="">Pilih Kategori</option>  
+                                    <?php foreach($data['getCategorySchedule'] as $row): ?>
+                                        <option value="<?php echo $row['id'];?>"><?php echo $row['name_category_schedule'];?></option> 
+                                    <?php endforeach; ?> 
+                                </select>
+                                <label style="margin-top: -20px;font-size: 14px;" class="labelmui">Kategori</label>
+                            </div>
+                        </div>
 
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
@@ -132,15 +143,15 @@
                                 <input required style="width: 100%;" name="instruksiR" placeholder="" type="text">
                                 <label class="labelmui">Uraian Kegiatan</label>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-md-6">
                             <div class="material-selectfield mb-3">
-                                <select required name="category_renpam" class="form-select"> 
-                                    <option  value="">Pilih Category</option>  
+                                <select required name="category_renpam" class="form-select" id="select"> 
+                                    <option  value="">Pilih Category Rengiat</option>  
                                     <option selected value="1">Operasi</option>  
                                     <option  value="2">Harian</option>  
                                 </select>
-                                <label class="labelmui">Categori Rengiat</label>
+                                <!-- <label class="labelmui">Categori Rengiat</label> -->
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -178,7 +189,7 @@
                         </div>
                         <div class="col-md-6"> 
                             <div class="material-selectfield mb-3">
-                                <select required name="subjekR" class="form-select">
+                                <select required name="subjekR" class="form-select" id="select2">
                                     <option selected value="">Pilih Subjek</option> 
                                     <option value="1">Patroli</option> 
                                     <option value="2">Pengawalan</option> 
@@ -186,7 +197,7 @@
                                     <option value="4">Pengaturan</option> 
                                     <option value="5">Penutupan</option> 
                                 </select>
-                                <label class="labelmui">Subjek</label>
+                                <!-- <label class="labelmui">Subjek</label> -->
                             </div>
                         </div> 
                         <div class="col-md-6">
@@ -195,7 +206,12 @@
                                 <label class="labelmui">Jumlah kendaraan yang dikawal</label>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6"></div> -->
+                        <div class="col-md-6">
+                            <div class="material-textfield mb-3">
+                                <input style="width: 100%;" name="order_renpam" placeholder="" type="text">
+                                <label class="labelmui">Urutan</label>
+                            </div>
+                        </div> 
                         <div class="col-md-6">
                             <div class="material-textfield mb-3">
                                 <input required style="width: 100%;" name="title_start" placeholder="" type="text">
@@ -646,7 +662,15 @@
             mapContainer.invalidateSize();
 
             $('.dropify').dropify();
-
+            new Choices('#id_category', {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });
 
 
             let countlist = 0;
@@ -738,9 +762,32 @@
     var obj = {}; 
     $('#myModalR').on('shown.bs.modal', function() {
         // console.log(arrayWaypoint);
+
+        $( '[name=total_vehicle]' ).mask('000000000');
+        $( '[name=order_renpam]' ).mask('000000000');
         
         $('#startTimeR').clockpicker({
             autoclose: true
+        }); 
+
+        new Choices('#select', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
+
+        new Choices('#select2', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
         }); 
 
         new Choices('#id_vipR', {

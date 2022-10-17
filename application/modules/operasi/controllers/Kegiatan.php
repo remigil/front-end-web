@@ -44,6 +44,11 @@ class Kegiatan extends MY_Controller
             'headers' => $headers 
         ]); 
         $data['getAccount'] = $getAccount['data']['data'];
+
+        $getCategorySchedule = guzzle_request('GET', 'category_schedule', [  
+            'headers' => $headers 
+        ]); 
+        $data['getCategorySchedule'] = $getCategorySchedule['data']['data'];
         // echo json_encode($data['getAccount']);
         // die;
 
@@ -82,6 +87,10 @@ class Kegiatan extends MY_Controller
                 //     'name' => 'id_account',
                 //     'contents' => implode(",",$input['id_account']),
                 // ],
+                [
+                    'name' => 'id_category_schedule',
+                    'contents' => $input['id_category'],
+                ],
                 [
                     'name' => 'date_schedule',
                     'contents' => $input['date'],
@@ -126,6 +135,10 @@ class Kegiatan extends MY_Controller
                 //     'name' => 'id_account',
                 //     'contents' => implode(",",$input['id_account']),
                 // ],
+                [
+                    'name' => 'id_category_schedule',
+                    'contents' => $input['id_category'],
+                ],
                 [
                     'name' => 'date_schedule',
                     'contents' => $input['date'],
@@ -248,6 +261,11 @@ class Kegiatan extends MY_Controller
         ]); 
         $data['getAccount'] = $getAccount['data']['data'];
 
+        $getCategorySchedule = guzzle_request('GET', 'category_schedule', [  
+            'headers' => $headers 
+        ]); 
+        $data['getCategorySchedule'] = $getCategorySchedule['data']['data'];
+
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -275,6 +293,10 @@ class Kegiatan extends MY_Controller
                 //     'name' => 'id_account',
                 //     'contents' => implode(",",$input['id_account']),
                 // ],
+                [
+                    'name' => 'id_category_schedule',
+                    'contents' => $input['id_category'],
+                ],
                 [
                     'name' => 'date_schedule',
                     'contents' => $input['date'],
@@ -320,6 +342,10 @@ class Kegiatan extends MY_Controller
                 //     'contents' => implode(",",$input['id_account']),
                 // ],
                 [
+                    'name' => 'id_category_schedule',
+                    'contents' => $input['id_category'],
+                ],
+                [
                     'name' => 'date_schedule',
                     'contents' => $input['date'],
                 ],
@@ -345,6 +371,9 @@ class Kegiatan extends MY_Controller
                 ]
             ];
         }
+
+        // echo json_encode($dummy);
+        // die;
 
         $data = guzzle_request('PUT', 'schedule/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 
@@ -384,7 +413,7 @@ class Kegiatan extends MY_Controller
             ] 
         ];
 
-        $data = guzzle_request('DELETE', 'schedule/delete', [ 
+        $data = guzzle_request('DELETE', 'schedule/hardDelete', [ 
             'multipart' => $dummy, 
             'headers' => $headers 
         ]);

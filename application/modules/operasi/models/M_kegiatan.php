@@ -113,6 +113,7 @@ class M_kegiatan extends CI_Model {
             
             // $row ['namaVip']	= $field['vips'][0]['name_vip'];  
             // $row ['account']   	= $field['accounts'][0]['name_account'];
+            $row ['id_category_schedule']   	= $field['id_category_schedule'];  
 
             $row ['address_schedule']   	= $field['address_schedule'];  
             $row ['date_schedule']   	= $field['date_schedule'];

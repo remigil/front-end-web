@@ -18,16 +18,19 @@ class Fasilitasumum extends MY_Controller
         ];
 
         $page_content["css"] = '';
-        $page_content["js"] = '';
-        $page_content["title"] = "Fasilitas Umum";
+        $page_content["js"] = ''; 
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
+            $page_content["title"] = "Fasilitas Khusus";
+            $page_content["page"] = "masterdata/G20/fasum_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["title"] = "Fasilitas Umum";
             $page_content["page"] = "masterdata/Korlantas/fasum_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["title"] = "Fasilitas Umum";
             $page_content["page"] = "masterdata/Kapolda/fasum_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["title"] = "Fasilitas Umum";
             $page_content["page"] = "masterdata/Polres/fasum_view";
         }
 
@@ -71,7 +74,7 @@ class Fasilitasumum extends MY_Controller
         $input      = $this->input->post(); 
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if(isset($_FILES['photo']['name'])){ 
             $dummy = [
 				[
 					'name' => 'fasum_logo',
@@ -250,8 +253,13 @@ class Fasilitasumum extends MY_Controller
         $input      = $this->input->post(); 
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if(isset($_FILES['photo'])){ 
             $dummy = [
+				[
+					'name' => 'fasum_logo',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				],
                 [
                     'name' => 'fasum_name',
                     'contents' => $input['namaFasum'],
@@ -284,11 +292,6 @@ class Fasilitasumum extends MY_Controller
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-                [
-                    'name' => 'fasum_logo',
-                    'contents' => fopen($path,'r'),
-                    'filename' => $filename
-				],
 				[
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],

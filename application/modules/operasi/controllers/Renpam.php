@@ -170,6 +170,8 @@ class Renpam extends MY_Controller
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+
+        $dummy['order_renpam']    = $input['order_renpam'];
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
 
@@ -228,6 +230,8 @@ class Renpam extends MY_Controller
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+        $dummy['order_renpam']    = $input['order_renpam'];
+        
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
         $dummy['route']    = $input['ruteawalR'];
@@ -237,7 +241,7 @@ class Renpam extends MY_Controller
         $dummy['route_masyarakat']    = $input['coordsAlternative3'];
         $dummy['route_umum']    = $input['coordsAlternative4'];
         // echo json_encode($dummy);
-        // die; 
+        // die;  
 
 
         $data = guzzle_request('POST', 'renpam/add', [
@@ -285,6 +289,7 @@ class Renpam extends MY_Controller
         // $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
         // $dummy ['route_umum']	= $input['coordsAlternative4']; 
         $dummy['note_kakor'] = $input['note_kakor'];
+        $dummy['status_renpam'] = $input['statusNoteKakor'];
 
         // echo json_encode($dummy);
         // die;
@@ -403,13 +408,21 @@ class Renpam extends MY_Controller
         $dummy['date']    = $input['date'];
         $dummy['start_time']    = $input['startTime'];
         // $dummy ['end_time']	= $input['endTime']; 
-        $dummy['accounts']    = json_encode($input['id_account']);
+
+        if (isset($input['id_account'])) {
+            $dummy['accounts']    = json_encode($input['id_account']);
+        }else{
+            $dummy['accounts'] = [];
+        } 
 
         if (isset($input['id_vip'])) {
             $dummy['vips']    = json_encode($input['id_vip']);
+        }else{
+            $dummy['vips'] = [];
         }
 
         $dummy['total_vehicle']    = $input['total_vehicle'];
+        $dummy['order_renpam']    = $input['order_renpam'];
         $dummy['title_start']    = $input['title_start'];
         $dummy['title_end']    = $input['title_end'];
         $dummy['route']    = $input['ruteawal'];

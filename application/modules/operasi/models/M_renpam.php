@@ -335,6 +335,7 @@ class M_renpam extends CI_Model
             $row['date']    = format_indo($field['date']);
             $row ['waktu']   	= ''.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
 
+            $row['dateTime']    = ' '.format_indo($field['date']).' '.substr($field['start_time'],0,5).' - '.substr($field['end_time'],0,5).' WITA';
 
 
             // $sum = strtotime('00:00:00');

@@ -176,123 +176,37 @@
             <div class="mt-2 mb-3">
                 <div class="card shadow-sm">
                     <div class="mt-5 text-center">
-                        <h5>Top 5 Polda Tertinggi</h5>
+                        <h5>Top 10 Polda Tertinggi</h5>
                     </div>
-                    <div class="mt-2">
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">1. JABAR</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-4">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">2. JATENG</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
+                    <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
+                        <div style="max-height: 102vh;">
+                            <?php $i = 1; ?>
+                            <?php foreach ($data['best_polda'] as $key) : ?>
+                                <div class="card ms-4 me-4 mx-1 my-1">
+                                    <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0"><?= $i; ?>. <?= $key['name_polda'] ?></h5>
+                                    <div class="card-body">
+                                        <div class="row text-center">
+                                            <div class="col-md-3 col-sm-4">
+                                                <h5 class="fw-bold p-0 m-0"><?= $key['kemacetan'] ?></h5>
+                                                <p class="p-0 m-0">Kemacematan</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0"><?= $key['garlantas'] ?></h5>
+                                                <p class="p-0 m-0">Pelanggaran</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0"><?= $key['lakalantas'] ?></h5>
+                                                <p class="p-0 m-0">Kecelakaan</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0"><?= $key['total'] ?></h5>
+                                                <p class="p-0 m-0">Total</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">3. METRO JAYA</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">4. JATIM</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card ms-4 me-4 mx-1 my-1">
-                            <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">5. BANTEN</h5>
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">165</h5>
-                                        <p class="p-0 m-0">Kemacematan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">55</h5>
-                                        <p class="p-0 m-0">Pelanggaran</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">45</h5>
-                                        <p class="p-0 m-0">Kecelakaan</p>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <h5 class="fw-bold p-0 m-0">264</h5>
-                                        <p class="p-0 m-0">Total</p>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -370,7 +284,7 @@
                                 <tr>
                                     <th>Daerah</th>
                                     <th>Lokasi</th>
-                                    <th>Waktu Pengkajian</th>
+                                    <th>Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody style="overflow:scroll;">
@@ -378,9 +292,7 @@
                                     <tr>
                                         <td><?= $key['polda']['name_polda'] ?></td>
                                         <td><?= $key['location'] ?></td>
-                                        <td>
-                                            <h5>5 Jam</h5>
-                                        </td>
+                                        <td><?= $key['action'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

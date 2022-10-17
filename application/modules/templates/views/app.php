@@ -727,12 +727,12 @@
                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>troublespot">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Troublespot</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow">
@@ -787,13 +787,14 @@
                                         <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
                                     <?php } ?>
                                     <!-- <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li> -->
+                                    <li><a href="<?php echo base_url('masterdata/categorySchedule'); ?>" data-key="t-read-email">Kategori Jadwal Kegiatan</a></li>
                                     <li><a href="<?php echo base_url('masterdata/jabatan'); ?>" data-key="t-read-email">Jabatan VIP</a></li>
                                     <li><a href="<?php echo base_url('masterdata/negara'); ?>" data-key="t-read-email">Negara VIP</a></li>
                                     <li><a href="<?php echo base_url('masterdata/pangkat'); ?>" data-key="t-read-email">Pangkat Petugas</a></li>
                                     <li><a href="<?php echo base_url('masterdata/struktural'); ?>" data-key="t-read-email">Structural Petugas</a></li>
                                     <li><a href="<?php echo base_url('masterdata/kepemilikan'); ?>" data-key="t-read-email">Kepemilikan Kendaraan</a></li>
                                     <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li>
-                                    <!-- <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li> -->
+                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Khusus</a></li>
                                 </ul>
                             </li>
 
@@ -850,7 +851,7 @@
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Sub Satker</span>
+                                    <span data-key="t-laporan">Laporan</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
@@ -888,32 +889,6 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('#') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">BagOps</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('#') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">BagTIK</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('#') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">BagRenmin</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Masyarakat</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
                                         <a href="<?= base_url('tripon') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-tripon">TripOn</span>
@@ -928,19 +903,14 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="<?= base_url('troublespot') ?>">
+                                        <a href="<?= base_url('Bagtik') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-troublespot">TroubleSpot</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="<?= base_url('blackspot') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">BlackSpot</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
+
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -948,31 +918,15 @@
                                 </a>
 
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li> <a href="<?= base_url('inputdata/LaporanHarian') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">Laporan Harian</span>
-                                        </a></li>
+                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Operasi</span>
+                                <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
+                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-operasi">Rencana Operasi</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="<?= base_url('#') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">Khusus</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('blackspot') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">Rutin</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('berita'); ?>">
@@ -1298,6 +1252,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
+    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
 
     <?php echo $js ?>
 

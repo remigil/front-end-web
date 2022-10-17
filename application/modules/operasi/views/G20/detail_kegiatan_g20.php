@@ -102,10 +102,20 @@
         var longitudeJadwal = parseFloat(latlongJadwal[1]); 
         // console.log({a:latitudeJadwal , b:longitudeJadwal});
 
+        var idCategoriS = "<?php echo $data['getDetail']['data']['id_category_schedule'];?>";
+        var fotoJadwal = "<?php echo $data['getDetail']['data']['photo_schedule'];?>";
+        var iconJadwal = '';
+
+        if(idCategoriS == '4'){
+            iconJadwal = `<img src="<?php echo url_api();?>schedule/${fotoJadwal}" style="width: 30px;margin-top: -35px;margin-left: -13.5px;">`;
+        }else{
+            iconJadwal = `<img src="<?php echo url_api();?>schedule/${fotoJadwal}" style="width: 22px;margin-top: -45px;margin-left: -9.5px;">`;
+        }
+
         L.marker([latitudeJadwal,longitudeJadwal], { icon: L.divIcon({ 
-                html: `<img src="<?php echo base_url();?>assets/icon/jadwal kegiatan.png" style="margin-top: -10px;margin-left: -10px;">`,
-                iconSize: [10, 10],
-                iconAnchor: [5, 20]
+                html: iconJadwal,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
             }) 
         }).addTo(mapContainer);  
 

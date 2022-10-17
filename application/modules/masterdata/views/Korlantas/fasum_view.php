@@ -561,7 +561,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    // data.filterName = $('[name=group_name]').val();
+                    data.filterCateg = '';
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
@@ -605,13 +605,14 @@
                     data: 'category_fasum'
                 },
 				{
-                    data: 'address'
+                    data: 'fasum_address'
                 },
 				{
                     data: 'fasum_phone'
                 },
 				{
-                    data: 'jam_operasional'
+                    data: 'jam_operasional',
+                    orderable: false
                 },
                 {
                     data: 'action',
