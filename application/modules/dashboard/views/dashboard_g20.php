@@ -234,7 +234,10 @@
         <!-- Modal content-->
         <div class="modal-content" style="width: 600px;">
             <div class="modal-header bg-primary">
-                <h4 class="modal-title text-white" id="myLargeModalLabel">Turjawali Filter</h4>
+                <h4 class="modal-title text-white" id="myLargeModalLabel">Turjawali Filter <button class="btn" style="margin-left: -10px;margin-top: -5px;">
+                    <i class="mdi mdi-restore" style="font-size: 20px;color: white;"></i>
+                    </button>
+                </h4>
                 <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -2625,7 +2628,7 @@
                                     <h2 class="accordion-header" id="flush-heading${countlistCategori}">
                                         <button id="openCateg${countlistCategori}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                            ${ress[i]['name_category_schedule']}
+                                            ${ress[i]['name_category_schedule']} &nbsp;<span class="badge bg-danger rounded-pill" id="totalCategJadwal${countlistCategori}"></span>
                                         </button>
                                     </h2>
                                     <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
@@ -2715,6 +2718,7 @@
                                         
                                             ressJadwalId.forEach(el => {
         
+                                                $(`#totalCategJadwal${m+1}`).html(ressJadwalId.length);
                                                 dummyName = [];
                                                 dummyType = [];
                                                 dummyAwal = [];
@@ -2754,6 +2758,8 @@
                                                 }
         
         
+                                                
+                                                var totalJadwalRenpam = el.renpams.length;
                                                 if(el.renpams.length > 0){ 
                                                 
                                                     for (let i = 0; i < el.renpams.length; i++){  
@@ -2820,7 +2826,7 @@
                                                                     data-awal="${el.renpams[i]['title_start']}" 
                                                                     data-akhir="${el.renpams[i]['title_end']}"> 
                                                                 </td>
-                                                                <td>${i+1}</td>
+                                                                <td>${i+1}</td> 
                                                                 <td>${dataVIP}</td>
                                                                 <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']} - ${el.renpams[i]['title_end']}</a></td>
                                                                 <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td> 
@@ -2851,12 +2857,13 @@
                                                         data-totaldata="${el.renpams.length}"
                                                         >
                                                     `;
+                                                     
                                                 }else{
                                                     checkboxJadwal = `<div style="width: 14px;"></div>`;
                                                 }
         
                                             
-                                                countlistCategoriByCateg += 1; 
+                                                countlistCategoriByCateg += 1;  
                                                 list += `  
                                                     <div class="accordion-item" id="openCategByCateg${m+1}${countlistCategoriByCateg}">
                                                         <h2 class="accordion-header" id="flush-headingByCateg${m+1}${countlistCategoriByCateg}">
@@ -2865,16 +2872,17 @@
                                                                     
                                                                         <div  style="display: flex; font-size: 12px; position: absolute;">
                                                                             ${checkboxJadwal}
-                                                                            <a class="btn" style="display: flex;margin-top: 12px;"
+                                                                            <a class="btn" style="display: flex;margin-top: 2px;"
                                                                                 id="listJadwalClick${m+1}${countlist}"   
                                                                                 data-alamat="${el.address_schedule}"  
                                                                                 data-cord="${el.coordinate_schedule}"
                                                                                 href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                                            </a> 
-                                                                            <div style="margin-top: 13px;">
-                                                                                <a target="_blank" href="<?= base_url()?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
-                                                                            </div>
-                                                                        </div> 
+                                                                            </a>  
+                                                                            <a style="margin-top: 1px;" target="_blank" href="<?= base_url()?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
+                                                                            <div style="margin-left: 5px;">
+                                                                                <span class="badge bg-danger rounded-pill">${totalJadwalRenpam}</span>
+                                                                            </div> 
+                                                                        </div>
                                                             </button>
                                                         </h2>
                                                         <div id="flush-collapseByCateg${m+1}${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${m+1}${countlistCategoriByCateg}"
@@ -2907,7 +2915,7 @@
                                                     </div>   
                                                 `;
                                                 $(`.listJadwalbyCateg${m+1}`).html(list);   
-        
+                                                
                                             }); 
 
 
