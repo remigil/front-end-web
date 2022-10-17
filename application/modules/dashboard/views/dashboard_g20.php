@@ -883,9 +883,7 @@
 
                     var jenis = '';
                     if (ress.length > 0) {    
-                        for (let i = 0; i < ress.length; i++) {  
-
-                            
+                        for (let i = 0; i < ress.length; i++) {   
 
                             var cordLat = parseFloat(ress[i].latitude); 
                             var corLong = parseFloat(ress[i].longitude); 
@@ -929,8 +927,15 @@
                                     </div>`;
                                 }
 
+                                if(ress[i].photo_officer || ress[i].photo_officer != null){
+                                    fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                }else{
+                                    fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                }
+
                                 lokasiPetugas = data['display_name'];
                                 if(markerArray[ress[i].id_officer] != null){ 
+                                    var fotoPetugas = "";
                                     markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                                         // className: 'location-pin',
                                         html: jenis,
@@ -940,9 +945,9 @@
                                         }) }).bindPopup(`
                                         <div class="text-center" style="width: 300px;"> 
                                             <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                                <div class="col-md-12 col-12" style="text-align: center;position: relative;display: block ruby;">
                                                     <div class="avatar-xl me-3">
-                                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                        ${fotoPetugas}
                                                     </div>
     
                                                     ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
@@ -1009,9 +1014,9 @@
                                         }) }).bindPopup(`
                                         <div class="text-center" style="width: 300px;"> 
                                             <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                                <div class="col-md-12 col-12" style="text-align: center;position: relative;display: block ruby;">
                                                     <div class="avatar-xl me-3">
-                                                        <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                        ${fotoPetugas}
                                                     </div>
                                                 </div> 
     
@@ -1075,8 +1080,7 @@
                                         </div>
                                     `).addTo(mapContainer);    
                                 }
-                            }); 
-                             
+                            });  
                         
                         }
 
@@ -1100,7 +1104,7 @@
                                         <div style="display: flex;">
                                             <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
                                             
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                             <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                 id="listPetugasClick${countlist}"   
                                                 data-nama="${el.name_team}"  
@@ -1181,7 +1185,7 @@
                 noTelp = noTelp;
             }
 
-            if(statusEncrypt == 'encrypt'){
+            if(statusEncrypt == 'no-encrypt'){
                 sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
             }else{
                 sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
@@ -1361,6 +1365,12 @@
                                     </div>
                                 </div>`;
                             }
+
+                            if(ress.photo_officer || ress.photo_officer != null){
+                                fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                            }else{
+                                fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                            }
                         
                             lokasiPetugas = data['display_name'];
                             if(markerArray[ress.id_officer] != null){ 
@@ -1373,9 +1383,9 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                            <div class="col-md-12 col-12" style="text-align: center;position: relative;display: block ruby;">
                                                 <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                    ${fotoPetugas}
                                                 </div>
                                             </div> 
                                             ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
@@ -1446,9 +1456,9 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3">
-                                            <div class="col-md-12 col-12" style="margin-left: 110px;">
+                                            <div class="col-md-12 col-12" style="text-align: center;position: relative;display: block ruby;">
                                                 <div class="avatar-xl me-3">
-                                                    <img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">
+                                                    ${fotoPetugas}
                                                 </div>
                                             </div> 
                                             ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}

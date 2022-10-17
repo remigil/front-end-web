@@ -706,7 +706,7 @@
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
+                                    <i class="mdi mdi-account-group-outline"></i>
                                     <span data-key="t-authentication">Operasi</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
@@ -769,12 +769,12 @@
 
                             <li class="menu-title mt-2" data-key="t-components">Management System</li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>user/operator">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Operator</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
