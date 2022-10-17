@@ -601,16 +601,16 @@
                     <div class="row">   
                         <textarea hidden name="accountsNoteKakor" id="accountsNoteKakor" cols="5" rows="5"></textarea>
                         <div class="col-md-12">
-                            <div class="material-textfield mb-3">
-                                <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
-                                <input required style="width: 100%;" name="note_kakor" id="noteKakor" placeholder="" type="text">
-                                <label class="labelmui">Catatan Uraian Kegiatan</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
                             <div class="form-floating mb-3">
+                                <input hidden style="width: 100%;" name="id" id="idNoteKakor" placeholder="" type="text">
+                                <input required  class="form-control" name="note_kakor" id="noteKakor" placeholder="" type="text">
+                                <label for="noteKakor">Catatan Uraian Kegiatan</label>
+                            </div> 
+                        </div>
+                        <div class="col-md-12" >
+                            <div class="form-floating mb-3" id="statusRenpam">
                                 <!-- <input type="text" class="form-control" id="status" name="status"> -->
-                                <select name="statusNoteKakor" id="statusNoteKakor">
+                                <select name="statusNoteKakor" class="form-control" id="statusNoteKakor">
                                     <option value="">Pilih Status</option>
                                     <option value="0">Gagal</option>
                                     <option value="1">Berhasil</option>
@@ -877,9 +877,9 @@
                 success : function(result){  
                     $("#overlay").fadeOut(300); 
                     console.log('get tracking');
-                    
                     dummyGetTracking = result['data'];  
                     let ress = dummyGetTracking; 
+                    console.log(ress);
 
                     var jenis = '';
                     if (ress.length > 0) {    
@@ -11695,6 +11695,13 @@
         modal.find('#idNoteKakor').val(myId);
         modal.find('#noteKakor').val(myNote);
         modal.find('#statusNoteKakor').val(myStatus);
+
+        // console.log(myStatus);
+        // if(myStatus || myStatus != null){
+        //     $("statusRenpam").show();
+        // }else{
+        //     $("statusRenpam").hide();
+        // }
 
         var arrayAccount = new Array();
         for (let i = 0; i < myAccounts.length; i++){ 
