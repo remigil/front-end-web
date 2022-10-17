@@ -115,7 +115,7 @@ class CategorySchedule extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
-        // echo json_encode($data['getDetail']['data']['no_vehicle']);
+        // echo json_encode($data['getDetail']);
         // die;
 
         $page_content["data"] = $data;
@@ -147,6 +147,8 @@ class CategorySchedule extends MY_Controller
             'headers' => $headers 
         ]);
         $data['getDetail'] = $getDetail['data'];
+        // echo json_encode($data['getDetail']);
+        // die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

@@ -33,7 +33,7 @@
                             </div> 
                             <div class="col-md-12">
                                 <div class="material-textfield mb-3">
-                                    <textarea style="width: 100%;" name="keterangan" rows="5" cols="5" placeholder="Keterangan" value="<?php echo $data['getDetail']['data']['description_category_schedule'];?>" type="text"></textarea>
+                                    <textarea style="width: 100%;" name="keterangan" rows="5" cols="5" placeholder="Keterangan" type="text"><?php echo $data['getDetail']['data']['description_category_schedule'];?></textarea>
                                     <!-- <label class="labelmui">Keterangan</label> -->
                                 </div>
                             </div> 
