@@ -2772,6 +2772,8 @@
         
                                                 
                                                 var totalJadwalRenpam = el.renpams.length;
+                                                countlistCategoriByCateg += 1; 
+
                                                 if(el.renpams.length > 0){ 
                                                 
                                                     for (let i = 0; i < el.renpams.length; i++){  
@@ -2866,7 +2868,7 @@
                                                     }
                                                     checkboxJadwal = `
                                                         <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                                        id="listJadwalRenpamClick${m+1}${countlist}" 
+                                                        id="listJadwalRenpamClick${m+1}${countlistCategoriByCateg}" 
                                                         data-totaldata="${el.renpams.length}"
                                                         >
                                                     `;
@@ -2876,7 +2878,7 @@
                                                 }
         
                                             
-                                                countlistCategoriByCateg += 1;  
+                                                
                                                 list += `  
                                                     <div class="accordion-item" id="openCategByCateg${m+1}${countlistCategoriByCateg}">
                                                         <h2 class="accordion-header" id="flush-headingByCateg${m+1}${countlistCategoriByCateg}">
@@ -3373,7 +3375,7 @@
                                                 });
                                             }   
 
-                                            for (let i = 0; i < ress.length; i++){ 
+                                            for (let i = 0; i < ressJadwalId.length; i++){ 
                                                 $(`#listJadwalRenpamClick${m+1}${i+1}`).on("change", function (e) { 
                                                     
                                                  
