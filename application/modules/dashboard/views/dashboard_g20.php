@@ -2625,7 +2625,7 @@
                                     <h2 class="accordion-header" id="flush-heading${countlistCategori}">
                                         <button id="openCateg${countlistCategori}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                            <a href="<?= base_url()?>operasi/Kegiatan/${ress[i]['id']}">${ress[i]['name_category_schedule']}</a>
+                                            ${ress[i]['name_category_schedule']}
                                         </button>
                                     </h2>
                                     <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
@@ -2872,7 +2872,7 @@
                                                                                 href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
                                                                             </a> 
                                                                             <div style="margin-top: 13px;">
-                                                                                <p>${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</p>
+                                                                                <a target="_blank" href="<?= base_url()?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
                                                                             </div>
                                                                         </div> 
                                                             </button>
