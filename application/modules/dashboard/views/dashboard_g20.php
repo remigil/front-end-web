@@ -2625,7 +2625,7 @@
                                     <h2 class="accordion-header" id="flush-heading${countlistCategori}">
                                         <button id="openCateg${countlistCategori}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                            ${ress[i]['name_category_schedule']}
+                                            <a href="<?= base_url()?>operasi/Kegiatan/${ress[i]['id']}">${ress[i]['name_category_schedule']}</a>
                                         </button>
                                     </h2>
                                     <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
@@ -2822,7 +2822,7 @@
                                                                 </td>
                                                                 <td>${i+1}</td>
                                                                 <td>${dataVIP}</td>
-                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']}</a></td>
+                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']} - ${el.renpams[i]['title_end']}</a></td>
                                                                 <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td> 
                                                                 <td>
                                                                     <a class="btn" 
@@ -2883,7 +2883,7 @@
                                                                 
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <table style="font-size: 11px" id="datatableByCateg${m+1}${countlist}" class="table dt-responsive w-100">
+                                                                        <table style="font-size: 10px" id="datatableByCateg${m+1}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th></th>

@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Tambah Fasilitas Umum</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Khusus</button>
     <div class="card">
 
         <div class="card-body">
@@ -18,120 +18,14 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Fasum</th>
-                        <th>Jenis Fasum</th>
+                        <!-- <th>Jenis Fasum</th> -->
                         <th>Alamat</th>
-                        <th>Kontaks</th>
+                        <th>Kontak</th>
                         <th>Jam Operasional</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>SPBU 1</td>
-                        <td>SPBU</td>
-                        <td>KM 01 Jagorawi</td>
-                        <td>0895701900000</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bogor 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV1" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bogor 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV1" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Terminal Bogor</td>
-                        <td>Terminal</td>
-                        <td>Jl Raya Bogor</td>
-                        <td>0813401900500</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bogor 2" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV2" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bogor 2" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Kota Bogor" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV2" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>RS. Islam Bogor</td>
-                        <td>Rumah Sakit</td>
-                        <td>Jl. Raya Sholeh Iskandar</td>
-                        <td>0895701900000</td>
-                        <td>08.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 1" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV3" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>RM. Salero</td>
-                        <td>Restoran</td>
-                        <td>Jl. Raya Bogor </td>
-                        <td>0813401900500</td>
-                        <td>05.00 - 22.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Jakarta 2" data-ip="127.0.0.1" data-provinsi="DKI Jakarta" data-kota="Jakarta" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV4" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Rest Area 01</td>
-                        <td>Rest Area</td>
-                        <td>Km. 50 Jagorawi</td>
-                        <td>0895701900000</td>
-                        <td>07.00 - 21.00</td>
-                        <td>
-                            <div class="d-flex flex-row justify-content-between">
-                                <button style="background-color:transparent ; border:none" class="detailRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#003A91"><i class="mdi mdi-eye"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" class="editRow" data-nama="CCTV Bekasi 1" data-ip="127.0.0.1" data-provinsi="Jawa Barat" data-kota="Bekasi" data-lat="-0,12332141" data-long="-0,12332141" data-username="CCTV5" data-password="123">
-                                    <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-                                </button>
-                                <button style="background-color:transparent ; border:none" onclick="hapus()">
-                                    <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                
             </table>
 
         </div>
@@ -141,57 +35,113 @@
 
 
 <!-- ADD Modals -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade TambahFasum" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasum</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasilitas Khusus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Fasum</label>
-                            </div>
+						<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jenis Fasilitas Umum</label>
+                                <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
+						<!-- <div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getCategory'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label> 
+                            </div>
+						</div> -->
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3"> 
+                                <input type="text" class="form-control" placeholder="Alamat" name="address">
+                                <label for="">Alamat</label>
+                            </div>  
+                        </div> 
+                        <div id="listAddress" class="col-md-12"></div>
+                        <div class="col-md-6" style="display: none;">
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                <label for="">Coordinate</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="latitude" placeholder="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="longitude" placeholder="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                            <div id="mapG20Kegiatan" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+					<div class="row mt-3">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" name="deskripsiFasum"></textarea>
+                                <label for="">Deskripsi Fasilitas Khusus</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
-                    <div class="row">
+					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Buka</label>
+                                <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
+                                <label for="kontakFasum">Kontak Fasilitas Khusus</label>
                             </div>
                         </div>
                         <div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="statusFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Status Fasum</option>
+                            		<option value="0">Nonaktif</option>
+                            		<option value="1">Aktif</option>
+                                </select>
+                                <label for="">Status</label>
+                            </div>
+						</div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Tutup</label>
+                                <input type="time" class="form-control" name="jamBuka">
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+                    <button type="submit" class="btn  btn-primary float-end">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -199,77 +149,224 @@
 </div>
 
 <!-- Detail Modals -->
-<div class="modal fade bs-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailFasum" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasum</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Detail Fasilitas Khusus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
-                    <div class="row">
+				<form action="" class="form">
+				<div class="row">
+					<div class="col-md-12 mb-3"> 
+                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getCategory'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label>
+                            </div>
+						</div> -->
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Nama Fasum</label>
+                                <input type="text" class="form-control" id="address" name="address"> 
+                                <label for="">Alamat</label>
+                            </div>
+                        </div>
+                    </div> 
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jenis Fasilitas Umum</label>
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+					<div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="isi alamat" id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Alamat</label>
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="deskripsi">Deskripsi Fasilitas Khusus</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mt-1 mb-3 rounded" style="height: 22vh; ;" id="mapG20Dashboard"></div>
-                        </div>
-                    </div>
-                    <div class="row">
+					<div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Buka</label>
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Khusus</label>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="nama_akun" placeholder="isi nama samsat">
-                                <label for="nama_akun">Jam Tutup</label>
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn  btn-primary float-end" type="submit">SIMPAN</button>
+					
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jamBuka" name="jamBuka" >
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Edit Modals -->
+<div class="modal fade UbahFasum" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Edit Fasilitas Khusus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="" id="id_fasum" type="text">
+				<div class="row">
+						<div class="col-md-12 mb-3" id="fotoEdit"> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaFasum" name="namaFasum">
+                                <label for="">Nama Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
+                        <!-- <div class="col-md-6">
+                        	<div class="form-floating mb-3">
+                                <select name="jenisFasum" id="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
+									<option selected value="">Pilih Jenis Fasum</option>
+                                    <?php
+                        				foreach ($data['getCategory'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
+                        			<?php endforeach; ?>
+                                </select>
+                                <label for="">Jenis Fasum</label>
+                            </div>
+						</div> -->
 
+
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="address" name="address"> 
+                                <label for="">Alamat</label>
+                            </div>
+                        </div>
+                        <div id="listAddressEdit" class="col-md-12"></div>
+                        <div class="col-md-6" style="display: none;"> 
+                            <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="cordinateEdit" id="cordinateEdit" placeholder="" type="text">
+                                <label class="labelmui">Coordinate</label>
+                            </div>
+                        </div>
+                    </div>
+                         
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="latitude" name="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="longitude" name="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                            <div id="mapEdit" style="height: 400px">
+                                <img src="<?php echo base_url();?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                            </div>
+                        </div>
+					<div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 100px" placeholder="isi deskripsi" id="deskripsiFasum" name="deskripsiFasum"></textarea>
+                                <label for="">Deskripsi Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                    </div>
+					<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
+                                <label for="kontakFasum">Kontak Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="statusFasum" name="statusFasum">
+                                <label for="statusFasum">Status</label>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jamBuka" name="jamBuka">
+                                <label for="jamBuka">Jam Buka</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="jamTutup" name="jamTutup">
+                                <label for="jamTutup">Jam Tutup</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn  btn-primary float-end" id="btn_edit" type="submit">SIMPAN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ 
 
 <script>
-    $(document).ready(function() {
+
+	$(document).ready(function() {
         $('.dropify').dropify();
 
-        $('#datatable').DataTable({
-            pageLength: 5,
-            lengthMenu: [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Semua']
-            ]
-        });
-        var initialCenter = [-2.548926, 118.0148634];
+		$('[name=cordinate]').val('-1.5707209, 115.4875168');
+        var initialCenter = [-1.5707209, 115.4875168];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
@@ -293,108 +390,306 @@
         });
 
         // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
+        var mapContainer = L.map('mapG20Kegiatan', {
+            maxZoom: 20,
             minZoom: 1,
+            zoomSnap: 0.25,
             zoomControl: false,
             layers: [googleStreet]
         }).setView(initialCenter, initialZoom);
+  
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(mapContainer);
+		
+	$('#myModal').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
 
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
+            $('.dropify').dropify(); 
+
+            let countlist = 0;
+            let list = ""; 
+            $('[name=address]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddress').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddress').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            // console.log({a:latitude, b:longitude});
+                            $('[name=address]').val($(this).data('alamat'));
+                            $('[name=cordinate]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);  
+                            list = "";
+                            $('#listAddress').html(list); 
+                            $('#listAddress').hide();   
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinate]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=address]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinate]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
         });
 
-        var arrayData = $.grep(data, function(element, index) {
-            return element.coordinate != null && element.coordinate != '';
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>masterdata/Fasilitasumum/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    data.filterCateg = '9';
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'fasum_name'
+                },
+                // {
+                //     data: 'category_fasum'
+                // },
+				{
+                    data: 'fasum_address'
+                },
+				{
+                    data: 'fasum_phone'
+                },
+				{
+                    data: 'jam_operasional',
+                    orderable: false
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
         });
-        // console.log(arrayData); 
 
-        for (let i = 0; i < arrayData.length; i++) {
-            var cordinate = arrayData[i].coordinate;
-            var latlong = cordinate.split(',');
-            var latitude = parseFloat(latlong[0]);
-            var longitude = parseFloat(latlong[1]);
-            // console.log({a:latitude , b:longitude});
+			
 
-            markerClusterGroup.addLayer(
-                L.marker([latitude, longitude], {
-                    icon
-                }).bindPopup(`
-                <div class="text-center" style="width: 300px;">
-                    <div class="card-block">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-                        </a>
-                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Location :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">POC :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Demand :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                    </div>
-                    <div class="card-footer">
-                        <div class="row no-space">
-                            <div class="col-4" style="display: grid">
-                                <span>Participant/s</span>
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Threat Level</span> 
-                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Event Date</span> 
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `)
-            );
-        }
-        mapContainer.addLayer(markerClusterGroup);
-        mapContainer.setView(initialCenter, initialZoom);
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault();
+            var formData = new FormData($('.form')[0]);
+            $.ajax({
+                url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $("#overlay").fadeOut(300);
+                    if (data['status'] == true) {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'success'
+                        ).then(function() {
+                            $(".TambahFasum").modal('hide');
+                            userDataTable.draw();
+                        });
+                    } else {
+                        Swal.fire(
+                            `${data['message']}`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                }
+            });
+        });
+    });
 
+	// map pada form edit
+
+	$(document).ready(function() {
+
+		// $('[name=cordinateEdit]').val($('#latitude').val(samsat_lat) + ',' + $('#longitude').val(samsat_lng));
+        var initialCenter = [-8.751740, 115.149643];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+
+        // StART MAP SECTION
+        var mapContainer = L.map('mapEdit', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);
+  
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
@@ -409,54 +704,273 @@
             position: 'bottomleft'
         }).addTo(mapContainer);
 
-    });
 
 
 
-    $('.detailRow').on('click', function() {
-        $('#detailModal').modal('show')
-        $('.modal-title').text('Detail CCTV')
-        $('[name="nama"]').val($(this).data('nama'))
-        $('[name="alamat"]').val($(this).data('ip'))
-        $('[name="provinsi"]').val($(this).data('provinsi'))
-        $('[name="kota"]').val($(this).data('kota'))
-        $('[name="latitude"]').val($(this).data('lat'))
-        $('[name="longitude"]').val($(this).data('long'))
-        $('[name="username"]').val($(this).data('username'))
-        $('[name="password"]').val($(this).data('password'))
-        $('#submit_edit').hide()
-    })
 
-    $('.editRow').on('click', function() {
-        $('.modal-title').text('Ubah Akun')
-        $('#detailModal').modal('show')
-        $('[name="nama_akun"]').val($(this).data('akun'))
-        $('[name="password"]').val($(this).data('password'))
-        $('[name="tingkat"]').val($(this).data('tingkat'))
-        $('[name="akses"]').val($(this).data('akses'))
-        $('#submit_edit').show()
-    })
+        
+		
+		$('#myModalEdit').on('shown.bs.modal', function() {
+            mapContainer.invalidateSize();
 
-    function hapus() {
-        Swal.fire({
-            title: '',
-            text: "Apakah anda ingin menghapus data ini ?",
-            icon: 'question',
-            iconColor: '#ED171D',
-            showCancelButton: true,
-            cancelButtonColor: '#003A91',
-            confirmButtonColor: '#ED171D',
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+            let countlist = 0;
+            let list = ""; 
+            $('[name=address]').on("change", function (e) {
+                // console.log(this.value);
+                $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress){
+                    console.log(ress);  
+                    countlist = 0;
+                    list = "";
+                    ress.forEach(el => {
+                        countlist += 1;
+                        list += `<a class="list-group-item" 
+                        id="list${countlist}"   
+                        data-alamat="${el.display_name}"
+                        data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                        $('#listAddressEdit').html(list); 
+                    });  
+
+                    if(list == ""){
+                        countlist = 0;
+                        list = "";
+                        $('#listAddressEdit').html(list); 
+                    }
+
+                    
+                    for (let i = 0; i < ress.length; i++){ 
+                        $(`#list${i+1}`).click(function(){  
+                            var latlong =  $(this).data('cords').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]); 
+
+							$("[name=latitude]").val(latitude);
+							$("[name=longitude]").val(longitude);
+
+                            console.log({a:latitude, b:longitude});
+                            $('[name=address]').val($(this).data('alamat'));
+                            $('[name=cordinateEdit]').val($(this).data('cords'));
+                            mapContainer.flyTo([latitude, longitude], 17);  
+                            list = "";
+                            $('#listAddressEdit').html(list);   
+                            $('#listAddressEdit').hide(); 
+                        });
+                    }
+                });
+
+            });
+
+
+            $('[name=cordinateEdit]').on("change", function (e) {
+
+                var cordLatLong =  this.value.split(','); 
+                var cordLat = parseFloat(cordLatLong[0]); 
+                var corLong = parseFloat(cordLatLong[1]); 
+
+                // console.log({a:cordLat, b:corLong});
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
+                    $('[name=address]').val(data['display_name']); 
+                    mapContainer.flyTo([cordLat, corLong], 17);  
+                }); 
+            });
+
+
+            mapContainer.on("dragend", function (e) {
+
+                var corLat = mapContainer.getCenter()['lat'];
+                var corLng = mapContainer.getCenter()['lng'];
+                var cord = `${corLat},${corLng}`;
+
+				$("[name=latitude]").val(corLat);
+				$("[name=longitude]").val(corLng);
+                $('[name=cordinateEdit]').val(cord);
+
+                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${corLat}&lon=${corLng}`, function(data){
+
+                    $('[name=address]').val(data['display_name']); 
+
+                }); 
+
+            });
+			
+
+        });
+
+		var latlong11 =  $('[name=cordinateEdit]').val().split(',');
+        var latitude11 = parseFloat(latlong11[0]);
+        var longitude11 = parseFloat(latlong11[1]); 
+        mapContainer.flyTo([latitude11, longitude11], 17);
+
+	});
+
+    function detail(id) {
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
+            type: 'POST',
+            data: {
+                id_fasum: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+                
+                $('.DetailFasum,#namaFasum').attr('disabled', true)
+                $('.DetailFasum,#jenisFasum').attr('disabled', true)
+                $('.DetailFasum,#address').attr('disabled', true)
+                $('.DetailFasum,#latitude').attr('disabled', true)
+                $('.DetailFasum,#longitude').attr('disabled', true)
+                $('.DetailFasum,#deskripsiFasum').attr('disabled', true)
+                $('.DetailFasum,#kontakFasum').attr('disabled', true)
+                $('.DetailFasum,#statusFasum').attr('disabled', true)
+                $('.DetailFasum,#photo').attr('disabled', true)
+                $('.DetailFasum,#jamBuka').attr('disabled', true)
+                $('.DetailFasum,#jamTutup').attr('disabled', true)
+
+                $('.DetailFasum,#namaFasum').val(results.fasum_name)
+                $('.DetailFasum,#jenisFasum').val(results.fasum_type)
+                $('.DetailFasum,#address').val(results.fasum_address)
+                $('.DetailFasum,#latitude').val(results.fasum_lat)
+                $('.DetailFasum,#longitude').val(results.fasum_lng)
+                $('.DetailFasum,#deskripsiFasum').val(results.fasum_description)
+                $('.DetailFasum,#kontakFasum').val(results.fasum_phone)
+                $('.DetailFasum,#statusFasum').val(results.fasum_status)
+                $('.DetailFasum,#photo').val(results.fasum_logo)
+                $('.DetailFasum,#jamBuka').val(results.fasum_open_time)
+                $('.DetailFasum,#jamTutup').val(results.fasum_close_time)
             }
         })
     }
+
+    function detailEdit(id) { 
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
+            type: 'POST',
+            data: {
+                id_fasum: id
+            },
+            dataType: 'JSON',
+            success: function(results) {
+				console.log(results);
+
+                // var fotoFas = '';
+                // if(results.fasum_logo != null){
+                //     fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
+                // }else{
+                //     fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                // }
+                // $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
+				// $('.dropify').dropify(); 
+
+                $('.UbahFasum,#namaFasum').attr('disabled', false)
+                $('.UbahFasum,#jenisFasum').attr('disabled', false)
+                $('.UbahFasum,#address').attr('disabled', false)
+                $('.UbahFasum,#latitude').attr('disabled', false)
+                $('.UbahFasum,#longitude').attr('disabled', false)
+                $('.UbahFasum,#deskripsiFasum').attr('disabled', false)
+                $('.UbahFasum,#kontakFasum').attr('disabled', false)
+                $('.UbahFasum,#statusFasum').attr('disabled', false)
+                $('.UbahFasum,#photo').attr('disabled', false)
+                $('.UbahFasum,#jamBuka').attr('disabled', false)
+                $('.UbahFasum,#jamTutup').attr('disabled', false)
+
+                $('#id_fasum').val(results.id)
+
+                $('.UbahFasum,#namaFasum').val(results.fasum_name)
+                $('.UbahFasum,#jenisFasum').val(results.fasum_type)
+
+                $('.UbahFasum,#address').val(results.fasum_address)
+                $('.UbahFasum,#cordinateEdit').val((results.fasum_lat) + ',' + (results.fasum_lng))
+                $('.UbahFasum,#latitude').val(results.fasum_lat)
+                $('.UbahFasum,#longitude').val(results.fasum_lng)
+                $('.UbahFasum,#deskripsiFasum').val(results.fasum_description)
+                $('.UbahFasum,#kontakFasum').val(results.fasum_phone)
+                $('.UbahFasum,#statusFasum').val(results.fasum_status)
+                $('.UbahFasum,#photo').val(results.fasum_logo)
+                $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
+                $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+					 
+			 
+    
+                
+            }
+        })
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Apakah anda ingin menghapus data ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#C61318',
+            cancelButtonColor: '#003A91',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>masterdata/Fasilitasumum/hapusFasum/",
+                    type: "POST",
+                    data: {
+                        id_fasum: id
+                    },
+                    dataType: 'JSON',
+                    success: function(data) {
+                        $("#overlay").fadeOut(300);
+                        if (data['status'] == true) {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                $(".TambahFasum").modal('hide');
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `${data['message']}`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    $('#btn_edit').on('click', function(e) {
+        e.preventDefault()
+        var formData = new FormData($('#form_edit')[0]);
+        $.ajax({
+            url: '<?= base_url() ?>masterdata/Fasilitasumum/updateFasum',
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $("#overlay").fadeOut(300);
+                if (results['status'] == true) {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".UbahFasum").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${results['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
+            }
+        })
+    })
+
+	$('#btnTambah').on('click', function(e){
+		$('#form_tambah')[0].reset()
+	})
+        
 </script>

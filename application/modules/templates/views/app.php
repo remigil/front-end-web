@@ -795,8 +795,8 @@
                                     <li><a href="<?php echo base_url('masterdata/pangkat'); ?>" data-key="t-read-email">Pangkat Petugas</a></li>
                                     <li><a href="<?php echo base_url('masterdata/struktural'); ?>" data-key="t-read-email">Structural Petugas</a></li>
                                     <li><a href="<?php echo base_url('masterdata/kepemilikan'); ?>" data-key="t-read-email">Kepemilikan Kendaraan</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li>
-                                    <!-- <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li> -->
+                                    <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li> 
+                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Khusus</a></li>
                                 </ul>
                             </li>
 
