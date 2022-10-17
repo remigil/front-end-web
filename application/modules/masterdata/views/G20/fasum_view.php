@@ -159,8 +159,8 @@
             <div class="modal-body">
 				<form action="" class="form">
 				<div class="row">
-					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+					    <div class="col-md-12 mb-3" id="detailViewFoto"> 
+                           
                         </div>
                         <div class="col-md-6">
 							<div class="form-floating mb-3">
@@ -812,6 +812,15 @@
             },
             dataType: 'JSON',
             success: function(results) {
+
+                var fotoFas = '';
+                if(results.fasum_logo != null){
+                    fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
+                }else{
+                    fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                }
+                $(`#detailViewFoto`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
+				$('.dropify').dropify(); 
                 
                 $('.DetailFasum,#namaFasum').attr('disabled', true)
                 $('.DetailFasum,#jenisFasum').attr('disabled', true)
