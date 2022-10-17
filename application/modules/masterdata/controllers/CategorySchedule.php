@@ -9,7 +9,7 @@ class CategorySchedule extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper"); 
-        $this->load->model('masterdata/m_categorySchedule'); 
+        $this->load->model('masterdata/m_categoryschedule'); 
     }
 
     public function index()
@@ -41,7 +41,7 @@ class CategorySchedule extends MY_Controller
     public function serverSideTable() 
     {  
         $postData = $this->input->post();   
-        $data = $this->m_categorySchedule->get_datatables($postData);  
+        $data = $this->m_categoryschedule->get_datatables($postData);  
 		echo json_encode($data); 
     }
 
