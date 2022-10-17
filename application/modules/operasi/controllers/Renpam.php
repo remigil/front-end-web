@@ -289,6 +289,7 @@ class Renpam extends MY_Controller
         // $dummy ['route_masyarakat']	= $input['coordsAlternative3']; 
         // $dummy ['route_umum']	= $input['coordsAlternative4']; 
         $dummy['note_kakor'] = $input['note_kakor'];
+        $dummy['status_renpam'] = $input['statusNoteKakor'];
 
         // echo json_encode($dummy);
         // die;

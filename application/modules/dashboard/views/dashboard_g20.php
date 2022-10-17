@@ -607,6 +607,18 @@
                                 <label class="labelmui">Catatan Uraian Kegiatan</label>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <!-- <input type="text" class="form-control" id="status" name="status"> -->
+                                <select name="statusNoteKakor" id="statusNoteKakor">
+                                    <option value="">Pilih Status</option>
+                                    <option value="0">Gagal</option>
+                                    <option value="1">Berhasil</option>
+                                    <option value="2">Tertunda</option> 
+                                </select>
+                                <label for="statusNoteKakor">Status</label>
+                            </div>
+                        </div>
                            
                     </div>    
                     <div class="col-md-6 mt-3 float-end">
@@ -2843,6 +2855,7 @@
                                                                         style="font-size: 16px;"  
                                                                         data-idnote="${el.renpams[i]['id']}" 
                                                                         data-note="${el.renpams[i]['note_kakor']}"
+                                                                        data-status="${el.renpams[i]['status_renpam']}"
                                                                         data-accounts='${JSON.stringify(dataAccounts)}'
                                                                         title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                                                         <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
@@ -2963,9 +2976,9 @@
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
                                                     }else{
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                                        markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                                        markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                                     }
 
                                                     var cordRute1 = $(this).data('cord1'); 
@@ -3363,22 +3376,21 @@
                                             for (let i = 0; i < ress.length; i++){ 
                                                 $(`#listJadwalRenpamClick${m+1}${i+1}`).on("change", function (e) { 
                                                     
-                                                    // console.log($(this).data('cordutama'));
-                                                    // console.log(dummyJadwalRenpam[i+1]);
+                                                 
                                                     for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
-                                                        // //Find index of specific object using findIndex method.    
-                                                        // objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == nameJadwalRenpam[i+1]));
-                                                        // // console.log(objIndex);
+                                                        //Find index of specific object using findIndex method.    
+                                                        objIndex = checkedRoutJadwal.findIndex((obj => obj.activity == ressJadwalId[i]['activity']));
+                                                        // console.log(objIndex);
                         
-                                                        // //Log object to Console.
-                                                        // // console.log("Before update: ", checkedRoutJadwal[objIndex]);
+                                                        //Log object to Console.
+                                                        // console.log("Before update: ", checkedRoutJadwal[objIndex]);
                         
-                                                        // //Update object's name property.
-                                                        // if($(this).is(':checked')){  
-                                                        //     checkedRoutJadwal[objIndex].checked = 1;
-                                                        // }else{
-                                                        //     checkedRoutJadwal[objIndex].checked = 0;
-                                                        // } 
+                                                        //Update object's name property.
+                                                        if($(this).is(':checked')){  
+                                                            checkedRoutJadwal[objIndex].checked = 1;
+                                                        }else{
+                                                            checkedRoutJadwal[objIndex].checked = 0;
+                                                        } 
         
                                                         var titikAwal = nameJadwalRenpam[i+1][ii] == null ? '-' : nameJadwalRenpam[i+1][ii];
                                                         var titikAkhir = akhirJadwalRenpam[i+1][ii] == null ? '-' : akhirJadwalRenpam[i+1][ii];
@@ -3404,8 +3416,8 @@
                                                         }else{
                                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
                                                             markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                                         }
         
         
@@ -3479,6 +3491,7 @@
                                                                     geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                console.log('kebuka');
                                                             }else{
                                                                 mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
                                                             }
@@ -11673,11 +11686,13 @@
     $('#myModalNoteKakor').on('shown.bs.modal', function(event) {
         var myId = $(event.relatedTarget).data('idnote'); 
         var myNote = $(event.relatedTarget).data('note'); 
+        var myStatus = $(event.relatedTarget).data('status'); 
         var myAccounts = $(event.relatedTarget).data('accounts'); 
         var modal          = $(this);
 
         modal.find('#idNoteKakor').val(myId);
         modal.find('#noteKakor').val(myNote);
+        modal.find('#statusNoteKakor').val(myStatus);
 
         var arrayAccount = new Array();
         for (let i = 0; i < myAccounts.length; i++){ 
