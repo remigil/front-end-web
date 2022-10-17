@@ -851,7 +851,7 @@
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Laporan</span>
+                                    <span data-key="t-laporan">Sub Satker</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
@@ -866,16 +866,7 @@
                                             <li><a href="<?= base_url('ditgakkum/turjawali') ?>" data-key="t-turjagwali">Data Turjagwali</a></li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="javascript: void(0);" class="has-arrow">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditkamsel.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-ditkamsel">Ditkamsel</span>
-                                        </a>
-                                        <ul class="sub-menu" aria-expanded="false">
-                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-dikmaslantas">Dikmas Lantas</a></li>
-                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-penyebaran">Penyebaran/Pemasangan</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
                                             <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -888,6 +879,42 @@
                                             <li><a href="<?= base_url('ditregident/ranmor') ?>" data-key="t-ranmor">RANMOR</a></li>
                                         </ul>
                                     </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <img src="<?= base_url('assets/sidebar/icon-ditkamsel.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-ditkamsel">Ditkamsel</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('ditkamsel/dikmasLantas') ?>" data-key="t-dikmaslantas">Dikmas Lantas</a></li>
+                                            <li><a href="<?= base_url('ditkamsel/penyebaran') ?>" data-key="t-penyebaran">Penyebaran/Pemasangan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('#') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-tripon">BagOps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('#') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-tripon">BagTIK</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('#') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-tripon">BagRenmin</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-laporan">Masyarakat</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
                                     <li>
                                         <a href="<?= base_url('tripon') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -903,14 +930,40 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                        <a href="<?= base_url('Bagtik') ?>">
+                                        <a href="<?= base_url('troublespot') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-troublespot">TroubleSpot</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('blackspot') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-blackspot">BlackSpot</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-laporan">Operasi</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="<?= base_url('operasi/RencanaOperasi') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-troublespot">Khusus</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('operasi/RencanaOperasi') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-blackspot">Rutin</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -919,15 +972,9 @@
 
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
-                                    <li><a href="<?= base_url('inputdata/TroubleSpot') ?>" data-key="t-read-email">TroubleSpot</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="<?php echo base_url('operasi/RencanaOperasi'); ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-operasi">Rencana Operasi</span>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="<?php echo base_url('berita'); ?>">
                                     <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
