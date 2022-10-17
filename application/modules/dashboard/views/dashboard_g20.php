@@ -2842,7 +2842,7 @@
                                                                 </td>
                                                                 <td>${i+1}</td> 
                                                                 <td>${dataVIP}</td>
-                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']} - ${el.renpams[i]['title_end']}</a></td>
+                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']} Ke ${el.renpams[i]['title_end']}</a></td>
                                                                 <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td> 
                                                                 <td>
                                                                     <a class="btn" 
@@ -2912,7 +2912,7 @@
                                                                                     <th></th>
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
-                                                                                    <th>Hotel</th>
+                                                                                    <th>Lokasi</th>
                                                                                     <th>Berangkat</th> 
                                                                                     <th>Petugas</th>
                                                                                     <th>Catatan</th>

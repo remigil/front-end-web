@@ -402,7 +402,7 @@ class Dashboard extends MY_Controller
         $input = $this->input->post(); 
 
 
-        $url = 'schedule?serverSide=True&order=date_schedule&orderDirection=asc&length=100&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
+        $url = 'schedule?serverSide=True&order=status_schedule&orderDirection=asc&length=100&start=1&filter%5B%5D=id_category_schedule&filterSearch%5B%5D='.$input['id_category_schedule'].'';
         $getJadwal = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
