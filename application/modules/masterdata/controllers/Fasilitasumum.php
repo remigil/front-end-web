@@ -22,7 +22,7 @@ class Fasilitasumum extends MY_Controller
         $page_content["title"] = "Fasilitas Umum";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "dashboard/dashboard_g20";
+            $page_content["page"] = "masterdata/G20/fasum_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "masterdata/Korlantas/fasum_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
