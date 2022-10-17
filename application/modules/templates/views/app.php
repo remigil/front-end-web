@@ -890,19 +890,19 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('#') ?>">
+                                        <a href="<?= base_url('Bagops') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-tripon">BagOps</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('#') ?>">
+                                        <a href="<?= base_url('Bagtik') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-tripon">BagTIK</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('#') ?>">
+                                        <a href="<?= base_url('Bagrenmin') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-tripon">BagRenmin</span>
                                         </a>
@@ -936,7 +936,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('blackspot') ?>">
+                                        <a href="<?= base_url('troublespot/blackspot') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-blackspot">BlackSpot</span>
                                         </a>
@@ -957,7 +957,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('operasi/RencanaOperasi') ?>">
+                                        <a href="<?= base_url('operasi/OperasiRutin') ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-blackspot">Rutin</span>
                                         </a>
