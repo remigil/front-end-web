@@ -106,7 +106,7 @@ class M_categorySchedule extends CI_Model {
             ]
 
         ]);  
-
+ 
         $no=1;
 
 		foreach  ($result['data']['data'] as $field) { 

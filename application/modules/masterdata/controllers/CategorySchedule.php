@@ -196,7 +196,7 @@ class CategorySchedule extends MY_Controller
         echo json_encode($res);
 
     }
-
+ 
 
     public function delete() 
     {  
