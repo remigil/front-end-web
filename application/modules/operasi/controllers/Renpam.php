@@ -407,7 +407,12 @@ class Renpam extends MY_Controller
         $dummy['date']    = $input['date'];
         $dummy['start_time']    = $input['startTime'];
         // $dummy ['end_time']	= $input['endTime']; 
-        $dummy['accounts']    = json_encode($input['id_account']);
+
+        if (isset($input['id_account'])) {
+            $dummy['accounts']    = json_encode($input['id_account']);
+        }else{
+            $dummy['accounts'] = [];
+        } 
 
         if (isset($input['id_vip'])) {
             $dummy['vips']    = json_encode($input['id_vip']);
