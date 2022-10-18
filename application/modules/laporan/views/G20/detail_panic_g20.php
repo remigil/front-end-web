@@ -63,23 +63,23 @@
                             <p>NAMA PETUGAS PELAPOR</p>
                         </div>
                         <div class="col-md-8">
-                            <p>: <?= $data['getDetail']['name_officer']; ?></p>
+                            <p>: <?= ($data['getDetail']['officer']['name_officer'] != null ? $data['getDetail']['officer']['name_officer'] : '-'); ?></p>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-4">
                             <p>KATEGORI LAPORAN</p>
                         </div>
                         <div class="col-md-8">
-                            <p>: <?= $data['getDetail']['categori']; ?></p>
+                            <p>: <?= ($data['getDetail']['categori'] != null ? $data['getDetail']['categori'] : '-'); ?></p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-md-4">
                             <p>NOMOR LAPORAN</p>
                         </div>
                         <div class="col-md-8">
-                            <p>: <?= $data['getDetail']['code']; ?></p>
+                            <p>: <?= ($data['getDetail']['code'] != null ? $data['getDetail']['code'] : '-' ); ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -95,7 +95,7 @@
                             <p>DESKRIPSI</p>
                         </div>
                         <div class="col-md-8">
-                            <p>: <?= nl2br($data['getDetail']['description']); ?></p>
+                            <p>: <?= ($data['getDetail']['code'] != null ? nl2br($data['getDetail']['description']) : '-'); ?></p>
                         </div>
                     </div>
                     <div style="height: 400px;" class="mt-3 rounded" id="mapG20Dashboard"></div>
