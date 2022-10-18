@@ -33,17 +33,17 @@ class Login extends MX_Controller
             
             if ($response['user']['data']['status_verifikasi'] == 1) { 
                 $data_session  = array();
-                $data_session['role']       = $response['user']['data']['user_role']['name'];
-                $data_session['operation_id']       = $response['user']['data']['operation_id'];
-                $data_session['polda']       = 'Jawa Barat';
-                $data_session['polres']       = 'Bogor';
-                $data_session['full_name']       = $username;
-                $data_session['token']       = $response['token'];
-                $data_session['tokenFcm']       = $tokenNotif;
-                $data_session['logged']       = 1; 
+                $data_session['role'] = $response['user']['data']['user_role']['name'];
+                $data_session['id'] = $response['user']['data']['id'];
+                $data_session['operation_id'] = $response['user']['data']['operation_id'];
+                $data_session['polda'] = 'Jawa Barat';
+                $data_session['polres'] = 'Bogor';
+                $data_session['full_name'] = $username;
+                $data_session['token'] = $response['token'];
+                $data_session['tokenFcm'] = $tokenNotif;
+                $data_session['logged'] = 1; 
     
                 $this->session->set_userdata($data_session);
-
 
                 $headers = [ 
                     'Authorization' => $response['token'],  

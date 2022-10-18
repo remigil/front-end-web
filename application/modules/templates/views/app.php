@@ -971,8 +971,22 @@
                                 </a>
 
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+
+                                    <li>
+                                        <a href="<?= base_url('inputdata/LaporanHarian') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-troublespot">Input Laporan Harian</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                            <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-blackspot">Import Laporan Harian</span>
+                                        </a>
+                                    </li>
+                                    <!-- <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Input Laporan Harian</a></li> -->
                                 </ul>
+
                             </li>
 
                             <li>
