@@ -108,14 +108,14 @@ class M_berita extends CI_Model {
 
             ]);
 
-
+        
         // var_dump($result['data']['data']);
 		// echo "<pre>";
 		// var_dump($result);
 		// echo "</pre>";
         $no=1;
-		// kategori berita berdasarkan nomor
-		foreach  ($result['data']['data'] as $field) { 
+        // kategori berita berdasarkan nomor
+        foreach ($result['data']['rows'] as $field) { 
 			
 			if ($field['news_category'] == 1) {
 				$category = "Berita PPKM";
@@ -163,9 +163,9 @@ class M_berita extends CI_Model {
 
             "draw" => intval($draw),
 
-            "iTotalRecords" => $result['data']['recordsTotal'],
+            "iTotalRecords" => $result['data']['total'],
 
-            "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
+            "iTotalDisplayRecords" => $result['data']['total'],
 
             "aaData" => $data,
 
