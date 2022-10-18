@@ -2647,18 +2647,18 @@
                             countlistCategori += 1;   
                             listCategori += `  
                                 <div class="accordion-item" >
-                                    <h2 class="accordion-header" id="flush-heading${countlistCategori}">
-                                        <button id="openCateg${countlistCategori}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapse${countlistCategori}" aria-expanded="false" aria-controls="flush-collapse${countlistCategori}">
-                                            ${ress[i]['name_category_schedule']} &nbsp;<span class="badge bg-danger rounded-pill" id="totalCategJadwal${countlistCategori}"></span>
+                                    <h2 class="accordion-header" id="flush-heading${ress[i]['id']}">
+                                        <button id="openCateg${ress[i]['id']}" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapse${ress[i]['id']}" aria-expanded="false" aria-controls="flush-collapse${ress[i]['id']}">
+                                            ${ress[i]['name_category_schedule']} &nbsp;<span class="badge bg-danger rounded-pill" id="totalCategJadwal${ress[i]['id']}"></span>
                                         </button>
                                     </h2>
-                                    <div id="flush-collapse${countlistCategori}" class="accordion-collapse collapse" aria-labelledby="flush-heading${countlistCategori}"
+                                    <div id="flush-collapse${ress[i]['id']}" class="accordion-collapse collapse" aria-labelledby="flush-heading${ress[i]['id']}"
                                         data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body text-muted">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                        <div class="accordion accordion-flush listJadwalbyCateg${countlistCategori}" id="accordionFlushExampleByCateg${countlistCategori}">
+                                                        <div class="accordion accordion-flush listJadwalbyCateg${ress[i]['id']}" id="accordionFlushExampleByCateg${ress[i]['id']}">
                                 
                                                         </div> 
                                                 </div> 
@@ -2680,8 +2680,8 @@
                         var listCategoriByCateg = ""; 
 
 
-                        for (let m = 0; m < countlistCategori; m++){
-                            $(`#openCateg${m+1}`).on('click', function(e) {
+                        for (let m = 0; m < ress.length; m++){
+                            $(`#openCateg${ress[m]['id']}`).on('click', function(e) {
                                 // if(openGet1 == false){
                                     $("#overlay").fadeIn(300);
                                     // openGet1 = true;
@@ -2690,7 +2690,7 @@
                                         type : "POST",
                                         url : "<?php echo base_url();?>dashboard/getJadwalId", 
                                         data : {
-                                            "id_category_schedule" : `${m+1}`,
+                                            "id_category_schedule" : `${ress[m]['id']}`,
                                         }, 
                                         dataType : "JSON",
                                         success : function(result){
@@ -2740,7 +2740,7 @@
                                         
                                             ressJadwalId.forEach(el => {
         
-                                                $(`#totalCategJadwal${m+1}`).html(ressJadwalId.length);
+                                                $(`#totalCategJadwal${ress[m]['id']}`).html(ressJadwalId.length);
                                                 dummyName = [];
                                                 dummyType = [];
                                                 dummyAwal = [];
@@ -2839,7 +2839,7 @@
                                                             <tr>
                                                                 <td>
                                                                     <input type="checkbox" class="form-input" name="selectRenpam" 
-                                                                    id="listRenpamModalClick${m+1}${countlistRenpam}"  
+                                                                    id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"  
                                                                     data-name="${el.renpams[i]['name_renpam']}" 
                                                                     data-cord='${JSON.stringify(el.renpams[i]['route'])}' 
                                                                     data-cord1='${JSON.stringify(el.renpams[i]['route_alternatif_1'])}' 
@@ -2878,7 +2878,7 @@
                                                     }
                                                     checkboxJadwal = `
                                                         <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                                        id="listJadwalRenpamClick${m+1}${countlistCategoriByCateg}" 
+                                                        id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}" 
                                                         data-totaldata="${el.renpams.length}"
                                                         >
                                                     `;
@@ -2890,15 +2890,15 @@
                                             
                                                 
                                                 list += `  
-                                                    <div class="accordion-item" id="openCategByCateg${m+1}${countlistCategoriByCateg}">
-                                                        <h2 class="accordion-header" id="flush-headingByCateg${m+1}${countlistCategoriByCateg}">
-                                                            <button id="openCategByCateg${m+1}${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                                                data-bs-target="#flush-collapseByCateg${m+1}${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${m+1}${countlistCategoriByCateg}">
+                                                    <div class="accordion-item" id="openCategByCateg${ress[m]['id']}${countlistCategoriByCateg}">
+                                                        <h2 class="accordion-header" id="flush-headingByCateg${ress[m]['id']}${countlistCategoriByCateg}">
+                                                            <button id="openCategByCateg${ress[m]['id']}${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}">
                                                                     
                                                                         <div  style="display: flex; font-size: 12px; position: absolute;">
                                                                             ${checkboxJadwal}
                                                                             <a class="btn" style="display: flex;margin-top: 2px;"
-                                                                                id="listJadwalClick${m+1}${countlist}"   
+                                                                                id="listJadwalClick${ress[m]['id']}${countlist}"   
                                                                                 data-alamat="${el.address_schedule}"  
                                                                                 data-cord="${el.coordinate_schedule}"
                                                                                 href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
@@ -2910,13 +2910,13 @@
                                                                         </div>
                                                             </button>
                                                         </h2>
-                                                        <div id="flush-collapseByCateg${m+1}${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${m+1}${countlistCategoriByCateg}"
-                                                            data-bs-parent="#accordionFlushExampleByCateg${m+1}">
+                                                        <div id="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${ress[m]['id']}${countlistCategoriByCateg}"
+                                                            data-bs-parent="#accordionFlushExampleByCateg${ress[m]['id']}">
                                                             <div class="accordion-body text-muted">
                                                                 
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <table style="font-size: 10px" id="datatableByCateg${m+1}${countlist}" class="table dt-responsive w-100">
+                                                                        <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th></th>
@@ -2939,7 +2939,7 @@
                                                         </div>
                                                     </div>   
                                                 `;
-                                                $(`.listJadwalbyCateg${m+1}`).html(list);   
+                                                $(`.listJadwalbyCateg${ress[m]['id']}`).html(list);   
                                                 
                                             }); 
 
@@ -2947,7 +2947,7 @@
                                             
         
                                             for (let i = 0; i < countlistRenpam; i++){ 
-                                                $(`#listRenpamModalClick${m+1}${i+1}`).on("change", function (e) { 
+                                                $(`#listRenpamModalClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                     console.log(checkedRenpam1);  
                                                     //Find index of specific object using findIndex method.    
                                                     objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
@@ -3386,7 +3386,7 @@
                                             }   
 
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
-                                                $(`#listJadwalRenpamClick${m+1}${i+1}`).on("change", function (e) { 
+                                                $(`#listJadwalRenpamClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                     
                                                  
                                                     for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
@@ -3830,14 +3830,14 @@
                     
                                                 });
         
-                                                $(`#listJadwalClick${m+1}${i+1}`).click(function(){   
+                                                $(`#listJadwalClick${ress[m]['id']}${i+1}`).click(function(){   
                                                     var latlong =  $(this).data('cord').split(',');
                                                     var latitude = parseFloat(latlong[0]);
                                                     var longitude = parseFloat(latlong[1]); 
                                                     mapContainer.flyTo([latitude, longitude], 17);  
                                                 });
 
-                                                $(`#datatableByCateg${m+1}${i+1}`).DataTable({
+                                                $(`#datatableByCateg${ress[m]['id']}${i+1}`).DataTable({
                                                     responsive: true,
 
                                                     scrollX: true,

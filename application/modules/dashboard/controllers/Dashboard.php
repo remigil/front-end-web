@@ -384,7 +384,7 @@ class Dashboard extends MY_Controller
         // $input = $this->input->post(); 
 
 
-        $url = 'category_schedule';
+        $url = 'category_schedule?serverSide=true&order=order_category_schedule&orderDirection=asc&length=1000&start=1';
         $getCategorySchedule = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
