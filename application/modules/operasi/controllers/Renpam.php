@@ -377,6 +377,8 @@ class Renpam extends MY_Controller
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
+        // echo json_encode($data['getDetail']['data']);
+        // die;
 
         $getVip = guzzle_request('GET', 'vip', [
             'headers' => $headers

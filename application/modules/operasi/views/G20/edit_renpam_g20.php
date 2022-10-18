@@ -147,6 +147,10 @@
                             <textarea hidden name="coordsAlternative3" id="coordsAlternative3" cols="5" rows="5"></textarea>
                             <textarea hidden name="coordsAlternative4" id="coordsAlternative4" cols="5" rows="5"></textarea>
 
+
+                            <textarea hidden name="dummyUtama" id="dummyUtama" cols="5" rows="5"><?php echo json_encode($data['getDetail']['data']['route'])?></textarea>
+
+
                             <div class="col-md-12 mt-3">
                                 <div id="mapG20Kegiatan" style="height: 700px"></div>
                             </div>
@@ -336,7 +340,8 @@
                 layers: [googleHybrid]
             }).setView(initialCenter, initialZoom);
 
-            var route = '<?php echo json_encode($data['getDetail']['data']['route']) ?>';
+            
+            var route = $("#dummyUtama").val();
             routingRenpam[0] = L.Routing.control({
                 waypoints: JSON.parse(route),
                 router: new L.Routing.osrmv1({
