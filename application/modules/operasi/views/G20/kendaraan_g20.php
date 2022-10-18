@@ -49,6 +49,7 @@
                             <option selected value=""> Jenis Kendaraan</option>
                             <option value="Mobil">Mobil</option>
                             <option value="Sepeda Motor">Sepeda Motor</option>
+                            <option value="Tanpa Kendaraan">Tanpa Kendaraan</option>
                         </select>
                         <!-- <label class="labelmui">Jenis Kendaraan</label> -->
                     </div>

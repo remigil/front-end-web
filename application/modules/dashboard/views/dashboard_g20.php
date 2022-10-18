@@ -9773,14 +9773,13 @@
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                 </a> 
                                             `;
-                                            console.log('ada');
                                             
                                         }else{
                                             getIdTracking = `<div style="margin-top: -10px;"></div>`;
                                             console.log('ga ada');
                                         }
-
-
+                                       
+                                        
                                         isiTable += `
                                             <tr>
                                                 <td>${ii+1}</td>
@@ -9789,7 +9788,7 @@
                                                 <td>${ress['officers'][ii]['nrp_officer']}</td>
                                                 <td>
                                                     ${getIdTracking}
-                                                    <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['handphone']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
+                                                    <a class="btn" style="margin-top: -13px; color: #495057;" href="https://api.whatsapp.com/send?phone=${ress['officers'][ii]['phone_officer']}" target="_blank"><i class="fa fas fa-phone "></i></a>  
                                                     <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" onClick="sendZoom('${ress['officers'][ii]['id']}')" href="<?php echo base_url('zoom'); ?>" target="_blank"><i class="fa  fas fa-video "></i></a> 
                                                 </td>
                                             </tr>
@@ -9820,6 +9819,8 @@
                                                 mapContainer.flyTo([latitude, longitude], 17);  
                                             });
                                         }
+
+
                                     }
                                 });
                                 

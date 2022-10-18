@@ -43,6 +43,7 @@
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == null ? 'selected' : '');?> value="">Pilih Jenis Kendaraan</option>
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == 'Sepeda Motor' ? 'selected' : '');?> value="Sepeda Motor">Sepeda Motor</option>
                                         <option <?php echo ($data['getDetail']['data']['type_vehicle'] == 'Mobil' ? 'selected' : '');?> value="Mobil">Mobil</option>
+                                        <option <?php echo ($data['getDetail']['data']['type_vehicle'] == 'Tanpa Kendaraan' ? 'selected' : '');?> value="Tanpa Kendaraan">Tanpa Kendaraan</option>
                                     </select>
                                     <!-- <label class="labelmui">Jenis</label> -->
                                 </div>
