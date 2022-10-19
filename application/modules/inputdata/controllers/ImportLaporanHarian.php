@@ -12,6 +12,7 @@ class ImportLaporanHarian extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model("inputdata/M_import");
+		$this->load->library('phpexcel');
     }
 
     public function index()
@@ -150,6 +151,116 @@ class ImportLaporanHarian extends MY_Controller
         $data = $this->M_import->get_datatables($postData);
         echo json_encode($data);
     }
+
+	function dakgarlantas()
+	{
+        /**
+         * Get Token
+         */
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+		$id = $this->input->post('id');
+		$polda_id = $this->input->post('polda_id');
+		$tanggal = $this->input->post('tanggal');
+		$status = $this->input->post('status');
+		$file_name = $this->input->post('file_name');
+		$message = '';
+
+		if ($status=='0') {
+			$structure = 'files/import/';
+			$file_name = $structure.$file_name;
+
+			try {
+				$inputFileType  = PHPExcel_IOFactory::identify($file_name);
+				$objReader = PHPExcel_IOFactory::createReader($inputFileType);
+				$objReader->setReadDataOnly(false);
+				$objPHPExcel = $objReader->load($file_name);
+				$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+				$file_exists = true;
+			} catch (Exception $e) {
+				$file_exists = false;
+			}
+
+			if ($file_exists) {
+				$raws = array();
+				$i=0;
+				foreach($sheetData as $row){
+					if($i>0){
+						if (strtoupper(((isset($row['B']))?((trim($row['B'])=='')?NULL:$row['B']):NULL))!=NULL) {
+							
+							$B = trim(trim($row['B']));
+							$C = trim(trim($row['C']));
+							$D = trim(trim($row['D']));
+							$E = trim(trim($row['E']));
+							$F = trim(trim($row['F']));
+							$G = trim(trim($row['G']));
+							$H = trim(trim($row['H']));
+							$I = trim(trim($row['I']));
+							$J = trim(trim($row['J']));
+							$K = trim(trim($row['K']));
+
+                            $raws[$i] = array(
+                                'polda_id'=>$polda_id,
+                                'polres_id'=>$B,
+                                'date'=>$tanggal,
+                                'capture_camera'=>$C,
+                                'statis'=>$D,
+                                'mobile'=>$E,
+                                'online'=>$F,
+                                'posko'=>$G,
+                                'preemtif'=>$H,
+                                'preventif'=>$I,
+                                'odol_227'=>$J,
+                                'odol_307'=>$K
+                            );
+						}						
+					}
+					$i++;
+				}
+
+                /**
+                 * Send request parameter to api
+                 */
+                $url = 'import/dakgarlantas';
+                $data = guzzle_request('POST', $url, [
+                    'json' => $raws,
+                    'headers' => $headers
+                ]);
+
+                echo "<pre>";
+                var_dump($data);
+                die();
+
+                /**
+                 * Respon 
+                 */
+                if ($data['isSuccess'] == true) {
+                    $return = array(
+                        'status' => true,
+                        'message' => 'File uploaded successfully',
+                        'data' => $data
+                    );
+                } else {
+                    $return = array(
+                        'status' => false,
+                        'message' => 'File failed to upload',
+                        'data' => $data
+                    );
+                }
+
+			} else {
+                $return = array('status'=>false,'message'=>'File does not exist !');
+                echo json_encode($return);
+			}
+
+		} else {
+            $return = array('status'=>false,'message'=>'This file has been processed !');
+            echo json_encode($return);
+		}
+
+	}
 
     public function process()
     {

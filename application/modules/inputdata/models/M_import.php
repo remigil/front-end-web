@@ -58,7 +58,7 @@ class M_import extends CI_Model
             $row['file_name'] = $field['file_name'];
             $row['created_at'] = $field['created_at'];
             $row['status'] = $status;
-            $row['action'] = '<a href="' . base_url() . 'inputdata/ImportLaporanHarian/process/' . $field['id'] . '"><button class="btn btn-sm btn-primary">Process</button></a>';
+            $row['action'] = '<button onclick="myFunction()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
             $data[] = $row;
         }
 

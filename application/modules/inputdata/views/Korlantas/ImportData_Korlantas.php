@@ -77,14 +77,14 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">PROSES</button>
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">UPLOAD</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
+<script src="<?php echo base_url(); ?>assets/admin/js/jquery.livequery.js"></script>
 <script>
     $(document).ready(function() {
         $('.dropify').dropify();
@@ -211,4 +211,58 @@
             }
         });
     });
+
+	function myFunction(id)
+    {
+		id = $('#btn-process').data('id');
+		polda_id = $('#btn-process').data('polda_id');
+		tanggal = $('#btn-process').data('tanggal');
+		status = $('#btn-process').data('status');
+		file_name = $('#btn-process').data('file_name');
+        Swal.fire({
+            title: 'Do you want to process this data?',
+            showDenyButton: false,
+            showCancelButton: true,
+            icon: "warning",
+            confirmButtonText: 'Process'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:"POST",
+                    dataType:"json",data:{
+                        id:id,
+                        polda_id:polda_id,
+                        tanggal:tanggal,
+                        status:status,
+                        file_name:file_name
+                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanHarian/dakgarlantas",
+                    success: function(response) {
+                        if (response.success===true) {
+                            Swal.fire(
+                                `File processed successfully`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `File failed to process`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    },error: function(response){
+                        Swal.fire(
+                            `File failed to process`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                })
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
+	}
 </script>
