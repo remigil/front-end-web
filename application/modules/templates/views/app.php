@@ -798,6 +798,20 @@
                                 </ul>
                             </li>
 
+                            <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung</li>
+                            <li>
+                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">ERI</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://irsms.korlantas.polri.go.id/login" target="_blank">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">IRSMS</span>
+                                </a>
+                            </li>
+
                         <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
                             <li>
