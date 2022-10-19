@@ -644,9 +644,92 @@
         </div>
     </div>
 </div>
-  
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
-<script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
+<script src="https://cdn.socket.io/4.5.3/socket.io.min.js" ></script>
+
+<script>
+        
+        //let data = [];
+        // var socket = io.connect("http://103.158.196.31/",{
+        //     path: "/tracking-service/socket.io",
+        //     withCredentials: true,
+        //     forceNew: true 
+        // });
+        //  var socket = io("http://localhost:47014/", {
+        //     transports: ['websocket']
+        //  });
+        var socket = io('http://103.163.139.100:3005/', {
+        // transports: ["websocket",],
+        // path:'/socket.io/',
+        query: {
+        
+            username: "Kakor",
+            password: "a",
+            
+            type: "Admin"
+        }
+    });
+    socket.on("connected", function(resSocket){
+            console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+            socket.on("sendToAdminMobile", function(resSocket){
+            // console.log(socket.id);
+            // console.log(resSocket);
+            console.log('sendToAdminMobile');
+        });
+            socket.on("from server", function(resSocket){
+            // console.log(socket.id);
+            console.log(resSocket);
+            console.log('from server');
+        });
+        $('document').ready(function() {
+            let no = 1
+
+        socket.on("connected", function(resSocket){
+            console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+            socket.on("sendToAdminMobile", function(resSocket){
+            // console.log(socket.id);
+            // console.log(resSocket);
+            console.log('sendToAdminMobile');
+        });
+            socket.on("from server", function(resSocket){
+            // console.log(socket.id);
+            console.log(resSocket);
+            console.log('from server');
+        });
+            // socket.on('webscout', function(DataChat) {
+            //     console.log(DataChat)
+            //     $("#dataLat").append(`
+            //     <tr>
+            //     <th scope="row">${no}</th>
+               
+            //   </tr>
+            //     `)
+            //     no=no+1
+            // })
+        })
+        // function tracking() {
+        //   socket.emit('scout',{
+        //     latitude: -6.6078982,
+        //     longitude: 106.7660489,
+        //     userName: 'Super Admins',
+        //     id_user: 34,
+        //     company_id: '004c8f37312ed2f6587646bd72ae85b2',
+        //     date: new Date()
+        //   })
+        // }
+        //  var socket = io("http://localhost:8450/", {
+        //     transports: ['websocket']
+        //  });
+      </script>
+
+
 <script>
     // $(function() {
 
@@ -684,21 +767,22 @@
     
     let data = [];  
     let connected = false; 
-    var socket = io('https://k3ig20korlantas.id/', {
-    // query: {
-    //     token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJWVEpHYzJSSFZtdFlNU3RWTDJodWIxRnFjbFZMZW5wUmNHcEdUSGRIUzJnMVptMWlUelowYmtGV1JUMCIsIm5ycF91c2VyIjoiVlRKR2MyUkhWbXRZTVRoNmVIVnhNWFZ5TkcxRk1XdFZZa1ZKTkRCVWNWQjNUakJZWWs4M1NWbHZkejAiLCJvZmZpY2VyIjoiVlRKR2MyUkhWbXRZTVN0VFQwYzRNVzh3UVhOamNtWkNMeXQyTmxSdVlsaE1SRm94Umpodk9XTnVhejAiLCJ0aW1lc3RhbXAiOjE2NjA5ODc0NDksImlhdCI6MTY2MDk4NzQ0OSwiZXhwIjoxNjYwOTkxMDQ5LCJhdWQiOiJHMjAiLCJpc3MiOiJLb3JsYW50YXNQb2xyaSIsInN1YiI6IkszSUcyMCJ9.vapdm1lwH-ifw72nfFtCE39XmNFg0N46CvaDFvafp-A2jidKC2_Nn_rwZCTy_I5BI3Usb1028Bwx6kZbXg3WoQ",
-    //     user_nrp: "3232912480",
-    //     type: "operator", //['admin', 'kakor', 'operator'],
-    // }
-        path:'/api/socket.io',
-        query: {
+    // var socket = io('https://k3ig20korlantas.id/', {
+    // // query: {
+    // //     token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJWVEpHYzJSSFZtdFlNU3RWTDJodWIxRnFjbFZMZW5wUmNHcEdUSGRIUzJnMVptMWlUelowYmtGV1JUMCIsIm5ycF91c2VyIjoiVlRKR2MyUkhWbXRZTVRoNmVIVnhNWFZ5TkcxRk1XdFZZa1ZKTkRCVWNWQjNUakJZWWs4M1NWbHZkejAiLCJvZmZpY2VyIjoiVlRKR2MyUkhWbXRZTVN0VFQwYzRNVzh3UVhOamNtWkNMeXQyTmxSdVlsaE1SRm94Umpodk9XTnVhejAiLCJ0aW1lc3RhbXAiOjE2NjA5ODc0NDksImlhdCI6MTY2MDk4NzQ0OSwiZXhwIjoxNjYwOTkxMDQ5LCJhdWQiOiJHMjAiLCJpc3MiOiJLb3JsYW50YXNQb2xyaSIsInN1YiI6IkszSUcyMCJ9.vapdm1lwH-ifw72nfFtCE39XmNFg0N46CvaDFvafp-A2jidKC2_Nn_rwZCTy_I5BI3Usb1028Bwx6kZbXg3WoQ",
+    // //     user_nrp: "3232912480",
+    // //     type: "operator", //['admin', 'kakor', 'operator'],
+    // // }
+    //     path:'/api/socket.io',
+    //     query: {
         
-            username: "Kakor",
-            password: "a",
+    //         username: "Kakor",
+    //         password: "a",
             
-            type: "Admin"
-        }
-    });
+    //         type: "Admin"
+    //     }
+    // });
+
     console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
     var markerJadwal = new Array();
@@ -737,7 +821,7 @@
 
     $(document).ready(function() { 
         // alert('oke');
-        
+      
         // var arrayContoh = [ 
         //     {-8.551740, 115.077643},
         //     {-8.451740, 115.089643},
