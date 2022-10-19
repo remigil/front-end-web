@@ -37,6 +37,21 @@
                             <label class="labelmui">Password</label>
                         </div>
                     </div> 
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select name="id_vip" class="form-select" aria-label="Floating label select" style="width:100%" id="select" required>
+                                <option selected value="">Pilih Vip</option> 
+                                <?php foreach ($data['getVip'] as $row) : ?>
+                                    <option 
+                                    <?php if($data['getDetail']['data']['id_vip'] != null){?> 
+                                        <?php echo ($row['name_vip'] == $data['getDetail']['data']['vips']['name_vip'] ? 'selected' : '')?>
+                                    <?php }?>
+                                    value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )</option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for=""></label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-9"></div>
