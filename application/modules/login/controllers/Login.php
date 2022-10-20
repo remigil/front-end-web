@@ -162,6 +162,8 @@ class Login extends MX_Controller
         $Odometer = $param->Odometer;
         $Car_status= $param->Car_status;
 
+        echo $json_string;
+        die;
         
     }
 
