@@ -161,6 +161,9 @@ class Login extends MX_Controller
         $Engine = $param->Engine;
         $Odometer = $param->Odometer;
         $Car_status= $param->Car_status;
+ 
+        //-
+        file_put_contents('./log_'.date("j.n.Y").'.txt', $json_string, FILE_APPEND);
 
         echo $json_string;
         die;
