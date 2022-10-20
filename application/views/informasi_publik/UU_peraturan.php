@@ -30,42 +30,152 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="containter">
+<div class="container">
 
-	<section id="contact" class="contact">
-		<div class="container">
+<div class="page">
+    
+	<h3>Undang-undang</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan Pemerintah</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan Presiden</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan Kepolisian</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan Kapolri</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan KaKorlantas Polri</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+	<h3>Peraturan Lain-lain</h3>
+    <div class="card">
+
+        <div class="card-body">
+
+            <table id="datatable" class="table dt-responsive w-100">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Peraturan</th>
+                        <th width="40%">Nama Peraturan</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+</div>
+
 	
-			<div class="row gy-5 gx-lg-5">
-	
-			<div class="col-lg-4 d-flex justify-content">
-				<img src="<?= base_url()?>assets/fe/client/NTMC1.png" alt="">
-			</div>
-			<div class="col-lg-8">
-			<div class="info">
-					<h3>Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</h3>
-					<p>Call Center : 1-500-669</p>
-					<p>SMS center : 9119</p>
-	
-					<div class="info-item d-flex">
-						<i class="bi bi-geo-alt flex-shrink-0"></i>
-						<div>
-							<h4>Alamat:</h4>
-							<p>Jl. MT Haryono Kav. 37 – 38, Jakarta 12770</p>
-						</div>
-					</div><!-- End Info Item -->
-					<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
-					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
-					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
-				</ul>
-				</div>
-			</div><!-- End Contact Form -->
-	
-			</div>
-	
-		  </div>
-		</section><!-- End Contact Section -->
 </div>
 <!-- Container / End -->
 
@@ -76,6 +186,119 @@
 
 <script>
     $(document).ready(function() { 
+
+		$('.dropify').dropify();
+
+        userDataTable = $('#datatable').DataTable({
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>controllers/UU_peraturan/serverSideTable',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'regulation_category'
+                },
+                {
+                    data: 'regulation_name'
+                },
+                {
+                    data: 'year'
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "DESC"]
+            ],
+
+            drawCallback: function(settings) {
+
+                $("#overlay").fadeOut(300);
+
+            }
+
+
+        });
+
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
