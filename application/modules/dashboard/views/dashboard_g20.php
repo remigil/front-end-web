@@ -905,7 +905,7 @@
                     // console.log(ress);
 
                     var jenis = '';
-                    var lokasiPetugas = '';
+                    var bendera = '';
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
 
@@ -955,7 +955,14 @@
                                 // console.log(`ga ada foto`);
                             }
 
-                            lokasiPetugas = data['display_name'];
+                            if(ress[i].name_country){
+                                bendera = `${ress[i].name_country}`;
+                                fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress[i].name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                            }else{
+                                bendera = `-`;
+                                fotoBendera = ``;
+                            }
+
                             if(markerArray[ress[i].id_officer] != null){ 
                                 var fotoPetugas = "";
                                 markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
@@ -967,6 +974,9 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3"> 
+                                            <div class="col-md-12">
+                                                ${fotoBendera}
+                                            </div>
                                             ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                         </div>
 
@@ -982,7 +992,7 @@
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
                                             </div> 
 
                                             <div class="col-md-12 text-center  mt-3">
@@ -1018,6 +1028,9 @@
                                     }) }).bindPopup(`
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3"> 
+                                            <div class="col-md-12">
+                                                ${fotoBendera}
+                                            </div>
                                             ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                         </div>
 
@@ -1033,7 +1046,7 @@
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                             </div>
                                             <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
                                             </div> 
 
                                             <div class="col-md-12 text-center  mt-3">
@@ -1249,7 +1262,7 @@
 
             var cordLat = parseFloat(ress.latitude); 
             var corLong = parseFloat(ress.longitude); 
-            var lokasiPetugas = '';
+            var bendera = '';
             var jenis = ''; 
 
 
@@ -1318,7 +1331,15 @@
                         fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                     }
                 
-                    lokasiPetugas = data['display_name'];
+                    if(ress.name_country){
+                        bendera = `${ress.name_country}`;
+
+                        fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress.name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                    }else{
+                        bendera = `-`;
+                        fotoBendera = ``;
+                    }
+                  
                     if(markerArray[ress.id_officer] != null){ 
                         markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
                             //   className: 'location-pin',
@@ -1329,6 +1350,9 @@
                             }) }).bindPopup(`
                             <div class="text-center" style="width: 300px;"> 
                                 <div class="row mt-3"> 
+                                    <div class="col-md-12">
+                                        ${fotoBendera}
+                                    </div>
                                     ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
                                 </div>
     
@@ -1344,7 +1368,7 @@
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
                                         </div> 
                                         
 
@@ -1381,6 +1405,9 @@
                             }) }).bindPopup(`
                             <div class="text-center" style="width: 300px;"> 
                                 <div class="row mt-3"> 
+                                    <div class="col-md-12">
+                                        ${fotoBendera}
+                                    </div>
                                     ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                 </div>
     
@@ -1397,7 +1424,7 @@
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
                                         </div> 
         
                                         <div class="col-md-12 text-center  mt-3">
