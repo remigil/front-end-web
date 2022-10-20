@@ -34,9 +34,7 @@ class Dashboard extends MY_Controller
                 'headers' => $headers
             ]);
             $data['getAccount'] = $getAccount['data']['data'];
-
-
-
+ 
             $page_content["data"] = $data;
         } else if ($this->session->userdata['role'] == 'Korlantas') {
 
