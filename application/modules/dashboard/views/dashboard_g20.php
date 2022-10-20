@@ -649,16 +649,7 @@
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" ></script>
 
 <script>
-        
-        //let data = [];
-        // var socket = io.connect("http://103.158.196.31/",{
-        //     path: "/tracking-service/socket.io",
-        //     withCredentials: true,
-        //     forceNew: true 
-        // });
-        //  var socket = io("http://localhost:47014/", {
-        //     transports: ['websocket']
-        //  });
+      
         var socket = io('http://103.163.139.100:3005/', {
         // transports: ["websocket",],
         // path:'/socket.io/',
@@ -702,64 +693,13 @@
             // console.log(socket.id);
             console.log(resSocket);
             console.log('from server');
-        });
-            // socket.on('webscout', function(DataChat) {
-            //     console.log(DataChat)
-            //     $("#dataLat").append(`
-            //     <tr>
-            //     <th scope="row">${no}</th>
-               
-            //   </tr>
-            //     `)
-            //     no=no+1
-            // })
-        })
-        // function tracking() {
-        //   socket.emit('scout',{
-        //     latitude: -6.6078982,
-        //     longitude: 106.7660489,
-        //     userName: 'Super Admins',
-        //     id_user: 34,
-        //     company_id: '004c8f37312ed2f6587646bd72ae85b2',
-        //     date: new Date()
-        //   })
-        // }
-        //  var socket = io("http://localhost:8450/", {
-        //     transports: ['websocket']
-        //  });
+        }); 
+        }) 
       </script>
 
 
 <script>
-    // $(function() {
-
-    //     // var start = moment();
-    //     // var end = moment();
-
-    //     function cb(start, end) {
-    //         $('#reportrange span').html(start.format('MMMM D') + ' - ' + end.format('MMMM D')); 
-    //         $('#startdate').val(start.format('YYYY-MM-DD'));
-    //         $('#enddate').val(end.format('YYYY-MM-DD'));
-    //     }
-
-    //     $('#reportrange').daterangepicker({
-    //         startDate: start,
-    //         endDate: end,
-    //         ranges: {
-    //         'Hari Ini': [moment(), moment()],
-    //         'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-    //         '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
-    //         '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
-    //         'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
-    //         'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
-    //         'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
-    //         'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
-    //         }
-    //     }, cb);
-
-    //     // cb(start, end);     
-
-    // });
+     
 
 
     let app_url = '<%-app_url%>' 
@@ -767,13 +707,7 @@
     
     let data = [];  
     let connected = false;  
-    var socket = io('http://103.163.139.100:3005/', {
-    // query: {
-    //     token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJWVEpHYzJSSFZtdFlNU3RWTDJodWIxRnFjbFZMZW5wUmNHcEdUSGRIUzJnMVptMWlUelowYmtGV1JUMCIsIm5ycF91c2VyIjoiVlRKR2MyUkhWbXRZTVRoNmVIVnhNWFZ5TkcxRk1XdFZZa1ZKTkRCVWNWQjNUakJZWWs4M1NWbHZkejAiLCJvZmZpY2VyIjoiVlRKR2MyUkhWbXRZTVN0VFQwYzRNVzh3UVhOamNtWkNMeXQyTmxSdVlsaE1SRm94Umpodk9XTnVhejAiLCJ0aW1lc3RhbXAiOjE2NjA5ODc0NDksImlhdCI6MTY2MDk4NzQ0OSwiZXhwIjoxNjYwOTkxMDQ5LCJhdWQiOiJHMjAiLCJpc3MiOiJLb3JsYW50YXNQb2xyaSIsInN1YiI6IkszSUcyMCJ9.vapdm1lwH-ifw72nfFtCE39XmNFg0N46CvaDFvafp-A2jidKC2_Nn_rwZCTy_I5BI3Usb1028Bwx6kZbXg3WoQ",
-    //     user_nrp: "3232912480",
-    //     type: "operator", //['admin', 'kakor', 'operator'],
-    // }
-        // path:'socket.io',
+    var socket = io('http://103.163.139.100:3005/', { 
         query: {
  
         
@@ -784,7 +718,7 @@
         }
     });
 
-    console.log({a:'ini soket' ,b:socket});
+    // console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
@@ -831,9 +765,9 @@
         //     {-8.5068977,115.2622931},
         // ];  
 
-        $.getJSON("gpsId_20.10.2022.json", function(json) {
-            alert(json);
-        });
+        // $.getJSON("gpsId_20.10.2022.json", function(json) {
+        //     alert(json);
+        // });
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -965,141 +899,167 @@
                 dataType : "JSON",
                 success : function(result){  
                     $("#overlay").fadeOut(300); 
-                    console.log('get tracking');
+                    // console.log('get tracking');
                     dummyGetTracking = result['data'];  
                     let ress = dummyGetTracking; 
-                    console.log(ress);
+                    // console.log(ress);
 
                     var jenis = '';
+                    var lokasiPetugas = '';
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
 
                             var cordLat = parseFloat(ress[i].latitude); 
-                            var corLong = parseFloat(ress[i].longitude); 
-                            var lokasiPetugas = '';
-                            $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                                // $('[name=address]').val(data['display_name']); 
-                                // mapContainer.flyTo([cordLat, corLong], 17);  
-
-                                jenis = '';
-                                if(ress[i].type_vehicle == 'Sepeda Motor'){
-                                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                                    jenis = `
+                            var corLong = parseFloat(ress[i].longitude);  
+                            
+                            jenis = '';
+                            if(ress[i].type_vehicle == 'Sepeda Motor'){
+                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                                jenis = `
+                                <div>
                                     <div>
-                                        <div>
-                                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                }else if(ress[i].type_vehicle == 'Mobil'){
-                                    jenis = `
+                                        <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                    </div>
+                                    <div style="margin-top: -30px;">
+                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                    </div>
+                                </div>`;
+                            }else if(ress[i].type_vehicle == 'Mobil'){
+                                jenis = `
+                                <div>
                                     <div>
-                                        <div>
-                                            <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
-                                        </div>
-                                    </div>`;
-                                }else{
-                                    // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
-                                    jenis = `
+                                        <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                    </div>
+                                    <div style="margin-top: -30px;">
+                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                    </div>
+                                </div>`;
+                            }else{
+                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                                jenis = `
+                                <div>
                                     <div>
-                                        <div>
-                                            <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                        </div>
-                                        <div style="margin-top: -30px;">
-                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer} </span>
-                                        </div>
-                                    </div>`;
-                                }
+                                        <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                    </div>
+                                    <div style="margin-top: -30px;">
+                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer} </span>
+                                    </div>
+                                </div>`;
+                            }
 
-                                if(ress[i].photo_officer || ress[i].photo_officer != null){
-                                    fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                    console.log(`ada foto`);
-                                }else{
-                                    fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                    console.log(`ga ada foto`);
-                                }
+                            if(ress[i].photo_officer || ress[i].photo_officer != null){
+                                fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                // console.log(`ada foto`);
+                            }else{
+                                fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                                // console.log(`ga ada foto`);
+                            }
 
-                                lokasiPetugas = data['display_name'];
-                                if(markerArray[ress[i].id_officer] != null){ 
-                                    var fotoPetugas = "";
-                                    markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: jenis,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                        }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3"> 
-                                                ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
+                            lokasiPetugas = data['display_name'];
+                            if(markerArray[ress[i].id_officer] != null){ 
+                                var fotoPetugas = "";
+                                markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: jenis,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3"> 
+                                            ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
+                                        </div>
+
+                                        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                             </div>
-    
-                                            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
-                                                </div>  
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
-                                                </div> 
-    
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;">${lokasiPetugas}</p>
-                                                </div> 
-                                            </div> 
-                                              
-                                        </div>
-                                    `).update();  
-                                }else{ 
-                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                        // className: 'location-pin',
-                                        html: jenis,
-                                        iconSize: [5, 5],
-                                        iconAnchor: [5, 10]
-                                        // iconAnchor: [10, 33]
-                                        }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
-                                            <div class="row mt-3"> 
-                                                ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
+                                            <div class="col-md-8">
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                            </div>  
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                             </div>
-    
-                                            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
-                                                </div>  
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
-                                                </div> 
-    
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;">${lokasiPetugas}</p>
-                                                </div> 
+                                            <div class="col-md-8">
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
                                             </div> 
-                                              
+
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                            </div> 
+                                        </div> 
+                                          
+                                    </div>
+                                `).update().on('click', function(e) {
+                                    // console.log(e.latlng);
+                                    $.ajax({
+                                        type : "POST",
+                                        url : "<?php echo base_url();?>dashboard/getAddres", 
+                                        data : {
+                                            "lat" : e.latlng['lat'],
+                                            "lng" : e.latlng['lng'],
+                                        }, 
+                                        dataType : "JSON",
+                                        success : function(result){  
+                                            // console.log(result['responseMessage']);
+                                            $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                        }
+                                    });
+                                });  
+                            }else{ 
+                                markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: jenis,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                    <div class="text-center" style="width: 300px;"> 
+                                        <div class="row mt-3"> 
+                                            ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                         </div>
-                                    `).addTo(mapContainer);    
-                                }
-                            });  
+
+                                        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                            </div>  
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;</span>
+                                            </div> 
+
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                            </div> 
+                                        </div> 
+                                          
+                                    </div>
+                                `).addTo(mapContainer).on('click', function(e) {
+                                    // console.log(e.latlng);
+                                    $.ajax({
+                                        type : "POST",
+                                        url : "<?php echo base_url();?>dashboard/getAddres", 
+                                        data : {
+                                            "lat" : e.latlng['lat'],
+                                            "lng" : e.latlng['lng'],
+                                        }, 
+                                        dataType : "JSON",
+                                        success : function(result){  
+                                            // console.log(result['responseMessage']);
+                                            $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                        }
+                                    });
+                                });    
+                            }
                         
                         }
 
@@ -1307,8 +1267,7 @@
                 // } 
                 
                 
-                $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data){
-                    
+             
                     if(flagVip != ''){
                         iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
                     }else{
@@ -1391,12 +1350,27 @@
 
                                         <div class="col-md-12 text-center  mt-3">
                                             <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;">${lokasiPetugas}</p>
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
                                         </div> 
                                     </div>  
                                 
                             </div>
-                        `).update();  
+                        `).update().on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getAddres", 
+                                data : {
+                                    "lat" : e.latlng['lat'],
+                                    "lng" : e.latlng['lng'],
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){  
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
+                        });    
                     }else{ 
                         markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                             //   className: 'location-pin',
@@ -1428,14 +1402,28 @@
         
                                         <div class="col-md-12 text-center  mt-3">
                                             <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;">${lokasiPetugas}</p>
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
                                         </div> 
                                     </div>  
                                 
                             </div>
-                        `).addTo(mapContainer);    
-                    }
-                });
+                        `).addTo(mapContainer).on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getAddres", 
+                                data : {
+                                    "lat" : e.latlng['lat'],
+                                    "lng" : e.latlng['lng'],
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){  
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
+                        });     
+                    } 
             
 
             // } 

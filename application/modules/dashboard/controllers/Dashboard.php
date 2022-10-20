@@ -357,6 +357,36 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getFasum']);
     }
 
+    public function getAddres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input      = $this->input->post(); 
+
+        $dummy = [
+            [
+                'name' => 'lat',
+                'contents' => $input['lat'],
+            ],
+            [
+                'name' => 'lng',
+                'contents' => $input['lng'],
+            ]
+        ];
+
+        // echo json_encode($dummy);
+        // die;
+
+        $data = guzzle_request('POST', 'gmaps-api/reverse-geocode', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+ 
+        echo json_encode($data);
+    }
+
     public function getPolres()
     {
         $headers = [
