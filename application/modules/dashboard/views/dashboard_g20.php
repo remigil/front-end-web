@@ -1367,7 +1367,7 @@
                                 dataType : "JSON",
                                 success : function(result){  
                                     // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
                                 }
                             });
                         });    
@@ -1419,7 +1419,7 @@
                                 dataType : "JSON",
                                 success : function(result){  
                                     // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
                                 }
                             });
                         });     
