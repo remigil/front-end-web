@@ -1350,7 +1350,7 @@
 
                                         <div class="col-md-12 text-center  mt-3">
                                             <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
                                         </div> 
                                     </div>  
                                 
@@ -1402,7 +1402,7 @@
         
                                         <div class="col-md-12 text-center  mt-3">
                                             <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
                                         </div> 
                                     </div>  
                                 
