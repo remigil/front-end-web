@@ -149,7 +149,7 @@ class Login extends MX_Controller
         $json_string = file_get_contents('php://input');
         // $param = json_decode($json_string);
 
-        // echo $param; 
+        echo $json_string; 
 
         // $VehicleId = $param->VehicleId; //862476051307543
         // $VehicleNumber = $param->VehicleNumber; //b 1925 WKX
@@ -166,7 +166,7 @@ class Login extends MX_Controller
         //- 
         // file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
-        $this->load->view('gpsId', $json_string);
+        $this->load->view('gpsId');
         
     }
 
