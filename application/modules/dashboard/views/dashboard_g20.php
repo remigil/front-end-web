@@ -831,6 +831,18 @@
         //     {-8.5068977,115.2622931},
         // ];  
 
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>login/gpsid", 
+            data : {
+                "search" : null, 
+            }, 
+            dataType : "JSON",
+            success : function(result){ 
+                console.log(result); 
+            }
+        });
+
 
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
@@ -11741,7 +11753,7 @@
                 }
             });
 
-        }
+        } 
 
     
 </script> 

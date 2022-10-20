@@ -165,7 +165,7 @@ class Login extends MX_Controller
         //-
         file_put_contents('./log_'.date("j.n.Y").'.txt', $json_string, FILE_APPEND);
 
-        echo $json_string;
+        echo json_encode($json_string);
         die;
         
     }
