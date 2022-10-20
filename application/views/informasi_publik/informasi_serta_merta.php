@@ -30,46 +30,45 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="containter">
+<div class="container margin-top-30">
 
-	<section id="contact" class="contact">
-		<div class="container">
-	
-			<div class="row gy-5 gx-lg-5">
-	
-			<div class="col-lg-4 d-flex justify-content">
-				<img src="<?= base_url()?>assets/fe/client/NTMC1.png" alt="">
-			</div>
-			<div class="col-lg-8">
-			<div class="info">
-					<h3>Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</h3>
-					<p>Call Center : 1-500-669</p>
-					<p>SMS center : 9119</p>
-	
-					<div class="info-item d-flex">
-						<i class="bi bi-geo-alt flex-shrink-0"></i>
-						<div>
-							<h4>Alamat:</h4>
-							<p>Jl. MT Haryono Kav. 37 – 38, Jakarta 12770</p>
-						</div>
-					</div><!-- End Info Item -->
-					<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
-					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
-					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
-				</ul>
-				</div>
-			</div><!-- End Contact Form -->
-	
-			</div>
-	
-		  </div>
-		</section><!-- End Contact Section -->
+	<h3>Detail Dokumen</h3>	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Judul</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="table-striped">
+				<td>Nomor Dokumen</td>
+				<td>40001213</td>
+			</tr>
+			<tr>
+				<td>Tanggal Publish</td>
+				<td>27 Apri 2018</td>
+			</tr>
+			<tr>
+				<td>Jenis Informasi</td>
+				<td>Informasi Kinerja</td>
+			</tr>
+			<tr>
+				<td>Kategori Dokumen</td>
+				<td>Serta merta</td>
+			</tr>
+			<tr>
+				<td>Tipe Dokumen</td>
+				<td>Gambar (.pdf)</td>
+			</tr>
+			<tr>
+				<td>Penerbit</td>
+				<td>Pusat Data dan Sistem Informasi</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 <!-- Container / End -->
-
-  
 
 
 

@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-1 text-center">
-					<img src="<?= base_url()?>assets/fe/client/OPS-POLRI.png" alt="">
+					<img src="<?= base_url()?>assets/fe/client/divhumas.png" alt="">
 				</div>
 				<div class="col-md-7">
 					<h3><?= $headline?></h3>

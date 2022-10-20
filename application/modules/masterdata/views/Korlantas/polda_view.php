@@ -43,7 +43,7 @@
 			<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     
 						<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+							<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                         </div>
                         <div class="row">
 							<div class="col-md-12">
@@ -136,7 +136,7 @@
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="" id="id_polda" type="text">
 					<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+						<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                         </div>
 						<!-- <div class="col-md-12">
 							<div class="form-floating mb-3">
@@ -236,7 +236,7 @@
             <div class="modal-body">
                 <form action="" class="form">
 						<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+							<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                         </div>
 						<!-- <div class="col-md-12">
 							<div class="form-floating mb-3">
@@ -745,7 +745,7 @@
             dataType: 'JSON',
             success: function(results) {
 				// console.log(results.name_polda)
-                $('.DetailPolda,#photo').attr('disabled', true)
+                
                 $('.DetailPolda,#kodeSatpas').attr('disabled', true)
                 $('.DetailPolda,#namaPolda').attr('disabled', true)
                 $('.DetailPolda,#address').attr('disabled', true)
@@ -755,7 +755,7 @@
                 $('.DetailPolda,#close_time').attr('disabled', true)
                 $('.DetailPolda,#phone_polda').attr('disabled', true)
 				
-                $('.DetailPolda,#photo').val(results.logo_polda)
+                
                 $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
                 $('.DetailPolda,#namaPolda').val(results.name_polda)
                 $('.DetailPolda,#address').val(results.address)
@@ -778,7 +778,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPolda,#photo').attr('disabled', false)
+                // $('.UbahPolda,#photo').attr('disabled', false)
                 $('.UbahPolda,#kodeSatpas').attr('disabled', false)
                 $('.UbahPolda,#namaPolda').attr('disabled', false)
                 $('.UbahPolda,#address').attr('disabled', false)
@@ -791,7 +791,7 @@
 
 				$('#id_polda').val(results.id)
 				
-                $('.UbahPolda,#photo').val(results.logo_polda)
+                // $('.UbahPolda,#photo').val(results.logo_polda)
                 $('.UbahPolda,#kodeSatpas').val(results.code_satpas)
                 $('.UbahPolda,#namaPolda').val(results.name_polda)
                 $('.UbahPolda,#address').val(results.address)

@@ -45,7 +45,7 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
 					<div class="col-md-12 mb-3"> 
-                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/> 
+					<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                     </div>
 					<div class="row">
 						<div class="col-md-6">
@@ -103,7 +103,7 @@
                     <input type="hidden" name="id" value="" id="id_berita" type="text">
 						<div class="col-md-12 mb-3"> 
 							<!-- get data foto dari server -->
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                         </div>
 						<div class="row">
 							<div class="col-md-6">
@@ -161,7 +161,7 @@
 					<form action="" class="form">
 					<div class="col-md-12 mb-3"> 
 							<!-- get data foto dari server -->
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
+                            <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
                         </div>
 						<div class="row">
 							<div class="col-md-6">
