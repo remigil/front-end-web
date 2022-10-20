@@ -39,15 +39,17 @@
                     </div> 
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <select name="id_vip" class="form-select" aria-label="Floating label select" style="width:100%" id="select" required>
-                                <option selected value="">Pilih Vip</option> 
-                                <?php foreach ($data['getVip'] as $row) : ?>
+                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="select">
+                                <option selected value="">Pilih Negara Delegasi</option>
+                                <?php foreach ($data['getCountry'] as $row) : ?>
                                     <option 
-                                    <?php if($data['getDetail']['data']['id_vip'] != null){?> 
-                                        <?php echo ($row['name_vip'] == $data['getDetail']['data']['vips']['name_vip'] ? 'selected' : '')?>
+                                    <?php if($data['getDetail']['data']['id_country'] != null){?> 
+                                        <?php echo ($row['name_country'] == $data['getDetail']['data']['country']['name_country'] ? 'selected' : '')?>
                                     <?php }?>
-                                    value="<?php echo $row['id']; ?>"><?php echo $row['name_vip']; ?> ( <?= $row['country_arrival_vip'] ?> )</option>
-                                <?php endforeach; ?>
+                                    value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
+                                <?php endforeach; ?> 
+
+                                 
                             </select>
                             <label for=""></label>
                         </div>

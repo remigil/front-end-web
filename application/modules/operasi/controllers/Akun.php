@@ -48,10 +48,10 @@ class Akun extends MY_Controller
         ]); 
         $data['getVehicle'] = $getVehicle['data']['data'];
 
-        $getVip = guzzle_request('GET', 'vip', [
+        $getCountry = guzzle_request('GET', 'country', [
             'headers' => $headers
         ]);
-        $data['getVip'] = $getVip['data']['data'];
+        $data['getCountry'] = $getCountry['data']['data'];
 
 
         // $getPolres = guzzle_request('GET', 'polres', [  
@@ -172,7 +172,7 @@ class Akun extends MY_Controller
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
         $dummy['name_account']    = $input['namaAkun'];
-        $dummy['id_vip']    = $input['id_vip'];
+        $dummy['id_country']    = $input['id_country'];
         // $dummy['leader_team']    = $input['ketuaTeam'];
         // $dummy ['phone_account']	= $input['phone_account']; 
         // $dummy['id_vehicle']    = $input['id_kendaraan'];
@@ -293,10 +293,10 @@ class Akun extends MY_Controller
         ]);
         $data['getVehicle'] = $getVehicle['data']['data'];
 
-        $getVip = guzzle_request('GET', 'vip', [
+        $getCountry = guzzle_request('GET', 'country', [
             'headers' => $headers
         ]);
-        $data['getVip'] = $getVip['data']['data'];
+        $data['getCountry'] = $getCountry['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -313,7 +313,13 @@ class Akun extends MY_Controller
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
         $dummy['name_account']    = $input['namaAkun'];
-        $dummy['id_vip']    = $input['id_vip'];
+
+
+        if (isset($input['id_country']) || $input['id_country'] != '') {
+            $dummy['id_country']    = $input['id_country'];
+        }else{
+            $dummy['id_country']    = null;
+        }  
         // $dummy['leader_team']    = $input['ketuaTeam'];
         // $dummy ['phone_account']	= $input['phone_account']; 
         // $dummy['id_vehicle']    = $input['id_kendaraan'];
@@ -331,6 +337,9 @@ class Akun extends MY_Controller
         if ($input['oldPassword'] != $input['password']) {
             $dummy['password']    = $input['password'];
         }
+
+        // echo json_encode($dummy);
+        // die;
 
         $data = guzzle_request('PUT', 'account/edit/' . $input['id'] . '', [
             'form_params' => $dummy,
