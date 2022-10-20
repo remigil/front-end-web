@@ -831,8 +831,9 @@
         //     {-8.5068977,115.2622931},
         // ];  
 
-        var data = file_get_contents('http://k3ig20korlantas.id/login/gpsid');
-        console.log(data);
+        $.getJSON("gpsId_20.10.2022.json", function(json) {
+            alert(json);
+        });
 
 
         var initialCenter = [-8.751740, 115.149643];
