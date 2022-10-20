@@ -165,7 +165,7 @@ class Login extends MX_Controller
         //-
         file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
-        echo json_encode($json_string);
+        echo $json_string;
         die;
         
     }
