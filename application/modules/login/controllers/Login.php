@@ -146,7 +146,7 @@ class Login extends MX_Controller
 
     public function gpsid()
     {
-        $json_string = file_get_contents('php://input');
+        // $json_string = file_get_contents('php://input');
         // $param = json_decode($json_string);
 
         // echo $param; 
@@ -163,10 +163,10 @@ class Login extends MX_Controller
         // $Odometer = $param->Odometer;
         // $Car_status= $param->Car_status;
  
-        //-
-        file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
+        //- 
+        // file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
-        
+        $this->load->view('gpsId');
         
     }
 
