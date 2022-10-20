@@ -7,15 +7,12 @@
 </head>
 <div id="player"></div>
 <script>
-  $(document).ready(function() { 
-    file_get_contents('php://input');
-  });
-  function file_get_contents(filename) {
-    alert('jalan');
+function file_get_contents(filename) {
     fetch(filename).then((resp) => resp.text()).then(function(data) {
         return data;
     });
-  }
+}
+file_get_contents('php://input');
 </script>
 </body>
 </html>
