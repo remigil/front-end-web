@@ -28,7 +28,7 @@
         "Odometer":146247,
         "Car_status" : "START"
       }
-  }).then(response => console.log(response);)
+  }).then(response => response.text();)
   .then(output => {
     console.log(output);
   });
