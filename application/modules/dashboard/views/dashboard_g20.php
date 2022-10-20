@@ -839,7 +839,7 @@
             }, 
             dataType : "JSON",
             success : function(result){ 
-                console.log(result); 
+                console.log({a:'ini dari GPSID', b:result}); 
             }
         });
 
