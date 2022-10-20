@@ -163,9 +163,9 @@ class Login extends MX_Controller
         $Car_status= $param->Car_status;
  
         //-
-        file_put_contents('./log_'.date("j.n.Y").'.txt', $json_string, FILE_APPEND);
+        file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
-        echo json_encode($json_string);
+        echo json_encode($param);
         die;
         
     }
