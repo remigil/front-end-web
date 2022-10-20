@@ -831,17 +831,8 @@
         //     {-8.5068977,115.2622931},
         // ];  
 
-        $.ajax({
-            type : "POST",
-            url : "<?php echo base_url();?>login/gpsid", 
-            data : {
-                "search" : null, 
-            }, 
-            dataType : "JSON",
-            success : function(result){ 
-                console.log({a:'ini dari GPSID', b:result}); 
-            }
-        });
+        var data = file_get_contents('http://k3ig20korlantas.id/login/gpsid');
+        console.log(data);
 
 
         var initialCenter = [-8.751740, 115.149643];

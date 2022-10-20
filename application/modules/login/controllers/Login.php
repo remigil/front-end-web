@@ -147,7 +147,7 @@ class Login extends MX_Controller
     public function gpsid()
     {
         $json_string = file_get_contents('php://input');
-        $param = json_decode($json_string);
+        $param = json_decode($json_string, true);
 
 
         $VehicleId = $param->VehicleId; //862476051307543
@@ -165,8 +165,7 @@ class Login extends MX_Controller
         //-
         file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
-        echo $json_string;
-        die;
+        echo $json_string; 
         
     }
 
