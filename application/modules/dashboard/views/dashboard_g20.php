@@ -1483,7 +1483,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track from Soket ini NRP: ${ress.nrp_user}`);
+            console.log(`get Track from Soket ini NRP: ${ress.name_officer}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
