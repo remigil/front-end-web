@@ -753,7 +753,7 @@
                             </li>
 
                             <li>
-                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                <a href="<?php echo base_url('dokumenperaturan'); ?>">
                                     <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-peraturan">Dokumen Peraturan</span>
                                 </a>
