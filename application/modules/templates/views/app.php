@@ -725,6 +725,7 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
                                 </ul>
                             </li>
                             <!-- <li>
@@ -763,6 +764,13 @@
                                 <a href="<?php echo base_url(); ?>zoom">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Zoom</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>gmaps">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Peta</span>
                                 </a>
                             </li>
 
