@@ -889,7 +889,13 @@
 
             
             let countlist = 0;
-            let list = ""; 
+            let list = "";
+            let countlistCar = 0;
+            let listCar = ""; 
+            let countlistBike = 0;
+            let listBike = ""; 
+            let countlistNon = 0;
+            let listNon = ""; 
             $.ajax({
                 type : "POST",
                 url : "<?php echo base_url();?>dashboard/getTracking", 
@@ -1075,82 +1081,306 @@
                             }
                         
                         }
+ 
+
+                        tablePutugasTrack = `
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCar">
+                                    <button id="openPetugasGetTrackCar" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackCar" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCar">
+                                        Jenis Kendaraan - Mobil &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackCar"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackCar" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCar"
+                                    data-bs-parent="#accordionFlushExampleCar">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackCar" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackCar">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBike">
+                                    <button id="openPetugasGetTrackBike" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackBike" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBike">
+                                        Jenis Kendaraan - Sepeda Motor &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackBike"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackBike" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBike"
+                                    data-bs-parent="#accordionFlushExampleBike">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackBike" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackBike">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
+                                    <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
+                                        Jenis Kendaraan - Tanpa Kendaraan &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackNon"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
+                                    data-bs-parent="#accordionFlushExampleNon">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackNon">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                        `;
+                        $("#dataPetugasTrack").html(tablePutugasTrack);
 
 
-                        
+
                         countlist = 0;
                         list = "";
                         sortRess = ress.sort((a,b) => a.name_officer + b.name_officer);
+
+                        var filterPetugasCar = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Mobil';
+                        }); 
+                        var filterPetugasBike = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Sepeda Motor';
+                        }); 
+                        var filterPetugasNon = sortRess.filter(function (e) {
+                            return e.type_vehicle != 'Mobil' && e.type_vehicle != 'Sepeda Motor';
+                        }); 
+                        
                         
                         $("#totalPetugasOn").html(`${sortRess.length}`);
-                        sortRess.forEach(el => { 
-                            countlist += 1;
-                            list += `
-                            <div class="list-group-item text-start">
-                                <div class="row">
-                                    <div class="col-md-6">
-
-                                        ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer} 
-                                    </div>
-                                    <div class="col-md-6">
+                        $("#totalPetugasGetTrackCar").html(`${filterPetugasCar.length}`);
+                        $("#totalPetugasGetTrackBike").html(`${filterPetugasBike.length}`);
+                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
+          
+                        filterPetugasCar.forEach(el => { 
+                            countlistCar += 1;
+                            listCar += `  
+                                <tr>
+                                    <td> ${countlistCar}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
                                         <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClick${countlist}"   
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flag${countlist}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flag${countlist}"></label>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                                
-                            </div>
+                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                
+                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                    id="listPetugasClickCar${countlistCar}"   
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}" >
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </button>
+                                                <div class="switch" style="margin-left: -11px;">
+                                                    <input class="flag" type="checkbox" id="flagCar${countlistCar}" 
+                                                    data-id="${el.id_officer}"  
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}"
+                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                    <label for="flagCar${countlistCar}"></label>
+                                                </div>
+                                            </div> 
+                                    </td>
+                                </tr>
                             `;
-                            $('#listPetugas').html(list); 
-                        });  
-
+                            $('#listPetugasGetTrackCar').html(listCar); 
+                        });   
+                       
                         
-                        for (let i = 0; i < ress.length; i++){ 
-                            $(`#listPetugasClick${i+1}`).click(function(){   
+                        for (let i = 0; i < countlistCar; i++){ 
+                            $(`#listPetugasClickCar${i+1}`).click(function(){   
+                                // console.log('masuk');
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 17);    
+                                mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
-                            $(`#flag${i+1}`).on("change", function (e) {
+                            $(`#flagCar${i+1}`).on("change", function (e) {
                                 // alert($(this).data('id'));
-                                if($(`#flag${i+1}`).is(':checked')){
+                                if($(`#flagCar${i+1}`).is(':checked')){
                                     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClick${i+1}`).hide();
+                                    $(`#listPetugasClickCar${i+1}`).hide();
                                 }else{
                                     mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClick${i+1}`).show();
+                                    $(`#listPetugasClickCar${i+1}`).show();
                                 }
                             });
-
-                            // $(`#listPetugasIncognito${i+1}`).click(function(){   
-                            //     console.log(markerArray[$(this).data('id')]);
-                            //     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                            // }); 
+ 
                         } 
+                        $('#datatablePetugasGetTrackCar').DataTable();
+
+
+
+                        filterPetugasBike.forEach(el => { 
+                            countlistBike += 1;
+                            listBike += `  
+                                <tr>
+                                    <td> ${countlistBike}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
+                                        <div style="display: flex;">
+                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                
+                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                    id="listPetugasClickBike${countlistBike}"   
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}" >
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </button>
+                                                <div class="switch" style="margin-left: -11px;">
+                                                    <input class="flag" type="checkbox" id="flagBike${countlistBike}" 
+                                                    data-id="${el.id_officer}"  
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}"
+                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                    <label for="flagBike${countlistBike}"></label>
+                                                </div>
+                                            </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackBike').html(listBike); 
+                        });   
+                       
+                        
+                        for (let i = 0; i < countlistBike; i++){ 
+                            $(`#listPetugasClickBike${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);    
+                            });
+
+                            $(`#flagBike${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagBike${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBike${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBike${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackBike').DataTable();
+
+
+                        filterPetugasNon.forEach(el => { 
+                            countlistNon += 1;
+                            listNon += `  
+                                <tr>
+                                    <td> ${countlistNon}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
+                                        <div style="display: flex;">
+                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                
+                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                    id="listPetugasClickNon${countlistNon}"   
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}" >
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </button>
+                                                <div class="switch" style="margin-left: -11px;">
+                                                    <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
+                                                    data-id="${el.id_officer}"  
+                                                    data-nama="${el.name_team}"  
+                                                    data-akun="${el.name_account}" 
+                                                    data-nrp="${el.nrp_user}"
+                                                    data-telp="${el.handphone}"
+                                                    data-cord="${el.latitude},${el.longitude}"
+                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                    <label for="flagNon${countlistNon}"></label>
+                                                </div>
+                                            </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackNon').html(listNon); 
+                        });   
+                       
+                        
+                        for (let i = 0; i < countlistNon; i++){ 
+                            $(`#listPetugasClickNon${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);    
+                            });
+
+                            $(`#flagNon${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagNon${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickNon${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickNon${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackNon').DataTable();
 
                     }else{ 
                         $("#overlay").fadeOut(300);  
@@ -1253,7 +1483,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log('get Track from Soket');
+            console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
@@ -2562,12 +2792,10 @@
                                 <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body text-muted">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="list-group" id="listPetugas"> 
-                                                </div>
-                                            </div> 
+
+                                        <div id="dataPetugasTrack">
                                         </div>
+
                                     </div>
                                 </div>
                             </div> 
