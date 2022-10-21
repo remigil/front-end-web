@@ -405,7 +405,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>dokumenperaturan/hapusPeraturan/",
+                    url: "<?php echo base_url(); ?>dokumenperaturan/DokumenPeraturan/hapusPeraturan/",
                     type: "POST",
                     data: {
                         id_peraturan: id
