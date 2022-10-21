@@ -45,26 +45,43 @@ class LaporanNTMC extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $date = $this->input->post('date');
+
+        $input = $this->input->post();
         $jenis_laporan = $this->input->post('jenis_laporan');
-        $value = [];
         $url = '';
 
 
         if ($jenis_laporan == 1) {
             // Data On Air TV
-
             $url = 'ntmc/onair-tv';
-
-            $object = (object) [
-                'program' => $this->input->post('program'),
-                'live_report' => $this->input->post('live_report'),
-                'live_program' => $this->input->post('live_program'),
-                'tapping' => $this->input->post('tapping'),
-                'vlog_cctv' => $this->input->post('vlog_cctv'),
+            $dummy = [
+                [
+                    'name' => 'program',
+                    'contents' => $input['program'],
+                ],
+                [
+                    'name' => 'live_report',
+                    'contents' => $input['live_report'],
+                ],
+                [
+                    'name' => 'live_program',
+                    'contents' => $input['live_program'],
+                ],
+                [
+                    'name' => 'tapping',
+                    'contents' => $input['tapping'],
+                ],
+                [
+                    'name' => 'vlog_cctv',
+                    'contents' => $input['vlog_cctv'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
 
-            array_push($value, $object);
+
         } else if ($jenis_laporan == 2) {
             // Data On Air Web
 
@@ -191,23 +208,9 @@ class LaporanNTMC extends MY_Controller
             array_push($value, $object);
         }
 
-        $dummy = [
-            [
-                'name' => 'date',
-                'contents' => $date
-            ],
-            [
-                'name' => 'value',
-                'contents' => $value
-            ]
-        ];
-
 
         $data = guzzle_request('POST', $url, [
-            'json' => [
-                'date' => $date,
-                'value' => $value
-            ],
+            'multipart' => $dummy,
             'headers' => $headers
         ]);
 
