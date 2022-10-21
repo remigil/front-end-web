@@ -1231,7 +1231,7 @@
                        
                         
                         for (let i = 0; i < countlistCar; i++){ 
-                            $(`#listPetugasClickCar${i}`).click(function(){   
+                            $(`#listPetugasClickCar${i+1}`).click(function(){   
                                 // console.log('masuk');
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
@@ -1239,14 +1239,14 @@
                                 mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
-                            $(`#flagCar${i}`).on("change", function (e) {
+                            $(`#flagCar${i+1}`).on("change", function (e) {
                                 // alert($(this).data('id'));
-                                if($(`#flagCar${i}`).is(':checked')){
+                                if($(`#flagCar${i+1}`).is(':checked')){
                                     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickCar${i}`).hide();
+                                    $(`#listPetugasClickCar${i+1}`).hide();
                                 }else{
                                     mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickCar${i}`).show();
+                                    $(`#listPetugasClickCar${i+1}`).show();
                                 }
                             });
  
@@ -1296,7 +1296,7 @@
                        
                         
                         for (let i = 0; i < countlistBike; i++){ 
-                            $(`#listPetugasClickBike${i}`).click(function(){   
+                            $(`#listPetugasClickBike${i+1}`).click(function(){   
                                 // console.log('masuk');
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
@@ -1304,14 +1304,14 @@
                                 mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
-                            $(`#flagBike${i}`).on("change", function (e) {
+                            $(`#flagBike${i+1}`).on("change", function (e) {
                                 // alert($(this).data('id'));
-                                if($(`#flagBike${i}`).is(':checked')){
+                                if($(`#flagBike${i+1}`).is(':checked')){
                                     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickBike${i}`).hide();
+                                    $(`#listPetugasClickBike${i+1}`).hide();
                                 }else{
                                     mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickBike${i}`).show();
+                                    $(`#listPetugasClickBike${i+1}`).show();
                                 }
                             });
  
@@ -1360,7 +1360,7 @@
                        
                         
                         for (let i = 0; i < countlistNon; i++){ 
-                            $(`#listPetugasClickNon${i}`).click(function(){   
+                            $(`#listPetugasClickNon${i+1}`).click(function(){   
                                 // console.log('masuk');
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
@@ -1368,14 +1368,14 @@
                                 mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
-                            $(`#flagNon${i}`).on("change", function (e) {
+                            $(`#flagNon${i+1}`).on("change", function (e) {
                                 // alert($(this).data('id'));
-                                if($(`#flagNon${i}`).is(':checked')){
+                                if($(`#flagNon${i+1}`).is(':checked')){
                                     mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickNon${i}`).hide();
+                                    $(`#listPetugasClickNon${i+1}`).hide();
                                 }else{
                                     mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickNon${i}`).show();
+                                    $(`#listPetugasClickNon${i+1}`).show();
                                 }
                             });
  
