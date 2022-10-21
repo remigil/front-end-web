@@ -41,17 +41,28 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="material-textfield" style="margin:0 -0.18vh 0 -0.18vh">
                                 <input style="width: 100%; " name="namaAkun" type="text" required>
                                 <label class="labelmui">Akun</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
+                        <div class="col-md-6 mb-3">
+                            <div class="material-textfield" style="margin:0 -0.18vh 0 -0.18vh">
                                 <input style="width: 100%; " name="password" type="password" required>
                                 <label class="labelmui">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="select">
+									<option selected value="">Pilih Negara Delegasi</option> 
+                                    <?php foreach ($data['getCountry'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label for=""></label>
                             </div>
                         </div>
                     </div>
@@ -148,6 +159,16 @@
         });
 
         new Choices('#kendaraan', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
+        new Choices('#select', {
             searchEnabled: true,
             removeItemButton: true,
             removeItems: true,

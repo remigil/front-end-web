@@ -34,10 +34,10 @@ class Dashboard extends MY_Controller
                 'headers' => $headers
             ]);
             $data['getAccount'] = $getAccount['data']['data'];
-
-
-
+ 
             $page_content["data"] = $data;
+
+             
         } else if ($this->session->userdata['role'] == 'Korlantas') {
 
 
@@ -298,6 +298,11 @@ class Dashboard extends MY_Controller
         ];
 
 
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
+        // echo date('Y-m-d', $date);
+
         $url = 'getMe?date=' . date('Y-m-d') . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
@@ -312,6 +317,10 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         $input = $this->input->post(); 
+
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
 
         $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
@@ -355,6 +364,36 @@ class Dashboard extends MY_Controller
         $data['getFasum'] = $getFasum['data'];
 
         echo json_encode($data['getFasum']);
+    }
+
+    public function getAddres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input      = $this->input->post(); 
+
+        $dummy = [
+            [
+                'name' => 'lat',
+                'contents' => $input['lat'],
+            ],
+            [
+                'name' => 'lng',
+                'contents' => $input['lng'],
+            ]
+        ];
+
+        // echo json_encode($dummy);
+        // die;
+
+        $data = guzzle_request('POST', 'gmaps-api/reverse-geocode', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+ 
+        echo json_encode($data);
     }
 
     public function getPolres()
@@ -611,4 +650,7 @@ class Dashboard extends MY_Controller
         $this->templates->loadTemplate($page_content);
         // $this->load->view('dashboard/dashboard_g20',);
     }
+
+
+   
 }

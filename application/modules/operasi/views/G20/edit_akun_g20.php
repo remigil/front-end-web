@@ -37,6 +37,23 @@
                             <label class="labelmui">Password</label>
                         </div>
                     </div> 
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="select">
+                                <option selected value="">Pilih Negara Delegasi</option>
+                                <?php foreach ($data['getCountry'] as $row) : ?>
+                                    <option 
+                                    <?php if($data['getDetail']['data']['id_country'] != null){?> 
+                                        <?php echo ($row['name_country'] == $data['getDetail']['data']['country']['name_country'] ? 'selected' : '')?>
+                                    <?php }?>
+                                    value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
+                                <?php endforeach; ?> 
+
+                                 
+                            </select>
+                            <label for=""></label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-9"></div>

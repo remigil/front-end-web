@@ -175,7 +175,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
+					<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
                             <h2 style="color: white">47.965</h2>
                             <h4>Kendaraan Bermotor </h4>
@@ -448,7 +448,6 @@
         </div> 
     </div>
 
-
     <div class="col-md-12"> 
         <div class="row"> 
             <div class="col-md-8"> 
@@ -514,10 +513,8 @@
             </div> 
         </div> 
     </div>
- 
 
-
-    <section class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
+	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
         <!-- Logo Carousel -->
         <div class="container">
             <div class="row">
@@ -586,7 +583,11 @@
             </div>
         </div>
         <!-- Logo Carousel / End -->
-    </section>
+    </div>
+ 
+
+
+    
 
 </div>
 <!-- Container / End -->

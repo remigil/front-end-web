@@ -5,6 +5,8 @@ class UU_peraturan extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper("logged_helper");
+		$this->load->model('m_undang_undang');
     }
  
 	public function index()
@@ -27,4 +29,11 @@ class UU_peraturan extends MX_Controller {
 	{
 		$this->load->view('404_notfound');
 	}
+
+	public function serverSideTable() 
+    {  
+        $postData = $this->input->post();   
+        $data = $this->m_undang_undang->get_datatables($postData);  
+		echo json_encode($data); 
+    }
 }
