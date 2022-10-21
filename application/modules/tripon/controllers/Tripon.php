@@ -30,6 +30,8 @@ class Tripon extends MY_Controller
             $page_content["page"] = "tripon/Kapolda/tripon";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "tripon/Polres/tripon";
+        } else if ($this->session->userdata['role'] == 'Kakor') {
+			$page_content["page"] = "tripon/Kakor/tripon";
         }
 
         $getVehicle = guzzle_request('GET', 'type_vehicle', [

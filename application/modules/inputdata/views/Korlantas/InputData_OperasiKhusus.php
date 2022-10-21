@@ -114,7 +114,7 @@
                                 <option value="9">Lokasi Kawasan</option>
                                 <option value="10">Lokasi Status Jalan</option>
                                 <option value="11">Lokasi Fungsi Jalan</option>
-                                <option value="12">Penluh</option>
+                                <option value="12">Dikmaslantas</option>
                                 <option value="13">Penyebaran / Pemasangan</option>
                                 <option value="14">Giat Lantas</option>`)
         } else if (jenis_satker == 2) {
