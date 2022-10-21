@@ -1236,7 +1236,7 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 17);    
+                                mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
                             $(`#flagCar${i}`).on("change", function (e) {
@@ -1301,7 +1301,7 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 17);    
+                                mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
                             $(`#flagBike${i}`).on("change", function (e) {
@@ -1365,7 +1365,7 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 17);    
+                                mapContainer.flyTo([latitude, longitude], 20);    
                             });
 
                             $(`#flagNon${i}`).on("change", function (e) {
