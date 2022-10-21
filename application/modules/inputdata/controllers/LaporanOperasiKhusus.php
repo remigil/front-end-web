@@ -19,6 +19,7 @@ class LaporanOperasiKhusus extends MY_Controller
         $headers = [
             'Token' => $this->session->userdata['token'],
         ];
+        
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -27,10 +28,24 @@ class LaporanOperasiKhusus extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
+            
             $getPolda = guzzle_request('GET', 'polda', [
                 'headers' => $headers
             ]);
+
+
+            $getOperasi = guzzle_request('GET', 'operation-profile', [
+                    'headers' => [
+                        'Authorization' => $this->session->userdata['token']
+                    ]
+                ]);
+
             $data['getPolda'] = $getPolda['data']['data'];
+            $data['getOperasi'] = $getOperasi['data']['data'];
+
+
+
+
             $page_content["page"] = "inputdata/Korlantas/InputData_OperasiKhusus";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
@@ -59,7 +74,7 @@ class LaporanOperasiKhusus extends MY_Controller
         echo json_encode($results);
     }
 
-    public function storePolda()
+    public function storeData()
     {
 
         $headers = [
@@ -70,29 +85,22 @@ class LaporanOperasiKhusus extends MY_Controller
         $date = $this->input->post('date');
         $polres_id = $this->input->post('polres_id');
         $jenis_laporan = $this->input->post('jenis_laporan');
+        $operasi_id = $this->input->post('operasi_id');
         $value = [];
         $url = '';
-
-
         $max_loop = count($this->input->post('polres_id'));
 
         if ($jenis_laporan == 1) {
             // Data Dakgar lantas
 
-            $url = 'laka_langgar/add?polda=true';
+            $url = 'operasi_langgar/langgar-lantas?polda=true';
             for ($i = 0; $i < $max_loop; $i++) {
 
                 $object = (object) [
                     'polres_id' => $this->input->post('polres_id')[$i],
-                    'capture_camera' => $this->input->post('capture_camera')[$i],
-                    'statis' => $this->input->post('statis')[$i],
                     'mobile' => $this->input->post('mobile')[$i],
-                    'online' => $this->input->post('online')[$i],
-                    'posko' => $this->input->post('posko')[$i],
-                    'preemtif' => $this->input->post('preemtif')[$i],
-                    'preventif' => $this->input->post('preventif')[$i],
-                    'odol_227' => $this->input->post('odol_227')[$i],
-                    'odol_307' => $this->input->post('odol_307')[$i]
+                    'statis' => $this->input->post('statis')[$i],
+                    'teguran' => $this->input->post('teguran')[$i],
                 ];
 
                 array_push($value, $object);
@@ -231,15 +239,19 @@ class LaporanOperasiKhusus extends MY_Controller
             [
                 'name' => 'value',
                 'contents' => $value
+            ],
+            [
+                'name' => 'operasi_id',
+                'contents' => $operasi_id
             ]
         ];
-
 
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'polda_id' => $polda_id,
                 'date' => $date,
-                'value' => $value
+                'value' => $value,
+                'operasi_id' => $operasi_id
             ],
             'headers' => $headers
         ]);

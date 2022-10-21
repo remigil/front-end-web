@@ -8,9 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-
     <div class="card">
-
         <div class="card-body">
             <form action="" id="form-dataharian">
                 <div class="col-md-12">
@@ -29,11 +27,12 @@
                         </div>
                         <div class="col-md-2">
                             <div class="material-selectfield mb-3">
-                                <select name="operasai_id" id="operasai_id">
+                                <select name="operasi_id" id="operasi_id">
                                     <!-- <select name="" id=""  multiple required> -->
                                     <option value="">--Pilih operasi--</option>
-                                    <option value="1">Zebra</option>
-                                    <option value="2">Ketupat</option>
+                                    <?php foreach ($data['getOperasi'] as $key) : ?>
+                                        <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                                 <label class="labelmui">Operasi</label>
                             </div>
@@ -149,7 +148,7 @@
 
 
                 if (jenis_laporan == 1) {
-                    laporan.push('Statis', 'Mobile')
+                    laporan.push('Statis', 'Mobile', 'Teguran')
                     field_input.push(`<input type="number" name="statis[]" class="form-control" value="0">`, `<input type="number" name="mobile[]" class="form-control" value="0">`, `<input type="number" name="teguran[]" class="form-control" value="0">`)
                 } else if (jenis_laporan == 2) {
                     laporan.push('Gun Helm SNI', 'Melawan Arus', 'Bermain HP', 'Terpengaruh Alkohol', 'Batas Kecepatan', 'Dibawah Umur', 'Lain-lain')
@@ -223,7 +222,7 @@
                 let body = ''
                 results.forEach((element, index) => {
                     body += `
-                    <tr style="width: 100px">
+                    <tr>
                         <td>${index+1}</td>
                         <td><input type="hidden" name="polres_id[]" value="${element.id}">${element.name_polres}</td>
                         ${inputs}
@@ -232,12 +231,10 @@
 
                 let coloumn = ''
                 laporan.forEach((element, index) => {
-                    coloumn += `<th style="width: 50px">${element}</th>`
+                    coloumn += `<th>${element}</th>`
                 })
 
-                let master_tb = ''
-                if (jenis_laporan != 1) {
-                    master_tb = `
+                let master_tb = `
                 <table id="datatable" class="table table-bordered dt-responsive w-100">
                 <thead class="bg-primary text-white">
                     <tr>
@@ -251,34 +248,6 @@
                 <tbody>
                 </table>
                 `
-                } else {
-                    master_tb = `<table id="datatable" class="table table-bordered dt-responsive w-100" cellspacing= "0" width= "100">
-                <thead class="bg-primary text-white text-center">
-
-                    <tr>
-                        <th rowspan="2"  style="vertical-align : middle;text-align:center;" >No</th>
-                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Polres</th>
-                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Jumlah Capture Camera</th>
-                        <th colspan="2">Jumlah Validasi Petugas</th>
-                        <th colspan="2">Jumlah Konfirmasi Masyarakat</th>
-                        <th colspan="4">ODOL</th>
-                    </tr>
-                    <tr>
-                        <td>Statis</td>
-                        <td>Mobile</td>
-                        <td>Online</td>
-                        <td>Posko</td>
-                        <td>Pre-Emtif</td>
-                        <td>Pre-Ventif</td>
-                        <td>227</td>
-                        <td>307</td>
-                    </tr>
-                </thead>
-                <tbody id="maintablebody">
-                    ${body}
-                <tbody>
-                </table>`
-                }
 
 
                 $('.isiRow').html(master_tb)
@@ -301,7 +270,7 @@
         const formData = new FormData($('#form-dataharian')[0]);
 
         $.ajax({
-            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
+            url: "<?= base_url() ?>inputdata/LaporanOperasiKhusus/storeData",
             method: "POST",
             data: formData,
             dataType: "JSON",
@@ -352,7 +321,7 @@
     })
 </script>
 
-<style>
+<!-- <style>
     .table-striped>tbody>tr:nth-child(odd)>td,
     .table-striped>tbody>tr:nth-child(odd)>th {
         white-space: nowrap;
@@ -383,4 +352,4 @@
         max-height: 300px;
         overflow-x: scroll;
     } */
-</style>
+</style> -->
