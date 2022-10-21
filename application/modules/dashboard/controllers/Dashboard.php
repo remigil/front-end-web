@@ -298,12 +298,12 @@ class Dashboard extends MY_Controller
         ];
 
 
-        $date = date('Y-m-d');
-        $date = strtotime($date);
-        $date = strtotime("-1 day", $date);
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'getMe?date=' . date('Y-m-d', $date) . '';
+        $url = 'getMe?date=' . date('Y-m-d') . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -318,11 +318,11 @@ class Dashboard extends MY_Controller
         ];
         $input = $this->input->post(); 
 
-        $date = date('Y-m-d');
-        $date = strtotime($date);
-        $date = strtotime("-1 day", $date);
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
 
-        $url = 'getMe?date=' . date('Y-m-d', $date) . '&name_officer='.$input['name_officer'].'';
+        $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
