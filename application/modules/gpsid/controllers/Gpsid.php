@@ -33,11 +33,12 @@ class Gpsid extends MX_Controller
         // file_put_contents('./gpsId.json', $json_string, FILE_APPEND);
 
 
-        $chd = json_decode(file_get_contents('php://input'), TRUE);
-        $childs = implode("",$chd);
+      
 
-        // $data = file_get_contents('php://input');
-        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $childs, FILE_APPEND);
+        $data = file_get_contents('php://input');
+        $param = json_decode($json_string);
+        $dummy['VehicleId'] = $param->VehicleId;
+        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $dummy, FILE_APPEND);
         $ini1 = file_get_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json');
         echo $ini1;
         die;
