@@ -20,25 +20,23 @@ class Gpsid extends MX_Controller
         $data = file_get_contents('php://input');
         $param = json_decode($data, true);
 
-        // $VehicleId = $param->VehicleId; //862476051307543
-        // $VehicleNumber = $param->VehicleNumber; //b 1925 WKX
-        // $DatetimeUTC = $param->DatetimeUTC; 
-        // $GpsLocation = $param->GpsLocation;
-        // $Lon = $param->Lon;
-        // $Lat = $param->Lat;
-        // $Speed = $param->Speed;
-        // $Direction = $param->Direction;
-        // $Engine = $param->Engine;
-        // $Odometer = $param->Odometer;
-        // $Car_status= $param->Car_status;
+        $VehicleId = $param->VehicleId; //862476051307543
+        $VehicleNumber = $param->VehicleNumber; //b 1925 WKX
+        $DatetimeUTC = $param->DatetimeUTC; 
+        $GpsLocation = $param->GpsLocation;
+        $Lon = $param->Lon;
+        $Lat = $param->Lat;
+        $Speed = $param->Speed;
+        $Direction = $param->Direction;
+        $Engine = $param->Engine;
+        $Odometer = $param->Odometer;
+        $Car_status= $param->Car_status;
   
-        $dummy['VehicleId'] = $param->VehicleId;
-        $dummy['VehicleNumber'] = $param->VehicleNumber;
-        $dummy['Lon'] = $param->Lon;
-        $dummy['Lat'] = $param->Lat;
+        // $dummy['VehicleId'] = $param->VehicleId;
+        // $dummy['VehicleNumber'] = $param->VehicleNumber; 
 
       
-        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $dummy, FILE_APPEND);
+        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $data, FILE_APPEND);
         $ini1 = file_get_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json');
         echo $ini1;
         die;
