@@ -14,7 +14,7 @@
   console.log('ada'); 
   $.ajax({
     type : "POST",
-    url : "<? echo base_url()?>gpsid", 
+    url : "<?php echo base_url()?>gpsid", 
     // data : {
     //    "id": 1,
     // }, 
