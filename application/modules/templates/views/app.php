@@ -788,6 +788,13 @@
                             </li>
 
                             <li>
+                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">BodyCam</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
                                     <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-peraturan">Dokumen Peraturan</span>
