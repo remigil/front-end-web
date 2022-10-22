@@ -12,22 +12,26 @@
 
 <script>
   console.log('ada'); 
-  $.ajax({
-    type : "POST",
-    url : "<?php echo base_url()?>gpsid", 
-    // data : {
-    //    "id": 1,
-    // }, 
-    dataType : "JSON",
-    success : function(result){  
-      // const myArray = result.split("},{");
-      // var parse = JSON.parse(`[/${parse}/]`);
+  
+  <?php  $_POST = json_decode(file_get_contents('php://input')); print_r($_POST); ?>
+	
+
+  // $.ajax({
+  //   type : "POST",
+  //   url : "http://k3ig20korlantas.id/gpsid", 
+  //   // data : {
+  //   //    "id": 1,
+  //   // }, 
+  //   dataType : "JSON",
+  //   success : function(result){  
+  //     // const myArray = result.split("},{");
+  //     // var parse = JSON.parse(`[/${parse}/]`);
        
-      // var = `[result]`; 
-      // var myArray = test;
+  //     // var = `[result]`; 
+  //     // var myArray = test;
  
   
-      console.log(result);
-    } 
-  });
+  //     console.log(result);
+  //   } 
+  // });
 </script>
