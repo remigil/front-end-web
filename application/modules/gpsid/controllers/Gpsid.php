@@ -30,16 +30,15 @@ class Gpsid extends MX_Controller
         // $Direction = $param->Direction;
         // $Engine = $param->Engine;
         // $Odometer = $param->Odometer;
-        // $Car_status= $param->Car_status; 
+        // $Car_status= $param->Car_status;
+  
+        $dummy['VehicleId'] = $param->VehicleId;
+        $dummy['VehicleNumber'] = $param->VehicleNumber;
+        $dummy['Lon'] = $param->Lon;
+        $dummy['Lat'] = $param->Lat;
 
-        $res = array(
-            'VehicleId' => $param->VehicleId, 
-            'VehicleNumber' => $param->VehicleNumber, 
-            'Lon' => $param->Lon, 
-            'Lat' => $param->Lat, 
-            'Speed' => $param->Speed, 
-        );
-        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $res, FILE_APPEND);
+      
+        file_put_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json', $dummy, FILE_APPEND);
         $ini1 = file_get_contents('./dataVendor/gpsId/gpsId_'.date('Y-m-d').'.json');
         echo $ini1;
         die;
