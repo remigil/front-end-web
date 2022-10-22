@@ -17,8 +17,8 @@ class Gpsid extends MX_Controller
 
         
         
-        $data = file_get_contents('php://input');
-        $param = json_decode($data, true);
+        // $data = file_get_contents('php://input');
+        // $param = json_decode($data, true);
 
         // $VehicleId = $param->VehicleId; //862476051307543
         // $VehicleNumber = $param->VehicleNumber; //b 1925 WKX
@@ -37,14 +37,22 @@ class Gpsid extends MX_Controller
 
         
         // file_put_contents("./dataVendor/gpsId.json", "");
-        $change1 = str_replace('}','}],',$data);
-        $change2 = str_replace('{','[{',$change1);
-        file_put_contents('./dataVendor/gpsId.json', $change2, FILE_APPEND);
-        $ini1 = file_get_contents('./dataVendor/gpsId.json'); 
-        echo $ini1;
-        die;
+        // $change1 = str_replace('}','}],',$data);
+        // $change2 = str_replace('{','[{',$change1);
 
-        $this->load->view('gpsId');
+        header("Access-Control-Allow-Headers: Authorization, Content-Type");
+        header("Access-Control-Allow-Origin: *");
+        header('content-type: application/json; charset=utf-8');
+
+        $data = file_get_contents('php://input');
+        $param = json_decode($data);
+        print_r($param);
+        // file_put_contents('./dataVendor/gpsId.json', $change2, FILE_APPEND);
+        // $ini1 = file_get_contents('./dataVendor/gpsId.json'); 
+        // echo $ini1;
+        // die;
+
+        // $this->load->view('gpsId');
     }
      
 }
