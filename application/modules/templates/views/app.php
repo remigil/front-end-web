@@ -801,13 +801,19 @@
                                 </a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>gmaps">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Peta</span>
                                 </a>
+                            </li> -->
+                          
+                            <li>
+                                <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Peta</span>
+                                </a>
                             </li>
-
 
                             <li class="menu-title mt-2" data-key="t-components">Management System</li>
 
