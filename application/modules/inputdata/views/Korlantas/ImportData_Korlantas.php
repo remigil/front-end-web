@@ -11,11 +11,11 @@
             <table id="datatable" class="table dt-responsive w-100">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>File</th>
-                        <th>Tanggal Import</th>
-                        <th>Status</th>
-                        <th>Proses</th>
+                        <th width="5%">No</th>
+                        <th width="40%">File</th>
+                        <th width="20%">Tanggal Import</th>
+                        <th width="15%">Status</th>
+                        <th width="20%">Proses</th>
                     </tr>
                 </thead>
             </table>
@@ -32,6 +32,9 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
+                    <input type="hidden" name="polda_name" id="polda_name">
+                    <input type="hidden" name="jenis_satker_name" id="jenis_satker_name">
+                    <input type="hidden" name="jenis_laporan_name" id="jenis_laporan_name">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
@@ -144,7 +147,8 @@
     });
 
     $('#jenis_satker').on('change', function() {
-        let jenis_satker = $('#jenis_satker').val()
+        const jenis_satker_name = $('#jenis_satker option:selected').text();
+        let jenis_satker = $('#jenis_satker').val();
         $('#jenis_laporan').html('')
         if (jenis_satker == 1) {
             $('#jenis_laporan')
@@ -177,6 +181,17 @@
                     <option value="">Pilih</option>
                 `)
         }
+        $("#jenis_satker_name").val(jenis_satker_name);
+    })
+
+    $('#polda_id').on('change', function() {
+        const polda_name = $('#polda_id option:selected').text();
+        $("#polda_name").val(polda_name);
+    })
+
+    $('#jenis_laporan').on('change', function() {
+        const jenis_laporan_name = $('#jenis_laporan option:selected').text();
+        $("#jenis_laporan_name").val(jenis_laporan_name);
     })
 
     $(".form").submit(function(e) {
@@ -212,7 +227,7 @@
         });
     });
 
-	function myFunction(id)
+	function garlantas()
     {
 		id = $('#btn-process').data('id');
 		polda_id = $('#btn-process').data('polda_id');
@@ -237,7 +252,8 @@
                         file_name:file_name
                     },url:"<?php echo base_url(); ?>inputdata/ImportLaporanHarian/dakgarlantas",
                     success: function(response) {
-                        if (response.success===true) {
+                        $("#overlay").fadeOut(300);
+                        if (response.status===true) {
                             Swal.fire(
                                 `File processed successfully`,
                                 '',
@@ -261,8 +277,72 @@
                     }
                 })
             } else if (result.isDenied) {
-                Swal.fire('Changes are not saved', '', 'info')
+                Swal.fire('Not processed', '', 'info')
             }
         });
 	}
+
+    function rmfile()
+    {
+        id = $('#btn-delete').data('id');
+        file_name = $('#btn-delete').data('file_name');
+        Swal.fire({
+            title: 'Do you want to delete this data?',
+            showDenyButton: false,
+            showCancelButton: true,
+            icon: "warning",
+            confirmButtonText: 'Process'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:"POST",
+                    dataType:"json",data:{
+                        id:id,
+                        file_name:file_name
+                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanHarian/rmfile",
+                    success: function(response) {
+                        if (response.status===true) {
+                            Swal.fire(
+                                `Files deleted`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `Failed`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    },error: function(response){
+                        Swal.fire(
+                            `Failed`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                })
+            } else if (result.isDenied) {
+                Swal.fire('Not processed', '', 'info')
+            }
+        });
+    }
+
+    function view()
+    {
+        file_name = $('#btn-view').data('file_name');
+        Swal.fire({
+            title: 'Do you want to view this data?',
+            showDenyButton: false,
+            showCancelButton: true,
+            icon: "warning",
+            confirmButtonText: 'Process'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/view/"+file_name+"";
+            }
+        });
+    }
 </script>

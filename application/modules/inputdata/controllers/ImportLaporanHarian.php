@@ -13,14 +13,11 @@ class ImportLaporanHarian extends MY_Controller
         $this->load->helper("logged_helper");
         $this->load->model("inputdata/M_import");
 		$this->load->library('phpexcel');
+		$this->load->helper('download');
     }
 
     public function index()
     {
-        $headers = [
-            'Token' => $this->session->userdata['token'],
-        ];
-
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Import Laporan Harian";
@@ -29,7 +26,7 @@ class ImportLaporanHarian extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => $headers
+                'headers' => $this->_headers
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Korlantas/ImportData_Korlantas";
@@ -45,12 +42,9 @@ class ImportLaporanHarian extends MY_Controller
 
     public function getPolres()
     {
-        $headers = [
-            'Token' => $this->session->userdata['token'],
-        ];
         $id = $this->input->post('polda_id');
         $getDetail = guzzle_request('GET', 'polres/getPolda/' . $id . '', [
-            'headers' => $headers
+            'headers' => $this->_headers
         ]);
         $results = $getDetail['data']['data'];
         echo json_encode($results);
@@ -64,26 +58,22 @@ class ImportLaporanHarian extends MY_Controller
 		if (isset($_FILES)) {
 
             /**
-             * Get Token
-             */
-            $headers = [
-                'Authorization' => $this->session->userdata['token'],
-            ];
-
-            /**
              * Parameter
              */
             $polda_id = $this->input->post('polda_id');
             $jenis_satker = $this->input->post('jenis_satker');
             $jenis_laporan = $this->input->post('jenis_laporan');
             $tanggal = $this->input->post('date');
+            $polda_name = strtoupper(str_replace(' ','-',$this->input->post('polda_name')));
+            $jenis_satker_name = strtoupper(str_replace(' ','-',$this->input->post('jenis_satker_name')));
+            $jenis_laporan_name = strtoupper(str_replace(' ','-',$this->input->post('jenis_laporan_name')));
 
             /**
              * Get file and rename
              */
 			$filename = $_FILES['userfile']['name'];
 			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
-			$rename = 'DAILY-REPORT-'.$polda_id.'-'.$jenis_satker.'-'.$jenis_laporan.'-'.date('YmdHis').'.'.$file_ext;
+			$rename = 'DAILY-REPORT-'.$polda_name.'-'.$jenis_satker_name.'-'.$jenis_laporan_name.'-'.$tanggal.'.'.$file_ext;
 
             /**
              * Set direktori and config uploaded file
@@ -119,7 +109,7 @@ class ImportLaporanHarian extends MY_Controller
                         'status' => '0',
                         'imported_by' => $this->session->userdata('id')
                     ],
-                    'headers' => $headers
+                    'headers' => $this->_headers
                 ]);
 
                 /**
@@ -154,13 +144,6 @@ class ImportLaporanHarian extends MY_Controller
 
 	function dakgarlantas()
 	{
-        /**
-         * Get Token
-         */
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-
 		$id = $this->input->post('id');
 		$polda_id = $this->input->post('polda_id');
 		$tanggal = $this->input->post('tanggal');
@@ -201,9 +184,9 @@ class ImportLaporanHarian extends MY_Controller
 							$J = trim(trim($row['J']));
 							$K = trim(trim($row['K']));
 
-                            $raws[$i] = array(
+                            $raws[] = array(
                                 'polda_id'=>$polda_id,
-                                'polres_id'=>$B,
+                                'polres_name'=>$B,
                                 'date'=>$tanggal,
                                 'capture_camera'=>$C,
                                 'statis'=>$D,
@@ -225,13 +208,12 @@ class ImportLaporanHarian extends MY_Controller
                  */
                 $url = 'import/dakgarlantas';
                 $data = guzzle_request('POST', $url, [
-                    'json' => $raws,
-                    'headers' => $headers
+                    'json' => [
+                        'source_id' => $id,
+                        'value' => $raws
+                    ],
+                    'headers' => $this->_headers
                 ]);
-
-                echo "<pre>";
-                var_dump($data);
-                die();
 
                 /**
                  * Respon 
@@ -252,14 +234,70 @@ class ImportLaporanHarian extends MY_Controller
 
 			} else {
                 $return = array('status'=>false,'message'=>'File does not exist !');
-                echo json_encode($return);
 			}
 
 		} else {
             $return = array('status'=>false,'message'=>'This file has been processed !');
-            echo json_encode($return);
 		}
 
+		echo json_encode($return);		
+
+	}
+
+	function rmfile() 
+    {
+		$id = $this->input->post('id');
+		$file_name = $this->input->post('file_name');
+        $structure = 'files/import/'.$file_name;
+
+        /**
+         * Send request parameter to api
+         */
+        $url = 'import/rmfile';
+        $data = guzzle_request('POST', $url, [
+            'json' => [
+                'id' => $id
+            ],
+            'headers' => $this->_headers
+        ]);
+
+        /**
+         * Respon 
+         */
+        if ($data['isSuccess'] == true) {
+            @unlink($structure);
+            $return = array(
+                'status' => true,
+                'message' => 'Successfully deleted'
+            );
+        } else {
+            $return = array(
+                'status' => false,
+                'message' => 'Failed to delete'
+            );
+        }
+		echo json_encode($return);		
+	}
+
+	function view()
+	{
+		$file_name = $this->uri->segment('4');
+        $structure = 'files/import/'.$file_name;
+
+        if(file_exists($structure)){
+            $data = file_get_contents($structure);
+            force_download($file_name, $data);
+            $return = array(
+                'status' => true,
+                'message' => 'Successfully downloaded'
+            );
+        } else {
+            $return = array(
+                'status' => false,
+                'message' => 'File not found'
+            );
+        }
+		echo json_encode($return);		
 	}
 
     public function process()
@@ -439,7 +477,7 @@ class ImportLaporanHarian extends MY_Controller
                 'date' => $date,
                 'value' => $value
             ],
-            'headers' => $headers
+            'headers' => $this->_headers
         ]);
 
         if ($data['isSuccess'] == true) {
