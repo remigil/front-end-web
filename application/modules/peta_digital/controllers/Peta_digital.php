@@ -20,18 +20,27 @@ class Peta_digital extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = ''; 
 
-        if ($this->session->userdata['role'] == 'Kakor') {
+        if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Peta Digital";
             $page_content["page"] = "peta_digital/Kakor/peta_digital_view";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Peta Digital";
-            $page_content["page"] = "masterdata/Korlantas/fasum_view";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "peta_digital/Ditkamsel/peta_digital_view";
+        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["title"] = "Peta Digital";
-            $page_content["page"] = "masterdata/Kapolda/fasum_view";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "peta_digital/Ditgakkum/peta_digital_view";
+        } else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "Peta Digital";
-            $page_content["page"] = "masterdata/Polres/fasum_view";
+            $page_content["page"] = "peta_digital/Ditregident/peta_digital_view";
+		} else if ($this->session->userdata['role'] == 'KaBagOps') {
+            $page_content["title"] = "Peta Digital";
+            $page_content["page"] = "peta_digital/Bagops/peta_digital_view";
+		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            $page_content["title"] = "Peta Digital";
+            $page_content["page"] = "peta_digital/Bagrenmin/peta_digital_view";
+		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            $page_content["title"] = "Peta Digital";
+            $page_content["page"] = "peta_digital/Bagtik/peta_digital_view";
         }
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
