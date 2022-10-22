@@ -20,18 +20,27 @@ class Rekap_turjawali extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = ''; 
 
-        if ($this->session->userdata['role'] == 'Kakor') {
+        if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Data Turjawali";
             $page_content["page"] = "rekapitulasi/Kakor/rekap_turjawali_view";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Data Turjawali";
-            $page_content["page"] = "masterdata/Korlantas/fasum_view";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "rekapitulasi/Ditkamsel/rekap_turjawali_view";
+        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["title"] = "Data Turjawali";
-            $page_content["page"] = "masterdata/Kapolda/fasum_view";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "rekapitulasi/Ditgakkum/rekap_turjawali_view";
+        } else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "Data Turjawali";
-            $page_content["page"] = "masterdata/Polres/fasum_view";
+            $page_content["page"] = "rekapitulasi/Ditregident/rekap_turjawali_view";
+		} else if ($this->session->userdata['role'] == 'KaBagOps') {
+            $page_content["title"] = "Data Turjawali";
+            $page_content["page"] = "rekapitulasi/Bagops/rekap_turjawali_view";
+		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            $page_content["title"] = "Data Turjawali";
+            $page_content["page"] = "rekapitulasi/Bagrenmin/rekap_turjawali_view";
+		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            $page_content["title"] = "Data Turjawali";
+            $page_content["page"] = "rekapitulasi/Bagtik/rekap_turjawali_view";
         }
 
         $getCategory = guzzle_request('GET', 'category_fasum', [

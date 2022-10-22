@@ -30,7 +30,7 @@ class Tripon extends MY_Controller
             $page_content["page"] = "tripon/Kapolda/tripon";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "tripon/Polres/tripon";
-        } else if ($this->session->userdata['role'] == 'Kakor') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
 			$page_content["page"] = "tripon/Kakor/tripon";
         }
 
@@ -74,6 +74,10 @@ class Tripon extends MY_Controller
             $page_content["page"] = "tripon/Kapolda/tripondetail";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "tripon/Polres/tripondetail";
+		} else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            $page_content["page"] = "tripon/Kakor/tripondetail";
+		} else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            $page_content["page"] = "tripon/Ditkamsel/tripondetail";
         }
         $getDetail = guzzle_request('GET', 'trip_on/getId/' . $id . '', [
             'headers' => $headers

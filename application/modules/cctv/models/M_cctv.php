@@ -1,11 +1,9 @@
 <?php
 
-use LDAP\Result;
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_tripon extends CI_Model {
+class M_cctv extends CI_Model {
 
 
     public function __construct(){
@@ -23,7 +21,7 @@ class M_tripon extends CI_Model {
         $draw = $postData['draw']; 
 
         $rowperpage = $postData['length']; // Rows display per page  
-		 
+
         $columnName = $postData['columns']; // Column name 
 
 		$page = $postData['page']; 
@@ -97,48 +95,42 @@ class M_tripon extends CI_Model {
         // } 
 
 
-        // $url_trip_on = 'trip_on';
-        $url_trip_on = 'trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
-        // $url_passanger_trip_on = 'passanger_trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
-        
+        $url = 'cctv?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
-        $result = guzzle_request('GET', $url_trip_on,  [
+        $result = guzzle_request('GET', $url, [
 
-            'headers' => [
-
+            'headers' => [ 
                 'Authorization' => $this->session->userdata['token'] 
-
             ]
 
-        ]);  
+        ]);   
 
-        // echo "<pre>";
-        // var_dump($result['data']['trip_on']['rows']);die;
-        
-        // $asd = $result['data']['data'];
-        // var_dump($asd);die;
-        
-		
         $no=1;
-		foreach  ($result['data']['trip_on']['rows'] as $field) { 
-		// foreach  ($result['data']['data'] as $field) { 
-            
+
+		foreach  ($result['data']['data'] as $field) { 
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
-            $row ['person_name']	= $field['society']['person_name'];
-            $row ['no_vehicle']	= $field["public_vehicle"]['no_vehicle'];
-            $row ['type_vehicle']	= $field['type_vehicle']['type_name'];
-            $row ['brand_vehicle']	= $field['brand_vehicle']['brand_name'];
-            // $row ['brand_vehicle']	= $field['brand_vehicle'];  
-            // $row ['type_vehicle'] = $field['type_vehicle'];
-            // foreach ($field['passenger_trip_ons'] as $tes){
-            //     $row ['passenger']	= $tes['name'];
-            // }
-            $row ['action']         = '
-            
-            <a href="'.base_url().'tripon/Tripon/detail/'.$field['id'].'"><button class="btn btn-sm btn-primary" type="button">Detail</button></a>
-            
+            $row ['type_cctv']   	= $field['type_cctv'];
+            $row ['ip_cctv']   	= $field['ip_cctv'];  
+            $row ['address_cctv']	= $field['address_cctv'];  
+            $row ['lat_cctv']   	= $field['lat_cctv'];  
+            $row ['lng_cctv']   	= $field['lng_cctv']; 
+            if($field['status_cctv'] == 1){
+                $row ['status_cctv']   	= 'Active'; 
+            }else{
+                $row ['status_cctv']   	= 'Inactive'; 
+            } 
+            $row ['action']         = '   
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailCCTV">
+				<h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
+			</button>
+			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="editData(`' . $field['id'] . '`)" data-bs-target=".UbahCCTV">
+				<h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
+			</button>
+			<button style="background-color:transparent ; border:none" id="Hapuscctv" onclick="hapus(`' . $field['id'] . '`)">
+				<h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
+			</button>
             '; 
 
             $data[] = $row;
