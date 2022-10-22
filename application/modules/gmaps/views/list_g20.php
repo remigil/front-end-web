@@ -9,13 +9,13 @@
   </div>
 </div> -->
 
-
+<form class="formAdd" action="php://input" method="post" enctype="multipart/form-data"> </form>
 <script>
   console.log('ada'); 
-  
-  <?php  $_POST = json_decode(file_get_contents('php://input')); print_r($_POST); ?>
+   
 	
-
+  var formData = new FormData($('.formAdd')[0]); 
+  console.log(formData);
   // $.ajax({
   //   type : "POST",
   //   url : "http://k3ig20korlantas.id/gpsid", 
