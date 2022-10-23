@@ -90,7 +90,7 @@
                                         <span>Fasilitas Khusus</span> 
                                     </div> 
                                     <div class="col-md-6">
-                                        <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
+                                        <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
                                         <span>Kendaraan Listrik</span> 
                                     </div> 
                                     <div class="col-md-6">
@@ -768,19 +768,7 @@
     var autoGpsId;
     
 
-    $(document).ready(function() { 
-      
-        // var arrayContoh = [ 
-        //     {-8.551740, 115.077643},
-        //     {-8.451740, 115.089643},
-        //     {-8.458519301130188,115.14931575647383},
-        //     {-8.452198812821242,115.09396433830263},
-        //     {-8.5068977,115.2622931},
-        // ];  
-
-        // $.getJSON("gpsId_20.10.2022.json", function(json) {
-        //     alert(json);
-        // });
+    $(document).ready(function() {  
 
 
         var initialCenter = [-8.751740, 115.149643];
