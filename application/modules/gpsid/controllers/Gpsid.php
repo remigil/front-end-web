@@ -43,7 +43,7 @@ class Gpsid extends MX_Controller
         
         $data = file_get_contents('php://input');
         $param = json_decode($data);
-        $file = './dataVendor/gpsId.json'
+        // $file = './dataVendor/gpsId.json'
 
         $change1 = str_replace('}','}],',$data);
         $change2 = str_replace('{','[{',$change1);
@@ -55,8 +55,8 @@ class Gpsid extends MX_Controller
         //     // there was a problem deleting the file
         //     file_put_contents($file, $change2, FILE_APPEND);
         // }
-        file_put_contents($file, $change2, FILE_APPEND);
-        $ini1 = file_get_contents($file);  
+        file_put_contents('./dataVendor/gpsId.json', $change2, FILE_APPEND);
+        $ini1 = file_get_contents('./dataVendor/gpsId.json');  
         echo $ini1;
         die;
 
