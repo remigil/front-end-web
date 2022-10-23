@@ -11,10 +11,12 @@
 wadawww
 <script>
   console.log('ada2'); 
+  var dataGpsId;
   fetch('<?php echo base_url()?>dataVendor/gpsId.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-	  
+  .then((response) => response.json())
+  .then((json) => dataGpsId = json);
+  
+  console.log(dataGpsId);
   // $.ajax({
   //     type : "POST",
   //     url : "http://k3ig20korlantas.id/gpsid", 
