@@ -1051,14 +1051,11 @@
             }else{
                 $("#gpsId").prop('checked', false); 
                 $("#gpsId").val(); 
-                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) { 
-                    // fasumKhususClusterGroup.removeLayer(dummyIdKendaraanGpsId[i]); 
+                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
                     mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
                 }
                 dummyIdKendaraanGpsId = new Array(); 
-                markerGpsId = new Array(); 
-
-                // console.log(dummyIdKendaraanGpsId);
+                markerGpsId = new Array();  
                 clearInterval(autoGpsId);
             } 
         }); 
@@ -2717,9 +2714,16 @@
             } 
             if($("#gpsId").is(':checked')){ 
                 $("#gpsIdDisplay").prop('checked', true); 
+                autoGpsId = setInterval(gpsId, 5000); 
             }else{
                 $("#gpsIdDisplay").prop('checked', false); 
-                $("#gpsIdDisplay").val();
+                $("#gpsIdDisplay").val(); 
+                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
+                    mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
+                }
+                dummyIdKendaraanGpsId = new Array(); 
+                markerGpsId = new Array();  
+                clearInterval(autoGpsId);
             }
             
             serverSideFilter(); 
