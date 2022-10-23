@@ -278,6 +278,53 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function storeEditDayReport() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+        $dummy = [
+            [
+                'name' => 't_officer_active',
+                'contents' => $input['t_officer_active'],
+            ],
+            [
+                'name' => 't_officer_active_car',
+                'contents' => $input['t_officer_active_car'],
+            ],
+            [
+                'name' => 't_officer_active_bike',
+                'contents' => $input['t_officer_active_bike'],
+            ],
+            [
+                'name' => 't_officer_active_not_driving',
+                'contents' => $input['t_officer_active_not_driving'],
+            ] 
+        ];
+
+        $data = guzzle_request('PUT', 'day_report/byEdit/'.date('Y-m-d').'', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res); 
+    }
+
     public function getTracking()
     {
         $headers = [

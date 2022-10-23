@@ -4,6 +4,21 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Petugas Aktif</h5>
+                    <span><?php echo date('Y-m-d')?></span>
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <div class="main-chart">
+                            <div id="chartPetugasAktif"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
                     <h5>Laporan Operasi</h5>
                     <span><?php echo date('Y-m-d')?></span>
                     </div>
@@ -53,6 +68,53 @@
                 if(result['data'].length > 0 || result['data'] != null){
                     var ress = result['data'][0];
                     console.log(ress);
+
+
+                    optionsLaporan = {
+                        series: [{
+                            data: [ress['t_officer_active'], ress['t_officer_active_car'], ress['t_officer_active_bike'], ress['t_officer_active_not_driving']]
+                        }],
+                        chart: {
+                            height: 350,
+                            type: 'bar',
+                            events: {
+                                click: function(chart, w, e) {
+                                // console.log(chart, w, e)
+                                }
+                            }
+                        },
+                        // colors: colors,
+                        plotOptions: {
+                            bar: {
+                                columnWidth: '45%',
+                                distributed: true,
+                            }
+                        },
+                        dataLabels: {
+                            enabled: false
+                        },
+                        legend: {
+                            show: false
+                        },
+                        xaxis: {
+                            categories: [ 
+                                'Total',
+                                'Mobil',
+                                'Motor',
+                                'Tidak Berkendara', 
+                            ],
+                            labels: {
+                                style: {
+                                //   colors: colors,
+                                fontSize: '12px'
+                                }
+                            }
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#chartPetugasAktif"), optionsLaporan);
+                    chart.render();
+
+
                     optionsLaporan = {
                         series: [{
                             data: [ress['t_report_kriminal'], ress['t_report_lalu_lintas'], ress['t_report_kemacetan'], ress['t_report_bencanaalam'], ress['t_report_pengaturan'], ress['t_report_pengawalan'], ress['t_report_lainnya']]
@@ -103,12 +165,13 @@
 
                     optionsOperasi = {  
 
-                        series: [ress['t_rengiat_done'], ress['t_rengiat_failed']],
+                        series: [  parseFloat(ress['t_rengiat_failed']), parseFloat(ress['t_rengiat_done']), parseFloat(ress['t_schedule_done']) ],
                         chart: {
-                            width: 380,
+                            width: 480,
                             type: 'pie',
                         },
-                        labels: [ "Selesai", "Gagal"],
+                        labels: [ "Uraian Kegiatan - Gagal","Uraian Kegiatan - Selesai","Jadwal Kegiatan - Selesai"], 
+                        // colors: ['green','red'], 
                         responsive: [{
                             breakpoint: 480,
                             options: {

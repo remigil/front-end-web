@@ -1072,6 +1072,7 @@
 
                     var jenis = '';
                     var bendera = '';
+ 
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
 
@@ -1240,8 +1241,7 @@
                                 });    
                             }
                         
-                        }
- 
+                        } 
 
                         tablePutugasTrack = `
                             <div class="accordion-item">
@@ -1349,6 +1349,26 @@
                         $("#totalPetugasGetTrackCar").html(`${filterPetugasCar.length}`);
                         $("#totalPetugasGetTrackBike").html(`${filterPetugasBike.length}`);
                         $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
+ 
+                        // storeEditDayReport 
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
+                            data : {
+                                "t_officer_active" : sortRess.length,
+                                "t_officer_active_car" : filterPetugasCar.length,
+                                "t_officer_active_bike" : filterPetugasBike.length,
+                                "t_officer_active_not_driving" : filterPetugasNon.length,
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){ 
+                                if(result['status'] == true){
+                                    console.log('update petugas aktif day report');
+                                }else{
+                                    console.log('GAGAL update petugas aktif day report');
+                                }
+                            }
+                        });
           
                         filterPetugasCar.forEach(el => { 
                             countlistCar += 1;
