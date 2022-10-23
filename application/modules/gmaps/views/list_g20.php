@@ -7,28 +7,27 @@
     <a href="https://www.embedgooglemap.net">google maps iframe options</a>
     <style>.gmap_canvas {overflow:hidden;background:none!important;height:618px;width:100%;}</style>
   </div>
-</div> -->
+</div> --> 
 
-<form class="formAdd" action="php://input" method="post" enctype="multipart/form-data"> </form>
 <script>
   console.log('ada'); 
-   
-	
-  var formData = new FormData($('.formAdd')[0]); 
-  console.log(formData);
+  fetch('<?php echo base_url()?>dataVendor/gpsId.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+	  
   // $.ajax({
-  //   type : "POST",
-  //   url : "http://k3ig20korlantas.id/gpsid", 
-  //   // data : {
-  //   //    "id": 1,
-  //   // }, 
-  //   dataType : "JSON",
-  //   success : function(result){  
-  //     // const myArray = result.split("},{");
-  //     // var parse = JSON.parse(`[/${parse}/]`);
-       
-  //     // var = `[result]`; 
-  //     // var myArray = test;
+  //     type : "POST",
+  //     url : "http://k3ig20korlantas.id/gpsid", 
+  //     // data : {
+  //       //    "id": 1,
+  //       // }, 
+  //       dataType : "JSON",
+  //       success : function(result){  
+          
+          
+          
+  //         // var formData = new FormData($('.formAdd')[0]); 
+  //         // console.log(formData);
  
   
   //     console.log(result);
