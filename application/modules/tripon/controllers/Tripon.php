@@ -26,12 +26,24 @@ class Tripon extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "tripon/Korlantas/tripon";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "tripon/Kapolda/tripon";
-        } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "tripon/Polres/tripon";
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
 			$page_content["page"] = "tripon/Kakor/tripon";
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+			$page_content["page"] = "tripon/Ditkamsel/tripon";
+        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
+			$page_content["page"] = "tripon/Ditgakkum/tripon";
+        } else if ($this->session->userdata['role'] == 'Ditregident') {
+			$page_content["page"] = "tripon/Ditregident/tripon";
+        } else if ($this->session->userdata['role'] == 'KaBagOps') {
+			$page_content["page"] = "tripon/Bagops/tripon";
+        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+			$page_content["page"] = "tripon/Bagrenmin/tripon";
+        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
+			$page_content["page"] = "tripon/Bagtik/tripon";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+			$page_content["page"] = "tripon/Kapolda/tripon";
+        } else if ($this->session->userdata['role'] == 'Kapolres') {
+			$page_content["page"] = "tripon/Kapolres/tripon";
         }
 
         $getVehicle = guzzle_request('GET', 'type_vehicle', [

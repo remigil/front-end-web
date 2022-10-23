@@ -31,7 +31,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Dakgar Lantas</h4>
+													<h5 class="text-wrap fw-light text-light">Dakgar Lantas</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -46,7 +46,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h4>
+													<h5 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3 col-sm-2 col-4">
@@ -61,7 +61,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h4>
+													<h5 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -76,7 +76,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Data Turjagwali</h4>
+													<h5 class="text-wrap fw-light text-light">Data Turjagwali</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -91,7 +91,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Dikmas Lantas</h4>
+													<h5 class="text-wrap fw-light text-light">Dikmas Lantas</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -106,7 +106,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h4>
+													<h5 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-2 col-4">
@@ -121,7 +121,7 @@
 										<div class=" card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">SIM</h4>
+													<h5 class="text-wrap fw-light text-light">SIM</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -136,7 +136,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">STNK</h4>
+													<h5 class="text-wrap fw-light text-light">STNK</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -151,7 +151,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">BPKB</h4>
+													<h5 class="text-wrap fw-light text-light">BPKB</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
@@ -166,7 +166,7 @@
 										<div class="card-body">
 											<div class="row justify-content-between align-items-center" style="height: 80px;">
 												<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-													<h4 class="text-wrap fw-light text-light">RANMOR</h4>
+													<h5 class="text-wrap fw-light text-light">RANMOR</h5>
 													<p class="text-white">47.319</p>
 												</div>
 												<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
