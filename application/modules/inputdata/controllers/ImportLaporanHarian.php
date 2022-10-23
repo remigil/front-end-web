@@ -73,7 +73,7 @@ class ImportLaporanHarian extends MY_Controller
              */
 			$filename = $_FILES['userfile']['name'];
 			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
-			$rename = 'DAILY-REPORT-'.$polda_name.'-'.$jenis_satker_name.'-'.$jenis_laporan_name.'-'.$tanggal.'.'.$file_ext;
+			$rename = $jenis_laporan_name.'-'.'REPORT-'.$polda_name.'-'.$jenis_satker_name.'-'.$tanggal.'.'.$file_ext;
 
             /**
              * Set direktori and config uploaded file
@@ -142,108 +142,6 @@ class ImportLaporanHarian extends MY_Controller
         echo json_encode($data);
     }
 
-	function dakgarlantas()
-	{
-		$id = $this->input->post('id');
-		$polda_id = $this->input->post('polda_id');
-		$tanggal = $this->input->post('tanggal');
-		$status = $this->input->post('status');
-		$file_name = $this->input->post('file_name');
-		$message = '';
-
-		if ($status=='0') {
-			$structure = 'files/import/';
-			$file_name = $structure.$file_name;
-
-			try {
-				$inputFileType  = PHPExcel_IOFactory::identify($file_name);
-				$objReader = PHPExcel_IOFactory::createReader($inputFileType);
-				$objReader->setReadDataOnly(false);
-				$objPHPExcel = $objReader->load($file_name);
-				$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
-				$file_exists = true;
-			} catch (Exception $e) {
-				$file_exists = false;
-			}
-
-			if ($file_exists) {
-				$raws = array();
-				$i=0;
-				foreach($sheetData as $row){
-					if($i>0){
-						if (strtoupper(((isset($row['B']))?((trim($row['B'])=='')?NULL:$row['B']):NULL))!=NULL) {
-							
-							$B = trim(trim($row['B']));
-							$C = trim(trim($row['C']));
-							$D = trim(trim($row['D']));
-							$E = trim(trim($row['E']));
-							$F = trim(trim($row['F']));
-							$G = trim(trim($row['G']));
-							$H = trim(trim($row['H']));
-							$I = trim(trim($row['I']));
-							$J = trim(trim($row['J']));
-							$K = trim(trim($row['K']));
-
-                            $raws[] = array(
-                                'polda_id'=>$polda_id,
-                                'polres_name'=>$B,
-                                'date'=>$tanggal,
-                                'capture_camera'=>$C,
-                                'statis'=>$D,
-                                'mobile'=>$E,
-                                'online'=>$F,
-                                'posko'=>$G,
-                                'preemtif'=>$H,
-                                'preventif'=>$I,
-                                'odol_227'=>$J,
-                                'odol_307'=>$K
-                            );
-						}						
-					}
-					$i++;
-				}
-
-                /**
-                 * Send request parameter to api
-                 */
-                $url = 'import/dakgarlantas';
-                $data = guzzle_request('POST', $url, [
-                    'json' => [
-                        'source_id' => $id,
-                        'value' => $raws
-                    ],
-                    'headers' => $this->_headers
-                ]);
-
-                /**
-                 * Respon 
-                 */
-                if ($data['isSuccess'] == true) {
-                    $return = array(
-                        'status' => true,
-                        'message' => 'File uploaded successfully',
-                        'data' => $data
-                    );
-                } else {
-                    $return = array(
-                        'status' => false,
-                        'message' => 'File failed to upload',
-                        'data' => $data
-                    );
-                }
-
-			} else {
-                $return = array('status'=>false,'message'=>'File does not exist !');
-			}
-
-		} else {
-            $return = array('status'=>false,'message'=>'This file has been processed !');
-		}
-
-		echo json_encode($return);		
-
-	}
-
 	function rmfile() 
     {
 		$id = $this->input->post('id');
@@ -300,201 +198,381 @@ class ImportLaporanHarian extends MY_Controller
 		echo json_encode($return);		
 	}
 
-    public function process()
-    {
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-        $polda_id = $this->input->post('polda_id');
-        $date = $this->input->post('date');
-        $polres_id = $this->input->post('polres_id');
-        $jenis_laporan = $this->input->post('jenis_laporan');
-        $value = [];
-        $url = '';
-        $max_loop = count($this->input->post('polres_id'));
-        if ($jenis_laporan == 1) {
-            // Data Dakgar lantas
-
-            $url = 'laka_langgar/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'capture_camera' => $this->input->post('capture_camera')[$i],
-                    'statis' => $this->input->post('statis')[$i],
-                    'mobile' => $this->input->post('mobile')[$i],
-                    'online' => $this->input->post('online')[$i],
-                    'posko' => $this->input->post('posko')[$i],
-                    'preemtif' => $this->input->post('preemtif')[$i],
-                    'preventif' => $this->input->post('preventif')[$i],
-                    'odol_227' => $this->input->post('odol_227')[$i],
-                    'odol_307' => $this->input->post('odol_307')[$i]
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 2) {
-            // Data pelanggaran konvensional
-
-            $url = 'garlantas/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'pelanggaran_berat' => $this->input->post('pelanggaran_berat')[$i],
-                    'pelanggaran_ringan' => $this->input->post('pelanggaran_ringan')[$i],
-                    'pelanggaran_sedang' => $this->input->post('pelanggaran_sedang')[$i],
-                    'teguran' => $this->input->post('teguran')[$i]
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 3) {
-            // Data laka lantas
-
-            $url = 'laka_lantas/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'meninggal_dunia' => $this->input->post('meninggal_dunia')[$i],
-                    'luka_berat' => $this->input->post('luka_berat')[$i],
-                    'luka_ringan' => $this->input->post('luka_ringan')[$i],
-                    'kerugian_material' => $this->input->post('kerugian_material')[$i]
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 4) {
-            $url = 'turjagwali/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'penjagaan' => $this->input->post('penjagaan')[$i],
-                    'pengawalan' => $this->input->post('pengawalan')[$i],
-                    'patroli' => $this->input->post('patroli')[$i],
-                    'pengaturan' => $this->input->post('pengaturan')[$i],
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 5) {
-            $url = 'dikmaslantas/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'media_cetak' => $this->input->post('media_cetak')[$i],
-                    'media_elektronik' => $this->input->post('media_elektronik')[$i],
-                    'media_sosial' => $this->input->post('media_sosial')[$i],
-                    'laka_langgar' => $this->input->post('laka_langgar')[$i],
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 6) {
-            $url = 'penyebaran/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'stiker' => $this->input->post('stiker')[$i],
-                    'leaflet' => $this->input->post('leaflet')[$i],
-                    'spanduk' => $this->input->post('spanduk')[$i],
-                    'billboard' => $this->input->post('billboard')[$i],
-                    'jemensosprek' => $this->input->post('jemensosprek')[$i]
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 7) {
-            $url = 'sim/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 8) {
-            $url = 'bpkb/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan == 9) {
-            $url = 'ranmor/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'mobil_penumpang' => $this->input->post('mobil_penumpang')[$i],
-                    'mobil_barang' => $this->input->post('mobil_barang')[$i],
-                    'mobil_bus' => $this->input->post('mobil_bus')[$i],
-                    'ransus' => $this->input->post('ransus')[$i],
-                    'sepeda_motor' => $this->input->post('sepeda_motor')[$i],
-                ];
-
-                array_push($value, $object);
-            }
-        } else if ($jenis_laporan ==  10) {
-            $url =  'stnk/add?polda=true';
-            for ($i = 0; $i < $max_loop; $i++) {
-                $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
-                    'baru' => $this->input->post('baru')[$i],
-                    'perpanjangan' => $this->input->post('perpanjangan')[$i],
-                    'rubentina' => $this->input->post('rubentina')[$i],
-                ];
-
-                array_push($value, $object);
-            }
+	function format()
+	{
+		$type = $this->uri->segment('4');
+        switch ($type) {
+            case '1':
+                $filename = 'Format-Import-Dakgar-Lantas.xlsx';
+            break;
+            case '2':
+                $filename = 'Format-Import-Pelanggaran-Konvensional.xlsx';
+            break;
+            case '3':
+                $filename = 'Format-Import-Kecelakaan-Lalu-Lintas.xlsx';
+            break;
+            case '4':
+                $filename = 'Format-Import-Turjagwali.xlsx';
+            break;
+            case '5':
+                $filename = 'Format-Import-Dikmaslantas.xlsx';
+            break;
+            case '6':
+                $filename = 'Format-Import-Penyebaran-dan-Pemasangan.xlsx';
+            break;
+            case '7':
+                $filename = 'Format-Import-SIM.xlsx';
+            break;
+            case '8':
+                $filename = 'Format-Import-BPKB.xlsx';
+            break;
+            case '9':
+                $filename = 'Format-Import-RANMOR.xlsx';
+            break;
+            case '10':
+                $filename = 'Format-Import-STNK.xlsx';
+            break;
         }
-
-        $dummy = [
-            [
-                'name' => 'polda_id',
-                'contents' => $polda_id
-            ],
-            [
-                'name' => 'date',
-                'contents' => $date
-            ],
-            [
-                'name' => 'value',
-                'contents' => $value
-            ]
-        ];
-
         
-        $data = guzzle_request('POST', $url, [
-            'json' => [
-                'polda_id' => $polda_id,
-                'date' => $date,
-                'value' => $value
-            ],
-            'headers' => $this->_headers
-        ]);
+        $structure = 'files/format/'.$filename;
 
-        if ($data['isSuccess'] == true) {
-            $res = array(
+        if(file_exists($structure)){
+            $data = file_get_contents($structure);
+            force_download($filename, $data);
+            $return = array(
                 'status' => true,
-                'message' => 'Berhasil tambah data.',
-                'data' => $data
+                'message' => 'Successfully downloaded'
             );
         } else {
-            $res = array(
+            $return = array(
                 'status' => false,
-                'message' => 'Gagal tambah data.',
-                'data' => $data
+                'message' => 'File not found'
             );
         }
+		echo json_encode($return);		
+	}
 
-        echo json_encode($res);
-            
-    }
+	function process()
+	{
+		$id = $this->input->post('id');
+		$polda_id = $this->input->post('polda_id');
+		$tanggal = $this->input->post('tanggal');
+		$status = $this->input->post('status');
+		$file_name = $this->input->post('file_name');
+		$type = $this->input->post('type');
+		$message = '';
+
+		if ($status=='0') {
+			$structure = 'files/import/';
+			$file_name = $structure.$file_name;
+
+			try {
+				$inputFileType  = PHPExcel_IOFactory::identify($file_name);
+				$objReader = PHPExcel_IOFactory::createReader($inputFileType);
+				$objReader->setReadDataOnly(false);
+				$objPHPExcel = $objReader->load($file_name);
+				$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+				$file_exists = true;
+			} catch (Exception $e) {
+				$file_exists = false;
+			}
+
+			if ($file_exists) {
+				$raws = array();
+				$i=0;
+				foreach($sheetData as $row){
+					if($i>0){
+						if (strtoupper(((isset($row['B']))?((trim($row['B'])=='')?NULL:$row['B']):NULL))!=NULL) {
+							
+                            if($type==1) {
+
+                                /**
+                                 * dakgarlantas
+                                 */
+                                
+                                $url = 'import/dakgarlantas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+                                $H = trim(trim($row['H']));
+                                $I = trim(trim($row['I']));
+                                $J = trim(trim($row['J']));
+                                $K = trim(trim($row['K']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'capture_camera'=>$C,
+                                    'statis'=>$D,
+                                    'mobile'=>$E,
+                                    'online'=>$F,
+                                    'posko'=>$G,
+                                    'preemtif'=>$H,
+                                    'preventif'=>$I,
+                                    'odol_227'=>$J,
+                                    'odol_307'=>$K
+                                );
+
+                            }else if($type==2) {
+                                
+                                /**
+                                 * Konvensional
+                                 */
+
+                                $url = 'import/konvensional';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'pelanggaran_berat'=>$C,
+                                    'pelanggaran_sedang'=>$D,
+                                    'pelanggaran_ringan'=>$E,
+                                    'teguran'=>$F
+                                );
+
+                            }else if($type==3) {
+                                
+                                /**
+                                 * Kecelakaan Lalu Lintas
+                                 */
+
+                                $url = 'import/lalulintas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'meninggal_dunia'=>$C,
+                                    'luka_berat'=>$D,
+                                    'luka_ringan'=>$E,
+                                    'kerugian_material'=>$F
+                                );
+
+                            }else if($type==4) {
+                                
+                                /**
+                                 * Turjagwali
+                                 */
+
+                                $url = 'import/turjagwali';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'penjagaan'=>$C,
+                                    'pengawalan'=>$D,
+                                    'patroli'=>$E,
+                                    'pengaturan'=>$F
+                                );
+
+                            }else if($type==5) {
+                                
+                                /**
+                                 * Dikmaslantas
+                                 */
+
+                                $url = 'import/dikmaslantas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'media_cetak'=>$C,
+                                    'media_elektronik'=>$D,
+                                    'media_sosial'=>$E,
+                                    'laka_langgar'=>$F
+                                );
+
+                            }else if($type==6) {
+                                
+                                /**
+                                 * Penyebaran/Pemasangan
+                                 */
+
+                                $url = 'import/penyebaran';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'stiker'=>$C,
+                                    'leaflet'=>$D,
+                                    'spanduk'=>$E,
+                                    'billboard'=>$F,
+                                    'jemensosprek'=>$G
+                                );
+
+                            }else if($type==7) {
+                                
+                                /**
+                                 * SIM
+                                 */
+
+                                $url = 'import/sim';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'baru'=>$C,
+                                    'perpanjangan'=>$D
+                                );
+
+                            }else if($type==8) {
+                                
+                                /**
+                                 * BPKB
+                                 */
+
+                                $url = 'import/bpkb';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'baru'=>$C,
+                                    'perpanjangan'=>$D,
+                                    'rubentina'=>$E
+                                );
+
+                            }else if($type==9) {
+                                
+                                /**
+                                 * RANMOR
+                                 */
+
+                                $url = 'import/ranmor';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'mobil_penumpang'=>$C,
+                                    'mobil_barang'=>$D,
+                                    'mobil_bus'=>$E,
+                                    'ransus'=>$F,
+                                    'sepeda_motor'=>$G
+                                );
+
+                            }else if($type==10) {
+                                
+                                /**
+                                 * STNK
+                                 */
+
+                                $url = 'import/stnk';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+
+                                $raws[] = array(
+                                    'polda_id'=>$polda_id,
+                                    'polres_name'=>$B,
+                                    'date'=>$tanggal,
+                                    'baru'=>$C,
+                                    'perpanjangan'=>$D,
+                                    'rubentina'=>$E
+                                );
+
+                            }
+						}						
+					}
+					$i++;
+				}
+
+                /**
+                 * Send request parameter to api
+                 */
+                $data = guzzle_request('POST', $url, [
+                    'json' => [
+                        'source_id' => $id,
+                        'value' => $raws
+                    ],
+                    'headers' => $this->_headers
+                ]);
+
+                /**
+                 * Respon 
+                 */
+                if ($data['isSuccess'] == true) {
+                    $return = array(
+                        'status' => true,
+                        'message' => 'File uploaded successfully',
+                        'data' => $data
+                    );
+                } else {
+                    $return = array(
+                        'status' => false,
+                        'message' => 'File failed to upload',
+                        'data' => $data
+                    );
+                }
+
+			} else {
+                $return = array('status'=>false,'message'=>'File does not exist !');
+			}
+
+		} else {
+            $return = array('status'=>false,'message'=>'This file has been processed !');
+		}
+
+		echo json_encode($return);		
+
+	}
 }

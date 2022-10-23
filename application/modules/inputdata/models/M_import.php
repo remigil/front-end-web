@@ -59,95 +59,33 @@ class M_import extends CI_Model
             $row['created_at'] = $field['created_at'];
             $row['status'] = $status;
             if($field['status']==0){
-                switch ($field['jenis_laporan']) {
-                    case '1':
-                        $row['action'] = '<button onclick="garlantas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
+                /**
+                 * Action Process
+                 */
+                $row['action'] = '<button onclick="process('.$field['jenis_laporan'].')" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
 
-                    case '2':
-                        $row['action'] = '<button onclick="konvensional()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-
-                    case '3':
-                        $row['action'] = '<button onclick="lalulintas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                        
-                    case '4':
-                        $row['action'] = '<button onclick="turjagwali()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-
-                    case '5':
-                        $row['action'] = '<button onclick="dikmaslantas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-
-                    case '6':
-                        $row['action'] = '<button onclick="penyebaran()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                        
-                    case '7':
-                        $row['action'] = '<button onclick="sim()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                        
-                    case '8':
-                        $row['action'] = '<button onclick="bpkb()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                        
-                    case '9':
-                        $row['action'] = '<button onclick="ranmor()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                        
-                    case '10':
-                        $row['action'] = '<button onclick="stnk()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Process</button>';
-                        break;
-                }
+                /**
+                 * Action Delete
+                 */
                 $row['action'] .=' &nbsp; <button onclick="rmfile()" id="btn-delete" data-id="'.$field['id'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-danger">Delete</button>';
             }if($field['status']==2){
-                switch ($field['jenis_laporan']) {
-                    case '1':
-                        $row['action'] = '<button onclick="garlantas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
+                /**
+                 * Action Reprocess
+                 */
+                $row['action'] = '<button onclick="process('.$field['jenis_laporan'].')" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-primary">Reprocess</button>';
 
-                    case '2':
-                        $row['action'] = '<button onclick="konvensional()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-
-                    case '3':
-                        $row['action'] = '<button onclick="lalulintas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                        
-                    case '4':
-                        $row['action'] = '<button onclick="turjagwali()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-
-                    case '5':
-                        $row['action'] = '<button onclick="dikmaslantas()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-
-                    case '6':
-                        $row['action'] = '<button onclick="penyebaran()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                        
-                    case '7':
-                        $row['action'] = '<button onclick="sim()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                        
-                    case '8':
-                        $row['action'] = '<button onclick="bpkb()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                        
-                    case '9':
-                        $row['action'] = '<button onclick="ranmor()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                        
-                    case '10':
-                        $row['action'] = '<button onclick="stnk()" id="btn-process" data-id="'.$field['id'].'" data-polda_id="'.$field['polda_id'].'" data-tanggal="'.$field['tanggal'].'" data-status="'.$field['status'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-info">Reprocess</button>';
-                        break;
-                }
+                /**
+                 * Action Delete
+                 */
                 $row['action'] .=' &nbsp; <button onclick="rmfile()" id="btn-delete" data-id="'.$field['id'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-danger">Delete</button>';
             }else if($field['status']==1){
                 $row['action'] = '<span class="btn btn-sm btn-success">Done</span>';
             }
+            /**
+             * Action View
+             */
             $row['action'] .=' &nbsp; <button onclick="view()" id="btn-view" data-id="'.$field['id'].'" data-file_name="'.$field['file_name'].'" class="btn btn-sm btn-warning">View</button>';
+            
             $data[] = $row;
         }
 

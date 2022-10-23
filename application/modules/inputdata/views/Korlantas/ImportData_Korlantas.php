@@ -6,6 +6,7 @@
 </nav>
 <div class="page">
     <button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".ImportFile">Import File</button>
+    <button type="button" class="btn btn-info waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".FormatFile">Download Format</button>
     <div class="card">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
@@ -55,7 +56,7 @@
                                     <option value="2">Ditkamsel</option>
                                     <option value="3">Ditregident</option>
                                 </select>
-                                <label class="labelmui">Satker Mabes</label>
+                                <label class="labelmui">Satker</label>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -87,6 +88,32 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade FormatFile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Format Import Laporan Harian</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Dakgar Lantas</button></li>
+                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Konvensional</button></li>
+                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
+                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
+                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
+                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran dan Pemasangan</button></li>
+                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import SIM</button></li>
+                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import BPKB</button></li>
+                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import RANMOR</button></li>
+                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import STNK</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="<?php echo base_url(); ?>assets/admin/js/jquery.livequery.js"></script>
 <script>
     $(document).ready(function() {
@@ -227,61 +254,6 @@
         });
     });
 
-	function garlantas()
-    {
-		id = $('#btn-process').data('id');
-		polda_id = $('#btn-process').data('polda_id');
-		tanggal = $('#btn-process').data('tanggal');
-		status = $('#btn-process').data('status');
-		file_name = $('#btn-process').data('file_name');
-        Swal.fire({
-            title: 'Do you want to process this data?',
-            showDenyButton: false,
-            showCancelButton: true,
-            icon: "warning",
-            confirmButtonText: 'Process'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type:"POST",
-                    dataType:"json",data:{
-                        id:id,
-                        polda_id:polda_id,
-                        tanggal:tanggal,
-                        status:status,
-                        file_name:file_name
-                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanHarian/dakgarlantas",
-                    success: function(response) {
-                        $("#overlay").fadeOut(300);
-                        if (response.status===true) {
-                            Swal.fire(
-                                `File processed successfully`,
-                                '',
-                                'success'
-                            ).then(function() {
-                                userDataTable.draw();
-                            });
-                        } else {
-                            Swal.fire(
-                                `File failed to process`,
-                                '',
-                                'error'
-                            ).then(function() {});
-                        }
-                    },error: function(response){
-                        Swal.fire(
-                            `File failed to process`,
-                            '',
-                            'error'
-                        ).then(function() {});
-                    }
-                })
-            } else if (result.isDenied) {
-                Swal.fire('Not processed', '', 'info')
-            }
-        });
-	}
-
     function rmfile()
     {
         id = $('#btn-delete').data('id');
@@ -345,4 +317,65 @@
             }
         });
     }
+
+    function format(type)
+    {
+        window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/format/"+type+"";
+    }
+
+	function process(type)
+    {
+		id = $('#btn-process').data('id');
+		polda_id = $('#btn-process').data('polda_id');
+		tanggal = $('#btn-process').data('tanggal');
+		status = $('#btn-process').data('status');
+		file_name = $('#btn-process').data('file_name');
+        Swal.fire({
+            title: 'Do you want to process this data?',
+            showDenyButton: false,
+            showCancelButton: true,
+            icon: "warning",
+            confirmButtonText: 'Process'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:"POST",
+                    dataType:"json",data:{
+                        id:id,
+                        polda_id:polda_id,
+                        tanggal:tanggal,
+                        status:status,
+                        file_name:file_name,
+                        type: type
+                    },url:'<?php echo base_url(); ?>inputdata/ImportLaporanHarian/process',
+                    success: function(response) {
+                        $("#overlay").fadeOut(300);
+                        if (response.status===true) {
+                            Swal.fire(
+                                `File processed successfully`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                userDataTable.draw();
+                            });
+                        } else {
+                            Swal.fire(
+                                `File failed to process`,
+                                '',
+                                'error'
+                            ).then(function() {});
+                        }
+                    },error: function(response){
+                        Swal.fire(
+                            `File failed to process`,
+                            '',
+                            'error'
+                        ).then(function() {});
+                    }
+                })
+            } else if (result.isDenied) {
+                Swal.fire('Not processed', '', 'info')
+            }
+        });
+	}
 </script>
