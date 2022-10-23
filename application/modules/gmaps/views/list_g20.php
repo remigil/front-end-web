@@ -10,7 +10,7 @@
 </div> --> 
 
 <script>
-  console.log('ada'); 
+  console.log('ada2'); 
   fetch('<?php echo base_url()?>dataVendor/gpsId.json')
     .then((response) => response.json())
     .then((json) => console.log(json));
