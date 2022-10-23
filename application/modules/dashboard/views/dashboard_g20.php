@@ -164,6 +164,12 @@
                     </label>
                 </div>
 
+                <div class="cat gpsIdDisplay" style="margin-left: 10px;">
+                    <label>
+                        <input checked type="checkbox" value="gpsId" name="filter" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Gpsid Superspring</span>
+                    </label>
+                </div>
+
                 <div class="cat kegiatanDisplay">
                     <label>
                         <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -966,7 +972,7 @@
         });
         }
 
-        setInterval(gpsId, 50000); 
+        setInterval(gpsId, 5000); 
 
 
         function serverSideGet(){
