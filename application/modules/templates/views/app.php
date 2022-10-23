@@ -550,6 +550,9 @@
 
         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
             <header id="page-topbar" style="background: #1D1D1D;">
+		<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') {?>
+		<header id="page-topbar" style="background: #000dda;">
+			
         <?php } else { ?>
             <header id="page-topbar">
         <?php } ?>
@@ -619,6 +622,8 @@
 					<?php } else if ($this->uri->segment(1) == "dashboard") { ?>
 						<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+						<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:white"><?php echo $title; ?></h5>
 						<?php } else { ?>
 							<div>
 								<p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
@@ -644,10 +649,12 @@
                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
 									<img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+								<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+									<img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
 								<?php } else { ?>
 									<i data-feather="bell" class="icon-lg"></i>
-									<span class="badge bg-danger rounded-pill" id="totalNotif"></span>
 								<?php } ?>
+								<span class="badge bg-danger rounded-pill" id="totalNotif"></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                                 <div class="p-3">
@@ -681,7 +688,10 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/profile.svg" alt="Header Avatar">
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar">
+							<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+								<img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
+
                             <?php } else { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
@@ -983,6 +993,83 @@
                                 <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
 									<img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
+                                </a>
+                            </li>
+						<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+							<li>
+								<a href="<?php echo base_url(); ?>dashboard">
+                                    <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Beranda</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+									<img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-authentication">Rekapitulasi dan Grafik</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+											<span data-key="t-dashboard">Data Pelanggaran</span>
+										</a>
+									</li>
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
+											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+											<span data-key="t-dashboard">Data Kecelakaan</span>
+										</a>
+									</li>
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+											<span data-key="t-dashboard">Data Turjawali</span>
+										</a>
+									</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
+                                    <img src="<?= base_url('assets/sidebar/icon-dataharianOpsus.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Data Harian Opsus</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo base_url('anev/Anev'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Anev</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-petaDigital.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Peta Digital</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">CCTV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">Trip On</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+									<img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">ERI</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
+									<img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">IRSMS</span>
                                 </a>
                             </li>
 
