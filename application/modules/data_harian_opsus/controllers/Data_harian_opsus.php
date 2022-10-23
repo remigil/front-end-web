@@ -41,6 +41,12 @@ class Data_harian_opsus extends MY_Controller
 		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "Data Harian Operasi Khusus";
             $page_content["page"] = "data_harian_opsus/Bagtik/data_harian_opsus_view";
+		} else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Kapolda/data_harian_opsus_view";
+		} else if ($this->session->userdata['role'] == 'Kapolres') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Kapolres/data_harian_opsus_view";
         }
 
         $page_content["data"] = '';
