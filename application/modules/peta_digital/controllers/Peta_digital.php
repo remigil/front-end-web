@@ -41,6 +41,12 @@ class Peta_digital extends MY_Controller
 		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "Peta Digital";
             $page_content["page"] = "peta_digital/Bagtik/peta_digital_view";
+		} else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["title"] = "Peta Digital";
+            $page_content["page"] = "peta_digital/Kapolda/peta_digital_view";
+		} else if ($this->session->userdata['role'] == 'Kapolres') {
+            $page_content["title"] = "Peta Digital";
+            $page_content["page"] = "peta_digital/Kapolres/peta_digital_view";
         }
 
         $getCategory = guzzle_request('GET', 'category_fasum', [

@@ -1,12 +1,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
+	<!-- greetings -->
+	<h5 >Welcome to Dashboard Executive</h5>
+	<h1 style="font-weight:bolder ; text-transform:uppercase; color:#000dda;"><?php echo $this->session->userdata['full_name']; ?></h1>
+	<p>today is </p>
+	<!-- end greetings -->
 	<!-- Slider Statistik -->
 
     <div class="row">
         <div class="col-lg-12">
-            <div>
-                <h4>Statistik Bogor</h4>
-            </div>
+			<div class="row justify-content-between align-items-center">
+				<div class="col-md-4">
+					<h4>Statistik Nasional</h4>
+				</div>
+				<div class="col-md-3">
+					<p style="color: red; margin-bottom:0;">Last Update</p>
+				</div>
+			</div>
             <div class="row">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -14,8 +24,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#11617A">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Dakgar Lantas</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-dakgarlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -30,6 +41,7 @@
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
                                         <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-garlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -42,8 +54,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#CB2D3E">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-8 col-lg-7 col-md-5 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/iconlakalantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -56,8 +69,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#F06619">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-5 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Data Turjagwali</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-dataturjagwali.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -70,8 +84,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Dikmas Lantas</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-dikmaslantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -84,8 +99,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#2C117A">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-9 col-lg-8 col-md-6 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-penyebaran.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -98,10 +114,11 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
                                 <div class=" card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
+									<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">SIM</h4>
+											<p class="text-white">43.233</p>
                                         </div>
-                                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-sim.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                         </div>
                                     </div>
@@ -112,8 +129,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#10A9FF">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">STNK</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-stnk.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -126,8 +144,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#F06619">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-5 col-lg-5 col-md-3 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">BPKB</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-bpkb.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -140,8 +159,9 @@
                             <div class="card" style="border-radius: 5px !important; background-color:#3CA55C">
                                 <div class="card-body">
                                     <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                        <div class="col-xxl-6 col-xl-7 col-lg-5 col-md-5 col-sm-3 col-4">
+                                        <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
                                             <h4 class="text-wrap fw-light text-light">RANMOR</h4>
+											<p class="text-white">43.233</p>
                                         </div>
                                         <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
                                             <img src="<?= base_url('assets/dashboard/icon-ranmor.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
@@ -158,38 +178,22 @@
 
 <!-- end slider statistik  -->
 
+    
     <div class="row">
-        <div>
-            <h5>DIREKTORAT LANTAS</h5>
-        </div>
-        <div class="col-md-12">
-            <div class="mt-2">
-                <div class="card shadow-sm">
-                    <div class="text-center mt-5">
-                        <h5>lAPORAN DITGAKKUM POLRES BOGOR</h5>
-                    </div>
-                    <div>
-                        <div class="main-chart">
-                            <div id="chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="row">
+		<div class="col-md-12">
+			<h4>DIREKTORAT LANTAS NASIONAL</h4>
+		</div>
         <div class="col-md-7">
-            <div class="card shadow-sm">
-                <div class="text-center mt-5">
-                    <h5>LAPORAN DITKAMSEL POLRES BOGOR</h5>
-                </div>
-                <div>
-                    <div class="main-chart">
-                        <div id="chart2"></div>
-                    </div>
-                </div>
-            </div>
+			<div class="card shadow-sm">
+				<div class="text-center mt-5">
+					<h5>lAPORAN DITGAKKUM POLRES BOGOR</h5>
+				</div>
+				<div>
+					<div class="main-chart">
+						<div id="chart"></div>
+					</div>
+				</div>
+			</div>
         </div>
         <div class="col-md-5">
             <div class="row">
