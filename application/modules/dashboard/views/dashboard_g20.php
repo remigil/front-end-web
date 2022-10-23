@@ -90,6 +90,10 @@
                                         <span>Fasilitas Khusus</span> 
                                     </div> 
                                     <div class="col-md-6">
+                                        <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
+                                        <span>Kendaraan Listrik</span> 
+                                    </div> 
+                                    <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input" >  
                                         <span>Trouble Spot</span> 
                                     </div>   
@@ -161,6 +165,12 @@
                 <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                     <label>
                         <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                    </label>
+                </div>
+
+                <div class="cat gpsIdDisplay" style="margin-left: 10px;">
+                    <label>
+                        <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Kendaraan Listrik</span>
                     </label>
                 </div>
 
@@ -720,6 +730,7 @@
 
     // console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
+    var markerGpsId = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
     var markerLaporanPanic = new Array();
@@ -753,21 +764,11 @@
 
     var dummyGetTracking = new Array();
 
+    var dummyIdKendaraanGpsId= new Array();
+    var autoGpsId;
+    
 
-    $(document).ready(function() { 
-        // alert('oke');
-      
-        // var arrayContoh = [ 
-        //     {-8.551740, 115.077643},
-        //     {-8.451740, 115.089643},
-        //     {-8.458519301130188,115.14931575647383},
-        //     {-8.452198812821242,115.09396433830263},
-        //     {-8.5068977,115.2622931},
-        // ];  
-
-        // $.getJSON("gpsId_20.10.2022.json", function(json) {
-        //     alert(json);
-        // });
+    $(document).ready(function() {  
 
 
         var initialCenter = [-8.751740, 115.149643];
@@ -882,6 +883,165 @@
                 }
             });
         });
+
+
+
+
+
+        function gpsId() { 
+            fetch('<?php echo base_url()?>dataVendor/gpsId.json')
+            .then((response) => response.json())
+            .then((ress) => {
+                console.log(ress[0].VehicleNumber);
+                var validasiId = dummyIdKendaraanGpsId.filter(function(val) {
+                    return val == ress[0].VehicleId;
+                });
+                if(validasiId > 0){ 
+                    // console.log('id sudah ada');
+                }else{ 
+                    dummyIdKendaraanGpsId.push(ress[0].VehicleId);
+                    // console.log('id tidak ada');
+                }
+                
+                var jenis = `
+                <div>
+                    <div>
+                        <img src="<?php echo base_url();?>assets/icon/gpsId2.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                    </div>
+                    <div style="margin-top: -30px;">
+                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[0].VehicleNumber}</span>
+                    </div>
+                </div>`;
+                if(markerGpsId[ress[0].VehicleId] != null){ 
+                    var fotoPetugas = "";
+                    markerGpsId[ress[0].VehicleId].setLatLng([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
+                    // className: 'location-pin',
+                    html: jenis,
+                    iconSize: [5, 5],
+                    iconAnchor: [5, 10]
+                    // iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                        <div class="text-center" style="width: 300px;">  
+                            <div class="row text-start mt-3">
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                </div>
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Speed}</span>
+                                </div>    
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Odometer}</span>
+                                </div>   
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
+                                </div>  
+
+                                <div class="col-md-12 text-center  mt-3">
+                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                    <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
+                                </div> 
+                            </div> 
+                                
+                        </div>
+                    `).update();  
+                }else{  
+                    markerGpsId[ress[0].VehicleId] = L.marker([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
+                        // className: 'location-pin',
+                        html: jenis,
+                        iconSize: [5, 5],
+                        iconAnchor: [5, 10]
+                        // iconAnchor: [10, 33]
+                        }) }).bindPopup(`
+                        <div class="text-center" style="width: 300px;">  
+
+                            
+                            <div class="row text-start mt-3">
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                </div>
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
+                                </div>   
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Speed}</span>
+                                </div>    
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Odometer}</span>
+                                </div>   
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
+                                </div>  
+
+                                <div class="col-md-12 text-center  mt-3">
+                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                    <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
+                                </div> 
+                            </div> 
+                                
+                        </div>
+                    `).addTo(mapContainer);    
+                }  
+            });
+        }
+
+
+        autoGpsId = setInterval(gpsId, 5000);
+        $("#gpsIdDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#gpsId").prop('checked', true); 
+                autoGpsId = setInterval(gpsId, 5000); 
+            }else{
+                $("#gpsId").prop('checked', false); 
+                $("#gpsId").val(); 
+                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
+                    mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
+                }
+                dummyIdKendaraanGpsId = new Array(); 
+                markerGpsId = new Array();  
+                clearInterval(autoGpsId);
+            } 
+        }); 
 
 
         function serverSideGet(){
@@ -2503,7 +2663,8 @@
             });
         }
 
-        $("#filterCari").on("click", function (e) { 
+        $("#filterCari").on("click", function (e) {  
+
             if($("#cctv").is(':checked')){ 
                 $("#cctvDisplay").prop('checked', true); 
             }else{
@@ -2533,14 +2694,27 @@
             }else{
                 $("#operasiDisplay").prop('checked', false); 
                 $("#operasiDisplay").val();
+            } 
+            if($("#gpsId").is(':checked')){ 
+                $("#gpsIdDisplay").prop('checked', true); 
+                autoGpsId = setInterval(gpsId, 5000); 
+            }else{
+                $("#gpsIdDisplay").prop('checked', false); 
+                $("#gpsIdDisplay").val(); 
+                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
+                    mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
+                }
+                dummyIdKendaraanGpsId = new Array(); 
+                markerGpsId = new Array();  
+                clearInterval(autoGpsId);
             }
-
-            // console.log({a: $("#startdate").val(),b:$("#enddate").val()});
-            // userDataTable.draw();
-            serverSideFilter();
+            
+            serverSideFilter(); 
         });
 
 
+
+        
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#jadwal").prop('checked', true); 
