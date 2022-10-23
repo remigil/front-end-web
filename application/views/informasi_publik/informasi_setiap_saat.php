@@ -30,42 +30,107 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="containter">
+<div class="container margin-top-30">
 
-	<section id="contact" class="contact">
-		<div class="container">
 	
-			<div class="row gy-5 gx-lg-5">
-	
-			<div class="col-lg-4 d-flex justify-content">
-				<img src="<?= base_url()?>assets/fe/client/NTMC1.png" alt="">
-			</div>
-			<div class="col-lg-8">
-			<div class="info">
-					<h3>Pusat Kendali, Koordinasi, Komunikasi dan Informasi Korlantas Polri</h3>
-					<p>Call Center : 1-500-669</p>
-					<p>SMS center : 9119</p>
-	
-					<div class="info-item d-flex">
-						<i class="bi bi-geo-alt flex-shrink-0"></i>
-						<div>
-							<h4>Alamat:</h4>
-							<p>Jl. MT Haryono Kav. 37 – 38, Jakarta 12770</p>
-						</div>
-					</div><!-- End Info Item -->
-					<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="https://web.facebook.com/pusatk3ikorlantaspolri/"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="https://twitter.com/K3IKorlantas"><i class="icon-twitter"></i></a></li>
-					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
-					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
-				</ul>
-				</div>
-			</div><!-- End Contact Form -->
-	
-			</div>
-	
-		  </div>
-		</section><!-- End Contact Section -->
+			<h3>Informasi Berkala</h3>
+			<p>deskripsi:</p>
+			<p>Seluruh Informasi berkala merupakan Informasi yang wajib disediakan setiap saat.</p>
+		
+			<h3>Perizinan</h3>
+			<p>deskripsi:</p>
+			<p>Informasi mengenai ringkasan berupa syarat dan SOP pelayanan di lingkungan Korlantas Polri :</p>
+			<ul>
+				<li>Direktorat Kamsel Korlantas Polri;</li>
+				<li>Direktorat Gakkum Korlantas Polri;</li>
+				<li>Direktorat Regident Korlantas Polri;</li>
+				<li>Bagops Korlantas Polri;</li>
+				<li>Bagrenmin Korlantas Polri;</li>
+				<li>Bag TIK Korlantas Polri.</li>
+			</ul>
+		
+			<h3>Organisasi, Administrasi, Kepegawaian dan Keuangan</h3>
+			<p>deskripsi:</p>
+			<h5>Informasi mengenai Pedoman Organisasi :</h5>
+			<ul>
+				<li>Organisasi dan Tata Kerja Korlantas Polri</li>
+				<li>Tata Cara Tetap Pelaksanaan tugas dan fungsi Korlantas Polri</li>
+				<li>Tata Cara Tetap Pelaksanaan Komunikasi Publik (Kehumasan)</li>
+				<li>Standar Prosedur Operasional Layanan Informasi Publik</li>
+			</ul>
+			<h5>Informasi mengenai Pedoman Administrasi :</h5>
+			<ul>
+				<li>
+					Sistem Administrasi Perkantoran, yang terdiri dari :
+					<ul>
+					
+						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/12/PERATURAN-KAPOLRI-NOMOR-7-TAHUN-2017-TENTANG-NASKAH-DINAS-DAN-TATA-PERSURATAN-DINAS-DILINGKUNGAN-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA.pdf" target="_blank" rel="noopener">Peraturan Kepala Kepolisian Negara Republik Indonesia Nomor 7 Tahun 2017 Tentang Naskah Dinas Dan Tata Persuratan Dinas Di Lingkungan Kepolisian Negara Republik Indonesia</a></li>
+					</ul>
+				</li>
+				<li>Kode Klasifikasi Arsip Korlantas Polri</li>
+				<li>Petunjuk Teknis Tata Naskah Dinas</li>
+				<li>Petunjuk Pelaksanaan Tata Naskah Dinas Elektronik</li>
+				<li>Jadwal Retensi Arsip</li>
+			</ul>
+
+			<h5>Informasi mengenai Pedoman Kepegawaian :</h5>
+			<ul>
+				<li>Kode Etik Pegawai Negeri pada Kepolisian Negara Republik Indonesia</li>
+				<li>Jabatan Umum dan Peta Jabatan di Lingkungan Korlantas Polri</li>
+				<li>Pedoman Penyusunan SOP di Lingkungan Korlantas Polri</li>
+				<li>Kelas Jabatan di Lingkungan Korlantas Polri</li>
+				<li>Tata Cara Penilaian Prestasi Kerja Pegawai Negeri pada Polri di Lingkungan Korlantas Polri</li>
+			</ul>
+
+			<h5>Informasi mengenai Keuangan :</h5>
+			<ul>
+				<li>Tata Cara Penghitungan dan Pemberian Tunjangan Kinerja Pegawai</li>
+				<li>Standar Biaya</li>
+				<li>Tata Cara Tetap Administrasi Pelaksanaan Anggaran</li>
+				<li>Persyaratan Penyedia Barang/Jasa di Lingkungan Korlantas Polri dan Pendampingan terhadap Proses Pemilihan Penyedia Barang/Jasa</li>
+				<li>Pelaksanaan Penetapan Pengelola Anggaran</li>
+				<li>Persiapan Pelaksanaan Anggaran DIPA</li>
+				<li>Persyaratan Penyedia Barang/Jasa</li>
+			</ul>
+
+			<h3>Statistik dan Informasi Transportasi</h3>
+			<p>deskripsi:</p>
+			<p>Informasi mengenai Statistik dan Informasi bidang lalu lintas yang dirangkum ke dalam sebuah buku dan di terbitkan setiap tahunnya :</p>
+			<ul>
+				<li>
+					Buku Polantas Dalam Angka Korlantas Polri;
+					<ul>
+						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2019.pdf">Buku Polantas Dalam Angka Tahun 2019</a></li>
+						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/POLANTAS-DALAM-ANGKA-TAHUN-2018.pdf">Buku Polantas Dalam Angka Tahun 2018</a></li>
+						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2017.pdf">Buku Polantas Dalam Angka Tahun 2017</a></li>
+						<li><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/POLANTAS-DALAM-ANGKA-TAHUN-2016.pdf">Buku Polantas Dalam Angka Tahun 2016</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<h3>Persuratan KORLANTAS POLRI</h3>
+			<p>deskripsi:</p>
+			<p>Informasi mengenai persuratan keluar ataupun masuk di lingkungan KORLANTAS POLRI dapat diraih melalui permohonan informasi publik. Berikut contoh dokumen persuratan KORLANTAS POLRI .</p>
+
+			<h3>Dokumen Pendukung</h3>
+			<p>deskripsi:</p>
+			<p>Informasi mengenai dokumen pendukung dalam penyusunan Peraturan/Kebijakan/Keputusan yang telah ditetapkan oleh Korlantas Polri dapat di raih melalui permohonan informasi publik. Berikut merupakan contoh dokumen pendukung tersebut :</p>
+			<ul>
+				<li>Tahun 2021</li>
+				<li>Tahun 2020</li>
+				<li>Tahun 2019</li>
+			</ul>
+
+			<h3>Dokumen Perjanjian Kerja</h3>
+			<p>deskripsi</p>
+			<p>Informasi mengenai surat-surat perjanjian kerja dengan pihak ketiga mengenai Pengadaan Barang dan Jasa, berikut dokumen pendukungnya dapat diraih melalui permohonan informasi publik. Berikut merupakan contoh dokumen perjanjian dengan pihak ke 3 :</p>
+			<ul>
+				<li>Tahun 2021</li>
+				<li>Tahun 2020</li>
+				<li>Tahun 2019</li>
+			</ul>
+		
+
 </div>
 <!-- Container / End -->
 

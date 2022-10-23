@@ -34,10 +34,10 @@ class Dashboard extends MY_Controller
                 'headers' => $headers
             ]);
             $data['getAccount'] = $getAccount['data']['data'];
-
-
-
+ 
             $page_content["data"] = $data;
+
+             
         } else if ($this->session->userdata['role'] == 'Korlantas') {
 
 
@@ -169,56 +169,43 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Polres/dashboard_view";
 
             $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU') {
+
+		} else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            $page_content["page"] = "dashboard/Ditkamsel/dashboard_view";
+
+            $page_content["data"] = '';
+
+		} else if ($this->session->userdata['role'] == 'Ditgakkum') {
+            $page_content["page"] = "dashboard/Ditgakkum/dashboard_view";
+
+            $page_content["data"] = '';
+
+		} else if ($this->session->userdata['role'] == 'Ditregident') {
+            $page_content["page"] = "dashboard/Ditregident/dashboard_view";
+
+            $page_content["data"] = '';
+
+		} else if ($this->session->userdata['role'] == 'KaBagOps') {
+            $page_content["page"] = "dashboard/Bagops/dashboard_view";
+
+            $page_content["data"] = '';
+
+		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            $page_content["page"] = "dashboard/Bagrenmin/dashboard_view";
+
+            $page_content["data"] = '';
+
+		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            $page_content["page"] = "dashboard/Bagtik/dashboard_view";
+
+            $page_content["data"] = '';
+			
+        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
-            $getRenpam = guzzle_request('GET', 'renpam', [
-                'headers' => $headers
-            ]);
-            $resGetRenpam = $getRenpam['data']['data'];
+            $page_content["data"] = '';
 
-
-
-
-            $url = parse_url($_SERVER['REQUEST_URI']);
-            if ($url['query']) {
-                parse_str($url['query'], $params);
-                $data['start_date'] = $params['start_date'];
-                $data['end_date'] = $params['end_date'];
-
-
-                $filterProses = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDone = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $data['filterProses'] = count($filterProses);
-                $data['filterDone'] = count($filterDone);
-
-
-                $filterProsesPatroli = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePatroli = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 1 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $data['filterProsesPatroli'] = count($filterProsesPatroli);
-                $data['filterDonePatroli'] = count($filterDonePatroli);
-
-                $filterProsesPengawalan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 2 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePengawalan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 2  && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $data['filterProsesPengawalan'] = count($filterProsesPengawalan);
-                $data['filterDonePengawalan'] = count($filterDonePengawalan);
-
-                $filterProsesPenjagaan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePenjagaan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 3 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $data['filterProsesPenjagaan'] = count($filterProsesPenjagaan);
-                $data['filterDonePenjagaan'] = count($filterDonePenjagaan);
-
-                $filterProsesPengaturan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 0 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $filterDonePengaturan = array_filter($resGetRenpam, fn ($n) => $n['status_renpam'] == 1 && $n['type_renpam'] == 4 && $n['date'] >= $params['start_date'] && $n['date'] <= $params['end_date']);
-                $data['filterProsesPengaturan'] = count($filterProsesPengaturan);
-                $data['filterDonePengaturan'] = count($filterDonePengaturan);
-            } else {
-                redirect(base_url('404_notfound'));
-            }
-
-
-
-            $page_content["data"] = $data;
+			
         } else {
             redirect(base_url('dashboard'));
         }
@@ -298,6 +285,11 @@ class Dashboard extends MY_Controller
         ];
 
 
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
+        // echo date('Y-m-d', $date);
+
         $url = 'getMe?date=' . date('Y-m-d') . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
@@ -312,6 +304,10 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         $input = $this->input->post(); 
+
+        // $date = date('Y-m-d');
+        // $date = strtotime($date);
+        // $date = strtotime("-1 day", $date);
 
         $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
@@ -355,6 +351,36 @@ class Dashboard extends MY_Controller
         $data['getFasum'] = $getFasum['data'];
 
         echo json_encode($data['getFasum']);
+    }
+
+    public function getAddres()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input      = $this->input->post(); 
+
+        $dummy = [
+            [
+                'name' => 'lat',
+                'contents' => $input['lat'],
+            ],
+            [
+                'name' => 'lng',
+                'contents' => $input['lng'],
+            ]
+        ];
+
+        // echo json_encode($dummy);
+        // die;
+
+        $data = guzzle_request('POST', 'gmaps-api/reverse-geocode', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+ 
+        echo json_encode($data);
     }
 
     public function getPolres()
@@ -611,4 +637,7 @@ class Dashboard extends MY_Controller
         $this->templates->loadTemplate($page_content);
         // $this->load->view('dashboard/dashboard_g20',);
     }
+
+
+   
 }
