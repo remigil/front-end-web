@@ -26,16 +26,16 @@ class LaporanHarian extends MY_Controller
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['role'] == "OperatorKorlantas") {
             $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => $headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Korlantas/InputData_Korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
             $id = $this->session->userdata['polda_id'];
             $getPolda = guzzle_request('GET', 'polda/getId/' . $id, [
-                'headers' => $headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";

@@ -66,10 +66,11 @@ class Login extends MX_Controller
                     'headers' => $headers 
                 ]);
 
+
                 if($data['isSuccess'] == true){ 
                     if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
                         redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
-                    } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres") {
+                    } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
                         redirect(base_url('inputData/LaporanHarian'));
                     } else {
                         redirect(base_url('dashboard'));
