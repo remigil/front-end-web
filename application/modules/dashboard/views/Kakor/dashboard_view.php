@@ -433,4 +433,328 @@
             },
         });
 		
+		$(document).ready(function() {
+            var options_ditgakkum = {
+                series: [{
+                    name: 'Data Dakgar Lantas',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    color: "#003A91"
+                }, {
+                    name: 'Kecelakaan Lalu Lintas',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'Gar Lantas',
+                    type: 'column',
+                    data: [89, 678, 21, 345, 78, 65, 34, 91, 87, 11],
+                    color: "#E8D42F"
+                }, {
+                    name: 'Data Turjagwali',
+                    type: 'column',
+                    data: [890, 171, 212, 124, 65, 321, 121, 111, 123, 34],
+                    color: "#3CA55C"
+                }],
+                chart: {
+                    height: 625,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditgakkum = new ApexCharts(document.querySelector("#chart"), options_ditgakkum);
+            ditgakkum.render();
+
+
+            var options_ditkamsel = {
+                series: [{
+                    name: 'Dikmas Lantas',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    color: "#003A91"
+                }, {
+                    name: 'Penyabaran/Pemasangan',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 555,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditkamsel = new ApexCharts(document.querySelector("#chart2"), options_ditkamsel);
+            ditkamsel.render();
+
+            var options_tripon_kendaraan = {
+                series: [87, 60],
+                chart: {
+                    width: 380,
+                    type: 'pie',
+                },
+                labels: ['Mobil Pribadi', 'Motor'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+
+            var tripon_kendaraan = new ApexCharts(document.querySelector("#chart3"), options_tripon_kendaraan);
+            tripon_kendaraan.render();
+
+
+            var options_triopon_kedatangan = {
+                series: [{
+                    name: 'Keberangkatan',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    color: "#003A91"
+                }, {
+                    name: 'Kedatangan',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 200,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['BANDUNG', 'BANDUNG', 'BOGOR KOTA', 'CIREBON', 'BOGOR', 'SUMEDANG', 'GARUT', 'TASIKMALAYA', 'KARAWANG', 'MAJALENGKA'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var kedatangan = new ApexCharts(document.querySelector("#chart4"), options_triopon_kedatangan);
+            kedatangan.render();
+
+            var options_ditregident = {
+                series: [{
+                    name: 'SIM',
+                    type: 'column',
+                    data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                    color: "#003A91"
+                }, {
+                    name: 'STNK',
+                    type: 'column',
+                    data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'BPKB',
+                    type: 'column',
+                    data: [90, 111, 178, 16, 89, 27, 34, 100, 23, 98],
+                    color: "#E8D42F"
+                }, {
+                    name: 'RANMOR',
+                    type: 'column',
+                    data: [95, 128, 195, 617, 516, 99, 39, 89, 17, 78],
+                    color: "#3CA55C"
+                }, ],
+                chart: {
+                    height: 555,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '80%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -15,
+                    style: {
+                        fontSize: '9px'
+                    },
+                    background: {
+                        enabled: false,
+
+                    },
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    // categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
+                    categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+                    tooltip: {
+                        enable: false
+                    }
+                }, ],
+            };
+
+            var ditregident = new ApexCharts(document.querySelector("#chart5"), options_ditregident);
+            ditregident.render();
+
+        })
     </script>

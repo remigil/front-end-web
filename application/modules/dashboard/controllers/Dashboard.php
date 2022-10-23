@@ -205,6 +205,16 @@ class Dashboard extends MY_Controller
 
             $page_content["data"] = '';
 
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "dashboard/Kapolda/dashboard_view";
+
+            $page_content["data"] = '';
+			
+        } else if ($this->session->userdata['role'] == 'Kapolres') {
+            $page_content["page"] = "dashboard/Kapolres/dashboard_view";
+
+            $page_content["data"] = '';
+
 			
         } else {
             redirect(base_url('dashboard'));
