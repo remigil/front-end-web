@@ -48,13 +48,14 @@ class Gpsid extends MX_Controller
         $change1 = str_replace('}','}],',$data);
         $change2 = str_replace('{','[{',$change1);
         // print_r($param);
-        if (unlink($file)) {
-            // file was successfully deleted
-            file_put_contents($file, $change2, FILE_APPEND);
-        } else {
-            // there was a problem deleting the file
-            file_put_contents($file, $change2, FILE_APPEND);
-        }
+        // if (unlink($file)) {
+        //     // file was successfully deleted
+        //     file_put_contents($file, $change2, FILE_APPEND);
+        // } else {
+        //     // there was a problem deleting the file
+        //     file_put_contents($file, $change2, FILE_APPEND);
+        // }
+        file_put_contents($file, $change2, FILE_APPEND);
         $ini1 = file_get_contents($file);  
         echo $ini1;
         die;
