@@ -41,6 +41,12 @@ class Anev extends MY_Controller
 		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "Data Anev";
             $page_content["page"] = "anev/Bagtik/anev_view";
+		} else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["title"] = "Data Anev";
+            $page_content["page"] = "anev/Kapolda/anev_view";
+		} else if ($this->session->userdata['role'] == 'Kapolres') {
+            $page_content["title"] = "Data Anev";
+            $page_content["page"] = "anev/Kapolres/anev_view";
         }
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
