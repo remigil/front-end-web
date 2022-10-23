@@ -37,9 +37,9 @@ class Gpsid extends MX_Controller
 
         
         
-        header("Access-Control-Allow-Headers: Authorization, Content-Type");
-        header("Access-Control-Allow-Origin: *");
-        header('content-type: application/json; charset=utf-8');
+        // header("Access-Control-Allow-Headers: Authorization, Content-Type");
+        // header("Access-Control-Allow-Origin: *");
+        // header('content-type: application/json; charset=utf-8');
         
         $data = file_get_contents('php://input');
         $param = json_decode($data);
