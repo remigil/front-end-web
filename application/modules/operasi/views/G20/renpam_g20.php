@@ -515,9 +515,9 @@
         // var end = moment(); 
         // // alert(start);
 
-        // $("#searchtgl").on("click", function (e) { 
-        //     userDataTable.draw(); 
-        // });
+        $("#searchtgl").on("click", function (e) { 
+            userDataTable.draw(); 
+        });
         
         // function cb(start, end) {
         //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 

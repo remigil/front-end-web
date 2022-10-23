@@ -51,7 +51,7 @@ class Harian extends MY_Controller
         ]; 
         $input = $this->input->post(); 
  
-        $url = 'day_report?serverSide=True&length=1000&start=1&start_date='.date('Y-m-d').'&end_date='.date('Y-m-d').'';
+        $url = 'day_report?serverSide=True&length=1000&start=1&start_date='.$input['start_date'].'&end_date='.$input['end_date'].'';
         $getData = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
