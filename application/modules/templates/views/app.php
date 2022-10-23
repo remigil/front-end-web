@@ -548,12 +548,21 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-
-        <header id="page-topbar">
+        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
+            <header id="page-topbar" style="background: #1D1D1D;">
+        <?php } else { ?>
+            <header id="page-topbar">
+        <?php } ?>
+        
             <div class="navbar-header">
                 <div class="d-flex">
                     <!-- LOGO -->
-                    <div class="navbar-brand-box">
+                    <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
+                        <div class="navbar-brand-box" style="background: none;">
+                    <?php } else { ?>
+                        <div class="navbar-brand-box">
+                    <?php } ?>
+                    
                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                             <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                                 <span class="logo-sm">
@@ -602,13 +611,27 @@
                             <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                         </div>
                     </button>
-                    <?php if ($this->uri->segment(1) == "dashboard") { ?>
+                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20') { ?>
                         <div>
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                             <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                         </div>
+					<?php } else if ($this->uri->segment(1) == "dashboard") { ?>
+						<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+						<?php } else { ?>
+							<div>
+								<p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+								<h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI</h3>
+                        	</div>
+						<?php } ?>
+						
                     <?php } else { ?>
-                        <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+						<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+						<?php } else { ?>
+							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+						<?php } ?>
                     <?php } ?>
                 </div>
 
@@ -619,8 +642,12 @@
                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i data-feather="bell" class="icon-lg"></i>
-                                <span class="badge bg-danger rounded-pill" id="totalNotif"></span>
+								<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
+									<img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+								<?php } else { ?>
+									<i data-feather="bell" class="icon-lg"></i>
+									<span class="badge bg-danger rounded-pill" id="totalNotif"></span>
+								<?php } ?>
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                                 <div class="p-3">
@@ -653,8 +680,12 @@
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
+                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/profile.svg" alt="Header Avatar">
+                            <?php } else { ?>
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
+                            <?php } ?>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -671,8 +702,11 @@
         </header>
 
         <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
-
+			<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+				<div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+			<?php } else { ?>
+				<div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+			<?php } ?>
             <div data-simplebar class="h-100">
 
                 <!--- Sidemenu -->
@@ -725,6 +759,7 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
                                 </ul>
                             </li>
                             <!-- <li>
@@ -753,6 +788,13 @@
                             </li>
 
                             <li>
+                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
+                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard">BodyCam</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
                                     <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-peraturan">Dokumen Peraturan</span>
@@ -766,6 +808,19 @@
                                 </a>
                             </li>
 
+                            <!-- <li>
+                                <a href="<?php echo base_url(); ?>gmaps">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Peta</span>
+                                </a>
+                            </li> -->
+                          
+                            <li>
+                                <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
+                                    <i data-feather="grid"></i>
+                                    <span data-key="t-dashboard">Peta</span>
+                                </a>
+                            </li>
 
                             <li class="menu-title mt-2" data-key="t-components">Management System</li>
 
@@ -812,45 +867,122 @@
                                 </a>
                             </li>
 
-                        <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
+                        <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d") ?>&end_date=<?= date("Y-m-d") ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Dashboard</span>
+							<div class="text-center mt-3">
+								<?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
+									<img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
+									<p style="color: #969696;">KAKORLANTAS POLRI</p>
+								<?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') {?>
+									<img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
+									<p style="color: #969696;">DIRKAMSEL</p>
+								<?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') {?>
+									<img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
+									<p style="color: #969696;">DIRGAKKUM</p>
+								<?php } elseif ($this->session->userdata['role'] == 'Ditregident') {?>
+									<img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
+									<p style="color: #969696;">DIRREGIDENT</p>
+								<?php } elseif ($this->session->userdata['role'] == 'KaBagOps') {?>
+									<img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
+									<p style="color: #969696;">KABAG OPS</p>
+								<?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') {?>
+									<img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
+									<p style="color: #969696;">KABAG RENMIN</p>
+								<?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') {?>
+									<img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+									<h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
+									<p style="color: #969696;">KABAG TIK</p>
+								<?php } ?>
+							</div>
+                            <!-- <img src="" alt=""> -->
+							<li>
+								<a href="<?php echo base_url(); ?>dashboard">
+                                    <img src="<?= base_url('assets/sidebar/icon-beranda-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">Beranda</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Laporan</span>
+									<img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-authentication" style="color: #FFC300;">Rekapitulasi dan Grafik</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
-                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+											<span data-key="t-dashboard" style="color: #FFC300;">Data Pelanggaran</span>
+										</a>
+									</li>
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
+											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+											<span data-key="t-dashboard" style="color: #FFC300;">Data Kecelakaan</span>
+										</a>
+									</li>
+                                    <li>
+										<a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+											<span data-key="t-dashboard" style="color: #FFC300;">Data Turjawali</span>
+										</a>
+									</li>
                                 </ul>
                             </li>
-                            <?php if ($this->session->userdata['role'] != 'Operator') { ?>
+                            <!-- <?php if ($this->session->userdata['role'] != 'Operator') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard/peta">
                                         <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard">Peta</span>
                                     </a>
                                 </li>
-                            <?php } ?>
-
+                            <?php } ?> -->
 
                             <li>
-                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">CCTV</span>
+                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
+                                    <img src="<?= base_url('assets/sidebar/icon-dataOpsus-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">Data Harian Opsus</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="<?php echo base_url(); ?>operasi/renpam">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Rencana Pengamanan</span>
+                                <a href="<?php echo base_url('anev/Anev'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-anev-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">Anev</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-peta-digital-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">Peta Digital</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-cctv-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">CCTV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
+									<img src="<?= base_url('assets/sidebar/icon-tripOn-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">Trip On</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+									<img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">ERI</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
+									<img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
                                 </a>
                             </li>
 

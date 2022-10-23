@@ -80,134 +80,272 @@ class LaporanNTMC extends MY_Controller
                     'contents' => $input['date']
                 ],
             ];
-
-
         } else if ($jenis_laporan == 2) {
             // Data On Air Web
 
             $url = 'ntmc/onair-online';
-
-            $object = (object) [
-                'web_ntmc' => $this->input->post('web_ntmc'),
-                'web_korlantas' => $this->input->post('web_korlantas'),
+            $dummy = [
+                [
+                    'name' => 'web_ntmc',
+                    'contents' => $input['web_ntmc'],
+                ],
+                [
+                    'name' => 'web_korlantas',
+                    'contents' => $input['web_korlantas'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 3) {
             // Data Media Sosial
 
             $url = 'ntmc/onair-medsos';
-            $object = (object) [
-                'facebook' => $this->input->post('facebook'),
-                'instagram' => $this->input->post('instagram'),
-                'twitter' => $this->input->post('twitter'),
+            $dummy = [
+                [
+                    'name' => 'facebook',
+                    'contents' => $input['facebook'],
+                ],
+                [
+                    'name' => 'instagram',
+                    'contents' => $input['instagram'],
+                ],
+                [
+                    'name' => 'twitter',
+                    'contents' => $input['twitter'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 4) {
-            $url = 'ntmc/onair-tv';
-
-            $object = (object) [
-                'sosialisasi' => $this->input->post('sosialisasi'),
-                'timtam' => $this->input->post('timtam'),
+            $url = 'ntmc/offair-program';
+            $dummy = [
+                [
+                    'name' => 'sosialisasi',
+                    'contents' => $input['sosialisasi'],
+                ],
+                [
+                    'name' => 'timtam',
+                    'contents' => $input['timtam'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 5) {
-            $url = 'ntmc/onair-tv';
-
-            $object = (object) [
-                'media_tv' => $this->input->post('media_tv'),
+            $url = 'ntmc/dok-tv';
+            $dummy = [
+                [
+                    'name' => 'media_tv',
+                    'contents' => $input['media_tv'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 6) {
-            $url = 'ntmc/onair-medsos';
-
-            $object = (object) [
-                'positif_korlantas' => $this->input->post('positif_korlantas'),
-                'negatif_korlantas' => $this->input->post('negatif_korlantas'),
-                'lakalantas' => $this->input->post('lakalantas'),
-                'positif_polri' => $this->input->post('positif_polri'),
-                'negatif_polri' => $this->input->post('negatif_polri'),
-                'liputan' => $this->input->post('liputan')
+            $url = 'ntmc/dok-medsos';
+            $dummy = [
+                [
+                    'name' => 'positif_korlantas',
+                    'contents' => $input['positif_korlantas'],
+                ],
+                [
+                    'name' => 'negatif_korlantas',
+                    'contents' => $input['negatif_korlantas'],
+                ],
+                [
+                    'name' => 'lakalantas',
+                    'contents' => $input['lakalantas'],
+                ],
+                [
+                    'name' => 'positif_polri',
+                    'contents' => $input['positif_polri'],
+                ],
+                [
+                    'name' => 'negatif_polri',
+                    'contents' => $input['negatif_polri'],
+                ],
+                [
+                    'name' => 'liputan',
+                    'contents' => $input['liputan'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 7) {
-            $url = 'ntmc/onair-medsos';
-
-            $object = (object) [
-                'positif_korlantas' => $this->input->post('positif_korlantas'),
-                'negatif_korlantas' => $this->input->post('negatif_korlantas'),
-                'lakalantas' => $this->input->post('lakalantas'),
-                'positif_polri' => $this->input->post('positif_polri'),
-                'negatif_polri' => $this->input->post('negatif_polri'),
-                'liputan' => $this->input->post('liputan')
+            $url = 'ntmc/dok-medsos';
+            $dummy = [
+                [
+                    'name' => 'positif_korlantas',
+                    'contents' => $input['positif_korlantas'],
+                ],
+                [
+                    'name' => 'negatif_korlantas',
+                    'contents' => $input['negatif_korlantas'],
+                ],
+                [
+                    'name' => 'lakalantas',
+                    'contents' => $input['lakalantas'],
+                ],
+                [
+                    'name' => 'positif_polri',
+                    'contents' => $input['positif_polri'],
+                ],
+                [
+                    'name' => 'negatif_polri',
+                    'contents' => $input['negatif_polri'],
+                ],
+                [
+                    'name' => 'liputan',
+                    'contents' => $input['liputan'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 8) {
-            $url = 'ntmc/onair-medsos';
-
-            $object = (object) [
-                'positif_korlantas' => $this->input->post('positif_korlantas'),
-                'negatif_korlantas' => $this->input->post('negatif_korlantas'),
-                'lakalantas' => $this->input->post('lakalantas'),
-                'positif_polri' => $this->input->post('positif_polri'),
-                'negatif_polri' => $this->input->post('negatif_polri'),
-                'liputan' => $this->input->post('liputan')
+            $url = 'ntmc/dok-medsos';
+            $dummy = [
+                [
+                    'name' => 'positif_korlantas',
+                    'contents' => $input['positif_korlantas'],
+                ],
+                [
+                    'name' => 'negatif_korlantas',
+                    'contents' => $input['negatif_korlantas'],
+                ],
+                [
+                    'name' => 'lakalantas',
+                    'contents' => $input['lakalantas'],
+                ],
+                [
+                    'name' => 'positif_polri',
+                    'contents' => $input['positif_polri'],
+                ],
+                [
+                    'name' => 'negatif_polri',
+                    'contents' => $input['negatif_polri'],
+                ],
+                [
+                    'name' => 'liputan',
+                    'contents' => $input['liputan'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan == 9) {
-            $url = 'ntmc/onair-medsos';
-
-            $object = (object) [
-                'positif_korlantas' => $this->input->post('positif_korlantas'),
-                'negatif_korlantas' => $this->input->post('negatif_korlantas'),
-                'lakalantas' => $this->input->post('lakalantas'),
-                'positif_polri' => $this->input->post('positif_polri'),
-                'negatif_polri' => $this->input->post('negatif_polri'),
-                'liputan' => $this->input->post('liputan')
+            $url = 'ntmc/dok-medsos';
+            $dummy = [
+                [
+                    'name' => 'positif_korlantas',
+                    'contents' => $input['positif_korlantas'],
+                ],
+                [
+                    'name' => 'negatif_korlantas',
+                    'contents' => $input['negatif_korlantas'],
+                ],
+                [
+                    'name' => 'lakalantas',
+                    'contents' => $input['lakalantas'],
+                ],
+                [
+                    'name' => 'positif_polri',
+                    'contents' => $input['positif_polri'],
+                ],
+                [
+                    'name' => 'negatif_polri',
+                    'contents' => $input['negatif_polri'],
+                ],
+                [
+                    'name' => 'liputan',
+                    'contents' => $input['liputan'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan ==  10) {
-            $url =  'ntmc/onair-medsos';
-
-            $object = (object) [
-                'facebook' => $this->input->post('facebook'),
-                'twitter' => $this->input->post('twitter'),
+            $url =  'ntmc/aktivitas-medsos';
+            $dummy = [
+                [
+                    'name' => 'facebook',
+                    'contents' => $input['facebook'],
+                ],
+                [
+                    'name' => 'twitter',
+                    'contents' => $input['twitter'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
 
             // Data On Air TV
         } else if ($jenis_laporan ==  11) {
-            $url =  'ntmc/onair-online';
-
-            $object = (object) [
-                'gen_fm' => $this->input->post('gen_fm'),
-                'jak_fm' => $this->input->post('jak_fm'),
-                'most_fm' => $this->input->post('most_fm'),
-                'kiss_fm' => $this->input->post('kiss_fm'),
+            $url = 'ntmc/aktivitas-radio';
+            $dummy = [
+                [
+                    'name' => 'gen_fm',
+                    'contents' => $input['gen_fm'],
+                ],
+                [
+                    'name' => 'jak_fm',
+                    'contents' => $input['jak_fm'],
+                ],
+                [
+                    'name' => 'most_fm',
+                    'contents' => $input['most_fm'],
+                ],
+                [
+                    'name' => 'kiss_fm',
+                    'contents' => $input['kiss_fm'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         } else if ($jenis_laporan ==  12) {
-            $url =  'ntmc/onair-online';
-
-            $object = (object) [
-                'radio_pjr' => $this->input->post('radio_pjr'),
-                'sms_9119' => $this->input->post('sms_9119'),
-                'wa_center' => $this->input->post('wa_center'),
-                'call_center' => $this->input->post('call_center'),
+            $url = 'ntmc/aktivitas-pengaduan';
+            $dummy = [
+                [
+                    'name' => 'radio_pjr',
+                    'contents' => $input['radio_pjr'],
+                ],
+                [
+                    'name' => 'sms_9119',
+                    'contents' => $input['sms_9119'],
+                ],
+                [
+                    'name' => 'wa_center',
+                    'contents' => $input['wa_center'],
+                ],
+                [
+                    'name' => 'call_center',
+                    'contents' => $input['call_center'],
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
             ];
-
-            array_push($value, $object);
         }
 
+        // var_dump($dummy);
+        // die;
 
         $data = guzzle_request('POST', $url, [
             'multipart' => $dummy,

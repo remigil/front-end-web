@@ -97,6 +97,7 @@ class M_tripon extends CI_Model {
         // } 
 
 
+        // $url_trip_on = 'trip_on';
         $url_trip_on = 'trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
         // $url_passanger_trip_on = 'passanger_trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
         
@@ -112,14 +113,15 @@ class M_tripon extends CI_Model {
         ]);  
 
         // echo "<pre>";
-        // var_dump($result);die;
+        // var_dump($result['data']['trip_on']['rows']);die;
         
         // $asd = $result['data']['data'];
         // var_dump($asd);die;
         
 		
         $no=1;
-		foreach  ($result['data']['data'] as $field) { 
+		foreach  ($result['data']['trip_on']['rows'] as $field) { 
+		// foreach  ($result['data']['data'] as $field) { 
             
             $row = array();   
 			// $row ['id']	=  $field['id']; 
