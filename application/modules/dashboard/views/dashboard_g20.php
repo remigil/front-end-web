@@ -934,7 +934,7 @@
                                     <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
                                 </div> 
                                 <div class="col-md-8">
-                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
                                 </div>  
 
                                 <div class="col-md-4">
@@ -989,7 +989,7 @@
                                     <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
                                 </div> 
                                 <div class="col-md-8">
-                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
+                                    : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${ress[0].Car_Status}</span> 
                                 </div>  
 
                                 <div class="col-md-4">
