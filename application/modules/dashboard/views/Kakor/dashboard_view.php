@@ -2,7 +2,7 @@
 
 	<!-- greetings -->
 	<h5 >Welcome to Dashboard Executive</h5>
-	<h3 style="font-weight:bolder ;">K3I KORLANTAS POLRI</h3>
+	<h1 style="font-weight:bolder ; text-transform:uppercase; color:#ECB800;">K3I KORLANTAS POLRI</h1>
 	<p>today is </p>
 	<!-- end greetings -->
 
