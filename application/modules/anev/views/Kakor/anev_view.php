@@ -40,6 +40,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 </div>
 </div>
@@ -205,6 +206,59 @@
 				</div>
 			</div>
 		</section>
+	</div>
+
+	<div class="page mt-5">
+		<table id="datatable" class="table table-bordered border-secondary text-center" style="vertical-align:middle!important" width="100%">
+			<thead class="table-info">
+				<tr class="text-grey">
+					<th scope="col" rowspan="2">No</th>
+					<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
+					<th scope="col" colspan="2">Waktu</th>
+					<th scope="col" colspan="2">Trend</th>
+					<th scope="col" rowspan="2">Keterangan</th>
+					<th scope="col" rowspan="2">Laporan Anev</th>
+				</tr>
+				<tr>
+					<th>Selasa, 18-10-2022</th>
+					<th>Rabu, 19-10-2022</th>
+					<th>Angka</th>
+					<th>Presentase</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+				</tr>
+				<tr>
+					<th scope="row">1</th>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+				</tr>
+				<tr>
+					<th scope="row">1</th>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
 
