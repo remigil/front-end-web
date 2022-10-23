@@ -889,7 +889,7 @@
         fetch('<?php echo base_url()?>dataVendor/gpsId.json')
         .then((response) => response.json())
         .then((ress) => {
-            // console.log(ress[0].Lat);
+            console.log(ress[0].VehicleNumber);
             // console.log('wokee');
             var jenis = `
             <div>
