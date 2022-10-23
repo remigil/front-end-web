@@ -1017,11 +1017,6 @@
                                     <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
                                     <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
                                 </div> 
-
-                                <div class="col-md-12 text-center  mt-3">
-                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
-                                    <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
-                                </div> 
                             </div> 
                                 
                         </div>
