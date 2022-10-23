@@ -36,19 +36,26 @@ class Gpsid extends MX_Controller
         // $dummy['VehicleNumber'] = $param->VehicleNumber; 
 
         
-        // file_put_contents("./dataVendor/gpsId.json", "");
-        // $change1 = str_replace('}','}],',$data);
-        // $change2 = str_replace('{','[{',$change1);
-
+        
         header("Access-Control-Allow-Headers: Authorization, Content-Type");
         header("Access-Control-Allow-Origin: *");
         header('content-type: application/json; charset=utf-8');
-
+        
         $data = file_get_contents('php://input');
         $param = json_decode($data);
+        $file = './dataVendor/gpsId.json'
+
+        $change1 = str_replace('}','}],',$data);
+        $change2 = str_replace('{','[{',$change1);
         // print_r($param);
-        file_put_contents('./dataVendor/gpsId.json', $change2, FILE_APPEND);
-        $ini1 = file_get_contents('./dataVendor/gpsId.json'); 
+        if (unlink($file)) {
+            // file was successfully deleted
+            file_put_contents($file, $change2, FILE_APPEND);
+        } else {
+            // there was a problem deleting the file
+            file_put_contents($file, $change2, FILE_APPEND);
+        }
+        $ini1 = file_get_contents($file);  
         echo $ini1;
         die;
 
