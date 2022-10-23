@@ -67,38 +67,93 @@
 	</div>
 
 	<div class="col-md-7">
-		<section class="shadow-sm mt-5">
-			<div class="row">
-				<div class="col-xl-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
-						</div>
-						<div class="card-body" style="overflow:hidden; overflow-x:scroll">
-							<div class="main-chart">
-								<div id="chart2" style="width: 30vw; position:sticky"></div>
-							</div>
-							<div>
-								<text>Keterangan :</text>
-							</div>
-							<div class="row">
-								<div class="col-3">
-									<text>Selasa, 03-10-2022</text>
-								</div>
-								<div class="col-3">
-									<text>Rabu, 04-10-2022</text>
-								</div>
-								<div class="col-3">
-									<text>Angka</text>
-								</div>
-								<div class="col-3">
-									<text>Presentase</text>
-								</div>
-							</div>
-						</div>
-					</div>
+
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+			</div>
+			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
+				<div class="main-chart">
+					<div id="chart2" style="width: 30vw; position:sticky"></div>
 				</div>
-		</section>
+				<div>
+					<text style="font-style: bold;">Keterangan :</text>
+				</div>
+				<div style="position:center">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 5vw;">Selasa, 18-10-2022</th>
+								<th style="width: 5vw;"></th>
+								<th style="width: 5vw;">Rabu, 19-10-2022</th>
+								<th style="width: 5vw;"></th>
+								<th style="width: 5vw;">Angka</th>
+								<th style="width: 5vw;">Presentase</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="box1 d-flex" style="width: 10px; height: 10px; background: blue;">
+									</div>
+								</td>
+								<td>143</td>
+								<td>
+									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									</div>
+								</td>
+								<td>29</td>
+								<td style="color: blue;">29</td>
+								<td>-5%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									</div>
+								</td>
+								<td>5</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									</div>
+								</td>
+								<td>5</td>
+								<td style="color: blue;">5</td>
+								<td>76%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									</div>
+								</td>
+								<td>6</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									</div>
+								</td>
+								<td>10</td>
+								<td style="color: blue;">10</td>
+								<td>80%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									</div>
+								</td>
+								<td>101</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									</div>
+								</td>
+								<td>35</td>
+								<td style="color: blue;">35</td>
+								<td>30%</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</section>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-5">
 		<section class="shadow-sm mt-5">
@@ -108,9 +163,42 @@
 						<div class="card-header">
 							<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
 						</div>
-						<div class="card-body" style="overflow:hidden; overflow-x:scroll">
+						<div class="card-body" style="overflow:hidden; overflow-x:scroll;">
 							<div class="main-chart">
 								<div id="chart3" style="width: 15vw"></div>
+							</div>
+							<div>
+								<text style="font-style: bold;">Keterangan :</text>
+							</div>
+							<div style="position:center">
+								<table>
+									<thead>
+										<tr>
+											<th style="width: 5vw;">Selasa, 18-10-2022</th>
+											<th style="width: 5vw;"></th>
+											<th style="width: 5vw;">Rabu, 19-10-2022</th>
+											<th style="width: 5vw;"></th>
+											<th style="width: 5vw;">Angka</th>
+											<th style="width: 5vw;">Presentase</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												</div>
+											</td>
+											<td>143</td>
+											<td>
+												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												</div>
+											</td>
+											<td>29</td>
+											<td style="color: blue;">29</td>
+											<td>-5%</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -144,23 +232,94 @@
 		</div>
 	</div>
 
-	<div class="col-md-12">
-		<section class="shadow-sm mt-5">
-			<div class="row">
-				<div class="col-xl-12">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
-						</div>
-						<div class="card-body" style="overflow:hidden; overflow-x:scroll">
-							<div class="main-chart">
-								<div id="chart4" style="width: 30vw;"></div>
-							</div>
-						</div>
-					</div>
-				</div>
+	<div class="col-md-12 mt-3">
+
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
 			</div>
-		</section>
+			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
+				<div class="main-chart">
+					<div id="chart4" style="width: 30vw; position:sticky"></div>
+				</div>
+				<div>
+					<text style="font-style: bold;">Keterangan :</text>
+				</div>
+				<div style="position:center">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 5vw;">Selasa, 18-10-2022</th>
+								<th style="width: 5vw;"></th>
+								<th style="width: 5vw;">Rabu, 19-10-2022</th>
+								<th style="width: 5vw;"></th>
+								<th style="width: 5vw;">Angka</th>
+								<th style="width: 5vw;">Presentase</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									</div>
+								</td>
+								<td>143</td>
+								<td>
+									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									</div>
+								</td>
+								<td>29</td>
+								<td style="color: blue;">29</td>
+								<td>-5%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									</div>
+								</td>
+								<td>5</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									</div>
+								</td>
+								<td>5</td>
+								<td style="color: blue;">5</td>
+								<td>76%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									</div>
+								</td>
+								<td>6</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									</div>
+								</td>
+								<td>10</td>
+								<td style="color: blue;">10</td>
+								<td>80%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									</div>
+								</td>
+								<td>101</td>
+								<td>
+									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									</div>
+								</td>
+								<td>35</td>
+								<td style="color: blue;">35</td>
+								<td>30%</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</section>
+			</div>
+		</div>
 	</div>
 
 	<div class="page mt-5">
@@ -266,7 +425,7 @@
 				colors: ['transparent']
 			},
 			xaxis: {
-				categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG', 'POLRESTA BOGOR KOTA', 'POLRESTA CIREBON', 'POLRES BOGOR', 'POLRES SUMEDANG', 'POLRES GARUT', 'POLRES TASIKMALAYA', 'POLRES KARAWANG', 'POLRES MAJALENGKA'],
+				categories: ['POLDA METRO JAYA', 'POLDA JABAR', 'POLDA JATENG', 'POLDA JATIM', 'POLDA BALI', 'POLDA BANTEN', 'POLDA SUMBAR', 'POLDA LAMPUNG', 'POLDA ACEH', 'POLDA KALBAR'],
 			},
 			yaxis: [{
 				axisTicks: {
@@ -372,7 +531,7 @@
 
 		var options_tripon_kendaraan = {
 			series: [{
-				name: 'Total Kerugian Material',
+				name: 'Total Material Loss',
 				type: 'column',
 				data: [706, 801],
 				color: "#003A91"
@@ -413,7 +572,7 @@
 				colors: ['transparent']
 			},
 			xaxis: {
-				categories: ['POLRESTABES BANDUNG', 'POLRESTA BANDUNG'],
+				categories: ['Selasa, 18-10-2022', 'Rabu, 19-10-2022'],
 			},
 			yaxis: [{
 				axisTicks: {
@@ -440,22 +599,22 @@
 
 		var options_triopon_kedatangan = {
 			series: [{
-				name: 'Total Kecelakaan',
+				name: 'Jumlah Dakgar',
 				type: 'column',
 				data: [706, 801],
 				color: "#003A91"
 			}, {
-				name: 'Meninggal Dunia',
+				name: 'Gar Berat',
 				type: 'column',
 				data: [65, 120],
 				color: "#CB2D3E"
 			}, {
-				name: 'Luka Berat',
+				name: 'Gar Sedang',
 				type: 'column',
 				data: [89, 678],
 				color: "#E8D42F"
 			}, {
-				name: 'Luka Ringan',
+				name: 'Gar Ringan',
 				type: 'column',
 				data: [890, 171],
 				color: "#3CA55C"
@@ -493,7 +652,7 @@
 				colors: ['transparent']
 			},
 			xaxis: {
-				categories: ['METRO JAYA', 'JAWA BARAT'],
+				categories: ['Selasa, 18-10-2022', 'Rabu, 19-10-2022'],
 			},
 			yaxis: [{
 				axisTicks: {
