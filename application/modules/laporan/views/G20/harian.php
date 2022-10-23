@@ -461,9 +461,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatablePetugas').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 
@@ -476,9 +493,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatableKegiatan').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 
@@ -491,9 +525,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatableOperasi').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 
