@@ -720,6 +720,7 @@
 
     // console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
+    var markerGpsId = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
     var markerLaporanPanic = new Array();
@@ -753,9 +754,9 @@
 
     var dummyGetTracking = new Array();
 
+    
 
     $(document).ready(function() { 
-        // alert('oke');
       
         // var arrayContoh = [ 
         //     {-8.551740, 115.077643},
@@ -882,6 +883,90 @@
                 }
             });
         });
+
+        function gpsId() {
+  
+        fetch('<?php echo base_url()?>dataVendor/gpsId.json')
+        .then((response) => response.json())
+        .then((ress) => {
+            // console.log(ress[0].Lat);
+            // console.log('wokee');
+            var jenis = `
+            <div>
+                <div>
+                    <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                </div>
+                <div style="margin-top: -30px;">
+                <span class="badge rounded-pill bg-primary">${ress[0].VehicleNumber}</span>
+                </div>
+            </div>`;
+            if(markerGpsId[ress[0].VehicleId] != null){ 
+                var fotoPetugas = "";
+                markerGpsId[ress[0].VehicleId].setLatLng([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: jenis,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">  
+                        <div class="row text-start mt-3">
+                            <div class="col-md-4">
+                                <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                            </div>
+                            <div class="col-md-8">
+                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
+                            </div>  
+                            <div class="col-md-4">
+                                <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
+                            </div> 
+                            <div class="col-md-8">
+                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Car_Status}</span>
+                            </div>  
+
+                            <div class="col-md-12 text-center  mt-3">
+                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
+                            </div> 
+                        </div> 
+                            
+                    </div>
+                `).update();  
+            }else{ 
+                markerGpsId[ress[0].VehicleId] = L.marker([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
+                    // className: 'location-pin',
+                    html: jenis,
+                    iconSize: [5, 5],
+                    iconAnchor: [5, 10]
+                    // iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">  
+
+                        
+                        <div class="row text-start mt-3">
+                            <div class="col-md-4">
+                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                            </div>
+                            <div class="col-md-8">
+                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].VehicleNumber}</span>
+                            </div>  
+                            <div class="col-md-4">
+                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                            </div> 
+
+                            <div class="col-md-12 text-center  mt-3">
+                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
+                            </div> 
+                        </div> 
+                            
+                    </div>
+                `).addTo(mapContainer);    
+            }
+        });
+        }
+
+        setInterval(gpsId, 3000); 
 
 
         function serverSideGet(){
