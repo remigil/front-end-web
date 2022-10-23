@@ -26,15 +26,25 @@ class LaporanHarian extends MY_Controller
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['role'] == "OperatorKorlantas") {
             $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => $headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Korlantas/InputData_Korlantas";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
+            $id = $this->session->userdata['polda_id'];
+            $getPolda = guzzle_request('GET', 'polda/getId/' . $id, [
+                'headers' => ['Authorization' => $this->session->userdata['token']]
+            ]);
+            $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
+            $id = $this->session->userdata['polres_id'];
+            $getPolda = guzzle_request('GET', 'polres/getId/' . $id, [
+                'headers' => $headers
+            ]);
+            $data['getPolres'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Polres/InputData_Polres";
         }
 
@@ -81,7 +91,6 @@ class LaporanHarian extends MY_Controller
 
             $url = 'laka_langgar/add?polda=true';
             for ($i = 0; $i < $max_loop; $i++) {
-
                 $object = (object) [
                     'polres_id' => $this->input->post('polres_id')[$i],
                     'capture_camera' => $this->input->post('capture_camera')[$i],
@@ -94,7 +103,6 @@ class LaporanHarian extends MY_Controller
                     'odol_227' => $this->input->post('odol_227')[$i],
                     'odol_307' => $this->input->post('odol_307')[$i]
                 ];
-
                 array_push($value, $object);
             }
         } else if ($jenis_laporan == 2) {
@@ -259,6 +267,26 @@ class LaporanHarian extends MY_Controller
         }
 
         echo json_encode($res);
-            
+    }
+
+    public function getPolresID()
+    {
+        $headers = [
+            'Token' => $this->session->userdata['token'],
+        ];
+
+        $id = $this->input->post('polres_id');
+
+        $getDetail = guzzle_request('GET', 'polres/getId/' . $id . '', [
+            'headers' => $headers
+        ]);
+
+        $results = $getDetail['data']['data'];
+        echo json_encode($results);
+    }
+
+    public function storePolres()
+    {
+        echo 'ok';
     }
 }

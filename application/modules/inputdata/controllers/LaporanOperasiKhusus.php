@@ -27,10 +27,10 @@ class LaporanOperasiKhusus extends MY_Controller
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['OperatorKorlantas']) {
 
             $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => $headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
 
 
@@ -42,9 +42,6 @@ class LaporanOperasiKhusus extends MY_Controller
 
             $data['getPolda'] = $getPolda['data']['data'];
             $data['getOperasi'] = $getOperasi['data']['data'];
-
-
-
 
             $page_content["page"] = "inputdata/Korlantas/InputData_OperasiKhusus";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
