@@ -894,10 +894,10 @@
             var jenis = `
             <div>
                 <div>
-                    <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                    <img src="<?php echo base_url();?>assets/icon/gpsId.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                 </div>
                 <div style="margin-top: -30px;">
-                <span class="badge rounded-pill bg-primary">${ress[0].VehicleNumber}</span>
+                <span class="badge rounded-pill bg-primary" style="background-color: #169fda">${ress[0].VehicleNumber}</span>
                 </div>
             </div>`;
             if(markerGpsId[ress[0].VehicleId] != null){ 
@@ -966,7 +966,7 @@
         });
         }
 
-        setInterval(gpsId, 10000); 
+        setInterval(gpsId, 50000); 
 
 
         function serverSideGet(){
