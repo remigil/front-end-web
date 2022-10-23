@@ -54,6 +54,40 @@
                 </div>
             </div>
         </div>
+ 
+
+        <div class="col-md-12">
+            <div class="card row">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Petugas Aktif</h5> 
+                </div>
+                <div class="col-md-12" id="tablePetugas">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card row">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Laporan Kegiatan</h5> 
+                </div>
+                <div class="col-md-12" id="tableKegiatan">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card row">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Laporan Operasi</h5> 
+                </div>
+                <div class="col-md-12" id="tableOperasi">
+                    
+                </div>
+            </div>
+        </div>
 </div>
 
 
@@ -61,10 +95,14 @@
 
     var optionsLaporan = null;
     var optionsOperasi = null;
+    var dataTablePetugas;
+    var dataTableKegiatan;
+    var dataTableOperasi;
 
     $(document).ready(function() {
         
         function getReport(){
+            $("#overlay").fadeIn(300); 
             $.ajax({
                 type : "POST",
                 url : "<?php echo base_url();?>laporan/Harian/getDayReport", 
@@ -90,7 +128,59 @@
                         <div id="chartOperasi"></div>
                     `);
 
+                    $('#datatablePetugas').remove();
+                    $('#tablePetugas').html(`
+                        <table id="datatablePetugas" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
+                            <thead> 
+                                <tr>
+                                    <th>No</th>
+                                    <th>Mobil</th>
+                                    <th>Motor</th>
+                                    <th>Tanpa Kendaraan</th>  
+                                    <th>Total</th>
+                                </tr>
+                            </thead> 
+                            <tbody id="isiPetugas"></tbody>
+                        </table>
+                    `);
+
+                    $('#datatableKegiatan').remove();
+                    $('#tableKegiatan').html(`
+                        <table id="datatableKegiatan" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
+                            <thead> 
+                                <tr>
+                                    <th>No</th> 
+                                    <th>Pelanggaran</th>
+                                    <th>Lalu Lintas</th>
+                                    <th>Kemacetan</th>
+                                    <th>Bencana Alam</th> 
+                                    <th>Pengaturan</th>
+                                    <th>Pengawalan</th>
+                                    <th>Lainnya</th> 
+                                </tr>
+                            </thead> 
+                            <tbody id="isiKegiatan"></tbody>
+                        </table>
+                    `);
+
+                    $('#datatableOperasi').remove();
+                    $('#tableOperasi').html(`
+                        <table id="datatableOperasi" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
+                            <thead> 
+                                <tr>
+                                    <th>No</th> 
+                                    <th>Jadwal</th>
+                                    <th>Selesai</th>
+                                    <th>Gagal</th>
+                                </tr>
+                            </thead> 
+                            <tbody id="isiOperasi"></tbody>
+                        </table>
+                    `);
+
+
                     console.log(result);
+                    
     
                     if(result['data'].length > 0 || result['data'] != null){
                         var t_officer_active = 0;
@@ -107,6 +197,13 @@
                         var t_schedule_done = 0;
                         var t_rengiat_done = 0;
                         var t_rengiat_failed = 0;  
+
+                        var listPetugas = ``;
+                        var urutanPetugas = 0;
+                        var listKegiatan = ``;
+                        var urutanKegiatan = 0;
+                        var listOperasi = ``;
+                        var urutanOperasi = 0;
 
                         var pluckOfficer_active = result['data'].map(el => { return parseInt(el.t_officer_active) });
                         var sumOfficer_active = pluckOfficer_active.reduce(function(a, b) {
@@ -255,7 +352,7 @@
                             },
                             xaxis: {
                                 categories: [ 
-                                    'Kriminal',
+                                    'Pelanggaran',
                                     'Lalu lintas',
                                     'Kemacetan',
                                     'Bencana Alam',
@@ -299,9 +396,102 @@
                         var chartOperasi = new ApexCharts(document.querySelector("#chartOperasi"), optionsOperasi);
                         chartOperasi.render();
                        
+
+                        listPetugas = ``;
+                        urutanPetugas = 0;
+                        listKegiatan = ``;
+                        urutanKegiatan = 0;
+                        listOperasi = ``;
+                        urutanOperasi = 0;
+                        result['data'].forEach(el => {
+                            urutanPetugas += 1;
+                            listPetugas += `
+                                <tr>
+                                    <td>${urutanPetugas}</td>
+                                    <td>${el.t_officer_active_car}</td> 
+                                    <td>${el.t_officer_active_bike}</td> 
+                                    <td>${el.t_officer_active_not_driving}</td> 
+                                    <td>${el.t_officer_active}</td> 
+                                </tr>
+                            `;
+                            $('#isiPetugas').html(listPetugas);
+
+                            urutanKegiatan += 1;
+                            listKegiatan += `
+                                <tr>
+                                    <td>${urutanKegiatan}</td>
+                                    <td>${el.t_report_kriminal}</td> 
+                                    <td>${el.t_report_lalu_lintas}</td> 
+                                    <td>${el.t_report_kemacetan}</td> 
+                                    <td>${el.t_report_bencanaalam}</td>  
+                                    <td>${el.t_report_pengaturan}</td>  
+                                    <td>${el.t_report_pengawalan}</td>  
+                                    <td>${el.t_report_lainnya}</td> 
+                                </tr>
+                            `;
+                            $('#isiKegiatan').html(listKegiatan);
+
+                            urutanOperasi += 1;
+                            listOperasi += `
+                                <tr>
+                                    <td>${urutanOperasi}</td>
+                                    <td>${el.t_schedule_done}</td> 
+                                    <td>${el.t_rengiat_done}</td> 
+                                    <td>${el.t_rengiat_failed}</td>  
+                                </tr>
+                            `;
+                            $('#isiOperasi').html(listOperasi);
+                        });
+                        dataTablePetugas = $('#datatablePetugas').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            // buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
+                        dataTableKegiatan = $('#datatableKegiatan').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            // buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
+                        dataTableOperasi = $('#datatableOperasi').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            // buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
                     } else{
     
                     }
+                    $("#overlay").fadeOut(300); 
                 }
             }); 
         }
