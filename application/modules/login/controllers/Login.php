@@ -35,15 +35,22 @@ class Login extends MX_Controller
                 $data_session  = array();
                 $data_session['role']       = $response['user']['data']['user_role']['name'];
                 $data_session['operation_id']       = $response['user']['data']['operation_id'];
-                $data_session['polda']       = 'Jawa Barat';
-                $data_session['polres']       = 'Bogor';
                 $data_session['full_name']       = $username;
                 $data_session['token']       = $response['token'];
                 $data_session['tokenFcm']       = $tokenNotif;
-                $data_session['logged']       = 1; 
+                $data_session['logged']       = 1;
+
+                if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
+                    $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
+                    $data_session['polda_id'] = $response['user']['data']['polda_profile']['polda']['id'];
+                }
+
+                if ($response['user']['data']['user_role']['name'] == 'OperatorPolres' || $response['user']['data']['user_role']['name'] == 'Kapolres') {
+                    $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
+                    $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];;
+                }
     
                 $this->session->set_userdata($data_session);
-
 
                 $headers = [ 
                     'Authorization' => $response['token'],  
@@ -62,7 +69,9 @@ class Login extends MX_Controller
                 if($data['isSuccess'] == true){ 
                     if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
                         redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
-                    }else{
+                    } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres") {
+                        redirect(base_url('inputData/LaporanHarian'));
+                    } else {
                         redirect(base_url('dashboard'));
                     } 
                 }else{

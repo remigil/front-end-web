@@ -856,7 +856,7 @@
 
                         <?php } else { ?>
 
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
@@ -922,7 +922,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -983,15 +983,20 @@
                                     <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-inputdata">Input Data</span>
                                 </a>
-
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Laporan Harian</a></li>
+                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">LapHar Rutin</a></li>
                                 </ul>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">Laporan Operasi Khusus</a></li>
+                                    <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">LapHar Opsus</a></li>
                                 </ul>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">Laporan NTMC</a></li>
+                                    <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
+                                </ul>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Masyarakat</a></li>
+                                </ul>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Pemerintahan</a></li>
                                 </ul>
                             </li>
 

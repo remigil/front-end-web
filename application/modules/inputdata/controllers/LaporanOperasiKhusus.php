@@ -43,9 +43,6 @@ class LaporanOperasiKhusus extends MY_Controller
             $data['getPolda'] = $getPolda['data']['data'];
             $data['getOperasi'] = $getOperasi['data']['data'];
 
-
-
-
             $page_content["page"] = "inputdata/Korlantas/InputData_OperasiKhusus";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
