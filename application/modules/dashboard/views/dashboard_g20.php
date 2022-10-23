@@ -966,7 +966,7 @@
         });
         }
 
-        setInterval(gpsId, 3000); 
+        setInterval(gpsId, 10000); 
 
 
         function serverSideGet(){
