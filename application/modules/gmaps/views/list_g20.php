@@ -8,7 +8,7 @@
     <style>.gmap_canvas {overflow:hidden;background:none!important;height:618px;width:100%;}</style>
   </div>
 </div> --> 
-
+wadawww
 <script>
   console.log('ada2'); 
   fetch('<?php echo base_url()?>dataVendor/gpsId.json')
