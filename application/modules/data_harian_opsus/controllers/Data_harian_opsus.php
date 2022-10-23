@@ -72,4 +72,41 @@ class Data_harian_opsus extends MY_Controller
         echo json_encode($data['getDetail']);
     }
 
+	public function detaildata()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+
+        if ($this->session->userdata['role'] == 'Kakorlantas') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Kakor/detail_data_view";
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Ditkamsel/detail_data_view";
+        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Ditgakkum/detail_data_view";
+        } else if ($this->session->userdata['role'] == 'Ditregident') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Ditregident/detail_data_view";
+		} else if ($this->session->userdata['role'] == 'KaBagOps') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Bagops/detail_data_view";
+		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Bagrenmin/detail_data_view";
+		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            $page_content["title"] = "Data Harian Operasi Khusus";
+            $page_content["page"] = "data_harian_opsus/Bagtik/detail_data_view";
+        }
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
+
+
 }
