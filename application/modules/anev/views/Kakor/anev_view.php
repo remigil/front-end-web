@@ -78,10 +78,26 @@
 							<div class="main-chart">
 								<div id="chart2" style="width: 30vw; position:sticky"></div>
 							</div>
+							<div>
+								<text>Keterangan :</text>
+							</div>
+							<div class="row">
+								<div class="col-3">
+									<text>Selasa, 03-10-2022</text>
+								</div>
+								<div class="col-3">
+									<text>Rabu, 04-10-2022</text>
+								</div>
+								<div class="col-3">
+									<text>Angka</text>
+								</div>
+								<div class="col-3">
+									<text>Presentase</text>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</section>
 	</div>
 	<div class="col-md-5">
