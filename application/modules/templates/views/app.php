@@ -877,6 +877,48 @@
                                 </a>
                             </li>
 
+                            <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
+
+                                <li>
+                                    <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d") ?>&end_date=<?= date("Y-m-d") ?>">
+                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <i data-feather="users"></i>
+                                        <span data-key="t-authentication">Laporan</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                        <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Operasi</a></li>
+                                    </ul>
+                                </li>
+                                <?php if ($this->session->userdata['role'] != 'Operator') { ?>
+                                    <li>
+                                        <a href="<?php echo base_url(); ?>dashboard/peta">
+                                            <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-dashboard">Peta</span>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+
+
+                                <li>
+                                    <a href="<?php echo base_url(); ?>masterdata/Cctv">
+                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo base_url(); ?>operasi/renpam">
+                                        <i data-feather="grid"></i>
+                                        <span data-key="t-dashboard">Rencana Pengamanan</span>
+                                    </a>
+                                </li> 
+
                         <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
 							<div class="text-center mt-3">
