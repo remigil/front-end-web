@@ -903,15 +903,29 @@
                     // console.log('id tidak ada');
                 }
                 
-                var jenis = `
-                <div>
+                var jenis = ``;
+
+                if(ress[0].VehicleType == 'Motorcycle'){
+                    jenis = `
                     <div>
-                        <img src="<?php echo base_url();?>assets/icon/gpsId2.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                    </div>
-                    <div style="margin-top: -30px;">
-                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[0].VehicleNumber}</span>
-                    </div>
-                </div>`;
+                        <div>
+                            <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                        </div>
+                        <div style="margin-top: -30px;">
+                        <span class="badge rounded-pill" style="background-color: #169fda">${ress[0].VehicleNumber}</span>
+                        </div>
+                    </div>`;
+                }else{
+                    jenis = `
+                    <div>
+                        <div>
+                            <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                        </div>
+                        <div style="margin-top: -30px;">
+                        <span class="badge rounded-pill" style="background-color: #169fda">${ress[0].VehicleNumber}</span>
+                        </div>
+                    </div>`;
+                }
                 if(markerGpsId[ress[0].VehicleId] != null){ 
                     var fotoPetugas = "";
                     markerGpsId[ress[0].VehicleId].setLatLng([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({

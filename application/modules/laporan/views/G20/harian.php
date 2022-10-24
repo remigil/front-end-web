@@ -134,6 +134,7 @@
                             <thead> 
                                 <tr>
                                     <th>No</th>
+                                    <th>Tanggal</th>
                                     <th>Mobil</th>
                                     <th>Motor</th>
                                     <th>Tanpa Kendaraan</th>  
@@ -150,13 +151,15 @@
                             <thead> 
                                 <tr>
                                     <th>No</th> 
+                                    <th>Tanggal</th>
                                     <th>Pelanggaran</th>
                                     <th>Lalu Lintas</th>
                                     <th>Kemacetan</th>
                                     <th>Bencana Alam</th> 
                                     <th>Pengaturan</th>
                                     <th>Pengawalan</th>
-                                    <th>Lainnya</th> 
+                                    <th>Lainnya</th>  
+                                    <th>Total</th>
                                 </tr>
                             </thead> 
                             <tbody id="isiKegiatan"></tbody>
@@ -168,10 +171,16 @@
                         <table id="datatableOperasi" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
                             <thead> 
                                 <tr>
-                                    <th>No</th> 
-                                    <th>Jadwal</th>
+                                    <th rowspan="2" class="text-center">No</th> 
+                                    <th rowspan="2" class="text-center">Tanggal</th> 
+                                    <th class="text-center">Jadwal Kegiatan</th>
+                                    <th colspan="2" class="text-center">Uraian Kegiatan</th> 
+                                    <th rowspan="2" class="text-center">Total</th>
+                                </tr>
+                                <tr> 
                                     <th>Selesai</th>
-                                    <th>Gagal</th>
+                                    <th>Selesai</th>
+                                    <th>Gagal</th>  
                                 </tr>
                             </thead> 
                             <tbody id="isiOperasi"></tbody>
@@ -408,6 +417,7 @@
                             listPetugas += `
                                 <tr>
                                     <td>${urutanPetugas}</td>
+                                    <td>${el.date}</td> 
                                     <td>${el.t_officer_active_car}</td> 
                                     <td>${el.t_officer_active_bike}</td> 
                                     <td>${el.t_officer_active_not_driving}</td> 
@@ -420,6 +430,7 @@
                             listKegiatan += `
                                 <tr>
                                     <td>${urutanKegiatan}</td>
+                                    <td>${el.date}</td> 
                                     <td>${el.t_report_kriminal}</td> 
                                     <td>${el.t_report_lalu_lintas}</td> 
                                     <td>${el.t_report_kemacetan}</td> 
@@ -427,6 +438,7 @@
                                     <td>${el.t_report_pengaturan}</td>  
                                     <td>${el.t_report_pengawalan}</td>  
                                     <td>${el.t_report_lainnya}</td> 
+                                    <td>${el.t_report}</td> 
                                 </tr>
                             `;
                             $('#isiKegiatan').html(listKegiatan);
@@ -435,9 +447,11 @@
                             listOperasi += `
                                 <tr>
                                     <td>${urutanOperasi}</td>
+                                    <td>${el.date}</td> 
                                     <td>${el.t_schedule_done}</td> 
                                     <td>${el.t_rengiat_done}</td> 
                                     <td>${el.t_rengiat_failed}</td>  
+                                    <td>${el.t_rengiat}</td>  
                                 </tr>
                             `;
                             $('#isiOperasi').html(listOperasi);
@@ -447,9 +461,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatablePetugas').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 
@@ -462,9 +493,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatableKegiatan').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 
@@ -477,9 +525,26 @@
 
                             scrollX: true,
 
-                            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                            // buttons: ["excel", "csv", "pdf"],
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatableOperasi').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
                             processing: true,
                             oLanguage: {
 

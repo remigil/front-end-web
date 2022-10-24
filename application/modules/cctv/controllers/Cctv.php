@@ -41,6 +41,12 @@ class Cctv extends MY_Controller
 		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "CCTV Lantas";
             $page_content["page"] = "cctv/Bagtik/cctv_view";
+		} else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["title"] = "CCTV Lantas";
+            $page_content["page"] = "cctv/Kapolda/cctv_view";
+		} else if ($this->session->userdata['role'] == 'Kapolres') {
+            $page_content["title"] = "CCTV Lantas";
+            $page_content["page"] = "cctv/Kapolres/cctv_view";
         }
 
         $page_content["data"] = '';
