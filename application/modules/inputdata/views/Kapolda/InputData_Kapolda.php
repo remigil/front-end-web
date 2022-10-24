@@ -16,8 +16,10 @@
                 <div class="col-md-12">
                     <div class="row d-flex">
                         <div class="col-md-2">
+                            <!-- <?= $data['getPolda']['id']; ?> -->
                             <div class="material-selectfield mb-3">
-                                <select name="polres_id" id="polres_id">
+                                <select name="polda_id" id="polda_id">
+
                                     <option value="<?= $data['getPolda']['id'] ?>"><?= $data['getPolda']['name_polda'] ?></option>
                                 </select>
                                 <label class="labelmui">Polda</label>
@@ -113,7 +115,7 @@
             url: '<?= base_url() ?>inputdata/LaporanHarian/getPolres',
             type: 'POST',
             data: {
-                polda_id: $('#polres_id').val()
+                polda_id: $('#polda_id').val()
             },
             dataType: 'JSON',
             success: function(results) {
