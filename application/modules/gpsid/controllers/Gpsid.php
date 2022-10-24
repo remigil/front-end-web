@@ -50,7 +50,7 @@ class Gpsid extends MX_Controller
         // print_r($param);
          
         file_put_contents('./dataVendor/gpsId.json', '');
-        file_put_contents('./dataVendor/gpsId.json', $change2, FILE_APPEND);
+        file_put_contents('./dataVendor/gpsId.json', $data, FILE_APPEND);
         $ini1 = json_decode(file_get_contents('./dataVendor/gpsId.json'));  
         // echo json_encode($ini1);
         // die;
