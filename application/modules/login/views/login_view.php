@@ -238,7 +238,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 align-self-center pad-0 bg-img">
-                    <img style="border-radius: 0px 25px 25px 0px;margin-left: 24px;"  src="<?php echo base_url()?>assets/img-sidelogin.png" alt="sideImage">
+                    <img style="border-radius: 0px 25px 25px 0px;margin-left: 24px;"  src="<?php echo base_url()?>assets/bg-login-dashboard.png" alt="sideImage">
                 </div>
             </div>
         </div>
