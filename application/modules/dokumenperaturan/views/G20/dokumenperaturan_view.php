@@ -41,7 +41,7 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
 					<div class="col-md-12 mb-3"> 
-                        <input type="file" name="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
+                        <input type="file" name="files" class="dropify" data-allowed-file-extensions="pdf docx doc" /> 
                     </div>
 				<div class="form-floating mb-3">
                         <select name="kategoriPeraturan" class="form-select" aria-label="Floating label select" style="width:100%" required>
@@ -86,7 +86,7 @@
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="" id="id_peraturan" type="text">
 				<div class="col-md-12 mb-3"> 
-                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
+                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc" data-max-file-size="5M"/> 
                     </div>
 				<div class="form-floating mb-3">
                         <select name="kategoriPeraturan" id="kategoriPeraturan" class="form-select" aria-label="Floating label select" style="width:100%" required>
@@ -371,7 +371,7 @@
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>DokumenPeraturan/detailPeraturan/',
+            url: '<?= base_url() ?>dokumenperaturan/DokumenPeraturan/detailPeraturan/',
             type: 'POST',
             data: {
                 id_peraturan: id
@@ -439,7 +439,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>DokumenPeraturan/updatePeraturan',
+            url: '<?= base_url() ?>dokumenperaturan/DokumenPeraturan/updatePeraturan',
             type: 'POST',
             data: formData,
             dataType: 'JSON',

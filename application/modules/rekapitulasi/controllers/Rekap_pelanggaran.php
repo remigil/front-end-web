@@ -18,7 +18,9 @@ class Rekap_pelanggaran extends MY_Controller
         ];
 
         $page_content["css"] = '';
-        $page_content["js"] = ''; 
+        $page_content["js"] = '';
+        $data["title"] = "Rekapitulasi dan grafik data kecelakaan";
+
 
         if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Data Pelanggaran";
