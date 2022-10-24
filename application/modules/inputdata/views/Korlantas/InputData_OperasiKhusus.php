@@ -8,7 +8,9 @@
 </nav>
 <!-- </div> -->
 <div class="page">
+
     <div class="card">
+
         <div class="card-body">
             <form action="" id="form-dataharian">
                 <div class="col-md-12">
@@ -25,30 +27,20 @@
                                 <label class="labelmui">Polda</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div class="material-selectfield mb-3">
-                                <select name="operasi_id" id="operasi_id">
-                                    <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">--Pilih operasi--</option>
-                                    <?php foreach ($data['getOperasi'] as $key) : ?>
-                                        <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label class="labelmui">Operasi</label>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <!-- <select name="" id=""  multiple required> -->
                                     <option value="">--Pilih jenis satker--</option>
                                     <option value="1">Pelanggaran</option>
                                     <option value="2">Kecelakaan</option>
+                                    <option value="3">Turjagwali</option>
                                 </select>
                                 <label class="labelmui">Satker Mabes</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
+
+                        <div class="col-md-3">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_laporan" id="jenis_laporan">
                                     <!-- <select name="" id=""  multiple required> -->
@@ -57,7 +49,7 @@
                                 <label class="labelmui">Jenis Laporan</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="material-textfield mb-3">
                                 <input type="date" name="date" id="date" style="width:100% ;">
 
@@ -90,8 +82,6 @@
         console.log('ok')
         $('#datatable').DataTable({
             scrollY: "450px",
-            sScrollX: '100%',
-
             scrollCollapse: true,
             paging: false,
             bInfo: false
@@ -126,6 +116,45 @@
                                         <option value="19">Usia Pelaku</option>
                                         <option value="20">Pekerjaan Pelaku</option>
                                         <option value="21">Ranmor yang Terlibat</option>`)
+        } else if (jenis_satker == 3) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                        <option value="22">Turjagwali</option>`)
+        } else {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>`)
+        }
+    })
+
+    $('#jenis_satker').on('change', function() {
+        let jenis_satker = $('#jenis_satker').val()
+        $('#jenis_laporan').html('')
+        if (jenis_satker == 1) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                <option value="1">Pelanggaran Lalu Lintas</option>
+                                <option value="2">Pelanggaran Ranmor Roda 2</option>
+                                <option value="3">Pelanggaran Ranmor Roda 4</option>
+                                <option value="4">Barang Bukti</option>
+                                <option value="5">Kendaraan yang Terlibat</option>
+                                <option value="6">Profesi Pelaku</option>
+                                <option value="7">Usia Pelaku</option>
+                                <option value="8">SIM Pelaku</option>
+                                <option value="9">Lokasi Kawasan</option>
+                                <option value="10">Lokasi Status Jalan</option>
+                                <option value="11">Lokasi Fungsi Jalan</option>
+                                <option value="12">Dikmaslantas</option>
+                                <option value="13">Penyebaran / Pemasangan</option>
+                                <option value="14">Giat Lantas</option>`)
+        } else if (jenis_satker == 2) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                        <option value="15">Kecelakaan Lalu Lintas</option>
+                                        <option value="16">Usia Korban</option>
+                                        <option value="17">Pekerjaan Korban</option>
+                                        <option value="18">Pendidikan Korban</option>
+                                        <option value="19">Usia Pelaku</option>
+                                        <option value="20">Pekerjaan Pelaku</option>
+                                        <option value="21">Ranmor yang Terlibat</option>`)
+        } else if (jenis_satker == 3) {
+            $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
+                                        <option value="22">Turjagwali</option>`)
         } else {
             $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>`)
         }
@@ -210,6 +239,9 @@
                 } else if (jenis_laporan == 21) {
                     laporan.push('Sepeda Motor', 'Mobil Penumpang', 'Bus', 'Mobil Barang', 'Ransus')
                     field_input.push(`<input type="number" name="sepeda_motor[]" class="form-control" value="0">`, `<input type="number" name="mobil_penumpang[]" class="form-control" value="0">`, `<input type="number" name="bus[]" class="form-control" value="0">`, `<input type="number" name="mobil_barang[]" class="form-control" value="0">`, `<input type="number" name="ransus[]" class="form-control" value="0">`)
+                } else if (jenis_laporan == 22) {
+                    laporan.push('Penjagaan', 'Pengawalan', 'Patroli', 'Pengaturan')
+                    field_input.push(`<input type="number" name="penjagaan[]" class="form-control" value="0">`, `<input type="number" name="pengawalan[]" class="form-control" value="0">`, `<input type="number" name="patroli[]" class="form-control" value="0">`, `<input type="number" name="pengaturan[]" class="form-control" value="0">`)
                 }
 
                 let inputs = ''
@@ -248,18 +280,7 @@
                 <tbody>
                 </table>
                 `
-
-
                 $('.isiRow').html(master_tb)
-
-                // $('#datatable').DataTable({
-                //     scrollY: "450px",
-                //     scrollX: true,
-
-                //     scrollCollapse: true,
-                //     paging: false,
-                //     bInfo: false
-                // });
             }
         })
     })
@@ -270,7 +291,7 @@
         const formData = new FormData($('#form-dataharian')[0]);
 
         $.ajax({
-            url: "<?= base_url() ?>inputdata/LaporanOperasiKhusus/storeData",
+            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
             method: "POST",
             data: formData,
             dataType: "JSON",
@@ -320,36 +341,3 @@
         })
     })
 </script>
-
-<!-- <style>
-    .table-striped>tbody>tr:nth-child(odd)>td,
-    .table-striped>tbody>tr:nth-child(odd)>th {
-        white-space: nowrap;
-        border: 1px solid black;
-        overflow-x: scroll;
-        overflow-y: scroll;
-        position: sticky;
-    }
-
-    #datatable {
-        overflow: auto;
-    }
-
-    /* .card-body {
-        overflow: auto;
-        white-space: nowrap;
-    } */
-
-    /* th {
-        position: sticky;
-        top: 0%;
-        color: white;
-        border: 1px solid black;
-        padding: 10px;
-    }
-
-    .table-wrapper {
-        max-height: 300px;
-        overflow-x: scroll;
-    } */
-</style> -->

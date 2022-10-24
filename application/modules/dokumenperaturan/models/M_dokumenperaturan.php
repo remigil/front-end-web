@@ -131,7 +131,9 @@ class M_dokumenperaturan extends CI_Model {
 				$category = "Peraturan Kakorlantas POLRI";
 			}else if($field['regulation_category'] == 7){
 				$category = "Peraturan Lain-lain";
-			}
+			}else{
+                $category = "-";
+            }
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 

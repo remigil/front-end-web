@@ -8,7 +8,8 @@ class Rekap_pelanggaran extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		// $this->load->model("masterdata/m_fasum");
+        // $this->load->model("masterdata/m_fasum");
+        $this->load->model('M_Rekap_Pelanggaran');
     }
 
     public function index()
@@ -18,10 +19,14 @@ class Rekap_pelanggaran extends MY_Controller
         ];
 
         $page_content["css"] = '';
-        $page_content["js"] = ''; 
+        $page_content["js"] = '';
+        $data["title"] = "Rekapitulasi dan grafik data pelanggaran";
+
 
         if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Data Pelanggaran";
+            $data['pelanggaran'] = $this->M_Rekap_Pelanggaran->pelanggaran_nasional();
+            $data['pelanggaran_month'] = $this->M_Rekap_Pelanggaran->pelanggaran_month();
             $page_content["page"] = "rekapitulasi/Kakor/rekap_pelanggaran_view";
         } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Data Pelanggaran";

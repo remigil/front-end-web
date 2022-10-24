@@ -1389,8 +1389,8 @@
                             listCar += `  
                                 <tr>
                                     <td> ${countlistCar}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
+                                    <td> a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 

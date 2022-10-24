@@ -548,238 +548,238 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
+        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
             <header id="page-topbar" style="background: #1D1D1D;">
-		<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') {?>
-		<header id="page-topbar" style="background: #000dda;">
-			
-        <?php } else { ?>
-            <header id="page-topbar">
-        <?php } ?>
-        
-            <div class="navbar-header">
-                <div class="d-flex">
-                    <!-- LOGO -->
-                    <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
-                        <div class="navbar-brand-box" style="background: none;">
-                    <?php } else { ?>
-                        <div class="navbar-brand-box">
+            <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                <header id="page-topbar" style="background: #000dda;">
+
+                <?php } else { ?>
+                    <header id="page-topbar">
                     <?php } ?>
-                    
-                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
 
-                                </span>
-                            </a>
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <!-- LOGO -->
+                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                <div class="navbar-brand-box" style="background: none;">
+                                <?php } else { ?>
+                                    <div class="navbar-brand-box">
+                                    <?php } ?>
 
-                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+                                    <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
+                                            <span class="logo-sm">
+                                                <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                            </span>
+                                            <span class="logo-lg">
+                                                <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
 
-                                </span>
-                            </a>
-                        <?php } else { ?>
-                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                                </span>
-                            </a>
+                                            </span>
+                                        </a>
 
-                            <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
-                                </span>
-                            </a>
-                        <?php } ?>
-                    </div>
+                                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                            <span class="logo-sm">
+                                                <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                            </span>
+                                            <span class="logo-lg">
+                                                <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
 
-                    <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
-                        <div id="changeicon">
-                            <input type="text" id="statusicon" name="statusicon" value="right" hidden>
-                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
-                            <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
-                        </div>
-                    </button>
-                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20') { ?>
-                        <div>
-                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
-                        </div>
-					<?php } else if ($this->uri->segment(1) == "dashboard") { ?>
-						<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
-						<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:white"><?php echo $title; ?></h5>
-						<?php } else { ?>
-							<div>
-								<p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-								<h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI</h3>
-                        	</div>
-						<?php } ?>
-						
-                    <?php } else { ?>
-						<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
-						<?php } else { ?>
-							<h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
-						<?php } ?>
-                    <?php } ?>
-                </div>
+                                            </span>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
+                                            <span class="logo-sm">
+                                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                            </span>
+                                            <span class="logo-lg">
+                                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                            </span>
+                                        </a>
 
+                                        <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
+                                            <span class="logo-sm">
+                                                <img src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="" style="margin-left: -9px;" height="40">
+                                            </span>
+                                            <span class="logo-lg">
+                                                <img src="<?php echo base_url(); ?>assets/main-logo.png" alt="" style="margin-left: 22px;" height="65">
+                                            </span>
+                                        </a>
+                                    <?php } ?>
+                                    </div>
 
-                <div class="d-flex">
-
-
-                    <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {?>
-									<img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-								<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-									<img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-								<?php } else { ?>
-									<i data-feather="bell" class="icon-lg"></i>
-								<?php } ?>
-								<span class="badge bg-danger rounded-pill" id="totalNotif"></span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-                                <div class="p-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="m-0"> Notifications</h6>
+                                    <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
+                                        <div id="changeicon">
+                                            <input type="text" id="statusicon" name="statusicon" value="right" hidden>
+                                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
+                                            <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                                         </div>
-                                        <!-- <div class="col-auto">
+                                    </button>
+                                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20') { ?>
+                                        <div>
+                                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
+                                        </div>
+                                    <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
+                                        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+                                        <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:white"><?php echo $title; ?></h5>
+                                        <?php } else { ?>
+                                            <div>
+                                                <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI</h3>
+                                            </div>
+                                        <?php } ?>
+
+                                    <?php } else { ?>
+                                        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+                                        <?php } else { ?>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </div>
+
+
+                                <div class="d-flex">
+
+
+                                    <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
+                                        <div class="dropdown d-inline-block">
+                                            <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                                    <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                                                    <img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <?php } else { ?>
+                                                    <i data-feather="bell" class="icon-lg"></i>
+                                                <?php } ?>
+                                                <span class="badge bg-danger rounded-pill" id="totalNotif"></span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                                                <div class="p-3">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <h6 class="m-0"> Notifications</h6>
+                                                        </div>
+                                                        <!-- <div class="col-auto">
                                         <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
                                     </div> -->
-                                    </div>
-                                </div>
-                                <div id="listDataNotif">
+                                                    </div>
+                                                </div>
+                                                <div id="listDataNotif">
 
-                                </div>
-                                <div class="p-2 border-top d-grid">
-                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+                                                </div>
+                                                <div class="p-2 border-top d-grid">
+                                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
 
-                    <!-- <div class="dropdown d-inline-block">
+                                    <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item right-bar-toggle me-2">
                                 <i data-feather="settings" class="icon-lg"></i>
                             </button>
                         </div> -->
 
-                    <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar">
-							<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-								<img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
+                                    <div class="dropdown d-inline-block">
+                                        <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar">
+                                            <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
 
-                            <?php } else { ?>
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
-                            <?php } ?>
-                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <!-- item-->
-                            <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
-                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                                            <?php } else { ?>
+                                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
+                                                <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
+                                            <?php } ?>
+                                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
+                                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                                        </div>
+                                    </div>
+
+                                </div>
                         </div>
-                    </div>
+                    </header>
 
-                </div>
-            </div>
-        </header>
+                    <!-- ========== Left Sidebar Start ========== -->
+                    <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                        <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+                        <?php } else { ?>
+                            <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+                            <?php } ?>
+                            <div data-simplebar class="h-100">
 
-        <!-- ========== Left Sidebar Start ========== -->
-			<?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-				<div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
-			<?php } else { ?>
-				<div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
-			<?php } ?>
-            <div data-simplebar class="h-100">
+                                <!--- Sidemenu -->
+                                <div id="sidebar-menu">
+                                    <!-- Left Menu Start -->
+                                    <ul class="metismenu list-unstyled" id="side-menu">
 
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-
-                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                            <li>
-                                <a href="<?php echo base_url(); ?>dashboard">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Dashboard</span>
-                                </a>
-                            </li>
-                            <!-- <li>
+                                        <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>dashboard">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>operasi/renpam">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Uraian Kegiatan</span>
                                 </a>
                             </li> -->
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Uraian Kegiatan</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="mdi mdi-account-group-outline"></i>
-                                    <span data-key="t-authentication">Operasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>operasi/Kegiatan" data-key="t-login">Jadwal Kegiatan</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/Akun" data-key="t-login">Akun</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VIP</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
-                                    <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Laporan Operasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
-                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
-                                    <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i data-feather="users"></i>
+                                                    <span data-key="t-authentication">Uraian Kegiatan</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i class="mdi mdi-account-group-outline"></i>
+                                                    <span data-key="t-authentication">Operasi</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Kegiatan" data-key="t-login">Jadwal Kegiatan</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Akun" data-key="t-login">Akun</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VIP</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i data-feather="users"></i>
+                                                    <span data-key="t-authentication">Laporan Operasi</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>troublespot">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Troublespot</span>
                                 </a>
                             </li> -->
 
-                            <!-- <li>
+                                            <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="users"></i>
                                     <span data-key="t-authentication">Fasilitas Umum</span>
@@ -790,215 +790,215 @@
                                 </ul>
                             </li> -->
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">CCTV</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">CCTV</span>
+                                                </a>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
-                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">BodyCam</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">BodyCam</span>
+                                                </a>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
+                                                </a>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>zoom">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Zoom</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>zoom">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">Zoom</span>
+                                                </a>
+                                            </li>
 
-                            <!-- <li>
+                                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>gmaps">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Peta</span>
                                 </a>
                             </li> -->
-                          
-                            <li>
-                                <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">Peta</span>
-                                </a>
-                            </li>
 
-                            <li class="menu-title mt-2" data-key="t-components">Management System</li>
+                                            <li>
+                                                <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">Peta</span>
+                                                </a>
+                                            </li>
 
-                            <!-- <li>
+                                            <li class="menu-title mt-2" data-key="t-components">Management System</li>
+
+                                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>user/operator">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-dashboard">Operator</span>
                                 </a>
                             </li> -->
 
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Master Data</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
-                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
-                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
-                                    <?php } ?>
-                                    <!-- <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li> -->
-                                    <li><a href="<?php echo base_url('masterdata/categorySchedule'); ?>" data-key="t-read-email">Kategori Jadwal Kegiatan</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/jabatan'); ?>" data-key="t-read-email">Jabatan VIP</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/negara'); ?>" data-key="t-read-email">Negara VIP</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/pangkat'); ?>" data-key="t-read-email">Pangkat Petugas</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/struktural'); ?>" data-key="t-read-email">Structural Petugas</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/kepemilikan'); ?>" data-key="t-read-email">Kepemilikan Kendaraan</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Khusus</a></li>
-                                </ul>
-                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-apps">Master Data</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                                    <?php } ?>
+                                                    <!-- <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li> -->
+                                                    <li><a href="<?php echo base_url('masterdata/categorySchedule'); ?>" data-key="t-read-email">Kategori Jadwal Kegiatan</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/jabatan'); ?>" data-key="t-read-email">Jabatan VIP</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/negara'); ?>" data-key="t-read-email">Negara VIP</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/pangkat'); ?>" data-key="t-read-email">Pangkat Petugas</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/struktural'); ?>" data-key="t-read-email">Structural Petugas</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/kepemilikan'); ?>" data-key="t-read-email">Kepemilikan Kendaraan</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/bahan_bakar'); ?>" data-key="t-read-email">Bahan Bakar Kendaraan</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Khusus</a></li>
+                                                </ul>
+                                            </li>
 
-                            <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung</li>
-                            <li>
-                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">ERI</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://irsms.korlantas.polri.go.id/login" target="_blank">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-dashboard">IRSMS</span>
-                                </a>
-                            </li>
+                                            <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung</li>
+                                            <li>
+                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">ERI</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">IRSMS</span>
+                                                </a>
+                                            </li>
 
-                            <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
+                                        <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
-                                <li>
-                                    <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d") ?>&end_date=<?= date("Y-m-d") ?>">
-                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript: void(0);" class="has-arrow">
-                                        <i data-feather="users"></i>
-                                        <span data-key="t-authentication">Laporan Operasi</span>
-                                    </a>
-                                    <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
-                                        <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
-                                        <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
-                                    </ul>
-                                </li>
-                                <?php if ($this->session->userdata['role'] != 'Operator') { ?>
-                                    <li>
-                                        <a href="<?php echo base_url(); ?>dashboard/peta">
-                                            <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-dashboard">Peta</span>
-                                        </a>
-                                    </li>
-                                <?php } ?>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>dashboard?start_date=<?= date("Y-m-d") ?>&end_date=<?= date("Y-m-d") ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i data-feather="users"></i>
+                                                    <span data-key="t-authentication">Laporan Operasi</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
+                                                </ul>
+                                            </li>
+                                            <?php if ($this->session->userdata['role'] != 'Operator') { ?>
+                                                <li>
+                                                    <a href="<?php echo base_url(); ?>dashboard/peta">
+                                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-dashboard">Peta</span>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
 
 
-                                <li>
-                                    <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">CCTV</span>
-                                    </a>
-                                </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>masterdata/Cctv">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">CCTV</span>
+                                                </a>
+                                            </li>
 
-                                <li>
-                                    <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
-                                        <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-peraturan">Dokumen Peraturan</span>
-                                    </a>
-                                </li>
+                                            <li>
+                                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
+                                                </a>
+                                            </li>
 
-                                <li>
-                                    <a href="javascript: void(0);" class="has-arrow">
-                                        <i data-feather="users"></i>
-                                        <span data-key="t-authentication">Uraian Kegiatan</span>
-                                    </a>
-                                    <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
-                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
-                                        <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
-                                    </ul>
-                                </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <i data-feather="users"></i>
+                                                    <span data-key="t-authentication">Uraian Kegiatan</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
+                                                </ul>
+                                            </li>
 
-                        <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                        <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
-							<div class="text-center mt-3">
-								<?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
-									<img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
-									<p style="color: #969696;">KAKORLANTAS POLRI</p>
-								<?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') {?>
-									<img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
-									<p style="color: #969696;">DIRKAMSEL</p>
-								<?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') {?>
-									<img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
-									<p style="color: #969696;">DIRGAKKUM</p>
-								<?php } elseif ($this->session->userdata['role'] == 'Ditregident') {?>
-									<img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
-									<p style="color: #969696;">DIRREGIDENT</p>
-								<?php } elseif ($this->session->userdata['role'] == 'KaBagOps') {?>
-									<img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
-									<p style="color: #969696;">KABAG OPS</p>
-								<?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') {?>
-									<img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
-									<p style="color: #969696;">KABAG RENMIN</p>
-								<?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') {?>
-									<img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-									<h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
-									<p style="color: #969696;">KABAG TIK</p>
-								<?php } ?>
-							</div>
-                            <!-- <img src="" alt=""> -->
-							<li>
-								<a href="<?php echo base_url(); ?>dashboard">
-                                    <img src="<?= base_url('assets/sidebar/icon-beranda-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">Beranda</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-									<img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-authentication" style="color: #FFC300;">Rekapitulasi dan Grafik</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
-											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-											<span data-key="t-dashboard" style="color: #FFC300;">Data Pelanggaran</span>
-										</a>
-									</li>
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
-											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-											<span data-key="t-dashboard" style="color: #FFC300;">Data Kecelakaan</span>
-										</a>
-									</li>
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
-											<img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-											<span data-key="t-dashboard" style="color: #FFC300;">Data Turjawali</span>
-										</a>
-									</li>
-                                </ul>
-                            </li>
-                            <!-- <?php if ($this->session->userdata['role'] != 'Operator') { ?>
+                                            <div class="text-center mt-3">
+                                                <?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
+                                                    <img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
+                                                    <p style="color: #969696;">KAKORLANTAS POLRI</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') { ?>
+                                                    <img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
+                                                    <p style="color: #969696;">DIRKAMSEL</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
+                                                    <img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
+                                                    <p style="color: #969696;">DIRGAKKUM</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'Ditregident') { ?>
+                                                    <img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
+                                                    <p style="color: #969696;">DIRREGIDENT</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagOps') { ?>
+                                                    <img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
+                                                    <p style="color: #969696;">KABAG OPS</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') { ?>
+                                                    <img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
+                                                    <p style="color: #969696;">KABAG RENMIN</p>
+                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                                    <img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                                                    <h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
+                                                    <p style="color: #969696;">KABAG TIK</p>
+                                                <?php } ?>
+                                            </div>
+                                            <!-- <img src="" alt=""> -->
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>dashboard">
+                                                    <img src="<?= base_url('assets/sidebar/icon-beranda-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Beranda</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-authentication" style="color: #FFC300;">Rekapitulasi dan Grafik</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Pelanggaran</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Kecelakaan</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Turjawali</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- <?php if ($this->session->userdata['role'] != 'Operator') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard/peta">
                                         <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1007,130 +1007,130 @@
                                 </li>
                             <?php } ?> -->
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
-                                    <img src="<?= base_url('assets/sidebar/icon-dataOpsus-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">Data Harian Opsus</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dataOpsus-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Data Harian Opsus</span>
+                                                </a>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url('anev/Anev'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-anev-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">Anev</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-peta-digital-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">Peta Digital</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-cctv-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">CCTV</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-tripOn-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">Trip On</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
-									<img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">ERI</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
-									<img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
-                                </a>
-                            </li>
-						<?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-							<li>
-								<a href="<?php echo base_url(); ?>dashboard">
-                                    <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Beranda</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-									<img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-authentication">Rekapitulasi dan Grafik</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
-											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-											<span data-key="t-dashboard">Data Pelanggaran</span>
-										</a>
-									</li>
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
-											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-											<span data-key="t-dashboard">Data Kecelakaan</span>
-										</a>
-									</li>
-                                    <li>
-										<a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
-											<img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-											<span data-key="t-dashboard">Data Turjawali</span>
-										</a>
-									</li>
-                                </ul>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('anev/Anev'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-anev-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Anev</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-peta-digital-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Peta Digital</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-cctv-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">CCTV</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-tripOn-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Trip On</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">ERI</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
+                                                </a>
+                                            </li>
+                                        <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>dashboard">
+                                                    <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Beranda</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-authentication">Rekapitulasi dan Grafik</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-dashboard">Data Pelanggaran</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-dashboard">Data Kecelakaan</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-dashboard">Data Turjawali</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
-                                    <img src="<?= base_url('assets/sidebar/icon-dataharianOpsus.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Data Harian Opsus</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dataharianOpsus.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Data Harian Opsus</span>
+                                                </a>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url('anev/Anev'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Anev</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-petaDigital.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Peta Digital</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">CCTV</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
-									<img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Trip On</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
-									<img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">ERI</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
-									<img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">IRSMS</span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('anev/Anev'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Anev</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-petaDigital.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Peta Digital</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">CCTV</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Trip On</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">ERI</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell">
+                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">IRSMS</span>
+                                                </a>
+                                            </li>
 
-                        <?php } else { ?>
+                                        <?php } else { ?>
 
-                            <!-- <li>
+                                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>dashboard">
                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     <span data-key="t-dashboard">Dashboard</span>
@@ -1197,164 +1197,196 @@
                                     </li>
                                 </ul>
                             </li> -->
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Masyarakat</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="<?= base_url('tripon') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-tripon">TripOn</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Spot</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="<?= base_url('troublespot') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">TroubleSpot</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('troublespot/blackspot') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-blackspot">BlackSpot</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-laporan">Masyarakat</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li>
+                                                        <a href="<?= base_url('tripon') ?>">
+                                                            <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-tripon">TripOn</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-laporan">Spot</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li>
+                                                        <a href="<?= base_url('troublespot') ?>">
+                                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-troublespot">TroubleSpot</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url('troublespot/blackspot') ?>">
+                                                            <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-blackspot">BlackSpot</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
 
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-laporan">Operasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="<?= base_url('operasi/RencanaOperasi') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-troublespot">Khusus</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('operasi/OperasiRutin') ?>">
-                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-blackspot">Rutin</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-inputdata">Input Data</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">LapHar Rutin</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">LapHar Opsus</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Masyarakat</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Pemerintahan</a></li>
-                                </ul>
-                            </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-laporan">Operasi</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li>
+                                                        <a href="<?= base_url('operasi/RencanaOperasi') ?>">
+                                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-troublespot">Khusus</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url('operasi/OperasiRutin') ?>">
+                                                            <img src="<?= base_url('assets/sidebar/icon-operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-blackspot">Rutin</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
 
-                            <li>
-                                <a href="<?php echo base_url('berita'); ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-berita">Berita</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
-                                </a>
-                            </li>
-                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                            <li>
+                                                <a href="<?php echo base_url('berita'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-berita">Berita</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
+                                                </a>
+                                            </li>
+                                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
 
-                                <li>
-                                    <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-pengguna">Management Pengguna</span>
-                                    </a>
-                                    <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
-                                        <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
-                                        <li><a href="<?php echo base_url('pengguna/AkunOperasi'); ?>" data-key="t-read-email">Akun Operasi</a></li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-inputdata">Input Data</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">LapHar Rutin</a></li>
+                                                </ul>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">LapHar Opsus</a></li>
+                                                </ul>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
+                                                </ul>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Masyarakat</a></li>
+                                                </ul>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Pemerintahan</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <ul class="sub-menu" aria-expanded="false">
+
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/LaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-troublespot">Input Laporan Harian</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-blackspot">Import Laporan Harian</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-blackspot">Import Laporan Operasional</span>
+                                                    </a>
+                                                </li>
+                                                <!-- <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Input Laporan Harian</a></li> -->
+                                            </ul>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">Laporan Operasi Khusus</a></li>
+                                            </ul>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">Laporan NTMC</a></li>
+                                            </ul>
+
+                                        </li>
+
+                                                <li>
+                                                    <a href="javascript: void(0);" class="has-arrow">
+                                                        <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-pengguna">Management Pengguna</span>
+                                                    </a>
+                                                    <ul class="sub-menu" aria-expanded="false">
+                                                        <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
+                                                        <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
+                                                        <li><a href="<?php echo base_url('pengguna/AkunOperasi'); ?>" data-key="t-read-email">Akun Operasi</a></li>
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <img src="<?= base_url('assets/sidebar/icon-masterdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-masterdata">Master Data</span>
+                                                </a>
+                                                <ul class="sub-menu" aria-expanded="false">
+                                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
+                                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
+                                                    <?php } ?>
+                                                    <li><a href="<?php echo base_url('masterdata/Petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Samsat'); ?>" data-key="t-read-email">Samsat</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">E-Tilang</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('zoom'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">Zoom</span>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
-                                </li>
-                            <?php } ?>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <img src="<?= base_url('assets/sidebar/icon-masterdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-masterdata">Master Data</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
-                                        <li><a href="<?php echo base_url('masterdata/Polda'); ?>" data-key="t-read-email">Polda</a></li>
-                                        <li><a href="<?php echo base_url('masterdata/Polres'); ?>" data-key="t-read-email">Polres</a></li>
-                                    <?php } ?>
-                                    <li><a href="<?php echo base_url('masterdata/Petugasnasional'); ?>" data-key="t-read-email">Petugas Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Kendaraannasional'); ?>" data-key="t-read-email">Kendaraan Nasional</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Samsat'); ?>" data-key="t-read-email">Samsat</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
-                                    <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">E-Tilang</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('zoom'); ?>">
-                                    <img src="<?= base_url('assets/sidebar/icon-zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                    <span data-key="t-dashboard">Zoom</span>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>
 
 
-                </div>
-                <!-- Sidebar -->
-            </div>
-        </div>
-        <!-- Left Sidebar End -->
+                                </div>
+                                <!-- Sidebar -->
+                            </div>
+                            </div>
+                            <!-- Left Sidebar End -->
 
 
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
+                            <!-- ============================================================== -->
+                            <!-- Start right Content here -->
+                            <!-- ============================================================== -->
+                            <div class="main-content">
 
-            <div class="page-content" style="background-color: #f5f3f4;">
-                <div class="container-fluid">
+                                <div class="page-content" style="background-color: #f5f3f4;">
+                                    <div class="container-fluid">
 
-                    <!-- Page Content-->
-                    <?php $this->load->view($page_content) ?>
+                                        <!-- Page Content-->
+                                        <?php $this->load->view($page_content) ?>
 
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
+                                    </div>
+                                    <!-- container-fluid -->
+                                </div>
+                                <!-- End Page-content -->
 
 
-            <!-- <footer class="footer">
+                                <!-- <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -1369,416 +1401,416 @@
                         </div>
                     </div>
                 </footer> -->
-        </div>
-        <!-- end main content-->
-
-    </div>
-    <!-- END layout-wrapper -->
-
-
-    <!-- Right Sidebar -->
-    <div class="right-bar">
-        <div data-simplebar class="h-100">
-            <div class="rightbar-title d-flex align-items-center p-3">
-
-                <h5 class="m-0 me-2">Theme Customizer</h5>
-
-                <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                    <i class="mdi mdi-close noti-icon"></i>
-                </a>
-            </div>
-
-            <!-- Settings -->
-            <hr class="m-0" />
-
-            <div class="p-4">
-                <h6 class="mb-3">Layout</h6>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout" id="layout-vertical" value="vertical">
-                    <label class="form-check-label" for="layout-vertical">Vertical</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout" id="layout-horizontal" value="horizontal">
-                    <label class="form-check-label" for="layout-horizontal">Horizontal</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-mode" onchange="localStorage.setItem('data-layout-mode', 'light')" id="layout-mode-light" value="light">
-                    <label class="form-check-label" for="layout-mode-light">Light</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-mode" onchange="localStorage.setItem('data-layout-mode', 'dark')" id="layout-mode-dark" value="dark">
-                    <label class="form-check-label" for="layout-mode-dark">Dark</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild" value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
-                    <label class="form-check-label" for="layout-width-fuild">Fluid</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-width" id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
-                    <label class="form-check-label" for="layout-width-boxed">Boxed</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
-                    <label class="form-check-label" for="layout-position-fixed">Fixed</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-position" id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
-                    <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light" value="light" onchange="localStorage.setItem('data-topbar', 'light'); document.body.setAttribute('data-topbar', 'light')">
-                    <label class="form-check-label" for="topbar-color-light">Light</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-dark" value="dark" onchange="localStorage.setItem('data-topbar', 'dark'); document.body.setAttribute('data-topbar', 'dark')">
-                    <label class="form-check-label" for="topbar-color-dark">Dark</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
-
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default" value="default" onchange="localStorage.setItem('data-sidebar-size', 'lg'); document.body.setAttribute('data-sidebar-size', 'lg')">
-                    <label class="form-check-label" for="sidebar-size-default">Default</label>
-                </div>
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact" value="compact" onchange="localStorage.setItem('data-sidebar-size', 'md'); document.body.setAttribute('data-sidebar-size', 'md')">
-                    <label class="form-check-label" for="sidebar-size-compact">Compact</label>
-                </div>
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-small" value="small" onchange="localStorage.setItem('data-sidebar-size', 'sm'); document.body.setAttribute('data-sidebar-size', 'sm')">
-                    <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
-
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
-                    <label class="form-check-label" for="sidebar-color-light">Light</label>
-                </div>
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
-                    <label class="form-check-label" for="sidebar-color-dark">Dark</label>
-                </div>
-                <div class="form-check sidebar-setting">
-                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
-                    <label class="form-check-label" for="sidebar-color-brand">Brand</label>
-                </div>
+                            </div>
+                            <!-- end main content-->
+
+                        </div>
+                        <!-- END layout-wrapper -->
+
+
+                        <!-- Right Sidebar -->
+                        <div class="right-bar">
+                            <div data-simplebar class="h-100">
+                                <div class="rightbar-title d-flex align-items-center p-3">
+
+                                    <h5 class="m-0 me-2">Theme Customizer</h5>
+
+                                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                                        <i class="mdi mdi-close noti-icon"></i>
+                                    </a>
+                                </div>
+
+                                <!-- Settings -->
+                                <hr class="m-0" />
+
+                                <div class="p-4">
+                                    <h6 class="mb-3">Layout</h6>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout" id="layout-vertical" value="vertical">
+                                        <label class="form-check-label" for="layout-vertical">Vertical</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout" id="layout-horizontal" value="horizontal">
+                                        <label class="form-check-label" for="layout-horizontal">Horizontal</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-mode" onchange="localStorage.setItem('data-layout-mode', 'light')" id="layout-mode-light" value="light">
+                                        <label class="form-check-label" for="layout-mode-light">Light</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-mode" onchange="localStorage.setItem('data-layout-mode', 'dark')" id="layout-mode-dark" value="dark">
+                                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild" value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
+                                        <label class="form-check-label" for="layout-width-fuild">Fluid</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-width" id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
+                                        <label class="form-check-label" for="layout-width-boxed">Boxed</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
+                                        <label class="form-check-label" for="layout-position-fixed">Fixed</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-position" id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
+                                        <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light" value="light" onchange="localStorage.setItem('data-topbar', 'light'); document.body.setAttribute('data-topbar', 'light')">
+                                        <label class="form-check-label" for="topbar-color-light">Light</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-dark" value="dark" onchange="localStorage.setItem('data-topbar', 'dark'); document.body.setAttribute('data-topbar', 'dark')">
+                                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
+
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default" value="default" onchange="localStorage.setItem('data-sidebar-size', 'lg'); document.body.setAttribute('data-sidebar-size', 'lg')">
+                                        <label class="form-check-label" for="sidebar-size-default">Default</label>
+                                    </div>
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact" value="compact" onchange="localStorage.setItem('data-sidebar-size', 'md'); document.body.setAttribute('data-sidebar-size', 'md')">
+                                        <label class="form-check-label" for="sidebar-size-compact">Compact</label>
+                                    </div>
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-small" value="small" onchange="localStorage.setItem('data-sidebar-size', 'sm'); document.body.setAttribute('data-sidebar-size', 'sm')">
+                                        <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
+                                    </div>
+
+                                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
+
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
+                                        <label class="form-check-label" for="sidebar-color-light">Light</label>
+                                    </div>
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
+                                        <label class="form-check-label" for="sidebar-color-dark">Dark</label>
+                                    </div>
+                                    <div class="form-check sidebar-setting">
+                                        <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
+                                        <label class="form-check-label" for="sidebar-color-brand">Brand</label>
+                                    </div>
 
-                <h6 class="mt-4 mb-3 pt-2">Direction</h6>
+                                    <h6 class="mt-4 mb-3 pt-2">Direction</h6>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr" value="ltr">
-                    <label class="form-check-label" for="layout-direction-ltr">LTR</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl" value="rtl">
-                    <label class="form-check-label" for="layout-direction-rtl">RTL</label>
-                </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr" value="ltr">
+                                        <label class="form-check-label" for="layout-direction-ltr">LTR</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl" value="rtl">
+                                        <label class="form-check-label" for="layout-direction-rtl">RTL</label>
+                                    </div>
 
-            </div>
+                                </div>
 
-        </div> <!-- end slimscroll-menu-->
-    </div>
-    <!-- /Right-bar -->
+                            </div> <!-- end slimscroll-menu-->
+                        </div>
+                        <!-- /Right-bar -->
 
-    <!-- Right bar overlay-->
-    <div class="rightbar-overlay"></div>
+                        <!-- Right bar overlay-->
+                        <div class="rightbar-overlay"></div>
 
 
-    <!-- pace js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pace-js/pace.min.js"></script>
+                        <!-- pace js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/pace-js/pace.min.js"></script>
 
-    <!-- choices js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+                        <!-- choices js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
 
-    <!-- dropify js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
+                        <!-- dropify js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.js"></script>
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
-    <!-- Modal js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
+                        <!-- Modal js -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
 
-    <!-- form mask -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
+                        <!-- form mask -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
 
-    <!-- form mask init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
+                        <!-- form mask init -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
 
-    <!-- dropzone js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
+                        <!-- dropzone js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
 
-    <!-- glightbox js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
+                        <!-- glightbox js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
 
-    <!-- lightbox init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
+                        <!-- lightbox init -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
 
-    <!-- Required datatable js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+                        <!-- Required datatable js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Buttons examples -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/jszip/jszip.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-
-    <!-- Responsive examples -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- apexcharts -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
-
-    <!-- Plugins js-->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+                        <!-- Buttons examples -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/jszip/jszip.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
 
-    <!-- dashboard init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
+                        <!-- Responsive examples -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 
-    <!-- Sweet Alerts js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
+                        <!-- apexcharts -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
 
-    <!-- Sweet alert init js-->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
+                        <!-- Plugins js-->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
 
-    <!-- pristine js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
+                        <!-- dashboard init -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
 
-    <!-- form validation -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
+                        <!-- Sweet Alerts js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 
-    <!-- init js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
-
-    <!-- datepicker js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
-
-    <!-- select2 js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/select2.min.js"></script>
+                        <!-- Sweet alert init js-->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
 
-    <!-- twitter-bootstrap-wizard js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
+                        <!-- pristine js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
 
-    <!-- form wizard init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
+                        <!-- form validation -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
 
-    <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
+                        <!-- init js -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
 
-    <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
-
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
-    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
-
-    <?php echo $js ?>
-
-    <script>
-        var sidebar = localStorage.getItem('data-sidebar-size');
-        var topbar = localStorage.getItem('data-topbar');
-        var layoutMode = localStorage.getItem('data-layout-mode');
-        $(document).ready(function() {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
-            }
-
-            document.body.setAttribute('data-sidebar-size', sidebar);
-            document.body.setAttribute('data-topbar', topbar)
-            document.body.setAttribute("data-layout-mode", layoutMode);
-        });
-
-        $("#vertical-menu-btn").on("click", function(event) {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
-            }
-        });
-    </script>
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
-    <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
-        <script>
-            // Initialize the Firebase app by passing in the messagingSenderId
-            var config = {
-                apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
-
-                authDomain: "g20k3i.firebaseapp.com",
-
-                projectId: "g20k3i",
-
-                storageBucket: "g20k3i.appspot.com",
-
-                messagingSenderId: "475022830226",
-
-                appId: "1:475022830226:web:51022ccfb162eac1b0144b"
-
-            };
-            firebase.initializeApp(config);
-            const messaging = firebase.messaging();
-
-            // messaging.onBackgroundMessage((payload) => {
-            //     console.log('onBackgroundMessage ', payload);
-            //     // Customize notification here
-            //     // const {title, body} = payload.notification;
-            //     // const notificationTitle = title;
-            //     // const notificationOptions = {
-            //     //     body: body,
-            //     //     icon: '/firebase-logo.png'
-            //     // };
-            //     // self.registration.showNotification(notificationTitle,
-            //     //     notificationOptions);
-
-
-
-            // });
-
-
-            navigator.serviceWorker.register('firebase-messaging-sw.js')
-                .then(function(registration) {
-                    messaging.useServiceWorker(registration);
-
-                    // Request for permission
-                    messaging.requestPermission()
-                        .then(function() {
-                            // console.log('Notification permission granted.');
-                            // TODO(developer): Retrieve an Instance ID token for use with FCM.
-                            messaging.getToken()
-                                .then(function(currentToken) {
-                                    if (currentToken) {
-                                        // console.log('Token: ' + currentToken)
-                                        sendTokenToServer(currentToken);
-                                    } else {
-                                        // console.log('No Instance ID token available. Request permission to generate one.');
-                                        setTokenSentToServer(false);
-                                    }
-                                })
-                                .catch(function(err) {
-                                    // console.log('An error occurred while retrieving token. ', err);
-                                    setTokenSentToServer(false);
-                                });
-                        })
-                        .catch(function(err) {
-                            // console.log('Unable to get permission to notify.', err);
-                        });
-                });
-
-
-            // Handle incoming messages
-            messaging.onMessage(function(payload) {
-                // console.log("Notification received: ", payload);
-                // toastr["info"](payload.notification.body, payload.notification.title);
-            });
-
-            // Callback fired if Instance ID token is updated.
-            messaging.onTokenRefresh(function() {
-                messaging.getToken()
-                    .then(function(refreshedToken) {
-                        // console.log('Token refreshed.');
-                        // Indicate that the new Instance ID token has not yet been sent 
-                        // to the app server.
-                        setTokenSentToServer(false);
-                        // Send Instance ID token to app server.
-                        sendTokenToServer(refreshedToken);
-                    })
-                    .catch(function(err) {
-                        // console.log('Unable to retrieve refreshed token ', err);
-                    });
-            });
-
-            // Send the Instance ID token your application server, so that it can:
-            // - send messages back to this app
-            // - subscribe/unsubscribe the token from topics
-            function sendTokenToServer(currentToken) {
-                if (!isTokenSentToServer()) {
-                    // console.log('Sending token to server...');
-                    // TODO(developer): Send the current token to your server.
-                    setTokenSentToServer(true);
-                } else {
-                    // console.log('Token already sent to server so won\'t send it again ' + 'unless it changes');
-                }
-            }
-
-            function isTokenSentToServer() {
-                return window.localStorage.getItem('sentToServer') == 1;
-            }
-
-            function setTokenSentToServer(sent) {
-                window.localStorage.setItem('sentToServer', sent ? 1 : 0);
-            }
-
-
-            var countlistNotif;
-            var listNotif = "";
-
-            function serverSideGetNotif() {
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url(); ?>notifikasi/getNotif",
-                    data: {
-                        "page": null
-                    },
-                    dataType: "JSON",
-                    success: function(result) {
-                        let ressData = result['data'];
-                        // console.log(ressData);
-                        countlistNotif = 0;
-                        listNotif = "";
-                        let linkWeb = "";
-
-                        $("#overlay").fadeOut(300);
-                        if (ressData.length > 0) {
-                            listNotif += `<div data-simplebar style="max-height: 230px;" >`;
-                            ressData.forEach(el => {
-                                if (el.type == "laporan") {
-                                    linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
+                        <!-- datepicker js -->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+
+                        <!-- select2 js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/js/pages/select2.min.js"></script>
+
+                        <!-- twitter-bootstrap-wizard js -->
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
+
+                        <!-- form wizard init -->
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
+
+                        <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
+
+                        <!-- Leaflet -->
+                        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+                        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+                        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
+                        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
+                        <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
+
+
+                        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+                        <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+                        <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
+                        <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
+
+                        <?php echo $js ?>
+
+                        <script>
+                            var sidebar = localStorage.getItem('data-sidebar-size');
+                            var topbar = localStorage.getItem('data-topbar');
+                            var layoutMode = localStorage.getItem('data-layout-mode');
+                            $(document).ready(function() {
+                                if ($("#statusicon").val() == 'left') {
+                                    $("#iconright").show();
+                                    $("#iconleft").hide();
+                                    $("#statusicon").val('right');
                                 } else {
-                                    linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
+                                    $("#iconright").hide();
+                                    $("#iconleft").show();
+                                    $("#statusicon").val('left');
                                 }
-                                // console.log(linkWeb);
-                                countlistNotif += 1;
-                                listNotif += `
+
+                                document.body.setAttribute('data-sidebar-size', sidebar);
+                                document.body.setAttribute('data-topbar', topbar)
+                                document.body.setAttribute("data-layout-mode", layoutMode);
+                            });
+
+                            $("#vertical-menu-btn").on("click", function(event) {
+                                if ($("#statusicon").val() == 'left') {
+                                    $("#iconright").show();
+                                    $("#iconleft").hide();
+                                    $("#statusicon").val('right');
+                                } else {
+                                    $("#iconright").hide();
+                                    $("#iconleft").show();
+                                    $("#statusicon").val('left');
+                                }
+                            });
+                        </script>
+
+
+                        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+                        <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
+                            <script>
+                                // Initialize the Firebase app by passing in the messagingSenderId
+                                var config = {
+                                    apiKey: "AIzaSyCD0yzgSLiF7_vOgyKP_m8uaONbDc7woo8",
+
+                                    authDomain: "g20k3i.firebaseapp.com",
+
+                                    projectId: "g20k3i",
+
+                                    storageBucket: "g20k3i.appspot.com",
+
+                                    messagingSenderId: "475022830226",
+
+                                    appId: "1:475022830226:web:51022ccfb162eac1b0144b"
+
+                                };
+                                firebase.initializeApp(config);
+                                const messaging = firebase.messaging();
+
+                                // messaging.onBackgroundMessage((payload) => {
+                                //     console.log('onBackgroundMessage ', payload);
+                                //     // Customize notification here
+                                //     // const {title, body} = payload.notification;
+                                //     // const notificationTitle = title;
+                                //     // const notificationOptions = {
+                                //     //     body: body,
+                                //     //     icon: '/firebase-logo.png'
+                                //     // };
+                                //     // self.registration.showNotification(notificationTitle,
+                                //     //     notificationOptions);
+
+
+
+                                // });
+
+
+                                navigator.serviceWorker.register('firebase-messaging-sw.js')
+                                    .then(function(registration) {
+                                        messaging.useServiceWorker(registration);
+
+                                        // Request for permission
+                                        messaging.requestPermission()
+                                            .then(function() {
+                                                // console.log('Notification permission granted.');
+                                                // TODO(developer): Retrieve an Instance ID token for use with FCM.
+                                                messaging.getToken()
+                                                    .then(function(currentToken) {
+                                                        if (currentToken) {
+                                                            // console.log('Token: ' + currentToken)
+                                                            sendTokenToServer(currentToken);
+                                                        } else {
+                                                            // console.log('No Instance ID token available. Request permission to generate one.');
+                                                            setTokenSentToServer(false);
+                                                        }
+                                                    })
+                                                    .catch(function(err) {
+                                                        // console.log('An error occurred while retrieving token. ', err);
+                                                        setTokenSentToServer(false);
+                                                    });
+                                            })
+                                            .catch(function(err) {
+                                                // console.log('Unable to get permission to notify.', err);
+                                            });
+                                    });
+
+
+                                // Handle incoming messages
+                                messaging.onMessage(function(payload) {
+                                    // console.log("Notification received: ", payload);
+                                    // toastr["info"](payload.notification.body, payload.notification.title);
+                                });
+
+                                // Callback fired if Instance ID token is updated.
+                                messaging.onTokenRefresh(function() {
+                                    messaging.getToken()
+                                        .then(function(refreshedToken) {
+                                            // console.log('Token refreshed.');
+                                            // Indicate that the new Instance ID token has not yet been sent 
+                                            // to the app server.
+                                            setTokenSentToServer(false);
+                                            // Send Instance ID token to app server.
+                                            sendTokenToServer(refreshedToken);
+                                        })
+                                        .catch(function(err) {
+                                            // console.log('Unable to retrieve refreshed token ', err);
+                                        });
+                                });
+
+                                // Send the Instance ID token your application server, so that it can:
+                                // - send messages back to this app
+                                // - subscribe/unsubscribe the token from topics
+                                function sendTokenToServer(currentToken) {
+                                    if (!isTokenSentToServer()) {
+                                        // console.log('Sending token to server...');
+                                        // TODO(developer): Send the current token to your server.
+                                        setTokenSentToServer(true);
+                                    } else {
+                                        // console.log('Token already sent to server so won\'t send it again ' + 'unless it changes');
+                                    }
+                                }
+
+                                function isTokenSentToServer() {
+                                    return window.localStorage.getItem('sentToServer') == 1;
+                                }
+
+                                function setTokenSentToServer(sent) {
+                                    window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+                                }
+
+
+                                var countlistNotif;
+                                var listNotif = "";
+
+                                function serverSideGetNotif() {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "<?php echo base_url(); ?>notifikasi/getNotif",
+                                        data: {
+                                            "page": null
+                                        },
+                                        dataType: "JSON",
+                                        success: function(result) {
+                                            let ressData = result['data'];
+                                            // console.log(ressData);
+                                            countlistNotif = 0;
+                                            listNotif = "";
+                                            let linkWeb = "";
+
+                                            $("#overlay").fadeOut(300);
+                                            if (ressData.length > 0) {
+                                                listNotif += `<div data-simplebar style="max-height: 230px;" >`;
+                                                ressData.forEach(el => {
+                                                    if (el.type == "laporan") {
+                                                        linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/operasi/detail/");
+                                                    } else {
+                                                        linkWeb = el.web.replace("korlantasg20://laporan/detail/", "https://k3ig20korlantas.id/laporan/panic/detail/");
+                                                    }
+                                                    // console.log(linkWeb);
+                                                    countlistNotif += 1;
+                                                    listNotif += `
                                     <a href="${linkWeb}" target="_blank" class="text-reset notification-item">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
@@ -1794,46 +1826,46 @@
                                         </div>
                                     </a>
                                 `;
-                                $("#listDataNotif").html(listNotif);
-                            });
-                            listNotif += `</div>`;
-                        } else {
-                            listNotif = "Tidak ada notifikasi!";
-                            $('#listDataNotif').html(listNotif);
-                        }
+                                                    $("#listDataNotif").html(listNotif);
+                                                });
+                                                listNotif += `</div>`;
+                                            } else {
+                                                listNotif = "Tidak ada notifikasi!";
+                                                $('#listDataNotif').html(listNotif);
+                                            }
 
-                    }
-                });
-            }
+                                        }
+                                    });
+                                }
 
 
 
-            $(`.openNotif`).click(function() {
-                $("#overlay").fadeIn(300);
-                serverSideGetNotif();
-            });
+                                $(`.openNotif`).click(function() {
+                                    $("#overlay").fadeIn(300);
+                                    serverSideGetNotif();
+                                });
 
-            var jumlahNotif = "";
-            // setInterval(function() {
-            //     // console.log('idowae')
-            //     $.ajax({
-            //         type : "POST",
-            //         url : "<?php echo base_url(); ?>notifikasi/getCountNotif", 
-            //         data : {
-            //             "page" : null
-            //         }, 
-            //         dataType : "JSON",
-            //         success : function(res){  
-            //             jumlahNotif = res.total_data;
+                                var jumlahNotif = "";
+                                // setInterval(function() {
+                                //     // console.log('idowae')
+                                //     $.ajax({
+                                //         type : "POST",
+                                //         url : "<?php echo base_url(); ?>notifikasi/getCountNotif", 
+                                //         data : {
+                                //             "page" : null
+                                //         }, 
+                                //         dataType : "JSON",
+                                //         success : function(res){  
+                                //             jumlahNotif = res.total_data;
 
-            //             $("#totalNotif").html(res.total_data);
-            //         }
-            //     });
-            // }, 10000);
-        </script>
-    <?php } ?>
+                                //             $("#totalNotif").html(res.total_data);
+                                //         }
+                                //     });
+                                // }, 10000);
+                            </script>
+                        <?php } ?>
 
-    <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
+                        <!-- <script src="<?php echo base_url(); ?>firebase-messaging-sw.js"></script> -->
 
 
 </body>
