@@ -8,20 +8,22 @@ class Rekap_turjawali extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		// $this->load->model("masterdata/m_fasum");
+        $this->load->model('M_Rekap_Turjagwali');
     }
 
     public function index()
     {
-		$headers = [
+        $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
-        $page_content["js"] = ''; 
+        $page_content["js"] = '';
+        $data["title"] = "Rekapitulasi dan grafik data turjagwali";
 
         if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Data Turjawali";
+            $data['turjagwali'] = $this->M_Rekap_Turjagwali->turjagwali_nasional();
             $page_content["page"] = "rekapitulasi/Kakor/rekap_turjawali_view";
         } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Data Turjawali";
@@ -32,19 +34,19 @@ class Rekap_turjawali extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "Data Turjawali";
             $page_content["page"] = "rekapitulasi/Ditregident/rekap_turjawali_view";
-		} else if ($this->session->userdata['role'] == 'KaBagOps') {
+        } else if ($this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "Data Turjawali";
             $page_content["page"] = "rekapitulasi/Bagops/rekap_turjawali_view";
-		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
             $page_content["title"] = "Data Turjawali";
             $page_content["page"] = "rekapitulasi/Bagrenmin/rekap_turjawali_view";
-		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
+        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "Data Turjawali";
             $page_content["page"] = "rekapitulasi/Bagtik/rekap_turjawali_view";
-		} else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["title"] = "Data Kecelakaan";
             $page_content["page"] = "rekapitulasi/Kapolda/rekap_kecelakaan_view";
-		} else if ($this->session->userdata['role'] == 'Kapolres') {
+        } else if ($this->session->userdata['role'] == 'Kapolres') {
             $page_content["title"] = "Data Kecelakaan";
             $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
         }
@@ -61,41 +63,42 @@ class Rekap_turjawali extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-	public function getCategory($id){
-		$headers = [
+    public function getCategory($id)
+    {
+        $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
-		$getCategory = guzzle_request('GET', 'category_fasum/getId/' .$id, [
+        $getCategory = guzzle_request('GET', 'category_fasum/getId/' . $id, [
             'headers' => $headers
         ]);
 
-		echo json_encode($getCategory['data']['data']);
-	}
-	public function serverSideTable()
+        echo json_encode($getCategory['data']['data']);
+    }
+    public function serverSideTable()
     {
         $postData = $this->input->post();
         $data = $this->m_fasum->get_datatables($postData);
-		// var_dump($data);
-		// die;
+        // var_dump($data);
+        // die;
         echo json_encode($data);
     }
 
-	public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if(isset($_FILES['photo']['name'])){ 
+        if (isset($_FILES['photo']['name'])) {
             $dummy = [
-				[
-					'name' => 'fasum_logo',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				],
+                [
+                    'name' => 'fasum_logo',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
                 [
                     'name' => 'fasum_name',
                     'contents' => $input['namaFasum'],
@@ -112,30 +115,30 @@ class Rekap_turjawali extends MY_Controller
                     'name' => 'fasum_lat',
                     'contents' => $input['latitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_lng',
                     'contents' => $input['longitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_description',
                     'contents' => $input['deskripsiFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_phone',
                     'contents' => $input['kontakFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],
                 ],
-				[
+                [
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
-                ], 
+                ],
             ];
         } else {
             $dummy = [
@@ -155,56 +158,53 @@ class Rekap_turjawali extends MY_Controller
                     'name' => 'fasum_lat',
                     'contents' => $input['latitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_lng',
                     'contents' => $input['longitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_description',
                     'contents' => $input['deskripsiFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_phone',
                     'contents' => $input['kontakFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],
                 ],
-				[
+                [
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
                 ],
-			];
+            ];
         }
 
-        $data = guzzle_request('POST', 'fasum/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'fasum/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
-		
-		
+        echo json_encode($res);
     }
 
     public function detailFasum()
@@ -265,16 +265,16 @@ class Rekap_turjawali extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if(isset($_FILES['photo'])){ 
+        if (isset($_FILES['photo'])) {
             $dummy = [
-				[
-					'name' => 'fasum_logo',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				],
+                [
+                    'name' => 'fasum_logo',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
                 [
                     'name' => 'fasum_name',
                     'contents' => $input['namaFasum'],
@@ -291,30 +291,30 @@ class Rekap_turjawali extends MY_Controller
                     'name' => 'fasum_lat',
                     'contents' => $input['latitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_lng',
                     'contents' => $input['longitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_description',
                     'contents' => $input['deskripsiFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_phone',
                     'contents' => $input['kontakFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],
                 ],
-				[
+                [
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
-                ], 
+                ],
             ];
         } else {
             $dummy = [
@@ -334,31 +334,31 @@ class Rekap_turjawali extends MY_Controller
                     'name' => 'fasum_lat',
                     'contents' => $input['latitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_lng',
                     'contents' => $input['longitude'],
                 ],
-				[
+                [
                     'name' => 'fasum_description',
                     'contents' => $input['deskripsiFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_phone',
                     'contents' => $input['kontakFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
                 ],
-				[
+                [
                     'name' => 'fasum_open_time',
                     'contents' => $input['jamBuka'],
                 ],
-				[
+                [
                     'name' => 'fasum_close_time',
                     'contents' => $input['jamTutup'],
                 ],
-			];
+            ];
         }
         $data = guzzle_request('PUT', 'fasum/edit/' . $input['id'] . '', [
             'multipart' => $dummy,
