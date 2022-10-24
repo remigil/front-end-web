@@ -22,7 +22,7 @@ class DokumenPeraturan extends MY_Controller
         $page_content["js"] = '';
         $page_content["title"] = "Dokumen Peraturan";
 
-        if ($this->session->userdata['role'] == 'G20') {
+        if ($this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU' || $this->session->userdata['role'] == 'Operator') {
             $page_content["page"] = "dokumenperaturan/G20/dokumenperaturan_view";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "dokumenperaturan/Korlantas/dokumenperaturan_view";
@@ -50,9 +50,9 @@ class DokumenPeraturan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $path = $_FILES['files']['tmp_name'];
-        $filename = $_FILES['files']['name'];
-        if($_FILES['files']['name']){ 
+        if($_FILES['files']['name'] != null){ 
+            $path = $_FILES['files']['tmp_name'];
+            $filename = $_FILES['files']['name'];
             $dummy = [
                 [
                     'name' => 'regulation_category',
@@ -176,9 +176,9 @@ class DokumenPeraturan extends MY_Controller
         ];
         $input      = $this->input->post();
 
-        $path = $_FILES['files']['tmp_name'];
-        $filename = $_FILES['files']['name'];
-        if ($_FILES['files']['name']) {
+        if ($_FILES['files']['name'] != null) {
+            $path = $_FILES['files']['tmp_name'];
+            $filename = $_FILES['files']['name'];
             $dummy = [
                 [
                     'name' => 'regulation_category',
