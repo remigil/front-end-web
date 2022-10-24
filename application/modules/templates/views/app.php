@@ -871,7 +871,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://irsms.korlantas.polri.go.id/login" target="_blank">
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
                                                     <i data-feather="grid"></i>
                                                     <span data-key="t-dashboard">IRSMS</span>
                                                 </a>
@@ -1045,7 +1045,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
                                                 </a>
@@ -1122,7 +1122,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#">
+                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell">
                                                     <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">IRSMS</span>
                                                 </a>
