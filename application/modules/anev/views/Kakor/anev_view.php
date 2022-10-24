@@ -74,18 +74,18 @@
 			</div>
 			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
 				<div class="main-chart">
-					<div id="chart2" style="width: 30vw; position:sticky"></div>
+					<div id="chart2" style="width: 30vw; margin-left:auto; margin-right:auto; display:block;"></div>
 				</div>
 				<div>
 					<text style="font-style: bold;">Keterangan :</text>
 				</div>
-				<div style="position:center">
-					<table>
+				<div>
+					<table style="margin-left:auto;margin-right:auto">
 						<thead>
 							<tr>
-								<th style="width: 5vw;">Selasa, 18-10-2022</th>
+								<th style="width: 8vw;">Selasa, 18-10-2022</th>
 								<th style="width: 5vw;"></th>
-								<th style="width: 5vw;">Rabu, 19-10-2022</th>
+								<th style="width: 8vw;">Rabu, 19-10-2022</th>
 								<th style="width: 5vw;"></th>
 								<th style="width: 5vw;">Angka</th>
 								<th style="width: 5vw;">Presentase</th>
@@ -94,12 +94,22 @@
 						<tbody>
 							<tr>
 								<td>
-									<div class="box1 d-flex" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+										</div>
+										<div class="ms-2">
+											<text>Total Laka</text>
+										</div>
 									</div>
 								</td>
 								<td>143</td>
 								<td>
-									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+										</div>
+										<div class="ms-2">
+											<text>Total Laka</text>
+										</div>
 									</div>
 								</td>
 								<td>29</td>
@@ -108,12 +118,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: red;">
+										</div>
+										<div class="ms-2">
+											<text>Meninggal Dunia</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: red;">
+										</div>
+										<div class="ms-2">
+											<text>Meninggal Dunia</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
@@ -122,12 +142,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: yellow;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>6</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: yellow;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>10</td>
@@ -136,12 +166,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: green;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>101</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: green;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>35</td>
@@ -156,7 +196,7 @@
 		</div>
 	</div>
 	<div class="col-md-5">
-		<section class="shadow-sm mt-5">
+		<section class="shadow-sm">
 			<div class="row">
 				<div class="col-xl-12">
 					<div class="card">
@@ -165,18 +205,18 @@
 						</div>
 						<div class="card-body" style="overflow:hidden; overflow-x:scroll;">
 							<div class="main-chart">
-								<div id="chart3" style="width: 15vw"></div>
+								<div id="chart3" style="width: 15vw; margin-left:auto; margin-right:auto; display:block;"></div>
 							</div>
 							<div>
 								<text style="font-style: bold;">Keterangan :</text>
 							</div>
-							<div style="position:center">
-								<table>
+							<div>
+								<table style="margin-left:auto;margin-right:auto">
 									<thead>
 										<tr>
-											<th style="width: 5vw;">Selasa, 18-10-2022</th>
+											<th style="width: 8vw;">Selasa, 18-10-2022</th>
 											<th style="width: 5vw;"></th>
-											<th style="width: 5vw;">Rabu, 19-10-2022</th>
+											<th style="width: 8vw;">Rabu, 19-10-2022</th>
 											<th style="width: 5vw;"></th>
 											<th style="width: 5vw;">Angka</th>
 											<th style="width: 5vw;">Presentase</th>
@@ -185,12 +225,22 @@
 									<tbody>
 										<tr>
 											<td>
-												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												<div class="d-flex">
+													<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+													</div>
+													<div class="ms-2">
+														<text>Material Loss</text>
+													</div>
 												</div>
 											</td>
 											<td>143</td>
 											<td>
-												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												<div class="d-flex">
+													<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+													</div>
+													<div class="ms-2">
+														<text>Material Loss</text>
+													</div>
 												</div>
 											</td>
 											<td>29</td>
