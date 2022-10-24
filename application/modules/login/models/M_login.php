@@ -1,16 +1,18 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_login extends CI_Model {
+class M_login extends CI_Model
+{
 
     private $app_id = 'admin';
     private $passwd = '1legalitas!!';
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->helper('guzzle_request_helper');
     }
-    public function auth($username,$password)
+    public function auth($username, $password)
     {
         $authLogin = [
             [
@@ -22,12 +24,12 @@ class M_login extends CI_Model {
                 'contents' => $password,
             ]
         ];
-        $data = guzzle_request('POST','auth/login',[
+        $data = guzzle_request('POST', 'auth/login', [
             'multipart' => $authLogin
         ]);
         $token = $data['data']['accessToken'];
 
-        if($token){
+        if ($token) {
             // $parts = [
             //     [
             //         'name' => 'user_name',
@@ -43,7 +45,7 @@ class M_login extends CI_Model {
                 'headers' => [
                     'Authorization' => $token
                 ]
-            ]); 
+            ]);
         }
 
         $data['token'] = $token;

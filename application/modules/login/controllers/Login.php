@@ -30,8 +30,8 @@ class Login extends MX_Controller
         // print_r($response);
         // die;
         if ($response['user']['isSuccess'] == true) {
-            
-            if ($response['user']['data']['status_verifikasi'] == 1) { 
+
+            if ($response['user']['data']['status_verifikasi'] == 1) {
                 $data_session  = array();
                 $data_session['role']       = $response['user']['data']['user_role']['name'];
                 $data_session['operation_id']       = $response['user']['data']['operation_id'];
@@ -47,40 +47,42 @@ class Login extends MX_Controller
 
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolres' || $response['user']['data']['user_role']['name'] == 'Kapolres') {
                     $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
-                    $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];;
+                    $data_session['id_polres'] = $response['user']['data']['polres_profile']['polres_id'];
+                    $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];
+                    $data_session['polda_id']       = $response['user']['data']['polres_profile']['polres']['polda_id'];
+                    // $data_session['polda_id'] = $response['user']['data']['polda_profile']['poldaid'];
                 }
-    
+
                 $this->session->set_userdata($data_session);
 
-                $headers = [ 
-                    'Authorization' => $response['token'],  
-                ]; 
+                $headers = [
+                    'Authorization' => $response['token'],
+                ];
                 $dummy = [
                     [
                         'name' => 'token_notif',
                         'contents' => $tokenNotif,
                     ],
                 ];
-                $data = guzzle_request('PUT', 'user/edit/'.$response['user']['data']['id'].'', [ 
-                    'multipart' => $dummy, 
-                    'headers' => $headers 
+                $data = guzzle_request('PUT', 'user/edit/' . $response['user']['data']['id'] . '', [
+                    'multipart' => $dummy,
+                    'headers' => $headers
                 ]);
 
 
-                if($data['isSuccess'] == true){ 
-                    if($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU"){
-                        redirect(base_url('dashboard?start_date='.date("Y-m-d").'&end_date='.date("Y-m-d").''));
+                if ($data['isSuccess'] == true) {
+                    if ($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU") {
+                        redirect(base_url('dashboard?start_date=' . date("Y-m-d") . '&end_date=' . date("Y-m-d") . ''));
                     } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
                         redirect(base_url('inputData/LaporanHarian'));
                     } else {
                         redirect(base_url('dashboard'));
-                    } 
-                }else{
+                    }
+                } else {
                     $this->session->set_flashdata('error', 'Mohon untuk periksa kembali jaringan anda!');
                     redirect('login');
                     die;
                 }
-
             } else {
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');
@@ -162,7 +164,7 @@ class Login extends MX_Controller
 
         $VehicleId = $param->VehicleId; //862476051307543
         $VehicleNumber = $param->VehicleNumber; //b 1925 WKX
-        $DatetimeUTC = $param->DatetimeUTC; 
+        $DatetimeUTC = $param->DatetimeUTC;
         $GpsLocation = $param->GpsLocation;
         $Lon = $param->Lon;
         $Lat = $param->Lat;
@@ -170,15 +172,14 @@ class Login extends MX_Controller
         $Direction = $param->Direction;
         $Engine = $param->Engine;
         $Odometer = $param->Odometer;
-        $Car_status= $param->Car_status;
- 
+        $Car_status = $param->Car_status;
 
-        echo $json_string; 
+
+        echo $json_string;
         //- 
         // file_put_contents('./gpsId_'.date("j.n.Y").'.json', $json_string, FILE_APPEND);
 
         $this->load->view('gpsId');
-        
     }
 
     public function logout()
