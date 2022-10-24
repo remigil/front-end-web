@@ -71,7 +71,7 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+				<h4 class="card-title mb-0"></h4>
 			</div>
 			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
 				<div class="main-chart">
@@ -202,7 +202,7 @@
 				<div class="col-xl-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+							<h4 class="card-title mb-0"></h4>
 						</div>
 						<div class="card-body" style="overflow:hidden; overflow-x:scroll;">
 							<div class="main-chart">
@@ -344,7 +344,7 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+				<h4 class="card-title mb-0"></h4>
 			</div>
 			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
 				<div class="main-chart">
@@ -378,150 +378,154 @@
 								</td>
 								<td>143</td>
 								<td>
-									<<div class="d-flex">
+									<div class="d-flex">
 										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #11347A;">
 										</div>
 										<div class="ms-2">
 											<text>Jumlah Dakgar</text>
 										</div>
+									</div>
+								</td>
+								<td>29</td>
+								<td style="color: blue;">29</td>
+								<td>-5%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Berat</text>
+										</div>
+									</div>
+								</td>
+								<td>5</td>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Berat</text>
+										</div>
+									</div>
+								</td>
+								<td>5</td>
+								<td style="color: blue;">5</td>
+								<td>76%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Sedang</text>
+										</div>
+									</div>
+								</td>
+								<td>6</td>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Sedang</text>
+										</div>
+									</div>
+								</td>
+								<td>10</td>
+								<td style="color: blue;">10</td>
+								<td>80%</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Ringan</text>
+										</div>
+									</div>
+								</td>
+								<td>101</td>
+								<td>
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Ringan</text>
+										</div>
+									</div>
+								</td>
+								<td>35</td>
+								<td style="color: blue;">35</td>
+								<td>30%</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				</td>
-				<td>29</td>
-				<td style="color: blue;">29</td>
-				<td>-5%</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Berat</text>
-							</div>
-						</div>
-					</td>
-					<td>5</td>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Berat</text>
-							</div>
-						</div>
-					</td>
-					<td>5</td>
-					<td style="color: blue;">5</td>
-					<td>76%</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Sedang</text>
-							</div>
-						</div>
-					</td>
-					<td>6</td>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Sedang</text>
-							</div>
-						</div>
-					</td>
-					<td>10</td>
-					<td style="color: blue;">10</td>
-					<td>80%</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Ringan</text>
-							</div>
-						</div>
-					</td>
-					<td>101</td>
-					<td>
-						<div class="d-flex">
-							<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
-							</div>
-							<div class="ms-2">
-								<text>Gar Ringan</text>
-							</div>
-						</div>
-					</td>
-					<td>35</td>
-					<td style="color: blue;">35</td>
-					<td>30%</td>
-				</tr>
-				</tbody>
-				</table>
+				</section>
 			</div>
-			</section>
 		</div>
 	</div>
-</div>
 
-<div class="page mt-5">
-	<table id="datatable" class="table table-bordered border-secondary text-center" style="vertical-align:middle!important" width="100%">
-		<thead class="table-info">
-			<tr class="text-grey">
-				<th scope="col" rowspan="2">No</th>
-				<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
-				<th scope="col" colspan="2">Waktu</th>
-				<th scope="col" colspan="2">Trend</th>
-				<th scope="col" rowspan="2">Keterangan</th>
-				<th scope="col" rowspan="2">Laporan Anev</th>
-			</tr>
-			<tr>
-				<th>Selasa, 18-10-2022</th>
-				<th>Rabu, 19-10-2022</th>
-				<th>Angka</th>
-				<th>Presentase</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-			</tr>
-			<tr>
-				<th scope="row">1</th>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-			</tr>
-			<tr>
-				<th scope="row">1</th>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+	<div class="page mt-5">
+		<div class="card pt-4 pb-4">
+			<div class="ms-4 me-4">
+				<table id="datatable" class="table table-bordered text-center" style="width:100%;">
+					<thead class="table-info">
+						<tr class="text-grey">
+							<th scope="col" rowspan="2">No</th>
+							<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
+							<th scope="col" colspan="2">Waktu</th>
+							<th scope="col" colspan="2">Trend</th>
+							<th scope="col" rowspan="2">Keterangan</th>
+							<th scope="col" rowspan="2">Laporan Anev</th>
+						</tr>
+						<tr>
+							<th>Selasa, 18-10-2022</th>
+							<th>Rabu, 19-10-2022</th>
+							<th>Angka</th>
+							<th>Presentase</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -904,9 +908,9 @@
 		var ditregident = new ApexCharts(document.querySelector("#chart5"), options_ditregident);
 		ditregident.render();
 
-		$('#datatable').DataTable({
-			scrollX: true,
-		});
+		// $('#datatable').DataTable({
+		// 	scrollX: true,
+		// });
 
 	})
 </script>
