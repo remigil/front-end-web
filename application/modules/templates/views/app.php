@@ -1252,6 +1252,21 @@
                                                     </li>
                                                 </ul>
                                             </li>
+
+                                            <li>
+                                                <a href="<?php echo base_url('berita'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-berita">Berita</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
+                                                </a>
+                                            </li>
+                                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
                                                     <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1274,19 +1289,36 @@
                                                 </ul>
                                             </li>
 
-                                            <li>
-                                                <a href="<?php echo base_url('berita'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-berita.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-berita">Berita</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dokumenperaturan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-peraturan">Dokumen Peraturan</span>
-                                                </a>
-                                            </li>
-                                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                            <ul class="sub-menu" aria-expanded="false">
+
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/LaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-troublespot">Input Laporan Harian</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-blackspot">Import Laporan Harian</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <span data-key="t-blackspot">Import Laporan Operasional</span>
+                                                    </a>
+                                                </li>
+                                                <!-- <li><a href="<?= base_url('inputdata/LaporanHarian') ?>" data-key="t-read-email">Input Laporan Harian</a></li> -->
+                                            </ul>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">Laporan Operasi Khusus</a></li>
+                                            </ul>
+                                            <ul class="sub-menu" aria-expanded="false">
+                                                <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">Laporan NTMC</a></li>
+                                            </ul>
+
+                                        </li>
 
                                                 <li>
                                                     <a href="javascript: void(0);" class="has-arrow">

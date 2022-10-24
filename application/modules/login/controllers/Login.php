@@ -34,6 +34,7 @@ class Login extends MX_Controller
             if ($response['user']['data']['status_verifikasi'] == 1) { 
                 $data_session  = array();
                 $data_session['role']       = $response['user']['data']['user_role']['name'];
+                $data_session['id'] = $response['user']['data']['id'];
                 $data_session['operation_id']       = $response['user']['data']['operation_id'];
                 $data_session['full_name']       = $username;
                 $data_session['token']       = $response['token'];
