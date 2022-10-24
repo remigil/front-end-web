@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_Dashboard extends CI_Model
+class M_dashboard extends CI_Model
 {
 
 
