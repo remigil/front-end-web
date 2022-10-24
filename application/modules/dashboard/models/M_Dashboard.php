@@ -11,7 +11,6 @@ class M_dashboard extends CI_Model
     {
 
         parent::__construct();
-
         $this->load->helper('guzzle_request_helper');
     }
 
