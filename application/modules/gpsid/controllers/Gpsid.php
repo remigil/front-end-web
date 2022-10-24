@@ -45,7 +45,7 @@ class Gpsid extends MX_Controller
         $param = json_decode($data);
         // $file = './dataVendor/gpsId.json'
 
-        $change1 = str_replace('}','}],',$data);
+        $change1 = str_replace('}','}]',$data);
         $change2 = str_replace('{','[{',$change1);
         // print_r($param);
          
