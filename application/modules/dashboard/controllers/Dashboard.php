@@ -9,7 +9,7 @@ class Dashboard extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model('operasi/m_renpam');
-        $this->load->model('dashboard/M_Dashboard');
+        $this->load->model('dashboard/m_dashboard');
     }
 
     public function index()
@@ -254,13 +254,13 @@ class Dashboard extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
-            $data['topPolda_garlantas'] = $this->M_Dashboard->garlantas_topPolda();
-            $data['turjagwali'] = $this->M_Dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->M_Dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->M_Dashboard->ditregident_nasional();
-            $data['topPolda_lakalantas'] = $this->M_Dashboard->lakalantas_topPolda();
-            $data['tripOn'] = $this->M_Dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->M_Dashboard->troublespot_nasional();
+            $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
+            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
+            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
 
 
             $page_content["data"] = $data;
