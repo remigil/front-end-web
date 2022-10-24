@@ -86,7 +86,7 @@
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="" id="id_peraturan" type="text">
 				<div class="col-md-12 mb-3"> 
-                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc" data-max-file-size="5M"/> 
+                        <input type="file" name="files" id="files" class="dropify" data-allowed-file-extensions="pdf docx doc"/> 
                     </div>
 				<div class="form-floating mb-3">
                         <select name="kategoriPeraturan" id="kategoriPeraturan" class="form-select" aria-label="Floating label select" style="width:100%" required>
