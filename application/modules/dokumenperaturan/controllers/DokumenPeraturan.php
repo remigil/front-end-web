@@ -50,9 +50,9 @@ class DokumenPeraturan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $path = $_FILES['files']['tmp_name'];
-        $filename = $_FILES['files']['name'];
-        if($_FILES['files']['name']){ 
+        if($_FILES['files']['name'] != null){ 
+            $path = $_FILES['files']['tmp_name'];
+            $filename = $_FILES['files']['name'];
             $dummy = [
                 [
                     'name' => 'regulation_category',
@@ -176,9 +176,9 @@ class DokumenPeraturan extends MY_Controller
         ];
         $input      = $this->input->post();
 
-        $path = $_FILES['files']['tmp_name'];
-        $filename = $_FILES['files']['name'];
-        if ($_FILES['files']['name']) {
+        if ($_FILES['files']['name'] != null) {
+            $path = $_FILES['files']['tmp_name'];
+            $filename = $_FILES['files']['name'];
             $dummy = [
                 [
                     'name' => 'regulation_category',
