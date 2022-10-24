@@ -411,6 +411,18 @@ class LaporanOperasiKhusus extends MY_Controller
 
                 array_push($value, $object);
             }
+        } else if ($jenis_laporan ==  22) {
+            $url =  'operasi_turjagwali/turjagwali?polda=true';
+            for ($i = 0; $i < $max_loop; $i++) {
+                $object = (object) [
+                    'penjagaan' => $this->input->post('penjagaan')[$i],
+                    'pengawalan' => $this->input->post('pengawalan')[$i],
+                    'patroli' => $this->input->post('patroli')[$i],
+                    'pengaturan' => $this->input->post('pengaturan')[$i],
+                ];
+
+                array_push($value, $object);
+            }
         }
 
         $dummy = [
