@@ -9,6 +9,7 @@ class Dashboard extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model('operasi/m_renpam');
+        $this->load->model('dashboard/M_Dashboard');
     }
 
     public function index()
@@ -203,7 +204,16 @@ class Dashboard extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
-            $page_content["data"] = '';
+            $data['topPolda_garlantas'] = $this->M_Dashboard->garlantas_topPolda();
+            $data['turjagwali'] = $this->M_Dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->M_Dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->M_Dashboard->ditregident_nasional();
+            $data['topPolda_lakalantas'] = $this->M_Dashboard->lakalantas_topPolda();
+            $data['tripOn'] = $this->M_Dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->M_Dashboard->troublespot_nasional();
+
+
+            $page_content["data"] = $data;
 
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";

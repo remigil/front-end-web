@@ -15,12 +15,10 @@
         <div class="card-header card-headline">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <!-- <h2 class="text-white"><?= strtoupper($data['headline'])  ?></h2> -->
-					<h2>headline</h2>
+                    <h2 class="text-white"><?= strtoupper($data['title'])  ?></h2>
                 </div>
                 <div class="col-md-6">
-                    <!-- <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-					<p>last update</p>
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
                 </div>
             </div>
         </div>
@@ -36,7 +34,7 @@
                             </div>
                             <div class="col-md-6">
                                 <!-- <h1 class="text-center blue-card-text"><?= $data['capture_camera'] ?></h1> -->
-								<h1>capture camera</h1>
+                                <h1>capture camera</h1>
                             </div>
                         </div>
                     </div>
