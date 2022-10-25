@@ -165,7 +165,7 @@
         const formData = new FormData($('#form-dataharian')[0]);
 
         $.ajax({
-            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
+            url: "<?= base_url() ?>inputdata/LaporanMasyarakat/storePolda",
             method: "POST",
             data: formData,
             dataType: "JSON",

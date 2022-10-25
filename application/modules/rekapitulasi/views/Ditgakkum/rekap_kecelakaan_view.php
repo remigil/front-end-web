@@ -1,4 +1,5 @@
 <!-- Page -->
+
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
@@ -15,116 +16,96 @@
         <div class="card-header card-headline">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <!-- <h2 class="text-white"><?= strtoupper($data['headline'])  ?></h2> -->
-					<h2>headline</h2>
+                    <h2 class="text-white"><?= strtoupper($data['title'])  ?></h2>
                 </div>
                 <div class="col-md-6">
-                    <!-- <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-					<p>last update</p>
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
                 </div>
             </div>
         </div>
         <!-- end title & last update -->
         <div class="card-body">
             <div class="row">
-                <!-- statistik -->
                 <div class="col-md-4">
                     <div class="card-body blue-card">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6">
-                                <h4 class="text-light fw-light">Capture Kamera</h4>
+                                <h4 class="text-light fw-light">Total laka</h4>
                             </div>
                             <div class="col-md-6">
-                                <!-- <h1 class="text-center blue-card-text"><?= $data['capture_camera'] ?></h1> -->
-								<h1>capture camera</h1>
+                                <h1 class="text-center blue-card-text"><?= $data['kecelakaan']['jumlah'] ?></h1>
                             </div>
                         </div>
                     </div>
                     <div class="card-body red-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 rounded">
-                                <h4 class="text-light d-inline fw-light">Validasi Petugas</h4>
+                                <h4 class="text-light d-inline fw-light">Meninggal Dunia</h4>
                             </div>
                             <div class="col-md-6">
-                                <!-- <h1 class="red-card-text"><?= $data['validasi_petugas'] ?></h1> -->
-                                <h1 class="red-card-text">validasi petugas</h1>
+                                <h1 class="red-card-text"><?= $data['kecelakaan']['meninggal_dunia'] ?></h1>
                             </div>
                         </div>
                     </div>
                     <div class="card-body green-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
-                                <h4 class="text-light fw-light">Konfirmasi Masyarakat</h4>
+                                <h4 class="text-light fw-light">Luka Berat</h4>
                             </div>
                             <div class="col-md-6">
-                                <!-- <h1 class="green-card-text text-center"><?= $data['konfirmasi_masyarakat'] ?></h1> -->
-                                <h1 class="green-card-text text-center">konfirmasi</h1>
+                                <h1 class="green-card-text text-center"><?= $data['kecelakaan']['luka_berat'] ?></h1>
                             </div>
                         </div>
                     </div>
                     <div class="card-body yellow-card mt-2">
                         <div class="row align-items-center text-center">
                             <div class="col-md-6 text-wrap">
-                                <h4 class="text-light fw-light">ODOL</h4>
+                                <h4 class="text-light fw-light">Luka Ringan</h4>
                             </div>
                             <div class="col-md-6">
-                                <!-- <h1 class="yellow-card-text text-center"><?= $data['odol'] ?></h1> -->
-                                <h1 class="yellow-card-text text-center">odol</h1>
+                                <h1 class="yellow-card-text text-center"><?= $data['kecelakaan']['luka_ringan'] ?></h1>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <!-- end statistik -->
-
-                <!-- rangking statistik -->
                 <div class="col-md-8">
                     <div class="top-five-headline">
-                        <h2 class="text-center">10 RANGKING DAKGAR LANTAS TERTINGGI</h2>
+                        <h2 class="text-center">10 RANGKING LAKA LANTAS TERTINGGI</h2>
                     </div>
                     <div class="mt-5">
                         <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
                             <thead class="table-primary">
                                 <tr class="text-white">
                                     <th scope="col">No</th>
-                                    <th scope="col">POLDA</th>
-                                    <th scope="col">Capture Camera</th>
-                                    <th scope="col">Validasi Petugas</th>
-                                    <th scope="col">Konfirmasi Masyarakat</th>
-                                    <th scope="col">ODOL</th>
+                                    <th scope="col">Polda</th>
+                                    <th scope="col">TOTAL LAKA</th>
+                                    <th scope="col">KORBAN MD</th>
+                                    <th scope="col">KORBAN LB</th>
+                                    <th scope="col">KORBAN LR</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 ?>
-                                <?php foreach ($data['topPolda'] as $key) : ?>
-                                    <?php
-                                    $validasi_petugas = $key['statis'] + $key['mobile'];
-                                    $konfirmasi_masyarakat = $key['posko'] + $key['online'];
-                                    $odol = $key['preemtif'] + $key['preventif'] + $key['odol_227'] + $key['odol_307']
-
-                                    ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($data['kecelakaan']['topPolda'] as $key) : ?>
                                     <tr>
                                         <th scope="row"><?= $i; ?></th>
                                         <td><?= $key['name_polda'] ?></td>
-                                        <td><?= $key['capture_camera'] ?></td>
-                                        <td><?= $validasi_petugas ?></td>
-                                        <td><?= $konfirmasi_masyarakat ?></td>
-                                        <td><?= $odol ?></td>
+                                        <td><?= $key['jumlah'] ?></td>
+                                        <td><?= $key['meninggal_dunia'] ?></td>
+                                        <td><?= $key['luka_berat'] ?></td>
+                                        <td><?= $key['luka_ringan'] ?></td>
                                     </tr>
-                                    <?php $i++ ?>
+                                    <?php $i++; ?>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- end rangking statistik -->
             </div>
         </div>
     </div>
 </section>
-<!-- end data statistik -->
-
-<!-- filter data -->
 <section>
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ffffff;color:black; width:350px">
@@ -175,19 +156,16 @@
         </ul>
     </div>
 </section>
-<!-- end filter data -->
-
-<!-- chart -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+                    <h4 class="card-title mb-0">Data Kecelakaan Lalu Lintas Seluruh Indonesia</h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart" style="width: 100vw"></div>
+                        <div id="chart" style="width: 350vw"></div>
                     </div>
                 </div>
             </div>
@@ -199,11 +177,11 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - VALIDASI PETUGAS</h4>
+                    <h4 class="card-title mb-0">Data Kerugian Material Seluruh Indonesia</h4>
                 </div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart2" style="width: 350vw"></div>
+                        <div id="chart2" style="width: 100vw"></div>
                     </div>
                 </div>
             </div>
@@ -211,93 +189,38 @@
     </div>
 </section>
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - KONFIRMASI MASYARAKAT</h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart3" style="width: 350vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - ODOL</h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart4" style="width: 350vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end chart -->
-
-<!-- tabel data -->
 <section class="shadow-sm mt-5">
     <div class="row">
         <div class="col-xl-12">
             <div class="card mt-3">
                 <div class="card-body">
-                    <table id="tb_dakgar_lantas" class="table dt-responsive table-bordered nowrap w-100">
+                    <table id="tb_kecelakaan" class="table dt-responsive table-bordered nowrap w-100">
                         <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
                             <tr>
-                                <th rowspan="2">No</th>
-                                <th rowspan="2">Polda</th>
-                                <th rowspan="2">Jumlah Capture Camera</th>
-                                <th colspan="3">JUMLAH VALIDASI PETUGAS</th>
-                                <th colspan="3">JUMLAH KONFIRMASI MASYARAKAT</th>
-                                <th colspan="4">ODOL</th>
-                            </tr>
-                            <tr>
-                                <td>STATIS</td>
-                                <td>MOBILE</td>
-                                <td>TOTAL</td>
-                                <td>ONLINE</td>
-                                <td>POSKO</td>
-                                <td>TOTAL</td>
-                                <td>PREEMTIF</td>
-                                <td>PRE-VENTIF</td>
-                                <td>227</td>
-                                <td>307</td>
+                                <th>No</th>
+                                <th>Polda</th>
+                                <th>Jumlah Kecelakaan</th>
+                                <th>MD</th>
+                                <th>LB</th>
+                                <th>LR</th>
+                                <td>Kerugian Material</td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1; ?>
-                            <?php foreach ($data['polda'] as $key) : ?>
-                                <?php $validasi_petugas = $key['statis'] + $key['mobile'];
-                                $konfirmasi_masyarakat = $key['posko'] + $key['online'];
-                                ?>
+                            <?php foreach ($data['kecelakaan']['data_nasional'] as $key) : ?>
                                 <tr>
-                                    <td><?= $i; ?></td>
+                                    <th scope="row"><?= $i; ?></th>
                                     <td><?= $key['name_polda'] ?></td>
-                                    <td><?= $key['capture_camera'] ?></td>
-                                    <td><?= $key['statis'] ?></td>
-                                    <td><?= $key['mobile'] ?></td>
-                                    <td><?= $validasi_petugas ?></td>
-                                    <td><?= $key['online'] ?></td>
-                                    <td><?= $key['posko'] ?></td>
-                                    <td><?= $konfirmasi_masyarakat ?></td>
-                                    <td><?= $key['preemtif'] ?></td>
-                                    <td><?= $key['preventif'] ?></td>
-                                    <td><?= $key['odol_227'] ?></td>
-                                    <td><?= $key['odol_307'] ?></td>
+                                    <td><?= $key['jumlah'] ?></td>
+                                    <td><?= $key['meninggal_dunia'] ?></td>
+                                    <td><?= $key['luka_berat'] ?></td>
+                                    <td><?= $key['luka_ringan'] ?></td>
+                                    <td><?= $key['kerugian_material'] ?></td>
                                 </tr>
                                 <?php $i++; ?>
-                            <?php endforeach; ?>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -306,136 +229,155 @@
         </div>
     </div>
 </section>
-<!-- end tabel data -->
 
-<!-- chart tahun -->
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA - TAHUN <b><?= date('Y') ?></b></h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart5" style="width: 100vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - VALIDASI PETUGAS - TAHUN <b><?= date('Y') ?></h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart6" style="width: 100vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<script>
+    $(document).ready(function() {
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - KONFIRMASI MASYARAKAT - TAHUN <b><?= date('Y') ?></h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart7" style="width: 100vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        $('#tb_kecelakaan').DataTable()
+        $("#tb_kecelakaan_tahun").DataTable()
 
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title mb-0">DATA DAKGAR LANTAS - ODOL - TAHUN <b><?= date('Y') ?></h4>
-                </div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart8" style="width: 100vw"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end chart tahun -->
+        var poldaName = JSON.parse('<?= json_encode($data['kecelakaan']['polda_name']); ?>');
+        var polda_meninggal_dunia = JSON.parse('<?= json_encode($data['kecelakaan']['polda_meninggal_dunia']); ?>');
+        var polda_luka_berat = JSON.parse('<?= json_encode($data['kecelakaan']['polda_luka_berat']); ?>');
+        var polda_luka_ringan = JSON.parse('<?= json_encode($data['kecelakaan']['polda_luka_ringan']); ?>');
+        var polda_kerugian_material = JSON.parse('<?= json_encode($data['kecelakaan']['polda_kerugian_material']); ?>');
+        var polda_jumlah = JSON.parse('<?= json_encode($data['kecelakaan']['polda_jumlah']); ?>');
 
-<!-- tabel data per tahun -->
-<section class="shadow-sm mt-5">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <table id="tb_dakgar_lantas_tahun" class="table dt-responsive table-bordered nowrap w-100">
-                        <thead class="table-primary text-center" style="vertical-align : middle;text-align:center;">
-                            <tr>
-                                <th rowspan="2">No</th>
-                                <th rowspan="2">Polda</th>
-                                <th rowspan="2">Jumlah Capture Camera</th>
-                                <th colspan="3">JUMLAH VALIDASI PETUGAS</th>
-                                <th colspan="3">JUMLAH KONFIRMASI MASYARAKAT</th>
-                                <th colspan="4">ODOL</th>
-                            </tr>
-                            <tr>
-                                <td>STATIS</td>
-                                <td>MOBILE</td>
-                                <td>TOTAL</td>
-                                <td>ONLINE</td>
-                                <td>POSKO</td>
-                                <td>TOTAL</td>
-                                <td>PREEMTIF</td>
-                                <td>PRE-VENTIF</td>
-                                <td>227</td>
-                                <td>307</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 1; ?>
-                            <?php foreach ($data['poldaMonth'] as $key) : ?>
-                                <?php $validasi_petugas = $key['statis'] + $key['mobile'];
-                                $konfirmasi_masyarakat = $key['posko'] + $key['online'];
-                                ?>
-                                <tr>
-                                    <td><?= $i; ?></td>
-                                    <td><?= $key['date'] ?></td>
-                                    <td><?= $key['capture_camera'] ?></td>
-                                    <td><?= $key['statis'] ?></td>
-                                    <td><?= $key['mobile'] ?></td>
-                                    <td><?= $validasi_petugas ?></td>
-                                    <td><?= $key['online'] ?></td>
-                                    <td><?= $key['posko'] ?></td>
-                                    <td><?= $konfirmasi_masyarakat ?></td>
-                                    <td><?= $key['preemtif'] ?></td>
-                                    <td><?= $key['preventif'] ?></td>
-                                    <td><?= $key['odol_227'] ?></td>
-                                    <td><?= $key['odol_307'] ?></td>
-                                </tr>
-                                <?php $i++; ?>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
 
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end tabel data per tahun -->
+        // Data laka nasional
+        var options_laka = {
+            series: [{
+                name: 'Jumlah',
+                type: 'column',
+                data: polda_jumlah,
+                color: "#11347A"
+            }, {
+                name: 'Meninggal Dunia',
+                type: 'column',
+                data: polda_meninggal_dunia,
+                color: "#CB2D3E"
+            }, {
+                name: 'Luka Berat',
+                type: 'column',
+                data: polda_luka_berat,
+                color: "#E8D42F"
+            }, {
+                name: 'Luka Ringan',
+                type: 'column',
+                data: polda_luka_ringan,
+                color: "#3CA55C"
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                stacked: false
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -15
+            },
+
+            stroke: {
+                show: true,
+                width: [1, 1, 4, 4],
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: poldaName,
+            },
+            yaxis: [{
+                axisTicks: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                    color: '#008FFB'
+                },
+                labels: {
+                    style: {
+                        colors: '#008FFB',
+                    }
+                },
+                tooltip: {
+                    enable: false
+                }
+            }, ],
+        };
+
+        var dakgar_laka = new ApexCharts(document.querySelector("#chart"), options_laka);
+        dakgar_laka.render();
+
+
+        // Data Kerugian material
+        var options_kerugian_material = {
+            series: [{
+                name: 'Kerugian Material',
+                data: polda_kerugian_material,
+                color: '#11347A'
+            }, ],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded',
+                    dataLabels: {
+                        position: 'top'
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#333']
+                },
+                offsetY: -25
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: poldaName
+            },
+            yaxis: {
+                title: {
+                    text: ''
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+                markers: {
+                    fillColors: ['#11347A']
+                }
+            }
+        };
+
+        var kerugian_material = new ApexCharts(document.querySelector("#chart2"), options_kerugian_material);
+        kerugian_material.render();
+
+
+    })
+</script>
