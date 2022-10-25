@@ -13,7 +13,7 @@
 
 		<div class="col-md-6">
 			<div class="row">
-				<div class="col-md-4">
+				<!-- <div class="col-md-4">
 					<label for="kategoriAnev" class="form-label">Wilayah</label>
 					<select name="kategoriAnev" class="form-select" aria-label="Floating label select" style="width:100%" required>
 						<option selected value="">Pilih Wilayah</option>
@@ -21,7 +21,7 @@
 						<option value="">Polda 2</option>
 						
 					</select>
-				</div>
+				</div> -->
 				<div class="col-md-8">
 					<label for="waktu" class="form-label"> WAKTU</label>
 					<div class="row">

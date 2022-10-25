@@ -185,30 +185,30 @@ class M_dashboard extends CI_Model
 
         ]);
 		
-		// var_dump($ditgakkum);die;
+		// var_dump($ditgakkum['data']['lakalantas']);die;
 
         
-        $lakalanggar = array();
-        $lakalantas = array();
-        $garlantas = array();
-        $turjagwali = array();
+        // $lakalanggar = array();
+        // $lakalantas = array();
+        // $garlantas = array();
+        // $turjagwali = array();
         
-        foreach ($ditgakkum['data'] as $key) {
+        // foreach ($ditgakkum['data'] as $key) {
             $row = array();
             
-            $lakalantas[] = $key['lakalantas'];
-            $lakalanggar[] = $key["lakalanggar"];
-            $garlantas[] = $key['garlantas'];
-            $turjagwali[] = $key['turjagwali'];
+            $lakalantas = $ditgakkum['data']['lakalantas'];
+            $lakalanggar = $ditgakkum['data']["lakalanggar"];
+            $garlantas = $ditgakkum['data']['garlantas'];
+            $turjagwali = $ditgakkum['data']['turjagwali'];
 
             
-            $row['garlantas'] = $key['garlantas'];
-            $row['lakalantas'] = $key['lakalantas'];
+            $row['garlantas'] = $ditgakkum['data']['garlantas'];
+            $row['lakalantas'] = $ditgakkum['data']['lakalantas'];
             $row['kemacetan'] = 0;
-            $row['total'] = $key['garlantas'] + $key['lakalantas'];
+            $row['total'] = $ditgakkum['data']['garlantas'] + $ditgakkum['data']['lakalantas'];
 
             
-        }
+        // }
 
         return [
             
@@ -304,13 +304,13 @@ class M_dashboard extends CI_Model
         $stnk = array();
         $bpkb = array();
         $ranmor = array();
-        foreach ($ditregident['data'] as $key) {
+        // foreach ($ditregident['data'] as $key) {
             
-            $stnk[] = $key['stnk'];
-            $sim[] = $key["sim"];
-            $bpkb[] = $key['bpkb'];
-            $ranmor[] = $key['ranmor'];
-        }
+            $stnk[] = $ditregident['data']['stnk'];
+            $sim[] = $ditregident['data']["sim"];
+            $bpkb[] = $ditregident['data']['bpkb'];
+            $ranmor[] = $ditregident['data']['ranmor'];
+        // }
 
         return [
             
@@ -463,7 +463,7 @@ class M_dashboard extends CI_Model
 
 
         // garlantas polres
-        $jumlah = $garlantasPolres['data'][0]['jumlah'];
+        $jumlah = $garlantasPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -533,7 +533,7 @@ class M_dashboard extends CI_Model
 
 
         // lakalantas polres
-		$jumlah = $lakalantasPolres['data'][0]['jumlah'];
+		$jumlah = $lakalantasPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -597,7 +597,7 @@ class M_dashboard extends CI_Model
         ]);
 
         // ranmor polres
-		$jumlah = $ranmorPolres['data'][0]['jumlah'];
+		$jumlah = $ranmorPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -661,7 +661,7 @@ class M_dashboard extends CI_Model
         ]);
 
         // sim Polres
-		$jumlah = $simPolres['data'][0]['jumlah'];
+		$jumlah = $simPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -727,7 +727,7 @@ class M_dashboard extends CI_Model
         ]);
 
         // stnk polres
-		$jumlah = $stnkPolres['data'][0]['jumlah'];
+		$jumlah = $stnkPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -792,7 +792,7 @@ class M_dashboard extends CI_Model
         ]);
 
         // dikmas polres
-		$jumlah = $dikmaslantasPolres['data'][0]['jumlah'];
+		$jumlah = $dikmaslantasPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -856,7 +856,7 @@ class M_dashboard extends CI_Model
         ]);
 
         // penyebaran/pemasangan Polres
-		$jumlah = $penyebaran_pemasanganPolres['data'][0]['jumlah'];
+		$jumlah = $penyebaran_pemasanganPolres['data']['jumlah'];
 
         return [
             'jumlah' => $jumlah,
