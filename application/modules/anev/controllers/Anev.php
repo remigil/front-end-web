@@ -52,8 +52,8 @@ class Anev extends MY_Controller
         $getCategory = guzzle_request('GET', 'category_fasum', [
             'headers' => $headers
         ]);
-        $data['getCategory'] = $getCategory['data']['data'];
 
+        $data = '';
         // var_dump($getCategory);
         // die;
 
@@ -383,4 +383,5 @@ class Anev extends MY_Controller
 
         echo json_encode($res);
     }
+
 }

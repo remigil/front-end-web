@@ -50,7 +50,7 @@ class Login extends MX_Controller
                     $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
                     $data_session['id_polres'] = $response['user']['data']['polres_profile']['polres_id'];
                     $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];
-                    $data_session['polda_id']       = $response['user']['data']['polres_profile']['polres']['polda_id'];
+                    $data_session['polda_id']       = $response['user']['data']['polres_profile']['polres']['polda']['id'];
                     // $data_session['polda_id'] = $response['user']['data']['polda_profile']['poldaid'];
                 }
 

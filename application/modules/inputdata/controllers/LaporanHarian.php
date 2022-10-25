@@ -281,7 +281,7 @@ class LaporanHarian extends MY_Controller
         $input = $this->input->post();
 
         $polda_id = $this->session->userdata['polda_id'];
-        $polres_id = $this->session->userdata['id_polres'];
+        $polres_id = $this->session->userdata['polres_id'];
 
         // $polda_id = $this->input->post('polda_id');
         // $date = $this->input->post('date');
@@ -621,10 +621,6 @@ class LaporanHarian extends MY_Controller
 
             ];
         }
-        // echo '<pre>';
-        // var_dump($dummy);
-        // echo '</pre>';
-        // die;
 
         $data = guzzle_request('POST', $url, [
             'multipart' => $dummy,
