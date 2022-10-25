@@ -23,32 +23,66 @@ class Rekap_kecelakaan extends MY_Controller
 
         if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Data Kecelakaan";
+
 			$data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
-            $data['kecelakaan_month'] = $this->M_Rekap_Kecelakaan->kecelakaan_month();
+
+
             $page_content["page"] = "rekapitulasi/Kakor/rekap_kecelakaan_view";
         } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Ditkamsel/rekap_kecelakaan_view";
         } else if ($this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Ditgakkum/rekap_kecelakaan_view";
         } else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Ditregident/rekap_kecelakaan_view";
 		} else if ($this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Bagops/rekap_kecelakaan_view";
 		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Bagrenmin/rekap_kecelakaan_view";
 		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
             $page_content["title"] = "Data Kecelakaan";
+            
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Bagtik/rekap_kecelakaan_view";
 		} else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+
             $page_content["page"] = "rekapitulasi/Kapolda/rekap_kecelakaan_view";
 		} else if ($this->session->userdata['role'] == 'Kapolres') {
             $page_content["title"] = "Data Kecelakaan";
+
+            $data['kecelakaan'] = $this->M_Rekap_Kecelakaan->kecelakaan_nasional();
+
+            
             $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
         }
 
