@@ -26,7 +26,7 @@
                     <div style="position: absolute;left: 330px;width: 730px;">
                         <div class="cat petugasDisplay" style="margin-left: 10px;">
                             <label>
-                                <input checked type="checkbox" value="petugas" name="filter" id="petugasDisplay"><span><i class="fa far fa-building"></i> Petugas</span>
+                                <input checked type="checkbox" value="petugas" name="filter" id="petugasDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
                             </label>
                         </div>
                         <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -37,7 +37,7 @@
         
                         <div class="cat gpsIdDisplay" style="margin-left: 10px;">
                             <label>
-                                <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Kendaraan Listrik</span>
+                                <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
                             </label>
                         </div>
         
