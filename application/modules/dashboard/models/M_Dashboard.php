@@ -125,6 +125,53 @@ class M_dashboard extends CI_Model
         ];
     }
 
+    public function ditgakkum_polda()
+    {
+        // Ditgakkum
+        $ditgakkum = guzzle_request('GET', 'ditgakkum?polda=true&polda_id='.$this->session->userdata['polda_id'].'', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+		
+		// var_dump($ditgakkum);die;
+
+        $polres_ditgakkum = array();
+        $lakalanggar = array();
+        $lakalantas = array();
+        $garlantas = array();
+        $turjagwali = array();
+        $topPolres = array();
+        foreach ($ditgakkum['data'] as $key) {
+            $row = array();
+            $polres_ditgakkum[] = $key['name_polres'];
+            $lakalantas[] = $key['lakalantas'];
+            $lakalanggar[] = $key["lakalanggar"];
+            $garlantas[] = $key['garlantas'];
+            $turjagwali[] = $key['turjagwali'];
+
+            $row['name_polres'] = $key['name_polres'];
+            $row['garlantas'] = $key['garlantas'];
+            $row['lakalantas'] = $key['lakalantas'];
+            $row['kemacetan'] = 0;
+            $row['total'] = $key['garlantas'] + $key['lakalantas'];
+
+            $topPolres[] = $row;
+        }
+
+        return [
+            'polres_ditgakkum' => $polres_ditgakkum,
+            'garlantas' => $garlantas,
+            'lakalantas' => $lakalantas,
+            'lakalanggar' => $lakalanggar,
+            'turjagwali' => $turjagwali
+        ];
+    }
+
     public function ditregident_nasional()
     {
         $ditregident = guzzle_request('GET', 'ditregident?nasional=true', [
@@ -138,6 +185,40 @@ class M_dashboard extends CI_Model
         ]);
 
         $polda_ditregident = array();
+        $sim = array();
+        $stnk = array();
+        $bpkb = array();
+        $ranmor = array();
+        foreach ($ditregident['data'] as $key) {
+            $polda_ditregident[] = $key['name_polda'];
+            $stnk[] = $key['stnk'];
+            $sim[] = $key["sim"];
+            $bpkb[] = $key['bpkb'];
+            $ranmor[] = $key['ranmor'];
+        }
+
+        return [
+            'polda_ditregident' => $polda_ditregident,
+            'sim' => $sim,
+            'stnk' => $stnk,
+            'bpkb' => $bpkb,
+            'ranmor' => $ranmor
+        ];
+    }
+
+    public function ditregident_polda()
+    {
+        $ditregident = guzzle_request('GET', 'ditregident?polda=true&polda_id='.$this->session->userdata['polda_id'].'', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        $polres_ditregident = array();
         $sim = array();
         $stnk = array();
         $bpkb = array();
@@ -341,7 +422,7 @@ class M_dashboard extends CI_Model
 
         ]);
 
-        // sim nasional
+        // stnk nasional
 		$jumlah = $stnkNasional['data']['jumlah']['jumlah'];
 
         return [

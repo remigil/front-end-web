@@ -14,6 +14,8 @@ class Dashboard extends MY_Controller
 
     public function index()
     {
+		// print_r($this->session->userdata['polda_id']);
+		// die;
 
         $headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -295,7 +297,11 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";
 
 			$data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
+
+			echo json_encode($data['ditgakkum']);
+			
+
             $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
 			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
             $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
