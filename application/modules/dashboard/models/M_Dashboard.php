@@ -235,4 +235,162 @@ class M_dashboard extends CI_Model
 
         return $result;
     }
+
+	public function pelanggaran_nasional()
+    {
+        $url = 'garlantas?nasional=true';
+
+        $garlantasNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+
+
+        // garlantas nasional
+        $jumlah = $garlantasNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function kecelakaan_nasional()
+    {
+        $url = 'laka_lantas?nasional=true';
+
+        $lakalantasNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+
+
+        // lakalantas nasional
+		$jumlah = $lakalantasNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+
+	public function ranmor_nasional()
+    {
+        $url = 'ranmor?nasional=true';
+
+        $ranmorNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // ranmor nasional
+		$jumlah = $ranmorNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+
+	public function sim_nasional()
+    {
+        $url = 'sim?nasional=true';
+
+        $simNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // sim nasional
+		$jumlah = $simNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	
+	public function stnk_nasional()
+    {
+        $url = 'stnk?nasional=true';
+
+        $stnkNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // sim nasional
+		$jumlah = $stnkNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    
+	}
+
+	public function dikmaslantas_nasional()
+    {
+        $url = 'stnk?nasional=true';
+
+        $dikmaslantasNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // dikmas nasional
+		$jumlah = $dikmaslantasNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+
+	public function penyebaran_pemasangan_nasional()
+    {
+        $url = 'penyebaran?nasional=true';
+
+        $penyebaran_pemasanganNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // penyebaran/pemasangan nasional
+		$jumlah = $penyebaran_pemasanganNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
 }

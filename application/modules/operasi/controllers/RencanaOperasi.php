@@ -9,13 +9,14 @@ class RencanaOperasi extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model("operasi/M_operasi");
+        $this->load->model("operasi/M_operasi_detail");
     }
 
     public function index()
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],    
+            'Token' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -36,7 +37,7 @@ class RencanaOperasi extends MY_Controller
         $getPolda = guzzle_request('GET', 'polda', [
             'headers' => [
                 'Authorization' => $headers
-                ]
+            ]
         ]);
         $data['getPolda'] = $getPolda['data']['data'];
 
@@ -48,6 +49,24 @@ class RencanaOperasi extends MY_Controller
     {
         $postData = $this->input->post();
         $data = $this->M_operasi->get_datatables($postData);
+        echo json_encode($data);
+    }
+
+
+    public function GetPoldaList()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data = $getPolda['data']['data'];
+        // $getpetugas = array_filter($data, function ($get) {
+        //     $name_officer = $this->input->get('Petugas');
+        //     return $get['name_officer'] != $name_officer;
+        // });
         echo json_encode($data);
     }
     public function GetPolres($id)
@@ -66,102 +85,101 @@ class RencanaOperasi extends MY_Controller
         echo json_encode($data);
     }
 
-    
-    public function store() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+
+    public function store()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $dummy = [
                 [
-					'name' => 'name_operation',
+                    'name' => 'name_operation',
                     'contents' => $input['name_operation'],
                 ],
                 [
-					'name' => 'polda',
+                    'name' => 'polda',
                     'contents' => $input['polda'],
                 ],
                 [
-					'name' => 'date_start_operation',
+                    'name' => 'date_start_operation',
                     'contents' => $input['date_start_operation'],
                 ],
                 [
-					'name' => 'date_end_operation',
+                    'name' => 'date_end_operation',
                     'contents' => $input['date_end_operation'],
                 ],
-				[
-					'name' => 'document_sprint',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'logo',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'background_image',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'banner',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-                
-                
+                [
+                    'name' => 'document_sprint',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'logo',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'background_image',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'banner',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+
+
             ];
         } else {
             $dummy = [
                 [
-					'name' => 'name_operation',
+                    'name' => 'name_operation',
                     'contents' => $input['name_operation'],
                 ],
                 [
-					'name' => 'date_start_operation',
+                    'name' => 'date_start_operation',
                     'contents' => $input['date_start_operation'],
                 ],
                 [
-					'name' => 'date_end_operation',
+                    'name' => 'date_end_operation',
                     'contents' => $input['date_end_operation'],
                 ],
 
             ];
         }
 
-        $data = guzzle_request('POST', 'operation-profile/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'operation-profile/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
-    
+
     public function Detail($id)
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -176,56 +194,61 @@ class RencanaOperasi extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/detail_operasi";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/detail_operasi";
-        }else{
+        } else {
             redirect(base_url('dashboard'));
         }
 
-        $getDetail = guzzle_request('GET', 'operation-profile/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
-        echo json_encode($data['getDetail']['data']);
+
         // die;
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
+    public function serverSideTablePolda()
+    {
+        $postData = $this->input->post();
+        $data = $this->M_operasi_detail->get_datatables($postData);
+        echo json_encode($data);
+    }
 
-    public function delete() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ];  
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'id',
                 'contents' => $input['id'],
-            ] 
+            ]
         ];
 
-        $data = guzzle_request('DELETE', 'operation-profile/delete', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('DELETE', 'operation-profile/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil hapus data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal hapus data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
     public function tambah()
@@ -290,67 +313,67 @@ class RencanaOperasi extends MY_Controller
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $dummy = [
                 [
-					'name' => 'name_operation',
+                    'name' => 'name_operation',
                     'contents' => $input['name_operation'],
                 ],
                 [
-					'name' => 'polda',
+                    'name' => 'polda',
                     'contents' => $input['polda'],
                 ],
                 [
-					'name' => 'date_start_operation',
+                    'name' => 'date_start_operation',
                     'contents' => $input['date_start_operation'],
                 ],
                 [
-					'name' => 'date_end_operation',
+                    'name' => 'date_end_operation',
                     'contents' => $input['date_end_operation'],
                 ],
-				[
-					'name' => 'document_sprint',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'logo',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'background_image',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-				[
-					'name' => 'banner',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename
-				], 
-                
-                
+                [
+                    'name' => 'document_sprint',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'logo',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'background_image',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+                [
+                    'name' => 'banner',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename
+                ],
+
+
             ];
         } else {
             $dummy = [
                 [
-					'name' => 'name_operation',
+                    'name' => 'name_operation',
                     'contents' => $input['name_operation'],
                 ],
                 [
-					'name' => 'date_start_operation',
+                    'name' => 'date_start_operation',
                     'contents' => $input['date_start_operation'],
                 ],
                 [
-					'name' => 'date_end_operation',
+                    'name' => 'date_end_operation',
                     'contents' => $input['date_end_operation'],
                 ],
 
@@ -362,22 +385,20 @@ class RencanaOperasi extends MY_Controller
             'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
+
         echo json_encode($res);
-
     }
-
 }

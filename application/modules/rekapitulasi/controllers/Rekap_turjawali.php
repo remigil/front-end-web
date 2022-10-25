@@ -85,8 +85,6 @@ class Rekap_turjawali extends MY_Controller
             $page_content["page"] = "rekapitulasi/Kapolres/rekap_turjawali_view";
         }
 
-
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

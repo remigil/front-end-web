@@ -8,41 +8,47 @@
 </nav>
 <!-- </div> -->
 <div class="row mt-3">
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<label for="kategori" class="form-label"> KATEGORI ANEV</label>
-			<div class="dropdown">
-				<button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Anev Kecelakaan
-				</button>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Pertama</a></li>
-					<li><a class="dropdown-item" href="#">Kedua</a></li>
-					<li><a class="dropdown-item" href="#">Ketiga</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="col-md-6">
-			<label for="waktu" class="form-label"> WAKTU</label>
+	<div class="col-md-6">
+		<form action="" method="post" id="form_filter">
+			<label for="waktu" class="form-label"> Filter</label>
 			<div class="row">
-				<div class="col-md-4">
-					<input class="form-control" type="date" name="waktu" id="waktu">
+				<div class="col-md-3">
+					<input class="form-control" type="date" name="start_date" id="waktu">
 				</div>
-
-				<div class="col-md-4">
-					<input class="form-control" type="date" name="waktu" id="waktu">
+				<div class="col-md-3">
+					<input class="form-control" type="date" name="end_date" id="waktu">
 				</div>
-
-				<div class="col-md-4">
-					<button class="btn btn-primary"> Tampilkan </button>
+				<div class="col-md-3">
+					<button class="btn btn-primary">Tampilkan</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 
-
+	<div class="col-md-6">
+		<form action="" method="post" id="form_download_anev">
+			<div class="row no-gutters">
+				<label for="waktu" class="form-label">Download File Anev</label>
+				<div class="col-md-3">
+					<div class="form-group row">
+						<select class="form-control" id="type_anev" name="type_anev">
+							<option value="">---Pilih Anev---</option>
+							<option value="1">Harian</option>
+							<option value="2">Bulanan</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-4" id="form_type_anev">
+				</div>
+				<div class="col-md-2">
+					<a href="" class="btn btn-primary" type="button" id="btn_download_anev">Download</a>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
+
+
 </div>
 <div class="row mt-3 col-md-12">
 	<div class="top-five-headline">
@@ -911,6 +917,53 @@
 		// $('#datatable').DataTable({
 		// 	scrollX: true,
 		// });
+
+	})
+
+
+	$('#type_anev').on('change', function() {
+		let type = $('#type_anev').val();
+		console.log(type)
+
+		if (type == 1) {
+			$('#form_type_anev').html(`
+				<div class="form-group row">
+						<label for="date_anev" class="col-sm-4 col-form-label">Tanggal</label>
+						<div class="col-sm-8">
+							<input type="date" class="form-control" id="date_anev" name="date_anev">
+						</div>
+					</div>`)
+		} else if (type == 2) {
+			$('#form_type_anev').html(`
+					<div class="form-group row">
+						<label for="month_anev" class="col-sm-4 col-form-label">Bulan</label>
+						<div class="col-sm-8">
+							<input type="month" class="form-control" id="month_anev" name="month_anev">
+						</div>
+					</div>
+			`)
+		} else {
+			$('#form_type_anev').html(``)
+		}
+	})
+
+	$('#btn_download_anev').on('click', function(e) {
+		e.preventDefault()
+		let = '';
+		let type = $('#type_anev').val()
+		if (type == 1) {
+			let date = $('#date_anev').val()
+			url = `anev/getDaily?mode=pdf-download&date=${date}`
+		} else if (type == 2) {
+			let date = $('#month_anev').val();
+			month = date.split('-');
+			url = `anev/getMonthly?mode=pdf-download&month=${month[1]}&year=${month[0]}`;
+		}
+
+		window.open(
+			`http://103.163.139.100:3002/v1/${url}`,
+			'_blank' // <- This is what makes it open in a new window.
+		);
 
 	})
 </script>
