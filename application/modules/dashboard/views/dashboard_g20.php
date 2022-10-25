@@ -21,8 +21,52 @@
                     <a href="javascript:void(0)" class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
-                    <div id="listAddress" style="margin-left: 10px;"></div>
+                    <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
+                    
                 </div> 
+
+                <div style="position: absolute;left: 330px;width: 730px;top: 6px;">
+                    <div class="cat turjawaliDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input checked type="checkbox" value="turjawali" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
+                        </label>
+                    </div>
+                    <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                        </label>
+                    </div>
+    
+                    <div class="cat gpsIdDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
+                        </label>
+                    </div>
+    
+                    <div class="cat kegiatanDisplay">
+                        <label>
+                            <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                        </label>
+                    </div>
+    
+                    <div class="cat cctvDisplay">
+                        <label>
+                            <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                        </label>
+                    </div>
+                    <div class="cat operasiDisplay">
+                        <label>
+                            <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                        </label>
+                    </div>
+    
+                    <div class="cat panicDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
+                        </label>
+                    </div>
+
+                </div>
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
                     <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
@@ -162,40 +206,7 @@
                     <!-- item-->
                 </div>
 
-                <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
-                    <label>
-                        <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
-                    </label>
-                </div>
-
-                <div class="cat gpsIdDisplay" style="margin-left: 10px;">
-                    <label>
-                        <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Kendaraan Listrik</span>
-                    </label>
-                </div>
-
-                <div class="cat kegiatanDisplay">
-                    <label>
-                        <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
-                    </label>
-                </div>
-
-                <div class="cat cctvDisplay">
-                    <label>
-                        <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
-                    </label>
-                </div>
-                <div class="cat operasiDisplay">
-                    <label>
-                        <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Operasi</span>
-                    </label>
-                </div>
-
-                <div class="cat panicDisplay">
-                    <label>
-                        <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
-                    </label>
-                </div>
+                
 
                 
 
@@ -763,6 +774,7 @@
 
 
     var dummyGetTracking = new Array();
+    var dummyIdTurjawali = new Array();
 
     var dummyIdKendaraanGpsId= new Array();
     var autoGpsId;
@@ -1090,6 +1102,16 @@
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
 
+                            var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
+                                return val == ress[i].id_officer;
+                            });
+                            if(validasiIdTurjal > 0){ 
+                                // console.log('id sudah ada');
+                            }else{ 
+                                dummyIdTurjawali.push(ress[i].id_officer);
+                                // console.log('id tidak ada');
+                            }   
+
                             var cordLat = parseFloat(ress[i].latitude); 
                             var corLong = parseFloat(ress[i].longitude);  
                             
@@ -1390,7 +1412,7 @@
                                 <tr>
                                     <td> ${countlistCar}</td>
                                     <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                    <td> a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
+                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
@@ -1587,6 +1609,7 @@
             }); 
             
         }
+        
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
@@ -1688,6 +1711,17 @@
             var corLong = parseFloat(ress.longitude); 
             var bendera = '';
             var jenis = ''; 
+
+
+            var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
+                return val == ress.id_officer;
+            });
+            if(validasiIdTurjal > 0){ 
+                // console.log('id sudah ada');
+            }else{ 
+                dummyIdTurjawali.push(ress.id_officer);
+                // console.log('id tidak ada');
+            }   
 
 
             // for (let i = 0; i < ress.length; i++) {  
@@ -1881,6 +1915,20 @@
                  
         
         });
+
+        $("#turjawaliDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#turjawali").prop('checked', true);  
+                serverSideGet();
+            }else{
+                $("#turjawali").prop('checked', false); 
+                $("#turjawali").val();  
+                for (let i = 0; i < dummyIdTurjawali.length; i++) {  
+                    mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
+                } 
+                markerArray = new Array();   
+            } 
+        }); 
 
         var centerMap = mapContainer.getCenter();
         var centerLat = centerMap['lat'];
@@ -3284,7 +3332,7 @@
                                                                         <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th></th>
+                                                                                    <th>Rute</th>
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
                                                                                     <th>Lokasi</th>
@@ -3388,7 +3436,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3403,7 +3451,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3466,7 +3514,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3481,7 +3529,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3544,7 +3592,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3559,7 +3607,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3622,7 +3670,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3637,7 +3685,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3700,7 +3748,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3715,7 +3763,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {

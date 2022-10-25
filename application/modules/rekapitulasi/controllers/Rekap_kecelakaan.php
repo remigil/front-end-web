@@ -86,14 +86,6 @@ class Rekap_kecelakaan extends MY_Controller
             $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
         }
 
-        $getCategory = guzzle_request('GET', 'category_fasum', [
-            'headers' => $headers
-        ]);
-        $data['getCategory'] = $getCategory['data']['data'];
-
-        // var_dump($getCategory);
-        // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

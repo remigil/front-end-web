@@ -8,56 +8,42 @@
 </nav>
 
 
-<section>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle text-start" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #ffffff;color:black; width:350px">
-            Filter<i class="fas fa-filter" style="float: right;"></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <div class="row text-center m-3">
-                <div class="col-md-6">
-                    <h6>Wilayah</h6>
-                    <div class="form-group">
-                        <select class="form-select">
-                            <option>Polda</option>
-                            <option>Semua Polda</option>
-                            <option>Aceh</option>
-                            <option>Sumatera Utara</option>
-                            <option>Sumatera Selatan</option>
-                        </select>
-                    </div>
-                    <div class="form-group mt-1">
-                        <select class="form-select">
-                            <option>Polres</option>
-                            <option>Semua Polres</option>
-                            <option>Jakarta Pusat</option>
-                            <option>Jakarta Utara</option>
-                            <option>Jakata Barat</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h6>Waktu</h6>
-                    <div class="form-group">
-                        <select class="form-select">
-                            <option>Pilih Waktu</option>
-                            <option>Tahun</option>
-                            <option>Bulan</option>
-                            <option>Customize</option>
-                        </select>
-                    </div>
-                    <div class="form-group mt-1">
-                        <input class="form-control" type="date" value="">
-                    </div>
-                    <div class="form-group mt-1">
-                        <input class="form-control" type="date" value="">
-                    </div>
-                </div>
-                <button class="btn btn-primary mt-2" type="button">Tampilkan</button>
-            </div>
-        </ul>
-    </div>
-</section>
+<div class="row mt-3">
+<div class="col-md-12 d-flex">
+
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-4">
+					<label for="kategoriAnev" class="form-label">Wilayah</label>
+					<select name="kategoriAnev" class="form-select" aria-label="Floating label select" style="width:100%" required>
+						<option selected value="">Pilih Wilayah</option>
+						<option value="">Polda 1</option>
+						<option value="">Polda 2</option>
+						
+					</select>
+				</div>
+				<div class="col-md-8">
+					<label for="waktu" class="form-label"> WAKTU</label>
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-control" type="date" name="waktu" id="waktu">
+						</div>
+
+						<div class="col-md-4">
+							<input class="form-control" type="date" name="waktu" id="waktu">
+						</div>
+
+						<div class="col-md-4">
+							<button class="btn btn-primary"> Tampilkan </button>
+						</div>
+					</div>
+						
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
 
 <section class="shadow-sm mt-5">
     <div class="row">
