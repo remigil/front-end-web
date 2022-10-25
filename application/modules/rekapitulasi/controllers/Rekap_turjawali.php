@@ -26,7 +26,6 @@ class Rekap_turjawali extends MY_Controller
 
             $data['turjagwali'] = $this->M_Rekap_Turjagwali->turjagwali_nasional();
 
-
             $page_content["page"] = "rekapitulasi/Kakor/rekap_turjawali_view";
         } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["title"] = "Data Turjawali";
@@ -84,9 +83,9 @@ class Rekap_turjawali extends MY_Controller
             $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
         }
 
-       
 
-        $page_content["data"] = '';
+
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 
