@@ -843,7 +843,7 @@
 
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <img src="<?= base_url('assets/sidebar/masterData.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/masterData.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-apps">Master Data</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -887,7 +887,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <i data-feather="users"></i>
+                                                <img src="<?= base_url('assets/sidebar/laporanOperasi.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-authentication">Laporan Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -899,7 +899,7 @@
                                             <?php if ($this->session->userdata['role'] != 'Operator') { ?>
                                                 <li>
                                                     <a href="<?php echo base_url(); ?>dashboard/peta">
-                                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                         <span data-key="t-dashboard">Peta</span>
                                                     </a>
                                                 </li>
@@ -908,7 +908,7 @@
 
                                             <li>
                                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">CCTV</span>
                                                 </a>
                                             </li>
