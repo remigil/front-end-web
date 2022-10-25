@@ -299,7 +299,8 @@ class Dashboard extends MY_Controller
 			$data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
             $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
 
-			echo json_encode($data['ditgakkum']);
+			// echo json_encode($data['ditgakkum']);
+            // die;
 			
 
             $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();

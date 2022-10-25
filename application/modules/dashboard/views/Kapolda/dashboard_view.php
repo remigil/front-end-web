@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
+ 
 <!-- greetings -->
 <h5 >Welcome to Dashboard Executive</h5>
 <h1 style="font-weight:bolder ; text-transform:uppercase; color:#000dda;"><?php echo $this->session->userdata['full_name']; ?></h1>
@@ -242,19 +243,13 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <script>
-
-	// var poldaName = JSON.parse('<?= json_encode($data['turjagwali']['polres_name']); ?>');
-    // var polda_pengawalan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengawalan']); ?>');
-    // var polda_penjagaan = JSON.parse('<?= json_encode($data['turjagwali']['polda_penjagaan']); ?>');
-    // var polda_pengaturan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengaturan']); ?>');
-    // var polda_patroli = JSON.parse('<?= json_encode($data['turjagwali']['polda_patroli']); ?>');
-
+ 
+ 
     var polres_ditgakkum = JSON.parse('<?= json_encode($data['ditgakkum']['polres_ditgakkum']); ?>');
     var lakalantas = JSON.parse('<?= json_encode($data['ditgakkum']['lakalantas']); ?>');
     var lakalanggar = JSON.parse('<?= json_encode($data['ditgakkum']['lakalanggar']); ?>');
     var garlantas = JSON.parse('<?= json_encode($data['ditgakkum']['garlantas']); ?>');
-    var turjagwali = JSON.parse('<?= json_encode($data['ditgakkum']['turjagwali']); ?>');
-	console.log(polres_ditgakkum);
+    var turjagwali = JSON.parse('<?= json_encode($data['ditgakkum']['turjagwali']); ?>'); 
 
 
     var polda_ditregident = JSON.parse('<?= json_encode($data['ditregident']['polda_ditregident']); ?>');
