@@ -302,8 +302,8 @@ class Dashboard extends MY_Controller
 			
 
             $data['ditregident'] =  $this->m_dashboard->ditregident_polda();
-			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional(); 
+            $data['troublespot'] = $this->m_dashboard->troublespot_polda(); 
 			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_polda();
 			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_polda();
 			$data['ranmor'] = $this->m_dashboard->ranmor_polda();
@@ -318,11 +318,11 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Kapolres/dashboard_view";
 
             $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polres();
-			// echo json_encode($data['ditgakkum']);
+			// echo $this->session->userdata['id_polres'];
             // die;
             $data['ditregident'] =  $this->m_dashboard->ditregident_polres();
 			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_polres();
 			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_polres();
 			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_polres();
 			$data['ranmor'] = $this->m_dashboard->ranmor_polres();

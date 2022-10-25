@@ -382,6 +382,36 @@ class M_dashboard extends CI_Model
         return $TroubleSpot['data'];
     }
 
+    public function troublespot_polda()
+    {
+        $TroubleSpot = guzzle_request(
+            'GET',
+            'troublespot?serverSide=True&start=1&length=90000&order=id&orderDirection=desc&filter[]=polda_id&filterSearch[]='.$this->session->userdata['id_polda'].'',
+            [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]
+        );
+
+        return $TroubleSpot['data'];
+    }
+
+    public function troublespot_polres()
+    {
+        $TroubleSpot = guzzle_request(
+            'GET',
+            'troublespot?serverSide=True&start=1&length=90000&order=id&orderDirection=desc&filter[]=polres_id&filterSearch[]='.$this->session->userdata['id_polres'].'',
+            [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]
+        );
+
+        return $TroubleSpot['data'];
+    }
+
     public function getMonth()
     {
         $url = 'laka_langgar/count-month?nasional=true';

@@ -216,8 +216,8 @@
 				<h5>TroubleSpot Terkini</h5>
 			</div>
 			<div class="card-body">
-				<div style="overflow-y: scroll; height:545px">
-					<table class="table dt-responsive text-center table-bordered">
+				<div style="overflow-x: auto;scrollbar-width: thin;">
+					<table id="datatable" class="table dt-responsive text-center table-bordered w-100">
 						<thead class="table-primary" style="vertical-align : middle;text-align:center;">
 							<tr>
 								<th>Daerah</th>
@@ -284,8 +284,19 @@
 		},
 	});
 
-
+    var getDataTable;
 	$(document).ready(function() {
+        getDataTable = $('#datatable').DataTable({ 
+            responsive: true,  
+            scrollX: true, 
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>', 
+            // buttons: ["excel", "csv", "pdf"], 
+            oLanguage: { 
+                sSearch: 'Search:'
+
+            },
+        });
+
 		var options_ditgakkum = {
             series: [{
                 name: 'Data Dakgar Lantas',
