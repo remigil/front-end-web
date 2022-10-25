@@ -28,9 +28,9 @@ class Troublespot extends MY_Controller
             die;
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/list_korlantas";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
             $page_content["page"] = "troublespot/Kapolda/list_kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
             $page_content["page"] = "troublespot/Polres/list_polres";
         }
 

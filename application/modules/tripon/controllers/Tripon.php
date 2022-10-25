@@ -40,9 +40,9 @@ class Tripon extends MY_Controller
 			$page_content["page"] = "tripon/Bagrenmin/tripon";
         } else if ($this->session->userdata['role'] == 'KaBagTIK') {
 			$page_content["page"] = "tripon/Bagtik/tripon";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
 			$page_content["page"] = "tripon/Kapolda/tripon";
-        } else if ($this->session->userdata['role'] == 'Kapolres') {
+        } else if ($this->session->userdata['role'] == 'Kapolres' || $this->session->userdata['role'] == 'OperatorPolres') {
 			$page_content["page"] = "tripon/Kapolres/tripon";
         }
 
