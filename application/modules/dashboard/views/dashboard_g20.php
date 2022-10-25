@@ -3436,7 +3436,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3451,7 +3451,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3514,7 +3514,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3529,7 +3529,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3592,7 +3592,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3607,7 +3607,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3670,7 +3670,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3685,7 +3685,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
@@ -3748,7 +3748,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAwal}</h3>
+                                                                                <h5>${titikAwal}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else if (i === nWps - 1) {
@@ -3763,7 +3763,7 @@
                                                                             draggable: this.draggableWaypoints,
                                                                         }).bindPopup(`
                                                                             <div class="text-center"> 
-                                                                                <h3>${titikAkhir}</h3>
+                                                                                <h5>${titikAkhir}</h5>
                                                                             </div> 
                                                                         `);
                                                                     } else {
