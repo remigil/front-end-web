@@ -13,7 +13,7 @@
 	<div class="col-lg-12">
 		<div class="row justify-content-between align-items-center">
 			<div class="col-md-4">
-				<h4>Statistik Nasional</h4>
+				<h4>Statistik Polda</h4>
 			</div>
 			<div class="col-md-3">
 				<p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
@@ -147,13 +147,13 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<h4>DIREKTORAT LANTAS NASIONAL</h4>
+		<h4>DIREKTORAT LANTAS POLDA</h4>
 	</div>
 	<!-- grafik ditgakkum -->
     <div class="col-md-7">
         <div class="card shadow-sm">
             <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                <h5>DITGAKKUM NASIONAL</h5>
+                <h5>DITGAKKUM POLDA</h5>
             </div>
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
@@ -199,7 +199,7 @@
     <div class="col-md-7">
         <div class="card shadow-sm">
             <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                <h5>DITREGIDENT NASIONAL</h5>
+                <h5>DITREGIDENT POLDA</h5>
             </div>
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
