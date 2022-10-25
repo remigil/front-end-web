@@ -22,6 +22,49 @@
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
                     <div id="listAddress" style="margin-left: 10px;"></div>
+                    
+                    <div style="display: flex;position: absolute;left: 330px;width: 730px;overflow-x: auto;scrollbar-width: thin;">
+                        <div class="cat petugasDisplay" style="margin-left: 10px;">
+                            <label>
+                                <input checked type="checkbox" value="petugas" name="filter" id="petugasDisplay"><span><i class="fa far fa-building"></i> Petugas</span>
+                            </label>
+                        </div>
+                        <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
+                            <label>
+                                <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                            </label>
+                        </div>
+        
+                        <div class="cat gpsIdDisplay" style="margin-left: 10px;">
+                            <label>
+                                <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Kendaraan Listrik</span>
+                            </label>
+                        </div>
+        
+                        <div class="cat kegiatanDisplay">
+                            <label>
+                                <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                            </label>
+                        </div>
+        
+                        <div class="cat cctvDisplay">
+                            <label>
+                                <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                            </label>
+                        </div>
+                        <div class="cat operasiDisplay">
+                            <label>
+                                <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                            </label>
+                        </div>
+        
+                        <div class="cat panicDisplay">
+                            <label>
+                                <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
+                            </label>
+                        </div>
+
+                    </div>
                 </div> 
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
@@ -162,40 +205,7 @@
                     <!-- item-->
                 </div>
 
-                <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
-                    <label>
-                        <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
-                    </label>
-                </div>
-
-                <div class="cat gpsIdDisplay" style="margin-left: 10px;">
-                    <label>
-                        <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa far fa-building"></i> Kendaraan Listrik</span>
-                    </label>
-                </div>
-
-                <div class="cat kegiatanDisplay">
-                    <label>
-                        <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
-                    </label>
-                </div>
-
-                <div class="cat cctvDisplay">
-                    <label>
-                        <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
-                    </label>
-                </div>
-                <div class="cat operasiDisplay">
-                    <label>
-                        <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Operasi</span>
-                    </label>
-                </div>
-
-                <div class="cat panicDisplay">
-                    <label>
-                        <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
-                    </label>
-                </div>
+                
 
                 
 
@@ -1390,7 +1400,7 @@
                                 <tr>
                                     <td> ${countlistCar}</td>
                                     <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                    <td> a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
+                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
