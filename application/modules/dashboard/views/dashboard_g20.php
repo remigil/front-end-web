@@ -26,9 +26,9 @@
                 </div> 
 
                 <div style="position: absolute;left: 330px;width: 730px;top: 6px;">
-                    <div class="cat petugasDisplay" style="margin-left: 10px;">
+                    <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="petugas" name="filter" id="petugasDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
+                            <input checked type="checkbox" value="turjawali" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
                         </label>
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -774,6 +774,7 @@
 
 
     var dummyGetTracking = new Array();
+    var dummyIdTurjawali = new Array();
 
     var dummyIdKendaraanGpsId= new Array();
     var autoGpsId;
@@ -1100,6 +1101,16 @@
  
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
+
+                            var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
+                                return val == ress[i].id_officer;
+                            });
+                            if(validasiIdTurjal > 0){ 
+                                // console.log('id sudah ada');
+                            }else{ 
+                                dummyIdTurjawali.push(ress[i].id_officer);
+                                // console.log('id tidak ada');
+                            }   
 
                             var cordLat = parseFloat(ress[i].latitude); 
                             var corLong = parseFloat(ress[i].longitude);  
@@ -1598,21 +1609,7 @@
             }); 
             
         }
-        $("#petugasDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                $("#gpsId").prop('checked', true); 
-                autoGpsId = setInterval(gpsId, 5000); 
-            }else{
-                $("#gpsId").prop('checked', false); 
-                $("#gpsId").val(); 
-                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
-                    mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
-                }
-                dummyIdKendaraanGpsId = new Array(); 
-                markerGpsId = new Array();  
-                clearInterval(autoGpsId);
-            } 
-        }); 
+        
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
@@ -1714,6 +1711,17 @@
             var corLong = parseFloat(ress.longitude); 
             var bendera = '';
             var jenis = ''; 
+
+
+            var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
+                return val == ress.id_officer;
+            });
+            if(validasiIdTurjal > 0){ 
+                // console.log('id sudah ada');
+            }else{ 
+                dummyIdTurjawali.push(ress.id_officer);
+                // console.log('id tidak ada');
+            }   
 
 
             // for (let i = 0; i < ress.length; i++) {  
@@ -1907,6 +1915,20 @@
                  
         
         });
+
+        $("#turjawaliDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#turjawali").prop('checked', true);  
+                serverSideGet();
+            }else{
+                $("#turjawali").prop('checked', false); 
+                $("#turjawali").val();  
+                for (let i = 0; i < dummyIdTurjawali.length; i++) {  
+                    mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
+                } 
+                markerArray = new Array();   
+            } 
+        }); 
 
         var centerMap = mapContainer.getCenter();
         var centerLat = centerMap['lat'];
@@ -3310,7 +3332,7 @@
                                                                         <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th></th>
+                                                                                    <th>Rute</th>
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
                                                                                     <th>Lokasi</th>
