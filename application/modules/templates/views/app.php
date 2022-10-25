@@ -750,7 +750,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <i class="mdi mdi-account-group-outline"></i>
+                                                <img src="<?= base_url('assets/sidebar/operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-authentication">Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -763,7 +763,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <i data-feather="users"></i>
+                                                    <img src="<?= base_url('assets/sidebar/laporanOperasi.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-authentication">Laporan Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -792,7 +792,7 @@
 
                                             <li>
                                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">CCTV</span>
                                                 </a>
                                             </li>
@@ -813,7 +813,7 @@
 
                                             <li>
                                                 <a href="<?php echo base_url(); ?>zoom">
-                                                    <i data-feather="grid"></i>
+                                                <img src="<?= base_url('assets/sidebar/zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">Zoom</span>
                                                 </a>
                                             </li>
@@ -827,7 +827,7 @@
 
                                             <li>
                                                 <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
-                                                    <i data-feather="grid"></i>
+                                                <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">Peta</span>
                                                 </a>
                                             </li>
@@ -843,7 +843,7 @@
 
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <i data-feather="grid"></i>
+                                                    <img src="<?= base_url('assets/sidebar/masterData.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-apps">Master Data</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -872,7 +872,7 @@
                                             </li>
                                             <li>
                                                 <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
-                                                    <i data-feather="grid"></i>
+                                                <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">IRSMS</span>
                                                 </a>
                                             </li>
@@ -887,7 +887,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <i data-feather="users"></i>
+                                                <img src="<?= base_url('assets/sidebar/laporanOperasi.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-authentication">Laporan Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -899,7 +899,7 @@
                                             <?php if ($this->session->userdata['role'] != 'Operator') { ?>
                                                 <li>
                                                     <a href="<?php echo base_url(); ?>dashboard/peta">
-                                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                        <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                         <span data-key="t-dashboard">Peta</span>
                                                     </a>
                                                 </li>
@@ -908,7 +908,7 @@
 
                                             <li>
                                                 <a href="<?php echo base_url(); ?>masterdata/Cctv">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">CCTV</span>
                                                 </a>
                                             </li>
