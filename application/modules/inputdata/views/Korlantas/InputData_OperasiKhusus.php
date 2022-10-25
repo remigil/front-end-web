@@ -27,6 +27,18 @@
                                 <label class="labelmui">Polda</label>
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <div class="material-selectfield mb-3">
+                                <select name="operasi_id" id="operasi_id">
+                                    <!-- <select name="" id=""  multiple required> -->
+                                    <option value="0">--Pilih operasi---</option>
+                                    <?php foreach ($data['getOperasi'] as $key) : ?>
+                                        <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">Polda</label>
+                            </div>
+                        </div>
                         <div class="col-md-3">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
@@ -39,8 +51,7 @@
                                 <label class="labelmui">Satker Mabes</label>
                             </div>
                         </div>
-
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_laporan" id="jenis_laporan">
                                     <!-- <select name="" id=""  multiple required> -->
@@ -49,7 +60,7 @@
                                 <label class="labelmui">Jenis Laporan</label>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="material-textfield mb-3">
                                 <input type="date" name="date" id="date" style="width:100% ;">
 
@@ -291,7 +302,7 @@
         const formData = new FormData($('#form-dataharian')[0]);
 
         $.ajax({
-            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
+            url: "<?= base_url() ?>inputdata/LaporanOperasiKhusus/storeData",
             method: "POST",
             data: formData,
             dataType: "JSON",

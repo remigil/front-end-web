@@ -285,7 +285,8 @@ class LaporanOperasiKhusus extends MY_Controller
                 array_push($value, $object);
             }
         } else if ($jenis_laporan ==  14) {
-            $url =  'ooperasi_langgar/giatlantas?polda=true';
+            $url =  'operasi_langgar/giatlantas?polda=true';
+
             for ($i = 0; $i < $max_loop; $i++) {
                 $object = (object) [
                     'polres_id' => $this->input->post('polres_id')[$i],
@@ -443,7 +444,6 @@ class LaporanOperasiKhusus extends MY_Controller
                 'contents' => $operasi_id
             ]
         ];
-
 
         $data = guzzle_request('POST', $url, [
             'json' => [

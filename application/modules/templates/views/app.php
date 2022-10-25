@@ -750,7 +750,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                <img src="<?= base_url('assets/sidebar/operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/operasi.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-authentication">Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -813,7 +813,7 @@
 
                                             <li>
                                                 <a href="<?php echo base_url(); ?>zoom">
-                                                <img src="<?= base_url('assets/sidebar/zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">Zoom</span>
                                                 </a>
                                             </li>
@@ -827,7 +827,7 @@
 
                                             <li>
                                                 <a target="_blank" href="https://www.google.com/maps/place/Bali/@-8.6359009,115.1440683,61521m/data=!3m1!1e3!4m5!3m4!1s0x2dd141d3e8100fa1:0x24910fb14b24e690!8m2!3d-8.4095178!4d115.188916">
-                                                <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/peta.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">Peta</span>
                                                 </a>
                                             </li>
@@ -872,7 +872,7 @@
                                             </li>
                                             <li>
                                                 <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
-                                                <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">IRSMS</span>
                                                 </a>
                                             </li>
@@ -887,7 +887,7 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                <img src="<?= base_url('assets/sidebar/laporanOperasi.svg') ?>" alt="" style="width: 16px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/laporanOperasi.svg') ?>" alt="" style="width: 16px; margin-right:10px">
                                                     <span data-key="t-authentication">Laporan Operasi</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
@@ -1265,7 +1265,7 @@
                                                     <span data-key="t-peraturan">Dokumen Peraturan</span>
                                                 </a>
                                             </li>
-                                            <?php if ($this->session->userdata['role'] == 'Korlantas') {; ?>
+                                            <?php if ($this->session->userdata['role'] == 'Korlantas'||$this->session->userdata['role']=='OperatorPolda'||$this->session->userdata['role']=='OperatorPolres') {; ?>
 
                                                 <li>
                                                     <a href="javascript: void(0);" class="has-arrow">
@@ -1278,9 +1278,11 @@
                                                     <ul class="sub-menu" aria-expanded="false">
                                                         <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">LapHar Opsus</a></li>
                                                     </ul>
+                                                    <?php if($this->session->userdata['role']=='Korlantas'){ ?>
                                                     <ul class="sub-menu" aria-expanded="false">
                                                         <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
                                                     </ul>
+                                                    <?php } ?>
                                                     <ul class="sub-menu" aria-expanded="false">
                                                         <li><a href="<?= base_url('inputdata/LaporanMasyarakat') ?>" data-key="t-read-email">LapHar Kegiatan Masyarakat</a></li>
                                                     </ul>
@@ -1302,7 +1304,7 @@
                                                 </li> -->
 
                                                 </li>
-
+                                                <?php if($this->session->userdata['role']=='Korlantas') { ?>
                                                 <li>
                                                     <a href="javascript: void(0);" class="has-arrow">
                                                         <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1314,6 +1316,7 @@
                                                         <li><a href="<?php echo base_url('pengguna/AkunOperasi'); ?>" data-key="t-read-email">Akun Operasi</a></li>
                                                     </ul>
                                                 </li>
+                                                <?php } ?>
                                             <?php } ?>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
@@ -1333,12 +1336,6 @@
                                                     <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
                                                     <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">E-Tilang</a></li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                <a href="<?php echo base_url('zoom'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-zoom.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard">Zoom</span>
-                                                </a>
                                             </li>
                                         <?php } ?>
                                     </ul>
