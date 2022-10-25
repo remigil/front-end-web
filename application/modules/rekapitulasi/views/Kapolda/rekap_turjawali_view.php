@@ -6,7 +6,101 @@
         <li class="breadcrumb-item active fw-bold" aria-current="page">Daftar <?= $title; ?></li>
     </ol>
 </nav>
+<!-- </div> -->
+<section class="shadow-sm">
+    <div class="card rounded">
+        <div class="card-header card-headline">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="text-white"><?= strtoupper($data['title'])  ?></h2>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-body blue-card">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6">
+                                <h4 class="text-light fw-light">Pengaturan</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="text-center blue-card-text"><?= $data['turjagwali']['pengaturan'] ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body red-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 rounded">
+                                <h4 class="text-light d-inline fw-light">Penjagaan</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="red-card-text"><?= $data['turjagwali']['penjagaan'] ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body green-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Pengawalan</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="green-card-text text-center"><?= $data['turjagwali']['pengawalan'] ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body yellow-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Patroli</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="yellow-card-text text-center"><?= $data['turjagwali']['patroli'] ?></h1>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="col-md-8">
+                    <div class="top-five-headline">
+                        <h2 class="text-center">10 RANGKING TURJAGWALI</h2>
+                    </div>
+                    <div class="mt-5">
+                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
+                            <thead class="table-primary">
+                                <tr class="text-white">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Polda</th>
+                                    <th scope="col">Pengaturan</th>
+                                    <th scope="col">Penjagaan</th>
+                                    <th scope="col">Pengawalan</th>
+                                    <th scope="col">Patroli</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['turjagwali']['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['pengaturan'] ?></td>
+                                        <td><?= $key['penjagaan'] ?></td>
+                                        <td><?= $key['pengawalan'] ?></td>
+                                        <td><?= $key['patroli'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section>
     <div class="dropdown">
