@@ -158,7 +158,7 @@
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart" style="width: 150vw"></div>
+                        <div id="chart" style="width: 90vw"></div>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
 		<div class="row">
 			<div class="card">
 				<div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-					<h5>DATA TRIPON HARIAN</h5>
+					<h5>DATA NASIONAL TRIPON HARIAN</h5>
 					<p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
 				</div>
 				<div class="card-body m-0 p-0">
@@ -182,7 +182,7 @@
 		<div class="row">
 			<div class="card">
 				<div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-					<h5>DATA TRIPON HARIAN</h5>
+					<h5>DATA NASIONAL TRIPON HARIAN</h5>
 					<p class="fw-bold" style="text-transform:capitalize">Per Status Perjalanan</p>
 				</div>
 				<div class="card-body m-0 p-0">
@@ -204,7 +204,7 @@
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart5" style="width: 150vw"></div>
+                        <div id="chart5" style="width: 50vw"></div>
                     </div>
                 </div>
             </div>
@@ -243,8 +243,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <script>
- 
- 
+
     var polres_ditgakkum = JSON.parse('<?= json_encode($data['ditgakkum']['polres_ditgakkum']); ?>');
     var lakalantas = JSON.parse('<?= json_encode($data['ditgakkum']['lakalantas']); ?>');
     var lakalanggar = JSON.parse('<?= json_encode($data['ditgakkum']['lakalanggar']); ?>');
@@ -252,7 +251,7 @@
     var turjagwali = JSON.parse('<?= json_encode($data['ditgakkum']['turjagwali']); ?>'); 
 
 
-    var polda_ditregident = JSON.parse('<?= json_encode($data['ditregident']['polda_ditregident']); ?>');
+    var polres_ditregident = JSON.parse('<?= json_encode($data['ditregident']['polres_ditregident']); ?>');
     var sim = JSON.parse('<?= json_encode($data['ditregident']['sim']); ?>');
     var bpkb = JSON.parse('<?= json_encode($data['ditregident']['bpkb']); ?>');
     var stnk = JSON.parse('<?= json_encode($data['ditregident']['stnk']); ?>');
@@ -317,7 +316,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '80%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -480,7 +479,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '80%',
+                    columnWidth: '70%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -585,7 +584,7 @@
             },
             xaxis: {
                 // categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
-                categories: polda_ditregident
+                categories: polres_ditregident
             },
             yaxis: [{
                 axisTicks: {

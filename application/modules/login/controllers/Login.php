@@ -43,7 +43,11 @@ class Login extends MX_Controller
 
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
                     $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
+
                     $data_session['polda_id'] = $response['user']['data']['polda_profile']['polda']['id'];
+					$data_session['id_polda'] = $response['user']['data']['polda_profile']['polda_id'];
+
+					
                     if($response['user']['data']['polda_profile'] == null || $response['user']['data']['polda_profile'] == null){
                         $this->session->set_flashdata('error', 'Mohon untuk hubungi admin karna Polda Belum di Daftarkan');
                         redirect('login');

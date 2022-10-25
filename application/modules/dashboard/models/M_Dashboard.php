@@ -172,6 +172,53 @@ class M_dashboard extends CI_Model
         ];
     }
 
+    public function ditgakkum_polres()
+    {
+        // Ditgakkum
+        $ditgakkum = guzzle_request('GET', 'ditgakkum?polres=true&polres_id='.$this->session->userdata['polres_id'].'', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+		
+		// var_dump($ditgakkum);die;
+
+        
+        $lakalanggar = array();
+        $lakalantas = array();
+        $garlantas = array();
+        $turjagwali = array();
+        
+        foreach ($ditgakkum['data'] as $key) {
+            $row = array();
+            
+            $lakalantas[] = $key['lakalantas'];
+            $lakalanggar[] = $key["lakalanggar"];
+            $garlantas[] = $key['garlantas'];
+            $turjagwali[] = $key['turjagwali'];
+
+            
+            $row['garlantas'] = $key['garlantas'];
+            $row['lakalantas'] = $key['lakalantas'];
+            $row['kemacetan'] = 0;
+            $row['total'] = $key['garlantas'] + $key['lakalantas'];
+
+            
+        }
+
+        return [
+            
+            'garlantas' => $garlantas,
+            'lakalantas' => $lakalantas,
+            'lakalanggar' => $lakalanggar,
+            'turjagwali' => $turjagwali
+        ];
+    }
+
     public function ditregident_nasional()
     {
         $ditregident = guzzle_request('GET', 'ditregident?nasional=true', [
@@ -224,7 +271,7 @@ class M_dashboard extends CI_Model
         $bpkb = array();
         $ranmor = array();
         foreach ($ditregident['data'] as $key) {
-            $polda_ditregident[] = $key['name_polda'];
+            $polres_ditregident[] = $key['name_polres'];
             $stnk[] = $key['stnk'];
             $sim[] = $key["sim"];
             $bpkb[] = $key['bpkb'];
@@ -232,7 +279,41 @@ class M_dashboard extends CI_Model
         }
 
         return [
-            'polda_ditregident' => $polda_ditregident,
+            'polres_ditregident' => $polres_ditregident,
+            'sim' => $sim,
+            'stnk' => $stnk,
+            'bpkb' => $bpkb,
+            'ranmor' => $ranmor
+        ];
+    }
+
+    public function ditregident_polres()
+    {
+        $ditregident = guzzle_request('GET', 'ditregident?polres=true&polres_id='.$this->session->userdata['polres_id'].'', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        
+        $sim = array();
+        $stnk = array();
+        $bpkb = array();
+        $ranmor = array();
+        foreach ($ditregident['data'] as $key) {
+            
+            $stnk[] = $key['stnk'];
+            $sim[] = $key["sim"];
+            $bpkb[] = $key['bpkb'];
+            $ranmor[] = $key['ranmor'];
+        }
+
+        return [
+            
             'sim' => $sim,
             'stnk' => $stnk,
             'bpkb' => $bpkb,
@@ -340,6 +421,55 @@ class M_dashboard extends CI_Model
             'jumlah' => $jumlah,
         ];
     }
+	public function pelanggaran_polda()
+    {
+        $url = 'garlantas?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $garlantasPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+		// var_dump($garlantasPolda);die;
+
+
+
+        // garlantas polda
+        $jumlah = $garlantasPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function pelanggaran_polres()
+    {
+        $url = 'garlantas?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $garlantasPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+		// var_dump($garlantasPolda);die;
+
+
+
+        // garlantas polres
+        $jumlah = $garlantasPolres['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+
 	public function kecelakaan_nasional()
     {
         $url = 'laka_lantas?nasional=true';
@@ -358,6 +488,52 @@ class M_dashboard extends CI_Model
 
         // lakalantas nasional
 		$jumlah = $lakalantasNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function kecelakaan_polda()
+    {
+        $url = 'laka_lantas?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $lakalantasPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+
+
+        // lakalantas polda
+		$jumlah = $lakalantasPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function kecelakaan_polres()
+    {
+        $url = 'laka_lantas?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $lakalantasPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+
+
+        // lakalantas polres
+		$jumlah = $lakalantasPolres['data'][0]['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -385,6 +561,48 @@ class M_dashboard extends CI_Model
             'jumlah' => $jumlah,
         ];
     }
+	public function ranmor_polda()
+    {
+        $url = 'ranmor?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $ranmorPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // ranmor polda
+		$jumlah = $ranmorPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function ranmor_polres()
+    {
+        $url = 'ranmor?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $ranmorPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // ranmor polres
+		$jumlah = $ranmorPolres['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
 
 	public function sim_nasional()
     {
@@ -402,6 +620,48 @@ class M_dashboard extends CI_Model
 
         // sim nasional
 		$jumlah = $simNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function sim_polda()
+    {
+        $url = 'sim?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $simPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // sim Polda
+		$jumlah = $simPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function sim_polres()
+    {
+        $url = 'sim?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $simPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // sim Polres
+		$jumlah = $simPolres['data'][0]['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -430,10 +690,54 @@ class M_dashboard extends CI_Model
         ];
     
 	}
+	public function stnk_polda()
+    {
+        $url = 'stnk?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $stnkPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // stnk polda
+		$jumlah = $stnkPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    
+	}
+	public function stnk_polres()
+    {
+        $url = 'stnk?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $stnkPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // stnk polres
+		$jumlah = $stnkPolres['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    
+	}
 
 	public function dikmaslantas_nasional()
     {
-        $url = 'stnk?nasional=true';
+        $url = 'dikmaslantas?nasional=true';
 
         $dikmaslantasNasional = guzzle_request('GET', $url, [
 
@@ -447,6 +751,48 @@ class M_dashboard extends CI_Model
 
         // dikmas nasional
 		$jumlah = $dikmaslantasNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function dikmaslantas_polda()
+    {
+        $url = 'dikmaslantas?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $dikmaslantasPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // dikmas polda
+		$jumlah = $dikmaslantasPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function dikmaslantas_polres()
+    {
+        $url = 'dikmaslantas?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $dikmaslantasPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // dikmas polres
+		$jumlah = $dikmaslantasPolres['data'][0]['jumlah'];
 
         return [
             'jumlah' => $jumlah,
@@ -469,6 +815,48 @@ class M_dashboard extends CI_Model
 
         // penyebaran/pemasangan nasional
 		$jumlah = $penyebaran_pemasanganNasional['data']['jumlah']['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function penyebaran_pemasangan_polda()
+    {
+        $url = 'penyebaran?polda=true&polda_id='.$this->session->userdata['id_polda'].'';
+
+        $penyebaran_pemasanganPolda = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // penyebaran/pemasangan Polda
+		$jumlah = $penyebaran_pemasanganPolda['data'][0]['jumlah'];
+
+        return [
+            'jumlah' => $jumlah,
+        ];
+    }
+	public function penyebaran_pemasangan_polres()
+    {
+        $url = 'penyebaran?polres=true&polres_id='.$this->session->userdata['id_polres'].'';
+
+        $penyebaran_pemasanganPolres = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        // penyebaran/pemasangan Polres
+		$jumlah = $penyebaran_pemasanganPolres['data'][0]['jumlah'];
 
         return [
             'jumlah' => $jumlah,

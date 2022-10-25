@@ -243,20 +243,11 @@
 
 <script>
 
-	var poldaName = JSON.parse('<?= json_encode($data['turjagwali']['polda_name']); ?>');
-    var polda_pengawalan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengawalan']); ?>');
-    var polda_penjagaan = JSON.parse('<?= json_encode($data['turjagwali']['polda_penjagaan']); ?>');
-    var polda_pengaturan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengaturan']); ?>');
-    var polda_patroli = JSON.parse('<?= json_encode($data['turjagwali']['polda_patroli']); ?>');
-
-    var polda_ditgakkum = JSON.parse('<?= json_encode($data['ditgakkum']['polda_ditgakkum']); ?>');
     var lakalantas = JSON.parse('<?= json_encode($data['ditgakkum']['lakalantas']); ?>');
     var lakalanggar = JSON.parse('<?= json_encode($data['ditgakkum']['lakalanggar']); ?>');
     var garlantas = JSON.parse('<?= json_encode($data['ditgakkum']['garlantas']); ?>');
     var turjagwali = JSON.parse('<?= json_encode($data['ditgakkum']['turjagwali']); ?>');
 
-
-    var polda_ditregident = JSON.parse('<?= json_encode($data['ditregident']['polda_ditregident']); ?>');
     var sim = JSON.parse('<?= json_encode($data['ditregident']['sim']); ?>');
     var bpkb = JSON.parse('<?= json_encode($data['ditregident']['bpkb']); ?>');
     var stnk = JSON.parse('<?= json_encode($data['ditregident']['stnk']); ?>');
@@ -346,7 +337,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: polda_ditgakkum,
+                categories: '',
             },
             yaxis: [{
                 axisTicks: {
@@ -370,75 +361,6 @@
         var ditgakkum = new ApexCharts(document.querySelector("#chart"), options_ditgakkum);
         ditgakkum.render();
 
-
-		var options_ditkamsel = {
-			series: [{
-				name: 'Dikmas Lantas',
-				type: 'column',
-				data: [706],
-				color: "#003A91"
-			}, {
-				name: 'Penyabaran/Pemasangan',
-				type: 'column',
-				data: [65],
-				color: "#3CA55C"
-			}, ],
-			chart: {
-				height: 555,
-				type: 'line',
-				stacked: false
-			},
-			plotOptions: {
-				bar: {
-					horizontal: false,
-					columnWidth: '80%',
-					endingShape: 'rounded',
-					dataLabels: {
-						position: 'top'
-					}
-				},
-			},
-			dataLabels: {
-				enabled: true,
-				offsetY: -15,
-				style: {
-					fontSize: '9px'
-				},
-				background: {
-					enabled: false,
-
-				},
-			},
-
-			stroke: {
-				show: true,
-				width: [1, 1, 4, 4],
-				colors: ['transparent']
-			},
-			xaxis: {
-				categories: ['POLRES BOGOR'],
-			},
-			yaxis: [{
-				axisTicks: {
-					show: false,
-				},
-				axisBorder: {
-					show: false,
-					color: '#008FFB'
-				},
-				labels: {
-					style: {
-						colors: '#008FFB',
-					}
-				},
-				tooltip: {
-					enable: false
-				}
-			}, ],
-		};
-
-		var ditkamsel = new ApexCharts(document.querySelector("#chart2"), options_ditkamsel);
-		ditkamsel.render();
 
 		var options_tripon_kendaraan = {
             series: polda_tripon,
@@ -589,7 +511,7 @@
             },
             xaxis: {
                 // categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
-                categories: polda_ditregident
+                categories: '',
             },
             yaxis: [{
                 axisTicks: {
