@@ -36,7 +36,7 @@
                                     <option value="2">Ditkamsel</option>
                                     <option value="3">Ditregident</option>
                                 </select>
-                                <label class="labelmui">Satker Mabes</label>
+                                <label class="labelmui">Satker</label>
                             </div>
                         </div>
                         <div class="col-md-3">

@@ -36,19 +36,19 @@
                                         <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <label class="labelmui">Polda</label>
+                                <label class="labelmui">Operasi</label>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">--Pilih jenis satker--</option>
+                                    <option value="">--Pilih jenis laporan--</option>
                                     <option value="1">Pelanggaran</option>
                                     <option value="2">Kecelakaan</option>
                                     <option value="3">Turjagwali</option>
                                 </select>
-                                <label class="labelmui">Satker Mabes</label>
+                                <label class="labelmui">Jenis Laporan</label>
                             </div>
                         </div>
                         <div class="col-md-2">

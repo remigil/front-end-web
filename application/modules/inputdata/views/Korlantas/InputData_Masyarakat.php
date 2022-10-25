@@ -31,10 +31,10 @@
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">--Pilih jenis satker--</option>
+                                    <option value="">--Pilih jenis kegiatan--</option>
                                     <option value="1">Kesehatan Masyarakat</option>
                                 </select>
-                                <label class="labelmui">Satker Mabes</label>
+                                <label class="labelmui">Jenis Kegiatan</label>
                             </div>
                         </div>
                         <div class="col-md-3">
