@@ -194,18 +194,19 @@ class M_dashboard extends CI_Model
         // $turjagwali = array();
         
         // foreach ($ditgakkum['data'] as $key) {
+
             $row = array();
             
-            $lakalantas = $ditgakkum['data']['lakalantas'];
-            $lakalanggar = $ditgakkum['data']["lakalanggar"];
-            $garlantas = $ditgakkum['data']['garlantas'];
-            $turjagwali = $ditgakkum['data']['turjagwali'];
+            $lakalantas[] = $ditgakkum['data']['lakalantas'];
+            $lakalanggar[] = $ditgakkum['data']["lakalanggar"];
+            $garlantas[] = $ditgakkum['data']['garlantas'];
+            $turjagwali[] = $ditgakkum['data']['turjagwali'];
 
             
             $row['garlantas'] = $ditgakkum['data']['garlantas'];
             $row['lakalantas'] = $ditgakkum['data']['lakalantas'];
             $row['kemacetan'] = 0;
-            $row['total'] = $ditgakkum['data']['garlantas'] + $ditgakkum['data']['lakalantas'];
+            
 
             
         // }

@@ -157,7 +157,7 @@
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart" style="width: 150vw"></div>
+                        <div id="chart" style="width: 50vw"></div>
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@
             <div>
                 <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                     <div class="main-chart">
-                        <div id="chart5" style="width: 150vw"></div>
+                        <div id="chart5" style="width: 50vw"></div>
                     </div>
                 </div>
             </div>
@@ -312,7 +312,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '50%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -485,7 +485,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '50%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
