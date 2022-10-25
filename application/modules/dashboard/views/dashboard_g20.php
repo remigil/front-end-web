@@ -23,7 +23,7 @@
                     </a> 
                     <div id="listAddress" style="margin-left: 10px;"></div>
                     
-                    <div style="display: flex;position: absolute;left: 330px;width: 730px;overflow-x: auto;scrollbar-width: thin;">
+                    <div style="position: absolute;left: 330px;width: 730px;">
                         <div class="cat petugasDisplay" style="margin-left: 10px;">
                             <label>
                                 <input checked type="checkbox" value="petugas" name="filter" id="petugasDisplay"><span><i class="fa far fa-building"></i> Petugas</span>
@@ -58,7 +58,7 @@
                             </label>
                         </div>
         
-                        <div class="cat panicDisplay">
+                        <div class="cat panicDisplay" style="margin-left: 10px;">
                             <label>
                                 <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
                             </label>
