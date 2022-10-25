@@ -8,7 +8,125 @@
 </nav>
 <!-- </div> -->
 
+<!-- data statistik -->
+<section class="shadow-sm">
+    <div class="card rounded">
+        <!-- title & last update -->
+        <div class="card-header card-headline">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="text-white"><?= strtoupper($data['title'])  ?></h2>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-end mx-4 text-dark fs-6 fw-light"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
+                </div>
+            </div>
+        </div>
+        <!-- end title & last update -->
+        <div class="card-body">
+            <div class="row">
+                <!-- statistik -->
+                <div class="col-md-4">
+                    <div class="card-body blue-card">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6">
+                                <h4 class="text-light fw-light">Jumlah Pelanggaran</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="text-center blue-card-text"><?= $data['pelanggaran']['jumlah'] ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body red-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 rounded">
+                                <h4 class="text-light d-inline fw-light">Pelanggaran Berat</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="red-card-text"><?= $data['pelanggaran']['pelanggaran_berat'] ?></h1>
+                                <!-- <h1 class="red-card-text">validasi petugas</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body green-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Pelanggaran Sedang</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="green-card-text text-center"><?= $data['pelanggaran']['pelanggaran_sedang'] ?></h1>
+                                <!-- <h1 class="green-card-text text-center">konfirmasi</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body yellow-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Pelanggaran Ringan</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="yellow-card-text text-center"><?= $data['pelanggaran']['pelanggaran_ringan'] ?></h1>
+                                <!-- <h1 class="yellow-card-text text-center">odol</h1> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body yellow-card mt-2">
+                        <div class="row align-items-center text-center">
+                            <div class="col-md-6 text-wrap">
+                                <h4 class="text-light fw-light">Teguran</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="yellow-card-text text-center"><?= $data['pelanggaran']['pelanggaran_teguran'] ?></h1>
+                                <!-- <h1 class="yellow-card-text text-center">odol</h1> -->
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <!-- end statistik -->
+
+                <!-- rangking statistik -->
+                <div class="col-md-8">
+                    <div class="top-five-headline">
+                        <h2 class="text-center">10 RANGKING DAKGAR LANTAS TERTINGGI</h2>
+                    </div>
+                    <div class="mt-5">
+                        <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
+                            <thead class="table-primary">
+                                <tr class="text-white">
+                                    <th scope="col">No</th>
+                                    <th scope="col">POLDA</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Pelanggaran Berat</th>
+                                    <th scope="col">Pelanggaran Sedang</th>
+                                    <th scope="col">Pelanggaran Ringan</th>
+                                    <th scope="col">Teguran</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1 ?>
+                                <?php foreach ($data['pelanggaran']['topPolda'] as $key) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $key['name_polda'] ?></td>
+                                        <td><?= $key['jumlah'] ?></td>
+                                        <td><?= $key['pelanggaran_berat'] ?></td>
+                                        <td><?= $key['pelanggaran_sedang'] ?></td>
+                                        <td><?= $key['pelanggaran_ringan'] ?></td>
+                                        <td><?= $key['teguran'] ?></td>
+                                    </tr>
+                                    <?php $i++ ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end rangking statistik -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end data statistik -->
 
 <!-- filter data -->
 <section>

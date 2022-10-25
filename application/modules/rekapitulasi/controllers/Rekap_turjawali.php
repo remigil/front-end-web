@@ -44,6 +44,8 @@ class Rekap_turjawali extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "Data Turjawali";
 
+			$data['turjagwali'] = $this->M_Rekap_Turjagwali->turjagwali_nasional();
+
 			
             $page_content["page"] = "rekapitulasi/Ditregident/rekap_turjawali_view";
         } else if ($this->session->userdata['role'] == 'KaBagOps') {
@@ -68,19 +70,19 @@ class Rekap_turjawali extends MY_Controller
 
             $page_content["page"] = "rekapitulasi/Bagtik/rekap_turjawali_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["title"] = "Data Kecelakaan";
+            $page_content["title"] = "Data Turjagwali";
 
 			$data['turjagwali'] = $this->M_Rekap_Turjagwali->turjagwali_nasional();
 
 
-            $page_content["page"] = "rekapitulasi/Kapolda/rekap_kecelakaan_view";
+            $page_content["page"] = "rekapitulasi/Kapolda/rekap_turjawali_view";
         } else if ($this->session->userdata['role'] == 'Kapolres') {
-            $page_content["title"] = "Data Kecelakaan";
+            $page_content["title"] = "Data Turjagwali";
 
 			$data['turjagwali'] = $this->M_Rekap_Turjagwali->turjagwali_nasional();
 
 			
-            $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
+            $page_content["page"] = "rekapitulasi/Kapolres/rekap_turjawali_view";
         }
 
 

@@ -80,21 +80,21 @@ class Rekap_pelanggaran extends MY_Controller
 
             $page_content["page"] = "rekapitulasi/Bagtik/rekap_pelanggaran_view";
 		} else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["title"] = "Data Kecelakaan";
+            $page_content["title"] = "Data Pelanggaran";
 
 			$data['pelanggaran'] = $this->M_Rekap_Pelanggaran->pelanggaran_nasional();
             $data['pelanggaran_month'] = $this->M_Rekap_Pelanggaran->pelanggaran_month();
 
 
-            $page_content["page"] = "rekapitulasi/Kapolda/rekap_kecelakaan_view";
+            $page_content["page"] = "rekapitulasi/Kapolda/rekap_pelanggaran_view";
 		} else if ($this->session->userdata['role'] == 'Kapolres') {
-            $page_content["title"] = "Data Kecelakaan";
+            $page_content["title"] = "Data Pelanggaran";
 
 			$data['pelanggaran'] = $this->M_Rekap_Pelanggaran->pelanggaran_nasional();
             $data['pelanggaran_month'] = $this->M_Rekap_Pelanggaran->pelanggaran_month();
 
 			
-            $page_content["page"] = "rekapitulasi/Kapolres/rekap_kecelakaan_view";
+            $page_content["page"] = "rekapitulasi/Kapolres/rekap_pelanggaran_view";
         }
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
