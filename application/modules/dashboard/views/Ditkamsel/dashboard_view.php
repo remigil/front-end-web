@@ -20,22 +20,6 @@
 		<div class="row">
 			<div class="swiper mySwiper">
 				<div class="swiper-wrapper">
-					<!-- <div class="swiper-slide">
-						<div class="card" style="border-radius: 5px !important; background-color:#11617A">
-							<div class="card-body">
-								<div class="row justify-content-between align-items-center" style="height: 80px;">
-									<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-										<h4 class="text-wrap fw-light text-light">Total Pelanggaran</h4>
-										<h5 class="text-wrap fw-light text-light">Lalu Lintas</h5>
-										<h2 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h2>
-									</div>
-									<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
-										<img src="<?= base_url('assets/dashboard/icon-pelanggaran-nas.png') ?>" class="img-fluid" alt="">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 					<div class="swiper-slide">
 						<div class="card" style="border-radius: 5px !important; background-color:#11347A">
 							<div class="card-body">
