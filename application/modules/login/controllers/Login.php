@@ -44,14 +44,24 @@ class Login extends MX_Controller
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
                     $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
                     $data_session['polda_id'] = $response['user']['data']['polda_profile']['polda']['id'];
+                    if($response['user']['data']['polda_profile'] == null || $response['user']['data']['polda_profile'] == null){
+                        $this->session->set_flashdata('error', 'Mohon untuk hubungi admin karna Polda Belum di Daftarkan');
+                        redirect('login');
+                        die;
+                    }
                 }
 
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolres' || $response['user']['data']['user_role']['name'] == 'Kapolres') {
-                    // $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
-                    // $data_session['id_polres'] = $response['user']['data']['polres_profile']['polres_id'];
+                    $data_session['polres_id'] = $response['user']['data']['polres_profile']['polres']['id'];
+                    $data_session['id_polres'] = $response['user']['data']['polres_profile']['polres_id'];
                     $data_session['polres']       = $response['user']['data']['polres_profile']['polres']['name_polres'];
                     $data_session['polda_id']       = $response['user']['data']['polres_profile']['polres']['polda']['id'];
                     // $data_session['polda_id'] = $response['user']['data']['polda_profile']['poldaid'];
+                    if($response['user']['data']['polres_profile'] == null || $response['user']['data']['polres_profile'] == null){
+                        $this->session->set_flashdata('error', 'Mohon untuk hubungi admin karna Polres Belum di Daftarkan');
+                        redirect('login');
+                        die;
+                    }
                 }
 
                 $this->session->set_userdata($data_session);
