@@ -688,11 +688,11 @@ class Dashboard extends MY_Controller
         //     $search = '&search=' . $input['search'] . '';
         // } else {
         //     $search = '';
-        // }
-        if ($input['type']) {
-            $type = '&filter[]=type_renpam&filterSearch[]=' . $input['type'] . '';
+        // } 
+        if ($input['schedule_id']) {
+            $schedule_id = '&schedule_id=' . $input['schedule_id'] . '';
         } else {
-            $type = '';
+            $schedule_id = '';
         }
         // if($input['page']){
         //     $page = ''.$input['page'].'';
@@ -700,7 +700,7 @@ class Dashboard extends MY_Controller
         //     $page = '1';
         // } 
 
-        $url = 'renpam?serverSide=True&length=1000'.$type.'';
+        $url = 'renpam?serverSide=True&order=id&orderDirection=desc&length=1000&start=1'.$schedule_id.'';
         $getRenpam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
