@@ -21,7 +21,7 @@
                     <a href="javascript:void(0)" class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </a> 
-                    <div id="listAddress" style="margin-left: 10px;"></div>
+                    <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
                     
                 </div> 
 
@@ -1598,6 +1598,21 @@
             }); 
             
         }
+        $("#petugasDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#gpsId").prop('checked', true); 
+                autoGpsId = setInterval(gpsId, 5000); 
+            }else{
+                $("#gpsId").prop('checked', false); 
+                $("#gpsId").val(); 
+                for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
+                    mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
+                }
+                dummyIdKendaraanGpsId = new Array(); 
+                markerGpsId = new Array();  
+                clearInterval(autoGpsId);
+            } 
+        }); 
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
