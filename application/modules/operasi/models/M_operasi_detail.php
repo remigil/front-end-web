@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_data_harian_opsus extends CI_Model
+class M_operasi_detail extends CI_Model
 {
 
 
@@ -29,17 +29,13 @@ class M_data_harian_opsus extends CI_Model
 
         $orderField = $postData['orderField'];
 
-        $orderValue = $postData['orderValue'];
-
-        $orderFieldRess =  $columnName[$orderField]['data'];
-
 
         $data = array();
 
 
         $search = $postData['search']['value'];
 
-        // $filter_tgl = $postData['filterTgl'];
+        $id = $postData['id'];
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
@@ -55,13 +51,13 @@ class M_data_harian_opsus extends CI_Model
 
 
 
-        if ($search) {
+        // if ($search) {
 
-            $searchData = '&search=' . $search . '';
-        } else {
+        //     $searchData = '&search=' . $search . '';
+        // } else {
 
-            $searchData = '';
-        }
+        //     $searchData = '';
+        // }
 
         // if($filter_threat){
 
@@ -94,7 +90,8 @@ class M_data_harian_opsus extends CI_Model
         // } 
 
 
-        $url = 'operation-profile?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        // $url = 'operation-profile/getId/VTJGc2RHVmtYMTlzN01nbjl0R1lBOGt2cnRGQ2FTamdQaFg4WFI3ZXQvND0';
+        $url = 'operation-profile/getId/' . $id;
 
         $result = guzzle_request('GET', $url, [
 
@@ -104,18 +101,15 @@ class M_data_harian_opsus extends CI_Model
 
         ]);
 
-        // var_dump($result);die;
-
-
         $no = 1;
 
-        foreach ($result['data']['data'] as $field) {
+        foreach ($result['data']['data']['polda'] as $field) {
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']                =  $no++;
-            $row['name_operation']         = $field['name_operation'];
-            $row['date_start_operation']     = $field['date_start_operation'];
-            $row['date_end_operation']     = $field['date_end_operation'];
+            $row['name_polda']         = $field['name_polda'];
+            // $row['name_polda']         = $field['name_polda'];
+            // $row['name_polda']         = $field['name_polda'];
 
             $row['action']         = '   
                 
@@ -131,9 +125,9 @@ class M_data_harian_opsus extends CI_Model
 
             "draw" => intval($draw),
 
-            "iTotalRecords" => $result['data']['recordsTotal'],
+            "iTotalRecords" => count($result['data']['data']['polda']),
 
-            "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
+            // "iTotalDisplayRecords" => $result['data']['recordsFiltered'],
 
             "aaData" => $data,
 
