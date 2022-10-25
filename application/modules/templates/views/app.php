@@ -756,7 +756,7 @@
                                                 <ul class="sub-menu" aria-expanded="false">
                                                     <li><a href="<?php echo base_url(); ?>operasi/Kegiatan" data-key="t-login">Jadwal Kegiatan</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Akun" data-key="t-login">Akun</a></li>
-                                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VIP</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VVIP</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
                                                 </ul>
