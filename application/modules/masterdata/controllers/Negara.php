@@ -21,7 +21,7 @@ class Negara extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Negara VIP";
+        $page_content["title"] = "Negara / Organisasi VIP";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "masterdata/G20/negara";
@@ -94,7 +94,7 @@ class Negara extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Detail Negara / Organisasi VIP";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "masterdata/G20/detail_negara";
@@ -126,7 +126,7 @@ class Negara extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Edit Negara / Organisasi VIP";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "masterdata/G20/edit_negara";
