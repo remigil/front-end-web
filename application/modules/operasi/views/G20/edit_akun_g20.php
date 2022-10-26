@@ -39,7 +39,7 @@
                     </div> 
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="select">
+                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="selectNegara">
                                 <option selected value="">Pilih Negara Delegasi</option>
                                 <?php foreach ($data['getCountry'] as $row) : ?>
                                     <option 
@@ -161,9 +161,7 @@
     var Petugas; 
     var PetugasOrigin;
     var Petugasbaru;
-    // var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
-    // var PetugasOrigin = JSON.parse(Petugas);
-    // var Petugasbaru = JSON.parse(Petugas);
+  
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
     
@@ -176,6 +174,18 @@
 
 
     $(document).ready(function() {
+
+
+
+        new Choices('#selectNegara', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        }); 
         
         $.ajax({
             type : "POST",
@@ -211,28 +221,11 @@
             }
         });
         
-        new Choices('#officers', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });
+      
 
-    });
+    }); 
 
-    
-    new Choices('#select', {
-        searchEnabled: true,
-        removeItemButton: true,
-        removeItems: true,
-        itemSelectText: '',
-        classNames: {
-            containerOuter: 'choices select-choices',
-        },
-    });
+
      
 
     function deletePetugas(idOffice){
