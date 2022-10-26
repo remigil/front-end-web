@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <div class="material-textfield mb-3" style="margin:0 -0.18vh 0 -0.18vh">
                             <input hidden type="text" name="oldPassword" value="<?php echo $data['getDetail']['data']['password'];?>">
-                            <input style="width: 100%; " name="password" value="<?php echo $data['getDetail']['data']['password'];?>" type="password" required>
+                            <input style="width: 100%; " name="password" value="<?php echo $data['getDetail']['data']['password'];?>" type="text" required>
                             <label class="labelmui">Password</label>
                         </div>
                     </div> 

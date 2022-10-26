@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="material-textfield" style="margin:0 -0.18vh 0 -0.18vh">
-                                <input style="width: 100%; " name="password" type="password" required>
+                                <input style="width: 100%; " name="password" type="text" required>
                                 <label class="labelmui">Password</label>
                             </div>
                         </div>
