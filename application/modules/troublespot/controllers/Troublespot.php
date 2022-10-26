@@ -83,10 +83,6 @@ class Troublespot extends MY_Controller
         $input      = $this->input->post();
         $dummy = [
             [
-                'name' => 'no_ts',
-                'contents' => $input['no_ts'],
-            ],
-            [
                 'name' => 'report_date',
                 'contents' => $input['tanggal_pelaporan'],
             ],
@@ -96,11 +92,11 @@ class Troublespot extends MY_Controller
             ],
             [
                 'name' => 'polda_id',
-                'contents' => $input['polda'],
+                'contents' => $input['polda_id'],
             ],
             [
                 'name' => 'polres_id',
-                'contents' => $input['polres'],
+                'contents' => $input['polres_id'],
             ],
             [
                 'name' => 'traffic_reason',
@@ -317,7 +313,7 @@ class Troublespot extends MY_Controller
             ],
             [
                 'name' => 'polda_id',
-                'contents' => $input['polda'],
+                'contents' => $input['polda_id'],
             ],
             [
                 'name' => 'polres_id',
