@@ -97,7 +97,7 @@
                         <div class="col-md-2">
                             <div class="position-absolute top-50 start-50 translate-middle">
                                 <div class="form-check">
-                                    <input style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <input checked style="height:20px; width:20px; margin-top:-1.2vh;" class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 </div>
                             </div>
                         </div>
