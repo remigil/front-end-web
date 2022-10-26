@@ -283,7 +283,7 @@ class ImportLaporanHarian extends MY_Controller
 				foreach($sheetData as $row){
 					if($i>0){
 						if (strtoupper(((isset($row['B']))?((trim($row['B'])=='')?NULL:$row['B']):NULL))!=NULL) {
-							
+
                             if($type==1) {
 
                                 /**
