@@ -367,6 +367,24 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function getAccount()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $input = $this->input->post();
+
+
+        $url = 'account/getId/' . $input['id'] . '';
+        // echo json_encode($url);
+        // die;
+        $getMe = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
     public function getFilter()
     {
         $headers = [

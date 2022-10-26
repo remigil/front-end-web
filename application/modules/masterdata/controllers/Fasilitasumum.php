@@ -56,7 +56,7 @@ class Fasilitasumum extends MY_Controller
         $page_content["js"] = ''; 
 
         // if ($this->session->userdata['role'] == 'G20') {
-        //     $page_content["title"] = "Fasilitas Khusus Radius";
+        //     $page_content["title"] = "Cluster";
         //     $page_content["page"] = "masterdata/G20/fasum_radius_view";
         // } else if ($this->session->userdata['role'] == 'Korlantas') {
         //     $page_content["title"] = "Fasilitas Umum";
@@ -68,7 +68,7 @@ class Fasilitasumum extends MY_Controller
         //     $page_content["title"] = "Fasilitas Umum";
         //     $page_content["page"] = "masterdata/Polres/fasum_view";
         // }
-        $page_content["title"] = "Fasilitas Khusus Radius";
+        $page_content["title"] = "Cluster";
         $page_content["page"] = "masterdata/G20/fasum_radius_view";
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
@@ -152,7 +152,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['radiusFasum'],
+                    'contents' => $input['kilometres'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -199,7 +199,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['radiusFasum'],
+                    'contents' => $input['kilometres'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -339,7 +339,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['radiusFasum'],
+                    'contents' => $input['kilometres'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -386,7 +386,7 @@ class Fasilitasumum extends MY_Controller
                 ],
 				[
                     'name' => 'fasum_radius',
-                    'contents' => $input['radiusFasum'],
+                    'contents' => $input['kilometres'],
                 ],
 				[
                     'name' => 'fasum_open_time',

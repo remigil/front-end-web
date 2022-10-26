@@ -55,18 +55,8 @@
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
-						<!-- <div class="col-md-6">
-                        	<div class="form-floating mb-3">
-                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Jenis Fasum</option>
-                                    <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="">Jenis Fasum</label> 
-                            </div>
-						</div> -->
+						<input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
+
                         <div class="col-md-6">
                             <div class="form-floating mb-3"> 
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
@@ -267,18 +257,7 @@
                             </div>
                         </div>
                         <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
-                        <!-- <div class="col-md-6">
-                        	<div class="form-floating mb-3">
-                                <select name="jenisFasum" id="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Jenis Fasum</option>
-                                    <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="">Jenis Fasum</label>
-                            </div>
-						</div> -->
+                        <input hidden type="text" class="kilometres" name="kilometres" placeholder="15" value="0" />
 
 
                         <div class="col-md-6">

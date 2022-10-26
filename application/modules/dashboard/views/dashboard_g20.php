@@ -4,7 +4,7 @@
 
     <!-- <a href='#' id='export'>Export Features</a> -->
         
-        <div style="display:flex;z-index: 999;position: absolute;">
+        <div class="row" style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
                 <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
@@ -25,7 +25,7 @@
                     
                 </div> 
 
-                <div style="position: absolute;left: 330px;width: 730px;top: 6px;">
+                <div style="position: absolute;left: 330px;width: 900px;top: 6px;">
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
                             <input checked type="checkbox" value="turjawali" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
@@ -34,6 +34,11 @@
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
                         <label>
                             <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                        </label>
+                    </div>
+                    <div class="cat clusterDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa far fa-building"></i> Cluster</span>
                         </label>
                     </div>
     
@@ -132,6 +137,10 @@
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="fasum_khusus" id="fasum_khusus" class="form-input" >  
                                         <span>Fasilitas Khusus</span> 
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="cluster" id="cluster" class="form-input" >  
+                                        <span>Cluster</span> 
                                     </div> 
                                     <div class="col-md-6">
                                         <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input" >  
@@ -748,6 +757,7 @@
     var markerLaporan = new Array(); 
     var markerFasum = new Array();
     var markerFasumKhusus = new Array();
+    var markerCluster = new Array();
     var markerPolres = new Array();
     var routingJadwal = new Array();
 
@@ -2049,6 +2059,12 @@
             }
             markerFasumKhusus = new Array(); 
 
+            for (let i = 0; i < markerCluster.length; i++) { 
+                // fasumKhususClusterGroup.removeLayer(markerCluster[i]);
+                mapContainer.removeLayer(markerCluster[i]);
+            }
+            markerCluster = new Array(); 
+
             for (let i = 0; i < markerPolres.length; i++) { 
                 mapContainer.removeLayer(markerPolres[i]);
             }
@@ -2090,6 +2106,7 @@
                     var ressPanic = result['data']['titik_panicButton'];
                     var ressFasum = result['data']['fasum'];
                     var ressFasumKhusus = result['data']['fasum_khusus'];
+                    var ressCluster = result['data']['cluster'];
                     var ressTroublespot = result['data']['troublespot'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
@@ -2454,6 +2471,46 @@
 
                     }
 
+                    if(ressCluster && ressCluster.length > 0){  
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressCluster.length; i++) {  
+                            
+                                var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
+                                var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
+                                var set = ressCluster[i].fasum_radius;
+                                markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
+                                            color: 'red',
+                                            fillColor: '#f03',
+                                            fillOpacity: 0.5
+                                        }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressCluster[i].fasum_name}</h5> 
+                                                    <span>- ${ressCluster[i].category_fasum.name_category_fasum} : ${set} Kilometer-</span>
+                                                </div>
+                                                
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressCluster[i].fasum_address}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
+                        }
+                        
+                    }
+
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
                         var logoMarker = '';
                         var logoBody = '';
@@ -2759,6 +2816,12 @@
                 $("#fasumKhususDisplay").prop('checked', false); 
                 $("#fasumKhususDisplay").val();
             }
+            if($("#cluster").is(':checked')){ 
+                $("#clusterDisplay").prop('checked', true); 
+            }else{
+                $("#clusterDisplay").prop('checked', false); 
+                $("#clusterDisplay").val();
+            }
             if($("#jadwal").is(':checked')){ 
                 $("#kegiatanDisplay").prop('checked', true); 
             }else{
@@ -2815,12 +2878,12 @@
             }
             serverSideFilter();
         });
-        $("#fasumKhususDisplay").on("change", function (e) {   
+        $("#clusterDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
-                $("#fasum_khusus").prop('checked', true); 
+                $("#cluster").prop('checked', true); 
             }else{
-                $("#fasum_khusus").prop('checked', false); 
-                $("#fasum_khusus").val();
+                $("#cluster").prop('checked', false); 
+                $("#cluster").val();
             }
             serverSideFilter();
         });
