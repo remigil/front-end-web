@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Jenis Negara</th> 
+                        <th>Jenis Negara / Organisasi</th> 
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -32,14 +32,14 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Negara</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Negara / Organisasi</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data"> 
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="name" placeholder="" type="text">
-                        <label class="labelmui">Jenis Negara</label>
+                        <label class="labelmui">Jenis Negara / Organisasi</label>
                     </div> 
                     <div class="material-selectfield mb-3">
                         <select class="form-select" name="status"> 
