@@ -259,8 +259,26 @@
 <script>
     $(document).ready(function() {
 
-        $('#tb_garlantas_konvensional').DataTable()
-        $('#tb_garlantas_konvensional_tahun').DataTable()
+        $('#tb_garlantas_konvensional').DataTable({
+            responsive: true,
+            scrollX: true,
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+            buttons: ["excel", "csv", "pdf"],
+            oLanguage: {
+                sSearch: 'Search:'
+
+            },
+        })
+        $('#tb_garlantas_konvensional_tahun').DataTable({
+            responsive: true,
+            scrollX: true,
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+            buttons: ["excel", "csv", "pdf"],
+            oLanguage: {
+                sSearch: 'Search:'
+
+            },
+        })
 
 
 

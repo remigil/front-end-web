@@ -1272,7 +1272,7 @@
                                                     <span data-key="t-peraturan">Dokumen Peraturan</span>
                                                 </a>
                                             </li>
-                                            <?php if ($this->session->userdata['role'] == 'Korlantas'||$this->session->userdata['role']=='OperatorPolda'||$this->session->userdata['role']=='OperatorPolres') {; ?>
+                                            <?php if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['role'] == 'OperatorPolda' || $this->session->userdata['role'] == 'OperatorPolres') { ?>
 
                                                 <li>
                                                     <a href="javascript: void(0);" class="has-arrow">
@@ -1285,10 +1285,10 @@
                                                     <ul class="sub-menu" aria-expanded="false">
                                                         <li><a href="<?= base_url('inputdata/LaporanOperasiKhusus') ?>" data-key="t-read-email">LapHar Opsus</a></li>
                                                     </ul>
-                                                    <?php if($this->session->userdata['role']=='Korlantas'){ ?>
-                                                    <ul class="sub-menu" aria-expanded="false">
-                                                        <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
-                                                    </ul>
+                                                    <?php if ($this->session->userdata['role'] == 'Korlantas') { ?>
+                                                        <ul class="sub-menu" aria-expanded="false">
+                                                            <li><a href="<?= base_url('inputdata/LaporanNTMC') ?>" data-key="t-read-email">LapHar NTMC</a></li>
+                                                        </ul>
                                                     <?php } ?>
                                                     <ul class="sub-menu" aria-expanded="false">
                                                         <li><a href="<?= base_url('inputdata/LaporanMasyarakat') ?>" data-key="t-read-email">LapHar Kegiatan Masyarakat</a></li>
@@ -1311,18 +1311,18 @@
                                                 </li> -->
 
                                                 </li>
-                                                <?php if($this->session->userdata['role']=='Korlantas') { ?>
-                                                <li>
-                                                    <a href="javascript: void(0);" class="has-arrow">
-                                                        <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                        <span data-key="t-pengguna">Management Pengguna</span>
-                                                    </a>
-                                                    <ul class="sub-menu" aria-expanded="false">
-                                                        <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
-                                                        <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
-                                                        <li><a href="<?php echo base_url('pengguna/AkunOperasi'); ?>" data-key="t-read-email">Akun Operasi</a></li>
-                                                    </ul>
-                                                </li>
+                                                <?php if ($this->session->userdata['role'] == 'Korlantas') { ?>
+                                                    <li>
+                                                        <a href="javascript: void(0);" class="has-arrow">
+                                                            <img src="<?= base_url('assets/sidebar/icon-manajemenuser.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                            <span data-key="t-pengguna">Management Pengguna</span>
+                                                        </a>
+                                                        <ul class="sub-menu" aria-expanded="false">
+                                                            <li><a href="<?php echo base_url('pengguna/AkunK3i'); ?>" data-key="t-read-email">Akun K3I</a></li>
+                                                            <li><a href="<?php echo base_url('pengguna/AkunMasyarakat'); ?>" data-key="t-read-email">Akun Masyarakat</a></li>
+                                                            <li><a href="<?php echo base_url('pengguna/AkunOperasi'); ?>" data-key="t-read-email">Akun Operasi</a></li>
+                                                        </ul>
+                                                    </li>
                                                 <?php } ?>
                                             <?php } ?>
                                             <li>

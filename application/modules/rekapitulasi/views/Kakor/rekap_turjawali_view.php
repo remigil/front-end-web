@@ -212,8 +212,26 @@
 <script>
     $(document).ready(function() {
 
-        $('#tb_turjagwali').DataTable()
-        $('#tb_turjawali_tahun').DataTable()
+        $('#tb_turjagwali').DataTable({
+            responsive: true,
+            scrollX: true,
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+            buttons: ["excel", "csv", "pdf"],
+            oLanguage: {
+                sSearch: 'Search:'
+
+            },
+        })
+        $('#tb_turjawali_tahun').DataTable({
+            responsive: true,
+            scrollX: true,
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+            buttons: ["excel", "csv", "pdf"],
+            oLanguage: {
+                sSearch: 'Search:'
+
+            },
+        })
 
         var poldaName = JSON.parse('<?= json_encode($data['turjagwali']['polda_name']); ?>');
         var polda_pengawalan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengawalan']); ?>');

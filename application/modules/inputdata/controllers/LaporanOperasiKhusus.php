@@ -20,14 +20,13 @@ class LaporanOperasiKhusus extends MY_Controller
             'Token' => $this->session->userdata['token'],
         ];
 
-
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Laporan Operasi Khusus";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['OperatorKorlantas']) {
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
 
             $getPolda = guzzle_request('GET', 'polda', [
                 'headers' => ['Authorization' => $this->session->userdata['token']]
@@ -44,9 +43,23 @@ class LaporanOperasiKhusus extends MY_Controller
             $data['getOperasi'] = $getOperasi['data']['data'];
 
             $page_content["page"] = "inputdata/Korlantas/InputData_OperasiKhusus";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
+            $id = $this->session->userdata['polda_id'];
+            $getPolda = guzzle_request('GET', 'polda/getId/' . $id, [
+                'headers' => ['Authorization' => $this->session->userdata['token']]
+            ]);
+
+
+            $getOperasi = guzzle_request('GET', 'operation-profile', [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            $data['getPolda'] = $getPolda['data']['data'];
+            $data['getOperasi'] = $getOperasi['data']['data'];
+
+            $page_content["page"] = "inputdata/Kapolda/InputData_OperasiKhusus_Kapolda";
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
             $page_content["page"] = "inputdata/Polres/InputData_Polres";
         }
 
