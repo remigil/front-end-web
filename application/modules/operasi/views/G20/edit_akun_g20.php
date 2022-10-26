@@ -39,7 +39,7 @@
                     </div> 
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="selectNegara">
+                            <select name="id_country" class="form-select" aria-label="Floating label select" style="width:100%" id="select">
                                 <option selected value="">Pilih Negara Delegasi</option>
                                 <?php foreach ($data['getCountry'] as $row) : ?>
                                     <option 
@@ -161,7 +161,9 @@
     var Petugas; 
     var PetugasOrigin;
     var Petugasbaru;
-  
+    // var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
+    // var PetugasOrigin = JSON.parse(Petugas);
+    // var Petugasbaru = JSON.parse(Petugas);
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
     
@@ -174,19 +176,6 @@
 
 
     $(document).ready(function() {
-
-
-
-        new Choices('#selectNegara', {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        }); 
-        
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
@@ -221,11 +210,20 @@
             }
         });
         
-      
+        new Choices('#officers', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
 
-    }); 
+    });
 
-
+    
+    
      
 
     function deletePetugas(idOffice){
@@ -271,7 +269,7 @@
     var room = 1;
 
     function getOption(no) {
-
+        
         let select = $('#select' + no).find(":selected").val();
         let list = '';
         if (select == '') {
@@ -289,16 +287,6 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
         }
         $('#select' + no).html(list);
-
-        new Choices('#select'+no , {
-            searchEnabled: true,
-            removeItemButton: true,
-            removeItems: true,
-            itemSelectText: '',
-            classNames: {
-                containerOuter: 'choices select-choices',
-            },
-        });  
     }
 
 
