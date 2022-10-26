@@ -158,17 +158,17 @@
                     inputs += `<td>${element}</td>`
                 })
 
-                console.log(inputs)
+                console.log(results)
 
                 let body = ''
-                results.forEach((element, index) => {
-                    body += `
+                // results.forEach((element, index) => {
+                body += `
                     <tr>
-                        <td>${index+1}</td>
-                        <td><input type="hidden" name="polres_id[]" value="${element.id}">${element.name_polres}</td>
+                        <td>1</td>
+                        <td><input type="hidden" name="polres_id[]" value="${results.id}">${results.name_polres}</td>
                         ${inputs}
                     </tr>`
-                });
+                // });
 
                 let coloumn = ''
                 laporan.forEach((element, index) => {
@@ -231,7 +231,7 @@
         const formData = new FormData($('#form-dataharian')[0]);
 
         $.ajax({
-            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolda",
+            url: "<?= base_url() ?>inputdata/LaporanHarian/storePolres",
             method: "POST",
             data: formData,
             dataType: "JSON",

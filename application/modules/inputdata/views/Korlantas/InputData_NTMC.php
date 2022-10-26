@@ -15,23 +15,12 @@
             <form action="" id="form-dataharian">
                 <div class="col-md-12">
                     <div class="row d-flex">
-                        <!-- <div class="col-md-2">
-                            <div class="material-selectfield mb-3">
-                                <select name="polda_id" id="polda_id">
-                                    <select name="" id=""  multiple required>
-                                    <option value="0">--Pilih polda---</option>
-                                    <?php foreach ($data['getPolda'] as $key) : ?>
-                                        <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label class="labelmui">Polda</label>
-                            </div>
-                        </div> -->
+                        
                         <div class="col-md-3">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">--Pilih jenis--</option>
+                                    <option value="">--Pilih jenis Satker--</option>
                                     <option value="1">Media Center NTMC On Air</option>
                                     <option value="2">Media Center NTMC Off Air</option>
                                     <option value="3">Dokumentasi (Monitoring)</option>
@@ -39,7 +28,7 @@
                                     <!-- <option value="5">Status CCTV Korlantas</option>
                                     <option value="6">Status CCTV Yang Terintegrasi</option> -->
                                 </select>
-                                <label class="labelmui">Satker Mabes</label>
+                                <label class="labelmui">Satker</label>
                             </div>
                         </div>
                         <div class="col-md-3">

@@ -8,41 +8,47 @@
 </nav>
 <!-- </div> -->
 <div class="row mt-3">
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<label for="kategori" class="form-label"> KATEGORI ANEV</label>
-			<div class="dropdown">
-				<button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Anev Kecelakaan
-				</button>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Pertama</a></li>
-					<li><a class="dropdown-item" href="#">Kedua</a></li>
-					<li><a class="dropdown-item" href="#">Ketiga</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="col-md-6">
-			<label for="waktu" class="form-label"> WAKTU</label>
+	<div class="col-md-6">
+		<form action="" method="post" id="form_filter">
+			<label for="waktu" class="form-label"> Filter</label>
 			<div class="row">
-				<div class="col-md-4">
-					<input class="form-control" type="date" name="waktu" id="waktu">
+				<div class="col-md-3">
+					<input class="form-control" type="date" name="start_date" id="waktu">
 				</div>
-
-				<div class="col-md-4">
-					<input class="form-control" type="date" name="waktu" id="waktu">
+				<div class="col-md-3">
+					<input class="form-control" type="date" name="end_date" id="waktu">
 				</div>
-
-				<div class="col-md-4">
-					<button class="btn btn-primary"> Tampilkan </button>
+				<div class="col-md-3">
+					<button class="btn btn-primary">Tampilkan</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
-	
 
+	<div class="col-md-6">
+		<form action="" method="post" id="form_download_anev">
+			<div class="row no-gutters">
+				<label for="waktu" class="form-label">Download File Anev</label>
+				<div class="col-md-3">
+					<div class="form-group row">
+						<select class="form-control" id="type_anev" name="type_anev">
+							<option value="">---Pilih Anev---</option>
+							<option value="1">Harian</option>
+							<option value="2">Bulanan</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-4" id="form_type_anev">
+				</div>
+				<div class="col-md-2">
+					<a href="" class="btn btn-primary" type="button" id="btn_download_anev">Download</a>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
+
+
 </div>
 <div class="row mt-3 col-md-12">
 	<div class="top-five-headline">
@@ -71,22 +77,22 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+				<h4 class="card-title mb-0"></h4>
 			</div>
 			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
 				<div class="main-chart">
-					<div id="chart2" style="width: 30vw; position:sticky"></div>
+					<div id="chart2" style="width: 30vw; margin-left:auto; margin-right:auto; display:block;"></div>
 				</div>
 				<div>
 					<text style="font-style: bold;">Keterangan :</text>
 				</div>
-				<div style="position:center">
-					<table>
+				<div>
+					<table style="margin-left:auto;margin-right:auto">
 						<thead>
 							<tr>
-								<th style="width: 5vw;">Selasa, 18-10-2022</th>
+								<th style="width: 8vw;">Selasa, 18-10-2022</th>
 								<th style="width: 5vw;"></th>
-								<th style="width: 5vw;">Rabu, 19-10-2022</th>
+								<th style="width: 8vw;">Rabu, 19-10-2022</th>
 								<th style="width: 5vw;"></th>
 								<th style="width: 5vw;">Angka</th>
 								<th style="width: 5vw;">Presentase</th>
@@ -95,12 +101,22 @@
 						<tbody>
 							<tr>
 								<td>
-									<div class="box1 d-flex" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #11347A;">
+										</div>
+										<div class="ms-2">
+											<text>Total Laka</text>
+										</div>
 									</div>
 								</td>
 								<td>143</td>
 								<td>
-									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #11347A;">
+										</div>
+										<div class="ms-2">
+											<text>Total Laka</text>
+										</div>
 									</div>
 								</td>
 								<td>29</td>
@@ -109,12 +125,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Meninggal Dunia</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Meninggal Dunia</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
@@ -123,12 +149,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>6</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>10</td>
@@ -137,12 +173,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>101</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Luka Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>35</td>
@@ -157,27 +203,27 @@
 		</div>
 	</div>
 	<div class="col-md-5">
-		<section class="shadow-sm mt-5">
+		<section class="shadow-sm">
 			<div class="row">
 				<div class="col-xl-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+							<h4 class="card-title mb-0"></h4>
 						</div>
 						<div class="card-body" style="overflow:hidden; overflow-x:scroll;">
 							<div class="main-chart">
-								<div id="chart3" style="width: 15vw"></div>
+								<div id="chart3" style="width: 15vw; margin-left:auto; margin-right:auto; display:block;"></div>
 							</div>
 							<div>
 								<text style="font-style: bold;">Keterangan :</text>
 							</div>
-							<div style="position:center">
-								<table>
+							<div>
+								<table style="margin-left:auto; margin-right:auto;">
 									<thead>
 										<tr>
-											<th style="width: 5vw;">Selasa, 18-10-2022</th>
+											<th style="width: 8vw;">Selasa, 18-10-2022</th>
 											<th style="width: 5vw;"></th>
-											<th style="width: 5vw;">Rabu, 19-10-2022</th>
+											<th style="width: 8vw;">Rabu, 19-10-2022</th>
 											<th style="width: 5vw;"></th>
 											<th style="width: 5vw;">Angka</th>
 											<th style="width: 5vw;">Presentase</th>
@@ -186,12 +232,22 @@
 									<tbody>
 										<tr>
 											<td>
-												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												<div class="d-flex">
+													<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+													</div>
+													<div class="ms-2">
+														<text>Material Loss</text>
+													</div>
 												</div>
 											</td>
 											<td>143</td>
 											<td>
-												<div class="box1" style="width: 10px; height: 10px; background: blue;">
+												<div class="d-flex">
+													<div class="box1 align-self-center" style="width: 10px; height: 10px; background: blue;">
+													</div>
+													<div class="ms-2">
+														<text>Material Loss</text>
+													</div>
 												</div>
 											</td>
 											<td>29</td>
@@ -209,56 +265,60 @@
 	</div>
 
 	<div class="page mt-5">
-		<table id="datatable" class="table table-bordered border-secondary text-center" style="vertical-align:middle!important" width="100%">
-			<thead class="table-info">
-				<tr class="text-grey">
-					<th scope="col" rowspan="2">No</th>
-					<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
-					<th scope="col" colspan="2">Waktu</th>
-					<th scope="col" colspan="2">Trend</th>
-					<th scope="col" rowspan="2">Keterangan</th>
-					<th scope="col" rowspan="2">Laporan Anev</th>
-				</tr>
-				<tr>
-					<th>Selasa, 18-10-2022</th>
-					<th>Rabu, 19-10-2022</th>
-					<th>Angka</th>
-					<th>Presentase</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="card pt-4 pb-4">
+			<div class="ms-4 me-4">
+				<table id="datatable" class="table table-bordered text-center" style="width:100%;">
+					<thead class="table-info">
+						<tr class="text-grey">
+							<th scope="col" rowspan="2">No</th>
+							<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
+							<th scope="col" colspan="2">Waktu</th>
+							<th scope="col" colspan="2">Trend</th>
+							<th scope="col" rowspan="2">Keterangan</th>
+							<th scope="col" rowspan="2">Laporan Anev</th>
+						</tr>
+						<tr>
+							<th>Selasa, 18-10-2022</th>
+							<th>Rabu, 19-10-2022</th>
+							<th>Angka</th>
+							<th>Presentase</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -290,22 +350,22 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title mb-0">DATA DAKGAR LANTAS - CAPTURE CAMERA</h4>
+				<h4 class="card-title mb-0"></h4>
 			</div>
 			<div class="card-body" style="overflow:hidden; overflow-x:scroll">
 				<div class="main-chart">
-					<div id="chart4" style="width: 30vw; position:sticky"></div>
+					<div id="chart4" style="width: 30vw; margin-left:auto; margin-right:auto; display:block;"></div>
 				</div>
 				<div>
 					<text style="font-style: bold;">Keterangan :</text>
 				</div>
-				<div style="position:center">
-					<table>
+				<div>
+					<table style="margin-left:auto;margin-right:auto">
 						<thead>
 							<tr>
-								<th style="width: 5vw;">Selasa, 18-10-2022</th>
+								<th style="width: 8vw;">Selasa, 18-10-2022</th>
 								<th style="width: 5vw;"></th>
-								<th style="width: 5vw;">Rabu, 19-10-2022</th>
+								<th style="width: 8vw;">Rabu, 19-10-2022</th>
 								<th style="width: 5vw;"></th>
 								<th style="width: 5vw;">Angka</th>
 								<th style="width: 5vw;">Presentase</th>
@@ -314,12 +374,22 @@
 						<tbody>
 							<tr>
 								<td>
-									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #11347A;">
+										</div>
+										<div class="ms-2">
+											<text>Jumlah Dakgar</text>
+										</div>
 									</div>
 								</td>
 								<td>143</td>
 								<td>
-									<div class="box1" style="width: 10px; height: 10px; background: blue;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #11347A;">
+										</div>
+										<div class="ms-2">
+											<text>Jumlah Dakgar</text>
+										</div>
 									</div>
 								</td>
 								<td>29</td>
@@ -328,12 +398,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: red;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #CB2D3E;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Berat</text>
+										</div>
 									</div>
 								</td>
 								<td>5</td>
@@ -342,12 +422,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Sedang</text>
+										</div>
 									</div>
 								</td>
 								<td>6</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: yellow;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #E8D42F;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Sedang</text>
+										</div>
 									</div>
 								</td>
 								<td>10</td>
@@ -356,12 +446,22 @@
 							</tr>
 							<tr>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>101</td>
 								<td>
-									<div class="box2" style="width: 10px; height: 10px; background: green;">
+									<div class="d-flex">
+										<div class="box1 align-self-center" style="width: 10px; height: 10px; background: #3CA55C;">
+										</div>
+										<div class="ms-2">
+											<text>Gar Ringan</text>
+										</div>
 									</div>
 								</td>
 								<td>35</td>
@@ -377,56 +477,60 @@
 	</div>
 
 	<div class="page mt-5">
-		<table id="datatable" class="table table-bordered border-secondary text-center" style="vertical-align:middle!important" width="100%">
-			<thead class="table-info">
-				<tr class="text-grey">
-					<th scope="col" rowspan="2">No</th>
-					<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
-					<th scope="col" colspan="2">Waktu</th>
-					<th scope="col" colspan="2">Trend</th>
-					<th scope="col" rowspan="2">Keterangan</th>
-					<th scope="col" rowspan="2">Laporan Anev</th>
-				</tr>
-				<tr>
-					<th>Selasa, 18-10-2022</th>
-					<th>Rabu, 19-10-2022</th>
-					<th>Angka</th>
-					<th>Presentase</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-				<tr>
-					<th scope="row">1</th>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-					<td>test</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="card pt-4 pb-4">
+			<div class="ms-4 me-4">
+				<table id="datatable" class="table table-bordered text-center" style="width:100%;">
+					<thead class="table-info">
+						<tr class="text-grey">
+							<th scope="col" rowspan="2">No</th>
+							<th scope="col" rowspan="2" style="width: 30%;">Uraian</th>
+							<th scope="col" colspan="2">Waktu</th>
+							<th scope="col" colspan="2">Trend</th>
+							<th scope="col" rowspan="2">Keterangan</th>
+							<th scope="col" rowspan="2">Laporan Anev</th>
+						</tr>
+						<tr>
+							<th>Selasa, 18-10-2022</th>
+							<th>Rabu, 19-10-2022</th>
+							<th>Angka</th>
+							<th>Presentase</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -690,7 +794,7 @@
 			},
 			dataLabels: {
 				enabled: true,
-				offsetY: -15,
+				// offsetY: -15,
 				style: {
 					fontSize: '9px'
 				},
@@ -702,7 +806,7 @@
 
 			stroke: {
 				show: true,
-				width: [1, 1, 4, 4],
+				// width: [1, 1, 4, 4],
 				colors: ['transparent']
 			},
 			xaxis: {
@@ -810,9 +914,56 @@
 		var ditregident = new ApexCharts(document.querySelector("#chart5"), options_ditregident);
 		ditregident.render();
 
-		$('#datatable').DataTable({
-			scrollX: true,
-		});
+		// $('#datatable').DataTable({
+		// 	scrollX: true,
+		// });
+
+	})
+
+
+	$('#type_anev').on('change', function() {
+		let type = $('#type_anev').val();
+		console.log(type)
+
+		if (type == 1) {
+			$('#form_type_anev').html(`
+				<div class="form-group row">
+						<label for="date_anev" class="col-sm-4 col-form-label">Tanggal</label>
+						<div class="col-sm-8">
+							<input type="date" class="form-control" id="date_anev" name="date_anev">
+						</div>
+					</div>`)
+		} else if (type == 2) {
+			$('#form_type_anev').html(`
+					<div class="form-group row">
+						<label for="month_anev" class="col-sm-4 col-form-label">Bulan</label>
+						<div class="col-sm-8">
+							<input type="month" class="form-control" id="month_anev" name="month_anev">
+						</div>
+					</div>
+			`)
+		} else {
+			$('#form_type_anev').html(``)
+		}
+	})
+
+	$('#btn_download_anev').on('click', function(e) {
+		e.preventDefault()
+		let = '';
+		let type = $('#type_anev').val()
+		if (type == 1) {
+			let date = $('#date_anev').val()
+			url = `anev/getDaily?mode=pdf-download&date=${date}`
+		} else if (type == 2) {
+			let date = $('#month_anev').val();
+			month = date.split('-');
+			url = `anev/getMonthly?mode=pdf-download&month=${month[1]}&year=${month[0]}`;
+		}
+
+		window.open(
+			`http://103.163.139.100:3002/v1/${url}`,
+			'_blank' // <- This is what makes it open in a new window.
+		);
 
 	})
 </script>

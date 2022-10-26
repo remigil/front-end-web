@@ -108,47 +108,46 @@ class M_berita extends CI_Model {
 
             ]);
 
-        
         // var_dump($result['data']['data']);
 		// echo "<pre>";
 		// var_dump($result);
 		// echo "</pre>";
         $no=1;
         // kategori berita berdasarkan nomor
-        foreach ($result['data']['rows'] as $field) { 
-			
-			if ($field['news_category'] == 1) {
+        foreach ($result['data']['datanya'] as $field) {
+            $category = '';
+            if ($field['data'][0]['category_news'][0]['id'] == 1) {
 				$category = "Berita PPKM";
-			} else if($field['news_category'] == 2){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 2) {
 				$category = "Berita Kecelakaan Lalu Lintas";
-			}else if($field['news_category'] == 3){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 3) {
 				$category = "Berita Pelanggaran Lalu Lintas";
-			}else if($field['news_category'] == 4){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 4) {
 				$category = "Berita Kemacetan Lalu Lintas";
-			}else if($field['news_category'] == 5){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 5) {
 				$category = "Berita Satpas";
-			}else if($field['news_category'] == 6){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 6) {
 				$category = "Berita ETLE";
-			}else if($field['news_category'] == 7){
+            } else if ($field['data'][0]['category_news'][0]['id'] == 7) {
 				$category = "Berita Kontjensi";
 			}
-            $row = array();   
-			// $row ['id']	=  $field['id']; 
-            $row ['id']	=  $no++; 
-            $row ['news_category']	= $category; 
-            $row ['title']			= $field['title'];  
-            $row ['content']   		= $field['content'];
-            $row ['author']  	 	= $field['author'];  
-            $row ['date']   		= $field['date'];  
+            $row = array();
+            // $row ['id']	=  $field['id']; 
+            $row['id']    =  $no++;
+            $row['news_category']    = $category;
+            $row['title']            = $field['data'][0]['title'];
+            $row['content']           = $field['data'][0]['content'];
+            $row['author']           = $field['data'][0]['author'];
+            $row['date']           = $field['data'][0]['date'];  
             $row ['action']         = ' 
                 
-				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailBerita">
+				<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['data'][0]['id'] . '`)" data-bs-target=".DetailBerita">
                     <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
                 </button>
-                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahBerita">
+                <button style="background-color:transparent ; border:none" data-bs-toggle="modal" id="btnEdit" onclick="detailEdit(`' . $field['data'][0]['id'] . '`)" data-bs-target=".UbahBerita">
                     <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
                 </button>
-                <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['id'] . '`)">
+                <button style="background-color:transparent ; border:none" onclick="hapus(`' . $field['data'][0]['id'] . '`)">
                         <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
                     </button>
 
@@ -163,9 +162,9 @@ class M_berita extends CI_Model {
 
             "draw" => intval($draw),
 
-            "iTotalRecords" => $result['data']['total'],
+            "iTotalRecords" => $result['data']["recordsFiltered"],
 
-            "iTotalDisplayRecords" => $result['data']['total'],
+            "iTotalDisplayRecords" => $result['data']["recordsFiltered"],
 
             "aaData" => $data,
 

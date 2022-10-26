@@ -15,7 +15,7 @@
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="fs-4 fw-bold">EDIT NEGARA</p>
+                        <p class="fs-4 fw-bold">EDIT NEGARA / ORGANISASI</p>
                     </div>
                     <div class="col-md-6">
                         <button type="submit" class=" btn btn-primary waves-effect float-end ms-4" style="width: 25%;">Simpan</button>
@@ -28,7 +28,7 @@
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="name" value="<?php echo $data['getDetail']['data']['name_country'];?>" type="text">
-                                    <label class="labelmui">Jenis Negara</label>
+                                    <label class="labelmui">Jenis Negara / Organisasi</label>
                                 </div>
                             </div> 
                             <div class="col-md-6">

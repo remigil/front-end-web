@@ -39,7 +39,7 @@ class LaporanHarian extends MY_Controller
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
             $page_content["page"] = "inputdata/Kapolda/InputData_Kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
+        } else if ($this->session->userdata['role'] == 'Kapolres' || $this->session->userdata['role'] == 'OperatorPolres') {
             $id = $this->session->userdata['polres_id'];
             $getPolda = guzzle_request('GET', 'polres/getId/' . $id, [
                 'headers' => $headers
@@ -227,22 +227,9 @@ class LaporanHarian extends MY_Controller
             }
         }
 
-        $dummy = [
-            [
-                'name' => 'polda_id',
-                'contents' => $polda_id
-            ],
-            [
-                'name' => 'date',
-                'contents' => $date
-            ],
-            [
-                'name' => 'value',
-                'contents' => $value
-            ]
-        ];
 
-        
+
+
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'polda_id' => $polda_id,
@@ -287,6 +274,372 @@ class LaporanHarian extends MY_Controller
 
     public function storePolres()
     {
-        echo 'ok';
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input = $this->input->post();
+
+        $polda_id = $this->session->userdata['polda_id'];
+        $polres_id = $this->session->userdata['polres_id'];
+
+        // $polda_id = $this->input->post('polda_id');
+        // $date = $this->input->post('date');
+        // $polres_id = $this->input->post('polres_id');
+        $jenis_laporan = $this->input->post('jenis_laporan');
+        $url = '';
+
+        if ($jenis_laporan == 1) {
+            // Data Dakgar lantas
+
+            $url = 'laka_langgar/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'capture_camera',
+                    'contents' => $input['capture_camera'][0]
+                ],
+                [
+                    'name' => 'statis',
+                    'contents' => $input['statis'][0]
+                ],
+                [
+                    'name' => 'mobile',
+                    'contents' => $input['mobile'][0]
+                ],
+                [
+                    'name' => 'online',
+                    'contents' => $input['online'][0]
+                ],
+                [
+                    'name' => 'posko',
+                    'contents' => $input['posko'][0]
+                ],
+                [
+                    'name' => 'preemtif',
+                    'contents' => $input['preemtif'][0]
+                ],
+                [
+                    'name' => 'odol_227',
+                    'contents' => $input['odol_227'][0]
+                ],
+                [
+                    'name' => 'odol_307',
+                    'contents' => $input['odol_307'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 2) {
+            // Data pelanggaran konvensional
+
+            $url = 'garlantas/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'pelanggaran_berat',
+                    'contents' => $input['pelanggaran_berat'][0]
+                ],
+                [
+                    'name' => 'pelanggaran_ringan',
+                    'contents' => $input['pelanggaran_ringan'][0]
+                ],
+                [
+                    'name' => 'pelanggaran_sedang',
+                    'contents' => $input['pelanggaran_sedang'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 3) {
+            // Data laka lantas
+
+            $url = 'laka_lantas/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'meninggal_dunia',
+                    'contents' => $input['meninggal_dunia'][0]
+                ],
+                [
+                    'name' => 'luka_berat',
+                    'contents' => $input['luka_berat'][0]
+                ],
+                [
+                    'name' => 'luka_ringan',
+                    'contents' => $input['luka_ringan'][0]
+                ],
+                [
+                    'name' => 'kerugian_material',
+                    'contents' => $input['kerugian_material'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 4) {
+            $url = 'turjagwali/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'penjagaan',
+                    'contents' => $input['penjagaan'][0]
+                ],
+                [
+                    'name' => 'pengawalan',
+                    'contents' => $input['pengawalan'][0]
+                ],
+                [
+                    'name' => 'patroli',
+                    'contents' => $input['patroli'][0]
+                ],
+                [
+                    'name' => 'pengaturan',
+                    'contents' => $input['pengaturan'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 5) {
+            $url = 'dikmaslantas/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'media_cetak',
+                    'contents' => $input['media_cetak'][0]
+                ],
+                [
+                    'name' => 'media_elektronik',
+                    'contents' => $input['media_elektronik'][0]
+                ],
+                [
+                    'name' => 'media_sosial',
+                    'contents' => $input['media_sosial'][0]
+                ],
+                [
+                    'name' => 'laka_langgar',
+                    'contents' => $input['laka_langgar'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 6) {
+            $url = 'penyebaran/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'stiker',
+                    'contents' => $input['stiker'][0]
+                ],
+                [
+                    'name' => 'leaflet',
+                    'contents' => $input['leaflet'][0]
+                ],
+                [
+                    'name' => 'spanduk',
+                    'contents' => $input['spanduk'][0]
+                ],
+                [
+                    'name' => 'billboard',
+                    'contents' => $input['billboard'][0]
+                ],
+                [
+                    'name' => 'jemensosprek',
+                    'contents' => $input['jemensosprek'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 7) {
+            $url = 'sim/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'baru',
+                    'contents' => $input['baru'][0]
+                ],
+                [
+                    'name' => 'perpanjangan',
+                    'contents' => $input['perpanjangan'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 8) {
+            $url = 'bpkb/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'baru',
+                    'contents' => $input['baru'][0]
+                ],
+                [
+                    'name' => 'perpanjangan',
+                    'contents' => $input['perpanjangan'][0]
+                ],
+                [
+                    'name' => 'rubentina',
+                    'contents' => $input['rubentina'][0]
+                ]
+            ];
+        } else if ($jenis_laporan == 9) {
+            $url = 'ranmor/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'mobil_penumpang',
+                    'contents' => $input['mobil_penumpang'][0]
+                ],
+                [
+                    'name' => 'mobil_barang',
+                    'contents' => $input['mobil_barang'][0]
+                ],
+                [
+                    'name' => 'mobil_bus',
+                    'contents' => $input['mobil_bus'][0]
+                ],
+                [
+                    'name' => 'ransus',
+                    'contents' => $input['ransus'][0]
+                ],
+                [
+                    'name' => 'sepeda_motor',
+                    'contents' => $input['sepeda_motor'][0]
+                ]
+            ];
+        } else if ($jenis_laporan ==  10) {
+            $url =  'stnk/add';
+            $dummy = [
+                [
+                    'name' => 'polda_id',
+                    'contents' => $polda_id
+                ],
+                [
+                    'name' => 'date',
+                    'contents' => $input['date']
+                ],
+                [
+                    'name' => 'polres_id',
+                    'contents' => $polres_id
+                ],
+                [
+                    'name' => 'baru',
+                    'contents' => $input['baru'][0]
+                ],
+                [
+                    'name' => 'perpanjangan',
+                    'contents' => $input['perpanjangan'][0]
+                ],
+                [
+                    'name' => 'rubentina',
+                    'contents' => $input['rubentina'][0]
+                ]
+
+            ];
+        }
+
+        $data = guzzle_request('POST', $url, [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 }

@@ -45,7 +45,7 @@ class M_data_harian_opsus extends CI_Model
 
         // $filter_status = $postData['filterStatus'];
 
-        $filter_categ = $postData['filterCateg'];
+        // $filter_name = $postData['filterName'];
 
         // $filter_poc_name = $postData['filterPocName'];
 
@@ -63,15 +63,15 @@ class M_data_harian_opsus extends CI_Model
             $searchData = '';
         }
 
-        if($filter_categ){
+        // if($filter_threat){
 
-            $fasum_type = '&filter[]=fasum_type&filterSearch[]='.$filter_categ.'';
+        //     $threat_level = '&filterField[]=threat_level&filterValue[]='.$filter_threat.'';
 
-        }else{
+        // }else{
 
-            $fasum_type = '';
+        //     $threat_level = '';
 
-        }
+        // }
 
         // if($filter_tgl != ""){
 
@@ -94,8 +94,7 @@ class M_data_harian_opsus extends CI_Model
         // } 
 
 
-        $url = 'fasum?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . ''.$fasum_type.'';
-		
+        $url = 'operation-profile?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
 
         $result = guzzle_request('GET', $url, [
 
@@ -104,31 +103,23 @@ class M_data_harian_opsus extends CI_Model
             ]
 
         ]);
-// 		echo "<pre>";
-// 		var_dump($result);
-// 		echo "<pre>";
-// die;
+
+        // var_dump($result);die;
+
 
         $no = 1;
 
         foreach ($result['data']['data'] as $field) {
             $row = array();
             // $row ['id']	=  $field['id']; 
-            $row['id']    				= $no++;
-            $row['fasum_name']     		= $field['fasum_name'];
-            $row['category_fasum'] 		= $field['category_fasum']['name_category_fasum'];
-            $row['fasum_address']       		= $field['fasum_address'];
+            $row['id']                =  $no++;
+            $row['name_operation']         = $field['name_operation'];
+            $row['date_start_operation']     = $field['date_start_operation'];
+            $row['date_end_operation']     = $field['date_end_operation'];
+
             $row['action']         = '   
                 
-			<button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detail(`' . $field['id'] . '`)" data-bs-target=".DetailFasum">
-			    <h3 style=" color:#003A91"><i class="mdi mdi-eye"></i></h3>
-            </button>
-            <button style="background-color:transparent ; border:none" data-bs-toggle="modal" onclick="detailEdit(`' . $field['id'] . '`)" data-bs-target=".UbahFasum">
-                <h3 style="color:#67676D"><i class="mdi mdi-pencil"></i></h3>
-            </button>
-            <button style="background-color:transparent ; border:none" id="HapusPolda" onclick="hapus(`' . $field['id'] . '`)">
-                <h3 style="color:#ED171D"><i class="mdi mdi-trash-can"></i></h3>
-            </button>
+			<a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
                 
             ';
 

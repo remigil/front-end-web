@@ -120,7 +120,7 @@ class M_tripon extends CI_Model {
         
 		
         $no=1;
-		foreach  ($result['data']['trip_on']['rows'] as $field) { 
+		foreach  ($result['data']['rows'] as $field) { 
 		// foreach  ($result['data']['data'] as $field) { 
             
             $row = array();   

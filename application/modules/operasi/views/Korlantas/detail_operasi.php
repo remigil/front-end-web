@@ -16,10 +16,10 @@
                     <p class="fs-3 fw-bold text-primary">Detail Operasi</p>
                 </div>
                 <div class="col-md-6 mt-2">
-                <a href="<?php echo base_url()?>operasi/RencanaOperasi/Edit/<?php echo $data['getDetail']['data']['id'];?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
-                
-                    <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id'];?>" class=" btn btn-danger waves-effect float-end me-4" style="width: 25%; letter-spacing:2px">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
-                   
+                    <a href="<?php echo base_url() ?>operasi/RencanaOperasi/Edit/<?php echo $data['getDetail']['data']['id']; ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
+
+                    <a href="javascript(0);" id="delete" data-id="<?php echo $data['getDetail']['data']['id']; ?>" class=" btn btn-danger waves-effect float-end me-4" style="width: 25%; letter-spacing:2px">Hapus<i class="mdi mdi-trash-can-outline"></i></a>
+
                 </div>
             </div>
             <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -30,24 +30,24 @@
                         <tr>
                             <td>Nama Operasi</td>
                             <td>:</td>
-                            <td><?= $data['getDetail']['data']['name_operation'];?></td>
+                            <td><?= $data['getDetail']['data']['name_operation']; ?></td>
                         </tr>
                         <!-- <tr>
                             <td>Polda</td>
                             <td>:</td>
-                            <td><?= $data['getDetail']['data']['polda']['name_polda'];?></td>
+                            <td><?= $data['getDetail']['data']['polda']['name_polda']; ?></td>
                         </tr> -->
                         <tr>
                             <td>Tanggal Pelakasaan</td>
                             <td>:</td>
-                            <td><?= date('d/m/Y',strtotime($data['getDetail']['data']['date_start_operation']))?></td>
+                            <td><?= date('d/m/Y', strtotime($data['getDetail']['data']['date_start_operation'])) ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Selesai</td>
                             <td>:</td>
-                            <td><?= date('d/m/Y',strtotime($data['getDetail']['data']['date_end_operation']))?></td>
+                            <td><?= date('d/m/Y', strtotime($data['getDetail']['data']['date_end_operation'])) ?></td>
                         </tr>
-                       
+
                     </table>
                 </div>
                 <div class="col-md-7" style="margin-left:-4vh ;">
@@ -73,41 +73,41 @@
                 <div class="col-md-5 mt-4">
                     <p class="fs-4 fw-bold text-primary">List Akun Operasi</p>
                 </div>
-                
-                <div class="row">
-                <div class="col-md-6">
-                <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahAkun">Tambah Akun</button>
-                </div>
-                </div>
-    <div class="card mt-3">
-        <div class="card-body">
-            <table id="datatable" class="table dt-responsive  nowrap w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Polda</th>
-                        <!-- <th>Phone Akun</th> -->
-                        <!-- <th>Polres</th> -->
-                        <th>Username</th>
-                        <th>Password</th>
-                        <!-- <th>No. Kendaraan</th> -->
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahAkun">Tambah Akun</button>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <table id="datatable" class="table dt-responsive  nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Polda</th>
+                                    <!-- <th>Phone Akun</th> -->
+                                    <!-- <th>Polres</th> -->
+                                    <!-- <th>Username</th>
+                                    <th>Password</th> -->
+                                    <!-- <th>No. Kendaraan</th> -->
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <a href="<?= base_url('operasi/RencanaOperasi'); ?>"><button class="btn btn-primary float-end" style="width:15%; letter-spacing:2px">Kembali</button></a>
+
+        </div>
     </div>
 </div>
-            </div>
-            <div class="col-md-12 ">
-                <a href="<?= base_url('operasi/RencanaOperasi'); ?>"><button class="btn btn-primary float-end" style="width:15%; letter-spacing:2px">Kembali</button></a>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Page -->
-    <div class="modal fade TambahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- End Page -->
+<div class="modal fade TambahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -117,16 +117,16 @@
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
                     <div class="row">
-                    <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="material-selectfield">
-                            <select name="polda_id" class="form-select" style="width:100%" id="polda" required>
-                        <option selected value="">Pilih Polda</option>
-                        <?php
-                        foreach ($data['getPolda'] as $row) : ?>
-                            <option value="<?php echo $row['id']; ?>">  <?php echo $row['name_polda']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                                <label  class="labelmui">Polda</label>
+                                <select name="polda_id" class="form-select" style="width:100%" id="polda" required>
+                                    <option selected value="">Pilih Polda</option>
+                                    <?php
+                                    foreach ($data['getPolda'] as $row) : ?>
+                                        <option value="<?php echo $row['id']; ?>"> <?php echo $row['name_polda']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="labelmui">Polda</label>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div id="education_fields"></div>
                     <div class="clear"></div>
                     <div class="col-md-12 mt-2">
@@ -159,164 +159,122 @@
         </div>
     </div>
 </div>
-   
-
-    <script>
-
-        var Polda;
-        var PoldaOrigin;
-        var PoldaBaru;
-
-        let PoldaUntukSelectLain = [];
-        let PoldaChoose = [];
-        var room = 1;
-
-        $(document).ready(function() {
-            $('.dropify').dropify();
-
-            $('#datatable').DataTable({
-                "scrollY": "200px",
-                "scrollCollapse": true,
-                "paging": false
-            });
-        });
 
 
-        $("#delete").on('click', function(e) {
-        $("#overlay").fadeIn(300);
-        e.preventDefault();  
-        $.ajax({
-            url: "<?php echo base_url();?>operasi/RencanaOperasi/delete",
-            method: "POST",
-            data: {
-                "id": $(this).data("id"),
+<script>
+    $(document).ready(function() {
+        $('.dropify').dropify();
+
+        userDataTable = $('#datatable').DataTable({
+
+
+            responsive: true,
+
+            scrollX: true,
+
+            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            // buttons: ["excel", "csv", "pdf"],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
             },
-            dataType: 'JSON',
-            // contentType: false,
-            // processData: false,  
-            success: function (data) {
+
+            initComplete: function(settings, json) {},
+
+            retrieve: true,
+
+            processing: true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax: {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url(); ?>operasi/RencanaOperasi/serverSideTablePolda',
+
+                data: function(data) {
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+                    data.id = '<?= $data['getDetail']['data']['id'] ?>';
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function(xhr, settings) {
+
+                },
+
+                "dataSrc": function(result) {
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [
+
+                {
+                    data: 'id'
+                },
+                {
+                    data: 'name_polda'
+                },
+                // {
+                //     data: 'date_start_operation'
+                // },
+                // {
+                //     data: 'date_end_operation'
+                // },
+                {
+                    data: 'action',
+                    orderable: false
+                }
+
+            ],
+
+            order: [
+                [0, "ASC"]
+            ],
+
+            drawCallback: function(settings) {
+
                 $("#overlay").fadeOut(300);
-                if(data['status'] == true){
-                    Swal.fire(
-                    `${data['message']}`, 
-                    '',
-                    'success'
-                    ).then(function() {  
-                        window.location.href = "<?php echo base_url();?>operasi/RencanaOperasi";
-                    }); 
-                }else{
-                    Swal.fire(
-                    `${data['message']}`, 
-                    '',
-                    'error'
-                    ).then(function() { 
-                    });
-                } 
+
             }
-        }); 
+
+
+        });
     });
-    
-    function getOption(no) {
-        let select = $('#select' + no).find(":selected").val();
-        let list = '';
-        if (select == '') {
-            list += ` <option selected value="">Pilih Polda</option>`
-        } else {
-            if (select) {
-                for (let i = 0; i < PoldatuntukSelectLain.length; i++) {// const element = PetugasUntukSelectLain[i];
-                    list += ` <option selected value=${PoldaUntukSelectLain[i].id}>${PoldaUntukSelectLain[i].name_polda}</option>` }
-            }
-
-        }
-        for (let i = 0; i < Poldabaru.length; i++) {
-            list += `<option value ="${Poldabaru[i]['id']}">${Poldabaru[i]['name_polda']}</option>`;
-        }
-        $('#select' + no).html(list);
-    }
-
-
-
-    function education_fields() {
-        room++;
-        check()
-        var objTo = document.getElementById('education_fields')
-        var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass" + room);
-        var rdiv = 'removeclass' + room;
-        divtest.innerHTML =
-            '<div class="row" style="margin-top:-10px">' +
-            '<div class="col-md-5">' +
-            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="officers[]" class="form-select" style="width:100%" id="select' + room + '" onchange="getvalue(' + room + ')"  onclick="getOption(' + room + ')" required>' +
-            ' <option selected value="">Pilih Petugas</option>' +
-            '</select>' +
-            '<label class="labelmui">Petugas</label>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-md-4">' +
-            '<div class="material-selectfield mb-3" style="margin:2vh -0.18vh 0 -0.18vh">' +
-            '<select name="id_kendaraan[]" class="form-select" style="width:100%" required>' +
-            '<option selected value="">Pilih No Kendaraan</option>' +
-            '<?php foreach ($data['getVehicle'] as $row) : ?>' +
-            '<option value="<?php echo $row['id']; ?>">' +
-            '<?php echo $row['no_vehicle']; ?> </option>' +
-            '<?php endforeach; ?>' +
-
-
-            '</select>' +
-            '<div class="col-md-1">' +
-            '<div class="position-absolute top-50 start-50 translate-middle">' +
-            '<button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> - </button>' +
-            '</div>' +
-            '</div>' +
-            '<div class="clear"></div>';
-
-        objTo.appendChild(divtest)
-        list = ''
-        list += `<option value ="">Pilih Polda</option>`
-        for (let i = 0; i < Poldabaru.length; i++) {
-            list += `<option value ="${Poldabaru[i]['id']}">${Poldabaru[i]['name_polda']}</option>`;
-        }
-        $('#select' + room).html(list);
-        return room;
-    }
-    var totalId = [1];
-
-
-    $('#addId').click(function() {
-        totalId.push(room);
-        return totalId;
-    })
-
-    function remove_education_fields(rid) {
-        var myIndex = totalId.indexOf(rid);
-        if (myIndex !== -1) {
-            totalId.splice(myIndex, 1);
-        }
-        $('.removeclass' + rid).remove();
-        return totalId;
-    }
-
-
-
-
-    function getvalue(id) {
-        PoldaUntukSelectLain = Poldabaru.filter((polda) => polda.id == $('#select' + id).val())
-        Poldabaru = Poldabaru.filter((polda) => polda.id != $('#select' + id).val())
-        list = ''
-        list += ` <option selected value=${PoldaUntukSelectLain[0].id}>${PoldaUntukSelectLain[0].name_polda}</option>`
-        PoldaChoose.push(PoldaUntukSelectLain);
-        return PoldaChoose
-    }
-
-
-    function check() {
-        console.log({
-            PoldaLama: Poldabaru.length,
-            PoldaBaru: PoldaChoose.length,
-            PoldaLain: PoldaUntukSelectLain.length
-        })
-    }
-
-
-    </script>
+</script>

@@ -16,7 +16,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama VIP</th>
-                        <th>Negara Kedatangan</th>
+                        <th>Asal Negara</th>
                         <th>Jabatan</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
@@ -45,12 +45,12 @@
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="asalNegara" class="form-select" id="select">
-                            <option selected value="">Negara Kedatangan</option> 
+                            <option selected value="">Asal Negara</option> 
                             <?php foreach($data['getCountry'] as $row): ?>
                                 <option value="<?php echo $row['name_country'];?>"><?php echo $row['name_country'];?></option> 
                             <?php endforeach; ?> 
                         </select>
-                        <!-- <label class="labelmui">Negara Kedatangan</label> -->
+                        <!-- <label class="labelmui">Asal Negara</label> -->
                     </div>
                     <div class="material-selectfield mb-3">
                         <select name="jabatan" class="form-select" id="select2">

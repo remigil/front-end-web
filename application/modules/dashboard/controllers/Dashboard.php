@@ -9,11 +9,13 @@ class Dashboard extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model('operasi/m_renpam');
-        $this->load->model('dashboard/M_Dashboard');
+        $this->load->model('dashboard/m_dashboard');
     }
 
     public function index()
     {
+		// print_r($this->session->userdata['polda_id']);
+		// die;
 
         $headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -209,12 +211,6 @@ class Dashboard extends MY_Controller
             $page_content["data"] = ['polda_ditkamsel' => $polda_ditkamsel, 'dikmaslantas' => $dikmaslantas, 'penyebaran' => $penyebaran, 'polda_ditgakkum' => $polda_ditgakkum, 'lakalantas' => $lakalantas, 'lakalanggar' => $lakalanggar, 'garlantas' => $garlantas, 'turjagwali' => $turjagwali, 'polda_ditregident' => $polda_ditregident, 'sim' => $sim, 'stnk' => $stnk, 'bpkb' => $bpkb, 'ranmor' => $ranmor, 'polda_tripon' => $polda_tripOn, 'polda_troublespot' => $polda_troublespot, 'best_polda' => $bestPolda];
             $page_content["page"] = "dashboard/dashboard_view";
 
-            // } else if ($this->session->userdata['role'] == 'Kapolda') {
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
-
-            $page_content["page"] = "dashboard/Kapolda/dashboard_view";
-
-            $page_content["data"] = '';
             // } else if ($this->session->userdata['role'] == 'Polres') {
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/Polres/dashboard_view";
@@ -224,15 +220,40 @@ class Dashboard extends MY_Controller
 		} else if ($this->session->userdata['role'] == 'Ditkamsel') {
             $page_content["page"] = "dashboard/Ditkamsel/dashboard_view";
 
-            $page_content["data"] = '';
+			$data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
+			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
+			$data['ranmor'] = $this->m_dashboard->ranmor_nasional();
+			$data['sim'] = $this->m_dashboard->sim_nasional();
+			$data['stnk'] = $this->m_dashboard->stnk_nasional();
+			$data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
+			$data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
+
+            $page_content["data"] = $data;
 
 		} else if ($this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["page"] = "dashboard/Ditgakkum/dashboard_view";
 
-            $page_content["data"] = '';
+			$data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+
+            $page_content["data"] = $data;
 
 		} else if ($this->session->userdata['role'] == 'Ditregident') {
             $page_content["page"] = "dashboard/Ditregident/dashboard_view";
+
+			$data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
 
             $page_content["data"] = '';
 
@@ -254,26 +275,63 @@ class Dashboard extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
-            $data['topPolda_garlantas'] = $this->M_Dashboard->garlantas_topPolda();
-            $data['turjagwali'] = $this->M_Dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->M_Dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->M_Dashboard->ditregident_nasional();
-            $data['topPolda_lakalantas'] = $this->M_Dashboard->lakalantas_topPolda();
-            $data['tripOn'] = $this->M_Dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->M_Dashboard->troublespot_nasional();
+            $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
+            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
+            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
+			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
+			$data['ranmor'] = $this->m_dashboard->ranmor_nasional();
+			$data['sim'] = $this->m_dashboard->sim_nasional();
+			$data['stnk'] = $this->m_dashboard->stnk_nasional();
+			$data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
+			$data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
 
 
             $page_content["data"] = $data;
 
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
 
-            $page_content["data"] = '';
+			// echo json_encode($data['ditgakkum']);
+            // die;
+			
+
+            $data['ditregident'] =  $this->m_dashboard->ditregident_polda();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional(); 
+            $data['troublespot'] = $this->m_dashboard->troublespot_polda(); 
+			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_polda();
+			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_polda();
+			$data['ranmor'] = $this->m_dashboard->ranmor_polda();
+			$data['sim'] = $this->m_dashboard->sim_polda();
+			$data['stnk'] = $this->m_dashboard->stnk_polda();
+			$data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_polda();
+			$data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_polda();
+
+            $page_content["data"] = $data;
 			
         } else if ($this->session->userdata['role'] == 'Kapolres') {
             $page_content["page"] = "dashboard/Kapolres/dashboard_view";
 
-            $page_content["data"] = '';
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polres();
+			// echo $this->session->userdata['id_polres'];
+            // die;
+            $data['ditregident'] =  $this->m_dashboard->ditregident_polres();
+			$data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_polres();
+			$data['pelanggaran'] = $this->m_dashboard->pelanggaran_polres();
+			$data['kecelakaan'] = $this->m_dashboard->kecelakaan_polres();
+			$data['ranmor'] = $this->m_dashboard->ranmor_polres();
+			$data['sim'] = $this->m_dashboard->sim_polres();
+			$data['stnk'] = $this->m_dashboard->stnk_polres();
+			$data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_polres();
+			$data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_polres();
+
+            $page_content["data"] = $data;
 
 			
         } else {
@@ -688,11 +746,11 @@ class Dashboard extends MY_Controller
         //     $search = '&search=' . $input['search'] . '';
         // } else {
         //     $search = '';
-        // }
-        if ($input['type']) {
-            $type = '&filter[]=type_renpam&filterSearch[]=' . $input['type'] . '';
+        // } 
+        if ($input['schedule_id']) {
+            $schedule_id = '&schedule_id=' . $input['schedule_id'] . '';
         } else {
-            $type = '';
+            $schedule_id = '';
         }
         // if($input['page']){
         //     $page = ''.$input['page'].'';
@@ -700,7 +758,7 @@ class Dashboard extends MY_Controller
         //     $page = '1';
         // } 
 
-        $url = 'renpam?serverSide=True&length=1000'.$type.'';
+        $url = 'renpam?serverSide=True&order=id&orderDirection=desc&length=1000&start=1'.$schedule_id.'';
         $getRenpam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);

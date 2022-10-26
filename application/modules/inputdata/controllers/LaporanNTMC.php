@@ -28,10 +28,10 @@ class LaporanNTMC extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas' || $this->session->userdata['role'] == 'OperatorKorlantas') {
             $page_content["page"] = "inputdata/Korlantas/InputData_NTMC";
-            $data = '';
+            // $data = '';
         }
 
-        $page_content["data"] = $data;
+        $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
 

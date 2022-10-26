@@ -153,7 +153,7 @@
                                     <th>No</th> 
                                     <th>Tanggal</th>
                                     <th>Pelanggaran</th>
-                                    <th>Lalu Lintas</th>
+                                    <th>Kecelakaan lalu lintas</th>
                                     <th>Kemacetan</th>
                                     <th>Bencana Alam</th> 
                                     <th>Pengaturan</th>
@@ -362,7 +362,7 @@
                             xaxis: {
                                 categories: [ 
                                     'Pelanggaran',
-                                    'Lalu lintas',
+                                    'Kecelakaan lalu lintas',
                                     'Kemacetan',
                                     'Bencana Alam',
                                     'Pengaturan',

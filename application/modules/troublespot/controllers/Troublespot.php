@@ -28,9 +28,9 @@ class Troublespot extends MY_Controller
             die;
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/list_korlantas";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
             $page_content["page"] = "troublespot/Kapolda/list_kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
             $page_content["page"] = "troublespot/Polres/list_polres";
         }
 
@@ -83,10 +83,6 @@ class Troublespot extends MY_Controller
         $input      = $this->input->post();
         $dummy = [
             [
-                'name' => 'no_ts',
-                'contents' => $input['no_ts'],
-            ],
-            [
                 'name' => 'report_date',
                 'contents' => $input['tanggal_pelaporan'],
             ],
@@ -96,11 +92,11 @@ class Troublespot extends MY_Controller
             ],
             [
                 'name' => 'polda_id',
-                'contents' => $input['polda'],
+                'contents' => $input['polda_id'],
             ],
             [
                 'name' => 'polres_id',
-                'contents' => $input['polres'],
+                'contents' => $input['polres_id'],
             ],
             [
                 'name' => 'traffic_reason',
@@ -181,9 +177,9 @@ class Troublespot extends MY_Controller
             $page_content["page"] = "troublespot/G20/detail_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/detail_korlantas";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
+        } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
             $page_content["page"] = "troublespot/Kapolda/detail_kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
+        } else if ($this->session->userdata['role'] == 'Polres' || $this->session->userdata['role'] == 'OperatorPolres') {
             $page_content["page"] = "troublespot/Polres/detail_polres";
         }
         $getDetail = guzzle_request('GET', 'troublespot/getId/' . $id . '', [
@@ -317,7 +313,7 @@ class Troublespot extends MY_Controller
             ],
             [
                 'name' => 'polda_id',
-                'contents' => $input['polda'],
+                'contents' => $input['polda_id'],
             ],
             [
                 'name' => 'polres_id',
