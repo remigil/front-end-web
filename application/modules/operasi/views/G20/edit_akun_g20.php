@@ -160,10 +160,7 @@
 <script>
     var Petugas; 
     var PetugasOrigin;
-    var Petugasbaru;
-    // var Petugas = '<?php echo json_encode($data['getOfficer']) ?>'
-    // var PetugasOrigin = JSON.parse(Petugas);
-    // var Petugasbaru = JSON.parse(Petugas);
+    var Petugasbaru; 
     let PetugasUntukSelectLain = []
     let PetugasChoose = [];
     
@@ -176,6 +173,7 @@
 
 
     $(document).ready(function() {
+
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
@@ -210,7 +208,7 @@
             }
         });
         
-        new Choices('#officers', {
+        new Choices('#select', {
             searchEnabled: true,
             removeItemButton: true,
             removeItems: true,
@@ -287,6 +285,15 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
         }
         $('#select' + no).html(list);
+        new Choices('#select'+no , {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });  
     }
 
 
@@ -343,6 +350,24 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
         }
         $('#select' + room).html(list);
+        new Choices('#kendaraan' + room, {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });   
+        new Choices('#select' + room, {
+                searchEnabled: true,
+                removeItemButton: true,
+                removeItems: true,
+                itemSelectText: '',
+                classNames: {
+                    containerOuter: 'choices select-choices',
+                },
+            });   
         return room;
     }
     var totalId = [1];
