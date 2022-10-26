@@ -318,9 +318,9 @@
 
             scrollX: true,
 
-            // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-            // buttons: ["excel", "csv", "pdf"],
+            buttons: ["excel", "csv", "pdf"],
 
             oLanguage: {
 

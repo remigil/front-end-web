@@ -103,9 +103,9 @@
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
                             <select name="status" class="form-select">
-                                <option selected>Pilih Status</option>
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
+                                <option >Pilih Status</option>
+                                <option selected value="1">Aktif</option>
+                                <option value="0">Tidak Aktif</option>
                             </select>
                             <label class="labelmui">Status</label>
                         </div>
