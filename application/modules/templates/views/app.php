@@ -510,6 +510,13 @@
         .kegiatanDisplay input:checked+.cat {
             background-color: #e8f0fe;
         }
+
+
+        <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU'  || $this->session->userdata['role'] != 'Operator') { ?>
+            .mm-active .active {
+                background : #1d1d1d !important ;
+            }
+        <?php } ?>
     </style>
 
     <!-- JAVASCRIPT -->
