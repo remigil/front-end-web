@@ -276,13 +276,13 @@
             if (select) {
                 for (let i = 0; i < PetugasUntukSelectLain.length; i++) {
                     // const element = PetugasUntukSelectLain[i];
-                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer}</option>`
+                    list += ` <option selected value=${PetugasUntukSelectLain[i].id}>${PetugasUntukSelectLain[i].name_officer} - ${PetugasUntukSelectLain[i].nrp_officer}</option>`
                 }
             }
 
         }
         for (let i = 0; i < Petugasbaru.length; i++) {
-            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
         }
         $('#select' + no).html(list);
         new Choices('#select'+no , {
@@ -347,7 +347,7 @@
         list = ''
         list += `<option value ="">Pilih Petugas</option>`
         for (let i = 0; i < Petugasbaru.length; i++) {
-            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
+            list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']} - ${Petugasbaru[i]['nrp_officer']}</option>`;
         }
         $('#select' + room).html(list);
         new Choices('#kendaraan' + room, {
@@ -394,7 +394,7 @@
         PetugasUntukSelectLain = Petugasbaru.filter((petugas) => petugas.id == $('#select' + id).val())
         Petugasbaru = Petugasbaru.filter((petugas) => petugas.id != $('#select' + id).val())
         list = ''
-        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer}</option>`
+        list += ` <option selected value=${PetugasUntukSelectLain[0].id}>${PetugasUntukSelectLain[0].name_officer} - ${PetugasUntukSelectLain[0].nrp_officer}</option>`
         PetugasChoose.push(PetugasUntukSelectLain);
         return PetugasChoose
     }
