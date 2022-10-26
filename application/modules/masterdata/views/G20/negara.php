@@ -3,12 +3,12 @@
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
         <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-        <li class="breadcrumb-item active fw-bold" aria-current="page">Negara</li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Negara / Organisasi</li>
     </ol>
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".Tambahnegara">Tambah Negara</button>
+    <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".Tambahnegara">Tambah Negara / Organisasi</button>
     <div class="card mt-3">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
