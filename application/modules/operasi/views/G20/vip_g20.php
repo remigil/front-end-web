@@ -128,6 +128,10 @@
             sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
             buttons: ["excel", "csv", "pdf"],
+            lengthMenu: [
+                [10, 25, 50, 999999],
+                [10, 25, 50, 'All'],
+            ],
 
             oLanguage: {
 

@@ -46,6 +46,43 @@ class Fasilitasumum extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function radius()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+
+        // if ($this->session->userdata['role'] == 'G20') {
+        //     $page_content["title"] = "Fasilitas Khusus Radius";
+        //     $page_content["page"] = "masterdata/G20/fasum_radius_view";
+        // } else if ($this->session->userdata['role'] == 'Korlantas') {
+        //     $page_content["title"] = "Fasilitas Umum";
+        //     $page_content["page"] = "masterdata/Korlantas/fasum_view";
+        // } else if ($this->session->userdata['role'] == 'Kapolda') {
+        //     $page_content["title"] = "Fasilitas Umum";
+        //     $page_content["page"] = "masterdata/Kapolda/fasum_view";
+        // } else if ($this->session->userdata['role'] == 'Polres') {
+        //     $page_content["title"] = "Fasilitas Umum";
+        //     $page_content["page"] = "masterdata/Polres/fasum_view";
+        // }
+        $page_content["title"] = "Fasilitas Khusus Radius";
+        $page_content["page"] = "masterdata/G20/fasum_radius_view";
+
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        $data['getCategory'] = $getCategory['data']['data'];
+
+        // var_dump($getCategory);
+        // die;
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
 	public function getCategory($id){
 		$headers = [
             'Authorization' => $this->session->userdata['token'],
@@ -72,9 +109,9 @@ class Fasilitasumum extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
-        if(isset($_FILES['photo']['name'])){ 
+        if($_FILES['photo']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
 				[
 					'name' => 'fasum_logo',
@@ -112,6 +149,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $input['radiusFasum'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -155,6 +196,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $input['radiusFasum'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -251,9 +296,9 @@ class Fasilitasumum extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post(); 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
-        if(isset($_FILES['photo'])){ 
+        if($_FILES['photo']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
 				[
 					'name' => 'fasum_logo',
@@ -291,6 +336,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $input['radiusFasum'],
                 ],
 				[
                     'name' => 'fasum_open_time',
@@ -334,6 +383,10 @@ class Fasilitasumum extends MY_Controller
 				[
                     'name' => 'fasum_status',
                     'contents' => $input['statusFasum'],
+                ],
+				[
+                    'name' => 'fasum_radius',
+                    'contents' => $input['radiusFasum'],
                 ],
 				[
                     'name' => 'fasum_open_time',

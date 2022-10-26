@@ -154,6 +154,11 @@
 
             buttons: ["excel", "csv", "pdf"],
 
+            lengthMenu: [
+                [10, 25, 50, 999999],
+                [10, 25, 50, 'All'],
+            ],
+
             oLanguage: {
 
                 sSearch: 'Search:'

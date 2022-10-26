@@ -8,7 +8,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Khusus</button>
+    <button type="button" class="btn btn-primary waves-effect mb-2" id="btnTambah" data-bs-toggle="modal" data-bs-target=".TambahFasum">Tambah Fasilitas Khusus Radius</button>
     <div class="card">
 
         <div class="card-body">
@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Fasum</th>
+                        <th>Nama Fasum Radius</th>
                         <!-- <th>Jenis Fasum</th> -->
                         <th>Alamat</th>
                         <th>Kontak</th>
@@ -39,34 +39,24 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasilitas Khusus</h5>
+                <h5 class="modal-title" id="myLargeModalLabel" style="color:white">Tambah Fasilitas Khusus Radius</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
                     <div class="row">
-						<div class="col-md-12 mb-3"> 
+						<div class="col-md-12 mb-3" style="display:none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="nama fasum" name="namaFasum">
-                                <label for="namaFasum">Nama Fasilitas Khusus</label>
+                                <input type="text" class="form-control" placeholder="Nama Fasum Radius" name="namaFasum">
+                                <label for="namaFasum">Nama Fasilitas Khusus Radius</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
-						<!-- <div class="col-md-6">
-                        	<div class="form-floating mb-3">
-                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Jenis Fasum</option>
-                                    <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="">Jenis Fasum</label> 
-                            </div>
-						</div> -->
+
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="10" name="jenisFasum"> 
+						 
                         <div class="col-md-6">
                             <div class="form-floating mb-3"> 
                                 <input type="text" class="form-control" placeholder="Alamat" name="address">
@@ -109,10 +99,17 @@
                         </div>
                     </div>
 					<div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="kontakFasum" placeholder="kontak">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="kilometres" name="kilometres" min="0" max="100" placeholder="15" value="15" />
+                                <input type="range" class="range" name="range" min="0" max="100" step="1" value="15" />
+                                <label for="kontakFasum">Radius</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -127,7 +124,7 @@
 						</div>
                     </div>
 					
-                    <div class="row">
+                    <div class="row" style="display:none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="time" class="form-control" name="jamBuka">
@@ -168,18 +165,7 @@
                                 <label for="namaFasum">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6">
-                        	<div class="form-floating mb-3">
-                                <select name="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Jenis Fasum</option>
-                                    <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="">Jenis Fasum</label>
-                            </div>
-						</div> -->
+                        
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="address" name="address"> 
@@ -210,10 +196,17 @@
                         </div>
                     </div>
 					<div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display:none;">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input required type="text" class="form-control" name="kontakFasum" placeholder="kontak">
+                                <label for="kontakFasum">Radius</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -224,7 +217,7 @@
                         </div>
                     </div>
 					
-                    <div class="row">
+                    <div class="row" style="display:none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="jamBuka" name="jamBuka" >
@@ -257,7 +250,7 @@
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="" id="id_fasum" type="text">
 				<div class="row">
-						<div class="col-md-12 mb-3" id="fotoEdit"> 
+						<div class="col-md-12 mb-3" id="fotoEdit" style="display:none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
                         </div>
                         <div class="col-md-6">
@@ -266,19 +259,8 @@
                                 <label for="">Nama Fasilitas Khusus</label>
                             </div>
                         </div>
-                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="9" name="jenisFasum"> 
-                        <!-- <div class="col-md-6">
-                        	<div class="form-floating mb-3">
-                                <select name="jenisFasum" id="jenisFasum" class="form-select" aria-label="Floating label select" style="width:100%" required>
-									<option selected value="">Pilih Jenis Fasum</option>
-                                    <?php
-                        				foreach ($data['getCategory'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_fasum']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="">Jenis Fasum</label>
-                            </div>
-						</div> -->
+                        <input hidden type="text" class="form-control" placeholder="nama fasum" value="10" name="jenisFasum"> 
+                        
 
 
                         <div class="col-md-6">
@@ -325,9 +307,15 @@
                     </div>
 					<div class="row">
                         <div class="col-md-6">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating mb-3" style="display:none;">
                                 <input type="text" class="form-control" id="kontakFasum" name="kontakFasum">
                                 <label for="kontakFasum">Kontak Fasilitas Khusus</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input required type="text" class="form-control" name="kontakFasum" placeholder="kontak">
+                                <label for="kontakFasum">Radius</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -338,7 +326,7 @@
                         </div>
                     </div>
 					
-                    <div class="row">
+                    <div class="row" style="display:none;">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="jamBuka" name="jamBuka">
@@ -363,6 +351,7 @@
 <script>
 
 	$(document).ready(function() {
+        $( '[name=kontakFasum]' ).mask('000000000');
         $('.dropify').dropify();
 
 		$('[name=cordinate]').val('-1.5707209, 115.4875168');
@@ -412,7 +401,7 @@
             position: 'bottomleft'
         }).addTo(mapContainer);
 		
-	$('#myModal').on('shown.bs.modal', function() {
+	    $('#myModal').on('shown.bs.modal', function() {
             mapContainer.invalidateSize();
 
             $('.dropify').dropify(); 
@@ -496,9 +485,10 @@
                 }); 
 
             });
-			
-
+			 
         });
+
+        
 
         userDataTable = $('#datatable').DataTable({
 
@@ -544,7 +534,7 @@
 
                     // data.filterStatus = $('[name=status]').val();
 
-                    data.filterCateg = '9';
+                    data.filterCateg = '10';
 
                     // data.filterPocName = $('[name=group_poc_name]').val();
 
