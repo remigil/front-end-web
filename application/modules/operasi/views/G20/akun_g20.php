@@ -269,10 +269,12 @@
                 //     data: 'phone_account'
                 // },
                 {
-                    data: 'leader_team'
+                    data: 'leader_team',
+                    orderable: false
                 },
                 {
-                    data: 'officers'
+                    data: 'officers',
+                    orderable: false
                 },
                 // {
                 //     data: 'vehicle',
