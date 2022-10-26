@@ -176,6 +176,7 @@
 
 
     $(document).ready(function() {
+        
         $.ajax({
             type : "POST",
             url : "<?php echo base_url();?>operasi/Akun/GetPetugasList", 
@@ -223,7 +224,15 @@
     });
 
     
-    
+    new Choices('#select', {
+        searchEnabled: true,
+        removeItemButton: true,
+        removeItems: true,
+        itemSelectText: '',
+        classNames: {
+            containerOuter: 'choices select-choices',
+        },
+    });
      
 
     function deletePetugas(idOffice){
@@ -269,6 +278,7 @@
     var room = 1;
 
     function getOption(no) {
+
         let select = $('#select' + no).find(":selected").val();
         let list = '';
         if (select == '') {
@@ -286,6 +296,16 @@
             list += `<option value ="${Petugasbaru[i]['id']}">${Petugasbaru[i]['name_officer']}</option>`;
         }
         $('#select' + no).html(list);
+
+        new Choices('#select'+no , {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });  
     }
 
 
