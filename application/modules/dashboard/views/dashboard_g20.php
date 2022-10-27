@@ -25,7 +25,7 @@
                     
                 </div> 
 
-                <div style="position: absolute;left: 330px;width: 900px;top: 6px;">
+                <div style="position: absolute;left: 330px;width: 1000px;top: 6px;">
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
                             <input checked type="checkbox" value="turjawali" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="cat clusterDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa far fa-building"></i> Cluster</span>
+                            <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
                         </label>
                     </div>
     
@@ -677,6 +677,7 @@
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" ></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
 
 <!-- <script>
       
