@@ -2112,7 +2112,7 @@
                     var ressTroublespot = result['data']['troublespot'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
-                    // console.log(result);
+                    console.log(result);
 
                     if(ressTurjawali && ressTurjawali.length > 0){  
                         var filterTurjawali = ressTurjawali.filter(function (e) {
