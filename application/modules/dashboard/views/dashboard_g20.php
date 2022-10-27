@@ -678,7 +678,7 @@
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" ></script>
 
-<script>
+<!-- <script>
       
         var socket = io('http://103.163.139.100:3005/', {
         // transports: ["websocket",],
@@ -699,7 +699,7 @@
             socket.on("sendToAdminMobile", function(resSocket){
             // console.log(socket.id);
             // console.log(resSocket);
-            console.log('sendToAdminMobile');
+            // console.log('sendToAdminMobile');
         });
             socket.on("from server", function(resSocket){
             // console.log(socket.id);
@@ -717,7 +717,7 @@
             socket.on("sendToAdminMobile", function(resSocket){
             // console.log(socket.id);
             // console.log(resSocket);
-            console.log('sendToAdminMobile');
+            // console.log('sendToAdminMobile');
         });
             socket.on("from server", function(resSocket){
             // console.log(socket.id);
@@ -725,7 +725,7 @@
             console.log('from server');
         }); 
         }) 
-      </script>
+      </script> -->
 
 
 <script>
@@ -747,6 +747,7 @@
             type: "Admin"
         }
     });
+    var socketGps = io('http://gps-so.korlantaspolri.id');
 
     // console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
@@ -1925,6 +1926,13 @@
                  
         
         });
+
+        
+        socketGps.on('pub', function(ress){
+            console.log('dari luar soket IO')
+            console.log(ress);
+        });
+
 
         $("#turjawaliDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
