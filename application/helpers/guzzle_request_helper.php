@@ -25,6 +25,7 @@ if (!function_exists('guzzle_request')) {
             return $data;
         } catch (Exception $e) {
             return redirect(base_url('login/logout'));
+            // return location.reload();
         }
     }  
 
@@ -54,8 +55,8 @@ if (!function_exists('guzzle_requestTracking')) {
     {
         try {
             $client = new Client();
-            // $request = $client->request($method, 'http://localhost:3001/track-location/' . $uri, $body);
-            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/track-location/' . $uri, $body);
+            $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
+            // $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
