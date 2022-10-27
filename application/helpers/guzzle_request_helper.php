@@ -55,8 +55,8 @@ if (!function_exists('guzzle_requestTracking')) {
     {
         try {
             $client = new Client();
-            $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
-            // $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
+            // $request = $client->request($method, 'http://localhost:3005/track-location/' . $uri, $body);
+            $request = $client->request($method, 'http://k3ig20korlantas:3005/track-location/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
