@@ -242,7 +242,7 @@
             </div>
             <div class="modal-body">
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="id" value="" id="id_fasum" type="text">
+				<input type="text" name="id"  id="id_fasum" type="text">
 				<div class="row">
 						<div class="col-md-12 mb-3" id="fotoEdit" style="display:none;"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/>
@@ -325,16 +325,16 @@
                         </div>
                     </div>
 					
-                    <div class="row" style="display:none;">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamBuka" name="jamBuka">
+                                <input type="text" value="00:00:00" class="form-control" id="jamBuka" name="jamBuka">
                                 <label for="jamBuka">Jam Buka</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="jamTutup" name="jamTutup">
+                                <input type="text" value="00:00:00" class="form-control" id="jamTutup" name="jamTutup">
                                 <label for="jamTutup">Jam Tutup</label>
                             </div>
                         </div>
@@ -830,8 +830,8 @@
                 
                 $('.UbahFasum,#statusFasum').val(results.fasum_status)
                 $('.UbahFasum,#photo').val(results.fasum_logo)
-                $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
-                $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
+                // $('.UbahFasum,#jamBuka').val(results.fasum_open_time)
+                // $('.UbahFasum,#jamTutup').val(results.fasum_close_time)
 
 
 
@@ -907,13 +907,13 @@
                     $('.range').on('input', function() {
                         set = $(this).val();
                         $('.kilometres').val(set);
-                        console.log(set);
+                      
                     });
 
                     $('.kilometres').on('input', function() {
                         set = $(this).val();
                         $('.range').val(set);
-                        console.log(set);
+                     
                     });
 
                     

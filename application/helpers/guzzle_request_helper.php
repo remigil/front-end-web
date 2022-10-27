@@ -15,13 +15,17 @@ if (!function_exists('guzzle_request')) {
      */
     function guzzle_request($method, $uri, $body)
     { 
-        $client = new Client();
-        // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body);
-        $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body); 
-        $response = $request->getBody();
-        $data = json_decode($response, true);
+        try {
+            $client = new Client();
+            // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body);
+            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body); 
+            $response = $request->getBody();
+            $data = json_decode($response, true);
 
-        return $data;
+            return $data;
+        } catch (Exception $e) {
+            return redirect(base_url('login/logout'));
+        }
     }  
 
     function url_api()
