@@ -906,10 +906,7 @@
                     });
                 }
             });
-        });
-
-
-
+        }); 
 
 
         function gpsId() { 
@@ -1952,10 +1949,6 @@
         var centerMap = mapContainer.getCenter();
         var centerLat = centerMap['lat'];
         var centerLng = centerMap['lng'];  
-
-
-        
-        serverSideGet();
         
         serverSideFilter();  
         // serverSideGetJadwal();
@@ -3131,7 +3124,7 @@
                                 <h2 class="accordion-header" id="flush-headingUraianNonKegiatan">
                                     <button id="openUraianNonKegiatan" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseUraianNonKegiatan" aria-expanded="false" aria-controls="flush-collapseUraianNonKegiatan">
-                                        Uraian Non Kegiatan &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
+                                        Tidak Terjadwal &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseUraianNonKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingUraianNonKegiatan"
@@ -5047,11 +5040,7 @@
                 `);
             }
     
-        });
-
-
-    
-
+        }); 
 
 
         var checkedRenpam = [];
@@ -6203,116 +6192,7 @@
 
 
 
-
-
-
-
-
-
-
-
-        
-    
-
-        // mapContainer.on('pm:create', (e) => {
-        //     e.layer.setStyle({ pmIgnore: false });
-        //     L.PM.reInitLayer(e.layer);
-        // });
-        // mapContainer.pm.addControls({  
-        //     position: 'bottomleft',  
-        //     drawCircle: true,  
-        // });  
-
-        // mapContainer.on('pm:drawstart', ({ workingLayer }) => {
-        // workingLayer.on('pm:vertexadded', (e) => {
-        //     console.log(e);
-        // });
-        // });
-
-    
-
-
-        // // Initialise the FeatureGroup to store editable layers
-        // var featureGroup = new L.FeatureGroup();
-        // mapContainer.addLayer(featureGroup);
-
-        // // define custom marker
-        // var MyCustomMarker = L.Icon.extend({
-        // options: {
-        //     shadowUrl: null,
-        //     iconAnchor: new L.Point(12, 12),
-        //     iconSize: new L.Point(24, 24),
-        //     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Information_icon4_orange.svg'
-        // }
-        // });
-
-        // var drawPluginOptions = {
-        //     position: 'bottomleft',
-        //     draw: {
-        //         polyline: {
-        //             shapeOptions: {
-        //                 color: '#f357a1',
-        //                 weight: 10
-        //             }
-        //         },
-        //         polygon: {
-        //             allowIntersection: false, // Restricts shapes to simple polygons
-        //             drawError: {
-        //                 color: '#e1e100', // Color the shape will turn when intersects
-        //                 message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
-        //             },
-        //             shapeOptions: {
-        //                 color: '#bada55'
-        //             }
-        //         },
-        //         circle: true, // Turns off this drawing tool
-        //         rectangle: {
-        //             shapeOptions: {
-        //                 clickable: false
-        //             }
-        //         },
-        //         marker: {
-        //             icon: new MyCustomMarker()
-        //         }
-        //     },
-        //     edit: {
-        //         featureGroup: featureGroup, //REQUIRED!!
-        //         remove: false
-        //     }
-        // };
-
-
-
-        // // Initialise the draw control and pass it the FeatureGroup of editable layers
-        // var drawControl = new L.Control.Draw(drawPluginOptions);
-        // mapContainer.addControl(drawControl);
-
-
-        // var featureGroup = new L.FeatureGroup();
-        // mapContainer.addLayer(featureGroup); 
-
-        // mapContainer.on('draw:created', function(e) {
-        // var type = e.layerType,
-        //     layer = e.layer;
-
-        // if (type === 'marker') {
-        //     layer.bindPopup('A popup!');
-        // }
-
-        // featureGroup.addLayer(layer);
-        // });
-
-        // document.getElementById('export').onclick = function(e) {
-        //     // Extract GeoJson from featureGroup
-        //     var data = featureGroup.toGeoJSON();
-
-        //     // Stringify the GeoJson
-        //     var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-
-        //     // Create export
-        //     document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-        //     document.getElementById('export').setAttribute('download','data.geojson');
-        // } 
+        serverSideGet();
     });
 
 

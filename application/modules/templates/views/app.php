@@ -750,8 +750,8 @@
                                                     <span data-key="t-authentication">Uraian Kegiatan</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
-                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">PAMWAL KTT G20 Bali</a></li>
-                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi Puri Agung</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Tidak Terjadwal</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
                                                 </ul>
                                             </li>
@@ -882,6 +882,12 @@
                                                 <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">IRSMS</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://dakgargakkum.com/dashboard" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">DAKGARGAKKUM</span>
                                                 </a>
                                             </li>
 

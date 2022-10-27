@@ -20,7 +20,7 @@
                             <th>Nama Petugas</th>
                             <th>Pangkat</th>
                             <th>NRP</th>
-                            <th style="width:20% ;">Strukturan</th>
+                            <th style="width:20% ;">Struktural</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
                             <th>Status</th>
@@ -78,14 +78,14 @@
                     <div class="col-md-12">
                         <div class="material-selectfield mb-3">
                             <select name="struktural" class="form-select" id="select2">
-                                <option selected value="">Strukturan</option>
+                                <option selected value="">Struktural</option>
 
                                 <?php foreach($data['getStructural'] as $row): ?>
                                     <option value="<?php echo $row['name_structural'];?>"><?php echo $row['name_structural'];?></option> 
                                 <?php endforeach; ?>   
 
                             </select>
-                            <!-- <label class="labelmui">Strukturan</label> -->
+                            <!-- <label class="labelmui">Struktural</label> -->
                         </div>
                     </div>
                     <div class="col-md-12">
