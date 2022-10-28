@@ -2480,7 +2480,7 @@
                             
                                 var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
                                 var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
-                                var set = ressCluster[i].fasum_radius;
+                                var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1 ;
                                 markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
                                             color: 'red',
                                             fillColor: '#f03',
