@@ -1723,7 +1723,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            // console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
+            console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
@@ -3531,7 +3531,7 @@
                                                                     profile: 'car'
                                                                 }),
                                                                 lineOptions: {
-                                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}] 
                                                                 },  
                                                                 createMarker: function(i, wp, nWps) {
                                                                     if (i === 0 || i === nWps + 1) {
@@ -3609,7 +3609,7 @@
                                                                     profile: 'car'
                                                                 }),
                                                                 lineOptions: {
-                                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                    styles: [{color: "#808080", weight: 5, className: 'animateRoute'}] 
                                                                 },  
                                                                 createMarker: function(i, wp, nWps) {
                                                                     if (i === 0 || i === nWps + 1) {
@@ -3687,7 +3687,7 @@
                                                                     profile: 'car'
                                                                 }),
                                                                 lineOptions: {
-                                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                    styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}] 
                                                                 },  
                                                                 createMarker: function(i, wp, nWps) {
                                                                     if (i === 0 || i === nWps + 1) {
@@ -3765,7 +3765,7 @@
                                                                     profile: 'car'
                                                                 }),
                                                                 lineOptions: {
-                                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                    styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}] 
                                                                 },  
                                                                 createMarker: function(i, wp, nWps) {
                                                                     if (i === 0 || i === nWps + 1) {
@@ -4538,7 +4538,7 @@
                                                             profile: 'car'
                                                         }),
                                                         lineOptions: {
-                                                            styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}] 
                                                         },  
                                                         createMarker: function(i, wp, nWps) {
                                                             if (i === 0 || i === nWps + 1) {
@@ -4616,7 +4616,7 @@
                                                             profile: 'car'
                                                         }),
                                                         lineOptions: {
-                                                            styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            styles: [{color: "#808080", weight: 5, className: 'animateRoute'}] 
                                                         },  
                                                         createMarker: function(i, wp, nWps) {
                                                             if (i === 0 || i === nWps + 1) {
@@ -4694,7 +4694,7 @@
                                                             profile: 'car'
                                                         }),
                                                         lineOptions: {
-                                                            styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}] 
                                                         },  
                                                         createMarker: function(i, wp, nWps) {
                                                             if (i === 0 || i === nWps + 1) {
@@ -4772,7 +4772,7 @@
                                                             profile: 'car'
                                                         }),
                                                         lineOptions: {
-                                                            styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}] 
                                                         },  
                                                         createMarker: function(i, wp, nWps) {
                                                             if (i === 0 || i === nWps + 1) {
