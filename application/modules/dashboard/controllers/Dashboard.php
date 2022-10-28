@@ -483,7 +483,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime("-1 day", $date);
         // echo date('Y-m-d', $date);
 
-        $url = 'getMe?date=' . date('Y-m-d') . '';
+        $url = 'getMe';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);

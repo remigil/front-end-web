@@ -28,7 +28,7 @@
                 <div style="position: absolute;left: 330px;width: 1000px;top: 6px;">
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="turjawali" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
+                            <input checked type="checkbox" value="" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
                         </label>
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -97,7 +97,7 @@
                                         <span>Instruksi</span> 
                                     </div>  
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="filter" value="turjawali" id="turjawali" class="form-input" >  
+                                        <input type="checkbox" checked name="filter" value="" id="turjawali" class="form-input" >  
                                         <span>Turjawali</span> 
                                     </div>  
                                     <div class="col-md-6">
@@ -1623,6 +1623,13 @@
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
             
+
+            if(statusEncrypt == 'no-encrypt'){
+                sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
+            }else{
+                sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
+            }
+
             if(noTelp != null){
                 let noDepan = noTelp.substring(0, 2);
                 if (noDepan === "62") {
@@ -1635,11 +1642,7 @@
                     noTelp = noTelp;
                 }
     
-                if(statusEncrypt == 'no-encrypt'){
-                    sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
-                }else{
-                    sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
-                }
+                
                 return `  
                     <div class="text-center">
                         <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
@@ -3398,7 +3401,7 @@
                                                         `;
                                                     }
                                                     checkboxJadwal = `
-                                                        <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
+                                                        <input type="checkbox" class="form-input" name="selectJadwalRenpam" onChange="clickJadwalRenpam()"
                                                         id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}" 
                                                         data-totaldata="${el.renpams.length}"
                                                         >
@@ -3581,7 +3584,7 @@
                                                                         return marker;
                                                                     }
                                                                 },
-                                                                geocoder: L.Control.Geocoder.nominatim({})
+                                                                // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
                                                             // mapContainer.addControl(routingRenpam[i]); 
                                                         }else{ 
@@ -3659,7 +3662,7 @@
                                                                         return marker;
                                                                     }
                                                                 },
-                                                                geocoder: L.Control.Geocoder.nominatim({})
+                                                                // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
                                                             // mapContainer.addControl(routingRenpam[i]); 
                                                         }else{ 
@@ -3737,7 +3740,7 @@
                                                                         return marker;
                                                                     }
                                                                 },
-                                                                geocoder: L.Control.Geocoder.nominatim({})
+                                                                // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
                                                             // mapContainer.addControl(routingRenpam[i]); 
                                                         }else{ 
@@ -3815,7 +3818,7 @@
                                                                         return marker;
                                                                     }
                                                                 },
-                                                                geocoder: L.Control.Geocoder.nominatim({})
+                                                                // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
                                                             // mapContainer.addControl(routingRenpam[i]); 
                                                         }else{ 
@@ -3893,7 +3896,7 @@
                                                                         return marker;
                                                                     }
                                                                 },
-                                                                geocoder: L.Control.Geocoder.nominatim({})
+                                                                // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
                                                             // mapContainer.addControl(routingRenpam[i]); 
                                                         }else{ 
@@ -3906,8 +3909,13 @@
                                                 });
                                             }   
 
+                                            function clickJadwalRenpam(){
+                                                alert();
+                                            }
+
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
                                                 console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
+                                                 
                                                 $(`#listJadwalRenpamClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                  
                                                     for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
@@ -4021,7 +4029,7 @@
                                                                             return marker;
                                                                         }
                                                                     },
-                                                                    geocoder: L.Control.Geocoder.nominatim({})
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                                                 console.log('kebuka');
@@ -4099,7 +4107,7 @@
                                                                             return marker;
                                                                         }
                                                                     },
-                                                                    geocoder: L.Control.Geocoder.nominatim({})
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                                             }else{
@@ -4177,7 +4185,7 @@
                                                                             return marker;
                                                                         }
                                                                     },
-                                                                    geocoder: L.Control.Geocoder.nominatim({})
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                                             }else{
@@ -4255,7 +4263,7 @@
                                                                             return marker;
                                                                         }
                                                                     },
-                                                                    geocoder: L.Control.Geocoder.nominatim({})
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                                             }else{
@@ -4333,7 +4341,7 @@
                                                                             return marker;
                                                                         }
                                                                     },
-                                                                    geocoder: L.Control.Geocoder.nominatim({})
+                                                                    // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
                                                                 // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
                                                             }else{
@@ -4583,7 +4591,7 @@
                                                                 return marker;
                                                             }
                                                         },
-                                                        geocoder: L.Control.Geocoder.nominatim({})
+                                                        // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
                                                     // mapContainer.addControl(routingRenpam[i]); 
                                                 }else{ 
@@ -4661,7 +4669,7 @@
                                                                 return marker;
                                                             }
                                                         },
-                                                        geocoder: L.Control.Geocoder.nominatim({})
+                                                        // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
                                                     // mapContainer.addControl(routingRenpam[i]); 
                                                 }else{ 
@@ -4739,7 +4747,7 @@
                                                                 return marker;
                                                             }
                                                         },
-                                                        geocoder: L.Control.Geocoder.nominatim({})
+                                                        // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
                                                     // mapContainer.addControl(routingRenpam[i]); 
                                                 }else{ 
@@ -4817,7 +4825,7 @@
                                                                 return marker;
                                                             }
                                                         },
-                                                        geocoder: L.Control.Geocoder.nominatim({})
+                                                        // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
                                                     // mapContainer.addControl(routingRenpam[i]); 
                                                 }else{ 
@@ -4895,7 +4903,7 @@
                                                                 return marker;
                                                             }
                                                         },
-                                                        geocoder: L.Control.Geocoder.nominatim({})
+                                                        // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
                                                     // mapContainer.addControl(routingRenpam[i]); 
                                                 }else{ 
@@ -5351,7 +5359,7 @@
                                                     return marker;
                                                 }
                                             },
-                                            geocoder: L.Control.Geocoder.nominatim({})
+                                            // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer); 
                                         // mapContainer.addControl(routingRenpam1[i]);  
                                     }else{
@@ -5434,7 +5442,7 @@
                                                     return marker;
                                                 }
                                             },
-                                            geocoder: L.Control.Geocoder.nominatim({})
+                                            // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer); 
                                         // mapContainer.addControl(routingRenpam1[i]); 
                                     }else{
@@ -5516,7 +5524,7 @@
                                                     return marker;
                                                 }
                                             },
-                                            geocoder: L.Control.Geocoder.nominatim({})
+                                            // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer); 
                                         // mapContainer.addControl(routingRenpam1[i]); 
                                     }else{
@@ -5599,7 +5607,7 @@
                                                     return marker;
                                                 }
                                             },
-                                            geocoder: L.Control.Geocoder.nominatim({})
+                                            // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer); 
                                         // mapContainer.addControl(routingRenpam1[i]); 
                                     }else{
@@ -5683,7 +5691,7 @@
                                                     return marker;
                                                 }
                                             },
-                                            geocoder: L.Control.Geocoder.nominatim({})
+                                            // geocoder: L.Control.Geocoder.nominatim({})
                                         }).addTo(mapContainer);  
                                         // mapContainer.addControl(routingRenpam[i]); 
                                     }else{ 
@@ -6164,7 +6172,7 @@
             //         profile: 'car'
             //     }),
             //     showAlternatives: true,
-            //     geocoder: L.Control.Geocoder.nominatim({})
+                geocoder: L.Control.Geocoder.nominatim({})
             // }).addTo(mapContainerInstruksi);
 
 
@@ -6330,7 +6338,7 @@
                 language: 'en',
                 profile: 'car'
             }),
-            geocoder: L.Control.Geocoder.nominatim({})
+            // geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerRenpamUtama);
 
 
@@ -6430,7 +6438,7 @@
                 language: 'en',
                 profile: 'car'
             }),
-            geocoder: L.Control.Geocoder.nominatim({})
+            // geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerRenpam);
 
 
@@ -6531,7 +6539,7 @@
                 language: 'en',
                 profile: 'car'
             }),
-            geocoder: L.Control.Geocoder.nominatim({})
+            // geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerRenpam2);
 
 
@@ -6631,7 +6639,7 @@
                 language: 'en',
                 profile: 'car'
             }),
-            geocoder: L.Control.Geocoder.nominatim({})
+            // geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerRenpam3);
 
 
@@ -6732,7 +6740,7 @@
                 language: 'en',
                 profile: 'car'
             }),
-            geocoder: L.Control.Geocoder.nominatim({})
+            // geocoder: L.Control.Geocoder.nominatim({})
         }).addTo(mapContainerRenpam4);
 
 
