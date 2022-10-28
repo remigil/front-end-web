@@ -887,7 +887,7 @@
                                             <li>
                                                 <a href="https://dakgargakkum.com/dashboard" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard">DAKGARGAKKUM</span>
+                                                    <span data-key="t-dashboard">E-Tilang</span>
                                                 </a>
                                             </li>
 
