@@ -3520,8 +3520,8 @@
                                                     var cordRute1 = $(this).data('cord1'); 
                                                     if(cordRute1 != null && cordRute1[0]['latLng'] != null){ 
                                                         if($(this).is(':checked')){   
-                                                            routingRenpam[i] = null;
-                                                            routingRenpam[i] = L.Routing.control({
+                                                            routingRenpam1[i] = null;
+                                                            routingRenpam1[i] = L.Routing.control({
                                                                 show:false,
                                                                 draggableWaypoints: false,
                                                                 addWaypoints: false,
@@ -3586,9 +3586,9 @@
                                                                 },
                                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
-                                                            // mapContainer.addControl(routingRenpam[i]); 
+                                                            // mapContainer.addControl(routingRenpam1[i]); 
                                                         }else{ 
-                                                            mapContainer.removeControl(routingRenpam[i]);  
+                                                            mapContainer.removeControl(routingRenpam1[i]);  
                                                         }
                                                         
                                                         
@@ -3598,8 +3598,8 @@
                                                     var cordRute2 = $(this).data('cord2'); 
                                                     if(cordRute2 != null && cordRute2[0]['latLng'] != null){ 
                                                         if($(this).is(':checked')){   
-                                                            routingRenpam[i] = null;
-                                                            routingRenpam[i] = L.Routing.control({
+                                                            routingRenpam2[i] = null;
+                                                            routingRenpam2[i] = L.Routing.control({
                                                                 show:false,
                                                                 draggableWaypoints: false,
                                                                 addWaypoints: false,
@@ -3664,9 +3664,9 @@
                                                                 },
                                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
-                                                            // mapContainer.addControl(routingRenpam[i]); 
+                                                            // mapContainer.addControl(routingRenpam2[i]); 
                                                         }else{ 
-                                                            mapContainer.removeControl(routingRenpam[i]);  
+                                                            mapContainer.removeControl(routingRenpam2[i]);  
                                                         }
                                                         
                                                         
@@ -3676,8 +3676,8 @@
                                                     var cordRute3 = $(this).data('cord3'); 
                                                     if(cordRute3 != null && cordRute3[0]['latLng'] != null){ 
                                                         if($(this).is(':checked')){   
-                                                            routingRenpam[i] = null;
-                                                            routingRenpam[i] = L.Routing.control({
+                                                            routingRenpam3[i] = null;
+                                                            routingRenpam3[i] = L.Routing.control({
                                                                 show:false,
                                                                 draggableWaypoints: false,
                                                                 addWaypoints: false,
@@ -3742,9 +3742,9 @@
                                                                 },
                                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
-                                                            // mapContainer.addControl(routingRenpam[i]); 
+                                                            // mapContainer.addControl(routingRenpam3[i]); 
                                                         }else{ 
-                                                            mapContainer.removeControl(routingRenpam[i]);  
+                                                            mapContainer.removeControl(routingRenpam3[i]);  
                                                         }
                                                         
                                                         
@@ -3754,8 +3754,8 @@
                                                     var cordRute4 = $(this).data('cord4'); 
                                                     if(cordRute4 != null && cordRute4[0]['latLng'] != null){ 
                                                         if($(this).is(':checked')){   
-                                                            routingRenpam[i] = null;
-                                                            routingRenpam[i] = L.Routing.control({
+                                                            routingRenpam4[i] = null;
+                                                            routingRenpam4[i] = L.Routing.control({
                                                                 show:false,
                                                                 draggableWaypoints: false,
                                                                 addWaypoints: false,
@@ -3820,9 +3820,9 @@
                                                                 },
                                                                 // geocoder: L.Control.Geocoder.nominatim({})
                                                             }).addTo(mapContainer);  
-                                                            // mapContainer.addControl(routingRenpam[i]); 
+                                                            // mapContainer.addControl(routingRenpam4[i]); 
                                                         }else{ 
-                                                            mapContainer.removeControl(routingRenpam[i]);  
+                                                            mapContainer.removeControl(routingRenpam4[i]);  
                                                         }
                                                         
                                                         
@@ -4043,8 +4043,8 @@
                                                         if(dummyJadwalRenpamAlter[i+1][ii] != null && dummyJadwalRenpamAlter[i+1][ii].length > 0 && dummyJadwalRenpamAlter[i+1][ii][0]['latLng'] != null){
                                                             
                                                             if($(this).is(':checked')){  
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = null;
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                                routingJadwalRenpam1[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam1[`${i+1}${ii}`] = L.Routing.control({
                                                                     show:false,
                                                                     draggableWaypoints: false,
                                                                     addWaypoints: false,
@@ -4109,9 +4109,9 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
-                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam1[`${i+1}${ii}`]);  
                                                             }else{
-                                                                mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                                                mapContainer.removeControl(routingJadwalRenpam1[`${i+1}${ii}`]);   
                                                             }
                                                         }else{
                                                             console.log('error route alternative 1'); 
@@ -4121,8 +4121,8 @@
                                                         if(dummyJadwalRenpamAlterr[i+1][ii] != null && dummyJadwalRenpamAlterr[i+1][ii].length > 0 && dummyJadwalRenpamAlterr[i+1][ii][0]['latLng'] != null){
                                                             
                                                             if($(this).is(':checked')){  
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = null;
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                                routingJadwalRenpam2[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam2[`${i+1}${ii}`] = L.Routing.control({
                                                                     show:false,
                                                                     draggableWaypoints: false,
                                                                     addWaypoints: false,
@@ -4187,9 +4187,9 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
-                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam2[`${i+1}${ii}`]);  
                                                             }else{
-                                                                mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                                                mapContainer.removeControl(routingJadwalRenpam2[`${i+1}${ii}`]);   
                                                             }
                                                         }else{
                                                             console.log('error route  alternative 2'); 
@@ -4199,8 +4199,8 @@
                                                         if(dummyJadwalRenpamAlterrr[i+1][ii] != null && dummyJadwalRenpamAlterrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrr[i+1][ii][0]['latLng'] != null){
                                                             
                                                             if($(this).is(':checked')){  
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = null;
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                                routingJadwalRenpam3[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam3[`${i+1}${ii}`] = L.Routing.control({
                                                                     show:false,
                                                                     draggableWaypoints: false,
                                                                     addWaypoints: false,
@@ -4265,9 +4265,9 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
-                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam3[`${i+1}${ii}`]);  
                                                             }else{
-                                                                mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                                                mapContainer.removeControl(routingJadwalRenpam3[`${i+1}${ii}`]);   
                                                             }
                                                         }else{
                                                             console.log('error route Masyarakat'); 
@@ -4277,8 +4277,8 @@
                                                         if(dummyJadwalRenpamAlterrrr[i+1][ii] != null && dummyJadwalRenpamAlterrrr[i+1][ii].length > 0 && dummyJadwalRenpamAlterrrr[i+1][ii][0]['latLng'] != null){
                                                             
                                                             if($(this).is(':checked')){  
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = null;
-                                                                routingJadwalRenpam[`${i+1}${ii}`] = L.Routing.control({
+                                                                routingJadwalRenpam4[`${i+1}${ii}`] = null;
+                                                                routingJadwalRenpam4[`${i+1}${ii}`] = L.Routing.control({
                                                                     show:false,
                                                                     draggableWaypoints: false,
                                                                     addWaypoints: false,
@@ -4343,9 +4343,9 @@
                                                                     },
                                                                     // geocoder: L.Control.Geocoder.nominatim({})
                                                                 }).addTo(mapContainer); 
-                                                                // mapContainer.addControl(routingJadwalRenpam[`${i+1}${ii}`]);  
+                                                                // mapContainer.addControl(routingJadwalRenpam4[`${i+1}${ii}`]);  
                                                             }else{
-                                                                mapContainer.removeControl(routingJadwalRenpam[`${i+1}${ii}`]);   
+                                                                mapContainer.removeControl(routingJadwalRenpam4[`${i+1}${ii}`]);   
                                                             }
                                                         }else{
                                                             console.log('error route Umum'); 
@@ -4527,8 +4527,8 @@
                                             var cordRute1 = $(this).data('cord1'); 
                                             if(cordRute1 != null && cordRute1[0]['latLng'] != null){ 
                                                 if($(this).is(':checked')){   
-                                                    routingRenpam[i] = null;
-                                                    routingRenpam[i] = L.Routing.control({
+                                                    routingRenpam1[i] = null;
+                                                    routingRenpam1[i] = L.Routing.control({
                                                         show:false,
                                                         draggableWaypoints: false,
                                                         addWaypoints: false,
@@ -4593,9 +4593,9 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
-                                                    // mapContainer.addControl(routingRenpam[i]); 
+                                                    // mapContainer.addControl(routingRenpam1[i]); 
                                                 }else{ 
-                                                    mapContainer.removeControl(routingRenpam[i]);  
+                                                    mapContainer.removeControl(routingRenpam1[i]);  
                                                 }
                                                 
                                                 
@@ -4605,8 +4605,8 @@
                                             var cordRute2 = $(this).data('cord2'); 
                                             if(cordRute2 != null && cordRute2[0]['latLng'] != null){ 
                                                 if($(this).is(':checked')){   
-                                                    routingRenpam[i] = null;
-                                                    routingRenpam[i] = L.Routing.control({
+                                                    routingRenpam2[i] = null;
+                                                    routingRenpam2[i] = L.Routing.control({
                                                         show:false,
                                                         draggableWaypoints: false,
                                                         addWaypoints: false,
@@ -4671,9 +4671,9 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
-                                                    // mapContainer.addControl(routingRenpam[i]); 
+                                                    // mapContainer.addControl(routingRenpam2[i]); 
                                                 }else{ 
-                                                    mapContainer.removeControl(routingRenpam[i]);  
+                                                    mapContainer.removeControl(routingRenpam2[i]);  
                                                 }
                                                 
                                                 
@@ -4683,8 +4683,8 @@
                                             var cordRute3 = $(this).data('cord3'); 
                                             if(cordRute3 != null && cordRute3[0]['latLng'] != null){ 
                                                 if($(this).is(':checked')){   
-                                                    routingRenpam[i] = null;
-                                                    routingRenpam[i] = L.Routing.control({
+                                                    routingRenpam3[i] = null;
+                                                    routingRenpam3[i] = L.Routing.control({
                                                         show:false,
                                                         draggableWaypoints: false,
                                                         addWaypoints: false,
@@ -4749,9 +4749,9 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
-                                                    // mapContainer.addControl(routingRenpam[i]); 
+                                                    // mapContainer.addControl(routingRenpam3[i]); 
                                                 }else{ 
-                                                    mapContainer.removeControl(routingRenpam[i]);  
+                                                    mapContainer.removeControl(routingRenpam3[i]);  
                                                 }
                                                 
                                                 
@@ -4761,8 +4761,8 @@
                                             var cordRute4 = $(this).data('cord4'); 
                                             if(cordRute4 != null && cordRute4[0]['latLng'] != null){ 
                                                 if($(this).is(':checked')){   
-                                                    routingRenpam[i] = null;
-                                                    routingRenpam[i] = L.Routing.control({
+                                                    routingRenpam4[i] = null;
+                                                    routingRenpam4[i] = L.Routing.control({
                                                         show:false,
                                                         draggableWaypoints: false,
                                                         addWaypoints: false,
@@ -4827,9 +4827,9 @@
                                                         },
                                                         // geocoder: L.Control.Geocoder.nominatim({})
                                                     }).addTo(mapContainer);  
-                                                    // mapContainer.addControl(routingRenpam[i]); 
+                                                    // mapContainer.addControl(routingRenpam4[i]); 
                                                 }else{ 
-                                                    mapContainer.removeControl(routingRenpam[i]);  
+                                                    mapContainer.removeControl(routingRenpam4[i]);  
                                                 }
                                                 
                                                 
