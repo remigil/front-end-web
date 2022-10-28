@@ -913,7 +913,7 @@
             fetch('<?php echo base_url()?>dataVendor/gpsId.json')
             .then((response) => response.json())
             .then((ress) => {
-                console.log(ress[0].VehicleNumber);
+                // console.log(ress[0].VehicleNumber);
                 var validasiId = dummyIdKendaraanGpsId.filter(function(val) {
                     return val == ress[0].VehicleId;
                 });
@@ -1622,35 +1622,46 @@
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
-            let noDepan = noTelp.substring(0, 2);
-            if (noDepan === "62") {
-                noTelp = noTelp;
-            } else if (noDepan === "08") {
-                noTelp = "62" + noTelp.substring(1);
-            } else if (noDepan === "+6") {
-                noTelp = noTelp.substring(1);
-            } else {
-                noTelp = noTelp;
-            }
-
-            if(statusEncrypt == 'no-encrypt'){
-                sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
+            
+            if(noTelp != null){
+                let noDepan = noTelp.substring(0, 2);
+                if (noDepan === "62") {
+                    noTelp = noTelp;
+                } else if (noDepan === "08") {
+                    noTelp = "62" + noTelp.substring(1);
+                } else if (noDepan === "+6") {
+                    noTelp = noTelp.substring(1);
+                } else {
+                    noTelp = noTelp;
+                }
+    
+                if(statusEncrypt == 'no-encrypt'){
+                    sendNotifZ = `onClick="sendZoomNonEncrypt('${officer_id}')"`;
+                }else{
+                    sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
+                }
+                return `  
+                    <div class="text-center">
+                        <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
+                            <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
+                        </a>
+                        <a href="tel:+${noTelp}" target="_blank">
+                            <img src="https://img.icons8.com/color/48/000000/phone.png" style="width: 35px;height: 35px"/>
+                        </a>
+                        <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
+                            <i class="fa  fas fa-video "></i>
+                        </a> 
+                    </div>
+                `
             }else{
-                sendNotifZ = `onClick="sendZoom('${officer_id}')"`;
+                return `  
+                    <div class="text-center"> 
+                        <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
+                            <i class="fa  fas fa-video "></i>
+                        </a> 
+                    </div>
+                `
             }
-            return `  
-                <div class="text-center">
-                    <a href="https://api.whatsapp.com/send?phone=${noTelp}" target="_blank">
-                        <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
-                    </a>
-                    <a href="tel:+${noTelp}" target="_blank">
-                        <img src="https://img.icons8.com/color/48/000000/phone.png" style="width: 35px;height: 35px"/>
-                    </a>
-                    <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
-                        <i class="fa  fas fa-video "></i>
-                    </a> 
-                </div>
-            `
         }
 
         function togglePress(e) {
@@ -1709,7 +1720,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
+            // console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
@@ -2112,7 +2123,7 @@
                     var ressTroublespot = result['data']['troublespot'];
                     var ressSchedule = result['data']['jadwal_kegiatan'];
                     var ressOperasi = result['data']['operasi'];
-                    console.log(result);
+                    console.log(result['data']);
 
                     if(ressTurjawali && ressTurjawali.length > 0){  
                         var filterTurjawali = ressTurjawali.filter(function (e) {
@@ -2296,6 +2307,8 @@
                                     kategoriLaporan = 'Lainnya Other';
                                     iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }
+
+                                console.log('ini laporan');
 
                                 laporanClusterGroup.addLayer( markerLaporan[i] = L.marker([latitudeLapPnc,longitudeLapPnc], { icon: L.divIcon({
                                     // className: 'location-pin',
@@ -3894,8 +3907,8 @@
                                             }   
 
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
+                                                console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
                                                 $(`#listJadwalRenpamClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
-                                                    
                                                  
                                                     for (let ii = 0; ii < nameJadwalRenpam[i+1].length; ii++){
                                                         //Find index of specific object using findIndex method.    
