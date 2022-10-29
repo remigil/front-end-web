@@ -739,6 +739,9 @@
     let data = [];  
     let connected = false;  
     var socket = io('http://103.163.139.100:3005/', { 
+        transports: ['websocket'],
+        // socketRef.current = io('http://10.10.7.40:3001/', {
+        path: '/socket.io',
         query: {
  
         
@@ -3313,7 +3316,7 @@
                                                 if(el.renpams.length > 0){ 
                                                 
                                                     var sortUrutanRenpam = el.renpams.sort((a,b) => a.order_renpam + b.order_renpam);
-                                                    console.log({a:`urutan`, b:sortUrutanRenpam});
+                                                    // console.log({a:`urutan`, b:sortUrutanRenpam});
                                                     for (let i = 0; i < sortUrutanRenpam.length; i++){  
                                                     
                                                         countlistRenpam += 1;
@@ -3366,7 +3369,7 @@
                                                         dummyRenpam += `
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="form-input" name="selectRenpam" 
+                                                                    <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
                                                                     id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"  
                                                                     data-name="${sortUrutanRenpam[i]['name_renpam']}" 
                                                                     data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}' 
@@ -3406,7 +3409,7 @@
                                                         `;
                                                     }
                                                     checkboxJadwal = `
-                                                        <input type="checkbox" class="form-input" name="selectJadwalRenpam" onChange="clickJadwalRenpam()"
+                                                        <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
                                                         id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}" 
                                                         data-totaldata="${sortUrutanRenpam.length}"
                                                         >
@@ -3448,7 +3451,7 @@
                                                                         <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th>Rute</th>
+                                                                                    <th><input type="checkbox" class="checkAll${ress[m]['id']}${countlist}" name="chk[]" >Rute</th>
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
                                                                                     <th>Lokasi</th>
@@ -3472,7 +3475,7 @@
                                                 
                                             }); 
 
-
+                                         
                                             
         
                                             for (let i = 0; i < countlistRenpam; i++){ 
@@ -3912,10 +3915,30 @@
                                                     }else{ 
                                                     }
                                                 });
+
+                                                
                                             }   
 
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
-                                                console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
+                                                // console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
+                                                alert(`${ress[m]['id']}${i+1}`);
+                                                $(`.checkAll${ress[m]['id']}${i+1}`).on("change", function (e) { 
+                                                    var checkboxes = $(`.checkRenpam`);
+                                                    if($(this).is(':checked')){  
+                                                        for (var i = 0; i < checkboxes.length; i++) {
+                                                            if (checkboxes[i].type == 'checkbox' ) {
+                                                                checkboxes[i].checked = true;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        for (var i = 0; i < checkboxes.length; i++) {
+                                                            if (checkboxes[i].type == 'checkbox') {
+                                                                checkboxes[i].checked = false;
+                                                            }
+                                                        }
+                                                    }
+                                                    alert(`checkAll${ress[m]['id']}${i+1}`);
+                                                });
                                                  
                                                 $(`#listJadwalRenpamClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                  
@@ -4932,6 +4955,8 @@
             } 
         });
 
+
+        
         
 
         $('#myModalPetugas').on('shown.bs.modal', function(event) { 
