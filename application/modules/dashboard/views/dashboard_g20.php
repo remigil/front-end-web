@@ -789,11 +789,12 @@
     var dummyIdTurjawali = new Array();
 
     var dummyIdKendaraanGpsId= new Array();
-    var autoGpsId;
-    
+    var autoGpsId; 
 
     $(document).ready(function() {  
 
+
+        
 
         var initialCenter = [-8.751740, 115.149643];
         var initialZoom = 11.65;
@@ -2873,10 +2874,7 @@
             }
             
             serverSideFilter(); 
-        });
-
-
-
+        }); 
         
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
@@ -3087,6 +3085,7 @@
         // var dummyDataJadwal = [];
         var openMyModalFilter = false;
         $('#myModalFilter').on('shown.bs.modal', function(e) {  
+            
             if(openMyModalFilter == false){
                 openMyModalFilter = true;
                 let countlistCategori = 0;
@@ -3203,6 +3202,8 @@
                         var countlistCategoriByCateg = 0;
                         var listCategoriByCateg = ""; 
 
+                        
+
 
                         for (let m = 0; m < ress.length; m++){
                             $(`#openCateg${ress[m]['id']}`).on('click', function(e) {
@@ -3262,6 +3263,7 @@
                                             var route4 = []; 
         
                                         
+                                            
                                             ressJadwalId.forEach(el => {
         
                                                 $(`#totalCategJadwal${ress[m]['id']}`).html(ressJadwalId.length);
@@ -3310,30 +3312,32 @@
 
                                                 if(el.renpams.length > 0){ 
                                                 
-                                                    for (let i = 0; i < el.renpams.length; i++){  
+                                                    var sortUrutanRenpam = el.renpams.sort((a,b) => a.order_renpam + b.order_renpam);
+                                                    console.log({a:`urutan`, b:sortUrutanRenpam});
+                                                    for (let i = 0; i < sortUrutanRenpam.length; i++){  
                                                     
                                                         countlistRenpam += 1;
 
                                                         checkedRenpam1.push({
-                                                            name_renpam : el.renpams[i]['name_renpam'],
+                                                            name_renpam : sortUrutanRenpam[i]['name_renpam'],
                                                             checked : 0,
                                                         }); 
 
-                                                        dummyName.push(el.renpams[i]['name_renpam']);
-                                                        dummyType.push(el.renpams[i]['type_renpam']);
-                                                        dummyAwal.push(el.renpams[i]['awal_renpam']);
-                                                        dummyAkhir.push(el.renpams[i]['akhir_renpam']);
+                                                        dummyName.push(sortUrutanRenpam[i]['name_renpam']);
+                                                        dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                                        dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
+                                                        dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
         
                                                         nameJadwalRenpam[countlist] = dummyName;
                                                         typeJadwalRenpam[countlist] = dummyType; 
                                                         awalJadwalRenpam[countlist] = dummyAwal; 
                                                         akhirJadwalRenpam[countlist] = dummyAkhir; 
         
-                                                        dummy.push(el.renpams[i]['route']); 
-                                                        dummy1.push(el.renpams[i]['route_alternatif_1']); 
-                                                        dummy2.push(el.renpams[i]['route_alternatif_2']); 
-                                                        dummy3.push(el.renpams[i]['route_masyarakat']); 
-                                                        dummy4.push(el.renpams[i]['route_umum']); 
+                                                        dummy.push(sortUrutanRenpam[i]['route']); 
+                                                        dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']); 
+                                                        dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']); 
+                                                        dummy3.push(sortUrutanRenpam[i]['route_masyarakat']); 
+                                                        dummy4.push(sortUrutanRenpam[i]['route_umum']); 
         
                                                         dummyJadwalRenpam[countlist] = dummy; 
                                                         dummyJadwalRenpamAlter[countlist] = dummy1; 
@@ -3342,8 +3346,8 @@
                                                         dummyJadwalRenpamAlterrrr[countlist] = dummy4;
 
                                                         var dataAccounts;
-                                                        if(el.renpams[i]['accounts'].length > 0){ 
-                                                            dataAccounts = el.renpams[i]['accounts'];
+                                                        if(sortUrutanRenpam[i]['accounts'].length > 0){ 
+                                                            dataAccounts = sortUrutanRenpam[i]['accounts'];
                                                         }else{
                                                             dataAccounts = [];
                                                         }
@@ -3351,9 +3355,9 @@
                                                         // console.log(dummyJadwalRenpam);
 
                                                         var dataVIP = '';
-                                                        if(el.renpams[i]['vips'].length > 0){ 
-                                                            for (let ii = 0; ii < el.renpams[i]['vips'].length; ii++){  
-                                                                dataVIP += `${el.renpams[i]['vips'][ii]['name_vip']} - (${el.renpams[i]['vips'][ii]['country_arrival_vip']}),`;
+                                                        if(sortUrutanRenpam[i]['vips'].length > 0){ 
+                                                            for (let ii = 0; ii < sortUrutanRenpam[i]['vips'].length; ii++){  
+                                                                dataVIP += `${sortUrutanRenpam[i]['vips'][ii]['name_vip']} - (${sortUrutanRenpam[i]['vips'][ii]['country_arrival_vip']}),`;
                                                             }
                                                         }else{
                                                             dataVIP = '-';
@@ -3364,20 +3368,21 @@
                                                                 <td>
                                                                     <input type="checkbox" class="form-input" name="selectRenpam" 
                                                                     id="listRenpamModalClick${ress[m]['id']}${countlistRenpam}"  
-                                                                    data-name="${el.renpams[i]['name_renpam']}" 
-                                                                    data-cord='${JSON.stringify(el.renpams[i]['route'])}' 
-                                                                    data-cord1='${JSON.stringify(el.renpams[i]['route_alternatif_1'])}' 
-                                                                    data-cord2='${JSON.stringify(el.renpams[i]['route_alternatif_2'])}' 
-                                                                    data-cord3='${JSON.stringify(el.renpams[i]['route_masyarakat'])}' 
-                                                                    data-cord4='${JSON.stringify(el.renpams[i]['route_umum'])}' 
-                                                                    data-type="${el.renpams[i]['type_renpam']}" 
-                                                                    data-awal="${el.renpams[i]['title_start']}" 
-                                                                    data-akhir="${el.renpams[i]['title_end']}"> 
+                                                                    data-name="${sortUrutanRenpam[i]['name_renpam']}" 
+                                                                    data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}' 
+                                                                    data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}' 
+                                                                    data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}' 
+                                                                    data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}' 
+                                                                    data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}' 
+                                                                    data-type="${sortUrutanRenpam[i]['type_renpam']}" 
+                                                                    data-awal="${sortUrutanRenpam[i]['title_start']}" 
+                                                                    data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
+                                                                   
                                                                 </td>
                                                                 <td>${i+1}</td> 
                                                                 <td>${dataVIP}</td>
-                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${el.renpams[i]['id']}" target="_blank">${el.renpams[i]['title_start']} Ke ${el.renpams[i]['title_end']}</a></td>
-                                                                <td>${el.renpams[i]['start_time'] != null ? el.renpams[i]['start_time'].substr(0, 5) : '-'}</td> 
+                                                                <td><a href="<?= base_url()?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
+                                                                <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
                                                                 <td>
                                                                     <a class="btn" 
                                                                         data-accounts='${JSON.stringify(dataAccounts)}'
@@ -3389,9 +3394,9 @@
                                                                 <td> 
                                                                     <a class="btn" href="javascripte:void(0);"
                                                                         style="font-size: 16px;"  
-                                                                        data-idnote="${el.renpams[i]['id']}" 
-                                                                        data-note="${el.renpams[i]['note_kakor']}"
-                                                                        data-status="${el.renpams[i]['status_renpam']}"
+                                                                        data-idnote="${sortUrutanRenpam[i]['id']}" 
+                                                                        data-note="${sortUrutanRenpam[i]['note_kakor']}"
+                                                                        data-status="${sortUrutanRenpam[i]['status_renpam']}"
                                                                         data-accounts='${JSON.stringify(dataAccounts)}'
                                                                         title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                                                         <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
@@ -3403,7 +3408,7 @@
                                                     checkboxJadwal = `
                                                         <input type="checkbox" class="form-input" name="selectJadwalRenpam" onChange="clickJadwalRenpam()"
                                                         id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}" 
-                                                        data-totaldata="${el.renpams.length}"
+                                                        data-totaldata="${sortUrutanRenpam.length}"
                                                         >
                                                     `;
                                                      
@@ -3909,10 +3914,6 @@
                                                 });
                                             }   
 
-                                            function clickJadwalRenpam(){
-                                                alert();
-                                            }
-
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
                                                 console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
                                                  
@@ -4388,6 +4389,8 @@
                                 // }
                             }); 
                         } 
+
+                        
 
                         $(`#openUraianNonKegiatan`).on('click', function(e) { 
                             $.ajax({
@@ -4919,7 +4922,9 @@
                             });
                         });
                         
-                    
+                        function clickJadwalRenpam(){
+                            alert('ido');
+                        }
                     }
                 });
 
@@ -6216,6 +6221,7 @@
         serverSideGet();
     });
 
+    
 
     $(".formR").submit(function(e) {
         $("#overlay").fadeIn(300);
