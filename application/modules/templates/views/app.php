@@ -891,6 +891,13 @@
                                                 </a>
                                             </li>
 
+                                            <li>
+                                                <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
+                                                </a>
+                                            </li>
+
                                         <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
                                             <li>
