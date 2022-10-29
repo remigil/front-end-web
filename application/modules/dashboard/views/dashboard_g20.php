@@ -3431,7 +3431,7 @@
                                                                     
                                                                         <div  style="display: flex; font-size: 12px; position: absolute;">
                                                                             ${checkboxJadwal}
-                                                                            ${ress[m]['id']}${countlistCategoriByCateg}
+                                                                        
                                                                             <a class="btn" style="display: flex;margin-top: 2px;"
                                                                                 id="listJadwalClick${ress[m]['id']}${countlist}"   
                                                                                 data-alamat="${el.address_schedule}"  
@@ -3923,7 +3923,7 @@
                                             }   
 
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
-                                                console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`); 
+                                                // console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`); 
                                                 $(`.checkAll${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                     var checkboxes = $(`.checkRenpam`);
                                                     if($(this).is(':checked')){  
