@@ -804,12 +804,7 @@
                                                 </a>
                                             </li>
 
-                                            <li>
-                                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard">BodyCam</span>
-                                                </a>
-                                            </li>
+                                            
 
                                             <li>
                                                 <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
@@ -895,6 +890,13 @@
                                                 <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>masterdata/bodycam">
+                                                    <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">BodyCam</span>
                                                 </a>
                                             </li>
 
