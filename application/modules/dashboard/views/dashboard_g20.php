@@ -3184,9 +3184,9 @@
                                         <div class="accordion-body text-muted">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                        <div class="accordion accordion-flush listJadwalbyCateg${ress[i]['id']}" id="accordionFlushExampleByCateg${ress[i]['id']}">
-                                
-                                                        </div> 
+                                                    <div class="accordion accordion-flush listJadwalbyCateg${ress[i]['id']}" id="accordionFlushExampleByCateg${ress[i]['id']}">
+                            
+                                                    </div> 
                                                 </div> 
                                             </div>
                                         </div>
@@ -3210,6 +3210,8 @@
 
                         for (let m = 0; m < ress.length; m++){
                             $(`#openCateg${ress[m]['id']}`).on('click', function(e) {
+
+                                countlistCategoriByCateg = 0;
                                 // if(openGet1 == false){
                                     $("#overlay").fadeIn(300);
                                     // openGet1 = true;
@@ -3429,6 +3431,7 @@
                                                                     
                                                                         <div  style="display: flex; font-size: 12px; position: absolute;">
                                                                             ${checkboxJadwal}
+                                                                            ${ress[m]['id']}${countlistCategoriByCateg}
                                                                             <a class="btn" style="display: flex;margin-top: 2px;"
                                                                                 id="listJadwalClick${ress[m]['id']}${countlist}"   
                                                                                 data-alamat="${el.address_schedule}"  
@@ -3451,7 +3454,7 @@
                                                                         <table style="font-size: 10px" id="datatableByCateg${ress[m]['id']}${countlist}" class="table dt-responsive w-100">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th><input type="checkbox" class="checkAll${ress[m]['id']}${countlist}" name="chk[]" >Rute</th>
+                                                                                    <th>Rute</th>
                                                                                     <th>No</th>
                                                                                     <th>Negara</th>
                                                                                     <th>Lokasi</th>
@@ -3920,8 +3923,7 @@
                                             }   
 
                                             for (let i = 0; i < ressJadwalId.length; i++){ 
-                                                // console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`);
-                                                alert(`${ress[m]['id']}${i+1}`);
+                                                console.log(`listJadwalRenpamClick${ress[m]['id']}${i+1}`); 
                                                 $(`.checkAll${ress[m]['id']}${i+1}`).on("change", function (e) { 
                                                     var checkboxes = $(`.checkRenpam`);
                                                     if($(this).is(':checked')){  
