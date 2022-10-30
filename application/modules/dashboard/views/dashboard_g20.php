@@ -1727,7 +1727,7 @@
             // }
         }) 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track from Soket ini Nama Petugas: ${ress.name_officer}`);
+            console.log(`get Track Nama Petugas: ${ress.name_officer} - ${ress.type_vehicle}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
