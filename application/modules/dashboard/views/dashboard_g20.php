@@ -228,7 +228,7 @@
         </div>
         <div id="mapG20Dashboard">
         <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */"> 
-            <img src="<?= base_url()?>assets/legenda_web.png" style="width: 15vw;"/>
+            <img src="<?= base_url()?>assets/legenda_web.png" style="width: 12vw;"/>
             </div>
         </div>
     </div>
@@ -674,6 +674,107 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- MODAL FOR FILTER -->
+<div class="modal right fade" id="myModalPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPetugasDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalPetugasDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="myModalFasumKhususDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelFasumKhususDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelFasumKhususDisplay">Fasilitas Khusus</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalFasumKhususDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalFasumKhususDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalClusterDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelClusterDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelClusterDisplay">Cluster</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalClusterDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalClusterDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalGpsIdDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelGpsIdDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelGpsIdDisplay">Kendaraan Listrik</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalGpsIdDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalGpsIdDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalJadwalDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelJadwalDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelJadwalDisplay">Jadwal Kegiatan</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalJadwalDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalJadwalDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalCctvDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelCctvDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelCctvDisplay">CCTV</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalCctvDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalCctvDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalLaporanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelLaporanDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelLaporanDisplay">Laporan Operasi</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalLaporanDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalLaporanDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPanicDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPanicDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPanicDisplay">Panic Button</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPanicDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalPanicDisplay" style="width: 500px;">  
+            </div>
+        </div>
+    </div>
+</div>
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" ></script>
@@ -1088,6 +1189,7 @@
             if($(this).is(':checked')){ 
                 $("#gpsId").prop('checked', true); 
                 autoGpsId = setInterval(gpsId, 5000); 
+                // $("#myModalGpsIdDisplay").modal('show');
             }else{
                 $("#gpsId").prop('checked', false); 
                 $("#gpsId").val(); 
@@ -1107,6 +1209,9 @@
             
             let countlist = 0;
             let list = "";
+
+            let countlistDisplay = 0;
+            let listDisplay = ""; 
             let countlistCar = 0;
             let listCar = ""; 
             let countlistBike = 0;
@@ -1130,6 +1235,22 @@
                     var jenis = '';
                     var bendera = '';
  
+
+                    $('#openModalPetugasDisplay').html(`
+                        <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th> 
+                                    <th>Delegasi</th> 
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="isiModalPetugasDisplay">
+                            </tbody>
+                        </table>                     
+                    `);
+                    $('#totalPetugasDisplay').html(ress.length);
                     if (ress.length > 0) {    
                         for (let i = 0; i < ress.length; i++) {   
 
@@ -1340,7 +1461,60 @@
                                 });    
                             }
                         
+
+
+                            let nomorDepan1 = ress[i].handphone.substring(0, 2);
+                            var iniNomor;
+                            if (nomorDepan1 === "62") {
+                                iniNomor = ress[i].handphone;
+                            } else if (nomorDepan1 === "08") {
+                                iniNomor = "62" + ress[i].handphone.substring(1);
+                            } else if (nomorDepan1 === "+6") {
+                                iniNomor = ress[i].handphone.substring(1);
+                            } else {
+                                iniNomor = ress[i].handphone;
+                            }
+                            countlistDisplay += 1;
+                            listDisplay += `  
+                                <tr>
+                                    <td> ${countlistDisplay}</td>
+                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${ress[i].rank_officer ? ress[i].rank_officer : '' } - ${ress[i].name_officer}</a></td>
+                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${ress[i].name_country ? ress[i].name_country : '-'} </a></td>
+                                    <td> 
+                                        <div style="display: flex;">
+                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                                <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                                </a>
+                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${ress[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                    id="listPetugasClickCar${countlistDisplay}"   
+                                                    data-nama="${ress[i].name_team}"  
+                                                    data-akun="${ress[i].name_account}" 
+                                                    data-nrp="${ress[i].nrp_user}"
+                                                    data-telp="${iniNomor}"
+                                                    data-cord="${ress[i].latitude},${ress[i].longitude}" >
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </button>
+                                                <div class="switch" style="margin-left: -11px;">
+                                                    <input class="flag" type="checkbox" id="flagCar${countlistDisplay}" 
+                                                    data-id="${ress[i].id_officer}"  
+                                                    data-nama="${ress[i].name_team}"  
+                                                    data-akun="${ress[i].name_account}" 
+                                                    data-nrp="${ress[i].nrp_user}"
+                                                    data-telp="${iniNomor}"
+                                                    data-cord="${ress[i].latitude},${ress[i].longitude}"
+                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                    <label for="flagCar${countlistDisplay}"></label>
+                                                </div>
+                                            </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalPetugasDisplay').html(listDisplay);  
                         } 
+
+                        $('#datatablePetugasOnDisplay').DataTable();
 
                         tablePutugasTrack = `
                             <div class="accordion-item">
@@ -2364,7 +2538,9 @@
         $("#turjawaliDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#turjawali").prop('checked', true);  
+                $("#myModalPetugasDisplay").modal('show');
                 serverSideGet();
+                // alert('openPetugas ON');
             }else{
                 $("#turjawali").prop('checked', false); 
                 $("#turjawali").val();  
@@ -2373,7 +2549,11 @@
                 } 
                 markerArray = new Array();   
             } 
-        }); 
+        });  
+
+        $('#myModalPetugasDisplay').on('shown.bs.modal', function(e) {  
+            
+        });
 
         var centerMap = mapContainer.getCenter();
         var centerLat = centerMap['lat'];
@@ -2645,6 +2825,23 @@
                         });  
 
                         if(filterCctv.length > 0){  
+                            $('#openModalCctvDisplay').html(`
+                                <table id="datatableCctvOnDisplay" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Delegasi</th> 
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalCctvDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countCctvDisplay = 0;
+                            var listCctvDisplay = '';
+                            
                             for (let i = 0; i < filterCctv.length; i++) {     
                                 id = i;  
                                 var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
@@ -3239,42 +3436,49 @@
 
             if($("#cctv").is(':checked')){ 
                 $("#cctvDisplay").prop('checked', true); 
+                // $("#myModalCctvDisplay").modal('show');
             }else{
                 $("#cctvDisplay").prop('checked', false); 
                 $("#cctvDisplay").val();
             }
             if($("#fasum_khusus").is(':checked')){ 
                 $("#fasumKhususDisplay").prop('checked', true); 
+                // $("#myModalFasumKhususDisplay").modal('show');
             }else{
                 $("#fasumKhususDisplay").prop('checked', false); 
                 $("#fasumKhususDisplay").val();
             }
             if($("#cluster").is(':checked')){ 
                 $("#clusterDisplay").prop('checked', true); 
+                // $("#myModalClusterDisplay").modal('show');
             }else{
                 $("#clusterDisplay").prop('checked', false); 
                 $("#clusterDisplay").val();
             }
             if($("#jadwal").is(':checked')){ 
                 $("#kegiatanDisplay").prop('checked', true); 
+                // $("#myModalJadwalDisplay").modal('show');
             }else{
                 $("#kegiatanDisplay").prop('checked', false); 
                 $("#kegiatanDisplay").val();
             }
             if($("#panic").is(':checked')){ 
                 $("#panicDisplay").prop('checked', true); 
+                // $("#myModalPanicDisplay").modal('show');
             }else{
                 $("#panicDisplay").prop('checked', false); 
                 $("#panicDisplay").val();
             }
             if($("#operasi").is(':checked')){ 
                 $("#operasiDisplay").prop('checked', true); 
+                // $("#myModalLaporanDisplay").modal('show');
             }else{
                 $("#operasiDisplay").prop('checked', false); 
                 $("#operasiDisplay").val();
             } 
             if($("#gpsId").is(':checked')){ 
                 $("#gpsIdDisplay").prop('checked', true); 
+                // $("#myModalGpsIdDisplay").modal('show');
                 autoGpsId = setInterval(gpsId, 5000); 
             }else{
                 $("#gpsIdDisplay").prop('checked', false); 
@@ -3290,9 +3494,22 @@
             serverSideFilter(); 
         }); 
         
+
+
+        $("#fasumKhususDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                $("#fasum_khusus").prop('checked', true); 
+                // $("#myModalFasumKhususDisplay").modal('show');
+            }else{
+                $("#fasum_khusus").prop('checked', false); 
+                $("#fasum_khusus").val();
+            }
+            serverSideFilter();
+        }); 
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#jadwal").prop('checked', true); 
+                // $("#myModalJadwalDisplay").modal('show');
             }else{
                 $("#jadwal").prop('checked', false); 
                 $("#jadwal").val();
@@ -3302,6 +3519,7 @@
         $("#cctvDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#cctv").prop('checked', true); 
+                // $("#myModalCctvDisplay").modal('show');
             }else{
                 $("#cctv").prop('checked', false); 
                 $("#cctv").val();
@@ -3311,6 +3529,7 @@
         $("#clusterDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#cluster").prop('checked', true); 
+                // $("#myModalClusterDisplay").modal('show');
             }else{
                 $("#cluster").prop('checked', false); 
                 $("#cluster").val();
@@ -3320,6 +3539,7 @@
         $("#panicDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#panic").prop('checked', true); 
+                // $("#myModalPanicDisplay").modal('show');
             }else{
                 $("#panic").prop('checked', false); 
                 $("#panic").val();
@@ -3329,6 +3549,7 @@
         $("#operasiDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#operasi").prop('checked', true); 
+                // $("#myModalLaporanDisplay").modal('show');
             }else{
                 $("#operasi").prop('checked', false); 
                 $("#operasi").val();
