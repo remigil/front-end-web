@@ -1219,14 +1219,30 @@
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                             </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
                                             <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                                <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                            </div>  
+                                            
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span style="font-size: 12px;">${ress[i].pam_officer}</span>
                                             </div>  
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                             </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
                                             <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                                <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
 
                                             <div class="col-md-12 text-center  mt-3">
@@ -1273,14 +1289,30 @@
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                             </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                            </div>  
+                                           
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div> 
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress[i].pam_officer}</span>
                                             </div>  
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div> 
+                                            <div class="col-md-1">
+                                                :
                                             </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
 
                                             <div class="col-md-12 text-center  mt-3">
@@ -1438,6 +1470,16 @@
                         });
           
                         filterPetugasCar.forEach(el => { 
+                            let nomorDepan = el.handphone.substring(0, 2);
+                            if (nomorDepan === "62") {
+                                el.handphone = el.handphone;
+                            } else if (nomorDepan === "08") {
+                                el.handphone = "62" + el.handphone.substring(1);
+                            } else if (nomorDepan === "+6") {
+                                el.handphone = el.handphone.substring(1);
+                            } else {
+                                el.handphone = el.handphone;
+                            }
                             countlistCar += 1;
                             listCar += `  
                                 <tr>
@@ -1447,7 +1489,9 @@
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                
+                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                                </a>
                                                 <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                                 <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                     id="listPetugasClickCar${countlistCar}"   
@@ -1503,6 +1547,16 @@
 
 
                         filterPetugasBike.forEach(el => { 
+                            let nomorDepan = el.handphone.substring(0, 2);
+                            if (nomorDepan === "62") {
+                                el.handphone = el.handphone;
+                            } else if (nomorDepan === "08") {
+                                el.handphone = "62" + el.handphone.substring(1);
+                            } else if (nomorDepan === "+6") {
+                                el.handphone = el.handphone.substring(1);
+                            } else {
+                                el.handphone = el.handphone;
+                            }
                             countlistBike += 1;
                             listBike += `  
                                 <tr>
@@ -1512,7 +1566,9 @@
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                
+                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                    <i class="fab fa-telegram"></i>
+                                                </a>
                                                 <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                                 <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                     id="listPetugasClickBike${countlistBike}"   
@@ -1567,6 +1623,16 @@
 
 
                         filterPetugasNon.forEach(el => { 
+                            let nomorDepan = el.handphone.substring(0, 2);
+                            if (nomorDepan === "62") {
+                                el.handphone = el.handphone;
+                            } else if (nomorDepan === "08") {
+                                el.handphone = "62" + el.handphone.substring(1);
+                            } else if (nomorDepan === "+6") {
+                                el.handphone = el.handphone.substring(1);
+                            } else {
+                                el.handphone = el.handphone;
+                            }
                             countlistNon += 1;
                             listNon += `  
                                 <tr>
@@ -1576,7 +1642,9 @@
                                     <td> 
                                         <div style="display: flex;">
                                                 <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                
+                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                                </a>
                                                 <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                                 <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                     id="listPetugasClickNon${countlistNon}"   
@@ -1672,6 +1740,9 @@
                         </a>
                         <a href="tel:+${noTelp}" target="_blank">
                             <img src="https://img.icons8.com/color/48/000000/phone.png" style="width: 35px;height: 35px"/>
+                        </a>
+                        <a href="https://t.me/+${noTelp}" target="_blank">
+                            <img src="https://img.icons8.com/3d-fluency/100/000000/telegram.png" style="width: 35px;height: 35px"/>
                         </a>
                         <a class="btn" style="color: #495057;" href="https://bit.ly/k3izoom" ${sendNotifZ} target="_blank">
                             <i class="fa  fas fa-video "></i>
@@ -1909,14 +1980,29 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                                :
+                                            </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                                :
+                                            </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                        </div>  
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                                :
+                                            </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                            <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
                                         
 
@@ -1964,15 +2050,30 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                        </div> 
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
         
                                         <div class="col-md-12 text-center  mt-3">
@@ -2125,14 +2226,30 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                        </div> 
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
                                         </div> 
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                            <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
                                         
 
@@ -2180,15 +2297,30 @@
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                         </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
 
                                         <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                        </div> 
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
         
                                         <div class="col-md-12 text-center  mt-3">
