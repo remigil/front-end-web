@@ -1233,7 +1233,7 @@
                                                 :
                                             </div>
                                             <div class="col-md-8">
-                                                <span style="font-size: 12px;">${ress[i].pam_officer}</span>
+                                                <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
                                             </div>  
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
@@ -1303,7 +1303,7 @@
                                                 :
                                             </div>
                                             <div class="col-md-7">
-                                                <span style="font-size: 12px;">${ress[i].pam_officer}</span>
+                                                <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
                                             </div>  
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
@@ -1993,7 +1993,7 @@
                                                 :
                                             </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div>  
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
@@ -2064,7 +2064,7 @@
                                             :
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
@@ -2240,7 +2240,7 @@
                                             :
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
@@ -2311,7 +2311,7 @@
                                             :
                                         </div>
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">${ress.pam_officer}</span>
+                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
