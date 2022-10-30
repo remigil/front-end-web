@@ -115,6 +115,13 @@ class M_akun extends CI_Model
             $row['id']    =  $no++;
             $row['name_account']    = ''.$field['name_account'].''; 
 
+            if($field['country'] != null){
+                $delegasi = $field['country']['name_country'];
+            }else{
+                $delegasi = '-';
+            }
+            $row['delegasi']    = ''.$delegasi.''; 
+
             if($field['officers'] != null){
                 $petugas = '';
                 foreach  ($field['officers'] as $fieldPetugas) { 

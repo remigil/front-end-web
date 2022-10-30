@@ -16,6 +16,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Akun</th>
+                        <th>Delegasi Akun</th>
                         <!-- <th>Phone Akun</th> -->
                         <!-- <th>Polres</th> -->
                         <th>Ketua TIM</th>
@@ -266,6 +267,10 @@
                 },
                 {
                     data: 'name_account'
+                },
+                {
+                    data: 'delegasi',
+                    orderable: false
                 },
                 // {
                 //     data: 'vip'
