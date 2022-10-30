@@ -869,7 +869,7 @@
                                             <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung</li>
                                             <li>
                                                 <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
-                                                    <i data-feather="grid"></i>
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">ERI</span>
                                                 </a>
                                             </li>
@@ -888,7 +888,7 @@
 
                                             <li>
                                                 <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
-                                                    <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
                                                 </a>
                                             </li>
