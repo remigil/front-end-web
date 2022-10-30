@@ -3297,7 +3297,7 @@
                                 markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
                                             color: 'red',
                                             // fillColor: '#f03',
-                                            fillOpacity: 0.2
+                                            fillOpacity: 0.1
                                         }).bindPopup(`
                                         <div class="text-center" style="width: 300px;"> 
                                             <div class="row mt-3"> 
