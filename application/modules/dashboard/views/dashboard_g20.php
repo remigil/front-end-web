@@ -1790,7 +1790,7 @@
         }); 
 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track Nama Petugas: ${ress.name_officer} - ${ress.type_vehicle}`);
+            console.log(`get Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
@@ -2006,7 +2006,7 @@
         
         }); 
         socketKe2.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track Nama Petugas: ${ress.name_officer} - ${ress.type_vehicle}`);
+            console.log(`get Track Nama Petugas: A. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
             // console.log(ress); 
             var flagVip = ''; 
             var iconflagVip = '';
