@@ -934,6 +934,15 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         }); 
+        var gl = L.mapboxGL({
+            accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+            style: 'mapbox://styles/mapbox/traffic-day-v2'
+        });
+
+        var trafficMutant = L.gridLayer.googleMutant({
+          maxZoom: 24,
+          type: "hybrid",
+        }).addGoogleLayer("TrafficLayer");
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
@@ -941,7 +950,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid]
+            layers: [trafficMutant]
         }).setView(initialCenter, initialZoom); 
 
         var markerClusterGroup = L.markerClusterGroup(); 
@@ -956,6 +965,8 @@
             "Google Map Satelite": googleSatelite,
             "Google Map Hybrid": googleHybrid,
             "Google Map Terrain": googleTerrain,
+            "Google Map Hybrid Traffic": trafficMutant,
+            "MappBox Traffic": gl,
         };
         var overlayMaps = {};
         L.control.layers(baseMaps, overlayMaps, {
