@@ -751,6 +751,19 @@
             type: "Admin"
         }
     });
+    var socketKe2 = io('http://103.163.139.100:3001/', { 
+        transports: ['websocket'],
+        // socketRef.current = io('http://10.10.7.40:3001/', {
+        path: '/socket.io',
+        query: {
+ 
+        
+            username: "Kakor",
+            password: "a",
+            
+            type: "Admin"
+        }
+    });
     var socketGps = io('http://gps-so.korlantaspolri.id');
 
     // console.log({a:'ini soket' ,b:socket});
@@ -855,6 +868,11 @@
     
         socket.on("connected", function(resSocket){
             console.log(socket.id);
+            console.log(resSocket);
+            console.log('ido1');
+        });
+        socketKe2.on("connected", function(resSocket){
+            console.log(socketKe2.id);
             console.log(resSocket);
             console.log('ido1');
         });
@@ -1725,8 +1743,269 @@
                 `).addTo(mapContainer);    
                 }
             // }
-        }) 
+        }); 
+        socketKe2.on('from server', function(ress) { 
+            console.log('ido2'); 
+            console.log(ress) 
+
+            // for (let i = 0; i < ress.length; i++) {  
+                if(markerArray[ress.id_officer] != null){ 
+                markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    className: 'location-pin',
+                    html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                    iconSize: [30, 30],
+                    //iconAnchor: [18, 30]
+                    iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">
+                        <div class="card-block">
+                            <a class="avatar avatar-lg" href="javascript:void(0)">
+                                <img src="-" alt="Logo">
+                            </a>
+                            <h4 class="profile-user">-</h4>
+                            <h5 class="profile-user">-</h5>
+                        </div> 
+                    </div>
+                `).update();  
+                }else{ 
+                markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                    className: 'location-pin',
+                    html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
+                    iconSize: [30, 30],
+                    //iconAnchor: [18, 30]
+                    iconAnchor: [10, 33]
+                    }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;">
+                        <div class="card-block">
+                            <a class="avatar avatar-lg" href="javascript:void(0)">
+                                <img src="-" alt="Logo">
+                            </a>
+                            <h4 class="profile-user">-</h4>
+                            <h5 class="profile-user">-</h5>
+                        </div> 
+                    </div>
+                `).addTo(mapContainer);    
+                }
+            // }
+        }); 
+
         socket.on('sendToAdminMobile', function(ress) { 
+            console.log(`get Track Nama Petugas: ${ress.name_officer} - ${ress.type_vehicle}`);
+            // console.log(ress); 
+            var flagVip = ''; 
+            var iconflagVip = '';
+             
+            // console.log(result); 
+
+            var cordLat = parseFloat(ress.latitude); 
+            var corLong = parseFloat(ress.longitude); 
+            var bendera = '';
+            var jenis = ''; 
+
+
+            var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
+                return val == ress.id_officer;
+            });
+            if(validasiIdTurjal > 0){ 
+                // console.log('id sudah ada');
+            }else{ 
+                dummyIdTurjawali.push(ress.id_officer);
+                // console.log('id tidak ada');
+            }   
+
+
+            // for (let i = 0; i < ress.length; i++) {  
+    
+                    
+                // if(ress.type_vehicle == 'Sepeda Motor'){
+                //     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                //     jenis = `<img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+                // }else if(ress.type_vehicle == 'Mobil'){
+                //     jenis = `<img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+                // }else{
+                //     // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                //     jenis = `<img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">`;
+                // } 
+                
+                
+             
+                    if(flagVip != ''){
+                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
+                    }else{
+                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px; width: 25px;height: 25px;"></div>`;
+                    }
+
+                    jenis = '';
+                    if(ress.type_vehicle == 'Sepeda Motor'){
+                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                        jenis = `
+                        <div>
+                            <div style="position: relative;">
+                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            ${iconflagVip}
+                            <div style="position: absolute;margin-top: -7px;">
+                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else if(ress.type_vehicle == 'Mobil'){
+                        jenis = `
+                        <div>
+                            <div style="position: relative;">
+                            <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            ${iconflagVip}
+                            <div style="position: absolute;margin-top: -7px;">
+                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else{
+                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                        jenis = `
+                        <div>
+                            <div style="position: relative;">
+                            <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            ${iconflagVip}
+                            <div style="position: absolute;margin-top: -7px;">
+                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }
+
+                    if(ress.photo_officer || ress.photo_officer != null){
+                        fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress.photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                    }else{
+                        fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
+                    }
+                
+                    if(ress.name_country){
+                        bendera = `${ress.name_country}`;
+
+                        fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress.name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                    }else{
+                        bendera = `-`;
+                        fotoBendera = ``;
+                    }
+                  
+                    if(markerArray[ress.id_officer] != null){ 
+                        markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            //   className: 'location-pin',
+                            html: jenis,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                            <div class="text-center" style="width: 300px;"> 
+                                <div class="row mt-3"> 
+                                    <div class="col-md-12">
+                                        ${fotoBendera}
+                                    </div>
+                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
+                                </div>
+    
+    
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                        </div> 
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                        </div> 
+                                        
+
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                        </div> 
+                                    </div>  
+                                
+                            </div>
+                        `).update().on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getAddres", 
+                                data : {
+                                    "lat" : e.latlng['lat'],
+                                    "lng" : e.latlng['lng'],
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){  
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
+                        });    
+                    }else{ 
+                        markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            //   className: 'location-pin',
+                            html: jenis,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                            <div class="text-center" style="width: 300px;"> 
+                                <div class="row mt-3"> 
+                                    <div class="col-md-12">
+                                        ${fotoBendera}
+                                    </div>
+                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+                                </div>
+    
+    
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress.rank_officer} - ${ress.name_officer}</span>
+                                        </div> 
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${bendera}</span>
+                                        </div> 
+        
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                        </div> 
+                                    </div>  
+                                
+                            </div>
+                        `).addTo(mapContainer).on('click', function(e) {
+                            // console.log(e.latlng);
+                            $.ajax({
+                                type : "POST",
+                                url : "<?php echo base_url();?>dashboard/getAddres", 
+                                data : {
+                                    "lat" : e.latlng['lat'],
+                                    "lng" : e.latlng['lng'],
+                                }, 
+                                dataType : "JSON",
+                                success : function(result){  
+                                    // console.log(result['responseMessage']);
+                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                }
+                            });
+                        });     
+                    } 
+            
+
+            // } 
+                 
+        
+        }); 
+        socketKe2.on('sendToAdminMobile', function(ress) { 
             console.log(`get Track Nama Petugas: ${ress.name_officer} - ${ress.type_vehicle}`);
             // console.log(ress); 
             var flagVip = ''; 
