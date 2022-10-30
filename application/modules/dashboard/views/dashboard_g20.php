@@ -1189,7 +1189,7 @@
             if($(this).is(':checked')){ 
                 $("#gpsId").prop('checked', true); 
                 autoGpsId = setInterval(gpsId, 5000); 
-                // $("#myModalGpsIdDisplay").modal('show');
+                $("#myModalGpsIdDisplay").modal('show');
             }else{
                 $("#gpsId").prop('checked', false); 
                 $("#gpsId").val(); 
@@ -1488,7 +1488,7 @@
                                                 </a>
                                                 <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${ress[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                                 <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickCar${countlistDisplay}"   
+                                                    id="listPetugasClickDisplay${countlistDisplay}"   
                                                     data-nama="${ress[i].name_team}"  
                                                     data-akun="${ress[i].name_account}" 
                                                     data-nrp="${ress[i].nrp_user}"
@@ -1497,7 +1497,7 @@
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                 </button>
                                                 <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagCar${countlistDisplay}" 
+                                                    <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
                                                     data-id="${ress[i].id_officer}"  
                                                     data-nama="${ress[i].name_team}"  
                                                     data-akun="${ress[i].name_account}" 
@@ -1505,7 +1505,7 @@
                                                     data-telp="${iniNomor}"
                                                     data-cord="${ress[i].latitude},${ress[i].longitude}"
                                                     data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagCar${countlistDisplay}"></label>
+                                                    <label for="flagDisplay${countlistDisplay}"></label>
                                                 </div>
                                             </div> 
                                     </td>
@@ -1514,6 +1514,26 @@
                             $('#isiModalPetugasDisplay').html(listDisplay);  
                         } 
 
+                        for (let i = 0; i < ress.length; i++){ 
+                            $(`#listPetugasClickDisplay${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);    
+                            });
+
+                            $(`#flagDisplay${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagDisplay${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickDisplay${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickDisplay${i+1}`).show();
+                                }
+                            }); 
+                        } 
                         $('#datatablePetugasOnDisplay').DataTable();
 
                         tablePutugasTrack = `
@@ -2630,6 +2650,8 @@
             }
         });
 
+        
+
         function serverSideFilter(){
             // userDataTable.draw();
 
@@ -2830,9 +2852,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Type</th> 
                                             <th>Nama</th> 
-                                            <th>Delegasi</th> 
-                                            <th></th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="isiModalCctvDisplay">
@@ -2841,8 +2863,29 @@
                             `);
                             var countCctvDisplay = 0;
                             var listCctvDisplay = '';
+                            $('#totalCctvDisplay').html(filterCctv.length);
                             
-                            for (let i = 0; i < filterCctv.length; i++) {     
+                            for (let i = 0; i < filterCctv.length; i++) {  
+                                countCctvDisplay += 1;
+                                listCctvDisplay += `
+                                    <tr>
+                                        <td>${countCctvDisplay}</td>
+                                        <td><a href="<?= base_url()?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
+                                        <td>${filterCctv[i].vms_cctv}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterCctv${countCctvDisplay}"
+                                                data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalCctvDisplay').html(listCctvDisplay); 
+
+                                
+
                                 id = i;  
                                 var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
                                 var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
@@ -2875,9 +2918,22 @@
                                     `,{minWidth : 100,maxWidth : 560,width : 400})
                                 );
                             }
+
+                            $('#datatableCctvOnDisplay').DataTable();  
+                            for (let i = 0; i < countCctvDisplay; i++) { 
+                                $(`#flyToMapFilterCctv${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 20); 
+                                });
+                            }
                             mapContainer.addLayer(cctvClusterGroup);
                         }
                     } 
+
+
+                    
 
                     if(ressLAP && ressLAP.length > 0){  
                         var filterLaporan = ressLAP.filter(function (e) {
@@ -2886,7 +2942,43 @@
 
  
                         if(filterLaporan.length > 0){  
-                            for (let i = 0; i < filterLaporan.length; i++) {     
+                            $('#openModalLaporanDisplay').html(`
+                                <table id="datatableLaporanOnDisplay" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Code</th> 
+                                            <th>Nama Petugas</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalLaporanDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countLaporanDisplay = 0;
+                            var listLaporanDisplay = '';
+                            $('#totalLaporanDisplay').html(filterLaporan.length);
+
+                            for (let i = 0; i < filterLaporan.length; i++) {    
+                                countLaporanDisplay += 1;
+                                listLaporanDisplay += `
+                                    <tr>
+                                        <td>${countLaporanDisplay}</td>
+                                        <td><a href="<?= base_url()?>laporan/operasi/Detail/${filterLaporan[i].id}" target="_blank">${filterLaporan[i].code}</a></td> 
+                                        <td>${filterLaporan[i].officer.name_officer}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterLaporan${countLaporanDisplay}"
+                                                data-cord="${filterLaporan[i].coordinate.latitude},${filterLaporan[i].coordinate.longitude}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalLaporanDisplay').html(listLaporanDisplay); 
+
                                 id = i;  
                                 var latitudeLapPnc = parseFloat(filterLaporan[i].coordinate.latitude);
                                 var longitudeLapPnc = parseFloat(filterLaporan[i].coordinate.longitude); 
@@ -2932,7 +3024,7 @@
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
                                     }) }).bindPopup(`
-                                    <div style="width: 300px;">
+                                    <div>
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
                                                 <a href="<?php echo url_api()?>/laporan/${filterLaporan[i].foto}" target="_blank"><img src="<?php echo url_api()?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
@@ -2973,13 +3065,23 @@
                                                 <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
                                             </div>  
                                             <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description} </span> 
+                                                <span style="font-size: 12px;"> : ${filterLaporan[i].description.replace(/\n/g, "<br />")} </span> 
                                             </div>  
                                         </div> 
                                     </div>
                                         
                                 `,{minWidth : 100,maxWidth : 560,width : 400}) 
                                 ); 
+                            }
+
+                            $('#datatableLaporanOnDisplay').DataTable();  
+                            for (let i = 0; i < countLaporanDisplay; i++) { 
+                                $(`#flyToMapFilterLaporan${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 20); 
+                                });
                             }
                             mapContainer.addLayer(laporanClusterGroup);
                         }
@@ -2992,7 +3094,45 @@
                         });   
                         
                         if(filterLaporanPanic.length > 0){  
-                            for (let i = 0; i < filterLaporanPanic.length; i++) {     
+
+                            $('#openModalPanicDisplay').html(`
+                                <table id="datatablePanicOnDisplay" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode</th> 
+                                            <th>Nama Petugas</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPanicDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPanicDisplay = 0;
+                            var listPanicDisplay = '';
+                            $('#totalPanicDisplay').html(filterLaporanPanic.length);
+
+                            for (let i = 0; i < filterLaporanPanic.length; i++) {  
+                                
+                                countPanicDisplay += 1;
+                                listPanicDisplay += `
+                                    <tr>
+                                        <td>${countPanicDisplay}</td>
+                                        <td><a href="<?= base_url()?>laporan/panic/Detail/${filterLaporanPanic[i].id}" target="_blank">${filterLaporanPanic[i].code}</a></td> 
+                                        <td>${filterLaporanPanic[i].officer.name_officer}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterPanic${countPanicDisplay}"
+                                                data-cord="${filterLaporanPanic[i].coordinate.latitude},${filterLaporanPanic[i].coordinate.longitude}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalPanicDisplay').html(listPanicDisplay); 
+
                                 id = i;  
                                 var latitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.latitude);
                                 var longitudeLapPnc = parseFloat(filterLaporanPanic[i].coordinate.longitude); 
@@ -3000,22 +3140,22 @@
 
                                 if(filterLaporanPanic[i].categori == 1){
                                     kategoriLaporan = 'Tindakan Kriminal';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kriminal.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 2){
                                     kategoriLaporan = 'Kecelakaan Lalu Lintas';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 3){
                                     kategoriLaporan = 'Bencana Alam';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - bencana alam.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 4){
                                     kategoriLaporan = 'Kemacetan';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else if(filterLaporanPanic[i].categori == 99){
                                     kategoriLaporan = 'Lainnya';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }else{
                                     kategoriLaporan = 'Lainnya Other';
-                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 22px; margin-top: -45px;margin-left: -18.5px;">`;
+                                    iconLapPanic = `<img src="<?php echo base_url();?>assets/icon/panic button - kecelakaan.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`;
                                 }
 
                                 if(filterLaporanPanic[i].status == 0 || filterLaporanPanic[i].status == null){
@@ -3087,13 +3227,23 @@
                                                 <span style="font-size: 12px;font-weight: bold;"> Deskripsi</span> 
                                             </div>  
                                             <div class="col-md-7">  
-                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description} </span> 
+                                                <span style="font-size: 12px;"> : ${filterLaporanPanic[i].description != null ? filterLaporanPanic[i].description.replace(/\n/g, "<br />") : '-'} </span> 
                                             </div>  
                                         </div> 
                                     </div>
                                         
                                 `,{minWidth : 100,maxWidth : 560,width : 400}) 
                                 );
+                            }
+
+                            $('#datatablePanicOnDisplay').DataTable();  
+                            for (let i = 0; i < countPanicDisplay; i++) { 
+                                $(`#flyToMapFilterPanic${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 20); 
+                                });
                             }
                             mapContainer.addLayer(panicClusterGroup);
                         }
@@ -3104,15 +3254,50 @@
                     if(ressCluster && ressCluster.length > 0){  
                         var logoMarker = '';
                         var logoBody = '';
+                        $('#openModalClusterDisplay').html(`
+                            <table id="datatableClusterOnDisplay" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Radius</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalClusterDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countClusterDisplay = 0;
+                        var listClusterDisplay = '';
+                        $('#totalClusterDisplay').html(ressCluster.length);
+
                         for (let i = 0; i < ressCluster.length; i++) {  
-                            
+                            countClusterDisplay += 1;
+                            listClusterDisplay += `
+                                <tr>
+                                    <td>${countClusterDisplay}</td>
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum/radius" target="_blank">${ressCluster[i].fasum_name}</a></td> 
+                                    <td>${ressCluster[i].fasum_radius} Kilometer</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterCluster${countClusterDisplay}"
+                                            data-cord="${ressCluster[i].fasum_lat},${ressCluster[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalClusterDisplay').html(listClusterDisplay); 
+
                                 var latitudeCluster = parseFloat(ressCluster[i].fasum_lat);
                                 var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
                                 var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1 ;
                                 markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
                                             color: 'red',
-                                            fillColor: '#f03',
-                                            fillOpacity: 0.5
+                                            // fillColor: '#f03',
+                                            fillOpacity: 0.2
                                         }).bindPopup(`
                                         <div class="text-center" style="width: 300px;"> 
                                             <div class="row mt-3"> 
@@ -3138,13 +3323,59 @@
                                         </div> 
                                 `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
                         }
+
+                        $('#datatableClusterOnDisplay').DataTable();  
+                        for (let i = 0; i < countClusterDisplay; i++) { 
+                            $(`#flyToMapFilterCluster${i+1}`).on("click", function (e) {  
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);  
+                                mapContainer.flyTo([latitude, longitude], 14); 
+                            });
+                        }
                         
                     }
 
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
+                        $('#openModalFasumKhususDisplay').html(`
+                            <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalFasumKhususDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countFasumKhususDisplay = 0;
+                        var listFasumKhususDisplay = '';
+                        $('#totalFasumKhususDisplay').html(ressFasumKhusus.length);
+
                         var logoMarker = '';
                         var logoBody = '';
                         for (let i = 0; i < ressFasumKhusus.length; i++) {  
+                            countFasumKhususDisplay += 1;
+                            listFasumKhususDisplay += `
+                                <tr>
+                                    <td>${countFasumKhususDisplay}</td>
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressFasumKhusus[i].fasum_name}</a></td> 
+                                    <td>${ressFasumKhusus[i].fasum_address}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterFasumKhusus${countFasumKhususDisplay}"
+                                            data-cord="${ressFasumKhusus[i].fasum_lat},${ressFasumKhusus[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalFasumKhususDisplay').html(listFasumKhususDisplay); 
+
                             if(ressFasumKhusus[i].fasum_type == 1){
                                 logoMarker = `hotel.png`;
                                 logoBody = `hotel.png`;
@@ -3235,6 +3466,16 @@
                                         </div> 
                                 `,{minWidth : 100,maxWidth : 560,width : 400})
                                 );  
+                        }
+
+                        $('#datatableFasumKhususOnDisplay').DataTable();  
+                        for (let i = 0; i < countFasumKhususDisplay; i++) { 
+                            $(`#flyToMapFilterFasumKhusus${i+1}`).on("click", function (e) {  
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);  
+                                mapContainer.flyTo([latitude, longitude], 17); 
+                            });
                         }
                         mapContainer.addLayer(fasumKhususClusterGroup);
                     }
@@ -3327,8 +3568,43 @@
                         });   
                         // console.log(filterSchedule); 
                         if(filterSchedule.length > 0){  
+                            $('#openModalJadwalDisplay').html(`
+                            <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Tanggal</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalJadwalDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countJadwalDisplay = 0;
+                        var listJadwalDisplay = '';
+                        $('#totalJadwalDisplay').html(ressSchedule.length);
+
                             for (var i = 0; i < filterSchedule.length; i++) {   
-                                
+                                countJadwalDisplay += 1;
+                                listJadwalDisplay += `
+                                    <tr>
+                                        <td>${countJadwalDisplay}</td>
+                                        <td><a href="<?= base_url()?>operasi/Kegiatan/Detail/${filterSchedule[i].id}" target="_blank">${filterSchedule[i].activity}</a></td> 
+                                        <td>${filterSchedule[i].date_schedule}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterJadwal${countJadwalDisplay}"
+                                                data-cord="${filterSchedule[i].coordinate_schedule}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalJadwalDisplay').html(listJadwalDisplay); 
+
                                 var cordinateJadwal = filterSchedule[i].coordinate_schedule;
                                 var latlongJadwal =  cordinateJadwal.split(',');
                                 var latitudeJadwal = parseFloat(latlongJadwal[0]);
@@ -3415,6 +3691,16 @@
                                     `,{minWidth : 100,maxWidth : 560,width : 400})
                                     ); 
                             }
+
+                            $('#datatableJadwalOnDisplay').DataTable();  
+                            for (let i = 0; i < countJadwalDisplay; i++) { 
+                                $(`#flyToMapFilterJadwal${i+1}`).on("click", function (e) {  
+                                    var latlong =  $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);  
+                                    mapContainer.flyTo([latitude, longitude], 20); 
+                                });
+                            }
                             mapContainer.addLayer(jadwalClusterGroup);
                         }
                     }   
@@ -3499,7 +3785,7 @@
         $("#fasumKhususDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#fasum_khusus").prop('checked', true); 
-                // $("#myModalFasumKhususDisplay").modal('show');
+                $("#myModalFasumKhususDisplay").modal('show');
             }else{
                 $("#fasum_khusus").prop('checked', false); 
                 $("#fasum_khusus").val();
@@ -3509,7 +3795,7 @@
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#jadwal").prop('checked', true); 
-                // $("#myModalJadwalDisplay").modal('show');
+                $("#myModalJadwalDisplay").modal('show');
             }else{
                 $("#jadwal").prop('checked', false); 
                 $("#jadwal").val();
@@ -3519,7 +3805,7 @@
         $("#cctvDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#cctv").prop('checked', true); 
-                // $("#myModalCctvDisplay").modal('show');
+                $("#myModalCctvDisplay").modal('show');
             }else{
                 $("#cctv").prop('checked', false); 
                 $("#cctv").val();
@@ -3529,7 +3815,7 @@
         $("#clusterDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#cluster").prop('checked', true); 
-                // $("#myModalClusterDisplay").modal('show');
+                $("#myModalClusterDisplay").modal('show');
             }else{
                 $("#cluster").prop('checked', false); 
                 $("#cluster").val();
@@ -3539,7 +3825,7 @@
         $("#panicDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#panic").prop('checked', true); 
-                // $("#myModalPanicDisplay").modal('show');
+                $("#myModalPanicDisplay").modal('show');
             }else{
                 $("#panic").prop('checked', false); 
                 $("#panic").val();
@@ -3549,7 +3835,7 @@
         $("#operasiDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#operasi").prop('checked', true); 
-                // $("#myModalLaporanDisplay").modal('show');
+                $("#myModalLaporanDisplay").modal('show');
             }else{
                 $("#operasi").prop('checked', false); 
                 $("#operasi").val();
