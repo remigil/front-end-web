@@ -2930,8 +2930,9 @@
                                 );
                             }
 
-                            $('#datatableCctvOnDisplay').DataTable();  
+                             
                             for (let i = 0; i < countCctvDisplay; i++) { 
+                                console.log(`${i+1}`);
                                 $(`#flyToMapFilterCctv${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
                                     var latitude = parseFloat(latlong[0]);
@@ -2939,6 +2940,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
+                            $('#datatableCctvOnDisplay').DataTable(); 
                             mapContainer.addLayer(cctvClusterGroup);
                         }
                     } 
@@ -3085,7 +3087,7 @@
                                 ); 
                             }
 
-                            $('#datatableLaporanOnDisplay').DataTable();  
+                             
                             for (let i = 0; i < countLaporanDisplay; i++) { 
                                 $(`#flyToMapFilterLaporan${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
@@ -3094,6 +3096,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
+                            $('#datatableLaporanOnDisplay').DataTable(); 
                             mapContainer.addLayer(laporanClusterGroup);
                         }
 
@@ -3247,7 +3250,7 @@
                                 );
                             }
 
-                            $('#datatablePanicOnDisplay').DataTable();  
+                            
                             for (let i = 0; i < countPanicDisplay; i++) { 
                                 $(`#flyToMapFilterPanic${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
@@ -3256,6 +3259,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
+                            $('#datatablePanicOnDisplay').DataTable();  
                             mapContainer.addLayer(panicClusterGroup);
                         }
  
@@ -3336,7 +3340,7 @@
                                 `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer); 
                         }
 
-                        $('#datatableClusterOnDisplay').DataTable();  
+                       
                         for (let i = 0; i < countClusterDisplay; i++) { 
                             $(`#flyToMapFilterCluster${i+1}`).on("click", function (e) {  
                                 var latlong =  $(this).data('cord').split(',');
@@ -3345,7 +3349,7 @@
                                 mapContainer.flyTo([latitude, longitude], 14); 
                             });
                         }
-                        
+                        $('#datatableClusterOnDisplay').DataTable();  
                     }
 
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
@@ -3480,7 +3484,7 @@
                                 );  
                         }
 
-                        $('#datatableFasumKhususOnDisplay').DataTable();  
+                         
                         for (let i = 0; i < countFasumKhususDisplay; i++) { 
                             $(`#flyToMapFilterFasumKhusus${i+1}`).on("click", function (e) {  
                                 var latlong =  $(this).data('cord').split(',');
@@ -3489,6 +3493,7 @@
                                 mapContainer.flyTo([latitude, longitude], 17); 
                             });
                         }
+                        $('#datatableFasumKhususOnDisplay').DataTable(); 
                         mapContainer.addLayer(fasumKhususClusterGroup);
                     }
 
@@ -3704,7 +3709,7 @@
                                     ); 
                             }
 
-                            $('#datatableJadwalOnDisplay').DataTable();  
+                             
                             for (let i = 0; i < countJadwalDisplay; i++) { 
                                 $(`#flyToMapFilterJadwal${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
@@ -3713,6 +3718,7 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
+                            $('#datatableJadwalOnDisplay').DataTable(); 
                             mapContainer.addLayer(jadwalClusterGroup);
                         }
                     }   
