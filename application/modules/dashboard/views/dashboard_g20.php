@@ -944,6 +944,11 @@
           type: "hybrid",
         }).addGoogleLayer("TrafficLayer");
 
+        var trafficMutantRoad = L.gridLayer.googleMutant({
+          maxZoom: 24,
+          type: "roadmap",
+        }).addGoogleLayer("TrafficLayer");
+
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
             maxZoom: 20,
@@ -965,6 +970,7 @@
             "Google Map Satelite": googleSatelite,
             "Google Map Hybrid": googleHybrid,
             "Google Map Terrain": googleTerrain,
+            "Google Map Street Traffic": trafficMutantRoad,
             "Google Map Hybrid Traffic": trafficMutant,
             "MappBox Traffic": gl,
         };
