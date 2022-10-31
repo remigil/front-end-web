@@ -1327,13 +1327,13 @@
                                 // console.log(`ga ada foto`);
                             }
 
-                            if(ress[i].name_country != '-' || ress[i].name_country != null){
+                            if(ress[i].name_country || ress[i].name_country != '-' || ress[i].name_country != null){
                                 bendera = `${ress[i].name_country}`;
                             }else{
                                 bendera = `-`; 
                             }
 
-                            if(ress[i].photo_country != '-' || ress[i].photo_country != null){ 
+                            if(ress[i].photo_country || ress[i].photo_country != '-' || ress[i].photo_country != null){ 
                                 fotoBendera = `<img src="${ress[i].photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
                             }else{ 
                                 fotoBendera = ``;
@@ -2165,12 +2165,17 @@
                         fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                     }
                 
-                    if(ress.name_country){
-                        bendera = `${ress.name_country}`;
+                    
 
-                        fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress.name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                    if(ress.name_country || ress.name_country != '-' || ress.name_country != null){
+                        bendera = `${ress.name_country}`;
                     }else{
-                        bendera = `-`;
+                        bendera = `-`; 
+                    }
+
+                    if(ress.photo_country || ress.photo_country != '-' || ress.photo_country != null){ 
+                        fotoBendera = `<img src="${ress.photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                    }else{ 
                         fotoBendera = ``;
                     }
                   
@@ -2411,12 +2416,15 @@
                         fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                     }
                 
-                    if(ress.name_country){
+                    if(ress.name_country || ress.name_country != '-' || ress.name_country != null){
                         bendera = `${ress.name_country}`;
-
-                        fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress.name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
                     }else{
-                        bendera = `-`;
+                        bendera = `-`; 
+                    }
+
+                    if(ress.photo_country || ress.photo_country != '-' || ress.photo_country != null){ 
+                        fotoBendera = `<img src="${ress.photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                    }else{ 
                         fotoBendera = ``;
                     }
                   
