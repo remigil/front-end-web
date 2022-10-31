@@ -84,15 +84,16 @@ class LaporanMasyarakat extends MY_Controller
         $url = '';
 
 
-        $max_loop = count($this->input->post('polres_id'));
+        $max_loop = count($this->input->post('polda_id'));
 
         if ($jenis_laporan == 1) {
             // Data Dakgar lantas
 
-            $url = 'laporan_masyarakat/giat_prokes?polda=true';
+            $url = 'laporan_masyarakat/giat_prokes';
             for ($i = 0; $i < $max_loop; $i++) {
                 $object = (object) [
-                    'polres_id' => $this->input->post('polres_id')[$i],
+                    'polda_id' => $this->input->post('polda_id')[$i],
+                    'date' => $date,
                     'tegur_prokes' => $this->input->post('tegur_prokes')[$i],
                     'masker' => $this->input->post('masker')[$i],
                     'sosial_prokes' => $this->input->post('sosial_prokes')[$i],
@@ -118,10 +119,9 @@ class LaporanMasyarakat extends MY_Controller
         ];
 
 
+
         $data = guzzle_request('POST', $url, [
             'json' => [
-                'polda_id' => $polda_id,
-                'date' => $date,
                 'value' => $value
             ],
             'headers' => $headers
@@ -160,8 +160,78 @@ class LaporanMasyarakat extends MY_Controller
         echo json_encode($results);
     }
 
-    public function storePolres()
-    {
-        echo 'ok';
-    }
+    // public function storePolda()
+    // {
+
+    //     $headers = [
+    //         'Authorization' => $this->session->userdata['token'],
+    //     ];
+
+    //     $polda_id = $this->input->post('polda_id');
+    //     $date = $this->input->post('date');
+    //     $polres_id = $this->input->post('polres_id');
+    //     $jenis_laporan = $this->input->post('jenis_laporan');
+    //     $value = [];
+    //     $url = '';
+
+
+    //     $max_loop = count($this->input->post('polres_id'));
+
+    //     if ($jenis_laporan == 1) {
+    //         // Data Dakgar lantas
+
+    //         $url = 'laporan_masyarakat/giat_prokes?polda=true';
+    //         for ($i = 0; $i < $max_loop; $i++) {
+    //             $object = (object) [
+    //                 'polres_id' => $this->input->post('polres_id')[$i],
+    //                 'tegur_prokes' => $this->input->post('tegur_prokes')[$i],
+    //                 'masker' => $this->input->post('masker')[$i],
+    //                 'sosial_prokes' => $this->input->post('sosial_prokes')[$i],
+    //                 'baksos' => $this->input->post('baksos')[$i],
+    //             ];
+    //             array_push($value, $object);
+    //         }
+    //     }
+
+    //     $dummy = [
+    //         [
+    //             'name' => 'polda_id',
+    //             'contents' => $polda_id
+    //         ],
+    //         [
+    //             'name' => 'date',
+    //             'contents' => $date
+    //         ],
+    //         [
+    //             'name' => 'value',
+    //             'contents' => $value
+    //         ]
+    //     ];
+
+
+    //     $data = guzzle_request('POST', $url, [
+    //         'json' => [
+    //             'polda_id' => $polda_id,
+    //             'date' => $date,
+    //             'value' => $value
+    //         ],
+    //         'headers' => $headers
+    //     ]);
+
+    //     if ($data['isSuccess'] == true) {
+    //         $res = array(
+    //             'status' => true,
+    //             'message' => 'Berhasil tambah data.',
+    //             'data' => $data
+    //         );
+    //     } else {
+    //         $res = array(
+    //             'status' => false,
+    //             'message' => 'Gagal tambah data.',
+    //             'data' => $data
+    //         );
+    //     }
+
+    //     echo json_encode($res);
+    // }
 }
