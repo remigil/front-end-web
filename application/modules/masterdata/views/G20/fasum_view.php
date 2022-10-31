@@ -839,14 +839,14 @@
             success: function(results) {
 				console.log(results);
 
-                // var fotoFas = '';
-                // if(results.fasum_logo != null){
-                //     fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
-                // }else{
-                //     fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
-                // }
-                // $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				// $('.dropify').dropify(); 
+                var fotoFas = '';
+                if(results.fasum_logo != null){
+                    fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
+                }else{
+                    fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
+                }
+                $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
+				$('.dropify').dropify(); 
 
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
