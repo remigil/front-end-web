@@ -85,6 +85,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"> 
+
     <style>
         .animateLine {
             stroke-dasharray: 10;
@@ -519,6 +523,54 @@
                 background : #1d1d1d !important ;
             }
         <?php } ?>
+
+
+
+
+
+        /* @import "compass/css3"; */
+
+        .hide{
+            display: none;
+        }
+
+        .table-editable {
+        position: relative;
+        
+        .glyphicon {
+            font-size: 20px;
+        }
+        }
+
+        .table-remove {
+        color: #700;
+        cursor: pointer;
+        
+        &:hover {
+            color: #f00;
+        }
+        }
+
+        .table-up, .table-down {
+        color: #007;
+        cursor: pointer;
+        
+        &:hover {
+            color: #00f;
+        }
+        }
+
+        .table-add {
+        color: #070;
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 0;
+        
+        &:hover {
+            color: #0b0;
+        }
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -779,6 +831,7 @@
                                                     <li><a href="<?php echo base_url(); ?>laporan/Operasi" data-key="t-register">Kegiatan</a></li>
                                                     <li><a href="<?php echo base_url(); ?>laporan/Panic" data-key="t-login">Panic Button</a></li>
                                                     <li><a href="<?php echo base_url(); ?>laporan/Harian" data-key="t-login">Laporan Harian</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>laporan/Anev" data-key="t-login">Laporan Anev</a></li>
                                                 </ul>
                                             </li>
                                             <!-- <li>
@@ -962,6 +1015,15 @@
                                                     <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Harian</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
                                                 </ul>
+                                            </li>
+
+                                        <?php } elseif ($this->session->userdata['role'] == 'ITDC') { ?>
+
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>dashboard">
+                                                    <i data-feather="grid"></i>
+                                                    <span data-key="t-dashboard">Dashboard</span>
+                                                </a>
                                             </li>
 
                                         <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
@@ -1649,6 +1711,12 @@
 
                         <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
                         <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
+
+
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+                        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+                        <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
 
                         <?php echo $js ?>
 
