@@ -1334,7 +1334,7 @@
                             }
 
                             if(ress[i].photo_country || ress[i].photo_country != '-' || ress[i].photo_country != null){ 
-                                fotoBendera = `<img src="${ress[i].photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                                fotoBendera = `<img src="${ress[i].photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
                             }else{ 
                                 fotoBendera = ``;
                             }
@@ -2174,7 +2174,7 @@
                     }
 
                     if(ress.photo_country || ress.photo_country != '-' || ress.photo_country != null){ 
-                        fotoBendera = `<img src="${ress.photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                        fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
                     }else{ 
                         fotoBendera = ``;
                     }
@@ -2423,7 +2423,7 @@
                     }
 
                     if(ress.photo_country || ress.photo_country != '-' || ress.photo_country != null){ 
-                        fotoBendera = `<img src="${ress.photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                        fotoBendera = `<img src="${ress.photo_country}" alt="" style="width: 20%;margin-bottom: 10px;">`;
                     }else{ 
                         fotoBendera = ``;
                     }
