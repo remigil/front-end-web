@@ -1327,11 +1327,15 @@
                                 // console.log(`ga ada foto`);
                             }
 
-                            if(ress[i].name_country){
+                            if(ress[i].name_country != null){
                                 bendera = `${ress[i].name_country}`;
-                                fotoBendera = `<img src="<?php echo base_url();?>assets/icon/flags/4x3/${ress[i].name_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
                             }else{
-                                bendera = `-`;
+                                bendera = `-`; 
+                            }
+
+                            if(ress[i].photo_country != null){ 
+                                fotoBendera = `<img src="<?php echo url_api();?>country/${ress[i].photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                            }else{ 
                                 fotoBendera = ``;
                             }
 
@@ -1360,7 +1364,7 @@
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
                                             </div>  
                                             
@@ -1370,7 +1374,7 @@
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
                                             </div>  
                                             <div class="col-md-4">
@@ -1379,7 +1383,7 @@
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
 
@@ -2194,7 +2198,7 @@
                                         <div class="col-md-1">
                                                 :
                                             </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
                                         <div class="col-md-4">
@@ -2203,7 +2207,7 @@
                                         <div class="col-md-1">
                                                 :
                                             </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div>  
                                         <div class="col-md-4">
@@ -2212,7 +2216,7 @@
                                         <div class="col-md-1">
                                                 :
                                             </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
                                         
@@ -2264,7 +2268,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
 
@@ -2274,7 +2278,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
@@ -2283,7 +2287,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
         
@@ -2440,7 +2444,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
 
@@ -2450,7 +2454,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
@@ -2459,7 +2463,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
                                         
@@ -2511,7 +2515,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                         </div> 
 
@@ -2521,7 +2525,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
                                         </div> 
                                         <div class="col-md-4">
@@ -2530,7 +2534,7 @@
                                         <div class="col-md-1">
                                             :
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
         
