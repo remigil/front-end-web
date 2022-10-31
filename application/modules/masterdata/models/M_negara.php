@@ -113,6 +113,13 @@ class M_negara extends CI_Model {
             $row = array();   
 			// $row ['id']	=  $field['id']; 
             $row ['id']	=  $no++; 
+            
+            if($field['photo_country'] != null){
+                $row ['photo_country'] = '<img src="'.url_api().'fasum_khusus/'.$field['photo_country'].'" alt="" class="rounded-circle avatar-md">';  
+            }else{
+                $row ['photo_country'] = '<img src="'.base_url().'assets/no_image.png" alt="" class="rounded-circle avatar-md">'; 
+            }
+
             $row ['name_country']	= $field['name_country'];  
 
             if($field['status_country'] == 1){

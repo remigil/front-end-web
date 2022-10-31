@@ -15,6 +15,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Gambar</th>
                         <th>Jenis Negara / Organisasi</th> 
                         <th>Status</th>
                         <th>Aksi</th>
@@ -146,6 +147,8 @@
             columns: [ 
 
                 { data: 'id'}, 
+
+                { data: 'photo_country'},
 
                 { data: 'name_country'},
 
