@@ -1327,14 +1327,14 @@
                                 // console.log(`ga ada foto`);
                             }
 
-                            if(ress[i].name_country != null){
+                            if(ress[i].name_country != '-' || ress[i].name_country != null){
                                 bendera = `${ress[i].name_country}`;
                             }else{
                                 bendera = `-`; 
                             }
 
-                            if(ress[i].photo_country != null){ 
-                                fotoBendera = `<img src="<?php echo url_api();?>country/${ress[i].photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
+                            if(ress[i].photo_country != '-' || ress[i].photo_country != null){ 
+                                fotoBendera = `<img src="${ress[i].photo_country}.svg" alt="" style="width: 20%;margin-bottom: 10px;">`;
                             }else{ 
                                 fotoBendera = ``;
                             }
