@@ -38,6 +38,9 @@
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data"> 
                     <div class="material-textfield mb-3">
+                        <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg svg" /> 
+                    </div>
+                    <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="name" placeholder="" type="text">
                         <label class="labelmui">Jenis Negara / Organisasi</label>
                     </div> 
@@ -61,6 +64,8 @@
 
 <script>
     $(document).ready(function() {
+
+        $('.dropify').dropify();
         // $('#datatable').DataTable();
         var userDataTable = $('#datatable').DataTable({ 
 

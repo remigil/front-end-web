@@ -51,16 +51,36 @@ class Negara extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'name_country',
-                'contents' => $input['name'],
-            ],
-            [
-                'name' => 'status_country',
-                'contents' => $input['status'],
-            ] 
-        ];
+        if($_FILES['photo']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
+            $dummy = [
+				[
+					'name' => 'photo_country',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				],
+                [
+                    'name' => 'name_country',
+                    'contents' => $input['name'],
+                ],
+                [
+                    'name' => 'status_country',
+                    'contents' => $input['status'],
+                ] 
+            ];
+        }else{
+            $dummy = [
+                [
+                    'name' => 'name_country',
+                    'contents' => $input['name'],
+                ],
+                [
+                    'name' => 'status_country',
+                    'contents' => $input['status'],
+                ] 
+            ]; 
+        }
 
         $data = guzzle_request('POST', 'country/add', [ 
             'multipart' => $dummy, 
@@ -155,16 +175,37 @@ class Negara extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $dummy = [
-            [
-                'name' => 'name_country',
-                'contents' => $input['name'],
-            ],
-            [
-                'name' => 'status_country',
-                'contents' => $input['status'],
-            ] 
-        ];
+
+        if($_FILES['photo']['name'] != null){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
+            $dummy = [
+				[
+					'name' => 'photo_country',
+					'contents' => fopen($path,'r'),
+					'filename' => $filename
+				],
+                [
+                    'name' => 'name_country',
+                    'contents' => $input['name'],
+                ],
+                [
+                    'name' => 'status_country',
+                    'contents' => $input['status'],
+                ] 
+            ];
+        }else{
+            $dummy = [
+                [
+                    'name' => 'name_country',
+                    'contents' => $input['name'],
+                ],
+                [
+                    'name' => 'status_country',
+                    'contents' => $input['status'],
+                ] 
+            ]; 
+        }
 
         $data = guzzle_request('PUT', 'country/edit/'.$input['id'].'', [ 
             'multipart' => $dummy, 

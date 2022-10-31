@@ -25,6 +25,9 @@
                 <div class="card">
                     <div class="card-body">  
                         <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg svg" data-default-file="<?php echo url_api();?>fasum_khusus/<?php echo $data['getDetail']['data']['photo_country'];?>"/> 
+                            </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="name" value="<?php echo $data['getDetail']['data']['name_country'];?>" type="text">
@@ -56,6 +59,7 @@
 
 <script>
     $(document).ready(function() {
+        $('.dropify').dropify();
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault(); 
