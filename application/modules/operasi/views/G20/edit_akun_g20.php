@@ -43,7 +43,7 @@
                                 <option selected value="">Pilih Negara Delegasi</option>
                                 <?php foreach ($data['getCountry'] as $row) : ?>
                                     <option 
-                                    <?php if($data['getDetail']['data']['id_country'] != null){?> 
+                                    <?php if($data['getDetail']['data']['country'] != null && $data['getDetail']['data']['id_country'] != null){?> 
                                         <?php echo ($row['name_country'] == $data['getDetail']['data']['country']['name_country'] ? 'selected' : '')?>
                                     <?php }?>
                                     value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
