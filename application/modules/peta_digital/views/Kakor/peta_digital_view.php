@@ -771,7 +771,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid]
+            layers: [googleStreet]
         }).setView(initialCenter, initialZoom); 
 
         var markerClusterGroup = L.markerClusterGroup(); 
