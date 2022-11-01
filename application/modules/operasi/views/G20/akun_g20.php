@@ -19,7 +19,8 @@
                         <th>Delegasi Akun</th>
                         <!-- <th>Phone Akun</th> -->
                         <!-- <th>Polres</th> -->
-                        <th>Ketua TIM</th>
+                        <!-- <th>Ketua TIM</th> -->
+                        <th>No Kendaraan</th>
                         <th>Petugas</th>
                         <!-- <th>No. Kendaraan</th> -->
                         <th>Aksi</th>
@@ -272,24 +273,25 @@
                     data: 'delegasi',
                     orderable: false
                 },
+                {
+                    data: 'vehicle',
+                    orderable: false
+                },
                 // {
                 //     data: 'vip'
                 // },
                 // {
                 //     data: 'phone_account'
                 // },
-                {
-                    data: 'leader_team',
-                    orderable: false
-                },
+                // {
+                //     data: 'leader_team',
+                //     orderable: false
+                // },
                 {
                     data: 'officers',
                     orderable: false
                 },
-                // {
-                //     data: 'vehicle',
-                //     orderable: false
-                // },
+                
 
 
                 {
