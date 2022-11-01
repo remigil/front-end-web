@@ -1,4 +1,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<div class="col-md-12"> 
+            <div style="display:flex;z-index: 999;position: absolute;">
+                <div class="dropdown d-inline-block">
+                    <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="row" style="margin-left: 0px;"> 
+                            <div class="col-md-12">
+                                <div style="display: flex;">
+                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
+                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                     
+                </div>  
+            </div>  
+            <div id="map" style="height: 500px;"></div>
+		</div>
+
+
 <!-- greetings -->
 <h5 >Welcome to Dashboard Executive</h5>
 <h1 style="font-weight:bolder ; text-transform:uppercase; color:#ECB800;">K3I KORLANTAS POLRI</h1>
@@ -404,6 +426,61 @@
     });
 
     $(document).ready(function() {
+		
+        var initialCenter = [-2.548926, 118.0148634];
+        var initialZoom = 5;
+        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        });
+        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+        }); 
+
+        // StART MAP SECTION
+        var mapContainer = L.map('map', {
+            maxZoom: 20,
+            minZoom: 1,
+            zoomSnap: 0.25,
+            zoomControl: false,
+            layers: [googleStreet]
+        }).setView(initialCenter, initialZoom);  
+
+
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        });
+                        
+                        
+        var baseMaps = {
+            "Google Map Street": googleStreet,
+            "Google Map Satelite": googleSatelite,
+            "Google Map Hybrid": googleHybrid,
+            "Google Map Terrain": googleTerrain,
+        };
+        var overlayMaps = {};
+        // L.control.layers(baseMaps, overlayMaps, {
+        //     position: 'bottomleft'
+        // }).addTo(mapContainer);
+        // L.control.zoom({
+        //     position: 'bottomright'
+        // }).addTo(mapContainer);
+    
+		
         var options_ditgakkum = {
             series: [{
                 name: 'Data Dakgar Lantas',
