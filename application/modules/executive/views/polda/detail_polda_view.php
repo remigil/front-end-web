@@ -546,13 +546,54 @@
                                         <div class="col-md-10 ">
 
                                             <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
-                                            <span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span>
+                                            <a href="<?=base_url()?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
                                         </div>
                                         <div class="col-md-2 d-flex align-items-center ms-n4">
-                                            <button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3">ERI</button>
-                                            <img height="50px" width="25px" class="" src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="">
-                                            <img height="50px" width="25px" class=" ms-3 rounded-circle  " src="<?= base_url('assets/sidebar/icon-profile-emas.svg'); ?>" alt="Header Avatar">
+										<a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button></a>
+                                            <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3">ERI</button></a>
+
+
+                                            <!-- notif -->
+											<div class="dropdown d-inline-block">
+											<button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img height="50px" width="25px" class="" src="<?= base_url('assets/sidebar/icon-notif-grey.svg') ?>" alt="">
+											</button>
+											<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                                                <div class="p-3">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <h6 class="m-0"> Notifications</h6>
+                                                        </div>
+                                                        <!-- <div class="col-auto">
+                                        <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
+                                    </div> -->
+                                                    </div>
+                                                </div>
+                                                <div id="listDataNotif">
+
+                                                </div>
+                                                <div class="p-2 border-top d-grid">
+                                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+											</div>
+
+											<!-- profil -->
+											<div class="dropdown d-inline-block">
+											<button type="button" class="btn header-item bg-soft-light  mb-4" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<img height="75px" width="35px" class=" ms-3 rounded-circle" src="<?= base_url('assets/sidebar/icon-profile-grey.svg'); ?>" alt="Header Avatar">
+
+											</button>
+											<div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
+                                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                                        	</div>
+											</div>
 
                                             <!-- </div> -->
                                             <!-- <div class="col-md-1"> -->
