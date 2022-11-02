@@ -1387,6 +1387,16 @@
                                                 <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
 
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                            ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                            </div> 
+
                                             <div class="col-md-12 text-center  mt-3">
                                                 <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
                                                 <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
@@ -1455,6 +1465,16 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${bendera}</span>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                            ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
                                             </div> 
 
                                             <div class="col-md-12 text-center  mt-3">
@@ -1498,8 +1518,8 @@
                             countlistDisplay += 1;
                             listDisplay += `  
                                 <tr>
-                                    <td> ${countlistDisplay}</td>
-                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${ress[i].rank_officer ? ress[i].rank_officer : '' } - ${ress[i].name_officer}</a></td>
+                                    <td> ${ress[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistDisplay}</span>`} </td>
+                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank">${ress[i].rank_officer ? ress[i].rank_officer : '' } - ${ress[i].name_officer}</a></td>
                                     <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${ress[i].name_country ? ress[i].name_country : '-'} </a></td>
                                     <td> 
                                         <div style="display: flex;">
@@ -1698,7 +1718,7 @@
                             countlistCar += 1;
                             listCar += `  
                                 <tr>
-                                    <td> ${countlistCar}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistCar}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistCar}</span>`}</td>
                                     <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
                                     <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
                                     <td> 
@@ -1775,7 +1795,7 @@
                             countlistBike += 1;
                             listBike += `  
                                 <tr>
-                                    <td> ${countlistBike}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistBike}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistBike}</span>`}</td>
                                     <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
                                     <td> ${el.name_country ? el.name_country : '-'}</td>
                                     <td> 
@@ -1851,7 +1871,7 @@
                             countlistNon += 1;
                             listNon += `  
                                 <tr>
-                                    <td> ${countlistNon}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistNon}</span>`}</td>
                                     <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
                                     <td> ${el.name_country ? el.name_country : '-'}</td>
                                     <td> 
@@ -2224,6 +2244,16 @@
                                         <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
                                         </div> 
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
+                                        <div class="col-md-7">
+                                            ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                        </div> 
                                         
 
                                         <div class="col-md-12 text-center  mt-3">
@@ -2294,6 +2324,16 @@
                                         </div>
                                         <div class="col-md-7">
                                             <span style="font-size: 12px;">${bendera}</span>
+                                        </div> 
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                        </div>
+                                        <div class="col-md-1">
+                                            :
+                                        </div>
+                                        <div class="col-md-7">
+                                            ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
                                         </div> 
         
                                         <div class="col-md-12 text-center  mt-3">
@@ -2950,7 +2990,7 @@
 
                              
                             for (let i = 0; i < countCctvDisplay; i++) { 
-                                console.log(`${i+1}`);
+                                // console.log(`${i+1}`);
                                 $(`#flyToMapFilterCctv${i+1}`).on("click", function (e) {  
                                     var latlong =  $(this).data('cord').split(',');
                                     var latitude = parseFloat(latlong[0]);
@@ -4066,7 +4106,7 @@
                     dataType : "JSON",
                     success : function(result){  
                         let ress = result['data'];
-                        console.log(ress); 
+                        // console.log(ress); 
                      
                         countlistCategori = 0;
                         listCategori = "";  
@@ -5919,8 +5959,8 @@
             var myAccounts = $(event.relatedTarget).data('accounts'); 
             var modal          = $(this);
 
-            console.log(myAccounts);
-
+            // console.log(myAccounts);
+            $("#overlay").fadeIn(300); 
             
 
             var isiTable = '';
@@ -5935,7 +5975,7 @@
                         dataType : "JSON",
                         success : function(result){
                             var ress = result['data'];
-                            console.log(ress['officers']);
+                            // console.log({a:'get akun Id', b:ress['officers']});
                             var getIdTracking = '';
                             for (let ii = 0; ii < ress['officers'].length; ii++){ 
                                 $.ajax({
@@ -5947,8 +5987,8 @@
                                     dataType : "JSON",
                                     success : function(result1){
                                         // console.log(result1);
-                                        if(result1['data'].length > 0){
-                                            var trackPetugas = result1['data'][0];  
+                                        if(result1['data'] != null){
+                                            var trackPetugas = result1['data'];  
                                             getIdTracking = `
                                                 <a class="btn" style="margin-top: -10px;" 
                                                     id="listPetugasClickModal${trackPetugas['nrp_user']}"    
@@ -5961,7 +6001,7 @@
                                                     <i style="color: #495057;" class="fa fas fa-eye"></i>
                                                 </a> 
                                             `;
-                                            
+                                            console.log('ada');
                                         }else{
                                             getIdTracking = `<div style="margin-top: -10px;"></div>`;
                                             console.log('ga ada');
@@ -6017,7 +6057,7 @@
                         }
                     });
                 }
-
+                $("#overlay").fadeOut(300); 
 
                 
                 

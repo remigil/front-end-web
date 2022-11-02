@@ -513,7 +513,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime($date);
         // $date = strtotime("-1 day", $date);
 
-        $url = 'getMe?date=' . date('Y-m-d') . '&name_officer='.$input['name_officer'].'';
+        $url = 'getName?name_officer='.$input['name_officer'].'';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
