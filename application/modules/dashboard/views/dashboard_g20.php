@@ -1727,15 +1727,19 @@
                         });
           
                         filterPetugasCar.forEach(el => { 
-                            let nomorDepan = el.handphone.substring(0, 2);
-                            if (nomorDepan === "62") {
-                                el.handphone = el.handphone;
-                            } else if (nomorDepan === "08") {
-                                el.handphone = "62" + el.handphone.substring(1);
-                            } else if (nomorDepan === "+6") {
-                                el.handphone = el.handphone.substring(1);
-                            } else {
-                                el.handphone = el.handphone;
+                            if(el.handphone != null){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                } 
+                            }else{
+                                el.handphone = 0;
                             }
                             countlistCar += 1;
                             listCar += `  
@@ -1819,15 +1823,19 @@
 
 
                         filterPetugasBike.forEach(el => { 
-                            let nomorDepan = el.handphone.substring(0, 2);
-                            if (nomorDepan === "62") {
-                                el.handphone = el.handphone;
-                            } else if (nomorDepan === "08") {
-                                el.handphone = "62" + el.handphone.substring(1);
-                            } else if (nomorDepan === "+6") {
-                                el.handphone = el.handphone.substring(1);
-                            } else {
-                                el.handphone = el.handphone;
+                            if(el.handphone != null){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                }
+                            }else{
+                                el.handphone = 0;
                             }
                             countlistBike += 1;
                             listBike += `  
@@ -1910,15 +1918,19 @@
 
 
                         filterPetugasNon.forEach(el => { 
-                            let nomorDepan = el.handphone.substring(0, 2);
-                            if (nomorDepan === "62") {
-                                el.handphone = el.handphone;
-                            } else if (nomorDepan === "08") {
-                                el.handphone = "62" + el.handphone.substring(1);
-                            } else if (nomorDepan === "+6") {
-                                el.handphone = el.handphone.substring(1);
-                            } else {
-                                el.handphone = el.handphone;
+                            if(el.handphone != null){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                }
+                            }else{
+                                el.handphone = 0;
                             }
                             countlistNon += 1;
                             listNon += `  
