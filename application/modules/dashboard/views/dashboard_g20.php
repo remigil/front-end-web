@@ -1206,7 +1206,7 @@
             if($(this).is(':checked')){ 
                 $("#gpsId").prop('checked', true); 
                 autoGpsId = setInterval(gpsId, 5000); 
-                $("#myModalGpsIdDisplay").modal('show');
+                // $("#myModalGpsIdDisplay").modal('show');
             }else{
                 $("#gpsId").prop('checked', false); 
                 $("#gpsId").val(); 
