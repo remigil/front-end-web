@@ -908,6 +908,9 @@
     var dummyIdKendaraanGpsId= new Array();
     var autoGpsId; 
 
+
+    var openDisplay = ''; 
+
     $(document).ready(function() {  
 
 
@@ -1503,18 +1506,22 @@
                             }
                         
 
-
-                            let nomorDepan1 = ress[i].handphone.substring(0, 2);
                             var iniNomor;
-                            if (nomorDepan1 === "62") {
-                                iniNomor = ress[i].handphone;
-                            } else if (nomorDepan1 === "08") {
-                                iniNomor = "62" + ress[i].handphone.substring(1);
-                            } else if (nomorDepan1 === "+6") {
-                                iniNomor = ress[i].handphone.substring(1);
-                            } else {
-                                iniNomor = ress[i].handphone;
+                            if(ress[i].handphone != null){
+                                let nomorDepan1 = ress[i].handphone.substring(0, 2);
+                                if (nomorDepan1 === "62") {
+                                    iniNomor = ress[i].handphone;
+                                } else if (nomorDepan1 === "08") {
+                                    iniNomor = "62" + ress[i].handphone.substring(1);
+                                } else if (nomorDepan1 === "+6") {
+                                    iniNomor = ress[i].handphone.substring(1);
+                                } else {
+                                    iniNomor = ress[i].handphone;
+                                }
+                            }else{
+                                iniNomor = 0;
                             }
+
                             countlistDisplay += 1;
                             listDisplay += `  
                                 <tr>
@@ -2687,6 +2694,8 @@
         $("#turjawaliDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#turjawali").prop('checked', true);  
+                // openDisplay = this.value;
+                // alert(openDisplay);
                 $("#myModalPetugasDisplay").modal('show');
                 serverSideGet();
                 // alert('openPetugas ON');
@@ -4005,6 +4014,8 @@
         $("#fasumKhususDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#fasum_khusus").prop('checked', true); 
+                // openDisplay = $(this).val();
+                // alert(openDisplay);
                 $("#myModalFasumKhususDisplay").modal('show');
             }else{
                 $("#fasum_khusus").prop('checked', false); 
