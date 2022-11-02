@@ -1254,7 +1254,7 @@
  
 
                     $('#openModalPetugasDisplay').html(`
-                        <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100">
+                        <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -1518,37 +1518,38 @@
                             countlistDisplay += 1;
                             listDisplay += `  
                                 <tr>
-                                    <td> ${ress[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistDisplay}</span>`} </td>
+                                    <td> ${ress[i].status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistDisplay}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistDisplay}</span>`} </td>
                                     <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank">${ress[i].rank_officer ? ress[i].rank_officer : '' } - ${ress[i].name_officer}</a></td>
                                     <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${ress[i].name_country ? ress[i].name_country : '-'} </a></td>
                                     <td> 
+                                        ${ress[i].status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                         <div style="display: flex;">
-                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                                </a>
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${ress[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickDisplay${countlistDisplay}"   
-                                                    data-nama="${ress[i].name_team}"  
-                                                    data-akun="${ress[i].name_account}" 
-                                                    data-nrp="${ress[i].nrp_user}"
-                                                    data-telp="${iniNomor}"
-                                                    data-cord="${ress[i].latitude},${ress[i].longitude}" >
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </button>
-                                                <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
-                                                    data-id="${ress[i].id_officer}"  
-                                                    data-nama="${ress[i].name_team}"  
-                                                    data-akun="${ress[i].name_account}" 
-                                                    data-nrp="${ress[i].nrp_user}"
-                                                    data-telp="${iniNomor}"
-                                                    data-cord="${ress[i].latitude},${ress[i].longitude}"
-                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagDisplay${countlistDisplay}"></label>
-                                                </div>
-                                            </div> 
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${iniNomor}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${iniNomor}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${ress[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickDisplay${countlistDisplay}"   
+                                                data-nama="${ress[i].name_team}"  
+                                                data-akun="${ress[i].name_account}" 
+                                                data-nrp="${ress[i].nrp_user}"
+                                                data-telp="${iniNomor}"
+                                                data-cord="${ress[i].latitude},${ress[i].longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagDisplay${countlistDisplay}" 
+                                                data-id="${ress[i].id_officer}"  
+                                                data-nama="${ress[i].name_team}"  
+                                                data-akun="${ress[i].name_account}" 
+                                                data-nrp="${ress[i].nrp_user}"
+                                                data-telp="${iniNomor}"
+                                                data-cord="${ress[i].latitude},${ress[i].longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagDisplay${countlistDisplay}"></label>
+                                            </div>
+                                        </div> 
                                     </td>
                                 </tr>
                             `;
@@ -1575,7 +1576,21 @@
                                 }
                             }); 
                         } 
-                        $('#datatablePetugasOnDisplay').DataTable();
+                        $('#datatablePetugasOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
 
                         tablePutugasTrack = `
                             <div class="accordion-item">
@@ -1718,37 +1733,38 @@
                             countlistCar += 1;
                             listCar += `  
                                 <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistCar}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistCar}</span>`}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCar}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCar}</span>`}</td>
                                     <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
                                     <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
                                     <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                         <div style="display: flex;">
-                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                                </a>
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickCar${countlistCar}"   
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}" >
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </button>
-                                                <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagCar${countlistCar}" 
-                                                    data-id="${el.id_officer}"  
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}"
-                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagCar${countlistCar}"></label>
-                                                </div>
-                                            </div> 
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickCar${countlistCar}"   
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagCar${countlistCar}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagCar${countlistCar}"></label>
+                                            </div>
+                                        </div> 
                                     </td>
                                 </tr>
                             `;
@@ -1795,37 +1811,38 @@
                             countlistBike += 1;
                             listBike += `  
                                 <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistBike}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistBike}</span>`}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBike}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBike}</span>`}</td>
                                     <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
                                     <td> ${el.name_country ? el.name_country : '-'}</td>
                                     <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                         <div style="display: flex;">
-                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                    <i class="fab fa-telegram"></i>
-                                                </a>
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickBike${countlistBike}"   
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}" >
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </button>
-                                                <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagBike${countlistBike}" 
-                                                    data-id="${el.id_officer}"  
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}"
-                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagBike${countlistBike}"></label>
-                                                </div>
-                                            </div> 
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickBike${countlistBike}"   
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagBike${countlistBike}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagBike${countlistBike}"></label>
+                                            </div>
+                                        </div> 
                                     </td>
                                 </tr>
                             `;
@@ -1871,37 +1888,38 @@
                             countlistNon += 1;
                             listNon += `  
                                 <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 12px;">${countlistNon}</span>`}</td>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
                                     <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
                                     <td> ${el.name_country ? el.name_country : '-'}</td>
                                     <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
                                         <div style="display: flex;">
-                                                <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                                <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                                </a>
-                                                <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                                <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                    id="listPetugasClickNon${countlistNon}"   
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}" >
-                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                </button>
-                                                <div class="switch" style="margin-left: -11px;">
-                                                    <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
-                                                    data-id="${el.id_officer}"  
-                                                    data-nama="${el.name_team}"  
-                                                    data-akun="${el.name_account}" 
-                                                    data-nrp="${el.nrp_user}"
-                                                    data-telp="${el.handphone}"
-                                                    data-cord="${el.latitude},${el.longitude}"
-                                                    data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                    <label for="flagNon${countlistNon}"></label>
-                                                </div>
-                                            </div> 
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickNon${countlistNon}"   
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagNon${countlistNon}"></label>
+                                            </div>
+                                        </div> 
                                     </td>
                                 </tr>
                             `;
@@ -2917,7 +2935,7 @@
 
                         if(filterCctv.length > 0){  
                             $('#openModalCctvDisplay').html(`
-                                <table id="datatableCctvOnDisplay" class="table dt-responsive w-100">
+                                <table id="datatableCctvOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -2998,7 +3016,21 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
-                            $('#datatableCctvOnDisplay').DataTable(); 
+                            $('#datatableCctvOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
                             mapContainer.addLayer(cctvClusterGroup);
                         }
                     } 
@@ -3014,7 +3046,7 @@
  
                         if(filterLaporan.length > 0){  
                             $('#openModalLaporanDisplay').html(`
-                                <table id="datatableLaporanOnDisplay" class="table dt-responsive w-100">
+                                <table id="datatableLaporanOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -3154,7 +3186,21 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
-                            $('#datatableLaporanOnDisplay').DataTable(); 
+                            $('#datatableLaporanOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
                             mapContainer.addLayer(laporanClusterGroup);
                         }
 
@@ -3168,7 +3214,7 @@
                         if(filterLaporanPanic.length > 0){  
 
                             $('#openModalPanicDisplay').html(`
-                                <table id="datatablePanicOnDisplay" class="table dt-responsive w-100">
+                                <table id="datatablePanicOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -3317,7 +3363,21 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
-                            $('#datatablePanicOnDisplay').DataTable();  
+                            $('#datatablePanicOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });  
                             mapContainer.addLayer(panicClusterGroup);
                         }
  
@@ -3407,12 +3467,26 @@
                                 mapContainer.flyTo([latitude, longitude], 14); 
                             });
                         }
-                        $('#datatableClusterOnDisplay').DataTable();  
+                        $('#datatableClusterOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });  
                     }
 
                     if(ressFasumKhusus && ressFasumKhusus.length > 0){  
                         $('#openModalFasumKhususDisplay').html(`
-                            <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100">
+                            <table id="datatableFasumKhususOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -3551,7 +3625,21 @@
                                 mapContainer.flyTo([latitude, longitude], 17); 
                             });
                         }
-                        $('#datatableFasumKhususOnDisplay').DataTable(); 
+                        $('#datatableFasumKhususOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
                         mapContainer.addLayer(fasumKhususClusterGroup);
                     }
 
@@ -3644,7 +3732,7 @@
                         // console.log(filterSchedule); 
                         if(filterSchedule.length > 0){  
                             $('#openModalJadwalDisplay').html(`
-                            <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100">
+                            <table id="datatableJadwalOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -3776,7 +3864,21 @@
                                     mapContainer.flyTo([latitude, longitude], 20); 
                                 });
                             }
-                            $('#datatableJadwalOnDisplay').DataTable(); 
+                            $('#datatableJadwalOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            }); 
                             mapContainer.addLayer(jadwalClusterGroup);
                         }
                     }   
