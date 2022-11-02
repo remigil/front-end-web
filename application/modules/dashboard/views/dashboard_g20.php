@@ -1793,7 +1793,21 @@
                             });
  
                         } 
-                        $('#datatablePetugasGetTrackCar').DataTable();
+                        $('#datatablePetugasGetTrackCar').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
 
 
 
@@ -1871,7 +1885,21 @@
                             });
  
                         } 
-                        $('#datatablePetugasGetTrackBike').DataTable();
+                        $('#datatablePetugasGetTrackBike').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
 
 
                         filterPetugasNon.forEach(el => { 
@@ -1948,7 +1976,21 @@
                             });
  
                         } 
-                        $('#datatablePetugasGetTrackNon').DataTable();
+                        $('#datatablePetugasGetTrackNon').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
 
                     }else{ 
                         $("#overlay").fadeOut(300);  
