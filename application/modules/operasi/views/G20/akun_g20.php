@@ -128,9 +128,7 @@
     var PetugasOrigin;
     var Petugasbaru;
 
-    // let Petugas = '<?php echo json_encode($data['getOfficer']) ?>'; 
-    // var PetugasOrigin = JSON.parse(Petugas);
-    // var Petugasbaru = JSON.parse(Petugas);
+   
     let PetugasUntukSelectLain = [];
     let PetugasChoose = []; 
 

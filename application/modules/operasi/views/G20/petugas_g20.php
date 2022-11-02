@@ -23,7 +23,8 @@
                             <th style="width:20% ;">Struktural</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
-                            <th>Status</th>
+                            <th>Status Download</th>
+                            <th>Status Login</th>
                             <th>Aksi</th>
                         </tr>
                     </thead> 
@@ -234,7 +235,9 @@
                 { data: 'structural_officer'},  
                 { data: 'pam_officer'},  
                 { data: 'phone_officer'},  
-                { data: 'status_officer'},     
+                // { data: 'status_officer'},   
+                { data: 'status_petugasdownload', orderable : false},   
+                { data: 'status_login', orderable : false},     
                 { data: 'action' , orderable : false }
 
             ],
