@@ -23,7 +23,7 @@
                             <th style="width:20% ;">Struktural</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
-                            <?php if($this->uri->segment(3) == 'status'){?>
+                            <?php if($this->uri->segment(3) != 'status'){?>
                                 <th>Status Download</th>
                                 <th>Status Login</th>
                             <?php } ?>
@@ -202,7 +202,7 @@
 
                     // data.filterPhone = $('[name=poc_phone]').val();
 
-                    <?php if($this->uri->segment(3) == 'status'){?>
+                    <?php if($this->uri->segment(3) != 'status'){?>
                         data.filterStatusLog = 1;
                     <?php }else{ ?>  
                         data.filterStatusLog = 0;
@@ -244,7 +244,7 @@
                 { data: 'phone_officer'},  
                 // { data: 'status_officer'},   
 
-                <?php if($this->uri->segment(3) == 'status'){?>
+                <?php if($this->uri->segment(3) != 'status'){?>
                     { data: 'status_petugasdownload', orderable : false},   
                     { data: 'status_login', orderable : false},     
                 <?php } ?>
