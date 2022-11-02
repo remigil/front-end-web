@@ -23,8 +23,10 @@
                             <th style="width:20% ;">Struktural</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
-                            <th>Status Download</th>
-                            <th>Status Login</th>
+                            <?php if($this->uri->segment(3) == 'status'){?>
+                                <th>Status Download</th>
+                                <th>Status Login</th>
+                            <?php } ?>
                             <th>Aksi</th>
                         </tr>
                     </thead> 
@@ -200,7 +202,12 @@
 
                     // data.filterPhone = $('[name=poc_phone]').val();
 
-                    // data.filterThreat = $('[name=threat_level]').val();
+                    <?php if($this->uri->segment(3) == 'status'){?>
+                        data.filterStatusLog = 1;
+                    <?php }else{ ?>  
+                        data.filterStatusLog = 0;
+                    <?php } ?>
+
 
                     data.orderField = data.order[0] != undefined ? data.order[0].column : '';
 
@@ -236,8 +243,11 @@
                 { data: 'pam_officer'},  
                 { data: 'phone_officer'},  
                 // { data: 'status_officer'},   
-                { data: 'status_petugasdownload', orderable : false},   
-                { data: 'status_login', orderable : false},     
+
+                <?php if($this->uri->segment(3) == 'status'){?>
+                    { data: 'status_petugasdownload', orderable : false},   
+                    { data: 'status_login', orderable : false},     
+                <?php } ?>
                 { data: 'action' , orderable : false }
 
             ],

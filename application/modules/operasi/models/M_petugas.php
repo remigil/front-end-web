@@ -50,7 +50,7 @@ class M_petugas extends CI_Model {
 
 		// $filter_phone = $postData['filterPhone'];
 
-		// $filter_threat = $postData['filterThreat']; 
+		$filter_statusLog = $postData['filterStatusLog']; 
 
  
 
@@ -62,17 +62,7 @@ class M_petugas extends CI_Model {
 
             $searchData = '';
 
-        } 
-
-        // if($filter_threat){
-
-        //     $threat_level = '&filterField[]=threat_level&filterValue[]='.$filter_threat.'';
-
-        // }else{
-
-        //     $threat_level = '';
-
-        // }
+        }  
 
         // if($filter_tgl != ""){
 
@@ -126,34 +116,34 @@ class M_petugas extends CI_Model {
             } 
 
 
-            $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D='.$field['nrp_officer'].'', [
-                'headers' => [ 
-                    'Authorization' => $this->session->userdata['token']  
-                ]
-            ]); 
-
-           
-            if(count($getStatusPetugasDownload['data']['data']) > 0){ 
-                $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
-            }else{
-                $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
-            }
-
-
-            $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer='.$field['name_officer'].'', [
-                'headers' => [ 
-                    'Authorization' => $this->session->userdata['token']  
-                ]
-            ]);
-            if($getStatusLogin['data'] != null){
-                if($getStatusLogin['data']['status_login'] == 1){
-                    $stLogin = '<span class="badge rounded-pill bg-primary" style="font-size: 10px;">Aktif</span>';
+            if($filter_statusLog == 1){
+                $getStatusPetugasDownload = guzzle_request('GET', 'track-notif?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter%5B%5D=nrp_user&filterSearch%5B%5D='.$field['nrp_officer'].'', [
+                    'headers' => [ 
+                        'Authorization' => $this->session->userdata['token']  
+                    ]
+                ]);  
+                if(count($getStatusPetugasDownload['data']['data']) > 0){ 
+                    $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-success" style="font-size: 10px;">Berhasil</span>';
                 }else{
-                    $stLogin = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                    $row ['status_petugasdownload']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Download</span>';
                 }
-                $row ['status_login']   	= $stLogin;
-            }else{
-                $row ['status_login']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+    
+    
+                $getStatusLogin = guzzle_requestTracking('GET', 'getName?name_officer='.$field['name_officer'].'', [
+                    'headers' => [ 
+                        'Authorization' => $this->session->userdata['token']  
+                    ]
+                ]);
+                if($getStatusLogin['data'] != null){
+                    if($getStatusLogin['data']['status_login'] == 1){
+                        $stLogin = '<span class="badge rounded-pill bg-primary" style="font-size: 10px;">Aktif</span>';
+                    }else{
+                        $stLogin = '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                    }
+                    $row ['status_login']   	= $stLogin;
+                }else{
+                    $row ['status_login']   	= '<span class="badge rounded-pill bg-danger" style="font-size: 10px;">Tidak Aktif</span>';
+                } 
             }
 
             $row ['action']         = ' 

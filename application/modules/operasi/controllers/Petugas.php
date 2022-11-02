@@ -21,7 +21,7 @@ class Petugas extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Operasi";
+        $page_content["title"] = "Petugas";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "operasi/G20/petugas_g20";
@@ -31,8 +31,50 @@ class Petugas extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/petugas_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/petugas_polres";
+        }else{
+            redirect(base_url('dashboard'));
         }
 
+
+        $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
+            'headers' => $headers 
+        ]); 
+        $data['getRank'] = $getRank['data']['data']; 
+
+        $getStructural = guzzle_request('GET', 'structural?order=name_structural&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
+            'headers' => $headers 
+        ]); 
+        $data['getStructural'] = $getStructural['data']['data']; 
+
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function status()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],    
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Petugas";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "operasi/G20/petugas_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "operasi/Korlantas/petugas_korlantas";
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "operasi/Kapolda/petugas_kapolda";
+        } else if ($this->session->userdata['role'] == 'Polres') {
+            $page_content["page"] = "operasi/Polres/petugas_polres";
+        }else{
+            redirect(base_url('dashboard'));
+        }
+
+        // print_r($this->uri->segment(3));
+        // die;
 
         $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  
             'headers' => $headers 
