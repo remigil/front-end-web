@@ -685,7 +685,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPetugasDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -698,7 +698,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelFasumKhususDisplay">Fasilitas Khusus</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalFasumKhususDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalFasumKhususDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalFasumKhususDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -710,7 +710,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelClusterDisplay">Cluster</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalClusterDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalClusterDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalClusterDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -722,7 +722,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelGpsIdDisplay">Kendaraan Listrik</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalGpsIdDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalGpsIdDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalGpsIdDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -734,7 +734,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelJadwalDisplay">Jadwal Kegiatan</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalJadwalDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalJadwalDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalJadwalDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -746,7 +746,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelCctvDisplay">CCTV</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalCctvDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalCctvDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalCctvDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -758,7 +758,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelLaporanDisplay">Laporan Operasi</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalLaporanDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalLaporanDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalLaporanDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
@@ -770,7 +770,7 @@
                 <h5 class="modal-title text-white" id="myLargeModalLabelPanicDisplay">Panic Button</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPanicDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPanicDisplay" style="width: 500px;">  
+            <div class="modal-body" id="openModalPanicDisplay" style="width: 550px;">  
             </div>
         </div>
     </div>
