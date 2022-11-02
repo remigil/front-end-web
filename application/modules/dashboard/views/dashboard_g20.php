@@ -1,4 +1,7 @@
 <!-- <button id="cekarrayTrack">cek marker tracking</button> -->
+<div id="openLastDisplay" style="cursor: pointer; width: 23px;height: 45px;background-color: rgba(0, 13, 218, 0.79);border: 1px solid rgba(255, 255, 255, 0.39);border-radius: 5px 0px 0px 5px;position: fixed;right: 20px;z-index: 1000;top: 400px;font-size: 25px;padding-left: 4px;color: white;padding-top: 3px;">
+    <i class="fa fas fa-chevron-left"></i>
+</div>
 <div class="row">
     <div class="col-md-12"> 
 
@@ -28,7 +31,7 @@
                 <div style="position: absolute;left: 330px;width: 1000px;top: 6px;">
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
+                            <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
                         </label>
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -909,7 +912,7 @@
     var autoGpsId; 
 
 
-    var openDisplay = ''; 
+    var openDisplay = 'petugas'; 
 
     $(document).ready(function() {  
 
@@ -1000,7 +1003,7 @@
         // socket.emit("trackingUser", {
         //     lat: 1234,
         //     lon: 1234234
-        // })
+        // }) 
 
         function client() {
             $(".goPetugas").on("click", function(event) {
@@ -1604,6 +1607,7 @@
                                 <h2 class="accordion-header" id="flush-headingPetugasGetTrackCar">
                                     <button id="openPetugasGetTrackCar" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackCar" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCar">
+                                        <input checked type="checkbox" id="allPetugasCar"/>
                                         Jenis Kendaraan - Mobil &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackCar"></span>
                                     </button>
                                 </h2>
@@ -1631,6 +1635,7 @@
                                 <h2 class="accordion-header" id="flush-headingPetugasGetTrackBike">
                                     <button id="openPetugasGetTrackBike" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackBike" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBike">
+                                        <input checked type="checkbox" id="allPetugasBike"/>
                                         Jenis Kendaraan - Sepeda Motor &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackBike"></span>
                                     </button>
                                 </h2>
@@ -1658,6 +1663,7 @@
                                 <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
                                     <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
+                                        <input checked type="checkbox" id="allPetugasNon"/>
                                         Jenis Kendaraan - Tanpa Kendaraan &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackNon"></span>
                                     </button>
                                 </h2>
@@ -1682,8 +1688,7 @@
                                 </div>
                             </div> 
                         `;
-                        $("#dataPetugasTrack").html(tablePutugasTrack);
-
+                        $("#dataPetugasTrack").html(tablePutugasTrack); 
 
 
                         countlist = 0;
@@ -1782,6 +1787,17 @@
                             $('#listPetugasGetTrackCar').html(listCar); 
                         });   
                        
+                        $(`#allPetugasCar`).on('change', function(e) { 
+                            if($(`#allPetugasCar`).is(':checked')){
+                                for (let i = 0; i < countlistCar; i++){ 
+                                    mapContainer.addLayer(markerArray[filterPetugasCar[i]['id_officer']]); 
+                                }
+                            }else{
+                                for (let i = 0; i < countlistCar; i++){ 
+                                    mapContainer.removeLayer(markerArray[filterPetugasCar[i]['id_officer']]); 
+                                }
+                            }
+                        });
                         
                         for (let i = 0; i < countlistCar; i++){ 
                             $(`#listPetugasClickCar${i+1}`).click(function(){   
@@ -1879,6 +1895,18 @@
                         });   
                        
                         
+
+                        $(`#allPetugasBike`).on('change', function(e) { 
+                            if($(`#allPetugasBike`).is(':checked')){
+                                for (let i = 0; i < countlistBike; i++){ 
+                                    mapContainer.addLayer(markerArray[filterPetugasBike[i]['id_officer']]); 
+                                }
+                            }else{
+                                for (let i = 0; i < countlistBike; i++){ 
+                                    mapContainer.removeLayer(markerArray[filterPetugasBike[i]['id_officer']]); 
+                                }
+                            }
+                        });
                         for (let i = 0; i < countlistBike; i++){ 
                             $(`#listPetugasClickBike${i+1}`).click(function(){   
                                 // console.log('masuk');
@@ -1974,6 +2002,18 @@
                         });   
                        
                         
+
+                        $(`#allPetugasNon`).on('change', function(e) { 
+                            if($(`#allPetugasNon`).is(':checked')){
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                }
+                            }else{
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                }
+                            }
+                        });
                         for (let i = 0; i < countlistNon; i++){ 
                             $(`#listPetugasClickNon${i+1}`).click(function(){   
                                 // console.log('masuk');
@@ -2705,13 +2745,13 @@
 
         $("#turjawaliDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#turjawali").prop('checked', true);  
-                // openDisplay = this.value;
-                // alert(openDisplay);
                 $("#myModalPetugasDisplay").modal('show');
                 serverSideGet();
                 // alert('openPetugas ON');
             }else{
+                openDisplay = '';
                 $("#turjawali").prop('checked', false); 
                 $("#turjawali").val();  
                 for (let i = 0; i < dummyIdTurjawali.length; i++) {  
@@ -4025,11 +4065,11 @@
 
         $("#fasumKhususDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
-                $("#fasum_khusus").prop('checked', true); 
-                // openDisplay = $(this).val();
-                // alert(openDisplay);
+                openDisplay = this.value; 
+                $("#fasum_khusus").prop('checked', true);  
                 $("#myModalFasumKhususDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#fasum_khusus").prop('checked', false); 
                 $("#fasum_khusus").val();
             }
@@ -4037,9 +4077,11 @@
         }); 
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#jadwal").prop('checked', true); 
                 $("#myModalJadwalDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#jadwal").prop('checked', false); 
                 $("#jadwal").val();
             }
@@ -4047,9 +4089,11 @@
         }); 
         $("#cctvDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#cctv").prop('checked', true); 
                 $("#myModalCctvDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#cctv").prop('checked', false); 
                 $("#cctv").val();
             }
@@ -4057,9 +4101,11 @@
         });
         $("#clusterDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#cluster").prop('checked', true); 
                 $("#myModalClusterDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#cluster").prop('checked', false); 
                 $("#cluster").val();
             }
@@ -4067,9 +4113,11 @@
         });
         $("#panicDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#panic").prop('checked', true); 
                 $("#myModalPanicDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#panic").prop('checked', false); 
                 $("#panic").val();
             }
@@ -4077,13 +4125,45 @@
         });
         $("#operasiDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
+                openDisplay = this.value; 
                 $("#operasi").prop('checked', true); 
                 $("#myModalLaporanDisplay").modal('show');
             }else{
+                openDisplay = '';
                 $("#operasi").prop('checked', false); 
                 $("#operasi").val();
             }
             serverSideFilter();
+        });
+
+
+
+
+        $("#openLastDisplay").on("click", function(e) {
+            if(openDisplay != ''){
+                if(openDisplay == 'petugas'){
+                    $("#myModalPetugasDisplay").modal('show');
+                }else if(openDisplay == 'fasum_khusus'){
+                    $("#myModalFasumKhususDisplay").modal('show');
+                }else if(openDisplay == 'cluster'){
+                    $("#myModalClusterDisplay").modal('show');
+                }else if(openDisplay == 'jadwal_kegiatan'){
+                    $("#myModalJadwalDisplay").modal('show');
+                }else if(openDisplay == 'cctv'){
+                    $("#myModalCctvDisplay").modal('show');
+                }else if(openDisplay == 'titik_laporan'){
+                    $("#myModalLaporanDisplay").modal('show');
+                }else if(openDisplay == 'titik_panicButton'){
+                    $("#myModalPanicDisplay").modal('show');
+                } 
+            }else{
+                Swal.fire(
+                `Silahkan Pilih Filter Dahulu!`, 
+                '',
+                'info'
+                ).then(function() { 
+                });
+            }
         });
 
         // $("[name=filter]").on("change", function (e) { 
