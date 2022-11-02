@@ -87,7 +87,7 @@
 
 
 
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"> 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <style>
         .animateLine {
@@ -518,58 +518,55 @@
         }
 
 
-        <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU'  || $this->session->userdata['role'] != 'Operator') { ?>
-            .mm-active .active {
-                background : #1d1d1d !important ;
-            }
+        <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU'  || $this->session->userdata['role'] != 'Operator') { ?>.mm-active .active {
+            background: #1d1d1d !important;
+        }
+
         <?php } ?>
-
-
-
-
-
         /* @import "compass/css3"; */
 
-        .hide{
+        .hide {
             display: none;
         }
 
         .table-editable {
-        position: relative;
-        
+            position: relative;
+
+        }
+
         .glyphicon {
             font-size: 20px;
         }
-        }
 
         .table-remove {
-        color: #700;
-        cursor: pointer;
-        
-        &:hover {
-            color: #f00;
-        }
+            color: #700;
+            cursor: pointer;
+
+            &:hover {
+                color: #f00;
+            }
         }
 
-        .table-up, .table-down {
-        color: #007;
-        cursor: pointer;
-        
-        &:hover {
+        .table-up,
+        .table-down {
+            color: #007;
+            cursor: pointer;
+
+            /* &:hover {
             color: #00f;
-        }
+        } */
         }
 
         .table-add {
-        color: #070;
-        cursor: pointer;
-        position: absolute;
-        top: 8px;
-        right: 0;
-        
-        &:hover {
-            color: #0b0;
-        }
+            color: #070;
+            cursor: pointer;
+            position: absolute;
+            top: 8px;
+            right: 0;
+
+            /* &:hover {
+                color: #0b0;
+            } */
         }
     </style>
 
@@ -859,7 +856,7 @@
                                                 </a>
                                             </li>
 
-                                            
+
 
                                             <li>
                                                 <a href="<?php echo base_url('dokumenperaturan/DokumenPeraturan'); ?>">
@@ -943,14 +940,14 @@
 
                                             <li>
                                                 <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
-                                                <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a href="http://siwalpjr.gps.id" target="_blank">
-                                                <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">GPS RANMOR LISTRIK</span>
                                                 </a>
                                             </li>
@@ -1144,6 +1141,12 @@
                                                     <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="dashboard/Dashboard/Dashboardeksekutif">
+                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Dashboard Eksekutif</span>
+                                                </a>
+                                            </li>
                                         <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                             <li>
                                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -1221,7 +1224,6 @@
                                                     <span data-key="t-dashboard">IRSMS</span>
                                                 </a>
                                             </li>
-
                                         <?php } else { ?>
 
                                             <!-- <li>
