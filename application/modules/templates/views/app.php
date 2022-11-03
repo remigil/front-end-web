@@ -677,6 +677,7 @@
                                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                                             <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                                         </div>
+                                        
                                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
                                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
@@ -701,7 +702,12 @@
 
                                 <div class="d-flex">
 
-
+                                    <p style="text-align: end;position: relative;top: 12px;">
+                                        <b style="text-transform: uppercase;font-size: 18px;">
+                                            <?php echo format_indo(date('Y-m-d'))?>
+                                        </b></br>
+                                        <span id="jam" style="font-size:15px;font-weight: bold;"></span>
+                                    </p>
                                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                                         <div class="dropdown d-inline-block">
                                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1740,6 +1746,8 @@
                                 document.body.setAttribute('data-sidebar-size', sidebar);
                                 document.body.setAttribute('data-topbar', topbar)
                                 document.body.setAttribute("data-layout-mode", layoutMode);
+
+                                jam();
                             });
 
                             $("#vertical-menu-btn").on("click", function(event) {
@@ -1753,6 +1761,31 @@
                                     $("#statusicon").val('left');
                                 }
                             });
+
+                            function jam() {
+                                var a_p = "";
+                                var e = document.getElementById('jam'),
+                                d = new Date(), h, m, s;
+                                h = d.getHours();
+                                m = set(d.getMinutes());
+                                s = set(d.getSeconds());
+
+                                if (h < 12) {
+                                    a_p = "AM";
+                                } else {
+                                    a_p = "PM";
+                                }
+                        
+                                e.innerHTML = h +':'+ m +':'+ s + " " + a_p;
+                        
+                                setTimeout('jam()', 1000);
+                            }
+                        
+                            function set(e) {
+                                e = e < 10 ? '0'+ e : e;
+                                return e;
+                            }
+
                         </script>
 
 
