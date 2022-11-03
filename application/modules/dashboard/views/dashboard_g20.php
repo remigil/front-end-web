@@ -4473,6 +4473,8 @@
                                             var typeJadwalRenpam = [];
                                             var awalJadwalRenpam = [];
                                             var akhirJadwalRenpam = [];
+
+                                            var warnaRenpam = [];
         
                                             var dummyName = [];
                                             var dummyType = [];
@@ -4514,6 +4516,8 @@
                                                 dummyAwal = [];
                                                 dummyAkhir = [];
         
+                                                dummyWarna = [];
+
                                                 dummy= []; 
                                                 dummy1= []; 
                                                 dummy2= []; 
@@ -4574,6 +4578,9 @@
                                                         typeJadwalRenpam[countlist] = dummyType; 
                                                         awalJadwalRenpam[countlist] = dummyAwal; 
                                                         akhirJadwalRenpam[countlist] = dummyAkhir; 
+
+                                                        dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
+                                                        warnaRenpam[countlist] = dummyWarna;
         
                                                         dummy.push(sortUrutanRenpam[i]['route']); 
                                                         dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']); 
@@ -4649,7 +4656,7 @@
                                                     }
                                                     checkboxJadwal = `
                                                         <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
-                                                        id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}" 
+                                                        id="listJadwalRenpamClick${ress[m]['id']}${countlistCategoriByCateg}"   
                                                         data-totaldata="${sortUrutanRenpam.length}"
                                                         >
                                                     `;
@@ -4666,20 +4673,20 @@
                                                             <button id="openCategByCateg${ress[m]['id']}${countlistCategoriByCateg}"  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                                                 data-bs-target="#flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" aria-expanded="false" aria-controls="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}">
                                                                     
-                                                                        <div  style="display: flex; font-size: 12px; position: absolute;">
-                                                                            ${checkboxJadwal}
-                                                                        
-                                                                            <a class="btn" style="display: flex;margin-top: 2px;"
-                                                                                id="listJadwalClick${ress[m]['id']}${countlist}"   
-                                                                                data-alamat="${el.address_schedule}"  
-                                                                                data-cord="${el.coordinate_schedule}"
-                                                                                href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
-                                                                            </a>  
-                                                                            <a style="margin-top: 1px;" target="_blank" href="<?= base_url()?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
-                                                                            <div style="margin-left: 5px;">
-                                                                                <span class="badge bg-danger rounded-pill">${totalJadwalRenpam}</span>
-                                                                            </div> 
-                                                                        </div>
+                                                                    <div  style="display: flex; font-size: 12px; position: absolute;">
+                                                                        ${checkboxJadwal}
+                                                                    
+                                                                        <a class="btn" style="display: flex;margin-top: 2px;"
+                                                                            id="listJadwalClick${ress[m]['id']}${countlist}"   
+                                                                            data-alamat="${el.address_schedule}"  
+                                                                            data-cord="${el.coordinate_schedule}"
+                                                                            href="javascript:void(0)"><i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                                        </a>  
+                                                                        <a style="margin-top: 1px;" target="_blank" href="<?= base_url()?>operasi/Kegiatan/edit/${el.id}">${el.activity}</br>${el.date_schedule} - ${el.start_time.substr(0, 5)} s/d ${el.end_time.substr(0, 5)}</a>
+                                                                        <div style="margin-left: 5px;">
+                                                                            <span class="badge bg-danger rounded-pill">${totalJadwalRenpam}</span>
+                                                                        </div> 
+                                                                    </div>
                                                             </button>
                                                         </h2>
                                                         <div id="flush-collapseByCateg${ress[m]['id']}${countlistCategoriByCateg}" class="accordion-collapse collapse" aria-labelledby="flush-headingByCateg${ress[m]['id']}${countlistCategoriByCateg}"
@@ -5198,6 +5205,8 @@
         
                                                         var titikAwal = nameJadwalRenpam[i+1][ii] == null ? '-' : nameJadwalRenpam[i+1][ii];
                                                         var titikAkhir = akhirJadwalRenpam[i+1][ii] == null ? '-' : akhirJadwalRenpam[i+1][ii];
+
+                                                         
         
                                                         // console.log(dummyJadwalRenpam[i+1][ii]);
         
@@ -5223,7 +5232,13 @@
                                                             markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
                                                             markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                                         }
-        
+                                                        
+                                                        var warna = "";
+                                                        if(ressJadwalId[i]['activity'] == "JALUR BEAT"){
+                                                            warna = warnaRenpam[i+1][ii] == null ? 'red' : warnaRenpam[i+1][ii];
+                                                        }else{
+                                                            warna = "red";
+                                                        }
         
                                                         if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
                                                             
@@ -5239,7 +5254,7 @@
                                                                         profile: 'car'
                                                                     }),
                                                                     lineOptions: {
-                                                                        styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                        styles: [{color: warna, weight: 5, className: 'animateRoute'}] 
                                                                     },
                                                                     createMarker: function(i, wp, nWps) {
                                                                         if (i === 0 || i === nWps + 1) {
