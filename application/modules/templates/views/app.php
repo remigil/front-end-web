@@ -704,7 +704,7 @@
 
                                     <p style="text-align: end;position: relative;top: 12px;">
                                         <b style="text-transform: uppercase;font-size: 18px;">
-                                            <?php echo format_indo(date('Y-m-d'))?>
+                                            <?php echo format_indoHari(date('Y-m-d'))?>
                                         </b></br>
                                         <span id="jam" style="font-size:15px;font-weight: bold;"></span>
                                     </p>
