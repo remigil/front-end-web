@@ -3673,6 +3673,20 @@
                                                     <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                                                 </div>
                                                 
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                                        </div>
+                                                    </div> 
+                                                </div>  
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-5 col-6">
@@ -4484,6 +4498,9 @@
                                             var dummyAwal = [];
                                             var dummyAkhir = [];
         
+                                            var dummyWarna = [];
+                                            var dummyNameRenpam = [];
+        
                                             var dummy= []; 
                                             var dummy1= []; 
                                             var dummy2= []; 
@@ -4519,7 +4536,10 @@
                                                 dummyAwal = [];
                                                 dummyAkhir = [];
         
+                                                warnaRenpam = [];
+
                                                 dummyWarna = [];
+                                                dummyNameRenpam = [];
 
                                                 dummy= []; 
                                                 dummy1= []; 
@@ -4584,6 +4604,9 @@
 
                                                         dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
                                                         warnaRenpam[countlist] = dummyWarna;
+
+                                                        dummyNameRenpam.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
+                                                        nameRenpam[countlist] = dummyNameRenpam;
         
                                                         dummy.push(sortUrutanRenpam[i]['route']); 
                                                         dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']); 
@@ -5242,6 +5265,9 @@
                                                         }else{
                                                             warna = "red";
                                                         }
+
+                                                        var namaRen = nameRenpam[i+1][ii] == null ? 'red' : nameRenpam[i+1][ii];
+                                                        console.log({a:namaRen ,b:warnaRenpam[i+1][ii]});
         
                                                         if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
                                                             
@@ -7549,6 +7575,20 @@
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
                             
+
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                    </div>
+                                </div> 
+                            </div>  
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
@@ -7716,6 +7756,21 @@
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
                             
+
+
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                    </div>
+                                </div> 
+                            </div>  
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
@@ -7882,6 +7937,20 @@
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
                             
+
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                    </div>
+                                </div> 
+                            </div>  
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
@@ -8047,6 +8116,20 @@
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
                             
+
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                    </div>
+                                </div> 
+                            </div>  
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
@@ -8213,6 +8296,20 @@
                                 <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
                             </div>
                             
+
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                    </div>
+                                </div> 
+                            </div>  
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
