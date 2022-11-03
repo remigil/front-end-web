@@ -3531,10 +3531,10 @@
                                 var longitudeCluster = parseFloat(ressCluster[i].fasum_lng); 
                                 var set = ressCluster[i].fasum_radius != null ? ressCluster[i].fasum_radius : 1 ;
                                 markerCluster[i] = L.circle([latitudeCluster,longitudeCluster], 1000*set, {
-                                            color: 'red',
-                                            // fillColor: '#f03',
-                                            weight: 0.1,
-                                            fillOpacity: 0.2
+                                            color: 'yellow',
+                                            // fillColor: 'yellow',
+                                            weight: 2,
+                                            fillOpacity: 0
                                         }).bindPopup(`
                                         <div class="text-center" style="width: 300px;"> 
                                             <div class="row mt-3"> 
@@ -3545,6 +3545,15 @@
                                                 
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
+                                                        <div class="col-md-5 col-6">
+                                                            <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <p style="font-size: 12px;"> : </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6">
+                                                            <p style="font-size: 12px;">${ressCluster[i].fasum_description}</p>
+                                                        </div>
                                                         <div class="col-md-5 col-6">
                                                             <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
                                                         </div>

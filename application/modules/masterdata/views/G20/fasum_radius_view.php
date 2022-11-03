@@ -780,6 +780,8 @@
     }
 
     function detailEdit(id) { 
+       
+
         $.ajax({
             url: '<?= base_url() ?>masterdata/Fasilitasumum/detailFasum/',
             type: 'POST',
@@ -788,16 +790,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-				console.log(results);
-
-                // var fotoFas = '';
-                // if(results.fasum_logo != null){
-                //     fotoFas = `data-default-file="<?php echo url_api();?>fasum_khusus/${results.fasum_logo}"`;
-                // }else{
-                //     fotoFas = `data-default-file="<?php echo base_url();?>assets/no_image.png"`;
-                // }
-                // $(`#fotoEdit`).html(`<input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" ${fotoFas} />`);
-				// $('.dropify').dropify(); 
+				console.log(results); 
 
                 $('.UbahFasum,#namaFasum').attr('disabled', false)
                 $('.UbahFasum,#jenisFasum').attr('disabled', false)
@@ -881,7 +874,8 @@
                     position: 'bottomleft'
                 }).addTo(mapContainer); 
                 
-                
+                let circles;
+                var marker;
                 $('#myModalEdit').on('shown.bs.modal', function() {
                     mapContainer.invalidateSize();
 
@@ -889,8 +883,8 @@
                     $('[name=longitude]').val(results.fasum_lng);
 
                     let set = 10; 
-                    let circles;
-                    var marker;
+                    
+                    
 
                     marker = L.marker(initialCenter, {
                         draggable: true
@@ -1052,6 +1046,11 @@
 
                 });
 
+                $('#myModalEdit').on('hidden.bs.modal', function() {
+                    $("#overlay").fadeIn(300);
+                    location.reload(); 
+                });
+
                 var latlong11 =  $('[name=cordinateEdit]').val().split(',');
                 var latitude11 = parseFloat(latlong11[0]);
                 var longitude11 = parseFloat(latlong11[1]); 
@@ -1088,8 +1087,10 @@
                                 '',
                                 'success'
                             ).then(function() {
-                                $(".TambahFasum").modal('hide');
-                                userDataTable.draw();
+                                // $(".TambahFasum").modal('hide');
+                                // userDataTable.draw();
+                                $("#overlay").fadeIn(300);
+                                location.reload(); 
                             });
                         } else {
                             Swal.fire(
@@ -1122,8 +1123,10 @@
                         '',
                         'success'
                     ).then(function() {
-                        $(".UbahFasum").modal('hide');
-                        userDataTable.draw();
+                        // $(".UbahFasum").modal('hide');
+                        // userDataTable.draw();
+                        $("#overlay").fadeIn(300);
+                        location.reload(); 
                     });
                 } else {
                     Swal.fire(
@@ -1138,6 +1141,6 @@
 
 	$('#btnTambah').on('click', function(e){
 		$('#form_tambah')[0].reset()
-	})
+	}); 
         
 </script>
