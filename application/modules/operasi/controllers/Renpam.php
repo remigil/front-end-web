@@ -136,6 +136,24 @@ class Renpam extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function getFasus()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'fasum?serverSide=true&order=id&orderDirection=desc&length=1000&start=1&filter%5B%5D=fasum_type&filterSearch%5B%5D=9';
+        $getFasus = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getFasus'] = $getFasus['data'];
+
+        echo json_encode($data['getFasus']);
+    }
+
     public function serverSideTable()
     {
         $postData = $this->input->post();
