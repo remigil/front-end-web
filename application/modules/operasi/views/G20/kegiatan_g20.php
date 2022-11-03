@@ -422,6 +422,7 @@
 
     var userDataTable;
     var userDataTableRD;
+    var ressFasumKhusus;
 
     $(document).ready(function() { 
         // $('#datepicker').datepicker(); 
@@ -554,30 +555,18 @@
         $("#searchtgl").on("click", function (e) { 
             userDataTable.draw(); 
         });
-
-        // function cb(start, end) {
-        //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
-        //     $('#startdate').val(start.format('YYYY-MM-DD'));
-        //     $('#enddate').val(end.format('YYYY-MM-DD')); 
-        //     userDataTable.draw(); 
-        // }
-
-        // $('#reportrange').daterangepicker({
-        //     startDate: start,
-        //     endDate: end,
-        //     ranges: {
-        //     'Hari Ini': [moment(), moment()],
-        //     'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-        //     '7 Hari Kemarin': [moment().subtract(6, 'days'), moment()],
-        //     '30 Hari Kemarin': [moment().subtract(29, 'days'), moment()],
-        //     'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
-        //     'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')], 
-        //     'Tahun Ini': [moment().startOf('year'), moment().endOf('year')],
-        //     'Tahun Lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
-        //     }
-        // }, cb);
-
-        // cb(start, end);
+ 
+        $.ajax({
+            type : "POST",
+            url : "<?php echo base_url();?>operasi/renpam/getFasus", 
+            data : { 
+                "radius" : 1, 
+            }, 
+            dataType : "JSON",
+            success : function(result){  
+                ressFasumKhusus = result['data'];
+            }
+        });
 
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
@@ -1117,6 +1106,73 @@
 
         mapContainerRenpamUtama.invalidateSize(); 
 
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpamUtama);  
+        }
+
 
         var routeAlternativeUtama = L.Routing.control({
             waypoints: arrayWaypointUtama,
@@ -1216,6 +1272,73 @@
 
 
         mapContainerRenpam.invalidateSize(); 
+
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam);  
+        }
  
 
         var routeAlternative1 = L.Routing.control({
@@ -1317,6 +1440,73 @@
 
         mapContainerRenpam2.invalidateSize(); 
 
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam2);  
+        } 
+
        
 
         var routeAlternative2 = L.Routing.control({
@@ -1417,7 +1607,74 @@
 
         mapContainerRenpam3.invalidateSize(); 
 
-       
+        
+
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam3);  
+        }
 
         var routeAlternative3 = L.Routing.control({
             waypoints: arrayWaypoint3,
@@ -1518,7 +1775,74 @@
 
         mapContainerRenpam4.invalidateSize(); 
 
-       
+        
+
+        for (let i = 0; i < ressFasumKhusus.length; i++) { 
+            
+            var latitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lat);
+            var longitudeFasum = parseFloat(ressFasumKhusus[i].fasum_lng); 
+            L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                // className: 'location-pin',
+                html: `<img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                iconSize: [5, 5],
+                iconAnchor: [5, 10]
+                // iconAnchor: [10, 33]
+                }) }).bindPopup(`
+                    <div class="text-center" style="width: 300px;"> 
+                        <div class="row mt-3">
+                            <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                <div class="avatar-xl me-3">
+                                    <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12 mt-3">
+                                <h5>${ressFasumKhusus[i].fasum_name}</h5> 
+                                <span>- ${ressFasumKhusus[i].category_fasum.name_category_fasum} -</span>
+                            </div>
+                            
+                            <div class="col-md-12 col-12 mt-2">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                    </div>
+                                </div> 
+                            </div>  
+                            <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                <div class="row text-start">
+                                    <div class="col-md-5 col-6">
+                                        <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p style="font-size: 12px;"> : </p>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </div>
+                    </div> 
+            `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainerRenpam4);  
+        }
 
         var routeAlternative4 = L.Routing.control({
             waypoints: arrayWaypoint4,
