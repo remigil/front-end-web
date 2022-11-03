@@ -4536,8 +4536,8 @@
                                                 dummyAwal = [];
                                                 dummyAkhir = [];
         
-                                                warnaRenpam = [];
-                                                nameRenpam = [];
+                                                // warnaRenpam = [];
+                                                // nameRenpam = [];
 
                                                 dummyWarna = [];
                                                 dummyNameRenpam = [];
@@ -4606,7 +4606,7 @@
                                                         dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
                                                         warnaRenpam[countlist] = dummyWarna;
 
-                                                        dummyNameRenpam.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
+                                                        dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
                                                         nameRenpam[countlist] = dummyNameRenpam;
         
                                                         dummy.push(sortUrutanRenpam[i]['route']); 
@@ -5268,7 +5268,7 @@
                                                         }
 
                                                         var namaRen = nameRenpam[i+1][ii] == null ? 'red' : nameRenpam[i+1][ii];
-                                                        console.log({a:namaRen ,b:warnaRenpam[i+1][ii]});
+                                                        console.log({a:namaRen ,b:warna});
         
                                                         if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
                                                             
