@@ -1436,7 +1436,7 @@
                                                     <li><a href="<?php echo base_url('masterdata/Simkeliling'); ?>" data-key="t-read-email">SIM Keliling</a></li>
                                                     <li><a href="<?php echo base_url('masterdata/Cctv'); ?>" data-key="t-read-email">CCTV</a></li>
                                                     <li><a href="<?php echo base_url('masterdata/Fasilitasumum'); ?>" data-key="t-read-email">Fasilitas Umum</a></li>
-                                                    <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">E-Tilang</a></li>
+                                                    <li><a href="<?php echo base_url('masterdata/Etilang'); ?>" data-key="t-read-email">ETLE</a></li>
                                                 </ul>
                                             </li>
                                         <?php } ?>
