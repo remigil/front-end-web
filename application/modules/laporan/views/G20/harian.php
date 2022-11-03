@@ -23,6 +23,20 @@
                 </div>
             </div> 
         </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Laporan IRSMS</h5> 
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <div class="main-chart">
+                            <div id="chartIRSMS1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="card">
@@ -81,6 +95,17 @@
         <div class="col-md-12">
             <div class="card row">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Laporan IRSMS</h5> 
+                </div>
+                <div class="col-md-12" id="tableIRSMS">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card row">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
                     <h5>Laporan Operasi</h5> 
                 </div>
                 <div class="col-md-12" id="tableOperasi">
@@ -121,6 +146,11 @@
                     $('#chartLaporan').remove();
                     $('#chartLaporan1').html(`
                         <div id="chartLaporan"></div>
+                    `);
+
+                    $('#chartIRSMS').remove();
+                    $('#chartIRSMS1').html(`
+                        <div id="chartIRSMS"></div>
                     `);
 
                     $('#chartOperasi').remove();
@@ -166,6 +196,24 @@
                         </table>
                     `);
 
+                    $('#datatableIRSMS').remove();
+                    $('#tableIRSMS').html(`
+                        <table id="datatableIRSMS" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
+                            <thead> 
+                                <tr>
+                                    <th>No</th> 
+                                    <th>Tanggal</th>
+                                    <th>Kerugian Material</th>
+                                    <th>Meninggal Dunia</th>
+                                    <th>Luka Berat</th>
+                                    <th>Luka Ringan</th> 
+                                    <th>Total Korban</th> 
+                                </tr>
+                            </thead> 
+                            <tbody id="isiIRSMS"></tbody>
+                        </table>
+                    `);
+
                     $('#datatableOperasi').remove();
                     $('#tableOperasi').html(`
                         <table id="datatableOperasi" class="table table-bordered dt-responsive w-100" style="font-size: 10px;">
@@ -207,12 +255,22 @@
                         var t_rengiat_done = 0;
                         var t_rengiat_failed = 0;  
 
+                        var t_materialloss = 0;  
+                        var t_md = 0;  
+                        var t_lb = 0;  
+                        var t_lr = 0;  
+                        var t_korban = 0;   
+
                         var listPetugas = ``;
                         var urutanPetugas = 0;
                         var listKegiatan = ``;
                         var urutanKegiatan = 0;
                         var listOperasi = ``;
                         var urutanOperasi = 0;
+
+                        // IRSMS
+                        var listIRSMS = ``;
+                        var urutanIRSMS = 0;
 
                         var pluckOfficer_active = result['data'].map(el => { return parseInt(el.t_officer_active) });
                         var sumOfficer_active = pluckOfficer_active.reduce(function(a, b) {
@@ -282,7 +340,35 @@
                         var pluckRengiat_failed = result['data'].map(el => { return parseInt(el.t_rengiat_failed) });
                         var sumRengiat_failed = pluckRengiat_failed.reduce(function(a, b) {
                             return a + b;
-                        }, 0);  
+                        }, 0); 
+                        
+                        
+
+                        // IRSMS
+                        var pluckMaterialloss = result['data'].map(el => { return parseInt(el.t_materialloss) });
+                        var sumMaterialloss = pluckMaterialloss.reduce(function(a, b) {
+                            return a + b;
+                        }, 0); 
+
+                        var pluckMd = result['data'].map(el => { return parseInt(el.t_md) });
+                        var sumMd = pluckMd.reduce(function(a, b) {
+                            return a + b;
+                        }, 0); 
+
+                        var pluckLb = result['data'].map(el => { return parseInt(el.t_lb) });
+                        var sumLb = pluckLb.reduce(function(a, b) {
+                            return a + b;
+                        }, 0); 
+
+                        var pluckLr = result['data'].map(el => { return parseInt(el.t_lr) });
+                        var sumLr = pluckLr.reduce(function(a, b) {
+                            return a + b;
+                        }, 0); 
+
+                        var pluckKorban = result['data'].map(el => { return parseInt(el.t_korban) });
+                        var sumKorban = pluckKorban.reduce(function(a, b) {
+                            return a + b;
+                        }, 0); 
 
 
                         var ress = result['data'][0]; 
@@ -379,6 +465,52 @@
                         };
                         var chart = new ApexCharts(document.querySelector("#chartLaporan"), optionsLaporan);
                         chart.render();
+
+
+                        optionsIRSMS = {
+                            series: [{
+                                data: [sumMaterialloss, sumMd, sumLb, sumLr, sumKorban]
+                            }],
+                            chart: {
+                                height: 350,
+                                type: 'bar',
+                                events: {
+                                    click: function(chart, w, e) {
+                                    // console.log(chart, w, e)
+                                    }
+                                }
+                            },
+                            // colors: colors,
+                            plotOptions: {
+                                bar: {
+                                    columnWidth: '45%',
+                                    distributed: true,
+                                }
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            legend: {
+                                show: false
+                            },
+                            xaxis: {
+                                categories: [ 
+                                    'Kerugian Material',
+                                    'Meninggal Dunia',
+                                    'Luka Berat',
+                                    'Luka Ringan',
+                                    'Total Korban', 
+                                ],
+                                labels: {
+                                    style: {
+                                    //   colors: colors,
+                                    fontSize: '12px'
+                                    }
+                                }
+                            }
+                        };
+                        var chart = new ApexCharts(document.querySelector("#chartIRSMS"), optionsIRSMS);
+                        chart.render();
     
     
                         optionsOperasi = {  
@@ -412,6 +544,10 @@
                         urutanKegiatan = 0;
                         listOperasi = ``;
                         urutanOperasi = 0;
+
+
+                        listIRSMS = ``;
+                        urutanIRSMS = 0;
                         result['data'].forEach(el => {
                             urutanPetugas += 1;
                             listPetugas += `
@@ -442,6 +578,20 @@
                                 </tr>
                             `;
                             $('#isiKegiatan').html(listKegiatan);
+
+                            urutanIRSMS += 1;
+                            listIRSMS += `
+                                <tr>
+                                    <td>${urutanIRSMS}</td>
+                                    <td>${el.date}</td> 
+                                    <td>${el.t_materialloss}</td> 
+                                    <td>${el.t_md}</td> 
+                                    <td>${el.t_lb}</td> 
+                                    <td>${el.t_lr}</td>  
+                                    <td>${el.t_korban}</td>   
+                                </tr>
+                            `;
+                            $('#isiIRSMS').html(listIRSMS);
 
                             urutanOperasi += 1;
                             listOperasi += `
@@ -503,6 +653,39 @@
                                 //     customize : function(doc){
                                 //         var colCount = new Array();
                                 //         $('#datatableKegiatan').find('tbody tr:first-child td').each(function(){
+                                //             if($(this).attr('colspan')){
+                                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                                //                     colCount.push('*');
+                                //                 }
+                                //             }else{ colCount.push('*'); }
+                                //         });
+                                //         doc.content[1].table.widths = colCount;
+                                //     }
+                                // }
+                            ],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
+
+                        dataTableIRSMS = $('#datatableIRSMS').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: [  "excel", "csv",
+                                // {
+                                //     extend:'pdfHtml5',
+                                //     text:'Export PDF',
+                                //     orientation:'portrait',
+                                //     customize : function(doc){
+                                //         var colCount = new Array();
+                                //         $('#datatableIRSMS').find('tbody tr:first-child td').each(function(){
                                 //             if($(this).attr('colspan')){
                                 //                 for(var i=1;i<=$(this).attr('colspan');$i++){
                                 //                     colCount.push('*');
