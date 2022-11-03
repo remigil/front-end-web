@@ -3677,7 +3677,7 @@
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
                                                         <div class="col-md-5 col-6">
-                                                            <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                                         </div>
                                                         <div class="col-md-1">
                                                             <p style="font-size: 12px;"> : </p>
@@ -7579,7 +7579,7 @@
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -7761,7 +7761,7 @@
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -7941,7 +7941,7 @@
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -8120,7 +8120,7 @@
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
@@ -8300,7 +8300,7 @@
                             <div class="col-md-12 col-12 mt-2">
                                 <div class="row text-start">
                                     <div class="col-md-5 col-6">
-                                        <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
+                                        <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
                                     </div>
                                     <div class="col-md-1">
                                         <p style="font-size: 12px;"> : </p>
