@@ -4492,7 +4492,7 @@
                                             var akhirJadwalRenpam = [];
 
                                             var warnaRenpam = [];
-        
+                                            var nameRenpam = [];
                                             var dummyName = [];
                                             var dummyType = [];
                                             var dummyAwal = [];
@@ -4537,6 +4537,7 @@
                                                 dummyAkhir = [];
         
                                                 warnaRenpam = [];
+                                                nameRenpam = [];
 
                                                 dummyWarna = [];
                                                 dummyNameRenpam = [];
