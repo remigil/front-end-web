@@ -1712,7 +1712,7 @@
                         $("#totalPetugasGetTrackBike").html(`${filterPetugasBike.length}`);
                         $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
  
-                        // storeEditDayReport 
+                        // storeEditDayReporto 
                         $.ajax({
                             type : "POST",
                             url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
