@@ -3547,7 +3547,7 @@
                                                     <div class="row text-start">
                                                         <div class="col-md-12 col-12 text-start">
                                                             <p style="font-size: 12px;font-weight: bold;">Keterangan</p>  
-                                                            <p style="font-size: 12px;">${ressCluster[i].fasum_description.replace(/\n/g, "<br />")}</p>
+                                                            <p style="font-size: 12px; margin-top: -13px;">${ressCluster[i].fasum_description.replace(/\n/g, "<br />")}</p>
                                                         </div>  
                                                          
                                                     </div> 
