@@ -8998,7 +8998,7 @@
 
 
 
-        // serverSideGet();
+        serverSideGet();
     });
 
     function hitungGpsId(){
