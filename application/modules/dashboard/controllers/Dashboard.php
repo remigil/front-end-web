@@ -554,7 +554,7 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        // $input = $this->input->post(); 
+        $input = $this->input->post(); 
 
 
         $url = 'country/getIdNoEncrypt/'.$input['id_country'].'';
