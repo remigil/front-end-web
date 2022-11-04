@@ -31,7 +31,7 @@ if (!function_exists('guzzle_request')) {
 
     function url_api()
     {
-        return 'http://localhost:3001/uploads/';
+        // return 'http://localhost:3001/uploads/';
         return 'http://k3ig20korlantas.id:3001/uploads/'; 
     }
 
