@@ -686,6 +686,19 @@
 
 
 <!-- MODAL FOR FILTER -->
+<div class="modal right fade" id="myModalJalurBeatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelJalurBeatDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelJalurBeatDisplay">Jalur Beat</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalJalurBeatDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalJalurBeatDisplay" style="width: 550px;">  
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal right fade" id="myModalPetugasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPetugasDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1202,8 +1215,10 @@
                                     }, 
                                     dataType : "JSON",
                                     success : function(result){   
-                                        $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                        if(result['data'] != null){
+                                            $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                        }
                                     }
                                 });
                             });  
@@ -1295,9 +1310,11 @@
                                         "id_country" : el.Delegasi, 
                                     }, 
                                     dataType : "JSON",
-                                    success : function(result){   
-                                        $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                    success : function(result){  
+                                        if(result['data'] != null){ 
+                                            $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                        }
                                     }
                                 });
                             });     
@@ -1438,8 +1455,10 @@
                             }, 
                             dataType : "JSON",
                             success : function(result){   
-                                $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                if(result['data'] != null){
+                                    $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                }
                             }
                         });
                     });  
@@ -1531,8 +1550,10 @@
                             }, 
                             dataType : "JSON",
                             success : function(result){   
-                                $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                if(result['data'] != null){
+                                    $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                }
                             }
                         });
                     });     
@@ -3082,12 +3103,1135 @@
 
 
         
+        var openJalurBeatSt = false;
         $("#jalurBeatDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
+            if($(this).is(':checked')){  
                 openDisplay = this.value;  
-                $("#myModalPetugasDisplay").modal('show'); 
+                $("#myModalJalurBeatDisplay").modal('show'); 
+                 
+                if(openJalurBeatSt == false){
+                    $.ajax({
+                        type : "POST",
+                        url : "<?php echo base_url();?>dashboard/getCategoryScheduleByName", 
+                        data : {
+                            "activity" : 'JALUR BEAT',
+                        }, 
+                        dataType : "JSON",
+                        success : function(result){  
+                            var ress = result['data'][0];
+                            console.log(ress);
+                            openJalurBeatSt = true;
+                            
+                            var countlist = 0; 
+                            var countlistRenpam = 0;
+                            var list = "";
+                            var status = ""; 
+                            var checkboxJadwal = "";
+                            var nameJadwalRenpam = [];
+                            var typeJadwalRenpam = [];
+                            var awalJadwalRenpam = [];
+                            var akhirJadwalRenpam = [];
+
+                            var warnaRenpam = [];
+                            var nameRenpam = [];
+                            var dummyName = [];
+                            var dummyType = [];
+                            var dummyAwal = [];
+                            var dummyAkhir = [];
+
+                            var dummyWarna = [];
+                            var dummyNameRenpam = [];
+
+                            var dummy= []; 
+                            var dummy1= []; 
+                            var dummy2= []; 
+                            var dummy3= []; 
+                            var dummy4= []; 
+                            
+
+                            var dummyJadwalRenpam = [];
+                            var dummyJadwalRenpamAlter = [];
+                            var dummyJadwalRenpamAlterr = [];
+                            var dummyJadwalRenpamAlterrr = [];
+                            var dummyJadwalRenpamAlterrrr = []; 
+
+                            var checkedRoutJadwal = [];
+
+                            let dummyRenpam = '';
+
+                            var checkedRenpam1 = [];
+
+                            var route = []; 
+                            var route1 = []; 
+                            var route2 = []; 
+                            var route3 = []; 
+                            var route4 = []; 
+
+                            var countlistCategoriByCateg = 0;
+
+                            if(ress['renpams'].length >  0){ 
+                                var sortUrutanRenpam = ress['renpams'].sort((a, b) => {
+                                    return a.order_renpam - b.order_renpam;
+                                });
+                                for (let i = 0; i < sortUrutanRenpam.length; i++){  
+                                    countlistRenpam += 1; 
+                                    checkedRenpam1.push({
+                                        name_renpam : sortUrutanRenpam[i]['name_renpam'],
+                                        checked : 0,
+                                    }); 
+
+                                    dummyName.push(sortUrutanRenpam[i]['name_renpam']);
+                                    dummyType.push(sortUrutanRenpam[i]['type_renpam']);
+                                    dummyAwal.push(sortUrutanRenpam[i]['awal_renpam']);
+                                    dummyAkhir.push(sortUrutanRenpam[i]['akhir_renpam']);
+
+                                    nameJadwalRenpam[countlist] = dummyName;
+                                    typeJadwalRenpam[countlist] = dummyType; 
+                                    awalJadwalRenpam[countlist] = dummyAwal; 
+                                    akhirJadwalRenpam[countlist] = dummyAkhir; 
+
+                                    dummyWarna.push(sortUrutanRenpam[i]['warnaRoute_renpam']);
+                                    warnaRenpam[countlist] = dummyWarna;
+
+                                    dummyNameRenpam.push(sortUrutanRenpam[i]['name_renpam']);
+                                    nameRenpam[countlist] = dummyNameRenpam;
+
+                                    dummy.push(sortUrutanRenpam[i]['route']); 
+                                    dummy1.push(sortUrutanRenpam[i]['route_alternatif_1']); 
+                                    dummy2.push(sortUrutanRenpam[i]['route_alternatif_2']); 
+                                    dummy3.push(sortUrutanRenpam[i]['route_masyarakat']); 
+                                    dummy4.push(sortUrutanRenpam[i]['route_umum']); 
+
+                                    dummyJadwalRenpam[countlist] = dummy; 
+                                    dummyJadwalRenpamAlter[countlist] = dummy1; 
+                                    dummyJadwalRenpamAlterr[countlist] = dummy2; 
+                                    dummyJadwalRenpamAlterrr[countlist] = dummy3; 
+                                    dummyJadwalRenpamAlterrrr[countlist] = dummy4;
+
+                                    var dataAccounts;
+                                    if(sortUrutanRenpam[i]['accounts'].length > 0){ 
+                                        dataAccounts = sortUrutanRenpam[i]['accounts'];
+                                    }else{
+                                        dataAccounts = [];
+                                    }
+
+                                    var dataVIP = '';
+                                    if(sortUrutanRenpam[i]['vips'].length > 0){ 
+                                        for (let ii = 0; ii < sortUrutanRenpam[i]['vips'].length; ii++){  
+                                            dataVIP += `${sortUrutanRenpam[i]['vips'][ii]['name_vip']} - (${sortUrutanRenpam[i]['vips'][ii]['country_arrival_vip']}),`;
+                                        }
+                                    }else{
+                                        dataVIP = '-';
+                                    }
+
+                                    dummyRenpam += `
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" class="form-input checkRenpam" name="selectRenpam" 
+                                                id="listRenpamDisplay${ress['id_category_schedule']}${countlistRenpam}"  
+                                                data-name="${sortUrutanRenpam[i]['name_renpam']}" 
+                                                data-cord='${JSON.stringify(sortUrutanRenpam[i]['route'])}' 
+                                                data-cord1='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_1'])}' 
+                                                data-cord2='${JSON.stringify(sortUrutanRenpam[i]['route_alternatif_2'])}' 
+                                                data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}' 
+                                                data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}' 
+                                                data-type="${sortUrutanRenpam[i]['type_renpam']}" 
+                                                data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}" 
+                                                data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }" 
+                                                data-awal="${sortUrutanRenpam[i]['title_start']}" 
+                                                data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
+                                                
+                                            </td>
+                                            <td>${i+1}</td> 
+                                            <td>${dataVIP}</td>
+                                            <td><a href="<?= base_url()?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
+                                            <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
+                                            <td>
+                                                <a class="btn" 
+                                                    data-accounts='${JSON.stringify(dataAccounts)}'
+                                                    title="Petugas" data-bs-toggle="modal" data-bs-target="#myModalPetugas"
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-user-shield"></i>
+                                                </a>
+                                            </td>
+                                            <td> 
+                                                <a class="btn" href="javascripte:void(0);"
+                                                    style="font-size: 16px;"  
+                                                    data-idnote="${sortUrutanRenpam[i]['id']}" 
+                                                    data-note="${sortUrutanRenpam[i]['note_kakor']}"
+                                                    data-status="${sortUrutanRenpam[i]['status_renpam']}"
+                                                    data-accounts='${JSON.stringify(dataAccounts)}'
+                                                    title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
+                                                    <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    `;
+                                }
+                                checkboxJadwal = `
+                                    <input type="checkbox" class="form-input" name="selectJadwalRenpam" 
+                                    id="listJadwalRenpamClickDisplay"   
+                                    data-totaldata="${sortUrutanRenpam.length}"
+                                    >
+                                `;
+                            }else{
+                                checkboxJadwal = `<div style="width: 14px;"></div>`;
+                            }
+
+                            list += `
+                                <table style="font-size: 10px" id="datatableByCateg${ress['id_category_schedule']}${countlist}" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>${checkboxJadwal}</th>
+                                            <th>No</th>
+                                            <th>Negara</th>
+                                            <th>Lokasi</th>
+                                            <th>Berangkat</th> 
+                                            <th>Petugas</th>
+                                            <th>Catatan</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+                                        ${dummyRenpam}
+                                    </tbody>
+                                </table>
+                            `;
+
+                            $(`#openModalJalurBeatDisplay`).html(list);  
+
+
+                            $(`#listJadwalRenpamClickDisplay`).on("change", function (e) { 
+                                                 
+                                for (let ii = 0; ii < nameJadwalRenpam[countlist].length; ii++){ 
+
+                                    var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
+                                    var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
+ 
+ 
+                                    var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
+
+                                    var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
+                                    // console.log({a:namaRen ,b:warna});
+
+
+
+                                    var typeRenpam = typeJadwalRenpam[countlist][ii];
+                                    if(typeRenpam == 3){ //penjagaan
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 4){ //pengaturan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 5){ //penutupan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 1){
+                                        iconMarkerRenpam = ``;
+                                        markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5}];
+                                    }else{
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }
+                                    
+                                    
+
+                                    if(dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam[`${countlist}${ii}`] = null;
+                                            routingJadwalRenpam[`${countlist}${ii}`] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpam[countlist][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: styleRouteUtama
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
+                                            console.log('kebuka');
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);   
+                                        }
+                                    }else{
+                                        console.log('error route utama'); 
+                                    } 
+                                
+                                    if(dummyJadwalRenpamAlter[countlist][ii] != null && dummyJadwalRenpamAlter[countlist][ii].length > 0 && dummyJadwalRenpamAlter[countlist][ii][0]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam1[`${countlist}${ii}`] = null;
+                                            routingJadwalRenpam1[`${countlist}${ii}`] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpamAlter[countlist][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);   
+                                        }
+                                    }else{
+                                        console.log('error route alternative 1'); 
+                                    } 
+
+
+                                    if(dummyJadwalRenpamAlterr[countlist][ii] != null && dummyJadwalRenpamAlterr[countlist][ii].length > 0 && dummyJadwalRenpamAlterr[countlist][ii][0]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam2[`${countlist}${ii}`] = null;
+                                            routingJadwalRenpam2[`${countlist}${ii}`] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpamAlterr[countlist][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "gray", weight: 5, className: 'animateRoute'}]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);   
+                                        }
+                                    }else{
+                                        console.log('error route  alternative 2'); 
+                                    }  
+
+
+                                    if(dummyJadwalRenpamAlterrr[countlist][ii] != null && dummyJadwalRenpamAlterrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrr[countlist][ii][0]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam3[`${countlist}${ii}`] = null;
+                                            routingJadwalRenpam3[`${countlist}${ii}`] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpamAlterrr[countlist][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);   
+                                        }
+                                    }else{
+                                        console.log('error route Masyarakat'); 
+                                    } 
+
+
+                                    if(dummyJadwalRenpamAlterrrr[countlist][ii] != null && dummyJadwalRenpamAlterrrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrrr[countlist][ii][0]['latLng'] != null){
+                                        
+                                        if($(this).is(':checked')){  
+                                            routingJadwalRenpam4[`${countlist}${ii}`] = null;
+                                            routingJadwalRenpam4[`${countlist}${ii}`] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: dummyJadwalRenpamAlterrrr[countlist][ii],
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+    
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer); 
+                                            // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
+                                        }else{
+                                            mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);   
+                                        }
+                                    }else{
+                                        console.log('error route Umum'); 
+                                    } 
+
+
+
+
+                                }
+
+
+                            });
+
+                            for (let i = 0; i < countlistRenpam; i++){ 
+                                $(`#listRenpamDisplay${ress['id_category_schedule']}${i+1}`).on("change", function (e) { 
+                                    // console.log(checkedRenpam1);  
+                                    //Find index of specific object using findIndex method.    
+                                    objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
+                                    // console.log(objIndex);
+
+                                    //Log object to Console.
+                                    console.log("Before update: ", checkedRenpam1[objIndex]);
+
+                                    //Update object's name property.
+                                    if($(this).is(':checked')){  
+                                        checkedRenpam1[objIndex].checked = 1;
+                                    }else{
+                                        checkedRenpam1[objIndex].checked = 0;
+                                    } 
+                                   
+                                    //Log object to console again.
+                                    console.log(`${$(this).data('type')} - After update: `, checkedRenpam1[objIndex]);
+
+                                    // console.log($(this).data('cord'));
+                                    
+                                    var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
+                                    var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
+
+                                    var warna = "";
+                                    if($(this).data('jadwal') == "JALUR BEAT"){
+                                        warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
+                                    }else{
+                                        warna = "red";
+                                    }
+
+                                    var namaRen = $(this).data('name');
+
+
+                                    var typeRenpam = $(this).data('type');
+                                    if(typeRenpam == 3){ //penjagaan
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 4){ //pengaturan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 5){ //penutupan 
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }else if(typeRenpam == 1){
+                                        iconMarkerRenpam = ``;
+                                        markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5}];
+                                    }else{
+                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                    }
+
+                                    var cordRute1 = $(this).data('cord1'); 
+                                    if(cordRute1 != null && cordRute1[0]['latLng'] != null){ 
+                                        if($(this).is(':checked')){   
+                                            routingRenpam1[i] = null;
+                                            routingRenpam1[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute1,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}] 
+                                                },  
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+        
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);  
+                                            // mapContainer.addControl(routingRenpam1[i]); 
+                                        }else{ 
+                                            mapContainer.removeControl(routingRenpam1[i]);  
+                                        }
+                                        
+                                        
+                                    }else{ 
+                                    }
+
+                                    var cordRute2 = $(this).data('cord2'); 
+                                    if(cordRute2 != null && cordRute2[0]['latLng'] != null){ 
+                                        if($(this).is(':checked')){   
+                                            routingRenpam2[i] = null;
+                                            routingRenpam2[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute2,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#808080", weight: 5, className: 'animateRoute'}] 
+                                                },  
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+        
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);  
+                                            // mapContainer.addControl(routingRenpam2[i]); 
+                                        }else{ 
+                                            mapContainer.removeControl(routingRenpam2[i]);  
+                                        }
+                                        
+                                        
+                                    }else{ 
+                                    }
+
+                                    var cordRute3 = $(this).data('cord3'); 
+                                    if(cordRute3 != null && cordRute3[0]['latLng'] != null){ 
+                                        if($(this).is(':checked')){   
+                                            routingRenpam3[i] = null;
+                                            routingRenpam3[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute3,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}] 
+                                                },  
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+        
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);  
+                                            // mapContainer.addControl(routingRenpam3[i]); 
+                                        }else{ 
+                                            mapContainer.removeControl(routingRenpam3[i]);  
+                                        }
+                                        
+                                        
+                                    }else{ 
+                                    }
+
+                                    var cordRute4 = $(this).data('cord4'); 
+                                    if(cordRute4 != null && cordRute4[0]['latLng'] != null){ 
+                                        if($(this).is(':checked')){   
+                                            routingRenpam4[i] = null;
+                                            routingRenpam4[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute4,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}] 
+                                                },  
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+        
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);  
+                                            // mapContainer.addControl(routingRenpam4[i]); 
+                                        }else{ 
+                                            mapContainer.removeControl(routingRenpam4[i]);  
+                                        }
+                                        
+                                        
+                                    }else{ 
+                                    }
+
+                                    var cordRuteUtama = $(this).data('cord'); 
+                                    if(cordRuteUtama != null && cordRuteUtama[0]['latLng'] != null){ 
+                                        if($(this).is(':checked')){   
+                                            routingRenpam[i] = null;
+                                            routingRenpam[i] = L.Routing.control({
+                                                show:false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRuteUtama,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: styleRouteUtama
+                                                },  
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerType,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAwal}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else if (i === nWps - 1) {
+                                                        return L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeEnd,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        }).bindPopup(`
+                                                            <div class="text-center"> 
+                                                                <h5>${titikAkhir}</h5>
+                                                            </div> 
+                                                        `);
+                                                    } else {
+                                                        // here change all the others
+                                                        var options = {
+                                                                draggable: this.draggableWaypoints,
+                                                            },
+                                                            marker = L.marker(wp.latLng, {
+                                                            icon: L.divIcon({
+                                                                className: "location-pin",
+                                                                html: markerTypeOther,
+                                                                iconSize: [5, 5],
+                                                                //iconAnchor: [18, 30]
+                                                                iconAnchor: [5, 10],
+                                                            }),
+                                                            draggable: this.draggableWaypoints,
+                                                        });
+        
+                                                        return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);  
+                                            // mapContainer.addControl(routingRenpam[i]); 
+                                        }else{ 
+                                            mapContainer.removeControl(routingRenpam[i]);  
+                                        }
+                                        
+                                        
+                                    }else{ 
+                                    }
+                                });
+                            } 
+
+                            // $("#listJadwalRenpamClickDisplay").prop('checked', true);  
+
+                            $(`#datatableByCateg${ress['id_category_schedule']}${countlist}`).DataTable({
+                                responsive: true,
+
+                                // scrollX: true,
+
+                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                // buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                        }
+                    });
+                    
+                }
+
+                
             }else{
-                openDisplay = ''; 
+                openDisplay = '';  
             } 
         });
 
@@ -4515,6 +5659,8 @@
                     $("#myModalLaporanDisplay").modal('show');
                 }else if(openDisplay == 'titik_panicButton'){
                     $("#myModalPanicDisplay").modal('show');
+                } else if(openDisplay == 'jalur_beat'){
+                    $("#myModalJalurBeatDisplay").modal('show');
                 } 
             }else{
                 Swal.fire(
@@ -4799,6 +5945,7 @@
                         }   
 
                         $(`#openPetugas`).on('click', function(e) {
+                            $("#turjawali").prop('checked', true);  
                             serverSideGet(); 
                         });
                     
@@ -4999,11 +6146,13 @@
                                                                     data-cord3='${JSON.stringify(sortUrutanRenpam[i]['route_masyarakat'])}' 
                                                                     data-cord4='${JSON.stringify(sortUrutanRenpam[i]['route_umum'])}' 
                                                                     data-type="${sortUrutanRenpam[i]['type_renpam']}" 
+                                                                    data-warna="${sortUrutanRenpam[i]['warnaRoute_renpam']}" 
+                                                                    data-jadwal="${sortUrutanRenpam[i]['schedule'] != null ? sortUrutanRenpam[i]['schedule']['activity'] : '' }" 
                                                                     data-awal="${sortUrutanRenpam[i]['title_start']}" 
                                                                     data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
                                                                    
                                                                 </td>
-                                                                <td>${sortUrutanRenpam[i]['order_renpam']}</td> 
+                                                                <td>${i+1}</td> 
                                                                 <td>${dataVIP}</td>
                                                                 <td><a href="<?= base_url()?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
                                                                 <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
@@ -5118,12 +6267,19 @@
                                                     } 
 
                                                     //Log object to console again.
-                                                    console.log("After update: ", checkedRenpam1[objIndex]);
+                                                    console.log(`${$(this).data('type')} - After update: `, checkedRenpam1[objIndex]);
 
                                                     // console.log($(this).data('cord'));
                                                     
                                                     var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
                                                     var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
+
+                                                    var warna = "";
+                                                    if($(this).data('jadwal') == "JALUR BEAT"){
+                                                        warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
+                                                    }else{
+                                                        warna = "red";
+                                                    }
                     
 
                                                     var typeRenpam = $(this).data('type');
@@ -5132,21 +6288,31 @@
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                                     }else if(typeRenpam == 4){ //pengaturan 
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                                     }else if(typeRenpam == 5){ //penutupan 
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                         markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                         markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                                    }else if(typeRenpam == 1){
+                                                        iconMarkerRenpam = ``;
+                                                        markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                        markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                        styleRouteUtama = [{color: warna, weight: 5}];
                                                     }else{
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
                                                         markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
                                                         markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                                     }
 
                                                     var cordRute1 = $(this).data('cord1'); 
@@ -5475,7 +6641,7 @@
                                                                     profile: 'car'
                                                                 }),
                                                                 lineOptions: {
-                                                                    styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                                    styles: styleRouteUtama
                                                                 },  
                                                                 createMarker: function(i, wp, nWps) {
                                                                     if (i === 0 || i === nWps + 1) {
@@ -5664,7 +6830,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAwal}</h3>
+                                                                                    <h5>${titikAwal}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else if (i === nWps - 1) {
@@ -5679,7 +6845,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAkhir}</h3>
+                                                                                    <h5>${titikAkhir}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else {
@@ -5742,7 +6908,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAwal}</h3>
+                                                                                    <h5>${titikAwal}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else if (i === nWps - 1) {
@@ -5757,7 +6923,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAkhir}</h3>
+                                                                                    <h5>${titikAkhir}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else {
@@ -5820,7 +6986,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAwal}</h3>
+                                                                                    <h5>${titikAwal}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else if (i === nWps - 1) {
@@ -5835,7 +7001,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAkhir}</h3>
+                                                                                    <h5>${titikAkhir}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else {
@@ -5898,7 +7064,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAwal}</h3>
+                                                                                    <h5>${titikAwal}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else if (i === nWps - 1) {
@@ -5913,7 +7079,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAkhir}</h3>
+                                                                                    <h5>${titikAkhir}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else {
@@ -5976,7 +7142,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAwal}</h3>
+                                                                                    <h5>${titikAwal}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else if (i === nWps - 1) {
@@ -5991,7 +7157,7 @@
                                                                                 draggable: this.draggableWaypoints,
                                                                             }).bindPopup(`
                                                                                 <div class="text-center"> 
-                                                                                    <h3>${titikAkhir}</h3>
+                                                                                    <h5>${titikAkhir}</h5>
                                                                                 </div> 
                                                                             `);
                                                                         } else {
@@ -6116,6 +7282,8 @@
                                                     data-cord3='${JSON.stringify(el.route_masyarakat)}' 
                                                     data-cord4='${JSON.stringify(el.route_umum)}' 
                                                     data-type="${el.type_renpam}" 
+                                                    data-warna="${el.warnaRoute_renpam}" 
+                                                    data-jadwal="${el.schedule != null ? el.schedule.activity : '' }"
                                                     data-awal="${el.title_start}" 
                                                     data-akhir="${el.title_end}"> 
                                                 </td>
@@ -6174,6 +7342,12 @@
                                             var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
                                             var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
             
+                                            var warna = "";
+                                            if($(this).data('jadwal') == "JALUR BEAT"){
+                                                warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
+                                            }else{
+                                                warna = "red";
+                                            }
 
                                             var typeRenpam = $(this).data('type');
                                             if(typeRenpam == 3){ //penjagaan
@@ -6181,21 +7355,31 @@
                                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                 markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                             }else if(typeRenpam == 4){ //pengaturan 
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                 markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                             }else if(typeRenpam == 5){ //penutupan 
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                                 markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                                 markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                styleRouteUtama = [{color: warna, weight: 5}];
+                                            }else if(typeRenpam == 1){
+                                                iconMarkerRenpam = ``;
+                                                markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                styleRouteUtama = [{color: warna, weight: 5}];
                                             }else{
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
                                                 markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
                                                 markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                             }
 
                                             var cordRute1 = $(this).data('cord1'); 
@@ -6524,7 +7708,7 @@
                                                             profile: 'car'
                                                         }),
                                                         lineOptions: {
-                                                            styles: [{color: "red", weight: 5, className: 'animateRoute'}] 
+                                                            styles: styleRouteUtama
                                                         },  
                                                         createMarker: function(i, wp, nWps) {
                                                             if (i === 0 || i === nWps + 1) {
@@ -6827,7 +8011,7 @@
                                         title="Catatan Uraian Kegiatan" data-bs-toggle="modal" data-bs-target="#myModalNoteKakor">
                                             <i style="color: #495057;" class="mdi mdi-beaker-plus-outline"></i>
                                         </a>
-                                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}"  data-name="${el.name_renpam}" data-cord=${JSON.stringify(el.route)} data-type="${el.type_renpam}" data-awal="${el.title_start}" data-akhir="${el.title_end}">
+                                        <input type="checkbox" class="form-input" name="selectRenpam" id="listRenpamClick${countlist}" data-jadwal="${el.schedule != null ? el.schedule.activity : '' }" data-warna="${el.warnaRoute_renpam}"  data-name="${el.name_renpam}" data-cord=${JSON.stringify(el.route)} data-type="${el.type_renpam}" data-awal="${el.title_start}" data-akhir="${el.title_end}">
                                     </div>
                                 </div>
                             </li>`;
@@ -6946,6 +8130,12 @@
                                 var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
                                 var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
  
+                                var warna = "";
+                                if($(this).data('jadwal') == "JALUR BEAT"){
+                                    warna = $(this).data('warna') == "" ? 'red' : $(this).data('warna');
+                                }else{
+                                    warna = "red";
+                                }
 
                                 var typeRenpam = $(this).data('type');
                                 if(typeRenpam == 3){ //penjagaan
@@ -6953,21 +8143,31 @@
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                     markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                    styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                 }else if(typeRenpam == 4){ //pengaturan 
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                     markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                    styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                 }else if(typeRenpam == 5){ //penutupan 
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                     markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                    styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                }else if(typeRenpam == 1){
+                                    iconMarkerRenpam = ``;
+                                    markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                    markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                    markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                    styleRouteUtama = [{color: warna, weight: 5}];
                                 }else{
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
                                     markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
                                     markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
                                     markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                    styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                 }
     
                                 if(route1[i] != null && route1[i][0]['latLng'] != null){
@@ -6984,7 +8184,7 @@
                                                 profile: 'car'
                                             }),
                                             lineOptions: {
-                                                styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                styles: styleRouteUtama
                                             },
                                             createMarker: function(i, wp, nWps) {
                                                 if (i === 0 || i === nWps + 1) {
@@ -7000,7 +8200,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAwal}</h3>
+                                                            <h5>${titikAwal}</h5>
                                                         </div> 
                                                     `);
                                                 } else if (i === nWps - 1) {
@@ -7015,7 +8215,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAkhir}</h3>
+                                                            <h5>${titikAkhir}</h5>
                                                         </div> 
                                                     `);
                                                 } else {
@@ -7083,7 +8283,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAwal}</h3>
+                                                            <h5>${titikAwal}</h5>
                                                         </div> 
                                                     `);
                                                 } else if (i === nWps - 1) {
@@ -7098,7 +8298,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAkhir}</h3>
+                                                            <h5>${titikAkhir}</h5>
                                                         </div> 
                                                     `);
                                                 } else {
@@ -7165,7 +8365,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAwal}</h3>
+                                                            <h5>${titikAwal}</h5>
                                                         </div> 
                                                     `);
                                                 } else if (i === nWps - 1) {
@@ -7180,7 +8380,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAkhir}</h3>
+                                                            <h5>${titikAkhir}</h5>
                                                         </div> 
                                                     `);
                                                 } else {
@@ -7248,7 +8448,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAwal}</h3>
+                                                            <h5>${titikAwal}</h5>
                                                         </div> 
                                                     `);
                                                 } else if (i === nWps - 1) {
@@ -7263,7 +8463,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAkhir}</h3>
+                                                            <h5>${titikAkhir}</h5>
                                                         </div> 
                                                     `);
                                                 } else {
@@ -7332,7 +8532,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAwal}</h3>
+                                                            <h5>${titikAwal}</h5>
                                                         </div> 
                                                     `);
                                                 } else if (i === nWps - 1) {
@@ -7347,7 +8547,7 @@
                                                         draggable: this.draggableWaypoints,
                                                     }).bindPopup(`
                                                         <div class="text-center"> 
-                                                            <h3>${titikAkhir}</h3>
+                                                            <h5>${titikAkhir}</h5>
                                                         </div> 
                                                     `);
                                                 } else {
@@ -7798,7 +8998,7 @@
 
 
 
-        serverSideGet();
+        // serverSideGet();
     });
 
     function hitungGpsId(){
