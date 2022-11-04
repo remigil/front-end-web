@@ -29,6 +29,11 @@
                 </div> 
 
                 <div style="position: absolute;left: 330px;width: 1000px;top: 6px;">
+                    <div class="cat jalurBeatDisplay" style="margin-left: 10px;">
+                        <label>
+                            <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-user-shield"></i> Jalur Beat</span>
+                        </label>
+                    </div>
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
                             <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
@@ -1356,7 +1361,7 @@
                     }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
                             <div class="row mt-3"> 
-                                <div class="col-md-12" id="benderaForGpsId${el.VehicleId}">
+                                <div class="col-md-12" id="benderaForGpsId${ress[0].VehicleId}">
                                    
                                 </div> 
                             </div>
@@ -1448,7 +1453,7 @@
                         }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
                             <div class="row mt-3"> 
-                                <div class="col-md-12"  id="benderaForGpsId${el.VehicleId}">
+                                <div class="col-md-12"  id="benderaForGpsId${ress[0].VehicleId}">
                              
                                 </div> 
                             </div>
@@ -3075,6 +3080,16 @@
             console.log(ress);
         });
 
+
+        
+        $("#jalurBeatDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value;  
+                $("#myModalPetugasDisplay").modal('show'); 
+            }else{
+                openDisplay = ''; 
+            } 
+        });
 
         $("#turjawaliDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
