@@ -4581,11 +4581,12 @@
                                                 countlistCategoriByCateg += 1; 
 
                                                 if(el.renpams.length > 0){ 
-                                                
-                                                    var sortUrutanRenpam = el.renpams.sort((a,b) => a.order_renpam + b.order_renpam);
-                                                    // console.log({a:`urutan`, b:sortUrutanRenpam});
+                                                    var sortUrutanRenpam = el.renpams.sort((a, b) => {
+                                                        return a.order_renpam - b.order_renpam;
+                                                    });
+                                                    console.log({a:`urutan`, b:sortUrutanRenpam});
                                                     for (let i = 0; i < sortUrutanRenpam.length; i++){  
-                                                        console.log({a: sortUrutanRenpam[i]['name_renpam'],b:sortUrutanRenpam[i]['order_renpam']});
+                                                        // console.log({a: sortUrutanRenpam[i]['name_renpam'],b:sortUrutanRenpam[i]['order_renpam']});
                                                         countlistRenpam += 1;
 
                                                         checkedRenpam1.push({
@@ -4655,7 +4656,7 @@
                                                                     data-akhir="${sortUrutanRenpam[i]['title_end']}"> 
                                                                    
                                                                 </td>
-                                                                <td>${i+1}</td> 
+                                                                <td>${sortUrutanRenpam[i]['order_renpam']}</td> 
                                                                 <td>${dataVIP}</td>
                                                                 <td><a href="<?= base_url()?>operasi/Renpam/edit/${sortUrutanRenpam[i]['id']}" target="_blank">${sortUrutanRenpam[i]['title_start']} Ke ${sortUrutanRenpam[i]['title_end']}</a></td>
                                                                 <td>${sortUrutanRenpam[i]['start_time'] != null ? sortUrutanRenpam[i]['start_time'].substr(0, 5) : '-'}</td> 
@@ -4754,10 +4755,10 @@
         
                                             for (let i = 0; i < countlistRenpam; i++){ 
                                                 $(`#listRenpamModalClick${ress[m]['id']}${i+1}`).on("change", function (e) { 
-                                                    console.log(checkedRenpam1);  
+                                                    // console.log(checkedRenpam1);  
                                                     //Find index of specific object using findIndex method.    
                                                     objIndex = checkedRenpam1.findIndex((obj => obj.name_renpam == $(this).data('name')));
-                                                    console.log(objIndex);
+                                                    // console.log(objIndex);
 
                                                     //Log object to Console.
                                                     console.log("Before update: ", checkedRenpam1[objIndex]);
@@ -4771,6 +4772,8 @@
 
                                                     //Log object to console again.
                                                     console.log("After update: ", checkedRenpam1[objIndex]);
+
+                                                    // console.log($(this).data('cord'));
                                                     
                                                     var titikAwal = $(this).data('awal') == null ? '-' : $(this).data('awal');
                                                     var titikAkhir = $(this).data('akhir') == null ? '-' : $(this).data('akhir');
