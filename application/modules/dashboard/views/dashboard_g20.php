@@ -3683,7 +3683,7 @@
                                                             <p style="font-size: 12px;"> : </p>
                                                         </div>
                                                         <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                                         </div>
                                                     </div> 
                                                 </div>  
@@ -4585,7 +4585,7 @@
                                                     var sortUrutanRenpam = el.renpams.sort((a,b) => a.order_renpam + b.order_renpam);
                                                     // console.log({a:`urutan`, b:sortUrutanRenpam});
                                                     for (let i = 0; i < sortUrutanRenpam.length; i++){  
-                                                    
+                                                        console.log({a: sortUrutanRenpam[i]['name_renpam'],b:sortUrutanRenpam[i]['order_renpam']});
                                                         countlistRenpam += 1;
 
                                                         checkedRenpam1.push({
@@ -7586,7 +7586,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-6 col-6">
-                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -7768,7 +7768,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-6 col-6">
-                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -7948,7 +7948,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-6 col-6">
-                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -8127,7 +8127,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-6 col-6">
-                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
                                 </div> 
                             </div>  
@@ -8307,7 +8307,7 @@
                                         <p style="font-size: 12px;"> : </p>
                                     </div>
                                     <div class="col-md-6 col-6">
-                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description}</p>
+                                        <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
                                     </div>
                                 </div> 
                             </div>  
