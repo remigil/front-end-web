@@ -557,7 +557,7 @@ class Dashboard extends MY_Controller
         // $input = $this->input->post(); 
 
 
-        $url = 'country/getId/'.$input['id_country'].'';
+        $url = 'country/getIdNoEncrypt/'.$input['id_country'].'';
         $getData = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
