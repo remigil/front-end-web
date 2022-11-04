@@ -80,6 +80,21 @@ class Harian extends MY_Controller
         echo json_encode($data['getData']);
     }
 
+    public function getDayReportIrsms(){
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+        $input = $this->input->post(); 
+        // .$input['start_date']
+        $url = 'day_report/getDateMonth?date=2022-11-05';
+        $getData = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getData'] = $getData['data'];
+
+        echo json_encode($data['getData']);
+    }
+
     public function serverSideTable()
     {
         $postData = $this->input->post();

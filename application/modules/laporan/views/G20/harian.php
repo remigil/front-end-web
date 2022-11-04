@@ -37,6 +37,20 @@
                 </div>
             </div> 
         </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>Laporan IRSMS Material Loss</h5> 
+                    </div>
+                    <div class="card-body m-0 p-0">
+                        <div class="main-chart">
+                            <div id="chartIRSMS2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="card">
@@ -148,10 +162,10 @@
                         <div id="chartLaporan"></div>
                     `);
 
-                    $('#chartIRSMS').remove();
-                    $('#chartIRSMS1').html(`
-                        <div id="chartIRSMS"></div>
-                    `);
+                    // $('#chartIRSMS').remove();
+                    // $('#chartIRSMS1').html(`
+                    //     <div id="chartIRSMS"></div>
+                    // `);
 
                     $('#chartOperasi').remove();
                     $('#chartOperasi1').html(`
@@ -467,50 +481,50 @@
                         chart.render();
 
 
-                        optionsIRSMS = {
-                            series: [{
-                                data: [sumMaterialloss, sumMd, sumLb, sumLr, sumKorban]
-                            }],
-                            chart: {
-                                height: 350,
-                                type: 'bar',
-                                events: {
-                                    click: function(chart, w, e) {
-                                    // console.log(chart, w, e)
-                                    }
-                                }
-                            },
-                            // colors: colors,
-                            plotOptions: {
-                                bar: {
-                                    columnWidth: '45%',
-                                    distributed: true,
-                                }
-                            },
-                            dataLabels: {
-                                enabled: false
-                            },
-                            legend: {
-                                show: false
-                            },
-                            xaxis: {
-                                categories: [ 
-                                    'Kerugian Material',
-                                    'Meninggal Dunia',
-                                    'Luka Berat',
-                                    'Luka Ringan',
-                                    'Total Korban', 
-                                ],
-                                labels: {
-                                    style: {
-                                    //   colors: colors,
-                                    fontSize: '12px'
-                                    }
-                                }
-                            }
-                        };
-                        var chart = new ApexCharts(document.querySelector("#chartIRSMS"), optionsIRSMS);
-                        chart.render();
+                        // optionsIRSMS = {
+                        //     series: [{
+                        //         data: [sumMaterialloss, sumMd, sumLb, sumLr, sumKorban]
+                        //     }],
+                        //     chart: {
+                        //         height: 350,
+                        //         type: 'bar',
+                        //         events: {
+                        //             click: function(chart, w, e) {
+                        //             // console.log(chart, w, e)
+                        //             }
+                        //         }
+                        //     },
+                        //     // colors: colors,
+                        //     plotOptions: {
+                        //         bar: {
+                        //             columnWidth: '45%',
+                        //             distributed: true,
+                        //         }
+                        //     },
+                        //     dataLabels: {
+                        //         enabled: false
+                        //     },
+                        //     legend: {
+                        //         show: false
+                        //     },
+                        //     xaxis: {
+                        //         categories: [ 
+                        //             'Kerugian Material',
+                        //             'Meninggal Dunia',
+                        //             'Luka Berat',
+                        //             'Luka Ringan',
+                        //             'Total Korban', 
+                        //         ],
+                        //         labels: {
+                        //             style: {
+                        //             //   colors: colors,
+                        //             fontSize: '12px'
+                        //             }
+                        //         }
+                        //     }
+                        // };
+                        // var chart = new ApexCharts(document.querySelector("#chartIRSMS"), optionsIRSMS);
+                        // chart.render();
     
     
                         optionsOperasi = {  
@@ -743,9 +757,134 @@
                 }
             }); 
         }
+        function getReportIrsms(){
+            // $("#overlay").fadeIn(300); 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>laporan/Harian/getDayReportIrsms", 
+                data : {
+                    "start_date" : $('#startdate').val(),
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+ 
+                    console.log({testResult: result})
+                    $('#chartIRSMS').remove();
+                    $('#chartIRSMS1').html(`
+                        <div id="chartIRSMS"></div>
+                    `);
+                    $('#chartIRSMSnew').remove();
+                    $('#chartIRSMS2').html(`
+                        <div id="chartIRSMSnew"></div>
+                    `);
+
+               
+                    
+    
+                    // if(result['data'].length > 0 || result['data'] != null){
+                     
+
+                        // IRSMS
+                        var listIRSMS = ``;
+                        var urutanIRSMS = 0;
+
+
+                        optionsIRSMS2 ={
+                            series: result.irsms2,
+                            chart: {
+                                height: 350,
+                                type: 'bar',
+                                stacked: false,
+                                toolbar: {
+                                show: false
+                                }
+                            },
+                            // colors: ['#13d820', '#f7eb04'],
+                            dataLabels: {
+                                enabled: false,
+                                style: {
+                                colors: ['#000']
+                                }
+                            },
+                            plotOptions: {
+                                bar: {
+                                horizontal: false,
+                                
+
+                                }
+                            },
+                            xaxis: {
+                                categories: result.dateMonth
+                            },
+                            // yaxis: {
+                            //     max: 10,
+                            //     labels: {
+                            //     show: true,
+                            //     trim: false
+                            //     }
+                            // }
+
+                            }
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                            optionsIRSMS ={
+                            series: result.irsms1,
+                            chart: {
+                                height: 350,
+                                type: 'bar',
+                                stacked: false,
+                                toolbar: {
+                                show: false
+                                }
+                            },
+                            // colors: ['#13d820', '#f7eb04'],
+                            dataLabels: {
+                                enabled: false,
+                                style: {
+                                colors: ['#000']
+                                }
+                            },
+                            plotOptions: {
+                                bar: {
+                                horizontal: false,
+                                
+
+                                }
+                            },
+                            xaxis: {
+                                categories: result.dateMonth
+                            },
+                            // yaxis: {
+                            //     max: 10,
+                            //     labels: {
+                            //     show: true,
+                            //     trim: false
+                            //     }
+                            // }
+
+                            }
+                        var chart = new ApexCharts(document.querySelector("#chartIRSMS"), optionsIRSMS);
+                        chart.render();
+                        var chart = new ApexCharts(document.querySelector("#chartIRSMSnew"), optionsIRSMS2);
+                        chart.render();
+    
+    
+                   
+                    // } else{
+    
+                    // }
+                    // $("#overlay").fadeOut(300); 
+                }
+            }); 
+        }
 
         getReport();
-        
+        getReportIrsms();
         $("#searchtgl").on("click", function (e) { 
             getReport();
         });
