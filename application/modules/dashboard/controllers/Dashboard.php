@@ -525,6 +525,47 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getCCTV']);
     }
 
+    public function gpsIdPost()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+        $dummy = array();
+        $dummy['username'] = 'siwalpjr';
+        $dummy['apikey'] = '82a5c852c725d4cf5205b808d9f2f467';
+
+
+        $url = 'pushData';
+        $getData = guzzle_requestGpsId('POST', $url, [
+            'form_params' => $dummy,
+            'headers' => $headers
+        ]);
+        $data['getData'] = $getData;
+
+        echo json_encode($data['getData']);
+    }
+
+    public function getIdCountry()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $input = $this->input->post(); 
+
+
+        $url = 'country/getId/'.$input['id_country'].'';
+        $getData = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getData'] = $getData['data'];
+
+        echo json_encode($data['getData']);
+    }
+
     public function getFasum()
     {
         $headers = [

@@ -1095,6 +1095,9 @@
                         </div>
                     </div>`;
                 }
+
+                 
+
                 if(markerGpsId[ress[0].VehicleId] != null){ 
                     var fotoPetugas = "";
                     markerGpsId[ress[0].VehicleId].setLatLng([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
@@ -1105,6 +1108,11 @@
                     // iconAnchor: [10, 33]
                     }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
+                            <div class="row mt-3"> 
+                                <div class="col-md-12" id="benderaForGpsId">
+                                   
+                                </div> 
+                            </div>
                             <div class="row text-start mt-3">
                                 <div class="col-md-4">
                                     <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
@@ -1141,6 +1149,27 @@
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
                                 </div>  
 
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas1}</span>
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas2}</span>
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Delegasi}</span>
+                                </div>  
+
                                 <div class="col-md-12 text-center  mt-3">
                                     <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
                                     <p style="font-size: 12px;">${ress[0].GpsLocation}</p>
@@ -1148,7 +1177,20 @@
                             </div> 
                                 
                         </div>
-                    `).update();  
+                    `).update().on('click', function(e) {
+                        // console.log(e.latlng);
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getIdCountry", 
+                            data : {
+                                "id_country" : ress[0].Delegasi, 
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){   
+                                $(`#benderaForGpsId`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                            }
+                        });
+                    });  
                 }else{  
                     markerGpsId[ress[0].VehicleId] = L.marker([ress[0].Lat,ress[0].Lon], { icon: L.divIcon({
                         // className: 'location-pin',
@@ -1158,7 +1200,11 @@
                         // iconAnchor: [10, 33]
                         }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
-
+                            <div class="row mt-3"> 
+                                <div class="col-md-12"  id="benderaForGpsId">
+                             
+                                </div> 
+                            </div>
                             
                             <div class="row text-start mt-3">
                                 <div class="col-md-4">
@@ -1194,7 +1240,28 @@
                                 </div> 
                                 <div class="col-md-8">
                                     <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Engine}</span>
+                                </div> 
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas1}</span>
                                 </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Petugas2}</span>
+                                </div>  
+
+                                <div class="col-md-4">
+                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                </div> 
+                                <div class="col-md-8">
+                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Delegasi}</span>
+                                </div>   
 
                                 <div class="col-md-12 text-center  mt-3">
                                     <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
@@ -1203,17 +1270,49 @@
                             </div> 
                                 
                         </div>
-                    `).addTo(mapContainer);    
+                    `).addTo(mapContainer).on('click', function(e) {
+                        // console.log(e.latlng);
+                        $.ajax({
+                            type : "POST",
+                            url : "<?php echo base_url();?>dashboard/getIdCountry", 
+                            data : {
+                                "id_country" : ress[0].Delegasi, 
+                            }, 
+                            dataType : "JSON",
+                            success : function(result){   
+                                $(`#benderaForGpsId`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                            }
+                        });
+                    });     
                 }  
             });
         }
 
 
-        autoGpsId = setInterval(gpsId, 5000);
+        autoGpsId = setInterval(gpsId, 3000);
         $("#gpsIdDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#gpsId").prop('checked', true); 
-                autoGpsId = setInterval(gpsId, 5000); 
+                $.ajax({
+                    type : "POST",
+                    url : "<?php echo base_url();?>dashboard/gpsIdPost", 
+                    data : {
+                        "status" : '1',
+                    }, 
+                    dataType : "JSON",
+                    success : function(result){  
+                        // console.log(result);
+                        if(result['status']){
+                            autoGpsId = setInterval(gpsId, 3000); 
+                            Swal.fire(
+                                `${result['message']}`, 
+                                '',
+                                'info'
+                            ).then(function() { 
+                            });
+                        }
+                    }
+                });
                 // $("#myModalGpsIdDisplay").modal('show');
             }else{
                 $("#gpsId").prop('checked', false); 
@@ -4060,7 +4159,7 @@
             if($("#gpsId").is(':checked')){ 
                 $("#gpsIdDisplay").prop('checked', true); 
                 // $("#myModalGpsIdDisplay").modal('show');
-                autoGpsId = setInterval(gpsId, 5000); 
+                autoGpsId = setInterval(gpsId, 3000); 
             }else{
                 $("#gpsIdDisplay").prop('checked', false); 
                 $("#gpsIdDisplay").val(); 
@@ -5240,30 +5339,7 @@
                                                          
         
                                                         // console.log(dummyJadwalRenpam[i+1][ii]);
-        
-                                                        var typeRenpam = typeJadwalRenpam[i+1][ii];
-                                                        if(typeRenpam == 3){ //penjagaan
-                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
-                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-                                                        }else if(typeRenpam == 4){ //pengaturan 
-                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
-                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                                        }else if(typeRenpam == 5){ //penutupan 
-                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
-                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                                        }else{
-                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                                            markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
-                                                        }
-                                                        
+
                                                         var warna = "";
                                                         if(ressJadwalId[i]['activity'] == "JALUR BEAT"){
                                                             warna = warnaRenpam[i+1][ii] == null ? 'red' : warnaRenpam[i+1][ii];
@@ -5273,6 +5349,43 @@
 
                                                         var namaRen = nameRenpam[i+1][ii] == null ? 'red' : nameRenpam[i+1][ii];
                                                         console.log({a:namaRen ,b:warna});
+
+
+        
+                                                        var typeRenpam = typeJadwalRenpam[i+1][ii];
+                                                        if(typeRenpam == 3){ //penjagaan
+                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                                        }else if(typeRenpam == 4){ //pengaturan 
+                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                                        }else if(typeRenpam == 5){ //penutupan 
+                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                                        }else if(typeRenpam == 1){
+                                                            iconMarkerRenpam = ``;
+                                                            markerType = `${typeRenpam}<div class="pin" style="background: yellow; display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `${typeRenpam}<div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `${typeRenpam}<div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                            styleRouteUtama = [{color: warna, weight: 5}];
+                                                        }else{
+                                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                                            markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                                        }
+                                                        
+                                                        
         
                                                         if(dummyJadwalRenpam[i+1][ii] != null && dummyJadwalRenpam[i+1][ii].length > 0 && dummyJadwalRenpam[i+1][ii][0]['latLng'] != null){
                                                             
@@ -5288,7 +5401,7 @@
                                                                         profile: 'car'
                                                                     }),
                                                                     lineOptions: {
-                                                                        styles: [{color: warna, weight: 5, className: 'animateRoute'}] 
+                                                                        styles: styleRouteUtama
                                                                     },
                                                                     createMarker: function(i, wp, nWps) {
                                                                         if (i === 0 || i === nWps + 1) {
