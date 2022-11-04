@@ -105,6 +105,7 @@ class M_petugas extends CI_Model {
             $row ['id']	=  $no++; 
             $row ['name_officer']	= $field['name_officer']; 
             $row ['nrp_officer']	= $field['nrp_officer'];  
+            $row ['replacementNrp_officer']	= $field['replacementNrp_officer'] != null ? $field['replacementNrp_officer'] : '-';  
             $row ['rank_officer']   	= $field['rank_officer'];
             $row ['structural_officer']   	= $field['structural_officer'];  
             $row ['pam_officer']   	= $field['pam_officer']; 

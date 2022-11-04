@@ -79,12 +79,33 @@
     </div>
 </div>
 
+<textarea name="routeUtama" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route']) ?></textarea>
+<textarea name="route1" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_alternatif_1']) ?></textarea>
+<textarea name="route2" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_alternatif_2']) ?></textarea>
+<textarea name="route3" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_masyarakat']) ?></textarea>
+<textarea name="route4" id="" cols="30" rows="10"><?php echo json_encode($data['getDetail']['data']['route_umum']) ?></textarea> 
+
+
 <script>
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
     var routingRenpam3 = new Array();
     var routingRenpam4 = new Array();
+
+    var awal = '<?php echo json_encode($data['getDetail']['data']['title_start']) ?>';
+    var akhir = '<?php echo json_encode($data['getDetail']['data']['title_end']) ?>';
+    var titikAwal = awal == null ? '-' : awal;
+    var titikAkhir = akhir == null ? '-' : akhir;
+
+    var route1 = $("[name=route1]").val();
+    var route2 = $("[name=route2]").val();
+    var route3 = $("[name=route3]").val();
+    var route4 = $("[name=route4]").val();
+    var route = $("[name=routeUtama]").val();
+    // console.log(JSON.parse(route));
+ 
+    var typeRenpam = '<?php echo json_encode($data['getDetail']['data']['type_renpam']) ?>';
 
     $(document).ready(function() {
 
@@ -121,7 +142,7 @@
         }).setView(initialCenter, initialZoom);
 
 
-        var typeRenpam = '<?php echo json_encode($data['getDetail']['data']['type_renpam']) ?>';
+        
         if (typeRenpam == 3) { //penjagaan
             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
             markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
@@ -145,12 +166,8 @@
         }
 
 
-        var awal = '<?php echo json_encode($data['getDetail']['data']['title_start']) ?>';
-        var akhir = '<?php echo json_encode($data['getDetail']['data']['title_end']) ?>';
-        var titikAwal = awal == null ? '-' : awal;
-        var titikAkhir = akhir == null ? '-' : akhir;
-
-        var route1 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_1']) ?>';
+       
+        
         if (route1 != 'null') {
             routingRenpam1[0] = L.Routing.control({
                 show: false,
@@ -222,7 +239,7 @@
             }).addTo(mapContainer);
         }
 
-        var route2 = '<?php echo json_encode($data['getDetail']['data']['route_alternatif_2']) ?>';
+        
         if (route2 != 'null') {
             routingRenpam2[0] = L.Routing.control({
                 show: false,
@@ -294,7 +311,7 @@
             }).addTo(mapContainer);
         }
 
-        var route3 = '<?php echo json_encode($data['getDetail']['data']['route_masyarakat']) ?>';
+        
         if (route3 != 'null') {
             routingRenpam3[0] = L.Routing.control({
                 show: false,
@@ -366,7 +383,7 @@
             }).addTo(mapContainer);
         }
 
-        var route4 = '<?php echo json_encode($data['getDetail']['data']['route_umum']) ?>';
+        
         if (route4 != 'null') {
             routingRenpam4[0] = L.Routing.control({
                 show: false,
@@ -438,7 +455,7 @@
             }).addTo(mapContainer);
         }
 
-        var route = '<?php echo json_encode($data['getDetail']['data']['route']) ?>';
+        
         if (route != 'null') {
             routingRenpam[0] = L.Routing.control({
                 show: false,

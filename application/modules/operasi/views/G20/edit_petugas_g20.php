@@ -64,6 +64,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="material-textfield mb-3">
+                                    <input style="width: 100%;" name="replacementNrp_officer" value="<?php echo $data['getDetail']['data']['replacementNrp_officer'];?>" type="text">
+                                    <label class="labelmui">NRP Pengganti</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="material-textfield mb-3">
                                     <input style="width: 100%;" name="pam" value="<?php echo $data['getDetail']['data']['pam_officer'];?>" type="text">
                                     <label class="labelmui">Dalam PAM</label>
                                 </div>

@@ -106,7 +106,7 @@ class M_operasi extends CI_Model
         ]);
 
         $no = 1;
-
+        date_default_timezone_set("Asia/Bangkok");
         foreach ($result['data']['data'] as $field) {
 
             if ($field['status'] == 0) {
@@ -120,7 +120,7 @@ class M_operasi extends CI_Model
             $row['name_officer']      = $field['officer']['name_officer'];
             $row['categori']      = $field['categori'];
             $row['description']           = $field['description'];
-            $row['time']           = format_indoTglWkt($field['created_at']);
+            $row['time']           =  gmdate($field['created_at']);
             $row['phone_officer']           = $field['officer']['phone_officer'];
             $row['status']           = $status;
             $row['action']             = '   

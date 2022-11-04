@@ -117,6 +117,10 @@ class Petugas extends MY_Controller
                     'contents' => $input['nrp'],
                 ],
                 [
+                    'name' => 'replacementNrp_officer',
+                    'contents' => $input['replacementNrp_officer'],
+                ],
+                [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
                 ],
@@ -151,6 +155,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'nrp_officer',
                     'contents' => $input['nrp'],
+                ],
+                [
+                    'name' => 'replacementNrp_officer',
+                    'contents' => $input['replacementNrp_officer'],
                 ],
                 [
                     'name' => 'rank_officer',
@@ -290,6 +298,10 @@ class Petugas extends MY_Controller
                     'contents' => $input['nrp'],
                 ],
                 [
+                    'name' => 'replacementNrp_officer',
+                    'contents' => $input['replacementNrp_officer'],
+                ],
+                [
                     'name' => 'rank_officer',
                     'contents' => $input['pangkat'],
                 ],
@@ -324,6 +336,10 @@ class Petugas extends MY_Controller
                 [
                     'name' => 'nrp_officer',
                     'contents' => $input['nrp'],
+                ],
+                [
+                    'name' => 'replacementNrp_officer',
+                    'contents' => $input['replacementNrp_officer'],
                 ],
                 [
                     'name' => 'rank_officer',

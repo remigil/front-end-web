@@ -20,6 +20,7 @@
                             <th>Nama Petugas</th>
                             <th>Pangkat</th>
                             <th>NRP</th>
+                            <th>NRP Pengganti</th>
                             <th style="width:20% ;">Struktural</th>
                             <th>Dalam PAM</th>
                             <th>No. Handphone</th>
@@ -64,6 +65,12 @@
                         <div class="material-textfield mb-3">
                             <input style="width: 100%;" name="nrp" placeholder="" type="text">
                             <label class="labelmui">NRP</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="material-textfield mb-3">
+                            <input style="width: 100%;" name="replacementNrp_officer" placeholder="" type="text">
+                            <label class="labelmui">NRP Pengganti</label>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -239,6 +246,7 @@
                 { data: 'name_officer'},
                 { data: 'rank_officer'},
                 { data: 'nrp_officer'}, 
+                { data: 'replacementNrp_officer'}, 
                 { data: 'structural_officer'},  
                 { data: 'pam_officer'},  
                 { data: 'phone_officer'},  
