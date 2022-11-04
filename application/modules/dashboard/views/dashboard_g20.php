@@ -1,4 +1,4 @@
-<!-- <button id="cekarrayTrack">cek marker tracking</button> -->
+<!-- <button onClick="hitungGpsId()">cek marker tracking</button> -->
 <div id="openLastDisplay" style="cursor: pointer; width: 23px;height: 45px;background-color: rgba(0, 13, 218, 0.79);border: 1px solid rgba(255, 255, 255, 0.39);border-radius: 5px 0px 0px 5px;position: fixed;right: 20px;z-index: 1000;top: 400px;font-size: 25px;padding-left: 4px;color: white;padding-top: 3px;">
     <i class="fa fas fa-chevron-left"></i>
 </div>
@@ -14,7 +14,7 @@
                         <div class="row" style="margin-left: 0px;"> 
                             <div class="col-md-12">
                                 <div style="display: flex;">
-                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
+                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;" onClick="hitungGpsId()"></i>
                                     <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;"> 
                                     <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
                                 </div>
@@ -1055,6 +1055,7 @@
             });
         }); 
 
+        
 
         function gpsId() { 
             fetch('<?php echo base_url()?>dataVendor/gpsId.json')
@@ -7440,7 +7441,9 @@
         serverSideGet();
     });
 
-    
+    function hitungGpsId(){
+        console.log(markerGpsId.length);
+    }
 
     $(".formR").submit(function(e) {
         $("#overlay").fadeIn(300);
