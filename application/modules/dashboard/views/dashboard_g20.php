@@ -1177,7 +1177,7 @@
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div> 
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Delegasi}</span>
+                                            <span style="font-size: 12px;" id="namaDelegasiGpsId${el.VehicleId}"></span>
                                         </div>  
 
                                         <div class="col-md-12 text-center  mt-3">
@@ -1197,8 +1197,8 @@
                                     }, 
                                     dataType : "JSON",
                                     success : function(result){   
-                                        // console.log(result);
-                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                        $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
                                     }
                                 });
                             });  
@@ -1271,7 +1271,7 @@
                                             <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                         </div> 
                                         <div class="col-md-8">
-                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Delegasi}</span>
+                                            <span style="font-size: 12px;" id="namaDelegasiGpsId${el.VehicleId}"></span>
                                         </div>   
 
                                         <div class="col-md-12 text-center  mt-3">
@@ -1291,7 +1291,8 @@
                                     }, 
                                     dataType : "JSON",
                                     success : function(result){   
-                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                        $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
                                     }
                                 });
                             });     
@@ -1355,7 +1356,7 @@
                     }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
                             <div class="row mt-3"> 
-                                <div class="col-md-12" id="benderaForGpsId">
+                                <div class="col-md-12" id="benderaForGpsId${el.VehicleId}">
                                    
                                 </div> 
                             </div>
@@ -1413,7 +1414,7 @@
                                     <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                 </div> 
                                 <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Delegasi}</span>
+                                    <span style="font-size: 12px;" id="namaDelegasiGpsId${ress[0].VehicleId}"></span>
                                 </div>  
 
                                 <div class="col-md-12 text-center  mt-3">
@@ -1424,7 +1425,6 @@
                                 
                         </div>
                     `).update().on('click', function(e) {
-                        // console.log(e.latlng);
                         $.ajax({
                             type : "POST",
                             url : "<?php echo base_url();?>dashboard/getIdCountry", 
@@ -1433,7 +1433,8 @@
                             }, 
                             dataType : "JSON",
                             success : function(result){   
-                                $(`#benderaForGpsId`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
                             }
                         });
                     });  
@@ -1447,7 +1448,7 @@
                         }) }).bindPopup(`
                         <div class="text-center" style="width: 300px;">  
                             <div class="row mt-3"> 
-                                <div class="col-md-12"  id="benderaForGpsId">
+                                <div class="col-md-12"  id="benderaForGpsId${el.VehicleId}">
                              
                                 </div> 
                             </div>
@@ -1506,7 +1507,7 @@
                                     <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                 </div> 
                                 <div class="col-md-8">
-                                    <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${ress[0].Delegasi}</span>
+                                <span style="font-size: 12px;" id="namaDelegasiGpsId${ress[0].VehicleId}"></span>
                                 </div>   
 
                                 <div class="col-md-12 text-center  mt-3">
@@ -1517,7 +1518,6 @@
                                 
                         </div>
                     `).addTo(mapContainer).on('click', function(e) {
-                        // console.log(e.latlng);
                         $.ajax({
                             type : "POST",
                             url : "<?php echo base_url();?>dashboard/getIdCountry", 
@@ -1526,7 +1526,8 @@
                             }, 
                             dataType : "JSON",
                             success : function(result){   
-                                $(`#benderaForGpsId`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
+                                $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
                             }
                         });
                     });     
