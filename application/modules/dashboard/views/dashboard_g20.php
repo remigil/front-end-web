@@ -5373,9 +5373,9 @@
                                                             styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                                         }else if(typeRenpam == 1){
                                                             iconMarkerRenpam = ``;
-                                                            markerType = `${typeRenpam}<div class="pin" style="background: yellow; display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeOther = `${typeRenpam}<div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `${typeRenpam}<div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                                            markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                            markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                             styleRouteUtama = [{color: warna, weight: 5}];
                                                         }else{
                                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
