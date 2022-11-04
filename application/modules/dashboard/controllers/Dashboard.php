@@ -650,6 +650,24 @@ class Dashboard extends MY_Controller
         echo json_encode($data['getCategorySchedule']);
     }
 
+    public function getCategoryScheduleByName()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $input = $this->input->post(); 
+
+
+        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=activity&filterSearch[]='.$input['activity'].'';
+        $getData = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $data['getData'] = $getData['data'];
+
+        echo json_encode($data['getData']);
+    }
+
     public function getJadwalId()
     {
         $headers = [
