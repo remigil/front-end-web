@@ -914,6 +914,7 @@
 
     var openDisplay = 'petugas'; 
     var ressFasumKhusus;
+    var ressGetGpsId;
 
     $(document).ready(function() {  
 
@@ -1056,6 +1057,251 @@
         }); 
 
         
+        getGpsId();
+
+        function getGpsId(){
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/gpsIdPost", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    // console.log({a:'ini GPS ID', b:result[0]['data']});
+                    var ress = result[0]['data']; 
+                    ressGetGpsId = ress; 
+
+                    var jenis = ``;
+                    ress.forEach(el => {  
+
+                        var validasiId = dummyIdKendaraanGpsId.filter(function(val) {
+                            return val == el.VehicleId;
+                        });
+                        if(validasiId > 0){ 
+                            // console.log('id sudah ada');
+                        }else{ 
+                            dummyIdKendaraanGpsId.push(el.VehicleId);
+                            // console.log('id tidak ada');
+                        }
+                        
+                        
+                        if(el.VehicleType == 'Motorcycle'){
+                            jenis = `
+                            <div>
+                                <div>
+                                    <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="margin-top: -30px;">
+                                <span class="badge rounded-pill" style="background-color: #169fda">${el.VehicleNumber}</span>
+                                </div>
+                            </div>`;
+                        }else{
+                            jenis = `
+                            <div>
+                                <div>
+                                    <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="margin-top: -30px;">
+                                <span class="badge rounded-pill" style="background-color: #169fda">${el.VehicleNumber}</span>
+                                </div>
+                            </div>`;
+                        }
+
+                        if(markerGpsId[el.VehicleId] != null){ 
+                            var fotoPetugas = "";
+                            markerGpsId[el.VehicleId].setLatLng([el.Lat,el.Lon], { icon: L.divIcon({
+                            // className: 'location-pin',
+                            html: jenis,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                            // iconAnchor: [10, 33]
+                            }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;">  
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12" id="benderaForGpsId${el.VehicleId}">
+                                        
+                                        </div> 
+                                    </div>
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nomor Polisi</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.VehicleNumber}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span> 
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Speed}</span>
+                                        </div>    
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Odometer}</span>
+                                        </div>   
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Engine}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas1}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas2}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Delegasi}</span>
+                                        </div>  
+
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                            <p style="font-size: 12px;">${el.GpsLocation}</p>
+                                        </div> 
+                                    </div> 
+                                        
+                                </div>
+                            `).update().on('click', function(e) {
+                                // console.log('click marker');
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getIdCountry", 
+                                    data : {
+                                        "id_country" : el.Delegasi, 
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){   
+                                        // console.log(result);
+                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                    }
+                                });
+                            });  
+                        }else{  
+                            markerGpsId[el.VehicleId] = L.marker([el.Lat,el.Lon], { icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;">  
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12"  id="benderaForGpsId${el.VehicleId}">
+                                    
+                                        </div> 
+                                    </div>
+                                    
+                                    <div class="row text-start mt-3">
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.VehicleNumber}</span>
+                                        </div>   
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Mobil</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            : &nbsp;&nbsp;&nbsp;<span class="badge rounded-pill bg-primary" style="font-size: 12px;">${el.Car_Status}</span> 
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Kecepatan</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Speed}</span>
+                                        </div>    
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Odometer</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Odometer}</span>
+                                        </div>   
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Status Engine</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Engine}</span>
+                                        </div> 
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 1</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas1}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Petugas 2</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Petugas2}</span>
+                                        </div>  
+
+                                        <div class="col-md-4">
+                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                        </div> 
+                                        <div class="col-md-8">
+                                            <span style="font-size: 12px;">: &nbsp;&nbsp;&nbsp;${el.Delegasi}</span>
+                                        </div>   
+
+                                        <div class="col-md-12 text-center  mt-3">
+                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Kendaraan</span>  
+                                            <p style="font-size: 12px;">${el.GpsLocation}</p>
+                                        </div> 
+                                    </div> 
+                                        
+                                </div>
+                            `).addTo(mapContainer).on('click', function(e) {
+                                // console.log('click marker');
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getIdCountry", 
+                                    data : {
+                                        "id_country" : el.Delegasi, 
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){   
+                                        $(`#benderaForGpsId${el.VehicleId}`).html(`<img src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                    }
+                                });
+                            });     
+                        }  
+                    });
+                    
+                }
+            });
+        }
+
 
         function gpsId() { 
             fetch('<?php echo base_url()?>dataVendor/gpsId.json')
@@ -1288,41 +1534,26 @@
             });
         }
 
+        
 
         autoGpsId = setInterval(gpsId, 3000);
         $("#gpsIdDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
-                $("#gpsId").prop('checked', true); 
-                $.ajax({
-                    type : "POST",
-                    url : "<?php echo base_url();?>dashboard/gpsIdPost", 
-                    data : {
-                        "status" : '1',
-                    }, 
-                    dataType : "JSON",
-                    success : function(result){  
-                        // console.log(result);
-                        if(result['status']){
-                            autoGpsId = setInterval(gpsId, 3000); 
-                            Swal.fire(
-                                `${result['message']}`, 
-                                '',
-                                'info'
-                            ).then(function() { 
-                            });
-                        }
-                    }
-                });
+                $("#gpsId").prop('checked', true);  
+                $("#overlay").fadeIn(300);  
+                getGpsId();
+                autoGpsId = setInterval(gpsId, 3000); 
+                $("#overlay").fadeOut(300);  
                 // $("#myModalGpsIdDisplay").modal('show');
             }else{
                 $("#gpsId").prop('checked', false); 
                 $("#gpsId").val(); 
+                clearInterval(autoGpsId);
                 for (let i = 0; i < dummyIdKendaraanGpsId.length; i++) {  
                     mapContainer.removeLayer(markerGpsId[dummyIdKendaraanGpsId[i]]);
                 }
                 dummyIdKendaraanGpsId = new Array(); 
                 markerGpsId = new Array();  
-                clearInterval(autoGpsId);
             } 
         }); 
 
