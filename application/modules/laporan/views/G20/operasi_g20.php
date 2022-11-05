@@ -6,8 +6,7 @@
         <li class="breadcrumb-item active fw-bold" aria-current="page">KTT G20 Bali</li>
     </ol>
 </nav>
-<!-- </div> -->
-<button id="submit">Export to  PDF</button>
+<!-- </div> --> 
 <div class="page" >
     <div class="card mt-3">
         <div class="card-body">
@@ -49,25 +48,6 @@
             // buttons: ["excel", "csv", "pdf"],
 
             buttons: [   
-                // {
-                //     extend:'pdfHtml5',
-                //     text:'Export PDF',
-                //     orientation:'landscape', 
-                //     // className: "btn btn-primary", 
-                //     // download: 'open',
-                //     // title: 'List of Records',
-                //     customize : function(doc){
-                //         var colCount = new Array();
-                //         $('#datatable').find('tbody tr:first-child td').each(function(){
-                //             if($(this).attr('colspan')){
-                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
-                //                     colCount.push('*');
-                //                 }
-                //             }else{ colCount.push('*'); }
-                //         });
-                //         // doc.content[1].table.widths = colCount;
-                //     }
-                // }, 
                     {
                         extend:    'excel',
                         titleAttr:    'excel',
@@ -79,20 +59,20 @@
                         }
 
                     },
-                    {
-                        extend: 'pdfHtml5',
-                        titleAttr: 'PDF',
-                        extension: ".pdf",
-                        orientation:'landscape', 
-                        pageSize: 'A4',
-                        text: '<i class="fadeIn animated bx bx-file-blank"></i> ',
-                        className: 'btn btn-warning box-shadow--4dp btn-sm-menu', 
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6] 
-                        }, 
+                    // {
+                    //     extend: 'pdfHtml5',
+                    //     titleAttr: 'PDF',
+                    //     extension: ".pdf",
+                    //     orientation:'landscape', 
+                    //     pageSize: 'A4',
+                    //     text: '<i class="fadeIn animated bx bx-file-blank"></i> ',
+                    //     className: 'btn btn-warning box-shadow--4dp btn-sm-menu', 
+                    //     exportOptions: {
+                    //         columns: [0, 1, 2, 3, 4, 5, 6] 
+                    //     }, 
                          
 
-                    },
+                    // },
                     {
                         extend: 'print',
                         titleAttr: 'print',
