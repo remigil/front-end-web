@@ -28,7 +28,7 @@
                     
                 </div> 
 
-                <div style="position: absolute;left: 330px;width: 1000px;top: 6px;">
+                <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
                     <div class="cat jalurBeatDisplay" style="margin-left: 10px;">
                         <label>
                             <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-user-shield"></i> Jalur Beat</span>
@@ -3169,6 +3169,9 @@
 
                             var countlistCategoriByCateg = 0;
 
+                            var dummyPetugasRenpam = [];
+                            var petugasRenpam = []; 
+
                             if(ress['renpams'].length >  0){ 
                                 var sortUrutanRenpam = ress['renpams'].sort((a, b) => {
                                     return a.order_renpam - b.order_renpam;
@@ -3211,6 +3214,9 @@
                                     var dataAccounts;
                                     if(sortUrutanRenpam[i]['accounts'].length > 0){ 
                                         dataAccounts = sortUrutanRenpam[i]['accounts'];
+
+                                        dummyPetugasRenpam.push(sortUrutanRenpam[i]['accounts']);
+                                        petugasRenpam[countlist] = dummyPetugasRenpam;
                                     }else{
                                         dataAccounts = [];
                                     }
@@ -3311,9 +3317,13 @@
                                     var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
 
                                     var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
-                                    // console.log({a:namaRen ,b:warna});
+                                    
+                                    
+                                    // console.log({a:namaRen ,b:warna, c:akuns});
 
 
+                                    
+                                    
 
                                     var typeRenpam = typeJadwalRenpam[countlist][ii];
                                     if(typeRenpam == 3){ //penjagaan
@@ -3338,7 +3348,7 @@
                                         iconMarkerRenpam = ``;
                                         markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                         markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<div class="pin" style="background: yellow; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px; display: none;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                         styleRouteUtama = [{color: warna, weight: 5}];
                                     }else{
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -3381,8 +3391,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
                                                             icon: L.divIcon({
@@ -3395,9 +3428,32 @@
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
+                                                                <h5>${titikAkhirl}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else {
                                                         // here change all the others
                                                         var options = {
@@ -3459,8 +3515,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
                                                             icon: L.divIcon({
@@ -3474,8 +3553,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else {
                                                         // here change all the others
                                                         var options = {
@@ -3537,8 +3639,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
                                                             icon: L.divIcon({
@@ -3552,8 +3677,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else {
                                                         // here change all the others
                                                         var options = {
@@ -3615,8 +3763,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
                                                             icon: L.divIcon({
@@ -3630,8 +3801,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else {
                                                         // here change all the others
                                                         var options = {
@@ -3693,8 +3887,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else if (i === nWps - 1) {
                                                         return L.marker(wp.latLng, {
                                                             icon: L.divIcon({
@@ -3708,8 +3925,31 @@
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
+                                                                <div style="text-align: left;">
+                                                                    <span class="text-start">Petugas :</span>
+                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                    <ul>
+                                                                </div>
                                                             </div> 
-                                                        `);
+                                                        `).on("click", function (e) { 
+                                                            var akuns = petugasRenpam[countlist][ii];
+                                                            var dataAkuns = ''; 
+                                                            for (let i = 0; i < akuns.length; i++){   
+                                                                $.ajax({
+                                                                    type : "POST",
+                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                    data : {
+                                                                        "id" : akuns[i]['id'],
+                                                                    }, 
+                                                                    dataType : "JSON",
+                                                                    success : function(result){  
+                                                                        var ress = result['data'];  
+                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                    }
+                                                                });  
+                                                            } 
+                                                        });
                                                     } else {
                                                         // here change all the others
                                                         var options = {
@@ -3805,7 +4045,7 @@
                                         iconMarkerRenpam = ``;
                                         markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                         markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                        markerTypeEnd = `<div class="pin" style="background: yellow;display: none;"><div style="display: none; transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                         styleRouteUtama = [{color: warna, weight: 5}];
                                     }else{
                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -6305,7 +6545,7 @@
                                                         iconMarkerRenpam = ``;
                                                         markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                         markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                        markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                        markerTypeEnd = `<div class="pin" style="display: none;background: yellow;"><div style="display: none;transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                         styleRouteUtama = [{color: warna, weight: 5}];
                                                     }else{
                                                         iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -6788,7 +7028,7 @@
                                                             iconMarkerRenpam = ``;
                                                             markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                             markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                            markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                            markerTypeEnd = `<div class="pin" style="display: none;background: yellow;"><div style="display: none;transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                             styleRouteUtama = [{color: warna, weight: 5}];
                                                         }else{
                                                             iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -7372,7 +7612,7 @@
                                                 iconMarkerRenpam = ``;
                                                 markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                 markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                                markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                                markerTypeEnd = `<div class="pin" style="display: none;background: yellow;"><div style="display: none;transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                                 styleRouteUtama = [{color: warna, weight: 5}];
                                             }else{
                                                 iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -8160,7 +8400,7 @@
                                     iconMarkerRenpam = ``;
                                     markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                     markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                    markerTypeEnd = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                    markerTypeEnd = `<div class="pin" style="display: none;background: yellow;"><div style="display: none;transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
                                     styleRouteUtama = [{color: warna, weight: 5}];
                                 }else{
                                     iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
@@ -8998,7 +9238,7 @@
 
 
 
-        serverSideGet();
+        // serverSideGet();
     });
 
     function hitungGpsId(){
