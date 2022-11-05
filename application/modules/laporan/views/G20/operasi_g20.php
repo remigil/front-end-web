@@ -46,24 +46,94 @@
 
             // buttons: ["excel", "csv", "pdf"],
 
-            buttons: [  
-                "excel", "csv",
-                {
-                    extend:'pdfHtml5',
-                    text:'Export PDF',
-                    orientation:'landscape',
-                    customize : function(doc){
-                        var colCount = new Array();
-                        $('#datatable').find('tbody tr:first-child td').each(function(){
-                            if($(this).attr('colspan')){
-                                for(var i=1;i<=$(this).attr('colspan');$i++){
-                                    colCount.push('*');
-                                }
-                            }else{ colCount.push('*'); }
-                        });
-                        // doc.content[1].table.widths = colCount;
+            buttons: [   
+                // {
+                //     extend:'pdfHtml5',
+                //     text:'Export PDF',
+                //     orientation:'landscape', 
+                //     // className: "btn btn-primary", 
+                //     // download: 'open',
+                //     // title: 'List of Records',
+                //     customize : function(doc){
+                //         var colCount = new Array();
+                //         $('#datatable').find('tbody tr:first-child td').each(function(){
+                //             if($(this).attr('colspan')){
+                //                 for(var i=1;i<=$(this).attr('colspan');$i++){
+                //                     colCount.push('*');
+                //                 }
+                //             }else{ colCount.push('*'); }
+                //         });
+                //         // doc.content[1].table.widths = colCount;
+                //     }
+                // }, 
+                    {
+                        extend:    'excel',
+                        titleAttr:    'excel',
+                        text:      '<i class="fadeIn animated bx bx-file"></i> ',
+                        className: 'btn btn-success box-shadow--4dp btn-sm-menu',
+                        messageTop: 'Agents Data',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6] 
+                        }
+
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        titleAttr: 'PDF',
+                        extension: ".pdf",
+                        orientation:'landscape', 
+                        pageSize: 'A4',
+                        text: '<i class="fadeIn animated bx bx-file-blank"></i> ',
+                        className: 'btn btn-warning box-shadow--4dp btn-sm-menu', 
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6] 
+                        },
+                        customize: function(doc) {
+                        //find paths of all images, already in base64 format
+                        var arr2 = $('.rounded').map(function(){
+                                        return this.src;
+                                    }).get();
+                    
+                        for (var i = 0, c = 1; i < arr2.length; i++, c++) {
+                                        doc.content[1].table.body[c][0] = {
+                                            image: arr2[i],
+                                            width: 100
+                                        }
+                                            }
+                        },
+
+
+                    },
+                    {
+                        extend: 'print',
+                        titleAttr: 'print',
+                        orientation:'landscape',
+                        text:      '<i class="fadeIn animated bx bx-printer"></i> ',
+                        className: 'btn btn-danger box-shadow--4dp btn-sm-menu', 
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6] 
+                        },
+                        customize: function ( win ) {
+                            // $(win.document.body)
+                            //     .css( 'font-size', '10pt' )
+                            //     .prepend(
+                            //         '<div><img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;"  alt="logo"/></div>'
+                            //     );
+
+                            $(win.document.body).find( 'table' )
+                                .addClass( 'compact' )
+                                .css( 'font-size', 'inherit' );
+                        },
+
+
+
+                    },
+                    {
+                        extend:    'colvis',
+                        titleAttr:    'Filter Column',
+                        text:      '<i class="fadeIn animated bx bx-filter"></i> ',
+                        className: 'btn btn-dark box-shadow--4dp btn-sm-menu'
                     }
-                }, 
             ],
 
             oLanguage: {
