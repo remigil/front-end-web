@@ -8,63 +8,59 @@ class Statistik_executive extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		$this->load->model("executive/M_detail_statistik");
+        // $this->load->model("executive/M_detail_statistik");
     }
 
     public function index()
     {
-		$headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-
-        $page_content["css"] = '';
-        $page_content["js"] = ''; 
-		$page_content["title"] = "Detail Statistik";
-        $page_content["page"] = "executive/statistik/detail_statistik_view";
-
-		$data['kecelakaan'] = $this->M_detail_statistik->kecelakaan_nasional();
-
-        // if ($this->session->userdata['role'] == 'Kakorlantas') {
-        //     $page_content["title"] = "Detail Polda";
-		//  $data['kecelakaan'] = $this->M_detail_polda->kecelakaan_nasional();
-			
-        //     $page_content["page"] = "executive/polda/detail_polda_view";
-
-
-        // } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Ditkamsel/anev_view";
-        // } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Ditgakkum/anev_view";
-        // } else if ($this->session->userdata['role'] == 'Ditregident') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Ditregident/anev_view";
-		// } else if ($this->session->userdata['role'] == 'KaBagOps') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Bagops/anev_view";
-		// } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Bagrenmin/anev_view";
-		// } else if ($this->session->userdata['role'] == 'KaBagTIK') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Bagtik/anev_view";
-		// } else if ($this->session->userdata['role'] == 'Kapolda') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Kapolda/anev_view";
-		// } else if ($this->session->userdata['role'] == 'Kapolres') {
-        //     $page_content["title"] = "Data Anev";
-        //     $page_content["page"] = "anev/Kapolres/anev_view";
-        // }
-
-
-        // $data = '';
-        // var_dump($getCategory);
-        // die;
-
-        $page_content["data"] = $data;
-        $this->load->view('executive/statistik/detail_statistik_view', $page_content);
+        $data["id"] = $this->uri->segment(4);
+        $data["js"] = '';
+        $data["title"] = "Detail Statistik";
+        $this->load->view('executive/statistik/detail_statistik_view', $data);
     }
 
+    public function getDetailStatistik()
+    {
+        $id = $this->input->post('id');
 
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        if ($id == 1) {
+            $title = 'DATA KECELEKAAN LALU LINTAS';
+            $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+                'headers' => $headers
+            ]);
+
+            $getdata = $getGakkum['data'];
+        } elseif ($id == 2) {
+            $title = 'DATA PELANGGARAN LALU LINTAS';
+            $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+                'headers' => $headers
+            ]);
+
+            $getdata = $getGakkum['data'];
+        } elseif ($id == 3) {
+            $title = 'DATA KENDARAAN BERMOTOR';
+            $getRanmor = guzzle_request('GET', 'ranmor/daily', [
+                'headers' => $headers
+            ]);
+
+            $getdata = $getRanmor["data"]["rows"];
+        } elseif ($id == 4) {
+            $title = 'JUMLAH SIM NASIONAL';
+            $getSim = guzzle_request('GET', 'sim/daily', [
+                'headers' => $headers
+            ]);
+
+            $getdata = $getSim["data"]["rows"];
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title
+        ];
+        echo json_encode($data);
+    }
 }

@@ -8,61 +8,50 @@ class Satker_executive extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		// $this->load->model("masterdata/m_fasum");
+        // $this->load->model("masterdata/m_fasum");
     }
 
     public function index()
     {
-		$headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-
-        $page_content["css"] = '';
-        $page_content["js"] = ''; 
-
-        if ($this->session->userdata['role'] == 'Kakorlantas') {
-            $page_content["title"] = "Detail Polda";
-            $page_content["page"] = "executive/satker/detail_satker_view";
-
-
-
-        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Ditkamsel/anev_view";
-        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Ditgakkum/anev_view";
-        } else if ($this->session->userdata['role'] == 'Ditregident') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Ditregident/anev_view";
-		} else if ($this->session->userdata['role'] == 'KaBagOps') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Bagops/anev_view";
-		} else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Bagrenmin/anev_view";
-		} else if ($this->session->userdata['role'] == 'KaBagTIK') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Bagtik/anev_view";
-		} else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Kapolda/anev_view";
-		} else if ($this->session->userdata['role'] == 'Kapolres') {
-            $page_content["title"] = "Data Anev";
-            $page_content["page"] = "anev/Kapolres/anev_view";
-        }
-
-        $getCategory = guzzle_request('GET', 'category_fasum', [
-            'headers' => $headers
-        ]);
-
-        $data = '';
-        // var_dump($getCategory);
-        // die;
-
-        $page_content["data"] = $data;
-        $this->templates->loadTemplate($page_content);
+        $data["id"] = $this->uri->segment(4);
+        $data["js"] = '';
+        $data["title"] = "Detail Satker";
+        $this->load->view('executive/satker/detail_satker_view', $data);
     }
 
+    public function getDetailSatker()
+    {
+        $id = $this->input->post('id');
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
 
+        if ($id == 1) {
+            $title = 'Ditgakkum';
+            $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+                'headers' => $headers
+            ]);
+            $getdata = $getGakkum["data"];
+        } elseif ($id == 2) {
+            $title = 'Ditregident';
+            $getRegident = guzzle_request('GET', 'ditregident/daily', [
+                'headers' => $headers
+            ]);
+            $getdata = $getRegident["data"];
+        } elseif ($id == 3) {
+            $title = 'Ditkamsel';
+            $getKamsel = guzzle_request('GET', 'ditkamsel/daily', [
+                'headers' => $headers
+            ]);
+            $getdata = $getKamsel["data"];
+        }
+
+
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
 }

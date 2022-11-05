@@ -9,13 +9,10 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-    <?php if ($this->session->userdata['role'] == 'G20') { ?>
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-g20.svg">
-    <?php } else { ?>
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
-    <?php } ?>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+
 
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
@@ -65,15 +62,8 @@
     <!-- App Css-->
     <link href="<?php echo base_url(); ?>assets/admin/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/MarkerCluster.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/Control.Geocoder.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/css/leaflet-routing-machine.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
@@ -86,40 +76,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
-        /* .animateLine {
-            stroke-dasharray: 10;
-            animation: dash linear infinite;
-            animation-duration: 15.5833s;
-        }
-
-        .animateRoute {
-            stroke-dasharray: 10;
-            stroke-dashoffset: 1920;
-            animation: dash linear infinite;
-            animation-duration: 20.5833s;
-        }
-
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 1000;
-            }
-        }
-
-        .leaflet-retina .leaflet-control-layers-toggle {
-            background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
-            background-size: 36px 36px;
-        }
-
-        #mapG20Dashboard {
-            height: 900px;
-            width: 100%
-        }
-
-        #mapG20Troublespot {
-            height: 500px;
-            width: 100%
-        }
-
         #overlay {
             position: fixed;
             top: 0;
@@ -156,352 +112,6 @@
         .is-hide {
             display: none;
         }
-
-
-        .switch {
-            display: block;
-            margin-top: 10px;
-        }
-
-        .switch h3 {
-            font-weight: 400;
-            padding-bottom: 6px;
-        }
-
-        .switch input[type=checkbox] {
-            display: none;
-        }
-
-        .switch input[type=checkbox]:checked+label {
-            background-color: #2f7df9;
-        }
-
-        .switch input[type=checkbox]:checked+label:after {
-            left: 26px;
-        }
-
-        .switch label {
-            transition: all 200ms ease-in-out;
-            display: inline-block;
-            position: relative;
-            height: 15px;
-            width: 40px;
-            border-radius: 40px;
-            cursor: pointer;
-            background-color: #ddd;
-            color: transparent;
-        }
-
-        .switch label:after {
-            transition: all 200ms ease-in-out;
-            content: " ";
-            position: absolute;
-            height: 14px;
-            width: 14px;
-            border-radius: 50%;
-            background-color: white;
-            top: 0px;
-            left: 0px;
-            right: auto;
-            box-shadow: 1px 1px 1px gray;
-        }
-
-        .switch.colored input[type=checkbox]:checked+label {
-            background-color: #55c946;
-        }
-
-        .switch.colored label {
-            background-color: #ff4949;
-        }
-
-  
-        .location-pin img {
-            width: 20px;
-            height: 20px;
-            margin: -13px 0 0 -13px;
-            z-index: 10;
-            position: absolute;
-            border-radius: 50%;
-            background: #3f51b5;
-        }
-
-        .pin {
-            width: 30px;
-            height: 30px;
-            border-radius: 50% 50% 50% 0;
-            background: #3f51b5;
-            position: absolute;
-            transform: rotate(-45deg);
-            left: 50%;
-            top: 50%;
-            margin: -20px 0 0 -20px;
-        }
-
-        .pin:after {
-            content: '';
-            width: 26px;
-            height: 26px;
-            margin: 2px 0 0 2px;
-            position: absolute;
-            border-radius: 50%;
-        }
-
-        .pulse {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50%;
-            height: 14px;
-            width: 14px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: 15px 0px 0px -12px;
-            transform: rotateX(55deg);
-            z-index: -2;
-        }
-
-        .pulse:after {
-            content: "";
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-            position: absolute;
-            margin: -16px 0 0 -13px;
-            animation: pulsate 2.5s ease-out;
-            animation-iteration-count: infinite;
-            opacity: 0;
-            background: rgba(94, 190, 255, 0.5);
-            box-shadow: 0 0 1px 2px #2d99d3;
-            animation-delay: 1.1s;
-        }
-
-        .material-textfield {
-            position: relative;
-            margin: 1vh 2.7vh 3vh 2.7vh;
-        }
-
-        .material-btnfield {
-            position: relative;
-            margin: -2vh 2.7vh 2vh 2.7vh;
-        }
-
-        .labelmui {
-            position: absolute;
-            font-size: 14px;
-            left: 0px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: white;
-            color: #4E4E4E;
-            padding: 0 0.3rem;
-            margin: 0 0.5rem;
-            transition: .1s ease-out;
-            transform-origin: left top;
-            pointer-events: none;
-            font-family: 'Open Sans';
-            font-weight: bold;
-        }
-
-        .material-textfield input {
-            font-size: 0.9rem;
-            outline: none;
-            border: 1px solid #D4D4D4;
-            border-radius: 5px;
-            padding: 1rem 0.7rem;
-            color: gray;
-            transition: 0.1s ease-out;
-            width: 100%;
-            height: 48px;
-            color: #D5D5D4;
-            font-family: 'Open Sans';
-        }
-
-        .material-textfield input:focus {
-            border-color: #003A91;
-            color: #7E7E7E;
-
-        }
-
-        .material-textfield input:focus+.labelmui {
-            color: #003A91;
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .material-textfield input:not(:placeholder-shown)+.labelmui {
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-
-
-        .material-selectfield {
-            position: relative;
-            margin: 1vh 2.7vh 3vh 2.7vh;
-        }
-
-        .material-selectfield select {
-            font-size: 0.9rem;
-            outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.23);
-            border-radius: 5px;
-            color: gray;
-            transition: 0.1s ease-out;
-            width: 100%;
-            height: 48px;
-            background-color: transparent;
-            font-family: 'Open Sans';
-
-        }
-
-        .material-selectfield select:focus {
-            border-color: #003A91;
-        }
-
-        .material-selectfield select:focus+.labelmui {
-            color: #003A91;
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .material-selectfield select:not(:placeholder-shown)+.labelmui {
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .judulheader {
-            background-color: white;
-            width: 100%;
-            height: 50px;
-            padding: 14px;
-            font-size: 15px;
-            margin-top: -19px;
-        }
-
-        .modal.right.fade.in .modal-dialog {
-            right: 0 !important;
-            transform: translateX(-50%);
-        }
-
-        .modal.right .modal-content {
-            height: 100%;
-            overflow: auto;
-            border-radius: 0;
-        }
-
-        .modal.right .modal-dialog {
-            position: fixed;
-            margin: auto;
-            height: 100%;
-            -webkit-transform: translate3d(0%, 0, 0);
-            -ms-transform: translate3d(0%, 0, 0);
-            -o-transform: translate3d(0%, 0, 0);
-            transform: translate3d(0%, 0, 0);
-        }
-
-        .modal.right.fade.in .modal-dialog {
-            transform: translateX(0%);
-        }
-
-        .modal.right.fade .modal-dialog {
-            right: 0;
-            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-            transition: opacity 0.3s linear, right 0.3s ease-out;
-        }
-
-
-        .modal.right .modal-header {
-            background-color: #50caff;
-            color: #fff
-        }
-
-        .modal.right .modal-header::after {
-            content: "";
-            display: inline-block;
-        }
-
-        .modal.right .close {
-            text-shadow: none;
-            opacity: 1;
-            color: #ff4d4d;
-            font-size: 26px
-        }
-
-
-        #incognito {
-            display: none;
-        }
-
-        #incognito+label:before {
-            cursor: pointer;
-            content: "\f505";
-        }
-
-        #incognito:checked+label:before {
-            cursor: pointer;
-            content: "\f506";
-        }
-
-
-        .cat {
-            margin: 4px;
-            background-color: white;
-            border-radius: 50rem !important;
-            border: 1px solid #fff;
-            overflow: hidden;
-            float: left;
-        }
-
-        .cat label {
-            float: left;
-            line-height: 1.7em;
-            width: auto;
-            height: 1.5em;
-            padding-left: 10px;
-            padding-right: 10px;
-            cursor: pointer;
-        }
-
-        .cat label span {
-            text-align: center;
-            padding: 3px 0;
-            display: block;
-            font-size: 13px;
-        }
-
-        .cat label input {
-            position: absolute;
-            display: none;
-            color: #000 !important;
-        }
-
-        .cat label input+span {
-            color: #000;
-        }
-
-
-        .cat input:checked+span {
-            color: #1967d2;
-        }
-
-        .fasumDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .hotelDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .turjawaliDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .kegiatanDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        */
     </style>
 
     <!-- JAVASCRIPT -->
@@ -544,8 +154,10 @@
                                 <div class="row">
                                     <div class="col-md-12 d-flex align-items-center" style="margin:-20px 0 -20px 0;">
                                         <div class="col-md-10">
-                                            <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
-                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
+                                                <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
+                                                <span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span>
+                                            </a>
                                         </div>
                                         <div class="col-md-2 d-flex align-items-center ms-n5 ms-n5 ">
                                             <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button></a>
@@ -593,14 +205,14 @@
                 </div>
             </div>
     </header>
-    <div class="filter mt-5 p-3" style=" height:125px;">
+    <div class="filter p-3 mt-5" style="background-color: #2E2E2E; height:125px;">
         <div class="container">
 
-            <form action="" method="post" id="form_filter">
+            <form action="" method="post" id="form_filter" class="p-3">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group row">
-                            <label for="waktu" class="form-label">Wilayah</label>
+                            <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
                             <select class="form-control" id="type_anev" name="type_anev">
                                 <option value="">---Pilih Polda---</option>
                                 <option value="1">Polda Metro Jaya</option>
@@ -609,22 +221,18 @@
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <label for="waktu" class="form-label">Waktu</label>
+                        <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <input class="form-control" type="date" name="start_date" id="waktu">
 
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <input class="form-control" type="date" name="end_date" id="waktu">
 
                             </div>
                             <div class="col-md-2">
                                 <button class="btn btn-primary" style="width: 100%;">Tampilkan</button>
-
-                            </div>
-                            <div class="col-md-2">
-                                <a href="#" class="text-center"><button class="btn btn-outline-primary" style="border-color:#007DD8;">Export Laporan</button></a>
 
                             </div>
                         </div>
@@ -644,16 +252,152 @@
 
 
 
+                    <div class="row mt-5">
+
+                        <div class="col-md-9 align-self-center">
+                            <div id="nama"></div>
+                            <p>Today is <?= date('l, j F Y') ?></p>
+                        </div>
+                        <div class="col-md-3 text-end align-self-center">
+                            <a href="#" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 mt-5">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-md-4 mb-3">
+                                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
+                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                        <div class="card-body">
+                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                <div class="col-md-2">
+                                                    <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="fs-6 fw-bold" style="color:#464646 ;">Kecelakaan Lalu Lintas</span>
+                                                </div>
+                                                <div class="col-md-6 text-end">
+                                                    <h1 style="color:#464646;" id="lakalantas"></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                        <div class="card-body">
+                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                <div class="col-md-2">
+                                                    <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="fs-6 fw-bold" style="color:#464646;">Pelanggaran Lalu Lintas</span>
+                                                </div>
+                                                <div class="col-md-6 text-end">
+                                                    <h1 style="color:#464646;" id="garlantas"></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                        <div class="card-body">
+                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                <div class="col-md-2">
+                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="fs-6 fw-bold" style="color:#464646;">Kendaraan Bermotor</span>
+                                                </div>
+                                                <div class="col-md-6 text-end">
+                                                    <h1 style="color:#464646;" id="motor"></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                        <div class="card-body">
+                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                <div class="col-md-2">
+                                                    <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span style="color:#464646;" class="fs-6 fw-bold">Jumlah SIM Nasional</span>
+                                                </div>
+                                                <div class="col-md-6 text-end">
+                                                    <h1 id="sim" style="color:#464646;"></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end statistik -->
+                    </div>
+
                     <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div id="title"></div>
+                                        <div id="namaditregident"></div>
                                     </div>
                                     <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                         <div class="main-chart">
-                                            <div id="chart" style="width: 100vw"></div>
+                                            <div id="chartditregident" style="width: 100vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="shadow-sm mt-5">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div id="namaditgakkum"></div>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chartditgakkum" style="width: 100vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="shadow-sm mt-5">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div id="namaditkamsel"></div>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chartditkamsel" style="width: 100vw"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -662,39 +406,36 @@
                     </section>
 
 
-
-
                 </div>
             </div>
         </div>
     </div>
-
-
-    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-
-
     <script>
         $(document).ready(function() {
-
-
             let id = '<?= $id ?>'
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistik",
+                url: "<?php echo base_url(); ?>executive/Satker_executive/getDetailSatker",
                 data: {
                     id: id
                 },
                 dataType: "JSON",
                 success: function(result) {
+                    // var ressPolda = result.polda
                     $("#overlay").fadeOut(300);
-                    $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
+                    $('#nama').html(`<h1 style="color:#007DD8 ; text-transform:uppercase;">${result.title}</h1>`);
+                    // $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
+                    // $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
+                    // $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
+
+
                 }
             })
-            var chart = {
+
+
+
+            var ditregident = {
                 series: [{
                     name: 'BPKB',
                     type: 'column',
@@ -792,17 +533,223 @@
                 }
             };
 
-            var chart = new ApexCharts(document.querySelector("#chart"), chart);
-            chart.render();
+            var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
+            ditregident.render();
+
+
+            var ditgakkum = {
+                series: [{
+                    name: 'BPKB',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                }, {
+                    name: 'STNK',
+                    type: 'column',
+                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'SIM',
+                    type: 'column',
+                    data: [
+                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                    ],
+                    color: "#E8D42F"
+                }, {
+                    name: 'RANMOR',
+                    type: 'column',
+                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+
+                    color: "#3CA55C"
+                }],
+                chart: {
+                    height: 400,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+            var ditgakkum = new ApexCharts(document.querySelector("#chartditgakkum"), ditgakkum);
+            ditgakkum.render();
+
+            var ditkamsel = {
+                series: [{
+                    name: 'BPKB',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                }, {
+                    name: 'STNK',
+                    type: 'column',
+                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'SIM',
+                    type: 'column',
+                    data: [
+                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                    ],
+                    color: "#E8D42F"
+                }, {
+                    name: 'RANMOR',
+                    type: 'column',
+                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+
+                    color: "#3CA55C"
+                }],
+                chart: {
+                    height: 400,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+            var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
+            ditkamsel.render();
+
+
         })
     </script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
 
     <!-- choices js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
 
-    <!-- dropify js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
 
     <!-- Modal js -->
     <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
@@ -830,8 +777,8 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/jszip/jszip.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script> -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
@@ -842,6 +789,7 @@
 
     <!-- apexcharts -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <!-- Plugins js-->
     <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
@@ -880,30 +828,12 @@
 
     <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
 
-    <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-    <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
-    <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
 
 
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/moment.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/daterangepicker.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
-    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
-
-
 
 
 </body>
