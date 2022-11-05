@@ -641,7 +641,7 @@
 
             scrollX: true,
 
-            sDom: '<"dt-panelmenu clearfix"lr>t<"dt-panelfooter clearfix"ip>',
+            sDom: '<"dt-panelmenu clearfix"lr>t<"dt-panelfooter clearfix">',
 
             // buttons: ["excel", "csv", "pdf"],
 
