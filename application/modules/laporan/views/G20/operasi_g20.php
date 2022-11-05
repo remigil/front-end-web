@@ -87,20 +87,7 @@
                         className: 'btn btn-warning box-shadow--4dp btn-sm-menu', 
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6] 
-                        },
-                        customize: function(doc) {
-                        //find paths of all images, already in base64 format
-                        var arr2 = $('.rounded').map(function(){
-                                        return this.src;
-                                    }).get();
-                    
-                        for (var i = 0, c = 1; i < arr2.length; i++, c++) {
-                                        doc.content[1].table.body[c][0] = {
-                                            image: arr2[i],
-                                            width: 100
-                                        }
-                                            }
-                        },
+                        }, 
 
 
                     },
@@ -208,7 +195,7 @@
                     data: 'id'
                 },
                 {
-                    data: 'foto',
+                    data: 'foto', 
                     orderable: false
                 },
                 {
