@@ -37,9 +37,13 @@ class Troublespot extends MY_Controller
         $getPolda = guzzle_request('GET', 'polda', [
             'headers' => $headers
         ]);
+        $getPolres = guzzle_request('GET', 'polres', [
+            'headers' => $headers
+        ]);
         $data['getPolda'] = $getPolda['data']['data'];
+        $data['getPolres'] = $getPolres['data']['data'];
 
-        // var_dump($getPolda);
+        // var_dump($getPolres);
         // die;
         // $getVehicle = guzzle_request('GET', 'vehicle', [
         //     'headers' => $headers
@@ -283,6 +287,14 @@ class Troublespot extends MY_Controller
             'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
+		$getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $getPolres = guzzle_request('GET', 'polres', [
+            'headers' => $headers
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
+        $data['getPolres'] = $getPolres['data']['data'];
 
         // $getTroublespot = guzzle_request('GET', 'troublespot', [
         //     'headers' => $headers
@@ -313,7 +325,7 @@ class Troublespot extends MY_Controller
             ],
             [
                 'name' => 'polda_id',
-                'contents' => $input['polda_id'],
+				'contents' => $input['polda_id'],
             ],
             [
                 'name' => 'polres_id',
@@ -356,6 +368,7 @@ class Troublespot extends MY_Controller
                 'contents' => $input['hasil_dicapai'],
             ],
         ];
+		
 
         $data = guzzle_request('PUT', 'troublespot/edit/' . $input['id'] . '', [
             'multipart' => $dummy,

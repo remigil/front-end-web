@@ -135,90 +135,98 @@
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="" id="id_polda" type="text">
-                    <div class="col-md-12 mb-3">
-                        <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
-                    </div>
-                    <!-- <div class="col-md-12">
-							<div class="form-floating mb-3">
-								<input type="file" class="form-control" id="photo" placeholder="photo" name="photo">
-								<label for="photo">Logo Polda</label>
+					<div class="row">
+						<div class="col-md-3 text-center">
+							<img src="" alt="logo_polda" id="logo" width="150px">
+						</div>
+						<div class="col-md-9">
+							<div class="col-md-12 mb-3">
+								<input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="Logo-Polda"/>
 							</div>
-						</div> -->
-                    <div class="row">
-                        <!-- <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
-                                <label for="kode">Kode Satpas</label>
-                            </div>
-                        </div> -->
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="namaPolda" name="namaPolda" placeholder="nama">
-                                <label for="">Nama Polda</label>
-                            </div>
-                        </div>
-                    </div>
+				<!-- <div class="col-md-12">
+						<div class="form-floating mb-3">
+							<input type="file" class="form-control" id="photo" placeholder="photo" name="photo">
+							<label for="photo">Logo Polda</label>
+						</div>
+					</div> -->
+				<div class="row">
+					<!-- <div class="col-md-12">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
+							<label for="kode">Kode Satpas</label>
+						</div>
+					</div> -->
+					<div class="col-md-12">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="namaPolda" name="namaPolda" placeholder="nama">
+							<label for="">Nama Polda</label>
+						</div>
+					</div>
+				</div>
 
-                    <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
-                            <label>Alamat</label>
-                        </div>
-                        <div class="list-group" id="listAddress"></div>
-                    </div>
-                    <div class="col-md-6" style="display: none;">
-                        <div class="form-floating mb-3">
-                            <input style="width: 100%;" class="form-control" name="cordinate" placeholder="" type="text">
-                            <label>Coordinate</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="latitude" id="latitude">
-                                <label for="">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="longitude" id="longitude">
-                                <label for="">Longitude</label>
-                            </div>
-                        </div>
+				<div class="col-md-12">
+					<div class="form-floating mb-3">
+						<textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
+						<label>Alamat</label>
+					</div>
+					<div class="list-group" id="listAddress"></div>
+				</div>
+				<div class="col-md-6" style="display: none;">
+					<div class="form-floating mb-3">
+						<input style="width: 100%;" class="form-control" name="cordinate" placeholder="" type="text">
+						<label>Coordinate</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" name="latitude" id="latitude">
+							<label for="">Latitude</label>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" name="longitude" id="longitude">
+							<label for="">Longitude</label>
+						</div>
+					</div>
 
-                    </div>
+				</div>
 
-                    <div class="col-md-12 mt-3">
-                        <div id="mapEdit" style="height: 400px">
-                            <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="open_time" name="open_time">
-                                <label for="">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" class="form-control" id="close_time" name="close_time">
-                                <label for="">Jam Tutup</label>
-                            </div>
-                        </div>
+				<div class="col-md-12 mt-3">
+					<div id="mapEdit" style="height: 400px">
+						<img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-6">
+						<div class="form-floating mb-3">
+							<input type="time" class="form-control" id="open_time" name="open_time">
+							<label for="">Jam Buka</label>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-floating mb-3">
+							<input type="time" class="form-control" id="close_time" name="close_time">
+							<label for="">Jam Tutup</label>
+						</div>
+					</div>
 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
-                            <label for="">Nomor Telepon Polda</label>
-                        </div>
-                    </div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
+						<label for="">Nomor Telepon Polda</label>
+					</div>
+				</div>
 
 
-                    <div class="col-md-12">
-                        <button type="submit" id="btn_edit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
+				<div class="col-md-12">
+					<button type="submit" id="btn_edit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+				</div>
+						</div>
+					</div>
+                    
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -226,7 +234,7 @@
 </div><!-- /.modal -->
 
 
-<div class="modal fade DetailPolda" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade DetailPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -235,74 +243,81 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                    <div class="col-md-12 mb-3">
-                        <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />
-                    </div>
+					<div class="row">
+						<div class="col-md-3 mb-3 text-center">
+							<!-- <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> -->
+							<img src="" alt="logo_polda" id="logo" width="150px">
+						</div>
+						<div class="col-md-9">
+							<div class="row">
+								<!-- <div class="col-md-12">
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
+										<label for="kode">Kode Satpas</label>
+									</div>
+								</div> -->
+								<div class="col-md-12">
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="namaPolda" placeholder="nama">
+										<label for="">Nama Polda</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-floating mb-3">
+									<textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
+									<label for="alamat">Alamat</label>
+								</div>
+		
+							</div>
+		
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-floating mb-3">
+										<input type="text" id="latitude" class="form-control" name="latitude">
+										<label for="latitude">Latitude</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating mb-3">
+										<input type="text" id="longitude" class="form-control" name="longitude">
+										<label for="longitude">Longitude</label>
+									</div>
+								</div>
+		
+							</div>
+		
+							<div class="row mt-3">
+								<div class="col-md-6">
+									<div class="form-floating mb-3">
+										<input type="time" id="open_time" class="form-control" name="open_time">
+										<label for="jambuka">Jam Buka</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating mb-3">
+										<input type="time" id="close_time" class="form-control" name="close_time">
+										<label for="jamtutup">Jam Tutup</label>
+									</div>
+								</div>
+		
+							</div>
+							<div class="col-md-12">
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
+									<label for="">Nomor Telepon Polda</label>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
                     <!-- <div class="col-md-12">
 							<div class="form-floating mb-3">
 								<input type="file" class="form-control" id="photo" placeholder="photo" name="photo">
 								<label for="photo">Logo Polda</label>
 							</div>
 						</div> -->
-                    <div class="row">
-                        <!-- <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="kodeSatpas" placeholder="kode" name="kodeSatpas">
-                                <label for="kode">Kode Satpas</label>
-                            </div>
-                        </div> -->
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="namaPolda" name="namaPolda" placeholder="nama">
-                                <label for="">Nama Polda</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" style="height: 100px" id="address" placeholder="Alamat" name="address"></textarea>
-                            <label for="alamat">Alamat</label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" id="latitude" class="form-control" name="latitude">
-                                <label for="latitude">Latitude</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" id="longitude" class="form-control" name="longitude">
-                                <label for="longitude">Longitude</label>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" id="open_time" class="form-control" name="open_time">
-                                <label for="jambuka">Jam Buka</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="time" id="close_time" class="form-control" name="close_time">
-                                <label for="jamtutup">Jam Tutup</label>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="phone_polda" placeholder="nomor" name="phone_polda">
-                            <label for="">Nomor Telepon Polda</label>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -736,6 +751,7 @@
     });
 
     function detail(id) {
+		// console.log("ok");
         $.ajax({
             url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
             type: 'POST',
@@ -744,8 +760,9 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                // console.log(results.name_polda)
-                $('.DetailPolda,#photo').attr('disabled', true)
+                // console.log(results)
+				// console.log(`<?= url_api()?>polda/logo/${results.logo_polda}`)
+                $('.DetailPolda,#logo').attr('src', `<?= url_api()?>polda/logo/${results.logo_polda}`)
                 // $('.DetailPolda,#kodeSatpas').attr('disabled', true)
                 $('.DetailPolda,#namaPolda').attr('disabled', true)
                 $('.DetailPolda,#address').attr('disabled', true)
@@ -755,7 +772,7 @@
                 $('.DetailPolda,#close_time').attr('disabled', true)
                 $('.DetailPolda,#phone_polda').attr('disabled', true)
 
-                $('.DetailPolda,#photo').val(results.logo_polda)
+                // $('.DetailPolda,#logo').val(results.logo_polda)
                 // $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
                 $('.DetailPolda,#namaPolda').val(results.name_polda)
                 $('.DetailPolda,#address').val(results.address)
@@ -778,7 +795,9 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPolda,#photo').attr('disabled', false)
+				console.log(`<?= url_api()?>polda/logo/${results.logo_polda}`)
+				$('.UbahPolda,#logo').attr('src', `<?= url_api()?>polda/logo/${results.logo_polda}`)
+                $('.UbahPolda,#photo').data('default-file', `<?= url_api()?>polda/logo/${results.logo_polda}`)
                 // $('.UbahPolda,#kodeSatpas').attr('disabled', false)
                 $('.UbahPolda,#namaPolda').attr('disabled', false)
                 $('.UbahPolda,#address').attr('disabled', false)
@@ -791,7 +810,7 @@
 
                 $('#id_polda').val(results.id)
 
-                $('.UbahPolda,#photo').val(results.logo_polda)
+                // $('.UbahPolda,#photo').val(results.logo_polda)
                 // $('.UbahPolda,#kodeSatpas').val(results.code_satpas)
                 $('.UbahPolda,#namaPolda').val(results.name_polda)
                 $('.UbahPolda,#address').val(results.address)

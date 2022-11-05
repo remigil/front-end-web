@@ -104,10 +104,11 @@ class M_fasum extends CI_Model
             ]
 
         ]);
-// 		echo "<pre>";
-// 		var_dump($result);
-// 		echo "<pre>";
-// die;
+		// echo "<pre>";
+		// var_dump($result);
+		// echo "<pre>";
+		// die;
+
 
         $no = 1;
 

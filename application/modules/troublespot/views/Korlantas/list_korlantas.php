@@ -44,6 +44,10 @@
                     <label class="form-label">POLRES</label>
                     <select class="form-select" style="width:100%" id="polres" required>
                         <option>Pilih Polres</option>
+						<?php
+                        foreach ($data['getPolres'] as $row) : ?>
+                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name_polres']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
@@ -120,6 +124,10 @@
                             <div class="material-selectfield">
                                 <select name="polres_id" class="form-select" style="width:100%" id="polresmodal" required>
                                     <option>Pilih Polres</option>
+									<?php
+									foreach ($data['getPolres'] as $row) : ?>
+										<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polres']; ?></option>
+									<?php endforeach; ?>
                                 </select>
                                 <label for="" class="labelmui">Polres</label>
                             </div>

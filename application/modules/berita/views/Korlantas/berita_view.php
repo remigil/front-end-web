@@ -381,6 +381,7 @@
     });
 
     function detail(id) {
+		// console.log("ok")
         $.ajax({
             url: '<?= base_url() ?>Berita/detailBerita/',
             type: 'POST',
@@ -389,7 +390,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                // console.log(results)
+                console.log(results)
                 $('.DetailBerita,#title').attr('disabled', true)
                 $('.DetailBerita,#category').attr('disabled', true)
                 $('.DetailBerita,#content').attr('disabled', true)

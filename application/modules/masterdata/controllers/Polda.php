@@ -173,6 +173,8 @@ class Polda extends MY_Controller
         ]);
         $data['getDetail'] = $getDetail['data']['data'];
 
+		// var_dump($data['getDetail']);die;
+
         echo json_encode($data['getDetail']);
     }
 

@@ -597,7 +597,7 @@
         <div class="container">
 
             <form action="" method="post" id="form_filter">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-3">
                         <div class="form-group row">
                             <label for="waktu" class="form-label">Wilayah</label>
@@ -644,6 +644,7 @@
 
 
 
+				<?php if($id == 1) {?>
                     <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
@@ -660,6 +661,40 @@
                             </div>
                         </div>
                     </section>
+                    <section class="shadow-sm mt-5">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div><h4 class="card-title mb-0 text-uppercase">Kerugian Material Lalu Lintas</h1></div>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chart2" style="width: 100vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+				<?php } else { ?>
+					<section class="shadow-sm mt-5">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div id="title"></div>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chart" style="width: 100vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+				<?php } ?>
 
 
 
@@ -694,30 +729,216 @@
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                 }
             })
-            var chart = {
+			
+			// Chart Kecelakaan Lalu Lintas
+			if(id == 1){
+
+				// chart laka
+				var chart = {
                 series: [{
-                    name: 'BPKB',
+                    name: 'Meninggal Dunia',
                     type: 'column',
                     data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
                     color: "#11347A"
                 }, {
-                    name: 'STNK',
+                    name: 'Luka Berat',
                     type: 'column',
                     data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
                     color: "#CB2D3E"
                 }, {
-                    name: 'SIM',
+                    name: 'Luka Ringan',
                     type: 'column',
                     data: [
                         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
                     ],
                     color: "#E8D42F"
-                }, {
-                    name: 'RANMOR',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+                
+                }],
+                chart: {
+                    height: 400,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
 
-                    color: "#3CA55C"
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+			
+            var chart = new ApexCharts(document.querySelector("#chart"), chart);
+            chart.render();
+
+				// chart kerugian material
+				var chart2 = {
+                series: [{
+                    name: 'Kerugian Material',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                
+                }],
+                chart: {
+                    height: 400,
+                    type: 'bar',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+			
+            var chart2 = new ApexCharts(document.querySelector("#chart2"), chart2);
+            chart2.render();
+
+
+			// Chart Pelanggaran Lalu Lintas
+			} else if(id == 2){
+				var chart = {
+                series: [{
+                    name: 'capture Camera',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                }, {
+                    name: 'Statis',
+                    type: 'column',
+                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'Mobile',
+                    type: 'column',
+                    data: [
+                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                    ],
+                    color: "#E8D42F"
+                
                 }],
                 chart: {
                     height: 400,
@@ -794,6 +1015,209 @@
 
             var chart = new ApexCharts(document.querySelector("#chart"), chart);
             chart.render();
+
+			// Chart Kendaraan Bermotor
+			} else if(id == 3){
+				var chart = {
+                series: [{
+                    name: 'Mobil Penumpang',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                }, {
+                    name: 'Mobil Barang',
+                    type: 'column',
+                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+                    color: "#CB2D3E"
+                }, {
+                    name: 'Mobil Bus',
+                    type: 'column',
+                    data: [
+                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                    ],
+                    color: "#E8D42F"
+                }, {
+                    name: 'Ransus',
+                    type: 'column',
+                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+
+                    color: "#3CA55C"
+                }, {
+                    name: 'Sepeda Motor',
+                    type: 'column',
+                    data: [80, 43, 54, 30, 20, 70, 39, 42, 24, 33, 43, 42],
+
+                    color: "#F06619"
+                }],
+                chart: {
+                    height: 400,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), chart);
+            chart.render();
+
+			// Chart SIM
+			} else if(id == 4) {
+				var chart = {
+                series: [{
+                    name: 'Perpanjangan',
+                    type: 'column',
+                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+                    color: "#11347A"
+                }, {
+                    name: 'Baru',
+                    type: 'column',
+                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+                    color: "#CB2D3E"
+                
+                }],
+                chart: {
+                    height: 400,
+                    type: 'line',
+                    stacked: false
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded',
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    },
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        colors: ['#333']
+                    },
+                    offsetY: -15
+                },
+
+                stroke: {
+                    show: true,
+                    width: [1, 1, 4, 4],
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+                yaxis: [{
+                    axisTicks: {
+                        show: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                        color: '#008FFB'
+                    },
+                    labels: {
+                        style: {
+                            colors: '#008FFB',
+                        }
+                    },
+
+
+                }, ],
+
+                tooltip: {
+                    // custom: function({
+                    //     series,
+                    //     seriesIndex,
+                    //     dataPointIndex,
+                    //     w
+                    // }) {
+                    //     return (
+                    //         `<div class="">
+                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                    //         </div>`
+
+
+                    // '<div class="">' +
+                    // "<span>" +
+                    // w.globals.labels[dataPointIndex] +
+                    // ": " +
+                    // series[seriesIndex][dataPointIndex] +
+                    // "</span>" +
+                    // "</div>"
+                    //         );
+                    //     }
+                }
+            };
+
+			
+            var chart = new ApexCharts(document.querySelector("#chart"), chart);
+            chart.render();
+			}
+            
         })
     </script>
 

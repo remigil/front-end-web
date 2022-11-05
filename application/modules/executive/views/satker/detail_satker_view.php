@@ -283,12 +283,13 @@
                                                 <div class="col-md-2">
                                                     <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646 ;">Kecelakaan Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="lakalantas"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Kecelakaan </span>Lalu Lintas
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -302,12 +303,13 @@
                                                 <div class="col-md-2">
                                                     <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646;">Pelanggaran Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="garlantas"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Pelanggaran </span>Lalu Lintas
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -321,12 +323,13 @@
                                                 <div class="col-md-2">
                                                     <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646;">Kendaraan Bermotor</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="motor"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Kendaraan </span>Bermotor
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -340,12 +343,13 @@
                                                 <div class="col-md-2">
                                                     <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span style="color:#464646;" class="fs-6 fw-bold">Jumlah SIM Nasional</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 id="sim" style="color:#464646;"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														Jumlah <span class="fw-bold">SIM Nasional</span>
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>

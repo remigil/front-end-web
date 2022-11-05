@@ -285,12 +285,13 @@
                                                 <div class="col-md-2">
                                                     <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646 ;">Kecelakaan Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="lakalantas"></h1>
-                                                </div>
+												<div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Kecelakaan </span>Lalu Lintas
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -304,12 +305,13 @@
                                                 <div class="col-md-2">
                                                     <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646;">Pelanggaran Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="garlantas"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Pelanggaran </span>Lalu Lintas
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -323,12 +325,13 @@
                                                 <div class="col-md-2">
                                                     <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="fs-6 fw-bold" style="color:#464646;">Kendaraan Bermotor</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 style="color:#464646;" id="motor"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														<span class="fw-bold">Kendaraan </span>Bermotor
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -342,12 +345,13 @@
                                                 <div class="col-md-2">
                                                     <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span style="color:#464646;" class="fs-6 fw-bold">Jumlah SIM Nasional</span>
-                                                </div>
-                                                <div class="col-md-6 text-end">
-                                                    <h1 id="sim" style="color:#464646;"></h1>
-                                                </div>
+                                                <div class="col-md-10 float-end">
+													<span class="fs-6 float-end" style="color:#464646;">
+														Jumlah <span class="fw-bold">SIM Nasional</span>
+													</span>
+													<br>
+													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+												</div>
                                             </div>
                                         </div>
                                     </div>
@@ -358,22 +362,7 @@
                         <!-- end statistik -->
                     </div>
 
-                    <section class="shadow-sm mt-5">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div id="namaditregident"></div>
-                                    </div>
-                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                        <div class="main-chart">
-                                            <div id="chartditregident" style="width: 100vw"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    
                     <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
@@ -406,6 +395,22 @@
                             </div>
                         </div>
                     </section>
+					<section class="shadow-sm mt-5">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div id="namaditregident"></div>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chartditregident" style="width: 100vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
 
                 </div>
@@ -432,9 +437,9 @@
                     $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
                     $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
                     $('#nama').html(`<h1 style="color:#007DD8 ; text-transform:uppercase;">Polda ${ressPolda.name_polda}</h1>`);
-                    $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
+                    $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
 
 
                 }
@@ -546,24 +551,24 @@
 
             var ditgakkum = {
                 series: [{
-                    name: 'BPKB',
+                    name: 'Garlantas',
                     type: 'column',
                     data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
                     color: "#11347A"
                 }, {
-                    name: 'STNK',
+                    name: 'Lakalantas',
                     type: 'column',
                     data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
                     color: "#CB2D3E"
                 }, {
-                    name: 'SIM',
+                    name: 'Turjagwali',
                     type: 'column',
                     data: [
                         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
                     ],
                     color: "#E8D42F"
                 }, {
-                    name: 'RANMOR',
+                    name: 'Lakalanggar',
                     type: 'column',
                     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
@@ -647,28 +652,28 @@
 
             var ditkamsel = {
                 series: [{
-                    name: 'BPKB',
+                    name: 'Garlantas',
                     type: 'column',
                     data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
                     color: "#11347A"
                 }, {
-                    name: 'STNK',
+                    name: 'Penyebaran/Pemasangan',
                     type: 'column',
                     data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
                     color: "#CB2D3E"
-                }, {
-                    name: 'SIM',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }, {
-                    name: 'RANMOR',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+                // }, {
+                //     name: 'SIM',
+                //     type: 'column',
+                //     data: [
+                //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                //     ],
+                //     color: "#E8D42F"
+                // }, {
+                //     name: 'RANMOR',
+                //     type: 'column',
+                //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
-                    color: "#3CA55C"
+                //     color: "#3CA55C"
                 }],
                 chart: {
                     height: 400,

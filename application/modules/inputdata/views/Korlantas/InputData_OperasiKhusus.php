@@ -549,7 +549,7 @@
                 <thead class="bg-primary text-white">
                     <tr>
                         <th>No</th>
-                        <th>Polres</th>
+                        <th>Polda</th>
                         ${coloumn}
                     </tr>
                 </thead>

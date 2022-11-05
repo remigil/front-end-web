@@ -141,7 +141,9 @@ class Berita extends MY_Controller
         $getDetail = guzzle_request('GET', 'news/getId/' . $id . '', [
             'headers' => $headers
         ]);
-        $data['getDetail'] = $getDetail['data']['data'];
+		
+        $data['getDetail'] = $getDetail['data'];
+		// var_dump($data);
 
         echo json_encode($data['getDetail']);
     }

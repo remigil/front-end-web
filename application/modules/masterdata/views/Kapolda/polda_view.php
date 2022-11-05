@@ -722,36 +722,37 @@
 	});
 
     function detail(id) {
-        $.ajax({
-            url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
-            type: 'POST',
-            data: {
-                id_polda: id
-            },
-            dataType: 'JSON',
-            success: function(results) {
-                $('.DetailPolda,#photo').attr('disabled', true)
-                $('.DetailPolda,#kodeSatpas').attr('disabled', true)
-                $('.DetailPolda,#namaPolda').attr('disabled', true)
-                $('.DetailPolda,#address').attr('disabled', true)
-                $('.DetailPolda,#latitude').attr('disabled', true)
-                $('.DetailPolda,#longitude').attr('disabled', true)
-                $('.DetailPolda,#open_time').attr('disabled', true)
-                $('.DetailPolda,#close_time').attr('disabled', true)
-                $('.DetailPolda,#phone_polda').attr('disabled', true)
+		console.log("ok");
+        // $.ajax({
+        //     url: '<?= base_url() ?>masterdata/Polda/detailPolda/',
+        //     type: 'POST',
+        //     data: {
+        //         id_polda: id
+        //     },
+        //     dataType: 'JSON',
+        //     success: function(results) {
+        //         $('.DetailPolda,#photo').attr('disabled', true)
+        //         $('.DetailPolda,#kodeSatpas').attr('disabled', true)
+        //         $('.DetailPolda,#namaPolda').attr('disabled', true)
+        //         $('.DetailPolda,#address').attr('disabled', true)
+        //         $('.DetailPolda,#latitude').attr('disabled', true)
+        //         $('.DetailPolda,#longitude').attr('disabled', true)
+        //         $('.DetailPolda,#open_time').attr('disabled', true)
+        //         $('.DetailPolda,#close_time').attr('disabled', true)
+        //         $('.DetailPolda,#phone_polda').attr('disabled', true)
 				
-                $('.DetailPolda,#photo').val(results.logo_polda)
-                $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
-                $('.DetailPolda,#namaPolda').val(results.name_polda)
-                $('.DetailPolda,#address').val(results.address)
-                $('.DetailPolda,#latitude').val(results.latitude)
-                $('.DetailPolda,#longitude').val(results.longitude)
-                $('.DetailPolda,#open_time').val(results.open_time)
-                $('.DetailPolda,#close_time').val(results.close_time)
-                $('.DetailPolda,#phone_polda').val(results.phone_polda)
+        //         $('.DetailPolda,#photo').val(results.logo_polda)
+        //         $('.DetailPolda,#kodeSatpas').val(results.code_satpas)
+        //         $('.DetailPolda,#namaPolda').val(results.name_polda)
+        //         $('.DetailPolda,#address').val(results.address)
+        //         $('.DetailPolda,#latitude').val(results.latitude)
+        //         $('.DetailPolda,#longitude').val(results.longitude)
+        //         $('.DetailPolda,#open_time').val(results.open_time)
+        //         $('.DetailPolda,#close_time').val(results.close_time)
+        //         $('.DetailPolda,#phone_polda').val(results.phone_polda)
                 
-            }
-        })
+        //     }
+        // })
     }
 
     function detailEdit(id) {
