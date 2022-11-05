@@ -264,35 +264,32 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Bagtik/dashboard_view";
 
             $page_content["data"] = '';
-
-
-
-            // } else if ($this->session->userdata['role'] == 'Kakorlantas') {
-            //     $page_content["page"] = "dashboard/Kakor/dashboard_view";
-
-            //     $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
-            //     $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            //     $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
-            //     $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-            //     $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
-            //     $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            //     $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
-            // 	$data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
-            // 	$data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
-            // 	$data['ranmor'] = $this->m_dashboard->ranmor_nasional();
-            // 	$data['sim'] = $this->m_dashboard->sim_nasional();
-            // 	$data['stnk'] = $this->m_dashboard->stnk_nasional();
-            // 	$data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
-            // 	$data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
-
-
-            //     $page_content["data"] = $data;
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
-            $page_content["page"] = "dashboard/Executive/dashboard_view";
+            $page_content["page"] = "dashboard/Kakor/dashboard_view";
+
+            $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
+            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
+            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+            $data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
+            $data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
+            $data['ranmor'] = $this->m_dashboard->ranmor_nasional();
+            $data['sim'] = $this->m_dashboard->sim_nasional();
+            $data['stnk'] = $this->m_dashboard->stnk_nasional();
+            $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
+            $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
+
+
+            $page_content["data"] = $data;
+            // } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            //     $page_content["page"] = "dashboard/Executive/dashboard_view";
 
 
 
-            $page_content["data"] = '';
+            //     $page_content["data"] = '';
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";
             $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
