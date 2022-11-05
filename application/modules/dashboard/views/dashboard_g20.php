@@ -3428,7 +3428,7 @@
                                                             draggable: this.draggableWaypoints,
                                                         }).bindPopup(`
                                                             <div class="text-center"> 
-                                                                <h5>${titikAkhirl}</h5>
+                                                                <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
                                                                     <span class="text-start">Petugas :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
