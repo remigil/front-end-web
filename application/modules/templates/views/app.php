@@ -959,11 +959,18 @@
                                             </li>
 
                                             <li>
+                                                <a href="http://pjrstream.com/" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">BODYCAM</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- <li>
                                                 <a href="<?php echo base_url(); ?>masterdata/bodycam">
                                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">BodyCam</span>
                                                 </a>
-                                            </li>
+                                            </li> -->
 
                                         <?php } elseif ($this->session->userdata['role'] == 'Kakor' || $this->session->userdata['role'] == 'PJU'  || $this->session->userdata['role'] == 'Operator') { ?>
 
