@@ -81,8 +81,12 @@
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/18.2.6/css/dx.light.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
         #overlay {
             position: fixed;
             top: 0;
@@ -227,190 +231,193 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <a href="<?= base_url('executive/Statistik_executive/index/1'); ?>">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <span class="fs-6 fw-bold" style="color:#464646 ;">Kecelakaan Lalu Lintas</span>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <h1 style="color:#464646;" id="lakalantas"></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <a href="<?= base_url('executive/Statistik_executive/index/2'); ?>">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <span class="fs-6 fw-bold" style="color:#464646;">Pelanggaran Lalu Lintas</span>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <h1 style="color:#464646;" id="garlantas"></h1>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="<?= base_url('executive/Statistik_executive/index/1'); ?>">
+                                            <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <i class='bx bxs-car-crash ms-n2' style="font-size: 45px; color: #464646;"></i>
+                                                        </div>
+                                                        <div class="col-md-10 float-end">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
+                                                                <span class="fw-bold">Kecelakaan </span>Lalu Lintas
+                                                            </span>
+                                                            <br>
+                                                            <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <a href="<?= base_url('executive/Statistik_executive/index/3'); ?>">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <span class="fs-6 fw-bold" style="color:#464646;">Kendaraan Bermotor</span>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <h1 style="color:#464646;" id="motor"></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <a href="<?= base_url('executive/Statistik_executive/index/4'); ?>">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <span style="color:#464646;" class="fs-6 fw-bold">Jumlah SIM Nasional</span>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <h1 id="sim" style="color:#464646;"></h1>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="<?= base_url('executive/Statistik_executive/index/2'); ?>">
+                                            <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 45px; color: #464646;"></iconify-icon>
+                                                        </div>
+                                                        <div class="col-md-10 float-end">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
+                                                                <span class="fw-bold">Pelanggaran </span>Lalu Lintas
+                                                            </span>
+                                                            <br>
+                                                            <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="<?= base_url('executive/Statistik_executive/index/3'); ?>">
+                                            <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 41px; color: #464646;"></iconify-icon>
+                                                        </div>
+                                                        <div class="col-md-10 float-end">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
+                                                                <span class="fw-bold">Kendaraan </span>Bermotor
+                                                            </span>
+                                                            <br>
+                                                            <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="<?= base_url('executive/Statistik_executive/index/4'); ?>">
+                                            <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i>
+                                                        </div>
+                                                        <div class="col-md-10 float-end">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
+                                                                Jumlah <span class="fw-bold">SIM Nasional </span>
+                                                            </span>
+                                                            <br>
+                                                            <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- end statistik -->
-                    </div>
 
 
-                    <div id="mapG20Dashboard" class="rounded-3" style="height:80vh;">
-                    </div>
-                    <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
-                    <div class="container">
-                        <div class="row d-flex justify-content-between mb-3">
 
-                            <!-- <div class="d-flex justify-content-between"> -->
-                            <div class="col-md-2">
-                                <a href="<?= base_url('executive/Satker_executive/index/1'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
+                            <div id="mapG20Dashboard" class="rounded-3" style="height:80vh;">
                             </div>
-                            <div class="col-md-2">
-                                <a href="<?= base_url('executive/Satker_executive/index/2'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="<?= base_url('executive/Satker_executive/index/3'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagOps</button></a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagTik</button></a>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center mb-5">
-                            <div class="col-md-6 align-items-center">
-                                <a href="#"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%; background: #E4E4E4;">Data Harian Operasi Khusus</button></a>
-                            </div>
-                            <div class="col-md-6 align-items-center">
-                                <a href="#"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
+                            <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
+                            <div class="container">
+                                <div class="row d-flex justify-content-between mb-3">
+
+                                    <!-- <div class="d-flex justify-content-between"> -->
+                                    <div class="col-md-2">
+                                        <a href="<?= base_url('executive/Satker_executive/index/1'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="<?= base_url('executive/Satker_executive/index/2'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="<?= base_url('executive/Satker_executive/index/3'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagOps</button></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagTik</button></a>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-5">
+                                    <div class="col-md-6 align-items-center">
+                                        <a href="#"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%; background: #E4E4E4;">Data Harian Operasi Khusus</button></a>
+                                    </div>
+                                    <div class="col-md-6 align-items-center">
+                                        <a href="#"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="container-fluid" style="background:#E9E9E9">
-        <div class="container-fluid">
-            <div class="container-fluid">
+            <div class="container-fluid" style="background:#E9E9E9">
                 <div class="container-fluid">
+                    <div class="container-fluid">
+                        <div class="container-fluid">
 
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-4 mb-1 mt-3">
-                            <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
-                        </div>
-                        <div class="col-md-2 mb-1 mt-3"></div>
-                        <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                            <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
-                        </div>
-                        <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                            <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Bulanan</button>
-                        </div>
-                        <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                            <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mt-4">
-                            <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="mb-3">
-                                <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                    <table class="table table-bordered table-hover rounded">
-                                        <thead class="table-primary">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Total Pelanggaran</th>
-                                                <th scope="col">Pelanggaran Berat</th>
-                                                <th scope="col">Pelanggaran Sedang</th>
-                                                <th scope="col">Pelanggaran Ringan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody">
-
-                                        </tbody>
-                                    </table>
+                            <div class="row d-flex align-items-center">
+                                <div class="col-md-4 mb-1 mt-3">
+                                    <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
+                                </div>
+                                <div class="col-md-2 mb-1 mt-3"></div>
+                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
+                                </div>
+                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Bulanan</button>
+                                </div>
+                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="mb-3">
-                                <div class="card shadow-sm">
-                                    <div class="mt-5 text-center">
-                                        <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
+                            <div class="row">
+                                <div class="col-md-7 mt-4">
+                                    <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-3">
+                                        <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                                            <table class="table table-bordered table-hover rounded">
+                                                <thead class="" style="background-color:#007DD8; color:#fff;">
+                                                    <tr class="text-center">
+                                                        <th scope="col">No</th>
+                                                        <th scope="col">Polda</th>
+                                                        <th scope="col">Total Pelanggaran</th>
+                                                        <th scope="col">Pelanggaran Berat</th>
+                                                        <th scope="col">Pelanggaran Sedang</th>
+                                                        <th scope="col">Pelanggaran Ringan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
-                                        <div style="max-height: 102vh;">
-                                            <div class="card ms-4 me-4 mx-1 my-1">
-                                                <div id="laka"></div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="mb-3">
+                                        <div class="card shadow-sm">
+                                            <div class="mt-5 text-center">
+                                                <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
+                                            </div>
+                                            <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
+                                                <div style="max-height: 102vh;">
+                                                    <div class="card ms-4 me-4 mx-1 my-1">
+                                                        <div id="laka"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -420,42 +427,40 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <script>
-        let app_url = '<%-app_url%>'
-        let path = '<%-path%>'
-        var marker = new Array();
+            <script>
+                let app_url = '<%-app_url%>'
+                let path = '<%-path%>'
+                var marker = new Array();
 
-        $(document).ready(function() {
-            $("#overlay").fadeIn(300);
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getPolda",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
+                $(document).ready(function() {
+                    $("#overlay").fadeIn(300);
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getPolda",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
 
-                    let ressData = result;
-                    // console.log();
+                            let ressData = result;
+                            // console.log();
 
 
-                    for (let i = 0; i < ressData.length; i++) {
-                        id = i;
-                        var latitude = parseFloat(ressData[i].latitude);
-                        var longitude = parseFloat(ressData[i].longitude);
+                            for (let i = 0; i < ressData.length; i++) {
+                                id = i;
+                                var latitude = parseFloat(ressData[i].latitude);
+                                var longitude = parseFloat(ressData[i].longitude);
 
-                        var resource = '';
+                                var resource = '';
 
-                        marker[i] = L.marker([latitude, longitude], {
-                            icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                            })
-                        }).bindPopup(
-                            `<div style="width: 450px;">
+                                marker[i] = L.marker([latitude, longitude], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                    })
+                                }).bindPopup(
+                                    `<div style="width: 450px;">
                                     <div class="row">
                                         <div class="col-md-2 text-center">
                                             <img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
@@ -505,29 +510,29 @@
                                 </div>
                                     
                             `, {
-                                minWidth: 100,
-                                maxWidth: 560,
-                                width: 400
-                            }).addTo(mapContainer);
-                    }
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    }).addTo(mapContainer);
+                            }
 
 
-                }
-            });
+                        }
+                    });
 
-            $("#overlay").fadeIn(300);
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getGarlantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var table = '';
+                    $("#overlay").fadeIn(300);
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getGarlantas",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
+                            var table = '';
 
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        table += `<tr class="text-center"> 
+                            for (let i = 0; i < result.length; i++) {
+                                let x = parseInt(i)
+                                let no = x + 1
+                                table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td> 
                             <td>  ${result[i].total}  </td> 
@@ -535,24 +540,24 @@
                             <td>  ${result[i].pelanggaran_sedang}  </td> 
                             <td>  ${result[i].pelanggaran_ringan}  </td> 
                             </tr>`
-                    }
-                    $('#tbody').html(table);
-                }
-            })
+                            }
+                            $('#tbody').html(table);
+                        }
+                    })
 
-            $("#overlay").fadeIn(300);
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getLakalantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var data = '';
+                    $("#overlay").fadeIn(300);
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getLakalantas",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
+                            var data = '';
 
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        data += `<h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">${no}. ${result[i].name_polda}</h5>
+                            for (let i = 0; i < result.length; i++) {
+                                let x = parseInt(i)
+                                let no = x + 1
+                                data += `<h5 class="card-header border-bottom text-uppercase text-light p-2 m-0" style="background-color:#007DD8; color:#fff;">${no}. ${result[i].name_polda}</h5>
                                     <div class="card-body">
                                         <div class="row text-center">
                                             <div class="col-md-3 col-sm-4">
@@ -573,245 +578,245 @@
                                             </div>
                                         </div>
                                     </div>`
+                            }
+
+                            $('#laka').html(data);
+                        }
+                    })
+
+                    $("#overlay").fadeIn(300);
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getStatistik",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
+
+                            $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
+                            $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
+                            $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
+                            $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
+                        }
+                    })
+
+
+                    var initialCenter = [-2.25613, 118.005351];
+
+                    var initialZoom = 5.1;
+                    var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                    });
+                    var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                    });
+                    var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                    });
+                    var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                        attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+                    });
+                    var gl = L.mapboxGL({
+                        accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+                        style: 'mapbox://styles/mapbox/traffic-day-v2'
+                    });
+
+                    var trafficMutant = L.gridLayer.googleMutant({
+                        maxZoom: 24,
+                        type: "hybrid",
+                    }).addGoogleLayer("TrafficLayer");
+
+                    var trafficMutantRoad = L.gridLayer.googleMutant({
+                        maxZoom: 24,
+                        type: "roadmap",
+                    }).addGoogleLayer("TrafficLayer");
+
+                    // StART MAP SECTION
+                    var mapContainer = L.map('mapG20Dashboard', {
+                        maxZoom: 20,
+                        minZoom: 1,
+                        zoomSnap: 0.25,
+                        zoomControl: false,
+                        layers: [googleStreet]
+                    }).setView(initialCenter, initialZoom);
+
+                    var markerClusterGroup = L.markerClusterGroup();
+                    var icon = L.icon({
+                        iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+                        iconSize: [80, 80], // size of the icon
+                    });
+
+
+                    var baseMaps = {
+                        "Google Map Street": googleStreet,
+                        "Google Map Satelite": googleSatelite,
+                        "Google Map Hybrid": googleHybrid,
+                        "Google Map Terrain": googleTerrain,
+                        "Google Map Street Traffic": trafficMutantRoad,
+                        "Google Map Hybrid Traffic": trafficMutant,
+                        "MappBox Traffic": gl,
+                    };
+                    var overlayMaps = {};
+                    L.control.layers(baseMaps, overlayMaps, {
+                        position: 'topright'
+                    }).addTo(mapContainer);
+                    L.control.zoom({
+                        position: 'topright'
+                    }).addTo(mapContainer);
+
+                    mapContainer.doubleClickZoom.enable();
+                })
+            </script>
+            <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+            <!-- choices js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+            <!-- dropify js -->
+            <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.js"></script>
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
+
+            <!-- Modal js -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
+
+            <!-- form mask -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
+
+            <!-- form mask init -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
+
+            <!-- dropzone js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
+
+            <!-- glightbox js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
+
+            <!-- lightbox init -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
+
+            <!-- Required datatable js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+            <!-- Buttons examples -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/jszip/jszip.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+            <!-- Responsive examples -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+            <!-- apexcharts -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
+
+            <!-- Plugins js-->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+
+            <!-- dashboard init -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
+
+            <!-- Sweet Alerts js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
+
+            <!-- Sweet alert init js-->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
+
+            <!-- pristine js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
+
+            <!-- form validation -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
+
+            <!-- init js -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
+
+            <!-- datepicker js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+
+            <!-- select2 js -->
+            <script src="<?php echo base_url(); ?>assets/admin/js/pages/select2.min.js"></script>
+
+            <!-- twitter-bootstrap-wizard js -->
+            <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
+
+            <!-- form wizard init -->
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
+
+            <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
+
+            <!-- Leaflet -->
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
+            <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
+            <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
+
+            <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+            <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
+            <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+
+
+            <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/moment.min.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/daterangepicker.js"></script>
+
+            <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
+            <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
+
+
+            <script>
+                var sidebar = localStorage.getItem('data-sidebar-size');
+                var topbar = localStorage.getItem('data-topbar');
+                var layoutMode = localStorage.getItem('data-layout-mode');
+                $(document).ready(function() {
+                    if ($("#statusicon").val() == 'left') {
+                        $("#iconright").show();
+                        $("#iconleft").hide();
+                        $("#statusicon").val('right');
+                    } else {
+                        $("#iconright").hide();
+                        $("#iconleft").show();
+                        $("#statusicon").val('left');
                     }
 
-                    $('#laka').html(data);
-                }
-            })
+                    document.body.setAttribute('data-sidebar-size', sidebar);
+                    document.body.setAttribute('data-topbar', topbar)
+                    document.body.setAttribute("data-layout-mode", layoutMode);
+                });
 
-            $("#overlay").fadeIn(300);
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>dashboard/getStatistik",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-
-                    $('#motor').html(`<h1>${result.motor}</h1>`);
-                    $('#sim').html(`<h1>${result.sim}</h1>`);
-                    $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
-                    $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
-                }
-            })
-
-
-            var initialCenter = [-2.25613, 118.005351];
-
-            var initialZoom = 5.1;
-            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-            });
-            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-            });
-            var gl = L.mapboxGL({
-                accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
-                style: 'mapbox://styles/mapbox/traffic-day-v2'
-            });
-
-            var trafficMutant = L.gridLayer.googleMutant({
-                maxZoom: 24,
-                type: "hybrid",
-            }).addGoogleLayer("TrafficLayer");
-
-            var trafficMutantRoad = L.gridLayer.googleMutant({
-                maxZoom: 24,
-                type: "roadmap",
-            }).addGoogleLayer("TrafficLayer");
-
-            // StART MAP SECTION
-            var mapContainer = L.map('mapG20Dashboard', {
-                maxZoom: 20,
-                minZoom: 1,
-                zoomSnap: 0.25,
-                zoomControl: false,
-                layers: [googleStreet]
-            }).setView(initialCenter, initialZoom);
-
-            var markerClusterGroup = L.markerClusterGroup();
-            var icon = L.icon({
-                iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-                iconSize: [80, 80], // size of the icon
-            });
-
-
-            var baseMaps = {
-                "Google Map Street": googleStreet,
-                "Google Map Satelite": googleSatelite,
-                "Google Map Hybrid": googleHybrid,
-                "Google Map Terrain": googleTerrain,
-                "Google Map Street Traffic": trafficMutantRoad,
-                "Google Map Hybrid Traffic": trafficMutant,
-                "MappBox Traffic": gl,
-            };
-            var overlayMaps = {};
-            L.control.layers(baseMaps, overlayMaps, {
-                position: 'topright'
-            }).addTo(mapContainer);
-            L.control.zoom({
-                position: 'topright'
-            }).addTo(mapContainer);
-
-            mapContainer.doubleClickZoom.enable();
-        })
-    </script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-
-    <!-- choices js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-
-    <!-- dropify js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dropify.min.js"></script> -->
-
-    <!-- Modal js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/modal.init.js"></script> -->
-
-    <!-- form mask -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/imask/imask.min.js"></script>
-
-    <!-- form mask init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-mask.init.js"></script> -->
-
-    <!-- dropzone js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/dropzone/min/dropzone.min.js"></script>
-
-    <!-- glightbox js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/glightbox/js/glightbox.min.js"></script>
-
-    <!-- lightbox init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/lightbox.init.js"></script> -->
-
-    <!-- Required datatable js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Buttons examples -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/jszip/jszip.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-
-    <!-- Responsive examples -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- apexcharts -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
-
-    <!-- Plugins js-->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-
-    <!-- dashboard init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/dashboard.init.js"></script> -->
-
-    <!-- Sweet Alerts js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
-
-    <!-- Sweet alert init js-->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/sweetalert.init.js"></script> -->
-
-    <!-- pristine js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/pristinejs/pristine.min.js"></script>
-
-    <!-- form validation -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-validation.init.js"></script> -->
-
-    <!-- init js -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-advanced.init.js"></script> -->
-
-    <!-- datepicker js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
-
-    <!-- select2 js -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/pages/select2.min.js"></script>
-
-    <!-- twitter-bootstrap-wizard js -->
-    <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/libs/twitter-bootstrap-wizard/prettify.js"></script>
-
-    <!-- form wizard init -->
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/pages/form-wizard.init.js"></script> -->
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
-
-    <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/admin/js/leaflet-routing-machine.min.js"></script> -->
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js'></script>
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-    <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
-    <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
-
-
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/moment.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/daterangepicker.js"></script>
-
-    <script src="<?php echo base_url(); ?>assets/admin/js/clockpicker.js"></script>
-    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
-
-
-    <script>
-        var sidebar = localStorage.getItem('data-sidebar-size');
-        var topbar = localStorage.getItem('data-topbar');
-        var layoutMode = localStorage.getItem('data-layout-mode');
-        $(document).ready(function() {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
-            }
-
-            document.body.setAttribute('data-sidebar-size', sidebar);
-            document.body.setAttribute('data-topbar', topbar)
-            document.body.setAttribute("data-layout-mode", layoutMode);
-        });
-
-        $("#vertical-menu-btn").on("click", function(event) {
-            if ($("#statusicon").val() == 'left') {
-                $("#iconright").show();
-                $("#iconleft").hide();
-                $("#statusicon").val('right');
-            } else {
-                $("#iconright").hide();
-                $("#iconleft").show();
-                $("#statusicon").val('left');
-            }
-        });
-    </script>
+                $("#vertical-menu-btn").on("click", function(event) {
+                    if ($("#statusicon").val() == 'left') {
+                        $("#iconright").show();
+                        $("#iconleft").hide();
+                        $("#statusicon").val('right');
+                    } else {
+                        $("#iconright").hide();
+                        $("#iconleft").show();
+                        $("#statusicon").val('left');
+                    }
+                });
+            </script>
 
 
 
