@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Foto</th>
                         <th>Nama Petugas Pelapor</th>
                         <th>Kategori</th>
                         <th>Deskripsi</th>
@@ -115,6 +116,10 @@
 
                 {
                     data: 'id'
+                },
+                {
+                    data: 'foto',
+                    orderable: false
                 },
                 {
                     data: 'name_officer'

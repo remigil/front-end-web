@@ -117,6 +117,13 @@ class M_operasi extends CI_Model
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
+            
+            if($field['foto'] != null){
+                $row ['foto'] = '<a href="'.url_api().'laporan/'.$field['foto'].'" target="_blank"><img src="'.url_api().'laporan/'.$field['foto'].'" alt="" class="rounded avatar-md"></a>';  
+            }else{
+                $row ['foto'] = '<img src="'.base_url().'assets/no_image.png" alt="" class="rounded avatar-md">'; 
+            }
+
             $row['name_officer']      = $field['officer']['name_officer'];
             $row['categori']      = $field['categori'];
             $row['description']           = $field['description'];
