@@ -34,15 +34,16 @@ class Fasilitasumum extends MY_Controller
             $page_content["page"] = "masterdata/Polres/fasum_view";
         }
 
-        $getCategory = guzzle_request('GET', 'category_fasum', [
-            'headers' => $headers
-        ]);
-        $data['getCategory'] = $getCategory['data']['data'];
+        // $getCategory = guzzle_request('GET', 'category_fasum', [
+        //     'headers' => $headers
+        // ]);
+        // $data['getCategory'] = $getCategory['data']['data'];
 
         // var_dump($getCategory);
         // die;
 
-        $page_content["data"] = $data;
+        // $page_content["data"] = $data;
+        $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
 

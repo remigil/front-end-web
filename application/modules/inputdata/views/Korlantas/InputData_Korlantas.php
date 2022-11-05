@@ -295,7 +295,7 @@
             $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
                                 <option value="1">Data Dakgar Lantas</option>
                                 <option value="2">Pelanggaran Konvensional</option>
-                                <option value="3">Kecelakaan Lalu Lintas</option>
+                                
                                   <option value="4">Turjagwali</option>`)
         } else if (jenis_satker == 2) {
             $('#jenis_laporan').append(`<option value="">-Pilih jenis laporan--</option>
@@ -388,7 +388,7 @@
                 <thead class="bg-primary text-white">
                     <tr>
                         <th>No</th>
-                        <th>Polres</th>
+                        <th>Polda</th>
                         ${coloumn}
                     </tr>
                 </thead>
@@ -402,7 +402,7 @@
                 <thead class="bg-primary text-white text-center">
                     <tr>
                         <th rowspan="2"  style="vertical-align : middle;text-align:center;" >No</th>
-                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Polres</th>
+                        <th rowspan="2"  style="vertical-align : middle;text-align:center;">Polda</th>
                         <th rowspan="2"  style="vertical-align : middle;text-align:center;">Jumlah Capture Camera</th>
                         <th colspan="2">Jumlah Validasi Petugas</th>
                         <th colspan="2">Jumlah Konfirmasi Masyarakat</th>

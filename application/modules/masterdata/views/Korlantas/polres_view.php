@@ -149,13 +149,14 @@
             <div class="modal-body">
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="" id="id_polres" type="text">
-						<div class="col-md-12 mb-3"> 
+						<!-- <div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
-                        </div>
+                        </div> -->
                         
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <select name="namaPolda" id="namaPolda" class="form-select" style="width:100%" required>
+										
                                     <?php
                         				foreach ($data['getPolda'] as $row) : ?>
                             			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
@@ -254,7 +255,7 @@
             <div class="modal-body">
                 <form action="" class="form">
 						<div class="col-md-12 mb-3"> 
-                            <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
+                            <!-- <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" />  -->
                         </div>
                         
                         <div class="col-md-12">
@@ -769,7 +770,7 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                
+                console.log(results)
                 $('.DetailPolres,#logo_polres').attr('disabled', true)
                 $('.DetailPolres,#namaPolda').attr('disabled', true)
                 $('.DetailPolres,#namaPolres').attr('disabled', true)
@@ -782,7 +783,7 @@
                 $('.DetailPolres,#phone_polres').attr('disabled', true)
 
                 $('.DetailPolres,#logo_polres').val(results.logo_polres)
-                $('.DetailPolres,#namaPolda').val(results.id_polda)
+                $('.DetailPolres,#namaPolda').val(results.polda.name_polda)
                 $('.DetailPolres,#namaPolres').val(results.name_polres)
                 $('.DetailPolres,#kodeSatpas').val(results.code_satpas)
                 $('.DetailPolres,#address').val(results.address)
@@ -819,7 +820,7 @@
                 $('#id_polres').val(results.id)
 
                 $('.UbahPolres,#logo_polres').val(results.logo_polres)
-                $('.UbahPolres,#namaPolda').val(results.name_polda)
+                $('.UbahPolres,#namaPolda').val(results.polda.id)
                 $('.UbahPolres,#namaPolres').val(results.name_polres)
                 $('.UbahPolres,#kodeSatpas').val(results.code_satpas)
                 $('.UbahPolres,#address').val(results.address)

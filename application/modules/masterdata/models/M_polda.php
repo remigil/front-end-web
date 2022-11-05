@@ -103,6 +103,7 @@ class M_polda extends CI_Model
             ]
 
         ]);
+		// var_dump($result);die;
 
 
 
@@ -130,8 +131,10 @@ class M_polda extends CI_Model
             ';
 
             $data[] = $row;
-        }
 
+        }
+		
+		
 
         $response = array(
 

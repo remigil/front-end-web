@@ -40,11 +40,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="material-selectfield">
-                        <select class="form-select" name="polda" id="polda" >
-                            <option value="1">POLDA JAWA BARAT</option>
-                        <option value="2">POLDA METRO JAYA</option>
-                        <option value="3">POLDA BANTEN</option>
-                        <option>POLDA</option>
+                        <select class="form-select" name="polda_id" id="polda_id" >
+							<option selected value="<?= $data['getDetail']['data']['polda_id']?>"><?= $data['getDetail']['data']['polda']['name_polda']?></option>
+							<?php
+							foreach ($data['getPolda'] as $row) : ?>
+								<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+							<?php endforeach; ?>
                         </select>
                             <label for="" class="labelmui">Polda</label>
                         </div>
@@ -58,9 +59,11 @@
                     <div class="col-md-6">
                         <div class="material-selectfield">
                         <select class="form-select" name="polres" id="polres">
-                        <option value="1">POLRESTABES BANDUNG</option>
-                        <option value="2">POLRESTA BOGOR</option>
-                        <option value="3">POLRES BOGOR</option>
+                        <option selected value="<?= $data['getDetail']['data']['polres_id']?>"><?= $data['getDetail']['data']['polre']['name_polres']?></option>
+                        	<?php
+							foreach ($data['getPolda'] as $row) : ?>
+								<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+							<?php endforeach; ?>
                         
                         </select>
                             <label for="" class="labelmui">Polres</label>
