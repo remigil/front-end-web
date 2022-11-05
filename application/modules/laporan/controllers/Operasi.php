@@ -10,6 +10,7 @@ class Operasi extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model("laporan/m_operasi");
+        
     }
 
     public function index()
@@ -47,6 +48,13 @@ class Operasi extends MY_Controller
         $data = $this->m_operasi->get_datatables($postData);
         echo json_encode($data);
     }
+
+    public function pdfLaporan()
+    {
+         
+		$this->load->view('laporan/G20/laporan_pdf');	    
+    }
+
     public function Detail($id)
     {
 

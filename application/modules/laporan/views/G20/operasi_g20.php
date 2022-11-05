@@ -7,7 +7,8 @@
     </ol>
 </nav>
 <!-- </div> -->
-<div class="page">
+<button id="submit">Export to  PDF</button>
+<div class="page" >
     <div class="card mt-3">
         <div class="card-body">
             <table id="datatable" class="table dt-responsive w-100">
@@ -31,10 +32,11 @@
 </div>
 <!-- End Page -->
 
-
-
+ 
 <script>
+ 
     $(document).ready(function() {
+        
 
         userDataTable = $('#datatable').DataTable({
 
@@ -88,7 +90,7 @@
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6] 
                         }, 
-
+                         
 
                     },
                     {
@@ -305,4 +307,7 @@
             });
         }
     });
+ 
 </script>
+
+ 

@@ -118,11 +118,18 @@ class M_operasi extends CI_Model
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
             
+
+            
             if($field['foto'] != null){
-                $row ['foto'] = '<a href="'.url_api().'laporan/'.$field['foto'].'" target="_blank"><img src="'.url_api().'laporan/'.$field['foto'].'" alt="" class="rounded avatar-md"></a>';  
+                $url = ''.url_api().'laporan/'.$field['foto'].'';
+                // $image = file_get_contents($url);
+                // $base64 = 'data:image/jpg;base64,' . base64_encode($image);
+                $row ['foto'] = '<a href="'.url_api().'laporan/'.$field['foto'].'" target="_blank"><img src="'.$url.'" style="width: 10rem;height: 10rem;" alt="" class="rounded avatar-md"></a>';  
             }else{
                 $row ['foto'] = '<img src="'.base_url().'assets/no_image.png" alt="" class="rounded avatar-md">'; 
             }
+
+            $row['name_officerandtelp']      = ''.$field['officer']['name_officer'].' </br> '.$field['officer']['phone_officer'].'';
 
             $row['name_officer']      = $field['officer']['name_officer'];
             $row['categori']      = $field['categori'];

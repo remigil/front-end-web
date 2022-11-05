@@ -134,6 +134,17 @@
             background: rgba(0, 0, 0, 0.6);
         }
 
+        #overlayMenu {
+            position: fixed;
+            top: 0;
+            z-index: 3000;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            left: 0;
+        }
+
         .loading {
             position: absolute;
             left: 50%;
