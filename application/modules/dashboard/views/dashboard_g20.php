@@ -673,7 +673,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPetugas">Daftar Petugas Pengawalan</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPetugas">Daftar Personil</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="isiModalPetugas"> 
@@ -3314,673 +3314,752 @@
 
                                     setTimeout(() => {
 
-                                    var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
-                                    var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
- 
- 
-                                    var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
+                                        var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
+                                        var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
+    
+    
+                                        var warna = warnaRenpam[countlist][ii] == null ? 'red' : warnaRenpam[countlist][ii];
 
-                                    var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
+                                        var namaRen = nameRenpam[countlist][ii] == null ? 'red' : nameRenpam[countlist][ii];
+                                        
+                                        
+                                        // console.log({a:namaRen ,b:warna, c:akuns});
+
+
+                                        
+                                        
+
+                                        var typeRenpam = typeJadwalRenpam[countlist][ii];
+                                        if(typeRenpam == 3){ //penjagaan
+                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
+                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
+                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                        }else if(typeRenpam == 4){ //pengaturan 
+                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
+                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                        }else if(typeRenpam == 5){ //penutupan 
+                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
+                                            markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
+                                            markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
+                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                        }else if(typeRenpam == 1){
+                                            iconMarkerRenpam = ``;
+                                            markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                            markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<div class="pin" style="background: yellow; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px; display: none;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
+                                            styleRouteUtama = [{color: warna, weight: 5}];
+                                        }else{
+                                            iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
+                                            markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
+                                            markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
+                                            markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
+                                            styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
+                                        }
+                                        
+                                        if(dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null){
+                                            
+                                            if($(this).is(':checked')){  
+                                                routingJadwalRenpam[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam[`${countlist}${ii}`] = L.Routing.control({
+                                                    show:false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpam[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: styleRouteUtama
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300);   
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300);   
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+        
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer); 
+                                                // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
+                                                console.log('kebuka');
+                                            }else{
+                                                mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);   
+                                            }
+                                        }else{
+                                            console.log('error route utama'); 
+                                        } 
                                     
-                                    
-                                    // console.log({a:namaRen ,b:warna, c:akuns});
-
-
-                                    
-                                    
-
-                                    var typeRenpam = typeJadwalRenpam[countlist][ii];
-                                    if(typeRenpam == 3){ //penjagaan
-                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/1323/1323306.png`;
-                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: green;"></div><div class="pulse"></div>`;
-                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
-                                    }else if(typeRenpam == 4){ //pengaturan 
-                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196781.png`;
-                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
-                                    }else if(typeRenpam == 5){ //penutupan 
-                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/196/196764.png`;
-                                        markerType = `<img src="${iconMarkerRenpam}"><div class="pin"></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<img src="${iconMarkerRenpam}"><div class="pin" style="background: gray;"></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<img src="${iconMarkerRenpam}"><div class="pin" ></div><div class="pulse"></div>`;
-                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
-                                    }else if(typeRenpam == 1){
-                                        iconMarkerRenpam = ``;
-                                        markerType = `<div class="pin" style="background: yellow;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<div class="pin" style="background: gray; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<div class="pin" style="background: yellow; display: none;"><div style="transform: rotate(45deg);margin-left: 5px;margin-top: 10px;font-size: 14px; display: none;">${namaRen.substr(-2)}</div></div><div class="pulse"></div>`;
-                                        styleRouteUtama = [{color: warna, weight: 5}];
-                                    }else{
-                                        iconMarkerRenpam = `https://cdn-icons-png.flaticon.com/512/178/178753.png`;
-                                        markerType = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style=" display: none;"></div><div class="pulse"></div>`;
-                                        markerTypeOther = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: gray; display: none;"></div><div class="pulse"></div>`;
-                                        markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
-                                        styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
-                                    }
-                                     
-                                    if(dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null){
-                                        
-                                        if($(this).is(':checked')){  
-                                            routingJadwalRenpam[`${countlist}${ii}`] = null;
-                                            routingJadwalRenpam[`${countlist}${ii}`] = L.Routing.control({
-                                                show:false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: dummyJadwalRenpam[countlist][ii],
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: styleRouteUtama
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerType,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else if (i === nWps - 1) {
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeEnd,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else {
-                                                        // here change all the others
-                                                        var options = {
+                                        if(dummyJadwalRenpamAlter[countlist][ii] != null && dummyJadwalRenpamAlter[countlist][ii].length > 0 && dummyJadwalRenpamAlter[countlist][ii][0]['latLng'] != null){
+                                            
+                                            if($(this).is(':checked')){  
+                                                routingJadwalRenpam1[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam1[`${countlist}${ii}`] = L.Routing.control({
+                                                    show:false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpamAlter[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
                                                                 draggable: this.draggableWaypoints,
-                                                            },
-                                                            marker = L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeOther,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        });
-    
-                                                        return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam[`${countlist}${ii}`]);  
-                                            console.log('kebuka');
-                                        }else{
-                                            mapContainer.removeControl(routingJadwalRenpam[`${countlist}${ii}`]);   
-                                        }
-                                    }else{
-                                        console.log('error route utama'); 
-                                    } 
-                                
-                                    if(dummyJadwalRenpamAlter[countlist][ii] != null && dummyJadwalRenpamAlter[countlist][ii].length > 0 && dummyJadwalRenpamAlter[countlist][ii][0]['latLng'] != null){
-                                        
-                                        if($(this).is(':checked')){  
-                                            routingJadwalRenpam1[`${countlist}${ii}`] = null;
-                                            routingJadwalRenpam1[`${countlist}${ii}`] = L.Routing.control({
-                                                show:false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: dummyJadwalRenpamAlter[countlist][ii],
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{color: "#b935b9", weight: 5, className: 'animateRoute'}]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerType,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
                                                                 </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else if (i === nWps - 1) {
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeEnd,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else {
-                                                        // here change all the others
-                                                        var options = {
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
                                                                 draggable: this.draggableWaypoints,
-                                                            },
-                                                            marker = L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeOther,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        });
-    
-                                                        return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
-                                        }else{
-                                            mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);   
-                                        }
-                                    }else{
-                                        console.log('error route alternative 1'); 
-                                    } 
-
-
-                                    if(dummyJadwalRenpamAlterr[countlist][ii] != null && dummyJadwalRenpamAlterr[countlist][ii].length > 0 && dummyJadwalRenpamAlterr[countlist][ii][0]['latLng'] != null){
-                                        
-                                        if($(this).is(':checked')){  
-                                            routingJadwalRenpam2[`${countlist}${ii}`] = null;
-                                            routingJadwalRenpam2[`${countlist}${ii}`] = L.Routing.control({
-                                                show:false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: dummyJadwalRenpamAlterr[countlist][ii],
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{color: "gray", weight: 5, className: 'animateRoute'}]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerType,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
                                                                 </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else if (i === nWps - 1) {
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeEnd,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else {
-                                                        // here change all the others
-                                                        var options = {
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
                                                                 draggable: this.draggableWaypoints,
-                                                            },
-                                                            marker = L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeOther,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        });
-    
-                                                        return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
+                                                            });
+        
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer); 
+                                                // mapContainer.addControl(routingJadwalRenpam1[`${countlist}${ii}`]);  
+                                            }else{
+                                                mapContainer.removeControl(routingJadwalRenpam1[`${countlist}${ii}`]);   
+                                            }
                                         }else{
-                                            mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);   
-                                        }
-                                    }else{
-                                        console.log('error route  alternative 2'); 
-                                    }  
+                                            console.log('error route alternative 1'); 
+                                        } 
 
 
-                                    if(dummyJadwalRenpamAlterrr[countlist][ii] != null && dummyJadwalRenpamAlterrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrr[countlist][ii][0]['latLng'] != null){
-                                        
-                                        if($(this).is(':checked')){  
-                                            routingJadwalRenpam3[`${countlist}${ii}`] = null;
-                                            routingJadwalRenpam3[`${countlist}${ii}`] = L.Routing.control({
-                                                show:false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: dummyJadwalRenpamAlterrr[countlist][ii],
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerType,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else if (i === nWps - 1) {
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeEnd,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else {
-                                                        // here change all the others
-                                                        var options = {
+                                        if(dummyJadwalRenpamAlterr[countlist][ii] != null && dummyJadwalRenpamAlterr[countlist][ii].length > 0 && dummyJadwalRenpamAlterr[countlist][ii][0]['latLng'] != null){
+                                            
+                                            if($(this).is(':checked')){  
+                                                routingJadwalRenpam2[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam2[`${countlist}${ii}`] = L.Routing.control({
+                                                    show:false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpamAlterr[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{color: "gray", weight: 5, className: 'animateRoute'}]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
                                                                 draggable: this.draggableWaypoints,
-                                                            },
-                                                            marker = L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeOther,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        });
-    
-                                                        return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
-                                        }else{
-                                            mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);   
-                                        }
-                                    }else{
-                                        console.log('error route Masyarakat'); 
-                                    } 
-
-
-                                    if(dummyJadwalRenpamAlterrrr[countlist][ii] != null && dummyJadwalRenpamAlterrrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrrr[countlist][ii][0]['latLng'] != null){
-                                        
-                                        if($(this).is(':checked')){  
-                                            routingJadwalRenpam4[`${countlist}${ii}`] = null;
-                                            routingJadwalRenpam4[`${countlist}${ii}`] = L.Routing.control({
-                                                show:false,
-                                                draggableWaypoints: false,
-                                                addWaypoints: false,
-                                                waypoints: dummyJadwalRenpamAlterrrr[countlist][ii],
-                                                router: new L.Routing.osrmv1({
-                                                    language: 'en',
-                                                    profile: 'car'
-                                                }),
-                                                lineOptions: {
-                                                    styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}]
-                                                },
-                                                createMarker: function(i, wp, nWps) {
-                                                    if (i === 0 || i === nWps + 1) {
-                                                        // here change the starting and ending icons
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerType,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAwal}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
                                                                 </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else if (i === nWps - 1) {
-                                                        return L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeEnd,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        }).bindPopup(`
-                                                            <div class="text-center"> 
-                                                                <h5>${titikAkhir}</h5>
-                                                                <div style="text-align: left;">
-                                                                    <span class="text-start">Padal :</span>
-                                                                    <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
-                                                                    <ul>
-                                                                </div>
-                                                            </div> 
-                                                        `).on("click", function (e) { 
-                                                            var akuns = petugasRenpam[countlist][ii];
-                                                            var dataAkuns = ''; 
-                                                            for (let i = 0; i < akuns.length; i++){   
-                                                                $.ajax({
-                                                                    type : "POST",
-                                                                    url : "<?php echo base_url();?>dashboard/getAkunId", 
-                                                                    data : {
-                                                                        "id" : akuns[i]['id'],
-                                                                    }, 
-                                                                    dataType : "JSON",
-                                                                    success : function(result){  
-                                                                        var ress = result['data'];  
-                                                                        dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
-                                                                        $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
-                                                                    }
-                                                                });  
-                                                            } 
-                                                        });
-                                                    } else {
-                                                        // here change all the others
-                                                        var options = {
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
                                                                 draggable: this.draggableWaypoints,
-                                                            },
-                                                            marker = L.marker(wp.latLng, {
-                                                            icon: L.divIcon({
-                                                                className: "location-pin",
-                                                                html: markerTypeOther,
-                                                                iconSize: [5, 5],
-                                                                //iconAnchor: [18, 30]
-                                                                iconAnchor: [5, 10],
-                                                            }),
-                                                            draggable: this.draggableWaypoints,
-                                                        });
-    
-                                                        return marker;
-                                                    }
-                                                },
-                                                // geocoder: L.Control.Geocoder.nominatim({})
-                                            }).addTo(mapContainer); 
-                                            // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+        
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer); 
+                                                // mapContainer.addControl(routingJadwalRenpam2[`${countlist}${ii}`]);  
+                                            }else{
+                                                mapContainer.removeControl(routingJadwalRenpam2[`${countlist}${ii}`]);   
+                                            }
                                         }else{
-                                            mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);   
-                                        }
-                                    }else{
-                                        console.log('error route Umum'); 
-                                    } 
+                                            console.log('error route  alternative 2'); 
+                                        }  
 
+
+                                        if(dummyJadwalRenpamAlterrr[countlist][ii] != null && dummyJadwalRenpamAlterrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrr[countlist][ii][0]['latLng'] != null){
+                                            
+                                            if($(this).is(':checked')){  
+                                                routingJadwalRenpam3[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam3[`${countlist}${ii}`] = L.Routing.control({
+                                                    show:false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpamAlterrr[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{color: "#000dda", weight: 5, className: 'animateRoute'}]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+        
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer); 
+                                                // mapContainer.addControl(routingJadwalRenpam3[`${countlist}${ii}`]);  
+                                            }else{
+                                                mapContainer.removeControl(routingJadwalRenpam3[`${countlist}${ii}`]);   
+                                            }
+                                        }else{
+                                            console.log('error route Masyarakat'); 
+                                        } 
+
+
+                                        if(dummyJadwalRenpamAlterrrr[countlist][ii] != null && dummyJadwalRenpamAlterrrr[countlist][ii].length > 0 && dummyJadwalRenpamAlterrrr[countlist][ii][0]['latLng'] != null){
+                                            
+                                            if($(this).is(':checked')){  
+                                                routingJadwalRenpam4[`${countlist}${ii}`] = null;
+                                                routingJadwalRenpam4[`${countlist}${ii}`] = L.Routing.control({
+                                                    show:false,
+                                                    draggableWaypoints: false,
+                                                    addWaypoints: false,
+                                                    waypoints: dummyJadwalRenpamAlterrrr[countlist][ii],
+                                                    router: new L.Routing.osrmv1({
+                                                        language: 'en',
+                                                        profile: 'car'
+                                                    }),
+                                                    lineOptions: {
+                                                        styles: [{color: "#bdbd0b", weight: 5, className: 'animateRoute'}]
+                                                    },
+                                                    createMarker: function(i, wp, nWps) {
+                                                        if (i === 0 || i === nWps + 1) {
+                                                            // here change the starting and ending icons
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerType,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAwal}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else if (i === nWps - 1) {
+                                                            return L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeEnd,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            }).bindPopup(`
+                                                                <div id="overlayMenu">
+                                                                    <div class="loading">
+                                                                        <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center"> 
+                                                                    <h5>${titikAkhir}</h5>
+                                                                    <div style="text-align: left;">
+                                                                        <span class="text-start">Padal :</span>
+                                                                        <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
+                                                                        <ul>
+                                                                    </div>
+                                                                </div> 
+                                                            `).on("click", function (e) { 
+                                                                $("#overlayMenu").fadeIn(300); 
+                                                                var akuns = petugasRenpam[countlist][ii];
+                                                                var dataAkuns = ''; 
+                                                                for (let i = 0; i < akuns.length; i++){   
+                                                                    $.ajax({
+                                                                        type : "POST",
+                                                                        url : "<?php echo base_url();?>dashboard/getAkunId", 
+                                                                        data : {
+                                                                            "id" : akuns[i]['id'],
+                                                                        }, 
+                                                                        dataType : "JSON",
+                                                                        success : function(result){  
+                                                                            var ress = result['data'];  
+                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
+                                                                            $("#overlayMenu").fadeOut(300); 
+                                                                        }
+                                                                    });  
+                                                                } 
+                                                            });
+                                                        } else {
+                                                            // here change all the others
+                                                            var options = {
+                                                                    draggable: this.draggableWaypoints,
+                                                                },
+                                                                marker = L.marker(wp.latLng, {
+                                                                icon: L.divIcon({
+                                                                    className: "location-pin",
+                                                                    html: markerTypeOther,
+                                                                    iconSize: [5, 5],
+                                                                    //iconAnchor: [18, 30]
+                                                                    iconAnchor: [5, 10],
+                                                                }),
+                                                                draggable: this.draggableWaypoints,
+                                                            });
+        
+                                                            return marker;
+                                                        }
+                                                    },
+                                                    // geocoder: L.Control.Geocoder.nominatim({})
+                                                }).addTo(mapContainer); 
+                                                // mapContainer.addControl(routingJadwalRenpam4[`${countlist}${ii}`]);  
+                                            }else{
+                                                mapContainer.removeControl(routingJadwalRenpam4[`${countlist}${ii}`]);   
+                                            }
+                                        }else{
+                                            console.log('error route Umum'); 
+                                        }  
 
                                     }, ii * 1000);
 
