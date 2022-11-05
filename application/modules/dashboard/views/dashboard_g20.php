@@ -3392,7 +3392,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3430,7 +3430,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3516,7 +3516,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3554,7 +3554,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3640,7 +3640,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3678,7 +3678,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3764,7 +3764,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3802,7 +3802,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3888,7 +3888,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAwal}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
@@ -3926,7 +3926,7 @@
                                                             <div class="text-center"> 
                                                                 <h5>${titikAkhir}</h5>
                                                                 <div style="text-align: left;">
-                                                                    <span class="text-start">Petugas :</span>
+                                                                    <span class="text-start">Padal :</span>
                                                                     <ul style="margin-left: -18px;list-style-type: decimal;" id="dataAkuns${countlist}${ii}"> 
                                                                     <ul>
                                                                 </div>
