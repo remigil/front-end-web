@@ -3308,7 +3308,11 @@
 
                             $(`#listJadwalRenpamClickDisplay`).on("change", function (e) { 
                                                  
+
+                                
                                 for (let ii = 0; ii < nameJadwalRenpam[countlist].length; ii++){ 
+
+                                    setTimeout(() => {
 
                                     var titikAwal = nameJadwalRenpam[countlist][ii] == null ? '-' : nameJadwalRenpam[countlist][ii];
                                     var titikAkhir = akhirJadwalRenpam[countlist][ii] == null ? '-' : akhirJadwalRenpam[countlist][ii];
@@ -3357,9 +3361,7 @@
                                         markerTypeEnd = `<img style=" display: none;" src="${iconMarkerRenpam}"><div class="pin" style="background: green; display: none;"></div><div class="pulse"></div>`;
                                         styleRouteUtama = [{color: warna, weight: 5, className: 'animateRoute'}];
                                     }
-                                    
-                                    
-
+                                     
                                     if(dummyJadwalRenpam[countlist][ii] != null && dummyJadwalRenpam[countlist][ii].length > 0 && dummyJadwalRenpam[countlist][ii][0]['latLng'] != null){
                                         
                                         if($(this).is(':checked')){  
@@ -3980,7 +3982,7 @@
                                     } 
 
 
-
+                                    }, ii * 1000);
 
                                 }
 

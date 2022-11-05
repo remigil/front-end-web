@@ -965,6 +965,13 @@
                                                 </a>
                                             </li>
 
+                                            <li>
+                                                <a href="https://vo.1data.tech/" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">SAMAPTA</span>
+                                                </a>
+                                            </li>
+
                                             <!-- <li>
                                                 <a href="<?php echo base_url(); ?>masterdata/bodycam">
                                                     <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
