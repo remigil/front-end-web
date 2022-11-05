@@ -1679,7 +1679,7 @@
                                         <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                     </div>
                                     <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer} </span>
+                                    <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress[i].name_officer} </span>
                                     </div>
                                 </div>`;
                             }
@@ -2652,7 +2652,7 @@
                             </div>
                             ${iconflagVip}
                             <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }
@@ -2923,7 +2923,7 @@
                             </div>
                             ${iconflagVip}
                             <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }
