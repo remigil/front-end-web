@@ -499,7 +499,7 @@ class Dashboard extends MY_Controller
         // $date = strtotime($date);
         // $date = strtotime("-1 day", $date);
 
-        $url = 'getName?name_officer='.$input['name_officer'].'';
+        $url = 'getName?name_officer=' . $input['name_officer'] . '';
         $getMe = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
@@ -554,10 +554,10 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        $input = $this->input->post(); 
+        $input = $this->input->post();
 
 
-        $url = 'country/getIdNoEncrypt/'.$input['id_country'].'';
+        $url = 'country/getIdNoEncrypt/' . $input['id_country'] . '';
         $getData = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -656,10 +656,10 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
 
-        $input = $this->input->post(); 
+        $input = $this->input->post();
 
 
-        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=activity&filterSearch[]='.$input['activity'].'';
+        $url = 'schedule?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=activity&filterSearch[]=' . $input['activity'] . '';
         $getData = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -888,31 +888,149 @@ class Dashboard extends MY_Controller
     }
     public function Dashboardeksekutif()
     {
+        $data["title"] = "Dashboard Executive";
+        $data["page"] = "dashboard/dashboard_eksekutif";
+        $this->load->view('dashboard/dashboard_eksekutif', $data);
+    }
+
+
+    public function getPolda()
+    {
         $headers = [
-            'Authorization' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token']
         ];
 
-        $page_content["css"] = '';
-        $page_content["js"] = '';
-        $page_content["title"] = "Peta";
-        $page_content["page"] = "dashboard/dashboard_eksekutif";
 
-        // $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
-        // $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-        // $data['ditgakku  m'] = $this->m_dashboard->ditgakkum_nasional();
-        // $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-        // $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
-        // $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-        // $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
-        // $data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
-        // $data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
-        // $data['ranmor'] = $this->m_dashboard->ranmor_nasional();
-        // $data['sim'] = $this->m_dashboard->sim_nasional();
-        // $data['stnk'] = $this->m_dashboard->stnk_nasional();
-        // $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
-        // $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
 
-        // $page_content["data"] = $data;
-        $this->load->view('dashboard/dashboard_eksekutif', $page_content);
+        $url = 'polda';
+        $getPolda = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+        $getPolda = $getPolda['data']['data'];
+
+        $dit = [];
+        $urldit = 'ditgakkum/daily';
+        $getDit = guzzle_request('GET', $urldit, [
+            'headers' => $headers
+        ]);
+        $getDit = $getDit['data'];
+
+        for ($i = 0; $i < count($getDit); $i++) {
+            $datadit = [
+                'garlantas' => $getDit[$i]['garlantas'],
+                'lakalantas' => $getDit[$i]['lakalantas'],
+            ];
+            $dit[] = array_merge($getPolda[$i], $datadit);
+        }
+        $ranmor = [];
+        $urlranmor = 'ranmor/daily';
+        $getRanmor = guzzle_request('GET', $urlranmor, [
+            'headers' => $headers
+        ]);
+        $getRanmor = $getRanmor['data']['rows'];
+
+        for ($i = 0; $i < count($getRanmor); $i++) {
+            $dataranmor = [
+                'sepeda_motor' => $getRanmor[$i]['sepeda_motor'],
+            ];
+            $ranmor[] = array_merge($dit[$i], $dataranmor);
+        }
+
+        $allData = [];
+        $urlsim = 'sim/daily';
+        $getSim = guzzle_request('GET', $urlsim, [
+            'headers' => $headers
+        ]);
+        $getSim = $getSim['data']['rows'];
+        for ($i = 0; $i < count($getSim); $i++) {
+            $datasim = [
+                'total' => $getSim[$i]['total'],
+            ];
+            $allData[] = array_merge($ranmor[$i], $datasim);
+        }
+
+        $data = $allData;
+
+
+        echo json_encode($data);
+    }
+
+
+    public function getGarlantas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        // $data['garlantas'] = '123';
+        $url = 'garlantas/daily?topPolda=true';
+        $getGarlantas = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $data['garlantas'] = $getGarlantas["data"]["rows"];
+        echo json_encode($data['garlantas']);
+    }
+
+    public function getLakaLantas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+
+        $url = 'laka_lantas/daily?topPolda=true';
+        $getLakalantas = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $data['lakalantas'] = $getLakalantas["data"]["rows"];
+        echo json_encode($data['lakalantas']);
+    }
+
+    public function getStatistik()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+            'headers' => $headers
+        ]);
+        $getGakkum = $getGakkum["data"];
+
+        $totalgarlantas = 0;
+        $totallakalantas = 0;
+        for ($i = 0; $i < count($getGakkum); $i++) {
+            $totalgarlantas += $getGakkum[$i]['garlantas'];
+            $totallakalantas += $getGakkum[$i]['lakalantas'];
+        }
+
+        $getRanmor = guzzle_request('GET', 'ranmor/daily', [
+            'headers' => $headers
+        ]);
+        $getRanmor = $getRanmor["data"]["rows"];
+
+        $totalmotor = 0;
+        for ($i = 0; $i < count($getRanmor); $i++) {
+            $totalmotor += $getRanmor[$i]['sepeda_motor'];
+        }
+
+        $getSim = guzzle_request('GET', 'sim/daily', [
+            'headers' => $headers
+        ]);
+        $getSim = $getSim["data"]["rows"];
+
+        $totalsim = 0;
+        for ($i = 0; $i < count($getSim); $i++) {
+            $totalsim += $getSim[$i]['total'];
+        }
+
+        $data = [
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+            'motor' =>  number_format($totalmotor, 0, '', '.'),
+            'sim' =>  number_format($totalsim, 0, '', '.'),
+        ];
+        echo json_encode($data);
     }
 }

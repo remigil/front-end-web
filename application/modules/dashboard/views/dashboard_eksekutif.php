@@ -9,13 +9,10 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-    <?php if ($this->session->userdata['role'] == 'G20') { ?>
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-g20.svg">
-    <?php } else { ?>
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
-    <?php } ?>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
+
 
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/libs/twitter-bootstrap-wizard/prettify.css">
@@ -86,40 +83,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
-        /* .animateLine {
-            stroke-dasharray: 10;
-            animation: dash linear infinite;
-            animation-duration: 15.5833s;
-        }
-
-        .animateRoute {
-            stroke-dasharray: 10;
-            stroke-dashoffset: 1920;
-            animation: dash linear infinite;
-            animation-duration: 20.5833s;
-        }
-
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 1000;
-            }
-        }
-
-        .leaflet-retina .leaflet-control-layers-toggle {
-            background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
-            background-size: 36px 36px;
-        }
-
-        #mapG20Dashboard {
-            height: 900px;
-            width: 100%
-        }
-
-        #mapG20Troublespot {
-            height: 500px;
-            width: 100%
-        }
-
         #overlay {
             position: fixed;
             top: 0;
@@ -156,352 +119,6 @@
         .is-hide {
             display: none;
         }
-
-
-        .switch {
-            display: block;
-            margin-top: 10px;
-        }
-
-        .switch h3 {
-            font-weight: 400;
-            padding-bottom: 6px;
-        }
-
-        .switch input[type=checkbox] {
-            display: none;
-        }
-
-        .switch input[type=checkbox]:checked+label {
-            background-color: #2f7df9;
-        }
-
-        .switch input[type=checkbox]:checked+label:after {
-            left: 26px;
-        }
-
-        .switch label {
-            transition: all 200ms ease-in-out;
-            display: inline-block;
-            position: relative;
-            height: 15px;
-            width: 40px;
-            border-radius: 40px;
-            cursor: pointer;
-            background-color: #ddd;
-            color: transparent;
-        }
-
-        .switch label:after {
-            transition: all 200ms ease-in-out;
-            content: " ";
-            position: absolute;
-            height: 14px;
-            width: 14px;
-            border-radius: 50%;
-            background-color: white;
-            top: 0px;
-            left: 0px;
-            right: auto;
-            box-shadow: 1px 1px 1px gray;
-        }
-
-        .switch.colored input[type=checkbox]:checked+label {
-            background-color: #55c946;
-        }
-
-        .switch.colored label {
-            background-color: #ff4949;
-        }
-
-  
-        .location-pin img {
-            width: 20px;
-            height: 20px;
-            margin: -13px 0 0 -13px;
-            z-index: 10;
-            position: absolute;
-            border-radius: 50%;
-            background: #3f51b5;
-        }
-
-        .pin {
-            width: 30px;
-            height: 30px;
-            border-radius: 50% 50% 50% 0;
-            background: #3f51b5;
-            position: absolute;
-            transform: rotate(-45deg);
-            left: 50%;
-            top: 50%;
-            margin: -20px 0 0 -20px;
-        }
-
-        .pin:after {
-            content: '';
-            width: 26px;
-            height: 26px;
-            margin: 2px 0 0 2px;
-            position: absolute;
-            border-radius: 50%;
-        }
-
-        .pulse {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50%;
-            height: 14px;
-            width: 14px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: 15px 0px 0px -12px;
-            transform: rotateX(55deg);
-            z-index: -2;
-        }
-
-        .pulse:after {
-            content: "";
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-            position: absolute;
-            margin: -16px 0 0 -13px;
-            animation: pulsate 2.5s ease-out;
-            animation-iteration-count: infinite;
-            opacity: 0;
-            background: rgba(94, 190, 255, 0.5);
-            box-shadow: 0 0 1px 2px #2d99d3;
-            animation-delay: 1.1s;
-        }
-
-        .material-textfield {
-            position: relative;
-            margin: 1vh 2.7vh 3vh 2.7vh;
-        }
-
-        .material-btnfield {
-            position: relative;
-            margin: -2vh 2.7vh 2vh 2.7vh;
-        }
-
-        .labelmui {
-            position: absolute;
-            font-size: 14px;
-            left: 0px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: white;
-            color: #4E4E4E;
-            padding: 0 0.3rem;
-            margin: 0 0.5rem;
-            transition: .1s ease-out;
-            transform-origin: left top;
-            pointer-events: none;
-            font-family: 'Open Sans';
-            font-weight: bold;
-        }
-
-        .material-textfield input {
-            font-size: 0.9rem;
-            outline: none;
-            border: 1px solid #D4D4D4;
-            border-radius: 5px;
-            padding: 1rem 0.7rem;
-            color: gray;
-            transition: 0.1s ease-out;
-            width: 100%;
-            height: 48px;
-            color: #D5D5D4;
-            font-family: 'Open Sans';
-        }
-
-        .material-textfield input:focus {
-            border-color: #003A91;
-            color: #7E7E7E;
-
-        }
-
-        .material-textfield input:focus+.labelmui {
-            color: #003A91;
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .material-textfield input:not(:placeholder-shown)+.labelmui {
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-
-
-        .material-selectfield {
-            position: relative;
-            margin: 1vh 2.7vh 3vh 2.7vh;
-        }
-
-        .material-selectfield select {
-            font-size: 0.9rem;
-            outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.23);
-            border-radius: 5px;
-            color: gray;
-            transition: 0.1s ease-out;
-            width: 100%;
-            height: 48px;
-            background-color: transparent;
-            font-family: 'Open Sans';
-
-        }
-
-        .material-selectfield select:focus {
-            border-color: #003A91;
-        }
-
-        .material-selectfield select:focus+.labelmui {
-            color: #003A91;
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .material-selectfield select:not(:placeholder-shown)+.labelmui {
-            top: 0;
-            transform: translateY(-50%) scale(.9);
-        }
-
-        .judulheader {
-            background-color: white;
-            width: 100%;
-            height: 50px;
-            padding: 14px;
-            font-size: 15px;
-            margin-top: -19px;
-        }
-
-        .modal.right.fade.in .modal-dialog {
-            right: 0 !important;
-            transform: translateX(-50%);
-        }
-
-        .modal.right .modal-content {
-            height: 100%;
-            overflow: auto;
-            border-radius: 0;
-        }
-
-        .modal.right .modal-dialog {
-            position: fixed;
-            margin: auto;
-            height: 100%;
-            -webkit-transform: translate3d(0%, 0, 0);
-            -ms-transform: translate3d(0%, 0, 0);
-            -o-transform: translate3d(0%, 0, 0);
-            transform: translate3d(0%, 0, 0);
-        }
-
-        .modal.right.fade.in .modal-dialog {
-            transform: translateX(0%);
-        }
-
-        .modal.right.fade .modal-dialog {
-            right: 0;
-            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-            transition: opacity 0.3s linear, right 0.3s ease-out;
-        }
-
-
-        .modal.right .modal-header {
-            background-color: #50caff;
-            color: #fff
-        }
-
-        .modal.right .modal-header::after {
-            content: "";
-            display: inline-block;
-        }
-
-        .modal.right .close {
-            text-shadow: none;
-            opacity: 1;
-            color: #ff4d4d;
-            font-size: 26px
-        }
-
-
-        #incognito {
-            display: none;
-        }
-
-        #incognito+label:before {
-            cursor: pointer;
-            content: "\f505";
-        }
-
-        #incognito:checked+label:before {
-            cursor: pointer;
-            content: "\f506";
-        }
-
-
-        .cat {
-            margin: 4px;
-            background-color: white;
-            border-radius: 50rem !important;
-            border: 1px solid #fff;
-            overflow: hidden;
-            float: left;
-        }
-
-        .cat label {
-            float: left;
-            line-height: 1.7em;
-            width: auto;
-            height: 1.5em;
-            padding-left: 10px;
-            padding-right: 10px;
-            cursor: pointer;
-        }
-
-        .cat label span {
-            text-align: center;
-            padding: 3px 0;
-            display: block;
-            font-size: 13px;
-        }
-
-        .cat label input {
-            position: absolute;
-            display: none;
-            color: #000 !important;
-        }
-
-        .cat label input+span {
-            color: #000;
-        }
-
-
-        .cat input:checked+span {
-            color: #1967d2;
-        }
-
-        .fasumDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .hotelDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .turjawaliDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        .kegiatanDisplay input:checked+.cat {
-            background-color: #e8f0fe;
-        }
-
-        */
     </style>
 
     <!-- JAVASCRIPT -->
@@ -542,95 +159,58 @@
                         <div class="navbar">
                             <div class="col-md-12">
                                 <div class="row">
-
-                                    <div class="col-md-12 d-flex align-items-center">
-                                        <div class="col-md-10 ">
-
+                                    <div class="col-md-12 d-flex align-items-center" style="margin:-20px 0 -20px 0;">
+                                        <div class="col-md-10">
                                             <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
-                                            <a href="<?=base_url()?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
                                         </div>
-                                        <div class="col-md-2 d-flex align-items-center ms-n4">
+                                        <div class="col-md-2 d-flex align-items-center ms-n5 ms-n5 ">
                                             <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button></a>
                                             <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3">ERI</button></a>
 
-											<!-- notif -->
-											<div class="dropdown d-inline-block">
-											<button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img height="50px" width="25px" class="" src="<?= base_url('assets/sidebar/icon-notif-grey.svg') ?>" alt="">
-											</button>
-											<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-                                                <div class="p-3">
-                                                    <div class="row align-items-center">
-                                                        <div class="col">
-                                                            <h6 class="m-0"> Notifications</h6>
+                                            <!-- notif -->
+                                            <div class="dropdown d-inline-block">
+                                                <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img width="20px" class="" src="<?= base_url('assets/sidebar/icon-notif-grey.svg') ?>" alt="">
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                                                    <div class="p-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h6 class="m-0"> Notifications</h6>
+                                                            </div>
                                                         </div>
-                                                        <!-- <div class="col-auto">
-                                        <a href="#!" class="small text-reset text-decoration-underline"> Unread (3)</a>
-                                    </div> -->
+                                                    </div>
+                                                    <div id="listDataNotif">
+                                                    </div>
+                                                    <div class="p-2 border-top d-grid">
+                                                        <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                                            <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div id="listDataNotif">
-
-                                                </div>
-                                                <div class="p-2 border-top d-grid">
-                                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
-                                                    </a>
-                                                </div>
                                             </div>
-											</div>
-
-											<!-- profil -->
-											<div class="dropdown d-inline-block">
-											<button type="button" class="btn header-item bg-soft-light  mb-4" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<img height="75px" width="35px" class=" ms-3 rounded-circle" src="<?= base_url('assets/sidebar/icon-profile-grey.svg'); ?>" alt="Header Avatar">
-
-											</button>
-											<div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
-                                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
-                                        	</div>
-											</div>
-
-                                            <!-- </div> -->
-                                            <!-- <div class="col-md-1"> -->
-                                            <!-- <button type="button" class="p-2 btn btn-sm btn-outline-primary float-end border border-primary me-3">ERI</button> -->
-
-                                            <!-- </div> -->
-                                            <!-- <div class="col-md-1"> -->
-
-                                            <!-- </div> -->
-                                        </div>
-                                        <!-- <div class="dropdown d-inline-block">
-                                            <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-
-                                        <!-- </button>
+                                            <div class="dropdown d-inline-block">
+                                                <button type="button" class="btn header-item bg-soft-light  mb-4" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img height="75px" width="30px" class=" rounded-circle" src="<?= base_url('assets/sidebar/icon-profile-grey.svg'); ?>" alt="Header Avatar">
+                                                </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    
-                                                <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16  me-1"></i> Profile</a>
-                                                <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16  me-1"></i> Lock Screen</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16  me-1"></i> Logout</a>
+                                                    <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
+                                                    <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-
-
-
-                                        <!-- </button>
-                                    </div> -->
                                     </div>
                                 </div>
-                                <!-- <div class="" style="height:20px ; width:20px; background-color:red"></div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
     </header>
+    <div class="mt-5 mb-5"></div>
     <div class="container-fluid mt-5">
         <div class="container-fluid">
             <div class="container-fluid">
@@ -644,110 +224,90 @@
                                     <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
                                 </div>
                                 <div class="col-md-3">
-                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
                                 </div>
                             </div>
 
-                            <!-- slider statistik nasional -->
-                            <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-										<a href="<?= base_url()?>executive/Statistik_executive">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="<?= base_url('executive/Statistik_executive/index/1'); ?>">
                                         <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                             <div class="card-body">
                                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                     <div class="col-md-2">
-                                                        <i class='bx bxs-car-crash' style="font-size: 50px; color: #007DD8;"></i>
+                                                        <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                     </div>
-                                                    <div class="col-md-5">
-                                                        <h5 class="text-wrap fw-light text-black">Kecelakaan <br> Lalu Lintas</h5>
-                                                        <!-- <h3 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h3> -->
+                                                    <div class="col-md-4">
+                                                        <span class="fs-6 fw-bold" style="color:#464646 ;">Kecelakaan Lalu Lintas</span>
                                                     </div>
-                                                    <div class="col-md-5 text-end">
-                                                        <h1 style="color: #007DD8;">123</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-										</a>
-                                    </div>
-
-                                    <div class="swiper-slide">
-										<a href="<?= base_url()?>executive/Statistik_executive">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <iconify-icon icon="ic:round-car-crash" style="font-size: 50px; color: #007DD8;"></iconify-icon>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <h5 class="text-wrap fw-light text-black">Pelanggaran <br> Lalu Lintas</h5>
-
-                                                        <!-- <h3 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h3> -->
-
-                                                    </div>
-                                                    <div class="col-md-5 text-end">
-                                                        <h1 style="color: #007DD8;">123</h1>
+                                                    <div class="col-md-6 text-end">
+                                                        <h1 style="color:#464646;" id="lakalantas"></h1>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										</a>
-                                    </div>
-
-                                    <div class="swiper-slide">
-										<a href="<?= base_url()?>executive/Statistik_executive">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <iconify-icon icon="fa6-solid:motorcycle" style="font-size: 40px; color: #007DD8;"></iconify-icon>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <h5 class="text-wrap fw-light text-black">Kendaraan <br> Bermotor</h5>
-
-                                                        <!-- <h3 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h3> -->
-
-                                                    </div>
-                                                    <div class="col-md-5 text-end">
-                                                        <h1 style="color: #007DD8;">123</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-										</a>
-                                    </div>
-
-                                    <div class="swiper-slide">
-										<a href="<?= base_url()?>executive/Statistik_executive">
-                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-2">
-                                                        <i class='bx bxs-id-card' style="font-size: 50px; color: #007DD8;"></i>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <h5 class="text-wrap fw-light text-black">Jumlah SIM <br> Nasional</h5>
-
-                                                        <!-- <h3 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h3> -->
-
-                                                    </div>
-                                                    <div class="col-md-5 text-end">
-                                                        <h1 style="color: #007DD8;">123</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-										</a>
-                                    </div>
-
-
-
+                                    </a>
                                 </div>
-                            </div><!-- end slider -->
 
-                            <!-- </div> -->
+                                <div class="col-md-3">
+                                    <a href="<?= base_url('executive/Statistik_executive/index/2'); ?>">
+                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-2">
+                                                        <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fs-6 fw-bold" style="color:#464646;">Pelanggaran Lalu Lintas</span>
+                                                    </div>
+                                                    <div class="col-md-6 text-end">
+                                                        <h1 style="color:#464646;" id="garlantas"></h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <a href="<?= base_url('executive/Statistik_executive/index/3'); ?>">
+                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-2">
+                                                        <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span class="fs-6 fw-bold" style="color:#464646;">Kendaraan Bermotor</span>
+                                                    </div>
+                                                    <div class="col-md-6 text-end">
+                                                        <h1 style="color:#464646;" id="motor"></h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <a href="<?= base_url('executive/Statistik_executive/index/4'); ?>">
+                                        <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-2">
+                                                        <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span style="color:#464646;" class="fs-6 fw-bold">Jumlah SIM Nasional</span>
+                                                    </div>
+                                                    <div class="col-md-6 text-end">
+                                                        <h1 id="sim" style="color:#464646;"></h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <!-- end statistik -->
                     </div>
@@ -755,19 +315,19 @@
 
                     <div id="mapG20Dashboard" class="rounded-3" style="height:80vh;">
                     </div>
-                    <hr style="border: 2px; color:#007DD8; opacity:100%;">
+                    <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
                     <div class="container">
-                        <div class="row d-flex justify-content-between mb-5">
+                        <div class="row d-flex justify-content-between mb-3">
 
                             <!-- <div class="d-flex justify-content-between"> -->
                             <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
+                                <a href="<?= base_url('executive/Satker_executive/index/1'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
+                                <a href="<?= base_url('executive/Satker_executive/index/2'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
+                                <a href="<?= base_url('executive/Satker_executive/index/3'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
                             </div>
                             <div class="col-md-2">
                                 <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
@@ -820,38 +380,22 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-md-7">
-
                             <div class="mb-3">
-                                <div class="card shadow-sm">
+                                <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
                                     <table class="table table-bordered table-hover rounded">
                                         <thead class="table-primary">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Total Pelanggaran</th>
+                                                <th scope="col">Pelanggaran Berat</th>
+                                                <th scope="col">Pelanggaran Sedang</th>
+                                                <th scope="col">Pelanggaran Ringan</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                        <tbody id="tbody">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -861,32 +405,12 @@
                             <div class="mb-3">
                                 <div class="card shadow-sm">
                                     <div class="mt-5 text-center">
-                                        <h5>Top 10 Polda Tertinggi</h5>
+                                        <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
                                     </div>
                                     <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
                                         <div style="max-height: 102vh;">
                                             <div class="card ms-4 me-4 mx-1 my-1">
-                                                <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0"><?= $i; ?>. <?= $key['name_polda'] ?></h5>
-                                                <div class="card-body">
-                                                    <div class="row text-center">
-                                                        <div class="col-md-3 col-sm-4">
-                                                            <h5 class="fw-bold p-0 m-0"><?= $key['kemacetan'] ?></h5>
-                                                            <p class="p-0 m-0">Kemacematan</p>
-                                                        </div>
-                                                        <div class="col-md-3 col-sm-6">
-                                                            <h5 class="fw-bold p-0 m-0"><?= $key['garlantas'] ?></h5>
-                                                            <p class="p-0 m-0">Pelanggaran</p>
-                                                        </div>
-                                                        <div class="col-md-3 col-sm-6">
-                                                            <h5 class="fw-bold p-0 m-0"><?= $key['lakalantas'] ?></h5>
-                                                            <p class="p-0 m-0">Kecelakaan</p>
-                                                        </div>
-                                                        <div class="col-md-3 col-sm-6">
-                                                            <h5 class="fw-bold p-0 m-0"><?= $key['total'] ?></h5>
-                                                            <p class="p-0 m-0">Total</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <div id="laka"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -901,7 +425,176 @@
     <script>
         let app_url = '<%-app_url%>'
         let path = '<%-path%>'
+        var marker = new Array();
+
         $(document).ready(function() {
+            $("#overlay").fadeIn(300);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>dashboard/getPolda",
+                dataType: "JSON",
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+
+                    let ressData = result;
+                    // console.log();
+
+
+                    for (let i = 0; i < ressData.length; i++) {
+                        id = i;
+                        var latitude = parseFloat(ressData[i].latitude);
+                        var longitude = parseFloat(ressData[i].longitude);
+
+                        var resource = '';
+
+                        marker[i] = L.marker([latitude, longitude], {
+                            icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                            })
+                        }).bindPopup(
+                            `<div style="width: 450px;">
+                                    <div class="row">
+                                        <div class="col-md-2 text-center">
+                                            <img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <span class="fs-5 text-uppercase">Polda <b>${ressData[i].name_polda}</b></span><br>
+                                            <span>${ressData[i].address}</span>
+                                        </div>
+                                        <div class="col-md-12 mt-3 text-center">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-6">Total <b>Sim Nasional</b></span>
+                                                </div>    
+                                            </div>    
+                                        </div>
+                                        
+                                        <div class="col-md-12 mt-3 text-center">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <span class="fs-3"> <b>${ressData[i].lakalantas}</b></span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <span class="fs-3"> <b>${ressData[i].total}</b></span>
+                                                </div>    
+                                            </div>    
+                                        </div>
+
+                                        <div class="col-md-12 mt-3">
+                                            <a href=<?= base_url('executive/Polda_executive/index/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+                                        </div>
+                                        </div>
+                                </div>
+                                    
+                            `, {
+                                minWidth: 100,
+                                maxWidth: 560,
+                                width: 400
+                            }).addTo(mapContainer);
+                    }
+
+
+                }
+            });
+
+            $("#overlay").fadeIn(300);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>dashboard/getGarlantas",
+                dataType: "JSON",
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    var table = '';
+
+                    for (let i = 0; i < result.length; i++) {
+                        let x = parseInt(i)
+                        let no = x + 1
+                        table += `<tr class="text-center"> 
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].total}  </td> 
+                            <td>  ${result[i].pelanggaran_berat}  </td> 
+                            <td>  ${result[i].pelanggaran_sedang}  </td> 
+                            <td>  ${result[i].pelanggaran_ringan}  </td> 
+                            </tr>`
+                    }
+                    $('#tbody').html(table);
+                }
+            })
+
+            $("#overlay").fadeIn(300);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>dashboard/getLakalantas",
+                dataType: "JSON",
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    var data = '';
+
+                    for (let i = 0; i < result.length; i++) {
+                        let x = parseInt(i)
+                        let no = x + 1
+                        data += `<h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0">${no}. ${result[i].name_polda}</h5>
+                                    <div class="card-body">
+                                        <div class="row text-center">
+                                            <div class="col-md-3 col-sm-4">
+                                                <h5 class="fw-bold p-0 m-0">${result[i].total}</h5>
+                                                <p class="p-0 m-0">Total</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0">${result[i].meninggal_dunia}</h5>
+                                                <p class="p-0 m-0">Meninggal Dunia</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0">${result[i].luka_berat}</h5>
+                                                <p class="p-0 m-0">Luka Berat</p>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <h5 class="fw-bold p-0 m-0">${result[i].luka_ringan}</h5>
+                                                <p class="p-0 m-0">Luka Ringan</p>
+                                            </div>
+                                        </div>
+                                    </div>`
+                    }
+
+                    $('#laka').html(data);
+                }
+            })
+
+            $("#overlay").fadeIn(300);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>dashboard/getStatistik",
+                dataType: "JSON",
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+
+                    $('#motor').html(`<h1>${result.motor}</h1>`);
+                    $('#sim').html(`<h1>${result.sim}</h1>`);
+                    $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
+                    $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
+                }
+            })
+
+
             var initialCenter = [-2.25613, 118.005351];
 
             var initialZoom = 5.1;
@@ -974,135 +667,12 @@
 
             mapContainer.doubleClickZoom.enable();
         })
-
-        if (ressCctv && ressCctv.length > 0) {
-            var filterCctv = ressCctv.filter(function(e) {
-                return e.lat_cctv != null && e.lng_cctv != null;
-            });
-
-            if (filterCctv.length > 0) {
-                $('#openModalCctvDisplay').html(`
-                                <table id="datatableCctvOnDisplay" class="table dt-responsive w-100">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Type</th> 
-                                            <th>Nama</th> 
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="isiModalCctvDisplay">
-                                    </tbody>
-                                </table>                     
-                            `);
-                var countCctvDisplay = 0;
-                var listCctvDisplay = '';
-                $('#totalCctvDisplay').html(filterCctv.length);
-
-                for (let i = 0; i < filterCctv.length; i++) {
-                    countCctvDisplay += 1;
-                    listCctvDisplay += `
-                                    <tr>
-                                        <td>${countCctvDisplay}</td>
-                                        <td><a href="<?= base_url() ?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
-                                        <td>${filterCctv[i].vms_cctv}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterCctv${countCctvDisplay}"
-                                                data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                    $('#isiModalCctvDisplay').html(listCctvDisplay);
-
-
-
-                    id = i;
-                    var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
-                    var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
-
-                    var resource = '';
-                    if (filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv') {
-                        resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                    } else {
-                        resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
-                    }
-
-                    cctvClusterGroup.addLayer(markerCCTV[i] = L.marker([latitudeCCTV, longitudeCCTV], {
-                        icon: L.divIcon({
-                            // className: 'location-pin',
-                            html: `<img src="<?php echo base_url(); ?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                        })
-                    }).bindPopup(`
-                                    <div style="width: 300px;">
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterCctv[i].address_cctv}</h5>
-                                            </div>
-                                            <div class="col-md-12"> 
-                                                ${resource}
-                                            </div> 
-                                        </div>
-                                    </div>
-                                        
-                                    `, {
-                        minWidth: 100,
-                        maxWidth: 560,
-                        width: 400
-                    }));
-                }
-
-
-                for (let i = 0; i < countCctvDisplay; i++) {
-                    console.log(`${i+1}`);
-                    $(`#flyToMapFilterCctv${i+1}`).on("click", function(e) {
-                        var latlong = $(this).data('cord').split(',');
-                        var latitude = parseFloat(latlong[0]);
-                        var longitude = parseFloat(latlong[1]);
-                        mapContainer.flyTo([latitude, longitude], 20);
-                    });
-                }
-                $('#datatableCctvOnDisplay').DataTable();
-                mapContainer.addLayer(cctvClusterGroup);
-            }
-        }
     </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            breakpoints: {
-                1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 10,
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                576: {
-                    slidesPerView: 1,
-                    spaceBetween: 50,
-                }
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+
     <!-- choices js -->
     <script src="<?php echo base_url(); ?>assets/admin/libs/choices.js/public/assets/scripts/choices.min.js"></script>
 
