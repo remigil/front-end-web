@@ -533,12 +533,19 @@
                             // </div>`
 
 
-                            `<div class="">
-                            <span>
-                            ${w.globals.labels[dataPointIndex]}
-                            : 
-                            ${series[seriesIndex][dataPointIndex]}
-                            </span>
+                            `<div class=""> 
+                                <span>
+                                ${w.globals.labels[dataPointIndex - 1]}
+                                : 
+                                ${series[seriesIndex][dataPointIndex - 1]}
+                                </span>
+                                </br> 
+                                </br> 
+                                <span>
+                                ${w.globals.labels[dataPointIndex]}
+                                : 
+                                ${series[seriesIndex][dataPointIndex]}
+                                </span>
                             </div>`
                         );
                     }
