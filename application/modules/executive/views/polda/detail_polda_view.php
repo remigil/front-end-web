@@ -285,13 +285,13 @@
                                                 <div class="col-md-2">
                                                     <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
-												<div class="col-md-10 float-end">
-													<span class="fs-6 float-end" style="color:#464646;">
-														<span class="fw-bold">Kecelakaan </span>Lalu Lintas
-													</span>
-													<br>
-													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
-												</div>
+                                                <div class="col-md-10 float-end">
+                                                    <span class="fs-6 float-end" style="color:#464646;">
+                                                        <span class="fw-bold">Kecelakaan </span>Lalu Lintas
+                                                    </span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -306,12 +306,12 @@
                                                     <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
                                                 </div>
                                                 <div class="col-md-10 float-end">
-													<span class="fs-6 float-end" style="color:#464646;">
-														<span class="fw-bold">Pelanggaran </span>Lalu Lintas
-													</span>
-													<br>
-													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
-												</div>
+                                                    <span class="fs-6 float-end" style="color:#464646;">
+                                                        <span class="fw-bold">Pelanggaran </span>Lalu Lintas
+                                                    </span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -326,12 +326,12 @@
                                                     <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                                 </div>
                                                 <div class="col-md-10 float-end">
-													<span class="fs-6 float-end" style="color:#464646;">
-														<span class="fw-bold">Kendaraan </span>Bermotor
-													</span>
-													<br>
-													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
-												</div>
+                                                    <span class="fs-6 float-end" style="color:#464646;">
+                                                        <span class="fw-bold">Kendaraan </span>Bermotor
+                                                    </span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -346,12 +346,12 @@
                                                     <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
                                                 <div class="col-md-10 float-end">
-													<span class="fs-6 float-end" style="color:#464646;">
-														Jumlah <span class="fw-bold">SIM Nasional</span>
-													</span>
-													<br>
-													<span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
-												</div>
+                                                    <span class="fs-6 float-end" style="color:#464646;">
+                                                        Jumlah <span class="fw-bold">SIM Nasional</span>
+                                                    </span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -362,7 +362,7 @@
                         <!-- end statistik -->
                     </div>
 
-                    
+
                     <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
@@ -395,7 +395,7 @@
                             </div>
                         </div>
                     </section>
-					<section class="shadow-sm mt-5">
+                    <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card">
@@ -521,27 +521,27 @@
                 }, ],
 
                 tooltip: {
-                    // custom: function({
-                    //     series,
-                    //     seriesIndex,
-                    //     dataPointIndex,
-                    //     w
-                    // }) {
-                    //     return (
-                    //         `<div class="">
-                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                    //         </div>`
+                    custom: function({
+                        series,
+                        seriesIndex,
+                        dataPointIndex,
+                        w
+                    }) {
+                        return (
+                            // `<div class="">
+                            //     <header>${series[seriesIndex][dataPointIndex]}</header>
+                            // </div>`
 
 
-                    // '<div class="">' +
-                    // "<span>" +
-                    // w.globals.labels[dataPointIndex] +
-                    // ": " +
-                    // series[seriesIndex][dataPointIndex] +
-                    // "</span>" +
-                    // "</div>"
-                    //         );
-                    //     }
+                            `<div class="">
+                            <span>
+                            ${w.globals.labels[dataPointIndex]}
+                            : 
+                            ${series[seriesIndex][dataPointIndex]}
+                            </span>
+                            </div>`
+                        );
+                    }
                 }
             };
 
@@ -661,19 +661,19 @@
                     type: 'column',
                     data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
                     color: "#CB2D3E"
-                // }, {
-                //     name: 'SIM',
-                //     type: 'column',
-                //     data: [
-                //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                //     ],
-                //     color: "#E8D42F"
-                // }, {
-                //     name: 'RANMOR',
-                //     type: 'column',
-                //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+                    // }, {
+                    //     name: 'SIM',
+                    //     type: 'column',
+                    //     data: [
+                    //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+                    //     ],
+                    //     color: "#E8D42F"
+                    // }, {
+                    //     name: 'RANMOR',
+                    //     type: 'column',
+                    //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
-                //     color: "#3CA55C"
+                    //     color: "#3CA55C"
                 }],
                 chart: {
                     height: 400,
