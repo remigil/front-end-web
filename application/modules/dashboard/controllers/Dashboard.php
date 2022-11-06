@@ -465,6 +465,20 @@ class Dashboard extends MY_Controller
         echo json_encode($res);
     }
 
+    public function getLogout()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'reportMobile/history-logout';
+        $getData = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getData);
+    }
+
     public function getTracking()
     {
         $headers = [

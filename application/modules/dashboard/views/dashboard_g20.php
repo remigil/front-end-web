@@ -703,8 +703,14 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span> 
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style="margin-left: 15px;">
+                </br>
+                Total Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasAktifDisplay"></span>
+                </br>
+                Total Tidak Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasTidakAktifDisplay"></span>
             </div>
             <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
             </div>
@@ -928,6 +934,9 @@
 
     var dummyIdKendaraanGpsId= new Array();
     var autoGpsId; 
+
+
+    var autoGetLogout; 
 
 
     var openDisplay = 'petugas'; 
@@ -1633,7 +1642,21 @@
                         </table>                     
                     `);
                     $('#totalPetugasDisplay').html(ress.length);
+
+                    
                     if (ress.length > 0) {    
+                        var filterDataTidakAktif = ress.filter(function(val) {
+                            return val.status_login == 0;
+                        });
+
+                       
+                        $('#totalPetugasAktif').html(ress.length - filterDataTidakAktif.length);
+                        $('#totalPetugasTidakAktif').html(filterDataTidakAktif.length);
+
+                        $('#totalPetugasAktifDisplay').html(ress.length - filterDataTidakAktif.length);
+                        $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
+
+
                         for (let i = 0; i < ress.length; i++) {   
 
                             var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
@@ -1704,168 +1727,171 @@
                                 fotoBendera = ``;
                             }
 
-                            if(markerArray[ress[i].id_officer] != null){ 
-                                var fotoPetugas = "";
-                                markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: jenis,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                ${fotoBendera}
-                                            </div>
-                                            ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
-                                        </div>
 
-                                        
-                                        <div class="row text-start mt-3">
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                            // if(ress[i].status_login == 1){
+                                if(markerArray[ress[i].id_officer] != null){ 
+                                    var fotoPetugas = "";
+                                    markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: jenis,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12">
+                                                    ${fotoBendera}
+                                                </div>
+                                                ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                             </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
-                                            </div>  
+
                                             
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
-                                            </div>  
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${bendera}</span>
-                                            </div> 
+                                            <div class="row text-start mt-3">
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                                </div>  
+                                                
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
+                                                </div>  
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${bendera}</span>
+                                                </div> 
 
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                            ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                            </div> 
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                </div> 
 
-                                            <div class="col-md-12 text-center  mt-3">
-                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                                <div class="col-md-12 text-center  mt-3">
+                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                    <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                                </div> 
                                             </div> 
-                                        </div> 
-                                          
-                                    </div>
-                                `).update().on('click', function(e) {
-                                    // console.log(e.latlng);
-                                    $.ajax({
-                                        type : "POST",
-                                        url : "<?php echo base_url();?>dashboard/getAddres", 
-                                        data : {
-                                            "lat" : e.latlng['lat'],
-                                            "lng" : e.latlng['lng'],
-                                        }, 
-                                        dataType : "JSON",
-                                        success : function(result){  
-                                            // console.log(result['responseMessage']);
-                                            $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
-                                        }
-                                    });
-                                });  
-                            }else{ 
-                                markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: jenis,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                    <div class="text-center" style="width: 300px;"> 
-                                        <div class="row mt-3"> 
-                                            <div class="col-md-12">
-                                                ${fotoBendera}
-                                            </div>
-                                            ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
+                                            
                                         </div>
+                                    `).update().on('click', function(e) {
+                                        // console.log(e.latlng);
+                                        $.ajax({
+                                            type : "POST",
+                                            url : "<?php echo base_url();?>dashboard/getAddres", 
+                                            data : {
+                                                "lat" : e.latlng['lat'],
+                                                "lng" : e.latlng['lng'],
+                                            }, 
+                                            dataType : "JSON",
+                                            success : function(result){  
+                                                // console.log(result['responseMessage']);
+                                                $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                            }
+                                        });
+                                    });  
+                                }else{ 
+                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: jenis,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                        <div class="text-center" style="width: 300px;"> 
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-12">
+                                                    ${fotoBendera}
+                                                </div>
+                                                ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
+                                            </div>
 
-                                        
-                                        <div class="row text-start mt-3">
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
-                                            </div>  
-                                           
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                            </div> 
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
-                                            </div>  
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                            </div> 
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                <span style="font-size: 12px;">${bendera}</span>
-                                            </div>
+                                            
+                                            <div class="row text-start mt-3">
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                                </div>  
+                                            
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                </div> 
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
+                                                </div>  
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                </div> 
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span style="font-size: 12px;">${bendera}</span>
+                                                </div>
 
-                                            <div class="col-md-4">
-                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                            ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                            </div> 
+                                                <div class="col-md-4">
+                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                </div>
+                                                <div class="col-md-1">
+                                                    :
+                                                </div>
+                                                <div class="col-md-7">
+                                                ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                </div> 
 
-                                            <div class="col-md-12 text-center  mt-3">
-                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                                <div class="col-md-12 text-center  mt-3">
+                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                    <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                                </div> 
                                             </div> 
-                                        </div> 
-                                          
-                                    </div>
-                                `).addTo(mapContainer).on('click', function(e) {
-                                    // console.log(e.latlng);
-                                    $.ajax({
-                                        type : "POST",
-                                        url : "<?php echo base_url();?>dashboard/getAddres", 
-                                        data : {
-                                            "lat" : e.latlng['lat'],
-                                            "lng" : e.latlng['lng'],
-                                        }, 
-                                        dataType : "JSON",
-                                        success : function(result){  
-                                            // console.log(result['responseMessage']);
-                                            $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
-                                        }
-                                    });
-                                });    
-                            }
+                                            
+                                        </div>
+                                    `).addTo(mapContainer).on('click', function(e) {
+                                        // console.log(e.latlng);
+                                        $.ajax({
+                                            type : "POST",
+                                            url : "<?php echo base_url();?>dashboard/getAddres", 
+                                            data : {
+                                                "lat" : e.latlng['lat'],
+                                                "lng" : e.latlng['lng'],
+                                            }, 
+                                            dataType : "JSON",
+                                            success : function(result){  
+                                                // console.log(result['responseMessage']);
+                                                $(`#lokasiMarker${ress[i].id_officer}`).html(`${result['responseMessage']}`);
+                                            }
+                                        });
+                                    });    
+                                }
+                            // }
                         
 
                             var iniNomor;
@@ -2421,6 +2447,33 @@
             }); 
             
         }
+
+
+        function getLogout(){
+
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getLogout", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    var ress = result['data'];
+                    console.log({a:'GET LOGOUT' ,b:ress});
+                    for (let i = 0; i < ress.length; i++) {   
+                        // console.log(ress[i]['officer_id']);
+                        var id_officer = ress[i]['officer_id'];
+                        if(markerArray[id_officer]  != null){
+                            mapContainer.removeLayer(markerArray[id_officer]); 
+                        }
+                    }
+                }
+            });
+            
+        }
+
+        autoGetLogout = setInterval(getLogout, 3000);
         
 
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
@@ -2677,167 +2730,170 @@
                         fotoBendera = ``;
                     }
                   
-                    if(markerArray[ress.id_officer] != null){ 
-                        markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;"> 
-                                <div class="row mt-3"> 
-                                    <div class="col-md-12">
-                                        ${fotoBendera}
+
+                    // if(ress.status_login == 1){
+                        if(markerArray[ress.id_officer] != null){ 
+                            markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;"> 
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12">
+                                            ${fotoBendera}
+                                        </div>
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
                                     </div>
-                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
-                                </div>
-    
-    
-                                    <div class="row text-start mt-3">
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                                :
-                                            </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                        </div> 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                                :
-                                            </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                        </div>  
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                                :
-                                            </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${bendera}</span>
-                                        </div> 
-
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                        </div> 
-                                        
-
-                                        <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                        </div> 
-                                    </div>  
-                                
-                            </div>
-                        `).update().on('click', function(e) {
-                            // console.log(e.latlng);
-                            $.ajax({
-                                type : "POST",
-                                url : "<?php echo base_url();?>dashboard/getAddres", 
-                                data : {
-                                    "lat" : e.latlng['lat'],
-                                    "lng" : e.latlng['lng'],
-                                }, 
-                                dataType : "JSON",
-                                success : function(result){  
-                                    // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                                }
-                            });
-                        });    
-                    }else{ 
-                        markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;"> 
-                                <div class="row mt-3"> 
-                                    <div class="col-md-12">
-                                        ${fotoBendera}
-                                    </div>
-                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                </div>
-    
-    
-                                    <div class="row text-start mt-3">
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                        </div> 
-
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                        </div> 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${bendera}</span>
-                                        </div> 
-
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                        </div> 
         
-                                        <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                        </div> 
-                                    </div>  
-                                
-                            </div>
-                        `).addTo(mapContainer).on('click', function(e) {
-                            // console.log(e.latlng);
-                            $.ajax({
-                                type : "POST",
-                                url : "<?php echo base_url();?>dashboard/getAddres", 
-                                data : {
-                                    "lat" : e.latlng['lat'],
-                                    "lng" : e.latlng['lng'],
-                                }, 
-                                dataType : "JSON",
-                                success : function(result){  
-                                    // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                                }
-                            });
-                        });     
-                    } 
+        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                    :
+                                                </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                            </div> 
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                    :
+                                                </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                            </div>  
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                    :
+                                                </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${bendera}</span>
+                                            </div> 
+    
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                            </div> 
+                                            
+    
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                            </div> 
+                                        </div>  
+                                    
+                                </div>
+                            `).update().on('click', function(e) {
+                                // console.log(e.latlng);
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getAddres", 
+                                    data : {
+                                        "lat" : e.latlng['lat'],
+                                        "lng" : e.latlng['lng'],
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){  
+                                        // console.log(result['responseMessage']);
+                                        $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                    }
+                                });
+                            });    
+                        }else{ 
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;"> 
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12">
+                                            ${fotoBendera}
+                                        </div>
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+                                    </div>
+        
+        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                            </div> 
+    
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                            </div> 
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${bendera}</span>
+                                            </div> 
+    
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                            </div> 
+            
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                            </div> 
+                                        </div>  
+                                    
+                                </div>
+                            `).addTo(mapContainer).on('click', function(e) {
+                                // console.log(e.latlng);
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getAddres", 
+                                    data : {
+                                        "lat" : e.latlng['lat'],
+                                        "lng" : e.latlng['lng'],
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){  
+                                        // console.log(result['responseMessage']);
+                                        $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                    }
+                                });
+                            });     
+                        }  
+                    // }
             
 
             // } 
@@ -2946,148 +3002,150 @@
                         fotoBendera = ``;
                     }
                   
-                    if(markerArray[ress.id_officer] != null){ 
-                        markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;"> 
-                                <div class="row mt-3"> 
-                                    <div class="col-md-12">
-                                        ${fotoBendera}
+                    // if(ress.status_login == 1){
+                        if(markerArray[ress.id_officer] != null){ 
+                            markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;"> 
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12">
+                                            ${fotoBendera}
+                                        </div>
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
                                     </div>
-                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
-                                </div>
-    
-    
-                                    <div class="row text-start mt-3">
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                        </div> 
-
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                        </div> 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${bendera}</span>
-                                        </div> 
-                                        
-
-                                        <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                        </div> 
-                                    </div>  
-                                
-                            </div>
-                        `).update().on('click', function(e) {
-                            // console.log(e.latlng);
-                            $.ajax({
-                                type : "POST",
-                                url : "<?php echo base_url();?>dashboard/getAddres", 
-                                data : {
-                                    "lat" : e.latlng['lat'],
-                                    "lng" : e.latlng['lng'],
-                                }, 
-                                dataType : "JSON",
-                                success : function(result){  
-                                    // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                                }
-                            });
-                        });    
-                    }else{ 
-                        markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-                            //   className: 'location-pin',
-                            html: jenis,
-                            iconSize: [5, 5],
-                            iconAnchor: [5, 10]
-                            // iconAnchor: [10, 33]
-                            }) }).bindPopup(`
-                            <div class="text-center" style="width: 300px;"> 
-                                <div class="row mt-3"> 
-                                    <div class="col-md-12">
-                                        ${fotoBendera}
-                                    </div>
-                                    ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
-                                </div>
-    
-    
-                                    <div class="row text-start mt-3">
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                        </div> 
-
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                        </div> 
-                                        <div class="col-md-4">
-                                            <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                        </div>
-                                        <div class="col-md-1">
-                                            :
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span style="font-size: 12px;">${bendera}</span>
-                                        </div> 
         
-                                        <div class="col-md-12 text-center  mt-3">
-                                            <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                            <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                        </div> 
-                                    </div>  
-                                
-                            </div>
-                        `).addTo(mapContainer).on('click', function(e) {
-                            // console.log(e.latlng);
-                            $.ajax({
-                                type : "POST",
-                                url : "<?php echo base_url();?>dashboard/getAddres", 
-                                data : {
-                                    "lat" : e.latlng['lat'],
-                                    "lng" : e.latlng['lng'],
-                                }, 
-                                dataType : "JSON",
-                                success : function(result){  
-                                    // console.log(result['responseMessage']);
-                                    $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                                }
-                            });
-                        });     
-                    } 
+        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                            </div> 
+
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                            </div> 
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${bendera}</span>
+                                            </div> 
+                                            
+
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                            </div> 
+                                        </div>  
+                                    
+                                </div>
+                            `).update().on('click', function(e) {
+                                // console.log(e.latlng);
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getAddres", 
+                                    data : {
+                                        "lat" : e.latlng['lat'],
+                                        "lng" : e.latlng['lng'],
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){  
+                                        // console.log(result['responseMessage']);
+                                        $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                    }
+                                });
+                            });    
+                        }else{ 
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                                //   className: 'location-pin',
+                                html: jenis,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                                // iconAnchor: [10, 33]
+                                }) }).bindPopup(`
+                                <div class="text-center" style="width: 300px;"> 
+                                    <div class="row mt-3"> 
+                                        <div class="col-md-12">
+                                            ${fotoBendera}
+                                        </div>
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
+                                    </div>
+        
+        
+                                        <div class="row text-start mt-3">
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                                            </div> 
+
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                                            </div> 
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                <span style="font-size: 12px;">${bendera}</span>
+                                            </div> 
+            
+                                            <div class="col-md-12 text-center  mt-3">
+                                                <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                                            </div> 
+                                        </div>  
+                                    
+                                </div>
+                            `).addTo(mapContainer).on('click', function(e) {
+                                // console.log(e.latlng);
+                                $.ajax({
+                                    type : "POST",
+                                    url : "<?php echo base_url();?>dashboard/getAddres", 
+                                    data : {
+                                        "lat" : e.latlng['lat'],
+                                        "lng" : e.latlng['lng'],
+                                    }, 
+                                    dataType : "JSON",
+                                    success : function(result){  
+                                        // console.log(result['responseMessage']);
+                                        $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                                    }
+                                });
+                            });     
+                        } 
+                    // }
             
 
             // } 
@@ -6199,7 +6257,12 @@
                                 <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body text-muted">
-
+                                        <div style="margin-left: 15px;">
+                                            </br>
+                                            Total Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasAktif"></span>
+                                            </br>
+                                            Total Tidak Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasTidakAktif"></span>
+                                        </div>
                                         <div id="dataPetugasTrack">
                                         </div>
 
