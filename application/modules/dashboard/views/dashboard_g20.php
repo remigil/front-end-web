@@ -1731,6 +1731,7 @@
                             // if(ress[i].status_login == 1){
                                 if(markerArray[ress[i].id_officer] != null){ 
                                     var fotoPetugas = "";
+                                    // mapContainer.addLayer(markerArray[ress[i].id_officer]); 
                                     markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
                                         // className: 'location-pin',
                                         html: jenis,
