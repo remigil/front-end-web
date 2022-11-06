@@ -1,299 +1,202 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
-<div class="col-md-12"> 
-            <div style="display:flex;z-index: 999;position: absolute;">
-                <div class="dropdown d-inline-block">
-                    <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="row" style="margin-left: 0px;"> 
-                            <div class="col-md-12">
-                                <div style="display: flex;">
-                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
-                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
-                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                     
-                </div>  
-            </div>  
-            <div id="map" style="height: 500px;"></div>
-		</div>
-
-
 <!-- greetings -->
-<h5 >Welcome to Dashboard Executive</h5>
+<h5>Welcome to Dashboard Executive</h5>
 <h1 style="font-weight:bolder ; text-transform:uppercase; color:#ECB800;">K3I KORLANTAS POLRI</h1>
-<p>today is <?= date('j F, Y')?></p>
+<p>Today is <?= date('l, j F Y') ?></p>
+
 <!-- end greetings -->
+<!-- Slider Statistik -->
 
-<!-- start content -->
 <div class="row">
-    <div class="col-lg-7">
+    <div class="col-lg-12">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-4">
+                <h4>Statistik Nasional</h4>
+            </div>
+            <div class="col-md-3">
+                <p style="color: red; margin-bottom:0;">Last Update</p>
+            </div>
+        </div>
         <div class="row">
-
-            <!-- statistik nasional -->
-            <div class="col-md-12">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-4">
-                        <h4>Statistik Nasional</h4>
-                    </div>
-                    <div class="col-md-3">
-						<p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p>
-                    </div>
-                </div>
-                <div class="row">
-
-				<!-- slider statistik nasional -->
-				<div class="swiper mySwiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#11347A">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Pelanggaran</h5>
-											<h6 class="text-wrap fw-light text-light">Lalu Lintas</h6>
-											<h3 class="text-white"><?= $data['pelanggaran']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3 col-sm-2 col-4">
-										<img src="<?= base_url('assets/dashboard/icon-pelanggaran-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#CB2D3E">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Kecelakaan</h5>
-											<h6 class="text-wrap fw-light text-light">Lalu Lintas</h6>
-											<h3 class="text-white"><?= $data['kecelakaan']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-kecelakaan-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#3CA55C">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Kendaraan</h5>
-											<h6 class="text-wrap fw-light text-light">Bermotor</h6>
-											<h3 class="text-white"><?= $data['ranmor']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-ranmor-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#F06619">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Jumlah</h5>
-											<h6 class="text-wrap fw-light text-light">SIM</h6>
-											<h3 class="text-white"><?= $data['sim']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-sim-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#10A9FF">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Jumlah</h5>
-											<h6 class="text-wrap fw-light text-light">STNK</h6>
-											<h3 class="text-white"><?= $data['stnk']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-stnk-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#7A113D">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Dikmas</h5>
-											<h6 class="text-wrap fw-light text-light">Lantas</h6>
-											<h3 class="text-white"><?= $data['dikmaslantas']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-dikmaslantas-nas.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="card" style="border-radius: 5px !important; background-color:#2C117A">
-								<div class="card-body">
-									<div class="row justify-content-between align-items-center" style="height: 80px;">
-										<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
-											<h5 class="text-wrap fw-light text-light">Total Penyebaran/</h5>
-											<h6 class="text-wrap fw-light text-light">Pemasangan</h6>
-											<h3 class="text-white"><?= $data['penyebaran_pemasangan']['jumlah'] ?></h3>
-										</div>
-										<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-2 col-4">
-											<img src="<?= base_url('assets/dashboard/icon-penyebaran_pemasangan.png') ?>" class="img-fluid" alt="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						
-					</div>
-				</div>
-				<!-- end slider -->
-
-                </div>
-            </div>
-            <!-- end statistik -->
-
-            <!-- Rank Pelanggaran -->
-            <div class="col md-12">
-                <div>
-                    <h4>10 Polda Pelanggaran Lantas Tertinggi</h4>
-                </div>
-                <table class="table table-bordered border-primary text-center" style="vertical-align:middle!important" width="100%">
-                    <thead class="table-primary">
-                        <tr class="text-white">
-                            <th scope="col">No</th>
-                            <th scope="col" style="width: 30%;">POLDA</th>
-                            <th scope="col">Total Pelanggaran</th>
-                            <th scope="col">Pelanggaran Berat</th>
-                            <th scope="col">Pelanggaran Sedang</th>
-                            <th scope="col">Pelanggaran Ringan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1 ?>
-                        <?php foreach ($data['topPolda_garlantas'] as $key) : ?>
-                            <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td style="text-align:left"><?= $key['name_polda'] ?></td>
-                                <td><?= $key['jumlah_pelanggaran'] ?></td>
-                                <td><?= $key['pelanggaran_berat'] ?></td>
-                                <td><?= $key['pelanggaran_sedang'] ?></td>
-                                <td><?= $key['pelanggaran_berat'] ?></td>
-                            </tr>
-                            <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-
-            </div>
-            <!-- end Rank Pelanggaran -->
-
-            <!-- grafik turjagwali -->
-            <div class="col-md-12">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                        <h5>Data Turjagwali Seluruh Indonesia</h5>
-                    </div>
-                    <div>
-                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                            <div class="main-chart">
-                                <div id="chart2" style="width: 150vw"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end grafik turjagwali -->
-
-        </div>
-    </div>
-
-    <!-- Laporan lantas harian -->
-    <div class="col-md-5">
-        <div>
-            <h4>Laporan Lantas Harian</h4>
-        </div>
-        <div class="mt-2 mb-3">
-            <div class="card shadow-sm">
-                <div class="mt-5 text-center">
-                    <h5>Top 10 Polda Kecelakaan Tertinggi</h5>
-                </div>
-                <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
-                    <div style="max-height: 180vh;">
-                        <?php $j = 1; ?>
-                        <?php foreach ($data['topPolda_lakalantas'] as $key) : ?>
-                            <div class="card ms-4 me-4 mx-1 my-1">
-                                <h5 class="card-header bg-primary border-bottom text-uppercase text-light p-2 m-0"><?= $j; ?>. <?= $key['name_polda'] ?></h5>
-                                <div class="card-body">
-                                    <div class="row text-center">
-                                        <div class="col-md-3 col-sm-4">
-                                            <h5 class="fw-bold p-0 m-0"><?= $key['jumlah_kecelakaan'] ?></h5>
-                                            <p class="p-0 m-0">Total</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <h5 class="fw-bold p-0 m-0"><?= $key['meninggal_dunia'] ?></h5>
-                                            <p class="p-0 m-0">Meninggal Dunia</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <h5 class="fw-bold p-0 m-0"><?= $key['luka_berat'] ?></h5>
-                                            <p class="p-0 m-0">Luka Berat</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <h5 class="fw-bold p-0 m-0"><?= $key['luka_ringan'] ?></h5>
-                                            <p class="p-0 m-0">Luka Ringan</p>
-                                        </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#11617A">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Dakgar Lantas</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-dakgarlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <?php $j++; ?>
-                        <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#11347A">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Gar Lantas Konvensional</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-garlantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#CB2D3E">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Kecelakaan Lalu Lintas</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/iconlakalantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#F06619">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Data Turjagwali</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-dataturjagwali.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Dikmas Lantas</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-dikmaslantas.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#2C117A">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">Penyebaran/ Pemasangan</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-penyebaran.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#7A113D">
+                            <div class=" card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">SIM</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-sim.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#10A9FF">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">STNK</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-stnk.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#F06619">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">BPKB</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-bpkb.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="border-radius: 5px !important; background-color:#3CA55C">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7 col-sm-3 col-4">
+                                        <h4 class="text-wrap fw-light text-light">RANMOR</h4>
+                                        <p class="text-white">43.233</p>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-5 col-lg-5 col-md-3 col-sm-2 col-4">
+                                        <img src="<?= base_url('assets/dashboard/icon-ranmor.svg') ?>" class="img-fluid" style="background-color: #00000080; padding:10px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end laporan harian -->
-
 </div>
 
-<!-- tripon -->
-<div class="row">
+<!-- end slider statistik  -->
 
-    <!-- grafik ditgakkum -->
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>DIREKTORAT LANTAS NASIONAL</h4>
+    </div>
     <div class="col-md-7">
         <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                <h5>DITGAKKUM NASIONAL</h5>
+            <div class="text-center mt-5">
+                <h5>lAPORAN DITGAKKUM POLRES BOGOR</h5>
             </div>
             <div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart" style="width: 150vw"></div>
-                    </div>
+                <div class="main-chart">
+                    <div id="chart"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end grafik ditgakkum -->
-
     <div class="col-md-5">
-        <!-- grafik tripon jenis -->
         <div class="row">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
@@ -307,8 +210,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- grafik tripon status -->
         <div class="row">
             <div class="card">
                 <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
@@ -324,25 +225,19 @@
         </div>
     </div>
 </div>
-<!-- end tripon -->
-
 <div class="row">
-    <!-- grafik ditregident -->
     <div class="col-md-7">
         <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                <h5>DITREGIDENT NASIONAL</h5>
+            <div class="text-center mt-5">
+                <h5>LAPORAN DITREGIDENT POLRES BOGOR</h5>
             </div>
             <div>
-                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                    <div class="main-chart">
-                        <div id="chart5" style="width: 150vw"></div>
-                    </div>
+                <div class="main-chart">
+                    <div id="chart5"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- grafik troublespot -->
     <div class="col-md-5">
         <div class="card">
             <div class="card-header bg-transparent border-bottom text-center text-uppercase m-3 p-0">
@@ -355,17 +250,18 @@
                             <tr>
                                 <th>Daerah</th>
                                 <th>Lokasi</th>
-                                <th>Tindakan</th>
+                                <th>Waktu Pengkajian</th>
                             </tr>
                         </thead>
                         <tbody style="overflow:scroll;">
-                            <?php foreach ($data['troublespot']['data'] as $key) : ?>
-                                <tr>
-                                    <td><?= $key['polda']['name_polda'] ?></td>
-                                    <td><?= $key['location'] ?></td>
-                                    <td><?= $key['action'] ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                            <tr>
+                                <td>Polres Bogor</td>
+                                <td>Jl. Masjid Sirojul Munir No.35, Tengah, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16914</td>
+                                <td>
+                                    <h5>4 Jam</h5>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -373,33 +269,9 @@
         </div>
     </div>
 </div>
-<!-- end content -->
-
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <script>
-    var poldaName = JSON.parse('<?= json_encode($data['turjagwali']['polda_name']); ?>');
-    var polda_pengawalan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengawalan']); ?>');
-    var polda_penjagaan = JSON.parse('<?= json_encode($data['turjagwali']['polda_penjagaan']); ?>');
-    var polda_pengaturan = JSON.parse('<?= json_encode($data['turjagwali']['polda_pengaturan']); ?>');
-    var polda_patroli = JSON.parse('<?= json_encode($data['turjagwali']['polda_patroli']); ?>');
-
-    var polda_ditgakkum = JSON.parse('<?= json_encode($data['ditgakkum']['polda_ditgakkum']); ?>');
-    var lakalantas = JSON.parse('<?= json_encode($data['ditgakkum']['lakalantas']); ?>');
-    var lakalanggar = JSON.parse('<?= json_encode($data['ditgakkum']['lakalanggar']); ?>');
-    var garlantas = JSON.parse('<?= json_encode($data['ditgakkum']['garlantas']); ?>');
-    var turjagwali = JSON.parse('<?= json_encode($data['ditgakkum']['turjagwali']); ?>');
-
-
-    var polda_ditregident = JSON.parse('<?= json_encode($data['ditregident']['polda_ditregident']); ?>');
-    var sim = JSON.parse('<?= json_encode($data['ditregident']['sim']); ?>');
-    var bpkb = JSON.parse('<?= json_encode($data['ditregident']['bpkb']); ?>');
-    var stnk = JSON.parse('<?= json_encode($data['ditregident']['stnk']); ?>');
-    var ranmor = JSON.parse('<?= json_encode($data['ditregident']['ranmor']); ?>');
-
-    var polda_tripon = JSON.parse('<?= json_encode($data['tripOn']); ?>');
-
-
     var swiper = new Swiper(".mySwiper", {
         breakpoints: {
             1200: {
@@ -425,82 +297,28 @@
         },
     });
 
+
     $(document).ready(function() {
-		
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        }); 
-
-        // StART MAP SECTION
-        var mapContainer = L.map('map', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);  
-
-
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-                        
-                        
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
-    
-		
         var options_ditgakkum = {
             series: [{
                 name: 'Data Dakgar Lantas',
                 type: 'column',
-                data: lakalanggar,
+                data: [706],
                 color: "#003A91"
             }, {
                 name: 'Kecelakaan Lalu Lintas',
                 type: 'column',
-                data: lakalantas,
+                data: [65],
                 color: "#CB2D3E"
             }, {
                 name: 'Gar Lantas',
                 type: 'column',
-                data: garlantas,
+                data: [89],
                 color: "#E8D42F"
             }, {
                 name: 'Data Turjagwali',
                 type: 'column',
-                data: turjagwali,
+                data: [890],
                 color: "#3CA55C"
             }],
             chart: {
@@ -511,7 +329,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '80%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -536,7 +354,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: polda_ditgakkum,
+                categories: ['POLRES BOGOR'],
             },
             yaxis: [{
                 axisTicks: {
@@ -563,24 +381,14 @@
 
         var options_ditkamsel = {
             series: [{
-                name: 'Pengaturan',
+                name: 'Dikmas Lantas',
                 type: 'column',
-                data: polda_pengaturan,
-                color: "#11347A"
+                data: [706],
+                color: "#003A91"
             }, {
-                name: 'Penjagaan',
+                name: 'Penyabaran/Pemasangan',
                 type: 'column',
-                data: polda_penjagaan,
-                color: "#3CA55C"
-            }, {
-                name: 'Pengawalan',
-                type: 'column',
-                data: polda_pengawalan,
-                color: "#E8D42F"
-            }, {
-                name: 'Patroli',
-                type: 'column',
-                data: polda_patroli,
+                data: [65],
                 color: "#3CA55C"
             }, ],
             chart: {
@@ -591,7 +399,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '80%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -616,7 +424,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: poldaName,
+                categories: ['POLRES BOGOR'],
             },
             yaxis: [{
                 axisTicks: {
@@ -641,7 +449,7 @@
         ditkamsel.render();
 
         var options_tripon_kendaraan = {
-            series: polda_tripon,
+            series: [87, 60],
             chart: {
                 width: 380,
                 type: 'pie',
@@ -668,12 +476,12 @@
             series: [{
                 name: 'Keberangkatan',
                 type: 'column',
-                data: [706, 801, 309, 225, 60, 146, 900, 186, 71, 99],
+                data: [706],
                 color: "#003A91"
             }, {
                 name: 'Kedatangan',
                 type: 'column',
-                data: [65, 120, 19, 67, 56, 27, 3, 19, 87, 16],
+                data: [65],
                 color: "#3CA55C"
             }, ],
             chart: {
@@ -709,7 +517,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['BANDUNG', 'BANDUNG', 'BOGOR KOTA', 'CIREBON', 'BOGOR', 'SUMEDANG', 'GARUT', 'TASIKMALAYA', 'KARAWANG', 'MAJALENGKA'],
+                categories: ['BOGOR'],
             },
             yaxis: [{
                 axisTicks: {
@@ -737,22 +545,22 @@
             series: [{
                 name: 'SIM',
                 type: 'column',
-                data: sim,
+                data: [706],
                 color: "#003A91"
             }, {
                 name: 'STNK',
                 type: 'column',
-                data: stnk,
+                data: [65],
                 color: "#CB2D3E"
             }, {
                 name: 'BPKB',
                 type: 'column',
-                data: bpkb,
+                data: [90],
                 color: "#E8D42F"
             }, {
                 name: 'RANMOR',
                 type: 'column',
-                data: ranmor,
+                data: [95],
                 color: "#3CA55C"
             }, ],
             chart: {
@@ -763,7 +571,7 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '90%',
+                    columnWidth: '80%',
                     endingShape: 'rounded',
                     dataLabels: {
                         position: 'top'
@@ -789,7 +597,7 @@
             },
             xaxis: {
                 // categories: ['METRO JAYA', 'JATENG', 'JATIM', 'JABAR', 'DIY', 'BANTEN', 'SUMBAR', 'JAMBI', 'RIAU', 'LAMPUNG', 'DIY YOGYAKARTA', 'BALI', 'KALIMANTAN TIMUR'],
-                categories: polda_ditregident
+                categories: ['POLRES BOGOR'],
             },
             yaxis: [{
                 axisTicks: {
