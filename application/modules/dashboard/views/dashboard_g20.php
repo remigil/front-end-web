@@ -3419,7 +3419,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300);   
                                                                         }
@@ -3465,7 +3465,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3559,7 +3559,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3605,7 +3605,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3699,7 +3699,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3745,7 +3745,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3839,7 +3839,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3885,7 +3885,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -3979,7 +3979,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
@@ -4025,7 +4025,7 @@
                                                                         dataType : "JSON",
                                                                         success : function(result){  
                                                                             var ress = result['data'];  
-                                                                            dataAkuns += `<li>${akuns[i]['name_account']} - ${ress['officer']['name_officer']}</li>`;
+                                                                            dataAkuns += `<li>${ress['officer']['rank_officer']} - ${ress['officer']['name_officer']}</li>`;
                                                                             $(`#dataAkuns${countlist}${ii}`).html(dataAkuns);
                                                                             $("#overlayMenu").fadeOut(300); 
                                                                         }
