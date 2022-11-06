@@ -3004,6 +3004,7 @@
                   
                     // if(ress.status_login == 1){
                         if(markerArray[ress.id_officer] != null){ 
+                            mapContainer.addLayer(markerArray[ress.id_officer]); 
                             markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
