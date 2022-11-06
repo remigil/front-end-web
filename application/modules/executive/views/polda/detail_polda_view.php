@@ -511,11 +511,11 @@
                         show: false,
                         color: '#008FFB'
                     },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
+                    // labels: {
+                    //     style: {
+                    //         colors: '#008FFB',
+                    //     }
+                    // },
 
 
                 }, ],
@@ -525,8 +525,35 @@
                         series,
                         seriesIndex,
                         dataPointIndex,
+                        seriesName,
                         w
                     }) {
+                        var bulan;
+                        if(w.globals.labels[dataPointIndex] == 1){
+                            bulan = 'Januari';
+                        }else if(w.globals.labels[dataPointIndex] == 2){
+                            bulan = 'Februari';
+                        }else if(w.globals.labels[dataPointIndex] == 3){
+                            bulan = 'Maret';
+                        }else if(w.globals.labels[dataPointIndex] == 4){
+                            bulan = 'April';
+                        }else if(w.globals.labels[dataPointIndex] == 5){
+                            bulan = 'Mei';
+                        }else if(w.globals.labels[dataPointIndex] == 6){
+                            bulan = 'Juni';
+                        }else if(w.globals.labels[dataPointIndex] == 7){
+                            bulan = 'Juli';
+                        }else if(w.globals.labels[dataPointIndex] == 8){
+                            bulan = 'Agustus';
+                        }else if(w.globals.labels[dataPointIndex] == 9){
+                            bulan = 'September';
+                        }else if(w.globals.labels[dataPointIndex] == 10){
+                            bulan = 'Oktober';
+                        }else if(w.globals.labels[dataPointIndex] == 11){
+                            bulan = 'November';
+                        }else if(w.globals.labels[dataPointIndex] == 12){
+                            bulan = 'Desember';
+                        }
                         return (
                             // `<div class="">
                             //     <header>${series[seriesIndex][dataPointIndex]}</header>
@@ -534,6 +561,12 @@
 
 
                             `<div class=""> 
+                                ${bulan}
+                                </br> 
+                                </br> 
+                                </br> 
+                                </br> 
+
                                 <span>
                                 ${w.globals.labels[dataPointIndex - 1]}
                                 : 
