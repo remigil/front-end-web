@@ -1060,6 +1060,12 @@
                                                     <span data-key="t-dashboard">Dashboard</span>
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="<?php echo base_url(); ?>masterdata/cctv/fullscreen">
+                                                    <img src="<?= base_url('assets/sidebar/cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">CCTV</span>
+                                                </a>
+                                            </li>
 
                                         <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
