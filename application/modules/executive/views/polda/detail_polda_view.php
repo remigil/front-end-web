@@ -532,70 +532,70 @@
                         w
                     }) {
                         var bulan;
-                        if(w.globals.labels[dataPointIndex] == 1){
+                        if (w.globals.labels[dataPointIndex] == 1) {
                             bulan = 'Januari';
-                        }else if(w.globals.labels[dataPointIndex] == 2){
+                        } else if (w.globals.labels[dataPointIndex] == 2) {
                             bulan = 'Februari';
-                        }else if(w.globals.labels[dataPointIndex] == 3){
+                        } else if (w.globals.labels[dataPointIndex] == 3) {
                             bulan = 'Maret';
-                        }else if(w.globals.labels[dataPointIndex] == 4){
+                        } else if (w.globals.labels[dataPointIndex] == 4) {
                             bulan = 'April';
-                        }else if(w.globals.labels[dataPointIndex] == 5){
+                        } else if (w.globals.labels[dataPointIndex] == 5) {
                             bulan = 'Mei';
-                        }else if(w.globals.labels[dataPointIndex] == 6){
+                        } else if (w.globals.labels[dataPointIndex] == 6) {
                             bulan = 'Juni';
-                        }else if(w.globals.labels[dataPointIndex] == 7){
+                        } else if (w.globals.labels[dataPointIndex] == 7) {
                             bulan = 'Juli';
-                        }else if(w.globals.labels[dataPointIndex] == 8){
+                        } else if (w.globals.labels[dataPointIndex] == 8) {
                             bulan = 'Agustus';
-                        }else if(w.globals.labels[dataPointIndex] == 9){
+                        } else if (w.globals.labels[dataPointIndex] == 9) {
                             bulan = 'September';
-                        }else if(w.globals.labels[dataPointIndex] == 10){
+                        } else if (w.globals.labels[dataPointIndex] == 10) {
                             bulan = 'Oktober';
-                        }else if(w.globals.labels[dataPointIndex] == 11){
+                        } else if (w.globals.labels[dataPointIndex] == 11) {
                             bulan = 'November';
-                        }else if(w.globals.labels[dataPointIndex] == 12){
+                        } else if (w.globals.labels[dataPointIndex] == 12) {
                             bulan = 'Desember';
                         }
-                        return (
-                            // `<div class="">
-                            //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                            // </div>`
+                        // return (
+                        // `<div class="">
+                        //     <header>${series[seriesIndex][dataPointIndex]}</header>
+                        // </div>`
 
-                //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
-                //         //     bulansebelumnya = '';
-                //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
-                //         //     bulansebelumnya = 'Februari';
-                //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
-                //         //     bulansebelumnya = 'Maret';
-                //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
-                //         //     bulansebelumnya = 'April';
-                //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
-                //         //     bulansebelumnya = 'Mei';
-                //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
-                //         //     bulansebelumnya = 'Juni';
-                //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
-                //         //     bulansebelumnya = 'Juli';
-                //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
-                //         //     bulansebelumnya = 'Agustus';
-                //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
-                //         //     bulansebelumnya = 'September';
-                //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
-                //         //     bulansebelumnya = 'Oktober';
-                //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
-                //         //     bulansebelumnya = 'November';
-                //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
-                //         //     bulansebelumnya = 'Desember';
-                //         // }
-                //         return (
+                        //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
+                        //         //     bulansebelumnya = '';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
+                        //         //     bulansebelumnya = 'Februari';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
+                        //         //     bulansebelumnya = 'Maret';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
+                        //         //     bulansebelumnya = 'April';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
+                        //         //     bulansebelumnya = 'Mei';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
+                        //         //     bulansebelumnya = 'Juni';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
+                        //         //     bulansebelumnya = 'Juli';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
+                        //         //     bulansebelumnya = 'Agustus';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
+                        //         //     bulansebelumnya = 'September';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
+                        //         //     bulansebelumnya = 'Oktober';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
+                        //         //     bulansebelumnya = 'November';
+                        //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
+                        //         //     bulansebelumnya = 'Desember';
+                        //         // }
+                        //         return (
 
-                //             // `<div class="">
-                //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                //             // </div>`
+                        //             // `<div class="">
+                        //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
+                        //             // </div>`
 
-
-
-            };
+                    }
+                }
+            }
 
             // <span>
             //                     ${bulan[dataPointIndex]}
