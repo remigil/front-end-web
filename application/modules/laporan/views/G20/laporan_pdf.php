@@ -643,6 +643,11 @@
 
             sDom: '<"dt-panelmenu clearfix"lr>t<"dt-panelfooter clearfix">',
 
+            lengthMenu: [
+                [10, 25, 50, 150, 999999],
+                [10, 25, 50, 150, 'All'],
+            ],
+
             // buttons: ["excel", "csv", "pdf"],
 
             // buttons: [   
