@@ -951,6 +951,12 @@
                                             <li>
                                                 <a href="https://dakgargakkum.com/dashboard" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">E-TILANG</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="comob.korlantas@etle-bali.info" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">ETLE</span>
                                                 </a>
                                             </li>
