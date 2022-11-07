@@ -955,7 +955,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="backoffice.etle-bali.info" target="_blank">
+                                                <a href="http://backoffice.etle-bali.info" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">ETLE</span>
                                                 </a>
