@@ -270,7 +270,7 @@
                         <div class="col-md-12 mt-5">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-md-4 mb-3">
-                                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
+                                    <div id="statistik"></div>
                                 </div>
                                 <div class="col-md-3">
                                     <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
@@ -440,12 +440,13 @@
                     $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
+                    $('#statistik').html(`<h4 style="text-transform: uppercase; color:#007DD8;">Statistik Polda ${ressPolda.name_polda}</h4>`);
 
 
                 }
             })
 
-
+            var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
             var ditregident = {
                 series: [{
@@ -501,7 +502,7 @@
                     colors: ['transparent']
                 },
                 xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                    categories: bulan,
                 },
                 yaxis: [{
                     axisTicks: {
@@ -520,94 +521,134 @@
 
                 }, ],
 
-                tooltip: {
-                    custom: function({
-                        series,
-                        seriesIndex,
-                        dataPointIndex,
-                        w
-                    }) {
-                        var bulan;
-                        if (w.globals.labels[dataPointIndex] == 1) {
-                            bulan = 'Januari';
-                        } else if (w.globals.labels[dataPointIndex] == 2) {
-                            bulan = 'Februari';
-                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                            bulan = 'Maret';
-                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                            bulan = 'April';
-                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                            bulan = 'Mei';
-                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                            bulan = 'Juni';
-                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                            bulan = 'Juli';
-                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                            bulan = 'Agustus';
-                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                            bulan = 'September';
-                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                            bulan = 'Oktober';
-                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                            bulan = 'November';
-                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                            bulan = 'Desember';
-                        }
+                // tooltip: {
+                //     custom: function({
+                //         series,
+                //         seriesIndex,
+                //         dataPointIndex,
+                //         w
+                //     }) {
+                //         // var bulan;
+                //         // if (w.globals.labels[dataPointIndex] == 1) {
+                //         //     bulan = 'Januari';
+                //         // } else if (w.globals.labels[dataPointIndex] == 2) {
+                //         //     bulan = 'Februari';
+                //         // } else if (w.globals.labels[dataPointIndex] == 3) {
+                //         //     bulan = 'Maret';
+                //         // } else if (w.globals.labels[dataPointIndex] == 4) {
+                //         //     bulan = 'April';
+                //         // } else if (w.globals.labels[dataPointIndex] == 5) {
+                //         //     bulan = 'Mei';
+                //         // } else if (w.globals.labels[dataPointIndex] == 6) {
+                //         //     bulan = 'Juni';
+                //         // } else if (w.globals.labels[dataPointIndex] == 7) {
+                //         //     bulan = 'Juli';
+                //         // } else if (w.globals.labels[dataPointIndex] == 8) {
+                //         //     bulan = 'Agustus';
+                //         // } else if (w.globals.labels[dataPointIndex] == 9) {
+                //         //     bulan = 'September';
+                //         // } else if (w.globals.labels[dataPointIndex] == 10) {
+                //         //     bulan = 'Oktober';
+                //         // } else if (w.globals.labels[dataPointIndex] == 11) {
+                //         //     bulan = 'November';
+                //         // } else if (w.globals.labels[dataPointIndex] == 12) {
+                //         //     bulan = 'Desember';
+                //         // }
 
-                        if (w.globals.labels[dataPointIndex] == 1 - 1) {
-                            bulansebelumnya = '';
-                        } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
-                            bulansebelumnya = 'Februari';
-                        } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
-                            bulansebelumnya = 'Maret';
-                        } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
-                            bulansebelumnya = 'April';
-                        } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
-                            bulansebelumnya = 'Mei';
-                        } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
-                            bulansebelumnya = 'Juni';
-                        } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
-                            bulansebelumnya = 'Juli';
-                        } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
-                            bulansebelumnya = 'Agustus';
-                        } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
-                            bulansebelumnya = 'September';
-                        } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
-                            bulansebelumnya = 'Oktober';
-                        } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
-                            bulansebelumnya = 'November';
-                        } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
-                            bulansebelumnya = 'Desember';
-                        }
-                        return (
+                //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
+                //         //     bulansebelumnya = '';
+                //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
+                //         //     bulansebelumnya = 'Februari';
+                //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
+                //         //     bulansebelumnya = 'Maret';
+                //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
+                //         //     bulansebelumnya = 'April';
+                //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
+                //         //     bulansebelumnya = 'Mei';
+                //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
+                //         //     bulansebelumnya = 'Juni';
+                //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
+                //         //     bulansebelumnya = 'Juli';
+                //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
+                //         //     bulansebelumnya = 'Agustus';
+                //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
+                //         //     bulansebelumnya = 'September';
+                //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
+                //         //     bulansebelumnya = 'Oktober';
+                //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
+                //         //     bulansebelumnya = 'November';
+                //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
+                //         //     bulansebelumnya = 'Desember';
+                //         // }
+                //         return (
 
-                            // `<div class="">
-                            //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                            // </div>`
+                //             // `<div class="">
+                //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
+                //             // </div>`
 
 
-                            `<div class=""> <span>
-                                ${bulan}
-                                : 
-                                ${series[seriesIndex][dataPointIndex]}
-                                </span>
-                                
-                                </br> 
-                                </br> 
-                                <span>
-                                ${bulansebelumnya}
-                                : 
-                                ${series[0][dataPointIndex - 1]}
-                                ${series[1][dataPointIndex - 1]}
-                                ${series[2][dataPointIndex - 1]}
-                                ${series[3][dataPointIndex - 1]}
-                                </span>
-                            </div>`
-                        );
-                    }
-                }
+                //             `<div class="card" style="width: 150vw;">
+                //                 <div class="card-body">
+                //                     <div class="col-md-12">
+                //                     <div class="row">
+                //                         <div class="col-md-4>
+                //                         <div class="col-md-2">BPKB</div>
+                //                                 <div class="col-md-1">:</div>
+                //                                 <div class="col-md-9">${series[0][dataPointIndex - 1]}</div>
+                //                             </div>
+                //                         </div>   <div class="row">
+                //                             <div class="col-md-2">STNK</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[1][dataPointIndex - 1]}</div>
+                //                         </div>
+                //                         <div class="row">
+                //                             <div class="col-md-2">SIM</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[2][dataPointIndex - 1]}</div>
+                //                         </div>
+                //                         <div class="row">
+                //                             <div class="col-md-2">RANMOR</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[3][dataPointIndex - 1]}</div>
+                //                         </div>  
+                //                     </div> 
+                //                     <div class="col-md-4>
+                //                         <div class="row">
+                //                             <div class="col-md-2">BPKB</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[0][dataPointIndex - 1]}</div>
+                //                         </div>
+                //                         <div class="row">
+                //                             <div class="col-md-2">STNK</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[1][dataPointIndex - 1]}</div>
+                //                         </div>
+                //                         <div class="row">
+                //                             <div class="col-md-2">SIM</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[2][dataPointIndex - 1]}</div>
+                //                         </div>
+                //                         <div class="row">
+                //                             <div class="col-md-2">RANMOR</div>
+                //                             <div class="col-md-1">:</div>
+                //                             <div class="col-md-9">${series[3][dataPointIndex - 1]}</div>
+                //                         </div>                     
+                //                     </div>
+                //                 </div>
+                //             </div>`
+                //         );
+                //     }
+                // }
             };
 
+            // <span>
+            //                     ${bulan[dataPointIndex]}
+            //                     : 
+            //                     ${series[seriesIndex][dataPointIndex]}
+            //                     </span>
+
+            //                     </br> 
+            //                     </br>
             var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
             ditregident.render();
 
