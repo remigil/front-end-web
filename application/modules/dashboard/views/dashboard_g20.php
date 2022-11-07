@@ -892,7 +892,7 @@
             type: "Admin"
         }
     });
-    var socketGps = io('http://gps-so.korlantaspolri.id');
+    // var socketGps = io('http://gps-so.korlantaspolri.id');
 
     // console.log({a:'ini soket' ,b:socket});
     var markerArray = new Array();
@@ -3156,10 +3156,10 @@
         });
 
         
-        socketGps.on('pub', function(ress){
-            console.log('dari luar soket IO')
-            console.log(ress);
-        });
+        // socketGps.on('pub', function(ress){
+        //     console.log('dari luar soket IO')
+        //     console.log(ress);
+        // });
 
 
         
