@@ -273,13 +273,13 @@
                                             </div>
                                         </a>
                                     </div>
-									<div class="col-md-3">
+                                    <div class="col-md-3">
                                         <a href="<?= base_url('executive/Statistik_executive/index/4'); ?>">
                                             <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-															<iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 80px; color: #464646;"></iconify-icon>
+                                                            <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 80px; color: #464646;"></iconify-icon>
                                                             <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i> -->
                                                         </div>
                                                         <div class="col-md-10 float-end">
@@ -314,7 +314,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
@@ -348,10 +348,10 @@
                                 </div>
                                 <div class="row d-flex justify-content-center mb-5">
                                     <div class="col-md-6 align-items-center">
-                                        <a href="<?= base_url()?>executive/Opsus_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%; background: #E4E4E4;">Data Harian Operasi Khusus</button></a>
+                                        <a href="<?= base_url() ?>executive/Opsus_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%; background: #E4E4E4;">Data Harian Operasi Khusus</button></a>
                                     </div>
                                     <div class="col-md-6 align-items-center">
-                                        <a href="<?= base_url()?>executive/Anev_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
+                                        <a href="<?= base_url() ?>executive/Anev_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -383,7 +383,7 @@
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
-									<div class="mb-3">
+                                    <div class="mb-3">
                                         <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
                                             <table class="table table-bordered table-hover rounded">
                                                 <thead class="" style="background-color:#007DD8; color:#fff;">
@@ -402,28 +402,28 @@
                                             </table>
                                         </div>
                                     </div>
-									<div class="mb-3">
-										<section class="shadow-sm mt-5">
-											<div class="row">
-												<div class="col-xl-12">
-													<div class="card">
-														<div class="card-header">
-														<h5>10 Polda Turjawali Tertinggi</h5>
-														</div>
-														<div class="card-body" style="overflow:hidden; overflow-x:scroll">
-															<div class="main-chart">
-																<div id="chartturjawali" style="width: 100vw"></div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
+                                    <div class="mb-3">
+                                        <section class="shadow-sm mt-5">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h5>10 Polda Turjawali Tertinggi</h5>
+                                                        </div>
+                                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                                            <div class="main-chart">
+                                                                <div id="chartturjawali" style="width: 100vw"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
                                     </div>
 
                                 </div>
-								<div class="col-md-6 mt-5">
-								<div class="mb-3">
+                                <div class="col-md-6 mt-5">
+                                    <div class="mb-3">
                                         <div class="card shadow-sm">
                                             <div class="mt-5 text-center">
                                                 <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
@@ -438,17 +438,17 @@
                                         </div>
                                     </div>
 
-								</div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-7">
-                                    
+
                                 </div>
                                 <div class="col-md-5">
-                                    
+
                                 </div>
-								<div class="col-md-7">
-                                    
+                                <div class="col-md-7">
+
                                 </div>
                             </div>
                         </div>
@@ -547,143 +547,8 @@
 
                         }
                     });
-					
-					
-
-					var turjawali = {
-                	series: [{
-                    name: 'Pengaturan',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'Pengawalan',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                }, {
-                    name: 'Patroli',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    // labels: {
-                    //     style: {
-                    //         colors: '#008FFB',
-                    //     }
-                    // },
 
 
-                }, ],
-
-                tooltip: {
-                    custom: function({
-                        series,
-                        seriesIndex,
-                        dataPointIndex,
-                        seriesName,
-                        w
-                    }) {
-                        var bulan;
-                        if(w.globals.labels[dataPointIndex] == 1){
-                            bulan = 'Januari';
-                        }else if(w.globals.labels[dataPointIndex] == 2){
-                            bulan = 'Februari';
-                        }else if(w.globals.labels[dataPointIndex] == 3){
-                            bulan = 'Maret';
-                        }else if(w.globals.labels[dataPointIndex] == 4){
-                            bulan = 'April';
-                        }else if(w.globals.labels[dataPointIndex] == 5){
-                            bulan = 'Mei';
-                        }else if(w.globals.labels[dataPointIndex] == 6){
-                            bulan = 'Juni';
-                        }else if(w.globals.labels[dataPointIndex] == 7){
-                            bulan = 'Juli';
-                        }else if(w.globals.labels[dataPointIndex] == 8){
-                            bulan = 'Agustus';
-                        }else if(w.globals.labels[dataPointIndex] == 9){
-                            bulan = 'September';
-                        }else if(w.globals.labels[dataPointIndex] == 10){
-                            bulan = 'Oktober';
-                        }else if(w.globals.labels[dataPointIndex] == 11){
-                            bulan = 'November';
-                        }else if(w.globals.labels[dataPointIndex] == 12){
-                            bulan = 'Desember';
-                        }
-                        return (
-                            // `<div class="">
-                            //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                            // </div>`
-
-
-                            `<div class=""> 
-                                ${bulan}
-                                </br> 
-                                </br> 
-                                </br> 
-                                </br> 
-
-                                <span>
-                                ${w.globals.labels[dataPointIndex - 1]}
-                                : 
-                                ${series[seriesIndex][dataPointIndex - 1]}
-                                </span>
-                                </br> 
-                                </br> 
-                                <span>
-                                ${w.globals.labels[dataPointIndex]}
-                                : 
-                                ${series[seriesIndex][dataPointIndex]}
-                                </span>
-                            </div>`
-                        );
-                    }
-                }
-            };
-
-            var turjawali = new ApexCharts(document.querySelector("#chartturjawali"), turjawali);
-            turjawali.render();
 
                     $("#overlay").fadeIn(300);
                     $.ajax({
@@ -765,6 +630,89 @@
                     })
 
 
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getTurjagwali",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
+                            console.log(result)
+                            var turjawali = {
+                                series: [{
+                                    name: 'Pengaturan',
+                                    type: 'column',
+                                    data: result.polda_pengaturan,
+                                    color: "#11347A"
+                                }, {
+                                    name: 'Pengawalan',
+                                    type: 'column',
+                                    data: result.polda_pengawalan,
+                                    color: "#CB2D3E"
+                                }, {
+                                    name: 'Patroli',
+                                    type: 'column',
+                                    data: result.polda_patroli,
+                                    color: "#E8D42F"
+                                }, {
+                                    name: 'Penjagaan',
+                                    type: 'column',
+                                    data: result.polda_penjagaan,
+                                    color: "#346EFA"
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+
+                                stroke: {
+                                    show: true,
+                                    width: [1, 1, 4, 4],
+                                    colors: ['transparent']
+                                },
+                                xaxis: {
+                                    categories: result.polda_name,
+                                },
+                                yaxis: [{
+                                    axisTicks: {
+                                        show: false,
+                                    },
+                                    axisBorder: {
+                                        show: false,
+                                        color: '#008FFB'
+                                    },
+                                    // labels: {
+                                    //     style: {
+                                    //         colors: '#008FFB',
+                                    //     }
+                                    // },
+
+
+                                }, ],
+                            };
+
+                            var turjawali = new ApexCharts(document.querySelector("#chartturjawali"), turjawali);
+                            turjawali.render();
+                        }
+                    })
+
                     var initialCenter = [-2.25613, 118.005351];
 
                     var initialZoom = 5.1;
@@ -837,8 +785,6 @@
 
                     mapContainer.doubleClickZoom.enable();
                 })
-
-				
             </script>
             <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
