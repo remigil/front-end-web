@@ -1679,69 +1679,77 @@
                             var cordLat = parseFloat(ress[i].latitude); 
                             var corLong = parseFloat(ress[i].longitude);  
                             
+                            if(ress[i].bawa_penumpang == 1 && ress[i].photo_country != '-'){
+                                iconflagVip = `<img src="${ress[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
+                            }else{
+                                iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
+                            }
+
                             jenis = '';
                             if(ress[i].type_vehicle == 'Sepeda Motor' && ress[i].fuel_vehicle == "Fosil"){
-                                 
+                                
+                                    jenis = `
+                                    <div>
+                                        <div style="position: relative;">
+                                            ${iconflagVip}
+                                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                        </div>
+                                        <div style="position: absolute;margin-top: -29px;">
+                                            <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                        </div>
+                                    </div>`; 
+                            }else if(ress[i].type_vehicle == 'Mobil' && ress[i].fuel_vehicle == "Fosil"){ 
                                 jenis = `
                                 <div>
-                                    <div>
-                                        <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                    </div>
-                                    <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
-                                    </div>
-                                </div>`;
-                            }else if(ress[i].type_vehicle == 'Mobil' && ress[i].fuel_vehicle == "Fosil"){
-                                jenis = `
-                                <div>
-                                    <div>
+                                    <div style="position: relative;">
+                                        ${iconflagVip}
                                         <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                     </div>
-                                    <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                    <div style="position: absolute;margin-top: -29px;">
+                                        <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
                             }else if(ress[i].type_vehicle == 'Sepeda Motor' && ress[i].fuel_vehicle == "Listrik"){ 
                                 jenis = `
                                 <div>
                                     <div>
+                                        ${iconflagVip}
                                         <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                     </div>
                                     <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
+                                        <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
                             }else if(ress[i].type_vehicle == 'Mobil' && ress[i].fuel_vehicle == "Listrik"){
                                 jenis = `
                                 <div>
                                     <div>
+                                        ${iconflagVip}
                                         <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                     </div>
                                     <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
+                                        <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
                             }else{
-                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                                
                                 jenis = `
                                 <div>
-                                    <div>
+                                    <div style="position: relative;">
                                         <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                    </div>
-                                    <div style="margin-top: -30px;">
-                                    <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress[i].name_officer} </span>
+                                    </div> 
+                                    <div style="position: absolute;margin-top: -29px;">
+                                        <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
                             }
 
                             if(ress[i].photo_officer || ress[i].photo_officer != null){
                                 fotoPetugas = `<img src="<?php echo url_api();?>officer/${ress[i].photo_officer}" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                // console.log(`ada foto`);
                             }else{
                                 fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
-                                // console.log(`ga ada foto`);
                             }
-
+                        
                             if(ress[i].name_country || ress[i].name_country != '-' || ress[i].name_country != null){
                                 bendera = `${ress[i].name_country}`;
                             }else{
@@ -1753,14 +1761,16 @@
                             }else{ 
                                 fotoBendera = ``;
                             }
+                        
 
 
                             // if(ress[i].status_login == 1){
                                 if(markerArray[ress[i].id_officer] != null){ 
                                     var fotoPetugas = "";
-                                    // mapContainer.addLayer(markerArray[ress[i].id_officer]); 
-                                    markerArray[ress[i].id_officer].setLatLng([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
-                                        // className: 'location-pin',
+                                    
+                                    markerArray[ress[i].id_officer].remove();
+                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                        //   className: 'location-pin',
                                         html: jenis,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
@@ -1773,56 +1783,56 @@
                                                 </div>
                                                 ${call_wa_dan_biasa(ress[i].handphone, ress[i].id_officer, 'no-encrypt')}
                                             </div>
-
-                                            
-                                            <div class="row text-start mt-3">
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                
+                
+                                                <div class="row text-start mt-3">
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress[i].rank_officer} - ${ress[i].name_officer}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
+                                                    </div> 
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span style="font-size: 12px;">${bendera}</span>
+                                                    </div> 
+            
+                                                    <div class="col-md-4">
+                                                        <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                                    </div> 
+                    
+                                                    <div class="col-md-12 text-center  mt-3">
+                                                        <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                                                        <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
+                                                    </div> 
                                                 </div>  
-                                                
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${ress[i].pam_officer != null ? ress[i].pam_officer : '-'}</span>
-                                                </div>  
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <span style="font-size: 12px;">${bendera}</span>
-                                                </div> 
-
-                                                <div class="col-md-4">
-                                                    <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                                </div>
-                                                <div class="col-md-1">
-                                                    :
-                                                </div>
-                                                <div class="col-md-7">
-                                                ${ress[i].status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                                </div> 
-
-                                                <div class="col-md-12 text-center  mt-3">
-                                                    <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                                    <p style="font-size: 12px;" id="lokasiMarker${ress[i].id_officer}"></p>
-                                                </div> 
-                                            </div> 
                                             
                                         </div>
-                                    `).update().on('click', function(e) {
+                                    `).addTo(mapContainer).on('click', function(e) {
                                         // console.log(e.latlng);
                                         $.ajax({
                                             type : "POST",
@@ -2703,9 +2713,9 @@
                 
              
                     if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
-                        iconflagVip = `<div style="margin-top: -30px;""><img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;"></div>`; 
+                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
                     }else{
-                        iconflagVip = `<div style="margin-top: -30px;" width: 35px;height: 30px;"></div>`;
+                        iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                     }
 
                     jenis = '';
@@ -2717,19 +2727,18 @@
                                     ${iconflagVip}
                                     <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                                 </div>
-                                <div style="position: absolute;margin-top: -7px;">
+                                <div style="position: absolute;margin-top: -29px;">
                                     <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                                 </div>
                             </div>`; 
-                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){
-                        console.log(iconflagVip);
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){ 
                         jenis = `
                         <div>
                             <div style="position: relative;">
                                 ${iconflagVip}
                                 <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
-                            <div style="position: absolute;margin-top: -7px;">
+                            <div style="position: absolute;margin-top: -29px;">
                                 <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                             </div>
                         </div>`;
@@ -2762,7 +2771,7 @@
                             <div style="position: relative;">
                                 <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div> 
-                            <div style="position: absolute;margin-top: -7px;">
+                            <div style="position: absolute;margin-top: -29px;">
                                 <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                             </div>
                         </div>`;
@@ -2789,8 +2798,89 @@
                     // if(ress.status_login == 1){
                         if(markerArray[ress.id_officer] != null){ 
                             console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
-                            mapContainer.addLayer(markerArray[ress.id_officer]); 
-                            markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            // mapContainer.addLayer(markerArray[ress.id_officer]);  
+                            // markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            //     // className: 'location-pin',
+                            //     html: jenis,
+                            //     iconSize: [5, 5],
+                            //     iconAnchor: [5, 10]
+                            //     // iconAnchor: [10, 33]
+                            //     }) }).bindPopup(`
+                            //     <div class="text-center" style="width: 300px;"> 
+                            //         <div class="row mt-3"> 
+                            //             <div class="col-md-12">
+                            //                 ${fotoBendera}
+                            //             </div>
+                            //             ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
+                            //         </div>
+        
+        
+                            //             <div class="row text-start mt-3">
+                            //                 <div class="col-md-4">
+                            //                     <span style="font-size: 12px;font-weight: bold;">Nama</span>  
+                            //                 </div>
+                            //                 <div class="col-md-1">
+                            //                         :
+                            //                     </div>
+                            //                 <div class="col-md-7">
+                            //                     <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
+                            //                 </div> 
+                            //                 <div class="col-md-4">
+                            //                     <span style="font-size: 12px;font-weight: bold;">PAM</span>  
+                            //                 </div>
+                            //                 <div class="col-md-1">
+                            //                         :
+                            //                     </div>
+                            //                 <div class="col-md-7">
+                            //                     <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
+                            //                 </div>  
+                            //                 <div class="col-md-4">
+                            //                     <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
+                            //                 </div>
+                            //                 <div class="col-md-1">
+                            //                         :
+                            //                     </div>
+                            //                 <div class="col-md-7">
+                            //                     <span style="font-size: 12px;">${bendera}</span>
+                            //                 </div> 
+    
+                            //                 <div class="col-md-4">
+                            //                     <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                            //                 </div>
+                            //                 <div class="col-md-1">
+                            //                     :
+                            //                 </div>
+                            //                 <div class="col-md-7">
+                            //                     ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                            //                 </div> 
+                                            
+    
+                            //                 <div class="col-md-12 text-center  mt-3">
+                            //                     <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
+                            //                     <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
+                            //                 </div> 
+                            //             </div>  
+                                    
+                            //     </div>
+                            // `).update().on('click', function(e) {
+                            //     // console.log(e.latlng);
+                            //     $.ajax({
+                            //         type : "POST",
+                            //         url : "<?php echo base_url();?>dashboard/getAddres", 
+                            //         data : {
+                            //             "lat" : e.latlng['lat'],
+                            //             "lng" : e.latlng['lng'],
+                            //         }, 
+                            //         dataType : "JSON",
+                            //         success : function(result){  
+                            //             // console.log(result['responseMessage']);
+                            //             $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
+                            //         }
+                            //     });
+                            // }); 
+
+                            markerArray[ress.id_officer].remove();
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
@@ -2802,7 +2892,7 @@
                                         <div class="col-md-12">
                                             ${fotoBendera}
                                         </div>
-                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                     </div>
         
         
@@ -2811,26 +2901,27 @@
                                                 <span style="font-size: 12px;font-weight: bold;">Nama</span>  
                                             </div>
                                             <div class="col-md-1">
-                                                    :
-                                                </div>
+                                                :
+                                            </div>
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                             </div> 
+    
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">PAM</span>  
                                             </div>
                                             <div class="col-md-1">
-                                                    :
-                                                </div>
+                                                :
+                                            </div>
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                            </div>  
+                                            </div> 
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
                                             </div>
                                             <div class="col-md-1">
-                                                    :
-                                                </div>
+                                                :
+                                            </div>
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
@@ -2844,8 +2935,7 @@
                                             <div class="col-md-7">
                                                 ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
                                             </div> 
-                                            
-    
+            
                                             <div class="col-md-12 text-center  mt-3">
                                                 <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
                                                 <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
@@ -2853,7 +2943,7 @@
                                         </div>  
                                     
                                 </div>
-                            `).update().on('click', function(e) {
+                            `).addTo(mapContainer).on('click', function(e) {
                                 // console.log(e.latlng);
                                 $.ajax({
                                     type : "POST",
@@ -2868,7 +2958,7 @@
                                         $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
                                     }
                                 });
-                            });    
+                            });  
                         }else{ 
                             console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
                             markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
@@ -2997,67 +3087,67 @@
                 // } 
                 
                 
-             
-                    if(flagVip != ''){
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
+                    if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
+                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
                     }else{
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px; width: 25px;height: 25px;"></div>`;
+                        iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                     }
 
                     jenis = '';
                     if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
-                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                        
+                            jenis = `
+                            <div>
+                                <div style="position: relative;">
+                                    ${iconflagVip}
+                                    <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="position: absolute;margin-top: -29px;">
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                </div>
+                            </div>`; 
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){ 
                         jenis = `
                         <div>
                             <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                ${iconflagVip}
+                                <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
-                            ${iconflagVip}
-                            <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                            </div>
-                        </div>`;
-                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){
-                        jenis = `
-                        <div>
-                            <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                            </div>
-                            ${iconflagVip}
-                            <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            <div style="position: absolute;margin-top: -29px;">
+                                <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
                         jenis = `
                         <div>
                             <div>
+                                ${iconflagVip}
                                 <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
                             <div style="margin-top: -30px;">
-                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                                <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
                         jenis = `
                         <div>
                             <div>
+                                ${iconflagVip}
                                 <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
                             <div style="margin-top: -30px;">
-                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                                <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else{
-                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                         
                         jenis = `
                         <div>
                             <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                            </div>
-                            ${iconflagVip}
-                            <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
+                                <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div> 
+                            <div style="position: absolute;margin-top: -29px;">
+                                <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }
@@ -3082,8 +3172,8 @@
                   
                     // if(ress.status_login == 1){
                         if(markerArray[ress.id_officer] != null){ 
-                            mapContainer.addLayer(markerArray[ress.id_officer]); 
-                            markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            markerArray[ress.id_officer].remove();
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
@@ -3095,7 +3185,7 @@
                                         <div class="col-md-12">
                                             ${fotoBendera}
                                         </div>
-                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
+                                        ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                     </div>
         
         
@@ -3109,7 +3199,7 @@
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
                                             </div> 
-
+    
                                             <div class="col-md-4">
                                                 <span style="font-size: 12px;font-weight: bold;">PAM</span>  
                                             </div>
@@ -3128,8 +3218,17 @@
                                             <div class="col-md-7">
                                                 <span style="font-size: 12px;">${bendera}</span>
                                             </div> 
-                                            
-
+    
+                                            <div class="col-md-4">
+                                                <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
+                                            </div>
+                                            <div class="col-md-1">
+                                                :
+                                            </div>
+                                            <div class="col-md-7">
+                                                ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
+                                            </div> 
+            
                                             <div class="col-md-12 text-center  mt-3">
                                                 <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
                                                 <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
@@ -3137,7 +3236,7 @@
                                         </div>  
                                     
                                 </div>
-                            `).update().on('click', function(e) {
+                            `).addTo(mapContainer).on('click', function(e) {
                                 // console.log(e.latlng);
                                 $.ajax({
                                     type : "POST",
@@ -3152,7 +3251,7 @@
                                         $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
                                     }
                                 });
-                            });    
+                            });   
                         }else{ 
                             markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
