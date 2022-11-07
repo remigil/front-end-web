@@ -834,6 +834,7 @@
                                                     <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VVIP</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Ht" data-key="t-login">HT</a></li>
                                                 </ul>
                                             </li>
                                             <li>

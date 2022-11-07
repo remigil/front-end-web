@@ -191,7 +191,10 @@
                     data: 'description'
                 },
                 {
-                    data: 'created_at'
+                    data: 'created_at',
+                    render: function ( data, type, row, meta ) {
+                    return moment(data).format('DD MMM YYYY h:mm A');
+                    }
                 },
                 {
                     data: 'phone_officer',
