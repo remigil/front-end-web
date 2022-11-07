@@ -8,11 +8,13 @@ class Statistik_executive extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        // $this->load->model("executive/M_detail_statistik");
+        $this->load->model("executive/M_detail_statistik");
     }
 
     public function index()
     {
+
+        $data['polda'] = $this->M_detail_statistik->get_Polda();
         $data["id"] = $this->uri->segment(4);
         $data["js"] = '';
         $data["title"] = "Detail Statistik";
@@ -29,11 +31,12 @@ class Statistik_executive extends MY_Controller
 
         if ($id == 1) {
             $title = 'DATA KECELEKAAN LALU LINTAS';
-            $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
-                'headers' => $headers
-            ]);
+            $getdata = $this->M_detail_statistik->getKecelakaanNasional();
+            // $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+            //     'headers' => $headers
+            // ]);
 
-            $getdata = $getGakkum['data'];
+            // $getdata = $getGakkum['data'];
         } elseif ($id == 2) {
             $title = 'DATA PELANGGARAN LALU LINTAS';
             $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
