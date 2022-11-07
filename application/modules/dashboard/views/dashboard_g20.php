@@ -1673,8 +1673,8 @@
                             var corLong = parseFloat(ress[i].longitude);  
                             
                             jenis = '';
-                            if(ress[i].type_vehicle == 'Sepeda Motor'){
-                                // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
+                            if(ress[i].type_vehicle == 'Sepeda Motor' && ress[i].fuel_vehicle == "Fosil"){
+                                 
                                 jenis = `
                                 <div>
                                     <div>
@@ -1684,7 +1684,7 @@
                                     <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
-                            }else if(ress[i].type_vehicle == 'Mobil'){
+                            }else if(ress[i].type_vehicle == 'Mobil' && ress[i].fuel_vehicle == "Fosil"){
                                 jenis = `
                                 <div>
                                     <div>
@@ -1692,6 +1692,26 @@
                                     </div>
                                     <div style="margin-top: -30px;">
                                     <span class="badge rounded-pill bg-primary">${ress[i].name_officer}</span>
+                                    </div>
+                                </div>`;
+                            }else if(ress[i].type_vehicle == 'Sepeda Motor' && ress[i].fuel_vehicle == "Listrik"){ 
+                                jenis = `
+                                <div>
+                                    <div>
+                                        <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                    </div>
+                                    <div style="margin-top: -30px;">
+                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
+                                    </div>
+                                </div>`;
+                            }else if(ress[i].type_vehicle == 'Mobil' && ress[i].fuel_vehicle == "Listrik"){
+                                jenis = `
+                                <div>
+                                    <div>
+                                        <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                    </div>
+                                    <div style="margin-top: -30px;">
+                                    <span class="badge rounded-pill" style="background-color: #169fda">${ress[i].name_officer}</span>
                                     </div>
                                 </div>`;
                             }else{
@@ -2682,7 +2702,7 @@
                     }
 
                     jenis = '';
-                    if(ress.type_vehicle == 'Sepeda Motor'){
+                    if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
                         // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
                         jenis = `
                         <div>
@@ -2694,7 +2714,7 @@
                             <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                             </div>
                         </div>`;
-                    }else if(ress.type_vehicle == 'Mobil'){
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){
                         jenis = `
                         <div>
                             <div style="position: relative;">
@@ -2703,6 +2723,26 @@
                             ${iconflagVip}
                             <div style="position: absolute;margin-top: -7px;">
                             <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
+                        jenis = `
+                        <div>
+                            <div>
+                                <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            <div style="margin-top: -30px;">
+                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
+                        jenis = `
+                        <div>
+                            <div>
+                                <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            <div style="margin-top: -30px;">
+                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else{
@@ -2956,7 +2996,7 @@
                     }
 
                     jenis = '';
-                    if(ress.type_vehicle == 'Sepeda Motor'){
+                    if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
                         // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
                         jenis = `
                         <div>
@@ -2968,7 +3008,7 @@
                             <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                             </div>
                         </div>`;
-                    }else if(ress.type_vehicle == 'Mobil'){
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){
                         jenis = `
                         <div>
                             <div style="position: relative;">
@@ -2977,6 +3017,26 @@
                             ${iconflagVip}
                             <div style="position: absolute;margin-top: -7px;">
                             <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
+                        jenis = `
+                        <div>
+                            <div>
+                                <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            <div style="margin-top: -30px;">
+                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                            </div>
+                        </div>`;
+                    }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
+                        jenis = `
+                        <div>
+                            <div>
+                                <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div>
+                            <div style="margin-top: -30px;">
+                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else{
