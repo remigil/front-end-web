@@ -703,7 +703,14 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>  &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span> 
+                <div>
+                    <div style="display: flex;">
+                        <h5 class="modal-title text-white" id="myLargeModalLabelPetugasDisplay">Personil Lantas</h5>
+                        &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasDisplay"></span> 
+                    </div> 
+                    <b><?php echo format_indoHari(date('Y-m-d'))?></b>
+                </div>
+
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div style="margin-left: 15px;">
@@ -6321,7 +6328,12 @@
                                 <h2 class="accordion-header" id="flush-headingPetugas">
                                     <button id="openPetugas" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas">
-                                        Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                                            <div>
+                                                <div style="display: flex;">
+                                                    Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                                                </div> 
+                                                <b><?php echo format_indoHari(date('Y-m-d'))?></b>
+                                            </div> 
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
