@@ -9,24 +9,43 @@
 <!-- </div> -->
 <div class="page">
     <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahAkun">Tambah Akun</button>
+    
     <div class="card mt-3">
         <div class="card-body">
-            <table id="datatable" class="table dt-responsive  nowrap w-100">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Akun</th>
-                        <th>Delegasi Akun</th>
-                        <!-- <th>Phone Akun</th> -->
-                        <!-- <th>Polres</th> -->
-                        <!-- <th>Ketua TIM</th> -->
-                        <th>No Kendaraan</th>
-                        <th>Petugas</th>
-                        <!-- <th>No. Kendaraan</th> -->
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select name="filterNegara" id="filterNegara" class="form-select" aria-label="Floating label select" style="width:100%" required> 
+                            <option selected value="">Pilih Negara</option> 
+                            <?php foreach ($data['getCountry'] as $row) : ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
+                            <?php endforeach; ?> 
+                        </select>
+                        <!-- <label for="filterNegara">Kategori Peraturan</label> -->
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table id="datatable" class="table dt-responsive  nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Akun</th>
+                                <th>Delegasi Akun</th>
+                                <!-- <th>Phone Akun</th> -->
+                                <!-- <th>Polres</th> -->
+                                <th>Ketua TIM</th>
+                                <th>No Kendaraan</th>
+                                <th>Petugas</th>
+                                <!-- <th>No. Kendaraan</th> -->
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            
         </div>
 
     </div>
@@ -158,6 +177,16 @@
             }
         });
 
+        new Choices('#filterNegara', {
+            searchEnabled: true,
+            removeItemButton: true,
+            removeItems: true,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices select-choices',
+            },
+        });
+
         new Choices('#kendaraan', {
             searchEnabled: true,
             removeItemButton: true,
@@ -225,7 +254,7 @@
 
                     // data.filterTgl2 = $('[name=event_date_to]').val(); 
 
-                    // data.filterStatus = $('[name=status]').val();
+                    data.filterNegara = $('[name=filterNegara]').val();
 
                     // data.filterName = $('[name=group_name]').val();
 
@@ -272,6 +301,10 @@
                     orderable: false
                 },
                 {
+                    data: 'leader_team',
+                    orderable: false
+                },
+                {
                     data: 'vehicle',
                     orderable: false
                 },
@@ -281,10 +314,7 @@
                 // {
                 //     data: 'phone_account'
                 // },
-                // {
-                //     data: 'leader_team',
-                //     orderable: false
-                // },
+                
                 {
                     data: 'officers',
                     orderable: false
@@ -309,6 +339,12 @@
 
             }
 
+        });
+
+        
+        $("#filterNegara").on('change', function(e) {
+            // alert(this.value);
+            userDataTable.draw();
         });
  
         $(".form").submit(function(e) {

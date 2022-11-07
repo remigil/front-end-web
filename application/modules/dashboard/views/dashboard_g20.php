@@ -52,7 +52,7 @@
     
                     <div class="cat gpsIdDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
+                            <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
                         </label>
                     </div>
     
@@ -1084,7 +1084,7 @@
         }); 
 
         
-        getGpsId();
+        // getGpsId();
 
         function getGpsId(){
             $.ajax({
@@ -1572,7 +1572,7 @@
 
         
 
-        autoGpsId = setInterval(gpsId, 3000);
+        // autoGpsId = setInterval(gpsId, 3000);
         $("#gpsIdDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 $("#gpsId").prop('checked', true);  
@@ -1927,6 +1927,7 @@
                                             <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${ress[i].id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                             <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                 id="listPetugasClickDisplay${countlistDisplay}"   
+                                                data-id="${ress[i].id_officer}"
                                                 data-nama="${ress[i].name_team}"  
                                                 data-akun="${ress[i].name_account}" 
                                                 data-nrp="${ress[i].nrp_user}"
@@ -1958,7 +1959,8 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);    
+                                mapContainer.flyTo([latitude, longitude], 20);   
+                                markerArray[$(this).data('id')].openPopup();   
                             });
 
                             $(`#flagDisplay${i+1}`).on("change", function (e) {
@@ -2147,7 +2149,8 @@
                                             </a>
                                             <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                             <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickCar${countlistCar}"   
+                                                id="listPetugasClickCar${countlistCar}"  
+                                                data-id="${el.id_officer}"  
                                                 data-nama="${el.name_team}"  
                                                 data-akun="${el.name_account}" 
                                                 data-nrp="${el.nrp_user}"
@@ -2191,7 +2194,8 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);    
+                                mapContainer.flyTo([latitude, longitude], 20);   
+                                markerArray[$(this).data('id')].openPopup();  
                             });
 
                             $(`#flagCar${i+1}`).on("change", function (e) {
@@ -2255,6 +2259,7 @@
                                             <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                             <button class="btn" style="margin-left: -13px;margin-top: -13px;"
                                                 id="listPetugasClickBike${countlistBike}"   
+                                                data-id="${el.id_officer}"  
                                                 data-nama="${el.name_team}"  
                                                 data-akun="${el.name_account}" 
                                                 data-nrp="${el.nrp_user}"
@@ -2295,11 +2300,12 @@
                         });
                         for (let i = 0; i < countlistBike; i++){ 
                             $(`#listPetugasClickBike${i+1}`).click(function(){   
-                                // console.log('masuk');
+                                // console.log($(this).data('id'));
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);    
+                                mapContainer.flyTo([latitude, longitude], 20);  
+                                markerArray[$(this).data('id')].openPopup();  
                             });
 
                             $(`#flagBike${i+1}`).on("change", function (e) {
@@ -2361,7 +2367,8 @@
                                             </a>
                                             <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
                                             <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickNon${countlistNon}"   
+                                                id="listPetugasClickNon${countlistNon}"  
+                                                data-id="${el.id_officer}"   
                                                 data-nama="${el.name_team}"  
                                                 data-akun="${el.name_account}" 
                                                 data-nrp="${el.nrp_user}"
@@ -2406,7 +2413,8 @@
                                 var latlong =  $(this).data('cord').split(',');
                                 var latitude = parseFloat(latlong[0]);
                                 var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);    
+                                mapContainer.flyTo([latitude, longitude], 20);  
+                                markerArray[$(this).data('id')].openPopup();    
                             });
 
                             $(`#flagNon${i+1}`).on("change", function (e) {
