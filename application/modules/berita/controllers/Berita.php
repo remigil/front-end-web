@@ -15,7 +15,7 @@ class Berita extends MY_Controller
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -32,9 +32,15 @@ class Berita extends MY_Controller
             $page_content["page"] = "berita/Polres/berita_view";
         }
 
+		$getBerita = guzzle_request('GET', 'category_news', [
+            'headers' => $headers
+        ]);
+        $data['getBerita'] = $getBerita['data']['rows'];
+
+		// var_dump($data);die;
 		
-		
-        $page_content["data"] = '';
+        // $page_content["data"] = '';
+        $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
 	public function serverSideTable() 
@@ -138,11 +144,11 @@ class Berita extends MY_Controller
 
         $id = $this->input->post('id_berita');
 
-        $getDetail = guzzle_request('GET', 'news/getId/' . $id . '', [
+        $getDetail = guzzle_request('GET', 'news/getIdweb/' . $id . '', [
             'headers' => $headers
         ]);
 		
-        $data['getDetail'] = $getDetail['data'];
+        $data['getDetail'] = $getDetail['data']['data'];
 		// var_dump($data);
 
         echo json_encode($data['getDetail']);
