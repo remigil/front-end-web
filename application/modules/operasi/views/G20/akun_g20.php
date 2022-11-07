@@ -18,7 +18,7 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="filterNegara" id="filterNegara" class="form-select" aria-label="Floating label select" style="width:100%" required> 
-                            <option selected value="">Pilih Negara</option> 
+                            <option selected value="">Pilih Delegasi</option> 
                             <?php foreach ($data['getCountry'] as $row) : ?>
                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name_country']; ?></option>
                             <?php endforeach; ?> 
