@@ -617,7 +617,7 @@
                         <th>Kategori</th>
                         <th>Deskripsi</th>
                         <th>Waktu</th>
-                        <!-- <th>No. Telepon</th> -->
+                        <th>No. Telepon</th>
                         <!-- <th>Aksi</th> -->
                     </tr>
                 </thead>
@@ -779,7 +779,8 @@
                     orderable: false
                 },
                 {
-                    data: 'name_officerandtelp'
+                    data: 'name_officer', 
+                    orderable: false
                 },
                 {
                     data: 'categori'
@@ -788,11 +789,15 @@
                     data: 'description'
                 },
                 {
-                    data: 'time'
+                    data: 'created_at',
+                    render: function ( data, type, row, meta ) {
+                    return moment(data).format('DD MMM YYYY h:mm A');
+                    }
+                },
+                {
+                    data: 'phone_officer',
+                    orderable: false
                 }
-                // {
-                //     data: 'phone_officer'
-                // }
 
 
                 // {
