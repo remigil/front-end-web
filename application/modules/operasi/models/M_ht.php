@@ -119,8 +119,23 @@ class M_ht extends CI_Model {
             $row ['tujuan_pukul']   	= $field['tujuan_pukul'];
             $row ['jumlah_kendaraan']   	= $field['jumlah_kendaraan'];  
             $row ['ket']   	= $field['ket'];  
+            $row ['created_at']   	= $field['created_at'];  
             $row ['action']         = ' 
-                <a href="'.base_url().'operasi/Ht"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
+                <div style="position: absolute;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-cog "></i></button>
+                    <div class="dropdown-menu"> 
+                        <a class="dropdown-item" href="javascript:void(0);" 
+                        data-id="'.$field['id'].'" 
+                        data-no="'.$field['no_lambung'].'" 
+                        data-identitas="'.$field['identitas_rt'].'" 
+                        data-dari="'.$field['dari_pukul'].'" 
+                        data-tujuan="'.$field['tujuan_pukul'].'" 
+                        data-jml="'.$field['jumlah_kendaraan'].'" 
+                        data-ket="'.$field['ket'].'" 
+                        data-bs-toggle="modal" data-bs-target=".EditHt"> Edit</a>
+                        <a class="deletedata dropdown-item" href="javascript:void(0);" data-id="' . $field['id'] . '"> Hapus</a> 
+                    </div>
+                </div>  
             '; 
 
             $data[] = $row;

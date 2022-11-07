@@ -1,383 +1,376 @@
+<!-- Page -->
+<!-- <div class="kotak" style="border-style:solid ;"> -->
+<nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
+    <ol class="breadcrumb shadow-sm">
+        <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
+        <li class="breadcrumb-item active fw-bold" aria-current="page">Ht</li>
+    </ol>
+</nav>
+<!-- </div> -->
+<div class="page">
+    <div class="card mt-3">
+        <div class="card-body ">
+            <form class="form row" method="post" enctype="multipart/form-data"> 
+                <div class="col-md-12 mb-3">  
+                    <h3 style="text-align: center;">CEK LIST GIAT WAL PJR DITLANTAS <br>DAN WAL JAJARAN</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input style="width: 100%;" name="no_lambung" placeholder="" type="text">
+                        <label class="labelmui">Nomor Lambung</label>
+                    </div> 
+                </div>
+                <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input style="width: 100%;" name="identitas_rt" placeholder="" type="text">
+                        <label class="labelmui">Identitas RT</label>
+                    </div> 
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input style="width: 100%;" name="dari_pukul" placeholder="" type="text">
+                        <label class="labelmui">Dari Pukul</label>
+                    </div> 
+                </div>
+                <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input style="width: 100%;" name="tujuan_pukul" placeholder="" type="text">
+                        <label class="labelmui">Tujuan Pukul</label>
+                    </div> 
+                </div>
+                <div class="col-md-6">
+                    <div class="material-textfield">
+                        <input style="width: 100%;" name="jumlah_kendaraan" placeholder="" type="text">
+                        <label class="labelmui">Jumlah Kendaraan</label>
+                    </div> 
+                </div>
+
+                <div class="col-md-12">
+                    <div class="material-textfield">
+                        <label>Keterangan</label>
+                        <textarea name="ket" class="form-control" cols="5" rows="5"></textarea>
+                    </div>
+                </div>
+ 
+                <div class="col-md-12">
+                    <div class="col-md-12  text-center">
+                        <button class="btn btn-primary" style="width: 200px;" type="submit">Simpan</button>
+                    </div>
+                </div>
+               
+            
+                <div class="col-md-12 mt-3">
+                    <table id="datatable" class="table dt-responsive w-100">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NOMOR LAMBUNG</th>
+                                <th>IDENTITAS RT</th>
+                                <th>DARI PUKUL</th>
+                                <th>TUJUAN PUKUL</th>
+                                <th>JUMLAH KENDARAAN YANG DIKAWAL</th>
+                                <th>KET</th>
+                                <th>TANGGAL</th>
+                                <th></th>
+                            </tr>
+                        </thead> 
+                    </table>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- End Page -->
+ 
  
 
-<div class="row">
-<div class="col-md-12">
-    <br>
-</div>
-</div>
-
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div>
-                <h3 style="text-align: center;">CEK LIST GIAT WAL PJR DITLANTAS <br>DAN WAL JAJARAN</h3>
+<div class="modal fade EditHt" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Edit Ht</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-md-12">
-                <button class="btn btn-default pull-right add-row mb-3" style="float: inline-end;"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Row</button>
-                <table class="table table-bordered" id="editableTable">
-                    <thead>
-                        <tr>
-                            <th style="display: none;">id</th>
-                            <th>NOMOR LAMBUNG</th>
-                            <th>IDENTITAS RT</th>
-                            <th>DARI PUKUL</th>
-                            <th>TUJUAN PUKUL</th>
-                            <th>JUMLAH KENDARAAN YANG DIKAWAL</th>
-                            <th>KET</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="modal-body">
+                <form class="formEdit row" method="post" enctype="multipart/form-data"> 
+                    <div class="col-md-12 mb-3">  
+                        <h3 style="text-align: center;">EDIT <br>CEK LIST GIAT WAL PJR DITLANTAS <br>DAN WAL JAJARAN</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input hidden style="width: 100%;" name="id" placeholder="" type="text">
+                            
+                            <input style="width: 100%;" name="no_lambungEdit" placeholder="" type="text">
+                            <label class="labelmui">Nomor Lambung</label>
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input style="width: 100%;" name="identitas_rtEdit" placeholder="" type="text">
+                            <label class="labelmui">Identitas RT</label>
+                        </div> 
+                    </div>
 
-                        <?php foreach($data['getHT'] as $row): ?>
-                            <tr data-id="1">
-                                <td data-field="id" style="display: none;"><?php echo $row['id'];?></td>
-                                <td data-field="no_lambung"><?php echo $row['no_lambung'];?></td>
-                                <td data-field="identitas_rt"><?php echo $row['identitas_rt'];?></td>
-                                <td data-field="dari_pukul"><?php echo $row['dari_pukul'];?></td>
-                                <td data-field="tujuan_pukul"><?php echo $row['tujuan_pukul'];?></td>
-                                <td data-field="jumlah_kendaraan"><?php echo $row['jumlah_kendaraan'];?></td>
-                                <td data-field="ket"><?php echo $row['ket'];?></td>
-                                <td style="text-align: center;">
-                                    <a class="button button-small edit" title="Edit">
-                                        <i class="fa fa-pencil-alt"></i>
-                                    </a>
-                                    &nbsp;&nbsp;
-                                    <a class="button button-small hapus" onclick="deleteId('<?php echo $row['id'];?>')" title="Hapus">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr> 
-                        <?php endforeach; ?>  
-                    </tbody>
-                </table>
+
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input style="width: 100%;" name="dari_pukulEdit" placeholder="" type="text">
+                            <label class="labelmui">Dari Pukul</label>
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input style="width: 100%;" name="tujuan_pukulEdit" placeholder="" type="text">
+                            <label class="labelmui">Tujuan Pukul</label>
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="material-textfield">
+                            <input style="width: 100%;" name="jumlah_kendaraanEdit" placeholder="" type="text">
+                            <label class="labelmui">Jumlah Kendaraan</label>
+                        </div> 
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="material-textfield">
+                            <label>Keterangan</label>
+                            <textarea name="ketEdit" class="form-control" cols="5" rows="5"></textarea>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-12">
+                        <div class="col-md-12  text-center">
+                            <button class="btn btn-primary" style="width: 200px;" type="submit">Ubah Data</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
- 
 
 
 <script>
-    (function($, window, document, undefined) {
-        var pluginName = "editable",
-            defaults = {
-                keyboard: true,
-                dblclick: true,
-                button: true,
-                buttonSelector: ".edit",
-                maintainWidth: true,
-                dropdowns: {},
-                edit: function() {},
-                save: function() {},
-                cancel: function() {}
-            };
+    // var userDataTable;
 
-        function editable(element, options) {
-            this.element = element;
-            this.options = $.extend({}, defaults, options);
+    $(document).ready(function() { 
 
-            this._defaults = defaults;
-            this._name = pluginName;
-
-            this.init();
-        }
-
-        editable.prototype = {
-            init: function() {
-            this.editing = false;
-
-            if (this.options.dblclick) {
-                $(this.element)
-                .css('cursor', 'pointer')
-                .bind('dblclick', this.toggle.bind(this));
-            }
-
-            if (this.options.button) {
-                $(this.options.buttonSelector, this.element)
-                .bind('click', this.toggle.bind(this));
-            }
-            },
-
-            toggle: function(e) {
-                e.preventDefault();
-
-                this.editing = !this.editing;
-
-                if (this.editing) {
-                    this.edit();
-                } else {
-                    this.save();
-                }
-            },
-
-            edit: function() {
-                var instance = this,
-                    values = {};
-
-                $('td[data-field]', this.element).each(function() {
-                    var input,
-                    field = $(this).data('field'),
-                    value = $(this).text(),
-                    width = $(this).width();
-
-                    values[field] = value;
-
-                    $(this).empty();
-
-                    if (instance.options.maintainWidth) {
-                        $(this).width(width);
-                    }
-
-                    if (field in instance.options.dropdowns) {
-                        input = $('<select></select>');
-
-                        for (var i = 0; i < instance.options.dropdowns[field].length; i++) {
-                            $('<option></option>')
-                            .text(instance.options.dropdowns[field][i])
-                            .appendTo(input);
-                        };
-
-                        input.val(value)
-                        .data('old-value', value)
-                        .dblclick(instance._captureEvent);
-                    } else {
-                        input = $('<input type="text" />')
-                        .val(value)
-                        .data('old-value', value)
-                        .dblclick(instance._captureEvent);
-                    }
-
-                    input.appendTo(this);
-
-                    if (instance.options.keyboard) {
-                        input.keydown(instance._captureKey.bind(instance));
-                    }
-                });
-
-                console.log({a:'edit', b:values});
-                this.options.edit.bind(this.element)(values);
-            },
-
-            save: function() {
-                var instance = this,
-                    values = {};
-
-                $('td[data-field]', this.element).each(function() {
-                    var value = $(':input', this).val();
-
-                    values[$(this).data('field')] = value;
-
-                    $(this).empty()
-                    .text(value);
-                });
-
-                this.options.save.bind(this.element)(values);
-                console.log({a:'save', b:values['id']});
-                $("#overlay").fadeIn(300);
-                if(values['id'] == "" || values['id'] == null){
-                    $.ajax({
-                        type : "POST",
-                        url : "<?php echo base_url();?>operasi/Ht/store", 
-                        data : values, 
-                        dataType : "JSON",
-                        success : function(data){   
-                            $("#overlay").fadeOut(300);
-                            if(data['status'] == true){
-                                Swal.fire(
-                                `${data['message']}`, 
-                                '',
-                                'success'
-                                ).then(function() {  
-                                    // userDataTable.draw(); 
-                                }); 
-                            }else{
-                                Swal.fire(
-                                `${data['message']}`, 
-                                '',
-                                'error'
-                                ).then(function() { 
-                                });
-                            } 
-                            
-                        }
-                    });
-                }else{
-                    $.ajax({
-                        type : "POST",
-                        url : "<?php echo base_url();?>operasi/Ht/storeEdit", 
-                        data : values, 
-                        dataType : "JSON",
-                        success : function(data){   
-                            $("#overlay").fadeOut(300); 
-                            if(data['status'] == true){
-                                Swal.fire(
-                                `${data['message']}`, 
-                                '',
-                                'success'
-                                ).then(function() {  
-                                    // userDataTable.draw(); 
-                                }); 
-                            }else{
-                                Swal.fire(
-                                `${data['message']}`, 
-                                '',
-                                'error'
-                                ).then(function() { 
-                                });
-                            } 
-                            
-                        }
-                    });
-                }
-            },
-
-            cancel: function() {
-                var instance = this,
-                    values = {};
-
-                $('td[data-field]', this.element).each(function() {
-                    var value = $(':input', this).data('old-value');
-
-                    values[$(this).data('field')] = value;
-
-                    $(this).empty()
-                    .text(value);
-                });
-
-                alert('cancel');
-                this.options.cancel.bind(this.element)(values);
-            },
-
-            _captureEvent: function(e) {
-                e.stopPropagation();
-            },
-
-            _captureKey: function(e) {
-                if (e.which === 13) {
-                    this.editing = false;
-                    this.save();
-                } else if (e.which === 27) {
-                    this.editing = false;
-                    this.cancel();
-                }
-            }
-        };
-
-        $.fn[pluginName] = function(options) {
-            return this.each(function() {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName,
-                new editable(this, options));
-            }
-            });
-        };
- 
-
-        })(jQuery, window, document);
-
-
-
-       
-
-        editTable();
-
-        //custome editable starts
-        function editTable(){
+        $( '[name=jumlah_kendaraan]' ).mask('000000000');
         
-            $(function() {
+        var userDataTable = $('#datatable').DataTable({ 
+
+            responsive: true, 
+
+            // scrollX: true,
+
+            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+            buttons: ["excel", "csv", "pdf"],
+
+            lengthMenu: [
+                [10, 25, 50, 9999],
+                [10, 25, 50, 'All'],
+            ],
+
+            oLanguage: {
+
+                sSearch: 'Search:'
+
+            },
+
+            initComplete : function (settings, json) { },
+
+            retrieve : true,
+
+            processing : true,
+
+            serverSide: true,
+
+            serverMethod: 'POST',
+
+            ajax : {
+
+                dataType: 'json',
+
+                url: '<?php echo base_url();?>operasi/Ht/serverSideTable',
+
+                data: function(data){
+
+                    $("#overlay").fadeIn(300);
+
+                    // console.log(data);
+
+                    // data.filterTgl = $('[name=event_date]').val();
+
+                    // data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+                    // data.filterStatus = $('[name=status]').val();
+
+                    // data.filterName = $('[name=group_name]').val();
+
+                    // data.filterPocName = $('[name=group_poc_name]').val();
+
+                    // data.filterPhone = $('[name=poc_phone]').val();
+
+                    // data.filterThreat = $('[name=threat_level]').val();
+
+                    data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+                    data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+                    data.page = Number(data.start / data.length) + 1
+
+                },
+
+                beforeSend: function (xhr, settings) {
+                     
+                },
+
+                "dataSrc": function (result) { 
+
+                    result.iTotalRecords = result.iTotalRecords;
+
+                    result.iTotalDisplayRecords = result.iTotalRecords;
+
+                    return result.aaData;
+
+                }
+
+            },
+
+            columns: [  
+                { data: 'id'},  
+                { data: 'no_lambung'}, 
+                { data: 'identitas_rt'}, 
+                { data :'dari_pukul'}, 
+                { data: 'tujuan_pukul'}, 
+                { data: 'jumlah_kendaraan'},  
+                { data: 'ket'},  
+                { 
+                    data: 'created_at', 
+                    render: function ( data, type, row, meta ) {
+                    return moment(data).format('DD MMM YYYY h:mm A');
+                    }
+                },  
+                { data: 'action' , orderable : false } 
+            ],
+
+            order: [[ 0, "DESC" ]],
+
+            drawCallback : function(settings){
+
+                $("#overlay").fadeOut(300); 
+                client();
+            }   
+
+        }); 
+
+        function client() {
+
+            $('.EditHt').on('shown.bs.modal', function(event) {
+                var modal          = $(this);
                 
-                $('table tr').editable({
-                    dropdowns: {
-                        sex: ['Male', 'Female']
-                    },
-                    edit: function(values) {
-                        $(".edit i", this)
-                        .removeClass('fa-pencil-alt')
-                        .addClass('fa-save')
-                        .attr('title', 'Edit'); 
-                    },
-                    save: function(values) {
-                        $(".edit i", this)
-                        .removeClass('fa-save')
-                        .addClass('fa-pencil-alt')
-                        .attr('title', 'Simpan'); 
-                    },
-                    cancel: function(values) {
-                        $(".hapus i", this)
-                        .removeClass('fa-trash')
-                        .addClass('fas fa-times')
-                        .attr('title', 'Cancel');                     
-                    }
-                });
+                modal.find('[name=id]').val($(event.relatedTarget).data("id"));
+                modal.find('[name=no_lambungEdit]').val($(event.relatedTarget).data("no"));
+                modal.find('[name=identitas_rtEdit]').val($(event.relatedTarget).data("identitas"));
+                modal.find('[name=dari_pukulEdit]').val($(event.relatedTarget).data("dari"));
+                modal.find('[name=tujuan_pukulEdit]').val($(event.relatedTarget).data("tujuan"));
+                modal.find('[name=jumlah_kendaraanEdit]').val($(event.relatedTarget).data("jml"));
+                modal.find('[name=ketEdit]').val($(event.relatedTarget).data("ket"));
+
+                
             });
-        
+
+            $(".deletedata").on("click", function(event) {
+
+                Swal.fire({
+
+                    title: 'Anda yakin ingin menghapus ?',
+
+                    text: "",
+
+                    icon: 'warning',
+
+                    showCancelButton: true,
+
+                    confirmButtonColor: '#3085d6',
+
+                    cancelButtonColor: '#d33',
+
+                    confirmButtonText: 'Yes'
+
+                }).then((result) => {
+
+                    if (result.value == true) {
+                        $("#overlay").fadeIn(300);
+
+                        $.ajax({
+                            url: "<?php echo base_url(); ?>operasi/Ht/delete",
+                            method: "POST",
+                            data: {
+                                "id": $(this).data("id"),
+                            },
+                            dataType: 'JSON',
+                            // contentType: false,
+                            // processData: false,  
+                            success: function(data) {
+                                $("#overlay").fadeOut(300);
+                                if (data['status'] == true) {
+                                    Swal.fire(
+                                        `${data['message']}`,
+                                        '',
+                                        'success'
+                                    ).then(function() {
+                                        userDataTable.ajax.reload();
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        `${data['message']}`,
+                                        '',
+                                        'error'
+                                    ).then(function() {});
+                                }
+                            }
+                        });
+
+                    } else {
+
+                        userDataTable.ajax.reload();
+
+
+                    }
+
+                });
+
+
+
+            });
         }
 
-        $(".add-row").click(function(){
-            $("#editableTable").find("tbody tr:first").before(`
-            <tr>
-                <td data-field="id" style="display: none;"></td>
-                <td data-field="no_lambung"></td>
-                <td data-field="identitas_rt"></td>
-                <td data-field="dari_pukul"></td>
-                <td data-field="tujuan_pukul"></td>
-                <td data-field="jumlah_kendaraan"></td>
-                <td data-field="ket"></td>
-                <td style="text-align: center;">
-                    <a class="button button-small edit" title="Edit">
-                    <i class="fa fa-pencil-alt"></i>
-                    </a>
-                    
-                    <a class="button button-small hapus" title="Hapus">
-                    <i class="fa fa-trash"></i>
-                    </a>
-                </td>
-            </tr> `);   
-            editTable();  
-            setTimeout(function(){   
-                $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click(); 
-            }, 200); 
-            
-            setTimeout(function(){ 
-                $("#editableTable").find("tbody tr:first td:first input[type='text']").focus();
-            }, 300); 
-            
-            $("#editableTable").find("a[title='Hapus']").unbind('click').click(function(e){
-                if (confirm("Are you sure you want to delete entire row?") == true) {
-                    $(this).closest("tr").remove();
-                } else {
-                    
-                } 
-            }); 
-        });
-
-       
-
-        $("#editableTable").find("a[title='Hapus']").click(function(e){    
-             
-                $(this).closest("tr").remove(); 
-              
-        });
-
-        function deleteId(id) {
-            // alert(id);   
+        $(".form").submit(function(e) {
+            $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            var formData = new FormData($('.form')[0]); 
             $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>operasi/Ht/delete", 
-                data : {
-                    'id': id, 
-                }, 
-                dataType : "JSON",
-                success : function(result){  
-                    this.options.save.bind(this.element)(values);
+                url: "<?php echo base_url();?>operasi/Ht/store",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
                     $("#overlay").fadeOut(300);
                     if(data['status'] == true){
                         Swal.fire(
                         `${data['message']}`, 
                         '',
                         'success'
-                        ).then(function() {  
-                            // userDataTable.draw(); 
+                        ).then(function() { 
+                            $('.form')[0].reset();
+                            userDataTable.draw(); 
                         }); 
                     }else{
                         Swal.fire(
@@ -387,22 +380,50 @@
                         ).then(function() { 
                         });
                     } 
-                    
                 }
-            });
-        }
+            }); 
+        });
 
 
-        // $(document).ready(function() {
-        //     $('#editableTable').DataTable({ 
-        //         responsive: true, 
+        $(".formEdit").submit(function(e) {
+            // $("#overlay").fadeIn(300);
+            e.preventDefault(); 
+            // alert('adaw');
+            var formData = new FormData($('.formEdit')[0]); 
+            $.ajax({
+                url: "<?php echo base_url();?>operasi/Ht/storeEdit",
+                method: "POST",
+                data: formData,
+                dataType: 'JSON',
+                contentType: false,
+                processData: false,  
+                success: function (data) {
+                    $("#overlay").fadeOut(300);
+                    if(data['status'] == true){
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'success'
+                        ).then(function() { 
+                            $('.formEdit')[0].reset();
+                            $(".EditHt").modal('hide');
+                            userDataTable.draw(); 
+                        }); 
+                    }else{
+                        Swal.fire(
+                        `${data['message']}`, 
+                        '',
+                        'error'
+                        ).then(function() { 
+                        });
+                    } 
+                }
+            }); 
+        });
 
-        //         scrollX: true,
 
-        //         sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+        
 
-        //         buttons: ["excel", "csv", "pdf"],
-        //     });
-        // });
-
+    });
+     
 </script>

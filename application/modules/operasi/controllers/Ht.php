@@ -118,27 +118,27 @@ class Ht extends MY_Controller
         $dummy = [
             [
                 'name' => 'no_lambung',
-                'contents' => $input['no_lambung'],
+                'contents' => $input['no_lambungEdit'],
             ],
             [
                 'name' => 'identitas_rt',
-                'contents' => $input['identitas_rt'],
+                'contents' => $input['identitas_rtEdit'],
             ],
             [
                 'name' => 'dari_pukul',
-                'contents' => $input['dari_pukul'],
+                'contents' => $input['dari_pukulEdit'],
             ],
             [
                 'name' => 'tujuan_pukul',
-                'contents' => $input['tujuan_pukul'],
+                'contents' => $input['tujuan_pukulEdit'],
             ],
             [
                 'name' => 'jumlah_kendaraan',
-                'contents' => $input['jumlah_kendaraan'],
+                'contents' => $input['jumlah_kendaraanEdit'],
             ],
             [
                 'name' => 'ket',
-                'contents' => $input['ket'],
+                'contents' => $input['ketEdit'],
             ]
         ];
 
