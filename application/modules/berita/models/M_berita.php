@@ -115,26 +115,26 @@ class M_berita extends CI_Model {
         $no=1;
         // kategori berita berdasarkan nomor
         foreach ($result['data']['datanya'] as $field) {
-            $category = '';
-            if ($field['data'][0]['category_news'][0]['id'] == 1) {
-				$category = "Berita PPKM";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 2) {
-				$category = "Berita Kecelakaan Lalu Lintas";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 3) {
-				$category = "Berita Pelanggaran Lalu Lintas";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 4) {
-				$category = "Berita Kemacetan Lalu Lintas";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 5) {
-				$category = "Berita Satpas";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 6) {
-				$category = "Berita ETLE";
-            } else if ($field['data'][0]['category_news'][0]['id'] == 7) {
-				$category = "Berita Kontjensi";
-			}
+            // $category = '';
+            // if ($field['data'][0]['category_news'][0]['id'] == 1) {
+			// 	$category = "Berita PPKM";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 2) {
+			// 	$category = "Berita Kecelakaan Lalu Lintas";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 3) {
+			// 	$category = "Berita Pelanggaran Lalu Lintas";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 4) {
+			// 	$category = "Berita Kemacetan Lalu Lintas";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 5) {
+			// 	$category = "Berita Satpas";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 6) {
+			// 	$category = "Berita ETLE";
+            // } else if ($field['data'][0]['category_news'][0]['id'] == 7) {
+			// 	$category = "Berita Kontjensi";
+			// }
             $row = array();
             // $row ['id']	=  $field['id']; 
             $row['id']    =  $no++;
-            $row['news_category']    = $category;
+            $row['news_category']    = $field['data'][0]['category_news'][0]['name_category_news'];
             $row['title']            = $field['data'][0]['title'];
             $row['content']           = $field['data'][0]['content'];
             $row['author']           = $field['data'][0]['author'];

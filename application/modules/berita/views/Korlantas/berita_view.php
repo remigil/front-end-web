@@ -53,13 +53,11 @@
 								<select name="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
 									<!-- <select name="" id=""  multiple required> -->
 									<option selected>Pilih Kategori</option>
-									<option value="1">Berita PPKM</option>
-									<option value="2">Berita Kecelakaan Lalu Lintas</option>
-									<option value="3">Berita Pelanggaran Lalu Lintas</option>
-									<option value="4">Berita Kemacetan Lalu Lintas</option>
-									<option value="5">Berita Satpas</option>
-									<option value="6">Berita ETLE</option>
-									<option value="7">Berita Kontijensi</option>
+									<?php
+                        				foreach ($data['getBerita'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_news']; ?></option>
+                        			<?php endforeach; ?>
+									
 		
 								</select>
 								<label for="category">Kategori Berita</label>
@@ -110,14 +108,11 @@
 								<div class="form-floating mb-3">
 									<select name="category" id="category" class="form-select" aria-label="Floating label select" style="width:100%" required>
 									<!-- <select name="" id=""  multiple required> -->
-										<option selected>Pilih Kategori</option>
-										<option value="1">Berita PPKM</option>
-										<option value="2">Berita Kecelakaan Lalu Lintas</option>
-										<option value="3">Berita Pelanggaran Lalu Lintas</option>
-										<option value="4">Berita Kemacetan Lalu Lintas</option>
-										<option value="5">Berita Satpas</option>
-										<option value="6">Berita ETLE</option>
-										<option value="7">Berita Kontijensi</option>
+										<option selected id="category"></option>
+										<?php
+											foreach ($data['getBerita'] as $row) : ?>
+											<option value="<?php echo $row['id']; ?>"><?php echo $row['name_category_news']; ?></option>
+										<?php endforeach; ?>
 		
 									</select>
 									<label for="category">Kategori Berita</label>
