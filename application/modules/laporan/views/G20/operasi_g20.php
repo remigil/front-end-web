@@ -181,7 +181,8 @@
                     orderable: false
                 },
                 {
-                    data: 'name_officer'
+                    data: 'name_officer', 
+                    orderable: false
                 },
                 {
                     data: 'categori'
@@ -190,10 +191,14 @@
                     data: 'description'
                 },
                 {
-                    data: 'time'
+                    data: 'created_at',
+                    render: function ( data, type, row, meta ) {
+                    return moment(data).format('DD MMM YYYY h:mm A');
+                    }
                 },
                 {
-                    data: 'phone_officer'
+                    data: 'phone_officer',
+                    orderable: false
                 },
 
 

@@ -43,7 +43,7 @@ class M_akun extends CI_Model
 
         // $filter_tgl2 = $postData['filterTgl2'];
 
-        // $filter_status = $postData['filterStatus'];
+        $filter_negara = $postData['filterNegara'];
 
         // $filter_name = $postData['filterName'];
 
@@ -63,15 +63,11 @@ class M_akun extends CI_Model
             $searchData = '';
         }
 
-        // if($filter_threat){
-
-        //     $threat_level = '&filterField[]=threat_level&filterValue[]='.$filter_threat.'';
-
-        // }else{
-
-        //     $threat_level = '';
-
-        // }
+        if($filter_negara != ""){ 
+            $negara = '&filter[]=id_country&filterSearch[]='.$filter_negara.'';
+        }else{
+            $negara = '';
+        }
 
         // if($filter_tgl != ""){
 
@@ -94,7 +90,7 @@ class M_akun extends CI_Model
         // } 
 
 
-        $url = 'account?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'account?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . ''.$negara.'';
 
 
         $result = guzzle_request('GET', $url, [
@@ -123,9 +119,33 @@ class M_akun extends CI_Model
             $row['delegasi']    = ''.$delegasi.''; 
 
             if($field['officers'] != null){
+                
+
                 $petugas = '';
                 foreach  ($field['officers'] as $fieldPetugas) { 
-                    $petugas .= ''.$fieldPetugas['name_officer'].', ';
+                    if($fieldPetugas['phone_officer'] != null){
+                        $noDepan = substr($fieldPetugas['phone_officer'], 0, 2);
+                        if ($noDepan === "62") {
+                            $whatsApp = 'https://api.whatsapp.com/send?phone='.$fieldPetugas['phone_officer'].'';
+                        } else if ($noDepan === "08") {
+                            $whatsApp = 'https://api.whatsapp.com/send?phone=62'.substr($fieldPetugas['phone_officer'], 1).'';
+                        } else if ($noDepan === "+6") {
+                            $whatsApp = 'https://api.whatsapp.com/send?phone='.substr($fieldPetugas['phone_officer'], 1).'';
+                        } else {
+                            $whatsApp = 'https://api.whatsapp.com/send?phone='.$fieldPetugas['phone_officer'].'';
+                        }
+                    }else{
+                        $whatsApp = 'javascript:void(0)';
+                    }
+                    $petugas .= '
+                    <p>
+                        '.$fieldPetugas['name_officer'].'
+                        &nbsp;<a href="'.$whatsApp.'" target="_blank">
+                            <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
+                        </a>
+                        </br>
+                    </p>
+                    ';
                 }
                 $row ['officers']	= $petugas; 
             }else {
@@ -138,6 +158,10 @@ class M_akun extends CI_Model
                 $row['leader_team']    = '-';
             }
             $row['vehicle']       = $field['vehicle']['no_vehicle']; 
+
+
+            
+
             $row['action']         = ' 
                 <a href="' . base_url() . 'operasi/akun/Detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>  
             ';

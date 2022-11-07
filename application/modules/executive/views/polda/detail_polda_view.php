@@ -512,11 +512,11 @@
                         show: false,
                         color: '#008FFB'
                     },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
+                    // labels: {
+                    //     style: {
+                    //         colors: '#008FFB',
+                    //     }
+                    // },
 
 
                 }, ],
@@ -587,58 +587,7 @@
                 //             // </div>`
 
 
-                //             `<div class="card" style="width: 150vw;">
-                //                 <div class="card-body">
-                //                     <div class="col-md-12">
-                //                     <div class="row">
-                //                         <div class="col-md-4>
-                //                         <div class="col-md-2">BPKB</div>
-                //                                 <div class="col-md-1">:</div>
-                //                                 <div class="col-md-9">${series[0][dataPointIndex - 1]}</div>
-                //                             </div>
-                //                         </div>   <div class="row">
-                //                             <div class="col-md-2">STNK</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[1][dataPointIndex - 1]}</div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-md-2">SIM</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[2][dataPointIndex - 1]}</div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-md-2">RANMOR</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[3][dataPointIndex - 1]}</div>
-                //                         </div>  
-                //                     </div> 
-                //                     <div class="col-md-4>
-                //                         <div class="row">
-                //                             <div class="col-md-2">BPKB</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[0][dataPointIndex - 1]}</div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-md-2">STNK</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[1][dataPointIndex - 1]}</div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-md-2">SIM</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[2][dataPointIndex - 1]}</div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-md-2">RANMOR</div>
-                //                             <div class="col-md-1">:</div>
-                //                             <div class="col-md-9">${series[3][dataPointIndex - 1]}</div>
-                //                         </div>                     
-                //                     </div>
-                //                 </div>
-                //             </div>`
-                //         );
-                //     }
-                // }
+
             };
 
             // <span>

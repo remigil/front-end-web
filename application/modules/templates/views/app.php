@@ -834,6 +834,7 @@
                                                     <li><a href="<?php echo base_url(); ?>operasi/Vip" data-key="t-register">VVIP</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Petugas" data-key="t-login">Petugas</a></li>
                                                     <li><a href="<?php echo base_url(); ?>operasi/Kendaraan" data-key="t-login">Kendaraan</a></li>
+                                                    <li><a href="<?php echo base_url(); ?>operasi/Ht" data-key="t-login">HT</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -950,6 +951,12 @@
                                             </li>
                                             <li>
                                                 <a href="https://dakgargakkum.com/dashboard" target="_blank">
+                                                    <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard">E-TILANG</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://backoffice.etle-bali.info" target="_blank">
                                                     <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">ETLE</span>
                                                 </a>
@@ -1161,7 +1168,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php">
                                                     <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard" style="color: #FFC300;">ERI</span>
                                                 </a>
@@ -1244,7 +1251,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php">
+                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php">
                                                     <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard">ERI</span>
                                                 </a>
@@ -1750,6 +1757,8 @@
                         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
                         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                         <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+
+                        <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script> -->
 
                         <?php echo $js ?>
 
