@@ -8,6 +8,44 @@ class M_detail_statistik extends CI_Model
         $this->load->helper('guzzle_request_helper');
     }
 
+
+    public function getKecelakaanNasional()
+    {
+        $lakalantasnasional = guzzle_request('GET', 'laka_lantas/daily', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        $poldaName = array();
+        $polda_meninggal_dunia = array();
+        $polda_luka_berat = array();
+        $polda_luka_ringan = array();
+        $polda_kerugian_material = array();
+        $polda_jumlah = array();
+        foreach ($lakalantasnasional['data']['rows'] as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_meninggal_dunia[] = $key['meninggal_dunia'];
+            $polda_luka_berat[] = $key['luka_berat'];
+            $polda_luka_ringan[] = $key['luka_ringan'];
+            $polda_kerugian_material[] = $key['kerugian_material'];
+            $polda_jumlah[] = $key['total'];
+        }
+
+        return [
+            'polda_name' => $poldaName,
+            'polda_meninggal_dunia' => $polda_meninggal_dunia,
+            'polda_luka_berat' => $polda_luka_berat,
+            'polda_luka_ringan' => $polda_luka_ringan,
+            'polda_kerugian_material' => $polda_kerugian_material,
+            'polda_jumlah' => $polda_jumlah,
+        ];
+    }
+
     public function kecelakaan_nasional()
     {
         $url = 'laka_lantas?nasional=true';
@@ -119,6 +157,21 @@ class M_detail_statistik extends CI_Model
             'month_jumlah' => $month_jumlah,
             'polda_month' => $poldaMonth
         ];
+    }
+
+    public function get_Polda()
+    {
+        $data = guzzle_request('GET', 'polda', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        return $data['data']['data'];
     }
 
     function getmonth($value)

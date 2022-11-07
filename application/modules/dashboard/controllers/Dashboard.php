@@ -999,6 +999,13 @@ class Dashboard extends MY_Controller
         echo json_encode($data['lakalantas']);
     }
 
+
+    public function getTurjagwali()
+    {
+        $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+        echo json_encode($data['turjagwali']);
+    }
+
     public function getStatistik()
     {
         $headers = [

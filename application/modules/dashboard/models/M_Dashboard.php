@@ -45,7 +45,7 @@ class M_dashboard extends CI_Model
     public function turjagwali_nasional()
     {
         // Turjagwali
-        $turjagwali = guzzle_request('GET', 'turjagwali', [
+        $turjagwali = guzzle_request('GET', 'turjagwali/daily?topPolda=true', [
 
             'headers' => [
 
@@ -62,15 +62,15 @@ class M_dashboard extends CI_Model
         $polda_pengaturan = array();
         $polda_patroli = array();
         $polda_jumlah = array();
-        // foreach ($turjagwali as $key) {
-        //     $row[] = array();
-        //     $poldaName[] = $key['name_polda'];
-        //     $polda_pengawalan[] = $key['pengawalan'];
-        //     $polda_penjagaan[] = $key['penjagaan'];
-        //     $polda_pengaturan[] = $key['pengaturan'];
-        //     $polda_patroli[] = $key['patroli'];
-        //     $polda_jumlah[] = $key['jumlah'];
-        // }
+        foreach ($turjagwali['data']['rows'] as $key) {
+            $row[] = array();
+            $poldaName[] = $key['name_polda'];
+            $polda_pengawalan[] = $key['pengawalan'];
+            $polda_penjagaan[] = $key['penjagaan'];
+            $polda_pengaturan[] = $key['pengaturan'];
+            $polda_patroli[] = $key['patroli'];
+            $polda_jumlah[] = $key['total'];
+        }
 
         return [
             'polda_name' => $poldaName,
