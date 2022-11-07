@@ -8,6 +8,7 @@ class M_detail_statistik extends CI_Model
         $this->load->helper('guzzle_request_helper');
     }
 
+
     public function getKecelakaanNasional()
     {
         $lakalantasnasional = guzzle_request('GET', 'laka_lantas/daily', [

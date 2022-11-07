@@ -8,6 +8,22 @@ class M_detail_polda extends CI_Model
         $this->load->helper('guzzle_request_helper');
     }
 
+
+    public function get_Polda()
+    {
+        $data = guzzle_request('GET', 'polda', [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+        return $data['data']['data'];
+    }
+
     public function kecelakaan_nasional()
     {
         $url = 'laka_lantas?nasional=true';

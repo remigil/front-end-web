@@ -208,15 +208,19 @@
     <div class="filter p-3 mt-5" style="background-color: #2E2E2E; height:125px;">
         <div class="container">
 
-            <form action="" method="post" id="form_filter" class="p-3">
+            <form action="" id="form_filter" class="p-3">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group row">
                             <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
-                            <select class="form-control" id="type_anev" name="type_anev">
-                                <option value="">---Pilih Polda---</option>
-                                <option value="1">Polda Metro Jaya</option>
-                                <option value="2">Polda Jawa Barat</option>
+                            <select class="form-control" id="polda_id" name="polda_id">
+                                <?php foreach ($polda as $key) : ?>
+                                    <?php if ($key['id'] == $id) : ?>
+                                        <option value="<?= $key['id'] ?>" selected><?= $key['name_polda'] ?></option>
+                                    <?php else : ?>
+                                        <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -224,16 +228,14 @@
                         <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
                         <div class="row">
                             <div class="col-md-5">
-                                <input class="form-control" type="date" name="start_date" id="waktu">
+                                <input class="form-control" type="date" name="start_date" id="start_date">
 
                             </div>
                             <div class="col-md-5">
-                                <input class="form-control" type="date" name="end_date" id="waktu">
-
+                                <input class="form-control" type="date" name="end_date" id="end_date">
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-primary" style="width: 100%;">Tampilkan</button>
-
+                                <button class="btn btn-primary" type="submit" id="btn_filter" style="width: 100%;">Tampilkan</button>
                             </div>
                         </div>
 
@@ -261,7 +263,7 @@
                             <p>Today is <?= date('l, j F Y') ?></p>
                         </div>
                         <div class="col-md-3 text-end align-self-center">
-                            <a href="#" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar?polda_id=<?= $id ?>" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
                         </div>
                     </div>
 
@@ -529,29 +531,29 @@
                         w
                     }) {
                         var bulan;
-                        if(w.globals.labels[dataPointIndex] == 1){
+                        if (w.globals.labels[dataPointIndex] == 1) {
                             bulan = 'Januari';
-                        }else if(w.globals.labels[dataPointIndex] == 2){
+                        } else if (w.globals.labels[dataPointIndex] == 2) {
                             bulan = 'Februari';
-                        }else if(w.globals.labels[dataPointIndex] == 3){
+                        } else if (w.globals.labels[dataPointIndex] == 3) {
                             bulan = 'Maret';
-                        }else if(w.globals.labels[dataPointIndex] == 4){
+                        } else if (w.globals.labels[dataPointIndex] == 4) {
                             bulan = 'April';
-                        }else if(w.globals.labels[dataPointIndex] == 5){
+                        } else if (w.globals.labels[dataPointIndex] == 5) {
                             bulan = 'Mei';
-                        }else if(w.globals.labels[dataPointIndex] == 6){
+                        } else if (w.globals.labels[dataPointIndex] == 6) {
                             bulan = 'Juni';
-                        }else if(w.globals.labels[dataPointIndex] == 7){
+                        } else if (w.globals.labels[dataPointIndex] == 7) {
                             bulan = 'Juli';
-                        }else if(w.globals.labels[dataPointIndex] == 8){
+                        } else if (w.globals.labels[dataPointIndex] == 8) {
                             bulan = 'Agustus';
-                        }else if(w.globals.labels[dataPointIndex] == 9){
+                        } else if (w.globals.labels[dataPointIndex] == 9) {
                             bulan = 'September';
-                        }else if(w.globals.labels[dataPointIndex] == 10){
+                        } else if (w.globals.labels[dataPointIndex] == 10) {
                             bulan = 'Oktober';
-                        }else if(w.globals.labels[dataPointIndex] == 11){
+                        } else if (w.globals.labels[dataPointIndex] == 11) {
                             bulan = 'November';
-                        }else if(w.globals.labels[dataPointIndex] == 12){
+                        } else if (w.globals.labels[dataPointIndex] == 12) {
                             bulan = 'Desember';
                         }
                         return (
@@ -792,6 +794,40 @@
             ditkamsel.render();
 
 
+        })
+
+
+        $('#btn_filter').on('click', function(e) {
+            e.preventDefault();
+            let polda_id = $('#polda_id').val()
+            let start_date = $('#start_date').val()
+            let end_date = $('#end_date').val()
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/polda_executive/getDetailPolda_filter",
+                data: {
+                    id: polda_id,
+                    start_date: start_date,
+                    end_date: end_date
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    var ressPolda = result.polda
+                    $("#overlay").fadeOut(300);
+                    $('#motor').html(`<h1>${result.motor}</h1>`);
+                    $('#sim').html(`<h1>${result.sim}</h1>`);
+                    $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
+                    $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
+                    $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
+                    $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?polda_id=${polda_id}`)
+                    $('#nama').html(`<h1 style="color:#007DD8 ; text-transform:uppercase;">Polda ${ressPolda.name_polda}</h1>`);
+                    $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
+                    $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
+                    $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
+
+
+                }
+            })
         })
     </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
