@@ -2663,10 +2663,10 @@
         }); 
 
         socket.on('sendToAdminMobile', function(ress) { 
-            console.log(`get Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
+           
             // console.log(ress); 
             var flagVip = ''; 
-            var iconflagVip = '';
+            
              
             // console.log(result); 
 
@@ -2702,66 +2702,68 @@
                 
                 
              
-                    if(flagVip != ''){
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px;"><img src="<?php echo base_url();?>assets/icon/flags/4x3/${flagVip}.svg" style="width: 25px;height: 25px;" class="img-fluid rounded-circle d-block  float-center"></div>`; 
+                    if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
+                        iconflagVip = `<div style="margin-top: -30px;""><img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;"></div>`; 
                     }else{
-                        iconflagVip = `<div style="margin-top: -50px;margin-left: 6px; width: 25px;height: 25px;"></div>`;
+                        iconflagVip = `<div style="margin-top: -30px;" width: 35px;height: 30px;"></div>`;
                     }
 
                     jenis = '';
                     if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
-                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/mobil.png"><div class="pin"></div><div class="pulse"></div>`;
-                        jenis = `
-                        <div>
-                            <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                            </div>
-                            ${iconflagVip}
-                            <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                            </div>
-                        </div>`;
+                        
+                            jenis = `
+                            <div>
+                                <div style="position: relative;">
+                                    ${iconflagVip}
+                                    <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="position: absolute;margin-top: -7px;">
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                </div>
+                            </div>`; 
                     }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){
+                        console.log(iconflagVip);
                         jenis = `
                         <div>
                             <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                ${iconflagVip}
+                                <img src="<?php echo base_url();?>assets/icon/mobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
-                            ${iconflagVip}
                             <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
                         jenis = `
                         <div>
                             <div>
+                                ${iconflagVip}
                                 <img src="<?php echo base_url();?>assets/icon/gpsIdMotor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
                             <div style="margin-top: -30px;">
-                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                                <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
                         jenis = `
                         <div>
                             <div>
+                                ${iconflagVip}
                                 <img src="<?php echo base_url();?>assets/icon/gpsIdMobil.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
                             </div>
                             <div style="margin-top: -30px;">
-                            <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
+                                <span class="badge rounded-pill" style="background-color: #169fda">${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }else{
-                        // jenis = `<img src="<?php echo base_url();?>assets/admin/images/sepedaMotor.png"><div class="pin"></div><div class="pulse"></div>`
+                         
                         jenis = `
                         <div>
                             <div style="position: relative;">
-                            <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                            </div>
-                            ${iconflagVip}
+                                <img src="<?php echo base_url();?>assets/icon/topi.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                            </div> 
                             <div style="position: absolute;margin-top: -7px;">
-                            <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
+                                <span class="badge rounded-pill bg-primary" ${`style="background-color: purple !important"`}>${ress.name_officer}</span>
                             </div>
                         </div>`;
                     }
@@ -2772,8 +2774,6 @@
                         fotoPetugas = `<img src="<?php echo base_url();?>assets/user.jpg" alt="" class="img-fluid rounded-circle d-block  float-center">`;
                     }
                 
-                    
-
                     if(ress.name_country || ress.name_country != '-' || ress.name_country != null){
                         bendera = `${ress.name_country}`;
                     }else{
@@ -2788,6 +2788,7 @@
                   
                     // if(ress.status_login == 1){
                         if(markerArray[ress.id_officer] != null){ 
+                            console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
                             mapContainer.addLayer(markerArray[ress.id_officer]); 
                             markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
@@ -2869,6 +2870,7 @@
                                 });
                             });    
                         }else{ 
+                            console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
                             markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
