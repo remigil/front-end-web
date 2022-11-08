@@ -598,7 +598,7 @@
                         <div class="col-md-2 text-end align-self-center">
                             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                            <button type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" onclick="ButtonExport()">Export Laporan</button>
+                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
                         </div>
@@ -788,38 +788,38 @@
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_pelanggaran_berat = result.data.polda_pelanggaran_berat
-						let polda_pelanggaran_ringan = result.data.polda_pelanggaran_ringan
-						let polda_pelanggaran_sedang = result.data.polda_pelanggaran_sedang
-						let polda_teguran = result.data.polda_teguran
+                        let polda_pelanggaran_ringan = result.data.polda_pelanggaran_ringan
+                        let polda_pelanggaran_sedang = result.data.polda_pelanggaran_sedang
+                        let polda_teguran = result.data.polda_teguran
 
                         var chart = {
                             series: [{
-								name: 'Total Pelanggaran',
-								type: 'column',
-								data: polda_jumlah,
-								color: "#11347A"
-							}, {
-								name: 'Pelanggaran Berat',
-								type: 'column',
-								data: polda_pelanggaran_berat,
-								color: "#11347A"
-							}, {
-								name: 'Pelanggaran Sedang',
-								type: 'column',
-								data: polda_pelanggaran_sedang,
-								color: "#CB2D3E"
-							}, {
-								name: 'Pelanggaran Ringan',
-								type: 'column',
-								data: polda_pelanggaran_ringan,
-								color: "#E8D42F"
-							}, {
-								name: 'Teguran',
-								type: 'column',
-								data: polda_teguran,
-								color: "#E8D42F"
+                                name: 'Total Pelanggaran',
+                                type: 'column',
+                                data: polda_jumlah,
+                                color: "#11347A"
+                            }, {
+                                name: 'Pelanggaran Berat',
+                                type: 'column',
+                                data: polda_pelanggaran_berat,
+                                color: "#11347A"
+                            }, {
+                                name: 'Pelanggaran Sedang',
+                                type: 'column',
+                                data: polda_pelanggaran_sedang,
+                                color: "#CB2D3E"
+                            }, {
+                                name: 'Pelanggaran Ringan',
+                                type: 'column',
+                                data: polda_pelanggaran_ringan,
+                                color: "#E8D42F"
+                            }, {
+                                name: 'Teguran',
+                                type: 'column',
+                                data: polda_teguran,
+                                color: "#E8D42F"
 
-							}],
+                            }],
                             chart: {
                                 height: 400,
                                 type: 'line',

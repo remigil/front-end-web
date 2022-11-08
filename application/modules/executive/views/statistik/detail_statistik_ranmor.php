@@ -598,7 +598,7 @@
                         <div class="col-md-2 text-end align-self-center">
                             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                            <button type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" onclick="ButtonExport()">Export Laporan</button>
+                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
                         </div>
@@ -792,46 +792,46 @@
                         // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
                         let polda_name = result.data.polda_name
-						let polda_jumlah = result.data.polda_jumlah
-						let polda_mobil_penumpang = result.data.polda_mobil_penumpang
-						let polda_mobil_barang = result.data.polda_mobil_barang
-						let polda_mobil_bus = result.data.polda_mobil_bus
-						let polda_ransus = result.data.polda_ransus
-						let polda_sepeda_motor = result.data.polda_sepeda_motor
+                        let polda_jumlah = result.data.polda_jumlah
+                        let polda_mobil_penumpang = result.data.polda_mobil_penumpang
+                        let polda_mobil_barang = result.data.polda_mobil_barang
+                        let polda_mobil_bus = result.data.polda_mobil_bus
+                        let polda_ransus = result.data.polda_ransus
+                        let polda_sepeda_motor = result.data.polda_sepeda_motor
 
                         var chart = {
                             series: [{
-								name: 'Total Turjawali',
-								type: 'column',
-								data: polda_jumlah,
-								color: "#11347A"
-							}, {
-								name: 'mobil_penumpang',
-								type: 'column',
-								data: polda_mobil_penumpang,
-								color: "#11347A"
-							}, {
-								name: 'mobil_barang',
-								type: 'column',
-								data: polda_mobil_barang,
-								color: "#CB2D3E"
-							}, {
-								name: 'mobil_bus',
-								type: 'column',
-								data: polda_mobil_bus,
-								color: "#E8D42F"
-							}, {
-								name: 'ransus',
-								type: 'column',
-								data: polda_ransus,
-								color: "#E8D42F"
-							}, {
-								name: 'sepeda motor',
-								type: 'column',
-								data: polda_sepeda_motor,
-								color: "#E8D42F"
+                                name: 'Total Turjawali',
+                                type: 'column',
+                                data: polda_jumlah,
+                                color: "#11347A"
+                            }, {
+                                name: 'mobil_penumpang',
+                                type: 'column',
+                                data: polda_mobil_penumpang,
+                                color: "#11347A"
+                            }, {
+                                name: 'mobil_barang',
+                                type: 'column',
+                                data: polda_mobil_barang,
+                                color: "#CB2D3E"
+                            }, {
+                                name: 'mobil_bus',
+                                type: 'column',
+                                data: polda_mobil_bus,
+                                color: "#E8D42F"
+                            }, {
+                                name: 'ransus',
+                                type: 'column',
+                                data: polda_ransus,
+                                color: "#E8D42F"
+                            }, {
+                                name: 'sepeda motor',
+                                type: 'column',
+                                data: polda_sepeda_motor,
+                                color: "#E8D42F"
 
-							}],
+                            }],
                             chart: {
                                 height: 400,
                                 type: 'line',

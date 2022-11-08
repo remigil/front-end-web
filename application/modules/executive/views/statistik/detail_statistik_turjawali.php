@@ -598,7 +598,7 @@
                         <div class="col-md-2 text-end align-self-center">
                             <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                            <button type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;" onclick="ButtonExport()">Export Laporan</button>
+                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
                             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
                         </div>
@@ -788,38 +788,38 @@
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_pengaturan = result.data.polda_pengaturan
-						let polda_penjagaan = result.data.polda_penjagaan
-						let polda_pengawalan = result.data.polda_pengawalan
-						let polda_patroli = result.data.polda_patroli
+                        let polda_penjagaan = result.data.polda_penjagaan
+                        let polda_pengawalan = result.data.polda_pengawalan
+                        let polda_patroli = result.data.polda_patroli
 
                         var chart = {
                             series: [{
-								name: 'Total Turjawali',
-								type: 'column',
-								data: polda_jumlah,
-								color: "#11347A"
-							}, {
-								name: 'Pengaturan',
-								type: 'column',
-								data: polda_pengaturan,
-								color: "#11347A"
-							}, {
-								name: 'Penjagaan',
-								type: 'column',
-								data: polda_penjagaan,
-								color: "#CB2D3E"
-							}, {
-								name: 'Pengawalan',
-								type: 'column',
-								data: polda_pengawalan,
-								color: "#E8D42F"
-							}, {
-								name: 'Patroli',
-								type: 'column',
-								data: polda_patroli,
-								color: "#E8D42F"
+                                name: 'Total Turjawali',
+                                type: 'column',
+                                data: polda_jumlah,
+                                color: "#11347A"
+                            }, {
+                                name: 'Pengaturan',
+                                type: 'column',
+                                data: polda_pengaturan,
+                                color: "#11347A"
+                            }, {
+                                name: 'Penjagaan',
+                                type: 'column',
+                                data: polda_penjagaan,
+                                color: "#CB2D3E"
+                            }, {
+                                name: 'Pengawalan',
+                                type: 'column',
+                                data: polda_pengawalan,
+                                color: "#E8D42F"
+                            }, {
+                                name: 'Patroli',
+                                type: 'column',
+                                data: polda_patroli,
+                                color: "#E8D42F"
 
-							}],
+                            }],
                             chart: {
                                 height: 400,
                                 type: 'line',
