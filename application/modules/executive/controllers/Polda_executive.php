@@ -35,8 +35,10 @@ class Polda_executive extends MY_Controller
             'headers' => $headers
         ]);
 
-
-
+        $urlall = 'polda';
+        $getPoldaall = guzzle_request('GET', $urlall, [
+            'headers' => $headers
+        ]);
         $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id, [
             'headers' => $headers
         ]);
@@ -72,6 +74,7 @@ class Polda_executive extends MY_Controller
 
         $data = [
             'polda' => $getPolda['data']['data'],
+            'poldaall' => $getPoldaall['data']['data'],
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' => number_format($totallakalantas, 0, '', '.'),
             'motor' => number_format($totalmotor, 0, '', '.'),

@@ -212,19 +212,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group row">
-                            <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
-                            <select class="form-control" id="polda_id" name="polda_id">
-                                <!-- <?php foreach ($polda as $key) : ?>
-
-                                    <?php if ($key['id'] == $id) : ?>
-                                        <option value="<?= $key['id'] ?>" selected><?= $key['name_polda'] ?></option>
-                                    <?php else : ?>
-                                        <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?> -->
-                                <option value="<?= $poldaid['id'] ?>" selected>Polda <?= $poldaid['name_polda'] ?></option>
-
-                            </select>
+                            <div class="" id="polda_"></div>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -431,6 +419,7 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
+                    var ressPoldaall = result.poldaall
                     var ressPolda = result.polda
                     $("#overlay").fadeOut(300);
                     $('#motor').html(`<h1>${result.motor}</h1>`);
@@ -443,6 +432,15 @@
                     $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
                     $('#statistik').html(`<h4 style="text-transform: uppercase; color:#007DD8;">Statistik Polda ${ressPolda.name_polda}</h4>`);
+                    $('#polda_').html(`<label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
+                        <select class="form-control" id="polda_id" name="polda_id">
+                            <option value="${result.polda.id}">Polda ${result.polda.name_polda}</option>
+                        </select>
+                        `)
+                    $.each(ressPoldaall, (i, resp) => {
+                        $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
+                    })
+
 
 
                 }
@@ -558,9 +556,9 @@
                             bulan = 'Desember';
                         }
                         // return (
-                        // `<div class="">
+                        // ` < div class = "" >
                         //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                        // </div>`
+                        // </>`
 
                         //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
                         //         //     bulansebelumnya = '';
@@ -820,6 +818,8 @@
             let polda_id = $('#polda_id').val()
             let start_date = $('#start_date').val()
             let end_date = $('#end_date').val()
+            $("#overlay").fadeIn(300);
+
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/polda_executive/getDetailPolda_filter",
@@ -842,6 +842,7 @@
                     $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
                     $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
+                    $('#statistik').html(`<h4 style="text-transform: uppercase; color:#007DD8;">Statistik Polda ${ressPolda.name_polda}</h4>`);
 
 
                 }
