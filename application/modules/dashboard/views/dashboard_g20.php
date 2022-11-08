@@ -1680,7 +1680,11 @@
                             var corLong = parseFloat(ress[i].longitude);  
                             
                             if(ress[i].bawa_penumpang == 1 && ress[i].photo_country != '-'){
-                                iconflagVip = `<img src="${ress[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
+                                iconflagVip = `
+                                    <img src="${ress[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                    <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+                                        <span class="badge rounded-pill" style="background-color: black; color: white;">${ress[i].name_country}</span>
+                                    </div>`; 
                             }else{
                                 iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                             }
@@ -2713,7 +2717,10 @@
                 
              
                     if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
-                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
+                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                    <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+                                        <span class="badge rounded-pill" style="background-color: black; color: white;">${ress[i].name_country}</span>
+                                    </div>`;  
                     }else{
                         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                     }
@@ -3088,7 +3095,10 @@
                 
                 
                     if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
-                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">`; 
+                        iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                    <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
+                                        <span class="badge rounded-pill" style="background-color: black; color: white;">${ress[i].name_country}</span>
+                                    </div>`;  
                     }else{
                         iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                     }
