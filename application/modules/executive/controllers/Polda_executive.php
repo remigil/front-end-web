@@ -14,12 +14,14 @@ class Polda_executive extends MY_Controller
     public function index()
     {
         $id = $this->uri->segment(4);
+
         $data['polda'] = $this->M_detail_polda->get_Polda();
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $data["title"] = "Detail Polda";
         $this->load->view('executive/polda/detail_polda_view', $data);
     }
-    
+
 
     public function getDetailPolda()
     {

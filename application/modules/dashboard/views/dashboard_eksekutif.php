@@ -234,19 +234,19 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('executive/Statistik_executive/index/1'); ?>">
+                                        <a href="<?= base_url('executive/Statistik_executive/Lakalantas'); ?>">
                                             <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-                                                            <i class="bx bxs-car-crash ms-n2 mt-2 mb-2" style="font-size: 80px; color: #464646;"></i>
+                                                            <i class="bx bxs-car-crash ms-n2 mt-2 mb-2" style="font-size: 40px; color: #464646;"></i>
                                                         </div>
                                                         <div class="col-md-10 float-end">
-                                                            <span class="fs-4 float-end" style="color:#464646;">
-                                                                <span class="fw-bold">Kecelakaan </span>Lalu Lintas
+                                                            <span class="fs-6 float-end" style="color:#464646;">
+                                                                <span class="fw-bold ">Kecelakaan </span>Lalu Lintas
                                                             </span>
                                                             <br><br>
-                                                            <span class="fs-1 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+                                                            <span class="fs-4 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -259,14 +259,14 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-                                                            <iconify-icon icon="ic:round-car-crash" class="ms-n2 mt-2" style="font-size: 80px; color: #464646;"></iconify-icon>
+                                                            <iconify-icon icon="ic:round-car-crash" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
                                                         </div>
                                                         <div class="col-md-10 float-end">
-                                                            <span class="fs-4 float-end" style="color:#464646;">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
                                                                 <span class="fw-bold">Pelanggaran </span>Lalu Lintas
                                                             </span>
                                                             <br><br>
-                                                            <span class="fs-1 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+                                                            <span class="fs-4 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -279,15 +279,15 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-                                                            <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 80px; color: #464646;"></iconify-icon>
+                                                            <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
                                                             <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i> -->
                                                         </div>
                                                         <div class="col-md-10 float-end">
-                                                            <span class="fs-4 float-end" style="color:#464646;">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
                                                                 <span class="fw-bold">Turjawali</span>
                                                             </span>
                                                             <br><br>
-                                                            <span class="fs-1 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                            <span class="fs-4 fw-bold float-end" style="color:#464646;" id="sim"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -300,10 +300,10 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-                                                            <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2 mt-2" style="font-size: 61px; color: #464646;"></iconify-icon>
+                                                            <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
                                                         </div>
                                                         <div class="col-md-10 float-end">
-                                                            <span class="fs-4 float-end" style="color:#464646;">
+                                                            <span class="fs-6 float-end" style="color:#464646;">
                                                                 <span class="fw-bold">Kendaraan </span>Bermotor
                                                             </span>
                                                             <br><br>
@@ -622,10 +622,10 @@
                         success: function(result) {
                             $("#overlay").fadeOut(300);
 
-                            $('#lakalantas').html(`<span class="fs-1" >${result.lakalantas}</span >`);
-                            $('#garlantas').html(`<span class="fs-1" >${result.garlantas}</span >`);
-                            $('#motor').html(`<span class="fs-1" >${result.motor}</span>`);
-                            $('#sim').html(`<span class="fs-1" >${result.sim}</span >`);
+                            $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
+                            $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
+                            $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
+                            $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
                         }
                     })
 

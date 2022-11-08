@@ -23,6 +23,19 @@ class M_detail_polda extends CI_Model
 
         return $data['data']['data'];
     }
+    public function get_Poldaid($id)
+    {
+        $data = guzzle_request('GET', 'polda/getId/' . $id, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+        return $data['data']['data'];
+    }
 
     public function kecelakaan_nasional()
     {
@@ -41,29 +54,29 @@ class M_detail_polda extends CI_Model
 
 
         // lakalantas nasional
-		$meninggal_dunia = $lakalantasNasional['data']['jumlah']['meninggal_dunia'];
-		$luka_berat = $lakalantasNasional['data']['jumlah']['luka_berat'];
-		$luka_ringan = $lakalantasNasional['data']['jumlah']['luka_ringan'];
-		$jumlah = $lakalantasNasional['data']['jumlah']['jumlah'];
+        $meninggal_dunia = $lakalantasNasional['data']['jumlah']['meninggal_dunia'];
+        $luka_berat = $lakalantasNasional['data']['jumlah']['luka_berat'];
+        $luka_ringan = $lakalantasNasional['data']['jumlah']['luka_ringan'];
+        $jumlah = $lakalantasNasional['data']['jumlah']['jumlah'];
 
-		$dataNasional = $lakalantasNasional['data']['data'];
-		array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
-		$topPolda = array_slice($dataNasional, 0, 10);
+        $dataNasional = $lakalantasNasional['data']['data'];
+        array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
+        $topPolda = array_slice($dataNasional, 0, 10);
 
-		$poldaName = array();
-		$polda_meninggal_dunia = array();
-		$polda_luka_berat = array();
-		$polda_luka_ringan = array();
-		$polda_kerugian_material = array();
-		$polda_jumlah = array();
-		foreach ($dataNasional as $key) {
-			$poldaName[] = $key['name_polda'];
-			$polda_meninggal_dunia[] = $key['meninggal_dunia'];
-			$polda_luka_berat[] = $key['luka_berat'];
-			$polda_luka_ringan[] = $key['luka_ringan'];
-			$polda_kerugian_material[] = $key['kerugian_material'];
-			$polda_jumlah[] = $key['jumlah'];
-		}
+        $poldaName = array();
+        $polda_meninggal_dunia = array();
+        $polda_luka_berat = array();
+        $polda_luka_ringan = array();
+        $polda_kerugian_material = array();
+        $polda_jumlah = array();
+        foreach ($dataNasional as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_meninggal_dunia[] = $key['meninggal_dunia'];
+            $polda_luka_berat[] = $key['luka_berat'];
+            $polda_luka_ringan[] = $key['luka_ringan'];
+            $polda_kerugian_material[] = $key['kerugian_material'];
+            $polda_jumlah[] = $key['jumlah'];
+        }
 
         return [
             'meninggal_dunia' => $meninggal_dunia,
@@ -97,34 +110,34 @@ class M_detail_polda extends CI_Model
         ]);
 
         // lakalantas month 
-		foreach ($lakalantasMonth['data']['data'] as $field) {
-			$row = array();
-			$row['date'] = $field['date'];
-			$row['sort'] = $this->getmonth($field['date']);
-			$row['meninggal_dunia'] = $field['meninggal_dunia'];
-			$row['luka_ringan'] = $field['luka_ringan'];
-			$row['luka_berat'] = $field['luka_berat'];
-			$row['kerugian_material'] = $field['kerugian_material'];
-			$row['jumlah'] = $field['jumlah'];
+        foreach ($lakalantasMonth['data']['data'] as $field) {
+            $row = array();
+            $row['date'] = $field['date'];
+            $row['sort'] = $this->getmonth($field['date']);
+            $row['meninggal_dunia'] = $field['meninggal_dunia'];
+            $row['luka_ringan'] = $field['luka_ringan'];
+            $row['luka_berat'] = $field['luka_berat'];
+            $row['kerugian_material'] = $field['kerugian_material'];
+            $row['jumlah'] = $field['jumlah'];
 
-			$dataMonth[] = $row;
-		}
-		array_multisort(array_column($dataMonth, "sort"), SORT_ASC, $dataMonth);
+            $dataMonth[] = $row;
+        }
+        array_multisort(array_column($dataMonth, "sort"), SORT_ASC, $dataMonth);
 
-		$poldaMonth = array();
-		$month_meninggal_dunia = array();
-		$month_luka_berat = array();
-		$month_luka_ringan = array();
-		$month_kerugian_material = array();
-		$month_jumlah = array();
-		foreach ($dataMonth as $key) {
-			$poldaMonth[] = $key['date'];
-			$month_meninggal_dunia[] = $key['meninggal_dunia'];
-			$month_luka_berat[] = $key['luka_berat'];
-			$month_luka_ringan[] = $key['luka_ringan'];
-			$month_kerugian_material[] = $key['kerugian_material'];
-			$month_jumlah[] = $key['jumlah'];
-		}
+        $poldaMonth = array();
+        $month_meninggal_dunia = array();
+        $month_luka_berat = array();
+        $month_luka_ringan = array();
+        $month_kerugian_material = array();
+        $month_jumlah = array();
+        foreach ($dataMonth as $key) {
+            $poldaMonth[] = $key['date'];
+            $month_meninggal_dunia[] = $key['meninggal_dunia'];
+            $month_luka_berat[] = $key['luka_berat'];
+            $month_luka_ringan[] = $key['luka_ringan'];
+            $month_kerugian_material[] = $key['kerugian_material'];
+            $month_jumlah[] = $key['jumlah'];
+        }
 
 
         return [

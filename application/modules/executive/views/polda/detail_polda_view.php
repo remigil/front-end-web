@@ -214,13 +214,16 @@
                         <div class="form-group row">
                             <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
                             <select class="form-control" id="polda_id" name="polda_id">
-                                <?php foreach ($polda as $key) : ?>
+                                <!-- <?php foreach ($polda as $key) : ?>
+
                                     <?php if ($key['id'] == $id) : ?>
                                         <option value="<?= $key['id'] ?>" selected><?= $key['name_polda'] ?></option>
                                     <?php else : ?>
                                         <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
                                     <?php endif; ?>
-                                <?php endforeach; ?>
+                                <?php endforeach; ?> -->
+                                <option value="<?= $poldaid['id'] ?>" selected>Polda <?= $poldaid['name_polda'] ?></option>
+
                             </select>
                         </div>
                     </div>
@@ -251,9 +254,6 @@
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="container-fluid">
-
-
-
                     <div class="row mt-5">
                         <div class="col-md-1 d-flex">
                             <div id="logo"></div>
@@ -271,7 +271,7 @@
 
                         <div class="col-md-12 mt-5">
                             <div class="row justify-content-between align-items-center">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div id="statistik"></div>
                                 </div>
                                 <div class="col-md-3">
