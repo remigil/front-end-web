@@ -274,7 +274,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-3">
-										<a href="<?= base_url('executive/Statistik_executive/Turjawali'); ?>">
+                                        <a href="<?= base_url('executive/Statistik_executive/Turjawali'); ?>">
                                             <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                                 <div class="card-body">
                                                     <div class="row">
@@ -295,7 +295,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-3">
-										<a href="<?= base_url('executive/Statistik_executive/Ranmor'); ?>">
+                                        <a href="<?= base_url('executive/Statistik_executive/Ranmor'); ?>">
                                             <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                                 <div class="card-body">
                                                     <div class="row">
@@ -328,13 +328,13 @@
 
                                     <!-- <div class="d-flex justify-content-between"> -->
                                     <div class="col-md-2">
-                                        <a href="<?= base_url('executive/Satker_executive/index/1'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/ditgakkum'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="<?= base_url('executive/Satker_executive/index/2'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/ditregident'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditregident</button></a>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="<?= base_url('executive/Satker_executive/index/3'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/ditkamsel'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
                                     </div>
                                     <div class="col-md-2">
                                         <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
