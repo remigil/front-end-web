@@ -86,40 +86,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
-        /* .animateLine {
-            stroke-dasharray: 10;
-            animation: dash linear infinite;
-            animation-duration: 15.5833s;
-        }
-
-        .animateRoute {
-            stroke-dasharray: 10;
-            stroke-dashoffset: 1920;
-            animation: dash linear infinite;
-            animation-duration: 20.5833s;
-        }
-
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 1000;
-            }
-        }
-
-        .leaflet-retina .leaflet-control-layers-toggle {
-            background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
-            background-size: 36px 36px;
-        }
-
-        #mapG20Dashboard {
-            height: 900px;
-            width: 100%
-        }
-
-        #mapG20Troublespot {
-            height: 500px;
-            width: 100%
-        }
-
         #overlay {
             position: fixed;
             top: 0;
@@ -156,6 +122,42 @@
         .is-hide {
             display: none;
         }
+
+        /* .animateLine {
+            stroke-dasharray: 10;
+            animation: dash linear infinite;
+            animation-duration: 15.5833s;
+        }
+
+        .animateRoute {
+            stroke-dasharray: 10;
+            stroke-dashoffset: 1920;
+            animation: dash linear infinite;
+            animation-duration: 20.5833s;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 1000;
+            }
+        }
+
+        .leaflet-retina .leaflet-control-layers-toggle {
+            background-image: url("<?php echo base_url(); ?>assets/map_layer.png");
+            background-size: 36px 36px;
+        }
+
+        #mapG20Dashboard {
+            height: 900px;
+            width: 100%
+        }
+
+        #mapG20Troublespot {
+            height: 500px;
+            width: 100%
+        }
+
+        
 
 
         .switch {
@@ -593,58 +595,35 @@
                 </div>
             </div>
     </header>
-    <div class="filter mt-5 p-3" style=" height:125px;">
+    <div class="filter mt-5" style=" height:125px;">
         <div class="container">
-
             <form action="" method="post" id="form_filter">
                 <div class="row mt-5">
-                    <div class="col-md-3">
-                        <div class="form-group row">
-                            <label for="waktu" class="form-label">Wilayah</label>
-                            <select class="form-control" id="polda_id" name="polda_id">
-                                <option value="">---Pilih Polda---</option>
-                                <?php foreach ($polda as $key) : ?>
-                                    <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <label for="waktu" class="form-label">Waktu</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input class="form-control" type="date" name="start_date" id="waktu">
-
+                                <input class="form-control" type="date" name="start_date" id="start_date">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="date" name="end_date" id="waktu">
-
+                                <input class="form-control" type="date" name="end_date" id="end_date">
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-primary" style="width: 100%;">Tampilkan</button>
-
+                                <button type="button" class="btn btn-primary float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                             </div>
-                            <div class="col-md-2">
-                                <a href="#" class="text-center"><button class="btn btn-outline-primary" style="border-color:#007DD8;">Export Laporan</button></a>
-
+                            <div class=" col-md-2">
+                                <a href="#" class="text-center float-end"><button class="btn btn-outline-primary" style="border-color:#007DD8;">Export Laporan</button></a>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </form>
-
         </div>
     </div>
     <div class="container-fluid mt-5">
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="container-fluid">
-
-
-
                     <?php if ($id == 1) { ?>
                         <section class="shadow-sm mt-5">
                             <div class="row">
@@ -655,14 +634,15 @@
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chart" style="width: 100vw"></div>
+                                                <div id="charta">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        <section class="shadow-sm mt-5">
+                        <!-- <section class="shadow-sm mt-5">
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card">
@@ -679,9 +659,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
                     <?php } else { ?>
-                        <section class="shadow-sm mt-5">
+                        <!-- <section class="shadow-sm mt-5">
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card">
@@ -696,7 +676,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
                     <?php } ?>
 
 
@@ -717,212 +697,142 @@
     <script>
         $(document).ready(function() {
             let id = '<?= $id ?>'
+            let filter = 0
 
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistik",
                 data: {
-                    id: id
+                    id: id,
+                    filter: filter,
                 },
+
+
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
+                    $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
 
                     if (id == 1) {
-                      let polda_name = result.data.polda_name
+                        let polda_name = result.data.polda_name
+                        let polda_jumlah = result.data.polda_jumlah
+                        let polda_luka_berat = result.data.polda_luka_berat
+                        let polda_luka_ringan = result.data.polda_luka_ringan
+                        let polda_meninggal_dunia = result.data.polda_meninggal_dunia
+                        // Chart Kecelakaan Lalu Lintas
+
+
+                        // chart laka
+                        var chart = {
+                            series: [{
+                                name: 'Total Laka',
+                                type: 'column',
+                                data: polda_jumlah,
+                                color: "#11347A"
+                            }, {
+                                name: 'Meninggal Dunia',
+                                type: 'column',
+                                data: polda_meninggal_dunia,
+                                color: "#11347A"
+                            }, {
+                                name: 'Luka Berat',
+                                type: 'column',
+                                data: polda_luka_berat,
+                                color: "#CB2D3E"
+                            }, {
+                                name: 'Luka Ringan',
+                                type: 'column',
+                                data: polda_luka_ringan,
+                                color: "#E8D42F"
+
+                            }],
+                            chart: {
+                                height: 400,
+                                type: 'line',
+                                stacked: false
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded',
+                                    dataLabels: {
+                                        position: 'top'
+                                    }
+                                },
+                            },
+                            dataLabels: {
+                                enabled: true,
+                                style: {
+                                    colors: ['#333']
+                                },
+                                offsetY: -15
+                            },
+
+                            stroke: {
+                                show: true,
+                                width: [1, 1, 4, 4],
+                                colors: ['transparent']
+                            },
+                            xaxis: {
+                                categories: polda_name,
+                            },
+                            yaxis: [{
+                                axisTicks: {
+                                    show: false,
+                                },
+                                axisBorder: {
+                                    show: false,
+                                    color: '#008FFB'
+                                },
+                                labels: {
+                                    style: {
+                                        colors: '#008FFB',
+                                    }
+                                },
+
+
+                            }, ],
+
+                            tooltip: {
+                                // custom: function({
+                                //     series,
+                                //     seriesIndex,
+                                //     dataPointIndex,
+                                //     w
+                                // }) {
+                                //     return (
+                                //         `<div class="">
+                                //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                                //         </div>`
+
+
+                                // '<div class="">' +
+                                // "<span>" +
+                                // w.globals.labels[dataPointIndex] +
+                                // ": " +
+                                // series[seriesIndex][dataPointIndex] +
+                                // "</span>" +
+                                // "</div>"
+                                //         );
+                                //     }
+                            }
+                        };
+
+
+                        var chart = new ApexCharts(document.querySelector("#chart"), chart);
+                        chart.render();
+
+                        // chart kerugian material
                     }
                 }
             })
 
-            // Chart Kecelakaan Lalu Lintas
-            if (id == 1) {
-
-                // chart laka
-                var chart = {
-                    series: [{
-                        name: 'Meninggal Dunia',
-                        type: 'column',
-                        data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                        color: "#11347A"
-                    }, {
-                        name: 'Luka Berat',
-                        type: 'column',
-                        data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                        color: "#CB2D3E"
-                    }, {
-                        name: 'Luka Ringan',
-                        type: 'column',
-                        data: [
-                            62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                        ],
-                        color: "#E8D42F"
-
-                    }],
-                    chart: {
-                        height: 400,
-                        type: 'line',
-                        stacked: false
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: false,
-                            columnWidth: '55%',
-                            endingShape: 'rounded',
-                            dataLabels: {
-                                position: 'top'
-                            }
-                        },
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            colors: ['#333']
-                        },
-                        offsetY: -15
-                    },
-
-                    stroke: {
-                        show: true,
-                        width: [1, 1, 4, 4],
-                        colors: ['transparent']
-                    },
-                    xaxis: {
-                        categories: polda_name,
-                    },
-                    yaxis: [{
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                            color: '#008FFB'
-                        },
-                        labels: {
-                            style: {
-                                colors: '#008FFB',
-                            }
-                        },
 
 
-                    }, ],
-
-                    tooltip: {
-                        // custom: function({
-                        //     series,
-                        //     seriesIndex,
-                        //     dataPointIndex,
-                        //     w
-                        // }) {
-                        //     return (
-                        //         `<div class="">
-                        //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                        //         </div>`
-
-
-                        // '<div class="">' +
-                        // "<span>" +
-                        // w.globals.labels[dataPointIndex] +
-                        // ": " +
-                        // series[seriesIndex][dataPointIndex] +
-                        // "</span>" +
-                        // "</div>"
-                        //         );
-                        //     }
-                    }
-                };
-
-
-                var chart = new ApexCharts(document.querySelector("#chart"), chart);
-                chart.render();
-
-                // chart kerugian material
-                var chart2 = {
-                    series: [{
-                        name: 'Kerugian Material',
-                        type: 'column',
-                        data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                        color: "#11347A"
-
-                    }],
-                    chart: {
-                        height: 400,
-                        type: 'bar',
-                        stacked: false
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: false,
-                            columnWidth: '55%',
-                            endingShape: 'rounded',
-                            dataLabels: {
-                                position: 'top'
-                            }
-                        },
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            colors: ['#333']
-                        },
-                        offsetY: -15
-                    },
-
-                    stroke: {
-                        show: true,
-                        width: [1, 1, 4, 4],
-                        colors: ['transparent']
-                    },
-                    xaxis: {
-                        categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                    },
-                    yaxis: [{
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                            color: '#008FFB'
-                        },
-                        labels: {
-                            style: {
-                                colors: '#008FFB',
-                            }
-                        },
-
-
-                    }, ],
-
-                    tooltip: {
-                        // custom: function({
-                        //     series,
-                        //     seriesIndex,
-                        //     dataPointIndex,
-                        //     w
-                        // }) {
-                        //     return (
-                        //         `<div class="">
-                        //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                        //         </div>`
-
-
-                        // '<div class="">' +
-                        // "<span>" +
-                        // w.globals.labels[dataPointIndex] +
-                        // ": " +
-                        // series[seriesIndex][dataPointIndex] +
-                        // "</span>" +
-                        // "</div>"
-                        //         );
-                        //     }
-                    }
-                };
-
-
-                var chart2 = new ApexCharts(document.querySelector("#chart2"), chart2);
-                chart2.render();
+            if (condition) {
 
 
                 // Chart Pelanggaran Lalu Lintas
@@ -1191,33 +1101,7 @@
                                 colors: '#008FFB',
                             }
                         },
-
-
                     }, ],
-
-                    tooltip: {
-                        // custom: function({
-                        //     series,
-                        //     seriesIndex,
-                        //     dataPointIndex,
-                        //     w
-                        // }) {
-                        //     return (
-                        //         `<div class="">
-                        //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                        //         </div>`
-
-
-                        // '<div class="">' +
-                        // "<span>" +
-                        // w.globals.labels[dataPointIndex] +
-                        // ": " +
-                        // series[seriesIndex][dataPointIndex] +
-                        // "</span>" +
-                        // "</div>"
-                        //         );
-                        //     }
-                    }
                 };
 
 
@@ -1226,6 +1110,131 @@
             }
 
         })
+
+        function ButtonFilter() {
+            let id = '<?= $id ?>'
+            let filter = 1;
+            let start_date = $('#start_date').val()
+            let end_date = $('#end_date').val()
+            if ((start_date != '' && end_date == '') || (start_date == '' && end_date != '')) {
+                console.log('keduanya harus terisi');
+            } else if (start_date > end_date) {
+                console.log('Waktu mulai tidak boleh lebih dari waktu akhihr');
+            } else if (start_date == '' && end_date == '') {
+                console.log('Filter kosong');
+            } else {
+
+
+                $("#overlay").fadeIn(300);
+                $("#chart").remove();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistik",
+                    data: {
+                        id: id,
+                        filter: filter,
+                        start_date: start_date,
+                        end_date: end_date,
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
+                        console.log(result)
+                        $("#overlay").fadeOut(300);
+                        $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
+                        $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+
+                        if (id == 1) {
+                            let polda_name = result.data.polda_name
+                            let polda_jumlah = result.data.polda_jumlah
+                            let polda_luka_berat = result.data.polda_luka_berat
+                            let polda_luka_ringan = result.data.polda_luka_ringan
+                            let polda_meninggal_dunia = result.data.polda_meninggal_dunia
+                            // Chart Kecelakaan Lalu Lintas
+
+
+                            // chart laka
+                            var chart = {
+                                series: [{
+                                    name: 'Total Laka',
+                                    type: 'column',
+                                    data: polda_jumlah,
+                                    color: "#11347A"
+                                }, {
+                                    name: 'Meninggal Dunia',
+                                    type: 'column',
+                                    data: polda_meninggal_dunia,
+                                    color: "#11347A"
+                                }, {
+                                    name: 'Luka Berat',
+                                    type: 'column',
+                                    data: polda_luka_berat,
+                                    color: "#CB2D3E"
+                                }, {
+                                    name: 'Luka Ringan',
+                                    type: 'column',
+                                    data: polda_luka_ringan,
+                                    color: "#E8D42F"
+
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+
+                                stroke: {
+                                    show: true,
+                                    width: [1, 1, 4, 4],
+                                    colors: ['transparent']
+                                },
+                                xaxis: {
+                                    categories: polda_name,
+                                },
+                                yaxis: [{
+                                    axisTicks: {
+                                        show: false,
+                                    },
+                                    axisBorder: {
+                                        show: false,
+                                        color: '#008FFB'
+                                    },
+                                    labels: {
+                                        style: {
+                                            colors: '#008FFB',
+                                        }
+                                    },
+
+
+                                }, ],
+
+                            };
+
+
+                            var chart = new ApexCharts(document.querySelector("#chart"), chart);
+                            chart.render();
+
+                        }
+                    }
+                })
+            }
+        }
     </script>
 
     <!-- choices js -->

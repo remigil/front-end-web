@@ -124,9 +124,15 @@ class Polres extends MY_Controller
         $getDetail = guzzle_request('GET', 'polres/getId/' . $id . '', [
             'headers' => $headers
         ]);
-        $data['getDetail'] = $getDetail['data']['data'];
+		$getPolda = guzzle_request('GET', 'polda', [
+            'headers' => $headers
+        ]);
+        $data=[
+			'getDetail' => $getDetail['data']['data'],
+			'getPolda' => $getPolda['data']['data']
+		];
 
-        echo json_encode($data['getDetail']);
+        echo json_encode($data);
     }
 
 	public function hapusPolres()

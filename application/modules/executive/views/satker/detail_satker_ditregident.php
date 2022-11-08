@@ -207,51 +207,53 @@
     </header>
     <div class="filter p-3 mt-5" style="background-color: #2E2E2E; height:125px;">
         <div class="container">
-
-            <form action="" id="form_filter" class="p-3">
-                <div class="row">
-                    <div class="col-md-3">
+            <div class="row">
+                <!-- <div class="col-md-3">
                         <div class="form-group row">
-                            <div class="" id="polda_"></div>
+                            <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
+                            <select class="form-control" id="polda_id" name="polda_id">
+                                <?php foreach ($polda as $key) : ?>
+                                    <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div> -->
+                <div class="col-md-9">
+                    <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input class="form-control" type="date" name="start_date" id="start_date">
+
+                        </div>
+                        <div class="col-md-5">
+                            <input class="form-control" type="date" name="end_date" id="end_date">
+
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <input class="form-control" type="date" name="start_date" id="start_date">
-
-                            </div>
-                            <div class="col-md-5">
-                                <input class="form-control" type="date" name="end_date" id="end_date">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-primary" type="submit" id="btn_filter" style="width: 100%;">Tampilkan</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-
                 </div>
-            </form>
-
+            </div>
         </div>
     </div>
     <div class="container-fluid mt-5">
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="container-fluid">
+
+
+
                     <div class="row mt-5">
-                        <div class="col-md-1 d-flex">
-                            <div id="logo"></div>
-                        </div>
-                        <div class="col-md-7 align-self-center">
-                            <div id="nama"></div>
+
+                        <div class="col-md-9 align-self-center">
+                            <div id="nama">
+                                <h1 style="color:#007DD8 ; text-transform:uppercase;">Ditregident</h1>
+                            </div>
                             <p>Today is <?= date('l, j F Y') ?></p>
                         </div>
                         <div class="col-md-3 text-end align-self-center">
-                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar?polda_id=<?= $id ?>" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
                         </div>
                     </div>
 
@@ -259,8 +261,8 @@
 
                         <div class="col-md-12 mt-5">
                             <div class="row justify-content-between align-items-center">
-                                <div class="col-md-12 mb-3">
-                                    <div id="statistik"></div>
+                                <div class="col-md-4 mb-3">
+                                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
                                 </div>
                                 <div class="col-md-3">
                                     <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
@@ -273,14 +275,14 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
+													<i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Kecelakaan </span>Lalu Lintas
+                                                        <span class="fw-bold">BPKB </span>
                                                     </span>
                                                     <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="bpkb"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,14 +295,14 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
+													<i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Pelanggaran </span>Lalu Lintas
+                                                        <span class="fw-bold">STNK </span>
                                                     </span>
                                                     <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="stnk"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,34 +315,35 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+													<i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Kendaraan </span>Bermotor
-                                                    </span>
-                                                    <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-2">
-                                                    <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                                </div>
-                                                <div class="col-md-10 float-end">
-                                                    <span class="fs-6 float-end" style="color:#464646;">
-                                                        Jumlah <span class="fw-bold">SIM Nasional</span>
+                                                        <span class="fw-bold">SIM </span>
                                                     </span>
                                                     <br>
                                                     <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                        <div class="card-body">
+                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                <div class="col-md-2">
+													<iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                                    <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i> -->
+                                                </div>
+                                                <div class="col-md-10 float-end">
+                                                    <span class="fs-6 float-end" style="color:#464646;">
+                                                        <span class="fw-bold">RANMOR</span>
+                                                    </span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="ranmor"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -352,56 +355,23 @@
                         <!-- end statistik -->
                     </div>
 
-
                     <section class="shadow-sm mt-5">
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div id="namaditgakkum"></div>
+                                        <div id="title"></div>
                                     </div>
                                     <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                         <div class="main-chart">
-                                            <div id="chartditgakkum" style="width: 100vw"></div>
+                                            <div id="charta">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="shadow-sm mt-5">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div id="namaditkamsel"></div>
-                                    </div>
-                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                        <div class="main-chart">
-                                            <div id="chartditkamsel" style="width: 100vw"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="shadow-sm mt-5">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div id="namaditregident"></div>
-                                    </div>
-                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                        <div class="main-chart">
-                                            <div id="chartditregident" style="width: 100vw"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
 
                 </div>
             </div>
@@ -409,445 +379,469 @@
     </div>
     <script>
         $(document).ready(function() {
-            let id = '<?= $id ?>'
             $("#overlay").fadeIn(300);
             $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>executive/polda_executive/getDetailPolda",
-                data: {
-                    id: id
-                },
+                type: "GET",
+                url: "<?php echo base_url(); ?>executive/Satker_executive/getDitregident",
                 dataType: "JSON",
                 success: function(result) {
-                    var ressPoldaall = result.poldaall
-                    var ressPolda = result.polda
+                    console.log(result)
+                    $('#bpkb').html(`<span class="fs-4" >${result.data.total_bpkb}</span >`);
+                    $('#stnk').html(`<span class="fs-4" >${result.data.total_stnk}</span >`);
+                    $('#sim').html(`<span class="fs-4" >${result.data.total_sim}</span >`);
+                    $('#ranmor').html(`<span class="fs-4" >${result.data.total_ranmor}</span >`);
+                    $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
                     $("#overlay").fadeOut(300);
-                    $('#motor').html(`<h1>${result.motor}</h1>`);
-                    $('#sim').html(`<h1>${result.sim}</h1>`);
-                    $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
-                    $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
-                    $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
-                    $('#nama').html(`<h1 style="color:#007DD8 ; text-transform:uppercase;">Polda ${ressPolda.name_polda}</h1>`);
-                    $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
-                    $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
-                    $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
-                    $('#statistik').html(`<h4 style="text-transform: uppercase; color:#007DD8;">Statistik Polda ${ressPolda.name_polda}</h4>`);
-                    $('#polda_').html(`<label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
-                        <select class="form-control" id="polda_id" name="polda_id">
-                            <option value="${result.polda.id}">Polda ${result.polda.name_polda}</option>
-                        </select>
-                        `)
-                    $.each(ressPoldaall, (i, resp) => {
-                        $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
-                    })
+                    var ditregident = {
+                        series: [{
+                            name: 'BPKB',
+                            type: 'column',
+                            data: result.data.polda_bpkb,
+                            color: "#11347A"
+                        }, {
+                            name: 'STNK',
+                            type: 'column',
+                            data: result.data.polda_stnk,
+                            color: "#CB2D3E"
+                        }, {
+                            name: 'SIM',
+                            type: 'column',
+                            data: result.data.polda_ranmor,
+                            color: "#E8D42F"
+                        }, {
+                            name: 'RANMOR',
+                            type: 'column',
+                            data: result.data.polda_sim,
+                            color: "#3CA55C"
+                        }],
+                        chart: {
+                            height: 400,
+                            type: 'line',
+                            stacked: false
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                colors: ['#333']
+                            },
+                            offsetY: -15
+                        },
+
+                        stroke: {
+                            show: true,
+                            width: [1, 1, 4, 4],
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: result.data.polda_name,
+                        },
+                        yaxis: [{
+                            axisTicks: {
+                                show: false,
+                            },
+                            axisBorder: {
+                                show: false,
+                                color: '#008FFB'
+                            },
+                            labels: {
+                                style: {
+                                    colors: '#008FFB',
+                                }
+                            },
 
 
+                        }, ],
 
+                        tooltip: {
+                            // custom: function({
+                            //     series,
+                            //     seriesIndex,
+                            //     dataPointIndex,
+                            //     w
+                            // }) {
+                            //     return (
+                            //         `<div class="">
+                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                            //         </div>`
+
+
+                            // '<div class="">' +
+                            // "<span>" +
+                            // w.globals.labels[dataPointIndex] +
+                            // ": " +
+                            // series[seriesIndex][dataPointIndex] +
+                            // "</span>" +
+                            // "</div>"
+                            //         );
+                            //     }
+                        }
+                    };
+
+                    var ditregident = new ApexCharts(document.querySelector("#chart"), ditregident);
+                    ditregident.render();
                 }
             })
 
-            var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-
-            var ditregident = {
-                series: [{
-                    name: 'BPKB',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'STNK',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                }, {
-                    name: 'SIM',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }, {
-                    name: 'RANMOR',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-                    color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: bulan,
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    // labels: {
-                    //     style: {
-                    //         colors: '#008FFB',
-                    //     }
-                    // },
 
 
-                }, ],
+            // var ditregident = {
+            //     series: [{
+            //         name: 'BPKB',
+            //         type: 'column',
+            //         data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+            //         color: "#11347A"
+            //     }, {
+            //         name: 'STNK',
+            //         type: 'column',
+            //         data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+            //         color: "#CB2D3E"
+            //     }, {
+            //         name: 'SIM',
+            //         type: 'column',
+            //         data: [
+            //             62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+            //         ],
+            //         color: "#E8D42F"
+            //     }, {
+            //         name: 'RANMOR',
+            //         type: 'column',
+            //         data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
-                tooltip: {
-                    custom: function({
-                        series,
-                        seriesIndex,
-                        dataPointIndex,
-                        seriesName,
-                        w
-                    }) {
-                        var bulan;
-                        if (w.globals.labels[dataPointIndex] == 1) {
-                            bulan = 'Januari';
-                        } else if (w.globals.labels[dataPointIndex] == 2) {
-                            bulan = 'Februari';
-                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                            bulan = 'Maret';
-                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                            bulan = 'April';
-                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                            bulan = 'Mei';
-                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                            bulan = 'Juni';
-                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                            bulan = 'Juli';
-                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                            bulan = 'Agustus';
-                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                            bulan = 'September';
-                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                            bulan = 'Oktober';
-                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                            bulan = 'November';
-                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                            bulan = 'Desember';
-                        }
-                        // return (
-                        // ` < div class = "" >
-                        //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                        // </>`
+            //         color: "#3CA55C"
+            //     }],
+            //     chart: {
+            //         height: 400,
+            //         type: 'line',
+            //         stacked: false
+            //     },
+            //     plotOptions: {
+            //         bar: {
+            //             horizontal: false,
+            //             columnWidth: '55%',
+            //             endingShape: 'rounded',
+            //             dataLabels: {
+            //                 position: 'top'
+            //             }
+            //         },
+            //     },
+            //     dataLabels: {
+            //         enabled: true,
+            //         style: {
+            //             colors: ['#333']
+            //         },
+            //         offsetY: -15
+            //     },
 
-                        //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
-                        //         //     bulansebelumnya = '';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
-                        //         //     bulansebelumnya = 'Februari';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
-                        //         //     bulansebelumnya = 'Maret';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
-                        //         //     bulansebelumnya = 'April';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
-                        //         //     bulansebelumnya = 'Mei';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
-                        //         //     bulansebelumnya = 'Juni';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
-                        //         //     bulansebelumnya = 'Juli';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
-                        //         //     bulansebelumnya = 'Agustus';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
-                        //         //     bulansebelumnya = 'September';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
-                        //         //     bulansebelumnya = 'Oktober';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
-                        //         //     bulansebelumnya = 'November';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
-                        //         //     bulansebelumnya = 'Desember';
-                        //         // }
-                        //         return (
-
-                        //             // `<div class="">
-                        //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                        //             // </div>`
-
-                    }
-                }
-            }
-
-            // <span>
-            //                     ${bulan[dataPointIndex]}
-            //                     : 
-            //                     ${series[seriesIndex][dataPointIndex]}
-            //                     </span>
-
-            //                     </br> 
-            //                     </br>
-            var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
-            ditregident.render();
+            //     stroke: {
+            //         show: true,
+            //         width: [1, 1, 4, 4],
+            //         colors: ['transparent']
+            //     },
+            //     xaxis: {
+            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+            //     },
+            //     yaxis: [{
+            //         axisTicks: {
+            //             show: false,
+            //         },
+            //         axisBorder: {
+            //             show: false,
+            //             color: '#008FFB'
+            //         },
+            //         labels: {
+            //             style: {
+            //                 colors: '#008FFB',
+            //             }
+            //         },
 
 
-            var ditgakkum = {
-                series: [{
-                    name: 'Garlantas',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'Lakalantas',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                }, {
-                    name: 'Turjagwali',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }, {
-                    name: 'Lakalanggar',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+            //     }, ],
 
-                    color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
+            //     tooltip: {
+            //         // custom: function({
+            //         //     series,
+            //         //     seriesIndex,
+            //         //     dataPointIndex,
+            //         //     w
+            //         // }) {
+            //         //     return (
+            //         //         `<div class="">
+            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
+            //         //         </div>`
 
 
-                }, ],
+            //         // '<div class="">' +
+            //         // "<span>" +
+            //         // w.globals.labels[dataPointIndex] +
+            //         // ": " +
+            //         // series[seriesIndex][dataPointIndex] +
+            //         // "</span>" +
+            //         // "</div>"
+            //         //         );
+            //         //     }
+            //     }
+            // };
 
-                tooltip: {
-                    // custom: function({
-                    //     series,
-                    //     seriesIndex,
-                    //     dataPointIndex,
-                    //     w
-                    // }) {
-                    //     return (
-                    //         `<div class="">
-                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                    //         </div>`
+            // var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
+            // ditregident.render();
 
+            // var ditkamsel = {
+            //     series: [{
+            //         name: 'BPKB',
+            //         type: 'column',
+            //         data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
+            //         color: "#11347A"
+            //     }, {
+            //         name: 'STNK',
+            //         type: 'column',
+            //         data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
+            //         color: "#CB2D3E"
+            //     }, {
+            //         name: 'SIM',
+            //         type: 'column',
+            //         data: [
+            //             62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+            //         ],
+            //         color: "#E8D42F"
+            //     }, {
+            //         name: 'RANMOR',
+            //         type: 'column',
+            //         data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
-                    // '<div class="">' +
-                    // "<span>" +
-                    // w.globals.labels[dataPointIndex] +
-                    // ": " +
-                    // series[seriesIndex][dataPointIndex] +
-                    // "</span>" +
-                    // "</div>"
-                    //         );
-                    //     }
-                }
-            };
+            //         color: "#3CA55C"
+            //     }],
+            //     chart: {
+            //         height: 400,
+            //         type: 'line',
+            //         stacked: false
+            //     },
+            //     plotOptions: {
+            //         bar: {
+            //             horizontal: false,
+            //             columnWidth: '55%',
+            //             endingShape: 'rounded',
+            //             dataLabels: {
+            //                 position: 'top'
+            //             }
+            //         },
+            //     },
+            //     dataLabels: {
+            //         enabled: true,
+            //         style: {
+            //             colors: ['#333']
+            //         },
+            //         offsetY: -15
+            //     },
 
-            var ditgakkum = new ApexCharts(document.querySelector("#chartditgakkum"), ditgakkum);
-            ditgakkum.render();
-
-            var ditkamsel = {
-                series: [{
-                    name: 'Garlantas',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'Penyebaran/Pemasangan',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                    // }, {
-                    //     name: 'SIM',
-                    //     type: 'column',
-                    //     data: [
-                    //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    //     ],
-                    //     color: "#E8D42F"
-                    // }, {
-                    //     name: 'RANMOR',
-                    //     type: 'column',
-                    //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-                    //     color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
+            //     stroke: {
+            //         show: true,
+            //         width: [1, 1, 4, 4],
+            //         colors: ['transparent']
+            //     },
+            //     xaxis: {
+            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+            //     },
+            //     yaxis: [{
+            //         axisTicks: {
+            //             show: false,
+            //         },
+            //         axisBorder: {
+            //             show: false,
+            //             color: '#008FFB'
+            //         },
+            //         labels: {
+            //             style: {
+            //                 colors: '#008FFB',
+            //             }
+            //         },
 
 
-                }, ],
+            //     }, ],
 
-                tooltip: {
-                    // custom: function({
-                    //     series,
-                    //     seriesIndex,
-                    //     dataPointIndex,
-                    //     w
-                    // }) {
-                    //     return (
-                    //         `<div class="">
-                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                    //         </div>`
+            //     tooltip: {
+            //         // custom: function({
+            //         //     series,
+            //         //     seriesIndex,
+            //         //     dataPointIndex,
+            //         //     w
+            //         // }) {
+            //         //     return (
+            //         //         `<div class="">
+            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
+            //         //         </div>`
 
 
-                    // '<div class="">' +
-                    // "<span>" +
-                    // w.globals.labels[dataPointIndex] +
-                    // ": " +
-                    // series[seriesIndex][dataPointIndex] +
-                    // "</span>" +
-                    // "</div>"
-                    //         );
-                    //     }
-                }
-            };
+            //         // '<div class="">' +
+            //         // "<span>" +
+            //         // w.globals.labels[dataPointIndex] +
+            //         // ": " +
+            //         // series[seriesIndex][dataPointIndex] +
+            //         // "</span>" +
+            //         // "</div>"
+            //         //         );
+            //         //     }
+            //     }
+            // };
 
-            var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
-            ditkamsel.render();
+            // var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
+            // ditkamsel.render();
 
 
         })
 
-
-        $('#btn_filter').on('click', function(e) {
-            e.preventDefault();
-            let polda_id = $('#polda_id').val()
+        function ButtonFilter() {
+            let filter = 1;
             let start_date = $('#start_date').val()
             let end_date = $('#end_date').val()
-            $("#overlay").fadeIn(300);
+            if ((start_date != '' && end_date == '') || (start_date == '' && end_date != '')) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Waktu mulai dan waktu akhir harus terisi!',
+                })
+            } else if (start_date > end_date) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Waktu mulai tidak boleh melewati waktu akhir!',
+                })
+            } else if (start_date == '' && end_date == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Waktu mulai dan waktu akhir belum terisi!',
+                })
+            } else {
+                $("#overlay").fadeIn(300);
+                $("#chart").remove();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>executive/Satker_executive/getDitregident",
+                    data: {
+                        filter: filter,
+                        start_date: start_date,
+                        end_date: end_date,
+                    },
+                    dataType: "JSON",
+                    success: function(result) {
+                        console.log(result)
+                        $("#overlay").fadeOut(300);
+                        $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
+                        $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                        $('#bpkb').html(`<span class="fs-4" >${result.data.total_bpkb}</span >`);
+						$('#stnk').html(`<span class="fs-4" >${result.data.total_stnk}</span >`);
+						$('#sim').html(`<span class="fs-4" >${result.data.total_sim}</span >`);
+						$('#ranmor').html(`<span class="fs-4" >${result.data.total_ranmor}</span >`);
 
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>executive/polda_executive/getDetailPolda_filter",
-                data: {
-                    id: polda_id,
-                    start_date: start_date,
-                    end_date: end_date
-                },
-                dataType: "JSON",
-                success: function(result) {
-                    var ressPolda = result.polda
-                    $("#overlay").fadeOut(300);
-                    $('#motor').html(`<h1>${result.motor}</h1>`);
-                    $('#sim').html(`<h1>${result.sim}</h1>`);
-                    $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
-                    $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
-                    $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
-                    $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?polda_id=${polda_id}`)
-                    $('#nama').html(`<h1 style="color:#007DD8 ; text-transform:uppercase;">Polda ${ressPolda.name_polda}</h1>`);
-                    $('#namaditgakkum').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditgakkum Polda ${ressPolda.name_polda}</h4>`);
-                    $('#namaditkamsel').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditkamsel Polda ${ressPolda.name_polda}</h4>`);
-                    $('#namaditregident').html(`<h4 class="card-title mb-0 text-uppercase">Data Ditregident Polda ${ressPolda.name_polda}</h4>`);
-                    $('#statistik').html(`<h4 style="text-transform: uppercase; color:#007DD8;">Statistik Polda ${ressPolda.name_polda}</h4>`);
+                        var ditregident = {
+                            series: [{
+								name: 'BPKB',
+								type: 'column',
+								data: result.data.polda_bpkb,
+								color: "#11347A"
+							}, {
+								name: 'STNK',
+								type: 'column',
+								data: result.data.polda_stnk,
+								color: "#CB2D3E"
+							}, {
+								name: 'SIM',
+								type: 'column',
+								data: result.data.polda_ranmor,
+								color: "#E8D42F"
+							}, {
+								name: 'RANMOR',
+								type: 'column',
+								data: result.data.polda_sim,
+								color: "#3CA55C"
+							}],
+                            chart: {
+                                height: 400,
+                                type: 'line',
+                                stacked: false
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded',
+                                    dataLabels: {
+                                        position: 'top'
+                                    }
+                                },
+                            },
+                            dataLabels: {
+                                enabled: true,
+                                style: {
+                                    colors: ['#333']
+                                },
+                                offsetY: -15
+                            },
+
+                            stroke: {
+                                show: true,
+                                width: [1, 1, 4, 4],
+                                colors: ['transparent']
+                            },
+                            xaxis: {
+                                categories: result.data.polda_name,
+                            },
+                            yaxis: [{
+                                axisTicks: {
+                                    show: false,
+                                },
+                                axisBorder: {
+                                    show: false,
+                                    color: '#008FFB'
+                                },
+                                labels: {
+                                    style: {
+                                        colors: '#008FFB',
+                                    }
+                                },
 
 
-                }
-            })
-        })
+                            }, ],
+
+                            tooltip: {
+                                // custom: function({
+                                //     series,
+                                //     seriesIndex,
+                                //     dataPointIndex,
+                                //     w
+                                // }) {
+                                //     return (
+                                //         `<div class="">
+                                //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                                //         </div>`
+
+
+                                // '<div class="">' +
+                                // "<span>" +
+                                // w.globals.labels[dataPointIndex] +
+                                // ": " +
+                                // series[seriesIndex][dataPointIndex] +
+                                // "</span>" +
+                                // "</div>"
+                                //         );
+                                //     }
+                            }
+                        };
+
+                        var ditregident = new ApexCharts(document.querySelector("#chart"), ditregident);
+                        ditregident.render();
+
+                    }
+                })
+            }
+        }
     </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 

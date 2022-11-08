@@ -14,12 +14,14 @@ class Polda_executive extends MY_Controller
     public function index()
     {
         $id = $this->uri->segment(4);
+
         $data['polda'] = $this->M_detail_polda->get_Polda();
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $data["title"] = "Detail Polda";
         $this->load->view('executive/polda/detail_polda_view', $data);
     }
-    
+
 
     public function getDetailPolda()
     {
@@ -33,8 +35,10 @@ class Polda_executive extends MY_Controller
             'headers' => $headers
         ]);
 
-
-
+        $urlall = 'polda';
+        $getPoldaall = guzzle_request('GET', $urlall, [
+            'headers' => $headers
+        ]);
         $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id, [
             'headers' => $headers
         ]);
@@ -70,6 +74,7 @@ class Polda_executive extends MY_Controller
 
         $data = [
             'polda' => $getPolda['data']['data'],
+            'poldaall' => $getPoldaall['data']['data'],
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' => number_format($totallakalantas, 0, '', '.'),
             'motor' => number_format($totalmotor, 0, '', '.'),

@@ -688,7 +688,7 @@
                                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                                             <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                                         </div>
-                                        
+
                                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
                                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
@@ -715,7 +715,7 @@
 
                                     <p style="text-align: end;position: relative;top: 12px;">
                                         <b style="text-transform: uppercase;font-size: 18px;">
-                                            <?php echo format_indoHari(date('Y-m-d'))?>
+                                            <?php echo format_indoHari(date('Y-m-d')) ?>
                                         </b></br>
                                         <span id="jam" style="font-size:15px;font-weight: bold;"></span>
                                     </p>
@@ -1069,7 +1069,7 @@
 
                                         <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
-                                            <div class="text-center mt-3">
+                                            <!-- <div class="text-center mt-3">
                                                 <?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
                                                     <img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
                                                     <h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
@@ -1099,7 +1099,7 @@
                                                     <h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
                                                     <p style="color: #969696;">KABAG TIK</p>
                                                 <?php } ?>
-                                            </div>
+                                            </div> -->
                                             <!-- <img src="" alt=""> -->
                                             <li>
                                                 <a href="<?php echo base_url(); ?>dashboard">
@@ -1805,7 +1805,8 @@
                             function jam() {
                                 var a_p = "";
                                 var e = document.getElementById('jam'),
-                                d = new Date(), h, m, s;
+                                    d = new Date(),
+                                    h, m, s;
                                 h = d.getHours();
                                 m = set(d.getMinutes());
                                 s = set(d.getSeconds());
@@ -1815,17 +1816,16 @@
                                 } else {
                                     a_p = "PM";
                                 }
-                        
-                                e.innerHTML = h +':'+ m +':'+ s + " " + a_p;
-                        
+
+                                e.innerHTML = h + ':' + m + ':' + s + " " + a_p;
+
                                 setTimeout('jam()', 1000);
                             }
-                        
+
                             function set(e) {
-                                e = e < 10 ? '0'+ e : e;
+                                e = e < 10 ? '0' + e : e;
                                 return e;
                             }
-
                         </script>
 
 
