@@ -52,6 +52,141 @@ class M_detail_statistik extends CI_Model
         ];
     }
 
+    public function getPelanggaranNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'garlantas/daily';
+            $garlantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'garlantas/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $garlantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaName = array();
+        $polda_pelanggaran_berat = array();
+        $polda_pelanggaran_ringan = array();
+        $polda_pelanggaran_sedang = array();
+        $polda_teguran = array();
+        $polda_jumlah = array();
+        foreach ($garlantasnasional['data']['rows'] as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
+            $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
+            $polda_pelanggaran_sedang[] = $key['pelanggaran_sedang'];
+            $polda_teguran[] = $key['teguran'];
+            $polda_jumlah[] = $key['total'];
+        }
+
+        return [
+            'polda_name' => $poldaName,
+            'polda_pelanggaran_berat' => $polda_pelanggaran_berat,
+            'polda_pelanggaran_ringan' => $polda_pelanggaran_ringan,
+            'polda_pelanggaran_sedang' => $polda_pelanggaran_sedang,
+            'polda_teguran' => $polda_teguran,
+            'polda_jumlah' => $polda_jumlah,
+        ];
+    }
+
+    public function getTurjawaliNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'turjagwali/daily';
+            $turjawalinasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'turjagwali/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $turjawalinasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaName = array();
+        $polda_pengaturan = array();
+        $polda_penjagaan = array();
+        $polda_pengawalan = array();
+        $polda_patroli = array();
+        $polda_jumlah = array();
+        foreach ($turjawalinasional['data']['rows'] as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_pengaturan[] = $key['pengaturan'];
+            $polda_penjagaan[] = $key['penjagaan'];
+            $polda_pengawalan[] = $key['pengawalan'];
+            $polda_patroli[] = $key['patroli'];
+            $polda_jumlah[] = $key['total'];
+        }
+
+        return [
+            'polda_name' => $poldaName,
+            'polda_pengaturan' => $polda_pengaturan,
+            'polda_penjagaan' => $polda_penjagaan,
+            'polda_pengawalan' => $polda_pengawalan,
+            'polda_patroli' => $polda_patroli,
+            'polda_jumlah' => $polda_jumlah,
+        ];
+    }
+
+    public function getRanmorNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'ranmor/daily';
+            $ranmornasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'ranmor/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $ranmornasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaName = array();
+        $polda_mobil_penumpang = array();
+        $polda_mobil_barang = array();
+        $polda_mobil_bus = array();
+        $polda_ransus = array();
+        $polda_sepeda_motor = array();
+        $polda_jumlah = array();
+        foreach ($ranmornasional['data']['rows'] as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_mobil_penumpang[] = $key['mobil_penumpang'];
+            $polda_mobil_barang[] = $key['mobil_barang'];
+            $polda_mobil_bus[] = $key['mobil_bus'];
+            $polda_ransus[] = $key['ransus'];
+            $polda_sepeda_motor[] = $key['sepeda_motor'];
+            $polda_jumlah[] = $key['total'];
+        }
+
+        return [
+            'polda_name' => $poldaName,
+            'polda_mobil_penumpang' => $polda_mobil_penumpang,
+            'polda_mobil_barang' => $polda_mobil_barang,
+            'polda_mobil_bus' => $polda_mobil_bus,
+            'polda_ransus' => $polda_ransus,
+            'polda_sepeda_motor' => $polda_sepeda_motor,
+            'polda_jumlah' => $polda_jumlah,
+        ];
+    }
+
     public function kecelakaan_nasional()
     {
         $url = 'laka_lantas?nasional=true';
@@ -102,6 +237,65 @@ class M_detail_statistik extends CI_Model
             'polda_luka_berat' => $polda_luka_berat,
             'polda_luka_ringan' => $polda_luka_ringan,
             'polda_kerugian_material' => $polda_kerugian_material,
+            'polda_jumlah' => $polda_jumlah,
+            'topPolda' => $topPolda,
+            'polda_name' => $poldaName,
+            'data_nasional' => $dataNasional
+        ];
+    }
+
+    public function pelanggaran_nasional()
+    {
+        $url = 'garlantas?nasional=true';
+
+        $garlantasNasional = guzzle_request('GET', $url, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+
+
+
+        // garlantas nasional
+        $pelanggaran_berat = $garlantasNasional['data']['jumlah']['pelanggaran_berat'];
+        $pelanggaran_ringan = $garlantasNasional['data']['jumlah']['pelanggaran_ringan'];
+        $pelanggaran_sedang = $garlantasNasional['data']['jumlah']['pelanggaran_sedang'];
+        $teguran = $garlantasNasional['data']['jumlah']['teguran'];
+        $jumlah = $garlantasNasional['data']['jumlah']['jumlah'];
+
+        $dataNasional = $garlantasNasional['data']['data'];
+        array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
+        $topPolda = array_slice($dataNasional, 0, 10);
+
+        $poldaName = array();
+        $polda_pelanggaran_berat = array();
+        $polda_pelanggaran_ringan = array();
+        $polda_pelanggaran_sedang = array();
+        $polda_teguran = array();
+        $polda_jumlah = array();
+        foreach ($dataNasional as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
+            $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
+            $polda_pelanggaran_sedang[] = $key['pelanggaran_sedang'];
+            $polda_teguran[] = $key['teguran'];
+            $polda_jumlah[] = $key['jumlah'];
+        }
+
+        return [
+            'pelanggaran_berat' => $pelanggaran_berat,
+            'pelanggaran_ringan' => $pelanggaran_ringan,
+            'pelanggaran_sedang' => $pelanggaran_sedang,
+            'teguran' => $teguran,
+            'jumlah' => $jumlah,
+            'polda_pelanggaran_berat' => $polda_pelanggaran_berat,
+            'polda_pelanggaran_ringan' => $polda_pelanggaran_ringan,
+            'polda_pelanggaran_sedang' => $polda_pelanggaran_sedang,
+            'polda_teguran' => $polda_teguran,
             'polda_jumlah' => $polda_jumlah,
             'topPolda' => $topPolda,
             'polda_name' => $poldaName,
