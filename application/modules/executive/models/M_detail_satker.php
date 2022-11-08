@@ -128,5 +128,65 @@ class M_detail_satker extends CI_Model
             'total_penyebaran' => $total_penyebaran,
             'polda_jumlah' => $polda_jumlah,
         ];
+    
+	}
+    public function getDitregidentNasional($filterbaru)
+    {
+        if ($filterbaru['filter'] == 0) {
+            $url = 'ditregident/daily';
+            $ditkamselnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'ditregident/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $ditkamselnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaName = array();
+        $polda_bpkb = array();
+        $polda_stnk = array();
+        $polda_sim = array();
+        $polda_ranmor = array();
+
+        $total_bpkb = 0;
+        $total_stnk = 0;
+        $total_sim = 0;
+        $total_ranmor = 0;
+
+        $polda_jumlah = array();
+        foreach ($ditkamselnasional['data'] as $key) {
+            $poldaName[] = $key['name_polda'];
+            $polda_bpkb[] = $key['bpkb'];
+            $polda_stnk[] = $key['stnk'];
+            $polda_sim[] = $key['sim'];
+            $polda_ranmor[] = $key['ranmor'];
+
+
+            $total_bpkb += $key['bpkb'];
+            $total_stnk += $key['stnk'];
+            $total_sim += $key['sim'];
+            $total_ranmor += $key['ranmor'];
+
+            $polda_jumlah[] = $key['total'];
+        }
+
+        return [
+            'polda_name' => $poldaName,
+            'polda_bpkb' => $polda_bpkb,
+            'polda_stnk' => $polda_stnk,
+            'polda_sim' => $polda_sim,
+            'polda_ranmor' => $polda_ranmor,
+            'total_bpkb' => $total_bpkb,
+            'total_stnk' => $total_stnk,
+            'total_sim' => $total_sim,
+            'total_ranmor' => $total_ranmor,
+            'polda_jumlah' => $polda_jumlah,
+        ];
     }
 }

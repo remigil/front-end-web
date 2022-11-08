@@ -34,6 +34,13 @@ class Satker_executive extends MY_Controller
         $this->load->view('executive/satker/detail_satker_ditkamsel', $data);
     }
 
+    public function ditregident()
+    {
+        $data['polda'] = $this->M_detail_satker->get_Polda();
+        $data['title'] = 'DITREGIDENT';
+        $this->load->view('executive/satker/detail_satker_ditregident', $data);
+    }
+
     public function getDitgakkum()
     {
         $title = 'DATA DITGAKKUM NASIONAL';
@@ -79,6 +86,33 @@ class Satker_executive extends MY_Controller
                 'end_date' => $this->input->post('end_date'),
             ];
             $getdata = $this->M_detail_satker->getDitkamselNasional($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getDitregident()
+    {
+        $title = 'DATA DITREGIDENT NASIONAL';
+        $filter = $this->input->post('filter');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+            ];
+            $getdata = $this->M_detail_satker->getDitregidentNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_satker->getDitregidentNasional($filterbaru);
         }
 
         $data = [

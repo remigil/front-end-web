@@ -154,16 +154,8 @@
                         </div> -->
                         
                         <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <select name="namaPolda" id="namaPolda" class="form-select" style="width:100%" required>
-										
-                                    <?php
-                        				foreach ($data['getPolda'] as $row) : ?>
-                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
-                        			<?php endforeach; ?>
-                                </select>
-                                <label for="polda">Polda</label>
-                            </div>
+                            
+                                <div id="polda_"></div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-floating mb-3">
@@ -806,30 +798,46 @@
             },
             dataType: 'JSON',
             success: function(results) {
-                $('.UbahPolres,#logo_polres').attr('disabled', false)
-                $('.UbahPolres,#namaPolda').attr('disabled', false)
-                $('.UbahPolres,#namaPolres').attr('disabled', false)
-                $('.UbahPolres,#kodeSatpas').attr('disabled', false)
-                $('.UbahPolres,#address').attr('disabled', false)
-                $('.UbahPolres,#latitude').attr('disabled', false)
-                $('.UbahPolres,#longitude').attr('disabled', false)
-                $('.UbahPolres,#open_time').attr('disabled', false)
-                $('.UbahPolres,#close_time').attr('disabled', false)
-                $('.UbahPolres,#phone_polres').attr('disabled', false)
+				let data = results.getDetail
+				let datapoldaid = results.getDetail.polda
+				let datapolda = results.getPolda
+				// let polda = results.polda
+                // $('.UbahPolres,#logo_polres').attr('disabled', false)
+                // $('.UbahPolres,#namaPolda').attr('disabled', false)
+                // $('.UbahPolres,#namaPolres').attr('disabled', false)
+                // $('.UbahPolres,#kodeSatpas').attr('disabled', false)
+                // $('.UbahPolres,#address').attr('disabled', false)
+                // $('.UbahPolres,#latitude').attr('disabled', false)
+                // $('.UbahPolres,#longitude').attr('disabled', false)
+                // $('.UbahPolres,#open_time').attr('disabled', false)
+                // $('.UbahPolres,#close_time').attr('disabled', false)
+                // $('.UbahPolres,#phone_polres').attr('disabled', false)
 
-                $('#id_polres').val(results.id)
+                $('#id_polres').val(data.id)
 
-                $('.UbahPolres,#logo_polres').val(results.logo_polres)
-                $('.UbahPolres,#namaPolda').val(results.polda.id)
-                $('.UbahPolres,#namaPolres').val(results.name_polres)
-                $('.UbahPolres,#kodeSatpas').val(results.code_satpas)
-                $('.UbahPolres,#address').val(results.address)
-                $('.UbahPolres,#latitude').val(results.latitude)
-                $('.UbahPolres,#longitude').val(results.longitude)
-                $('.UbahPolres,#open_time').val(results.open_time)
-                $('.UbahPolres,#close_time').val(results.close_time)
-                $('.UbahPolres,#phone_polres').val(results.phone_polres)
-            }
+                $('.UbahPolres,#logo_polres').val(data.logo_polres)
+                // $('.UbahPolres,#namaPolda').val(data.polda.id)
+
+				
+                $('.UbahPolres,#namaPolres').val(data.name_polres)
+                $('.UbahPolres,#kodeSatpas').val(data.code_satpas)
+                $('.UbahPolres,#address').val(data.address)
+                $('.UbahPolres,#latitude').val(data.latitude)
+                $('.UbahPolres,#longitude').val(data.longitude)
+                $('.UbahPolres,#open_time').val(data.open_time)
+                $('.UbahPolres,#close_time').val(data.close_time)
+                $('.UbahPolres,#phone_polres').val(data.phone_polres)
+				$('#polda_').html(`
+				<div class="form-floating mb-3">
+							<select  class="form-select" style="width:100%"  id="polda_id" name="polda_id" required>
+                             <option value="${datapoldaid.id}">${datapoldaid.name_polda}</option>
+                         </select>
+						 <label for="polda">Polda</label>
+						</div>`)
+						$.each(datapolda, (i, resp) => {
+                        $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
+                    })
+			}
         })
     }
 

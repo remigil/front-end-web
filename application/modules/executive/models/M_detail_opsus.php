@@ -119,8 +119,8 @@ class M_detail_opsus extends CI_Model
 
             $row['action']         = '   
                 
-			<a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-success"><i class="bx bxs-file"> download Excel</i></button></a>
-			<a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-danger"><i class="bx bxs-file-pdf"> download PDF</i></button></a>
+			<a href="' . base_url() . 'executive/Opsus_executive/index/' . $field['id'] . '"><button class="btn btn-sm btn-success"><i class="bx bxs-file"> download Excel</i></button></a>
+			<a href="' . base_url() . 'executive/Opsus_executive/index/' . $field['id'] . '"><button class="btn btn-sm btn-danger"><i class="bx bxs-file-pdf"> download PDF</i></button></a>
                 
             ';
 
