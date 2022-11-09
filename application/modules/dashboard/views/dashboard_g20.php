@@ -1940,7 +1940,7 @@
                                     </tr>
                                 `;
                                 $('#isiModalPetugasDisplay').html(listDisplay);  
-                            }, i * 700);
+                            }, i * 500);
                         } 
 
                          
@@ -1995,7 +1995,7 @@
                             ).then(function() {
                                 
                             });
-                        }, dummyGetTracking.length * 700);
+                        }, dummyGetTracking.length * 500);
 
                         tablePutugasTrack = `
                             <div class="accordion-item">
