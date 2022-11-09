@@ -69,6 +69,33 @@ if (!function_exists('guzzle_requestTracking')) {
     }
 } 
 
+if (!function_exists('guzzle_requestAnev')) {
+    /**
+     * function request
+     * @param method    string
+     * @param uri       string
+     * @param header    array
+     * 
+     * return array data
+     */
+    function guzzle_requestAnev($method, $uri, $body)
+    {
+        try {
+            $client = new Client();
+            // $request = $client->request($method, 'http://localhost:3001/' . $uri, $body);
+            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/' . $uri, $body);
+            $response = $request->getBody();
+            $data = json_decode($response, true);
+            return $data;
+            
+        } catch (Exception $e) {
+            return 'Cek sinyal';
+        }
+
+
+    }
+} 
+
 if (!function_exists('guzzle_requestGpsId')) {
     /**
      * function request
