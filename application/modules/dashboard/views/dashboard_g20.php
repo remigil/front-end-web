@@ -1988,6 +1988,13 @@
                             $("#turjawaliDisplay").prop('disabled', false); 
                             $("#overlayMenuDisplay").fadeOut(300);
                             $("#overlayMenuFilter").fadeOut(300);
+                            Swal.fire(
+                                `Filter Personil Lantas Sudah Bisa Di Gunakan`,
+                                '',
+                                'success'
+                            ).then(function() {
+                                
+                            });
                         }, dummyGetTracking.length * 700);
 
                         tablePutugasTrack = `
