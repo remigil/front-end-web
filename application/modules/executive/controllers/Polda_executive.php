@@ -14,7 +14,6 @@ class Polda_executive extends MY_Controller
     public function index()
     {
         $id = $this->uri->segment(4);
-
         $data['polda'] = $this->M_detail_polda->get_Polda();
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
@@ -146,6 +145,23 @@ class Polda_executive extends MY_Controller
             'lakalantas' => number_format($totallakalantas, 0, '', '.'),
             'motor' => number_format($totalmotor, 0, '', '.'),
             'sim' => number_format($totalsim, 0, '', '.'),
+        ];
+        echo json_encode($data);
+    }
+
+    public function getChartDitgakkum()
+    {
+        $title = 'DATA DITGAKKUM POLDA';
+        $filterbaru = [
+            'filter' => true,
+            'id' => $this->input->post('id'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+        ];
+        $getdata = $this->M_detail_polda->getDitgakkum($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
         ];
         echo json_encode($data);
     }
