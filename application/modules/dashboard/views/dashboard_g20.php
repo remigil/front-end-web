@@ -1940,7 +1940,7 @@
                                     </tr>
                                 `;
                                 $('#isiModalPetugasDisplay').html(listDisplay);  
-                            }, i * 800);
+                            }, i * 700);
                         } 
 
                          
@@ -1988,7 +1988,7 @@
                             $("#turjawaliDisplay").prop('disabled', false); 
                             $("#overlayMenuDisplay").fadeOut(300);
                             $("#overlayMenuFilter").fadeOut(300);
-                        }, dummyGetTracking.length * 1000);
+                        }, dummyGetTracking.length * 700);
 
                         tablePutugasTrack = `
                             <div class="accordion-item">
