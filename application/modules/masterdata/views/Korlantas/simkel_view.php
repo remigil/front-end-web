@@ -31,7 +31,6 @@
 </div>
 <!-- End Page -->
 
-
 <!-- ADD Modals -->
 <div class="modal fade TambahSimkel" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
