@@ -997,8 +997,10 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [trafficMutant]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom); 
+
+        var myRenderer = L.canvas({ padding: 0.5 });
 
         var markerClusterGroup = L.markerClusterGroup(); 
         var icon = L.icon({
@@ -1773,7 +1775,7 @@
                                     var fotoPetugas = "";
                                     
                                     markerArray[ress[i].id_officer].remove();
-                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { renderer: myRenderer, icon: L.divIcon({
                                         //   className: 'location-pin',
                                         html: jenis,
                                         iconSize: [5, 5],
@@ -1853,7 +1855,7 @@
                                         });
                                     });  
                                 }else{ 
-                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { icon: L.divIcon({
+                                    markerArray[ress[i].id_officer] = L.marker([ress[i].latitude,ress[i].longitude], { renderer: myRenderer, icon: L.divIcon({
                                         // className: 'location-pin',
                                         html: jenis,
                                         iconSize: [5, 5],
@@ -2887,7 +2889,7 @@
                             // }); 
 
                             markerArray[ress.id_officer].remove();
-                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { renderer: myRenderer, icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
@@ -2968,7 +2970,7 @@
                             });  
                         }else{ 
                             console.log(`NEW Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle}`);
-                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { renderer: myRenderer, icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
@@ -3183,7 +3185,7 @@
                     // if(ress.status_login == 1){
                         if(markerArray[ress.id_officer] != null){ 
                             markerArray[ress.id_officer].remove();
-                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { renderer: myRenderer, icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
@@ -3263,7 +3265,7 @@
                                 });
                             });   
                         }else{ 
-                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
+                            markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { renderer: myRenderer, icon: L.divIcon({
                                 //   className: 'location-pin',
                                 html: jenis,
                                 iconSize: [5, 5],
