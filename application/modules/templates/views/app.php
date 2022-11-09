@@ -145,6 +145,28 @@
             left: 0;
         }
 
+        #overlayMenuDisplay {
+            position: fixed;
+            top: 0;
+            z-index: 3000;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            left: 0;
+        }
+
+        #overlayMenuFilter {
+            position: fixed;
+            top: 0;
+            z-index: 3000;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            left: 0;
+        }
+
         .loading {
             position: absolute;
             left: 50%;
@@ -579,6 +601,45 @@
                 color: #0b0;
             } */
         }
+
+
+        .timer {
+            margin-top: 10px;
+        }
+        
+        .timer > svg {
+            width: 200px;
+            height: 200px;
+        }
+
+        .timer > svg > circle {
+            fill: none;
+            stroke-opacity: 0.3;
+            stroke: #0d6efd;
+            stroke-width: 10;
+            transform-origin: center center;
+            transform: rotate(-90deg);
+        }
+
+        .timer > svg > circle + circle {
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            stroke-linecap: round;
+            stroke-opacity: 1;
+        }
+
+        .timer.animatable > svg > circle + circle {
+            transition: stroke-dashoffset 0.3s ease;
+        }
+
+        .timer > svg > text {
+            font-size: 2rem;
+        }
+
+        .timer > svg > text + text {
+            font-size: 1rem;
+        }
+
     </style>
 
     <!-- JAVASCRIPT -->
@@ -609,7 +670,7 @@
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
-            <p style="color: white; font-size: 15px; margin-left: 3px;">Please Wait</p>
+            <p style="color: white; font-size: 15px; margin-left: 3px;">Mohon Tunggu</p>
         </div>
     </div>
     <!-- <body data-layout="horizontal"> -->
@@ -686,7 +747,7 @@
                                     <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20') { ?>
                                         <div>
                                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - <span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
+                                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - &nbsp;<span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
                                         </div>
 
                                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
