@@ -165,4 +165,38 @@ class Polda_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
+
+    public function getChartDitkamsel()
+    {
+        $title = 'DATA DITKAMSEL POLDA';
+        $filterbaru = [
+            'filter' => true,
+            'id' => $this->input->post('id'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+        ];
+        $getdata = $this->M_detail_polda->getDitkamsel($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getChartDitregident()
+    {
+        $title = 'DATA DITREGIDENT POLDA';
+        $filterbaru = [
+            'filter' => true,
+            'id' => $this->input->post('id'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+        ];
+        $getdata = $this->M_detail_polda->getDitregident($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
 }

@@ -378,7 +378,8 @@
                                     </div>
                                     <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                         <div class="main-chart">
-                                            <div id="chartditkamsel" style="width: 100vw"></div>
+                                            <div id="chartb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -394,15 +395,14 @@
                                     </div>
                                     <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                         <div class="main-chart">
-                                            <div id="chartditregident" style="width: 100vw"></div>
+                                            <div id="chartc">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-
-
                 </div>
             </div>
         </div>
@@ -452,262 +452,264 @@
                         $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
                     })
                     $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
+                    $("#chartb").html(`<div id="chart2" style="width: 100vw"></div>`);
+                    $("#chartc").html(`<div id="chart3" style="width: 100vw"></div>`);
 
                 }
             })
 
             getDitgakkum(firstDay, lastDay, id)
+            getDitkamsel(firstDay, lastDay, id)
+            getDitregident(firstDay, lastDay, id)
 
-            var ditregident = {
-                series: [{
-                    name: 'BPKB',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'STNK',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                }, {
-                    name: 'SIM',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }, {
-                    name: 'RANMOR',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+            // var ditkamsel = {
+            //     series: [{
+            //         name: 'Dikmaslantas',
+            //         type: 'column',
+            //         data: result.data.dikmaslantas,
+            //         color: "#11347A"
+            //     }, {
+            //         name: 'Penyebaran/Pemasangan',
+            //         type: 'column',
+            //         data: result.data.penyebaran,
+            //         color: "#CB2D3E"
+            //         // }, {
+            //         //     name: 'SIM',
+            //         //     type: 'column',
+            //         //     data: [
+            //         //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
+            //         //     ],
+            //         //     color: "#E8D42F"
+            //         // }, {
+            //         //     name: 'RANMOR',
+            //         //     type: 'column',
+            //         //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
 
-                    color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
+            //         //     color: "#3CA55C"
+            //     }],
+            //     chart: {
+            //         height: 400,
+            //         type: 'line',
+            //         stacked: false
+            //     },
+            //     plotOptions: {
+            //         bar: {
+            //             horizontal: false,
+            //             columnWidth: '55%',
+            //             endingShape: 'rounded',
+            //             dataLabels: {
+            //                 position: 'top'
+            //             }
+            //         },
+            //     },
+            //     dataLabels: {
+            //         enabled: true,
+            //         style: {
+            //             colors: ['#333']
+            //         },
+            //         offsetY: -15
+            //     },
 
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: bulan,
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    // labels: {
-                    //     style: {
-                    //         colors: '#008FFB',
-                    //     }
-                    // },
-
-
-                }, ],
-
-                tooltip: {
-                    custom: function({
-                        series,
-                        seriesIndex,
-                        dataPointIndex,
-                        seriesName,
-                        w
-                    }) {
-                        var bulan;
-                        if (w.globals.labels[dataPointIndex] == 1) {
-                            bulan = 'Januari';
-                        } else if (w.globals.labels[dataPointIndex] == 2) {
-                            bulan = 'Februari';
-                        } else if (w.globals.labels[dataPointIndex] == 3) {
-                            bulan = 'Maret';
-                        } else if (w.globals.labels[dataPointIndex] == 4) {
-                            bulan = 'April';
-                        } else if (w.globals.labels[dataPointIndex] == 5) {
-                            bulan = 'Mei';
-                        } else if (w.globals.labels[dataPointIndex] == 6) {
-                            bulan = 'Juni';
-                        } else if (w.globals.labels[dataPointIndex] == 7) {
-                            bulan = 'Juli';
-                        } else if (w.globals.labels[dataPointIndex] == 8) {
-                            bulan = 'Agustus';
-                        } else if (w.globals.labels[dataPointIndex] == 9) {
-                            bulan = 'September';
-                        } else if (w.globals.labels[dataPointIndex] == 10) {
-                            bulan = 'Oktober';
-                        } else if (w.globals.labels[dataPointIndex] == 11) {
-                            bulan = 'November';
-                        } else if (w.globals.labels[dataPointIndex] == 12) {
-                            bulan = 'Desember';
-                        }
-                        // return (
-                        // ` < div class = "" >
-                        //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                        // </>`
-
-                        //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
-                        //         //     bulansebelumnya = '';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
-                        //         //     bulansebelumnya = 'Februari';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
-                        //         //     bulansebelumnya = 'Maret';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
-                        //         //     bulansebelumnya = 'April';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
-                        //         //     bulansebelumnya = 'Mei';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
-                        //         //     bulansebelumnya = 'Juni';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
-                        //         //     bulansebelumnya = 'Juli';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
-                        //         //     bulansebelumnya = 'Agustus';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
-                        //         //     bulansebelumnya = 'September';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
-                        //         //     bulansebelumnya = 'Oktober';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
-                        //         //     bulansebelumnya = 'November';
-                        //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
-                        //         //     bulansebelumnya = 'Desember';
-                        //         // }
-                        //         return (
-
-                        //             // `<div class="">
-                        //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
-                        //             // </div>`
-
-                    }
-                }
-            }
-
-            var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
-            ditregident.render();
-
-            var ditkamsel = {
-                series: [{
-                    name: 'Garlantas',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'Penyebaran/Pemasangan',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                    // }, {
-                    //     name: 'SIM',
-                    //     type: 'column',
-                    //     data: [
-                    //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    //     ],
-                    //     color: "#E8D42F"
-                    // }, {
-                    //     name: 'RANMOR',
-                    //     type: 'column',
-                    //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-                    //     color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
+            //     stroke: {
+            //         show: true,
+            //         width: [1, 1, 4, 4],
+            //         colors: ['transparent']
+            //     },
+            //     xaxis: {
+            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+            //     },
+            //     yaxis: [{
+            //         axisTicks: {
+            //             show: false,
+            //         },
+            //         axisBorder: {
+            //             show: false,
+            //             color: '#008FFB'
+            //         },
+            //         labels: {
+            //             style: {
+            //                 colors: '#008FFB',
+            //             }
+            //         },
 
 
-                }, ],
+            //     }, ],
 
-                tooltip: {
-                    // custom: function({
-                    //     series,
-                    //     seriesIndex,
-                    //     dataPointIndex,
-                    //     w
-                    // }) {
-                    //     return (
-                    //         `<div class="">
-                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                    //         </div>`
+            //     tooltip: {
+            //         // custom: function({
+            //         //     series,
+            //         //     seriesIndex,
+            //         //     dataPointIndex,
+            //         //     w
+            //         // }) {
+            //         //     return (
+            //         //         `<div class="">
+            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
+            //         //         </div>`
 
 
-                    // '<div class="">' +
-                    // "<span>" +
-                    // w.globals.labels[dataPointIndex] +
-                    // ": " +
-                    // series[seriesIndex][dataPointIndex] +
-                    // "</span>" +
-                    // "</div>"
-                    //         );
-                    //     }
-                }
-            };
+            //         // '<div class="">' +
+            //         // "<span>" +
+            //         // w.globals.labels[dataPointIndex] +
+            //         // ": " +
+            //         // series[seriesIndex][dataPointIndex] +
+            //         // "</span>" +
+            //         // "</div>"
+            //         //         );
+            //         //     }
+            //     }
+            // };
 
-            var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
-            ditkamsel.render();
+            // var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
+            // ditkamsel.render();
+
+            // var ditregident = {
+            //     series: [{
+            //         name: 'BPKB',
+            //         type: 'column',
+            //         data: result.data.bpkb,
+            //         color: "#11347A"
+            //     }, {
+            //         name: 'STNK',
+            //         type: 'column',
+            //         data: result.data.stnk,
+            //         color: "#CB2D3E"
+            //     }, {
+            //         name: 'SIM',
+            //         type: 'column',
+            //         data: result.data.sim,
+            //         color: "#E8D42F"
+            //     }, {
+            //         name: 'RANMOR',
+            //         type: 'column',
+            //         data: result.data.ranmor,
+
+            //         color: "#3CA55C"
+            //     }],
+            //     chart: {
+            //         height: 400,
+            //         type: 'line',
+            //         stacked: false
+            //     },
+            //     plotOptions: {
+            //         bar: {
+            //             horizontal: false,
+            //             columnWidth: '55%',
+            //             endingShape: 'rounded',
+            //             dataLabels: {
+            //                 position: 'top'
+            //             }
+            //         },
+            //     },
+            //     dataLabels: {
+            //         enabled: true,
+            //         style: {
+            //             colors: ['#333']
+            //         },
+            //         offsetY: -15
+            //     },
+
+            //     stroke: {
+            //         show: true,
+            //         width: [1, 1, 4, 4],
+            //         colors: ['transparent']
+            //     },
+            //     xaxis: {
+            //         categories: bulan,
+            //     },
+            //     yaxis: [{
+            //         axisTicks: {
+            //             show: false,
+            //         },
+            //         axisBorder: {
+            //             show: false,
+            //             color: '#008FFB'
+            //         },
+            //         // labels: {
+            //         //     style: {
+            //         //         colors: '#008FFB',
+            //         //     }
+            //         // },
+
+
+            //     }, ],
+
+            //     tooltip: {
+            //         custom: function({
+            //             series,
+            //             seriesIndex,
+            //             dataPointIndex,
+            //             seriesName,
+            //             w
+            //         }) {
+            //             var bulan;
+            //             if (w.globals.labels[dataPointIndex] == 1) {
+            //                 bulan = 'Januari';
+            //             } else if (w.globals.labels[dataPointIndex] == 2) {
+            //                 bulan = 'Februari';
+            //             } else if (w.globals.labels[dataPointIndex] == 3) {
+            //                 bulan = 'Maret';
+            //             } else if (w.globals.labels[dataPointIndex] == 4) {
+            //                 bulan = 'April';
+            //             } else if (w.globals.labels[dataPointIndex] == 5) {
+            //                 bulan = 'Mei';
+            //             } else if (w.globals.labels[dataPointIndex] == 6) {
+            //                 bulan = 'Juni';
+            //             } else if (w.globals.labels[dataPointIndex] == 7) {
+            //                 bulan = 'Juli';
+            //             } else if (w.globals.labels[dataPointIndex] == 8) {
+            //                 bulan = 'Agustus';
+            //             } else if (w.globals.labels[dataPointIndex] == 9) {
+            //                 bulan = 'September';
+            //             } else if (w.globals.labels[dataPointIndex] == 10) {
+            //                 bulan = 'Oktober';
+            //             } else if (w.globals.labels[dataPointIndex] == 11) {
+            //                 bulan = 'November';
+            //             } else if (w.globals.labels[dataPointIndex] == 12) {
+            //                 bulan = 'Desember';
+            //             }
+            //             // return (
+            //             // ` < div class = "" >
+            //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
+            //             // </>`
+
+            //             //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
+            //             //         //     bulansebelumnya = '';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
+            //             //         //     bulansebelumnya = 'Februari';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
+            //             //         //     bulansebelumnya = 'Maret';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
+            //             //         //     bulansebelumnya = 'April';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
+            //             //         //     bulansebelumnya = 'Mei';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
+            //             //         //     bulansebelumnya = 'Juni';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
+            //             //         //     bulansebelumnya = 'Juli';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
+            //             //         //     bulansebelumnya = 'Agustus';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
+            //             //         //     bulansebelumnya = 'September';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
+            //             //         //     bulansebelumnya = 'Oktober';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
+            //             //         //     bulansebelumnya = 'November';
+            //             //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
+            //             //         //     bulansebelumnya = 'Desember';
+            //             //         // }
+            //             //         return (
+
+            //             //             // `<div class="">
+            //             //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
+            //             //             // </div>`
+
+            //         }
+            //     }
+            // }
+
+            // var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
+            // ditregident.render();
 
 
         })
@@ -747,8 +749,12 @@
                 }
             })
             $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
+            $("#chartb").html(`<div id="chart2" style="width: 100vw"></div>`);
+            $("#chartc").html(`<div id="chart3" style="width: 100vw"></div>`);
 
             getDitgakkum(start_date, end_date, polda_id)
+            getDitkamsel(start_date, end_date, polda_id)
+            getDitregident(start_date, end_date, polda_id)
         })
 
 
@@ -785,7 +791,6 @@
                             name: 'Lakalanggar',
                             type: 'column',
                             data: result.data.lakalanggar,
-
                             color: "#3CA55C"
                         }],
                         chart: {
@@ -863,6 +868,201 @@
 
                     var ditgakkum = new ApexCharts(document.querySelector("#chart"), ditgakkum);
                     ditgakkum.render();
+                }
+            })
+        }
+
+        function getDitkamsel(firstDay, lastDay, id) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitkamsel",
+                data: {
+                    id: id,
+                    start_date: firstDay,
+                    end_date: lastDay,
+                    filter: 1
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log(result)
+                    var ditkamsel = {
+                        series: [{
+                            name: 'Dikmaslantas',
+                            type: 'column',
+                            data: result.data.dikmaslantas,
+                            color: "#11347A"
+                        }, {
+                            name: 'Penyebaran/Pemasangan',
+                            type: 'column',
+                            data: result.data.penyebaran,
+                            color: "#CB2D3E"
+                        }],
+                        chart: {
+                            height: 400,
+                            type: 'line',
+                            stacked: false
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                colors: ['#333']
+                            },
+                            offsetY: -15
+                        },
+
+                        stroke: {
+                            show: true,
+                            width: [1, 1, 4, 4],
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: result.data.polda_month,
+                        },
+                        yaxis: [{
+                            axisTicks: {
+                                show: false,
+                            },
+                            axisBorder: {
+                                show: false,
+                                color: '#008FFB'
+                            },
+                            labels: {
+                                style: {
+                                    colors: '#008FFB',
+                                }
+                            },
+
+
+                        }, ],
+
+                        tooltip: {
+                            // custom: function({
+                            //     series,
+                            //     seriesIndex,
+                            //     dataPointIndex,
+                            //     w
+                            // }) {
+                            //     return (
+                            //         `<div class="">
+                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                            //         </div>`
+
+
+                            // '<div class="">' +
+                            // "<span>" +
+                            // w.globals.labels[dataPointIndex] +
+                            // ": " +
+                            // series[seriesIndex][dataPointIndex] +
+                            // "</span>" +
+                            // "</div>"
+                            //         );
+                            //     }
+                        }
+                    };
+
+                    var ditkamsel = new ApexCharts(document.querySelector("#chart2"), ditkamsel);
+                    ditkamsel.render();
+                }
+            })
+        }
+
+        function getDitregident(firstDay, lastDay, id) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitregident",
+                data: {
+                    id: id,
+                    start_date: firstDay,
+                    end_date: lastDay,
+                    filter: 1
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log(result)
+                    var ditregident = {
+                        series: [{
+                            name: 'BPKB',
+                            type: 'column',
+                            data: result.data.bpkb,
+                            color: "#11347A"
+                        }, {
+                            name: 'STNK',
+                            type: 'column',
+                            data: result.data.stnk,
+                            color: "#CB2D3E"
+                        }, {
+                            name: 'SIM',
+                            type: 'column',
+                            data: result.data.sim,
+                            color: "#E8D42F"
+                        }, {
+                            name: 'RANMOR',
+                            type: 'column',
+                            data: result.data.ranmor,
+
+                            color: "#3CA55C"
+                        }],
+                        chart: {
+                            height: 400,
+                            type: 'line',
+                            stacked: false
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                colors: ['#333']
+                            },
+                            offsetY: -15
+                        },
+
+                        stroke: {
+                            show: true,
+                            width: [1, 1, 4, 4],
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: result.data.polda_month,
+                        },
+                        yaxis: [{
+                            axisTicks: {
+                                show: false,
+                            },
+                            axisBorder: {
+                                show: false,
+                                color: '#008FFB'
+                            },
+                            // labels: {
+                            //     style: {
+                            //         colors: '#008FFB',
+                            //     }
+                            // },
+
+
+                        }, ],
+                    }
+
+                    var ditregident = new ApexCharts(document.querySelector("#chart3"), ditregident);
+                    ditregident.render();
                 }
             })
         }

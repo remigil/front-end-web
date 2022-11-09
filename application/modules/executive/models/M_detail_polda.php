@@ -185,6 +185,67 @@ class M_detail_polda extends CI_Model
         ];
     }
 
+    public function getDitkamsel($filter)
+    {
+        // var_dump($filter);
+        $url = 'ditkamsel/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+
+        $ditkamsel = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        // var_dump($ditkamsel);
+        // die;
+
+        $poldaMonth = array();
+        $month_dikmaslantas = array();
+        $month_penyebaran = array();
+        foreach ($ditkamsel['data'] as $key) {
+            $poldaMonth[] = $key['date'];
+            $month_dikmaslantas[] = $key['dikmaslantas'];
+            $month_penyebaran[] = $key['penyebaran'];
+        }
+
+        return [
+            'polda_month' => $poldaMonth,
+            'dikmaslantas' => $month_dikmaslantas,
+            'penyebaran' => $month_penyebaran,
+        ];
+    }
+
+    public function getDitregident($filter)
+    {
+        // var_dump($filter);
+        $url = 'ditregident/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+
+        $ditregident = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+
+        ]);
+
+        $poldaMonth = array();
+        $month_dikmaslantas = array();
+        $month_penyebaran = array();
+        foreach ($ditregident['data'] as $key) {
+            $poldaMonth[] = $key['date'];
+            $month_bpkb[] = $key['bpkb'];
+            $month_stnk[] = $key['stnk'];
+            $month_sim[] = $key['sim'];
+            $month_ranmor[] = $key['ranmor'];
+        }
+
+        return [
+            'polda_month' => $poldaMonth,
+            'bpkb' => $month_bpkb,
+            'stnk' => $month_stnk,
+            'sim' => $month_sim,
+            'ranmor' => $month_ranmor,
+        ];
+    }
+
     function getmonth($value)
     {
         $month = '';
