@@ -150,6 +150,41 @@ class M_detail_polda extends CI_Model
         ];
     }
 
+
+    public function getDitgakkum($filter)
+    {
+        // var_dump($filter);
+        $url = 'ditgakkum/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+
+        $ditgakkum = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+
+        ]);
+
+        $poldaMonth = array();
+        $month_garlantas = array();
+        $month_lakalanggar = array();
+        $month_lakalantas = array();
+        $month_turjagwali = array();
+        foreach ($ditgakkum['data'] as $key) {
+            $poldaMonth[] = $key['date'];
+            $month_garlantas[] = $key['garlantas'];
+            $month_lakalanggar[] = $key['lakalanggar'];
+            $month_lakalantas[] = $key['lakalantas'];
+            $month_turjagwali[] = $key['turjagwali'];
+        }
+
+        return [
+            'polda_month' => $poldaMonth,
+            'garlantas' => $month_garlantas,
+            'lakalanggar' => $month_lakalanggar,
+            'lakalantas' => $month_lakalantas,
+            'turjagwali' => $month_turjagwali
+        ];
+    }
+
     function getmonth($value)
     {
         $month = '';

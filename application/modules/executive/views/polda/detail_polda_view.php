@@ -220,7 +220,6 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <input class="form-control" type="date" name="start_date" id="start_date">
-
                             </div>
                             <div class="col-md-5">
                                 <input class="form-control" type="date" name="end_date" id="end_date">
@@ -362,7 +361,8 @@
                                     </div>
                                     <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                         <div class="main-chart">
-                                            <div id="chartditgakkum" style="width: 100vw"></div>
+                                            <div id="charta">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -410,6 +410,17 @@
     <script>
         $(document).ready(function() {
             let id = '<?= $id ?>'
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var polda_id = $('#polda_,#polda_id').val();
+            console.log(polda_id)
+
+            // const offset = yourDate.getTimezoneOffset()
+            // yourDate = new Date(yourDate.getTime() - (offset * 60 * 1000))
+            // let a = firstDay.toISOString().split('T')[0]
+            // let b = lastDay.toISOString().split('T')[0]
+            console.log(firstDay, lastDay)
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
@@ -440,13 +451,12 @@
                     $.each(ressPoldaall, (i, resp) => {
                         $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
                     })
-
-
+                    $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
 
                 }
             })
 
-            var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            getDitgakkum(firstDay, lastDay, id)
 
             var ditregident = {
                 series: [{
@@ -595,118 +605,8 @@
                 }
             }
 
-            // <span>
-            //                     ${bulan[dataPointIndex]}
-            //                     : 
-            //                     ${series[seriesIndex][dataPointIndex]}
-            //                     </span>
-
-            //                     </br> 
-            //                     </br>
             var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
             ditregident.render();
-
-
-            var ditgakkum = {
-                series: [{
-                    name: 'Garlantas',
-                    type: 'column',
-                    data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-                    color: "#11347A"
-                }, {
-                    name: 'Lakalantas',
-                    type: 'column',
-                    data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-                    color: "#CB2D3E"
-                }, {
-                    name: 'Turjagwali',
-                    type: 'column',
-                    data: [
-                        62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-                    ],
-                    color: "#E8D42F"
-                }, {
-                    name: 'Lakalanggar',
-                    type: 'column',
-                    data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-                    color: "#3CA55C"
-                }],
-                chart: {
-                    height: 400,
-                    type: 'line',
-                    stacked: false
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded',
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    },
-                },
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        colors: ['#333']
-                    },
-                    offsetY: -15
-                },
-
-                stroke: {
-                    show: true,
-                    width: [1, 1, 4, 4],
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                },
-                yaxis: [{
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                        color: '#008FFB'
-                    },
-                    labels: {
-                        style: {
-                            colors: '#008FFB',
-                        }
-                    },
-
-
-                }, ],
-
-                tooltip: {
-                    // custom: function({
-                    //     series,
-                    //     seriesIndex,
-                    //     dataPointIndex,
-                    //     w
-                    // }) {
-                    //     return (
-                    //         `<div class="">
-                    //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                    //         </div>`
-
-
-                    // '<div class="">' +
-                    // "<span>" +
-                    // w.globals.labels[dataPointIndex] +
-                    // ": " +
-                    // series[seriesIndex][dataPointIndex] +
-                    // "</span>" +
-                    // "</div>"
-                    //         );
-                    //     }
-                }
-            };
-
-            var ditgakkum = new ApexCharts(document.querySelector("#chartditgakkum"), ditgakkum);
-            ditgakkum.render();
 
             var ditkamsel = {
                 series: [{
@@ -819,7 +719,6 @@
             let start_date = $('#start_date').val()
             let end_date = $('#end_date').val()
             $("#overlay").fadeIn(300);
-
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/polda_executive/getDetailPolda_filter",
@@ -847,7 +746,126 @@
 
                 }
             })
+            $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
+
+            getDitgakkum(start_date, end_date, polda_id)
         })
+
+
+        function getDitgakkum(firstDay, lastDay, id) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitgakkum",
+                data: {
+                    id: id,
+                    start_date: firstDay,
+                    end_date: lastDay,
+                    filter: 1
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log(result)
+                    var ditgakkum = {
+                        series: [{
+                            name: 'Garlantas',
+                            type: 'column',
+                            data: result.data.garlantas,
+                            color: "#11347A"
+                        }, {
+                            name: 'Lakalantas',
+                            type: 'column',
+                            data: result.data.lakalantas,
+                            color: "#CB2D3E"
+                        }, {
+                            name: 'Turjagwali',
+                            type: 'column',
+                            data: result.data.turjagwali,
+                            color: "#E8D42F"
+                        }, {
+                            name: 'Lakalanggar',
+                            type: 'column',
+                            data: result.data.lakalanggar,
+
+                            color: "#3CA55C"
+                        }],
+                        chart: {
+                            height: 400,
+                            type: 'line',
+                            stacked: false
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded',
+                                dataLabels: {
+                                    position: 'top'
+                                }
+                            },
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                colors: ['#333']
+                            },
+                            offsetY: -15
+                        },
+
+                        stroke: {
+                            show: true,
+                            width: [1, 1, 4, 4],
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: result.data.polda_month,
+                        },
+                        yaxis: [{
+                            axisTicks: {
+                                show: false,
+                            },
+                            axisBorder: {
+                                show: false,
+                                color: '#008FFB'
+                            },
+                            labels: {
+                                style: {
+                                    colors: '#008FFB',
+                                }
+                            },
+
+
+                        }, ],
+
+                        tooltip: {
+                            // custom: function({
+                            //     series,
+                            //     seriesIndex,
+                            //     dataPointIndex,
+                            //     w
+                            // }) {
+                            //     return (
+                            //         `<div class="">
+                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
+                            //         </div>`
+
+
+                            // '<div class="">' +
+                            // "<span>" +
+                            // w.globals.labels[dataPointIndex] +
+                            // ": " +
+                            // series[seriesIndex][dataPointIndex] +
+                            // "</span>" +
+                            // "</div>"
+                            //         );
+                            //     }
+                        }
+                    };
+
+                    var ditgakkum = new ApexCharts(document.querySelector("#chart"), ditgakkum);
+                    ditgakkum.render();
+                }
+            })
+        }
     </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
