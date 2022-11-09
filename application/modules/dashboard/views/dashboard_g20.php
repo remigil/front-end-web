@@ -1989,8 +1989,8 @@
                             $("#overlayMenuDisplay").fadeOut(300);
                             $("#overlayMenuFilter").fadeOut(300);
                             Swal.fire(
-                                `Filter Personil Lantas Sudah Bisa Di Gunakan`,
-                                '',
+                                `Fitur Sudah Dapat Di Gunakan`,
+                                'Terimakasih sudah Menunggu',
                                 'success'
                             ).then(function() {
                                 
