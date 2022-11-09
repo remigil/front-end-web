@@ -318,31 +318,31 @@ class Cctv extends MY_Controller
         $dummy = [
             [
                 'name' => 'address_cctv',
-                'contents' => $input['lokasiCCTV'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'vms_cctv',
-                'contents' => $input['vmsCCTV'],
+                'contents' => $input['address'],
             ],
             [
                 'name' => 'jenis_cctv',
-                'contents' => $input['jenisCCTV'],
+                'contents' => "CCTV",
             ],
 			[
                 'name' => 'merek_cctv',
-                'contents' => $input['merekCCTV'],
+                'contents' => "CCTV",
             ],
 			[
                 'name' => 'type_cctv',
-                'contents' => $input['tipeCCTV'],
+                'contents' => $input['type_cctv'],
             ],
             [
                 'name' => 'ip_cctv',
-                'contents' => $input['ipCCTV'],
+                'contents' => $input['ip_cctv'],
             ],
 			[
 				'name' => 'gateway_cctv',
-				'contents' => $input['gatewayCCTV'],
+				'contents' => $input['gateway_cctv'],
 			],
 			[
 				'name' => 'username_cctv',
@@ -362,11 +362,12 @@ class Cctv extends MY_Controller
             ],
 			[
 				'name' => 'link_cctv',
-				'contents' => $input['linkCCTV'],
+				'contents' => $input['link_cctv'],
 			],
             [
                 'name' => 'status_cctv',
-                'contents' => $input['status'],
+                // 'contents' => $input['status_cctv'],
+                'contents' => 1,
             ]
         ];
 
