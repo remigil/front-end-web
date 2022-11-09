@@ -251,6 +251,7 @@
                         </div>
                         
                         <div class="col-md-12">
+							<div id="polda_"></div>
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control" id="namaPolda" placeholder="nama" name="namaPolda">
 								<label for="">Nama Polda</label>
@@ -763,6 +764,10 @@
             dataType: 'JSON',
             success: function(results) {
                 console.log(results)
+
+				let data = results.getDetail
+				let datapoldaid = results.getDetail.polda
+				let datapolda = results.getPolda
                 $('.DetailPolres,#logo_polres').attr('disabled', true)
                 $('.DetailPolres,#namaPolda').attr('disabled', true)
                 $('.DetailPolres,#namaPolres').attr('disabled', true)
@@ -774,16 +779,16 @@
                 $('.DetailPolres,#close_time').attr('disabled', true)
                 $('.DetailPolres,#phone_polres').attr('disabled', true)
 
-                $('.DetailPolres,#logo_polres').val(results.logo_polres)
-                $('.DetailPolres,#namaPolda').val(results.polda.name_polda)
-                $('.DetailPolres,#namaPolres').val(results.name_polres)
-                $('.DetailPolres,#kodeSatpas').val(results.code_satpas)
-                $('.DetailPolres,#address').val(results.address)
-                $('.DetailPolres,#latitude').val(results.latitude)
-                $('.DetailPolres,#longitude').val(results.longitude)
-                $('.DetailPolres,#open_time').val(results.open_time)
-                $('.DetailPolres,#close_time').val(results.close_time)
-                $('.DetailPolres,#phone_polres').val(results.phone_polres)
+                $('.DetailPolres,#logo_polres').val(data.logo_polres)
+                $('.DetailPolres,#namaPolda').val(datapoldaid.name_polda)
+                $('.DetailPolres,#namaPolres').val(data.name_polres)
+                $('.DetailPolres,#kodeSatpas').val(data.code_satpas)
+                $('.DetailPolres,#address').val(data.address)
+                $('.DetailPolres,#latitude').val(data.latitude)
+                $('.DetailPolres,#longitude').val(data.longitude)
+                $('.DetailPolres,#open_time').val(data.open_time)
+                $('.DetailPolres,#close_time').val(data.close_time)
+                $('.DetailPolres,#phone_polres').val(data.phone_polres)
                 
             }
         })
@@ -802,16 +807,16 @@
 				let datapoldaid = results.getDetail.polda
 				let datapolda = results.getPolda
 				// let polda = results.polda
-                // $('.UbahPolres,#logo_polres').attr('disabled', false)
-                // $('.UbahPolres,#namaPolda').attr('disabled', false)
-                // $('.UbahPolres,#namaPolres').attr('disabled', false)
-                // $('.UbahPolres,#kodeSatpas').attr('disabled', false)
-                // $('.UbahPolres,#address').attr('disabled', false)
-                // $('.UbahPolres,#latitude').attr('disabled', false)
-                // $('.UbahPolres,#longitude').attr('disabled', false)
-                // $('.UbahPolres,#open_time').attr('disabled', false)
-                // $('.UbahPolres,#close_time').attr('disabled', false)
-                // $('.UbahPolres,#phone_polres').attr('disabled', false)
+                $('.UbahPolres,#logo_polres').attr('disabled', false)
+                $('.UbahPolres,#namaPolda').attr('disabled', false)
+                $('.UbahPolres,#namaPolres').attr('disabled', false)
+                $('.UbahPolres,#kodeSatpas').attr('disabled', false)
+                $('.UbahPolres,#address').attr('disabled', false)
+                $('.UbahPolres,#latitude').attr('disabled', false)
+                $('.UbahPolres,#longitude').attr('disabled', false)
+                $('.UbahPolres,#open_time').attr('disabled', false)
+                $('.UbahPolres,#close_time').attr('disabled', false)
+                $('.UbahPolres,#phone_polres').attr('disabled', false)
 
                 $('#id_polres').val(data.id)
 
