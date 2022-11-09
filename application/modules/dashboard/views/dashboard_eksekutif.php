@@ -370,7 +370,7 @@
                                     <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
                                 </div>
                                 <div class="col-md-2 mb-1 mt-3"></div>
-                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+                                <!-- <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
                                     <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
                                 </div>
                                 <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
@@ -378,10 +378,10 @@
                                 </div>
                                 <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
                                     <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mt-4">
+                                <div class="col-md-6 mt-3">
                                     <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                                     <div class="mb-3">
                                         <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
@@ -422,15 +422,13 @@
                                     </div>
 
                                 </div>
-                                <div class="col-md-6 mt-5">
+                                <div class="col-md-6 mt-3">
+									<h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
                                     <div class="mb-3">
                                         <div class="card shadow-sm">
-                                            <div class="mt-5 text-center">
-                                                <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
-                                            </div>
-                                            <div class="mt-2 mb-2" style="overflow:hidden; overflow-y:scroll;">
-                                                <div style="max-height: 102vh;">
-                                                    <div class="card ms-4 me-4 mx-1 my-1">
+                                            <div class="" style="overflow:hidden; overflow-y:scroll;">
+                                                <div style="max-height: 135vh;">
+                                                    <div class="card ms-2 me-2 mx-2 my-2">
                                                         <div id="laka"></div>
                                                     </div>
                                                 </div>
