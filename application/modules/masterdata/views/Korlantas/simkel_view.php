@@ -639,7 +639,7 @@
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
             $.ajax({
-                url: "<?php echo base_url(); ?>masterdata/SimKeliling/store",
+                url: "<?php echo base_url(); ?>masterdata/Simkeliling/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
@@ -671,7 +671,7 @@
     function detail(id) {
         console.log(id);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/SimKeliling/detail',
+            url: '<?= base_url() ?>masterdata/Simkeliling/detail',
             type: 'POST',
             data: {
                 id_simkel: id
@@ -699,7 +699,7 @@
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>masterdata/SimKeliling/detail',
+            url: '<?= base_url() ?>masterdata/Simkeliling/detail',
             type: 'POST',
             data: {
                 id_simkel: id
@@ -739,7 +739,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>masterdata/SimKeliling/hapus/",
+                    url: "<?php echo base_url(); ?>masterdata/Simkeliling/hapus/",
                     type: "POST",
                     data: {
                         id_simkel: id
@@ -773,7 +773,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>masterdata/SimKeliling/updateSimkel',
+            url: '<?= base_url() ?>masterdata/Simkeliling/updateSimkel',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
