@@ -36,7 +36,19 @@
                     </div>
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>
+                            <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span> 
+                            <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDisplay" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fas fa-user-shield"></i> Petugas
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
+                                <a class="dropdown-item" href="javascript:void(0)">
+                                    <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span>Gatur</span> 
+                                </a>
+                                <a class="dropdown-item" href="#">R2 Listrik</a>
+                                <a class="dropdown-item" href="#">R4 Listrik</a>
+                                <a class="dropdown-item" href="#">R2 Fosil</a>
+                                <a class="dropdown-item" href="#">R4 Fosil</a>
+                            </div> -->
                         </label>
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -1541,8 +1553,7 @@
 
         function serverSideGet(){
             $("#overlay").fadeIn(300);   
-
-            
+ 
             let countlist = 0;
             let list = "";
 
@@ -2058,7 +2069,7 @@
                                     <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
                                         <input checked type="checkbox" id="allPetugasNon"/>
-                                        Jenis Kendaraan - Tanpa Kendaraan &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackNon"></span>
+                                        Jenis Kendaraan - PAM ROLAKIR &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackNon"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
@@ -2455,13 +2466,22 @@
                     $("#overlay").fadeOut(300);  
                     console.log("gagal connect Tracking");
                 } 
-            }); 
-
-
-
-
-            
+            });  
         }
+
+        // function serverSideGatur(){
+        //     $.ajax({
+        //         type : "POST",
+        //         url : "<?php echo base_url();?>dashboard/getGatur", 
+        //         data : {
+        //             "status" : '1',
+        //         }, 
+        //         dataType : "JSON",
+        //         success : function(result){ 
+                    
+        //         }
+        //     });
+        // }
 
 
         function getLogout(){

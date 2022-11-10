@@ -499,6 +499,76 @@ class Dashboard extends MY_Controller
         echo json_encode($getMe);
     }
 
+    public function getGatur()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'track-gatur';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
+    public function getR2Listrik()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'track-r2-listrik';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
+    public function getR4Listrik()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'track-r4-listrik';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
+    public function getR2Fosil()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'track-r2-fosil';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
+    public function getR4Fosil()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ]; 
+
+        $url = 'track-r4-fosil';
+        $getMe = guzzle_requestTracking('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        echo json_encode($getMe);
+    }
+
     public function getTrackingName()
     {
         $headers = [
