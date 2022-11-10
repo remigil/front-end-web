@@ -36,19 +36,32 @@
                     </div>
                     <div class="cat turjawaliDisplay" style="margin-left: 10px;">
                         <label>
-                            <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span> 
-                            <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDisplay" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!-- <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>  -->
+                            <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: black;" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fas fa-user-shield"></i> Petugas
-                            </button>
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span>Gatur</span> 
-                                </a>
-                                <a class="dropdown-item" href="#">R2 Listrik</a>
-                                <a class="dropdown-item" href="#">R4 Listrik</a>
-                                <a class="dropdown-item" href="#">R2 Fosil</a>
-                                <a class="dropdown-item" href="#">R4 Fosil</a>
-                            </div> -->
+                              
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span style="text-align: start;" id="loadTurjawaliDisplay">Semua Petugas</span> 
+                                </label>
+                              
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;">Gatur</span> 
+                                </label> 
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="r2listrik" name="filter" id="r2listrikDisplay"><span style="text-align: start;">R2 Listrik</span> 
+                                </label> 
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="r4listrik" name="filter" id="r4listrikDisplay"><span style="text-align: start;">R4 Listrik</span> 
+                                </label> 
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="r2fosil" name="filter" id="r2fosilDisplay"><span style="text-align: start;">R2 Fosil</span> 
+                                </label> 
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="r4fosil" name="filter" id="r4fosilDisplay"><span style="text-align: start;">R4 Fosil</span> 
+                                </label> 
+                            </div>
                         </label>
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
@@ -289,13 +302,74 @@
                 <button type="button" class="btn-close btn-close-white" data-dismiss="modal"></button>
             </div>
             <div class="modal-body"> 
-                <div id="overlayMenuFilter">
-                    <div class="loading">
-                        <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
-                        <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p> 
+                <!-- <div id="overlayMenuFilter" style="height: 9.5%;top: 64px;">
+                    <div class="loading" style="display: flex;">
+                        <div class="spinner" ></div>
+                        <p style="color: white; font-size: 15px; margin-left: 3px;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p> 
                     </div>
-                </div>
-                <div class="accordion accordion-flush listCategoriSchedule" id="accordionFlushExample">
+                </div> -->
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                    <div class="accordion-item">
+                        <div class="btn btn-soft-link waves-effect" id="openPetugas" style="color: #4e555b;position: relative;top: 10px;z-index: 5;left: 490px;"><i class="fa fas fa-redo"></i></div>
+                        <h2 class="accordion-header" id="flush-headingPetugas" style="margin-top: -50px;">
+                            <button  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas"> 
+                                    <div>
+                                        <p>
+                                            Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                                            </br>
+                                            <b><?php echo format_indoHari(date('Y-m-d'))?></b>
+                                        </p>    
+                                    </div> 
+                            </button>
+                        </h2>
+                        <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted">
+                                <div style="margin-left: 15px;">
+                                    </br>
+                                    Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktif"></span>
+                                    </br>
+                                    Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktif"></span>
+                                </div>
+                                <div id="dataPetugasTrack">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingUraianNonKegiatan">
+                            <button id="openUraianNonKegiatan" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseUraianNonKegiatan" aria-expanded="false" aria-controls="flush-collapseUraianNonKegiatan">
+                                Tidak Terjadwal &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseUraianNonKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingUraianNonKegiatan"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted"> 
+
+                                <table id="datatableUraianNonKegiatan" class="table dt-responsive w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Rute</th>
+                                            <th>No</th>
+                                            <th>Negara</th>
+                                            <th>Lokasi</th>
+                                            <th>Berangkat</th> 
+                                            <th>Petugas</th>
+                                            <th>Catatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listUraianNonKegiatan">
+                                    </tbody>
+                                </table> 
+
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="listCategoriSchedule"></div>
                     
                 </div>
                 
@@ -662,6 +736,13 @@
                 Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktifDisplay"></span>
                 </br>
                 Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktifDisplay"></span>
+                </br>
+                Jenis Kendaraan - Mobil : &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasCarDisplay"></span>
+                </br>
+                Jenis Kendaraan - Sepeda Motor : &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasBikeDisplay"></span>
+                </br>
+                Petugas PAM ROLAKIR : &nbsp;<span class="badge bg-light rounded-pill" id="totalPetugasNonDisplay"></span>
+                
             </div>
             <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
             </div>
@@ -1620,7 +1701,8 @@
                         $('#totalPetugasAktifDisplay').html(dummyGetTracking.length - filterDataTidakAktif.length);
                         $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
 
-                        $("#turjawaliDisplay").prop('disabled', true); 
+                        $("#turjawaliDisplay").prop('disabled', true);  
+                        $("#loadTurjawaliDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>Semua Petugas`);
                         for (let i = 0; i < dummyGetTracking.length; i++) {    
                             setTimeout(() => {
                                 var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
@@ -1996,6 +2078,7 @@
                                 },
                             }); 
                             $("#turjawaliDisplay").prop('disabled', false); 
+                            $("#loadTurjawaliDisplay").html(`Semua Petugas`);
                             $("#overlayMenuDisplay").fadeOut(300);
                             $("#overlayMenuFilter").fadeOut(300);
                             Swal.fire(
@@ -2013,7 +2096,7 @@
                                     <button id="openPetugasGetTrackCar" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackCar" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCar">
                                         <input checked type="checkbox" id="allPetugasCar"/>
-                                        Jenis Kendaraan - Mobil &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackCar"></span>
+                                        Jenis Kendaraan - Mobil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackCar"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugasGetTrackCar" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCar"
@@ -2041,7 +2124,7 @@
                                     <button id="openPetugasGetTrackBike" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackBike" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBike">
                                         <input checked type="checkbox" id="allPetugasBike"/>
-                                        Jenis Kendaraan - Sepeda Motor &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackBike"></span>
+                                        Jenis Kendaraan - Sepeda Motor &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackBike"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugasGetTrackBike" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBike"
@@ -2069,7 +2152,7 @@
                                     <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
                                         <input checked type="checkbox" id="allPetugasNon"/>
-                                        Jenis Kendaraan - PAM ROLAKIR &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasGetTrackNon"></span>
+                                        Petugas PAM ROLAKIR &nbsp;<span class="badge bg-light rounded-pill" id="totalPetugasGetTrackNon"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
@@ -2114,7 +2197,11 @@
                         $("#totalPetugasOn").html(`${sortRess.length}`);
                         $("#totalPetugasGetTrackCar").html(`${filterPetugasCar.length}`);
                         $("#totalPetugasGetTrackBike").html(`${filterPetugasBike.length}`);
-                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`);
+                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`); 
+
+                        $("#totalPetugasCarDisplay").html(`${filterPetugasCar.length}`);
+                        $("#totalPetugasBikeDisplay").html(`${filterPetugasBike.length}`);
+                        $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
  
                         // storeEditDayReporto 
                         $.ajax({
@@ -2469,19 +2556,19 @@
             });  
         }
 
-        // function serverSideGatur(){
-        //     $.ajax({
-        //         type : "POST",
-        //         url : "<?php echo base_url();?>dashboard/getGatur", 
-        //         data : {
-        //             "status" : '1',
-        //         }, 
-        //         dataType : "JSON",
-        //         success : function(result){ 
+        function serverSideGatur(){
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getGatur", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){ 
                     
-        //         }
-        //     });
-        // }
+                }
+            });
+        }
 
 
         function getLogout(){
@@ -4794,7 +4881,13 @@
                 openDisplay = this.value; 
                 $("#turjawali").prop('checked', true);  
                 $("#myModalPetugasDisplay").modal('show');  
-                serverSideGet();
+                for (let i = 0; i < dummyIdTurjawali.length; i++) {   
+                    if(markerArray[dummyIdTurjawali[i]] != null){
+                        // mapContainer.addLayer(markerArray[dummyIdTurjawali[i]]);
+                        // markerArray[dummyIdTurjawali[i]].remove();
+                    }
+                } 
+                // serverSideGet();
                 startSocket();
             }else{
                 openDisplay = '';
@@ -4804,8 +4897,8 @@
                 socketKe2.off(); 
                 for (let i = 0; i < dummyIdTurjawali.length; i++) {   
                     if(markerArray[dummyIdTurjawali[i]] != null){
-                        // mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
-                        markerArray[dummyIdTurjawali[i]].remove();
+                        mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
+                        // markerArray[dummyIdTurjawali[i]].remove();
                     }
                 } 
                 markerArray = new Array();   
@@ -6264,65 +6357,67 @@
     
                         
                         // dataGroupBy.forEach(el => {
-                        listCategori = `
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugas">
-                                    <button id="openPetugas" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas">
-                                            <div>
-                                                <div style="display: flex;">
-                                                    Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
-                                                </div> 
-                                                <b><?php echo format_indoHari(date('Y-m-d'))?></b>
-                                            </div> 
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body text-muted">
-                                        <div style="margin-left: 15px;">
-                                            </br>
-                                            Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktif"></span>
-                                            </br>
-                                            Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktif"></span>
-                                        </div>
-                                        <div id="dataPetugasTrack">
-                                        </div>
+                        // listCategori = `
+                        //     <div class="accordion-item">
+                        //         <div class="btn btn-soft-link waves-effect" id="openPetugas" style="color: #4e555b;position: relative;top: 60px;z-index: 5;left: 490px;"><i class="fa fas fa-redo"></i></div>
+                        //         <h2 class="accordion-header" id="flush-headingPetugas">
+                        //             <button  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                        //                 data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas"> 
+                        //                     <div>
+                        //                         <p>
+                        //                             Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
+                        //                             </br>
+                        //                             <b><?php echo format_indoHari(date('Y-m-d'))?></b>
+                        //                         </p>    
+                        //                     </div> 
+                        //             </button>
+                        //         </h2>
+                        //         <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
+                        //             data-bs-parent="#accordionFlushExample">
+                        //             <div class="accordion-body text-muted">
+                        //                 <div style="margin-left: 15px;">
+                        //                     </br>
+                        //                     Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktif"></span>
+                        //                     </br>
+                        //                     Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktif"></span>
+                        //                 </div>
+                        //                 <div id="dataPetugasTrack">
+                        //                 </div>
 
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingUraianNonKegiatan">
-                                    <button id="openUraianNonKegiatan" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseUraianNonKegiatan" aria-expanded="false" aria-controls="flush-collapseUraianNonKegiatan">
-                                        Tidak Terjadwal &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseUraianNonKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingUraianNonKegiatan"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body text-muted"> 
+                        //             </div>
+                        //         </div>
+                        //     </div> 
+                        //     <div class="accordion-item">
+                        //         <h2 class="accordion-header" id="flush-headingUraianNonKegiatan">
+                        //             <button id="openUraianNonKegiatan" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                        //                 data-bs-target="#flush-collapseUraianNonKegiatan" aria-expanded="false" aria-controls="flush-collapseUraianNonKegiatan">
+                        //                 Tidak Terjadwal &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
+                        //             </button>
+                        //         </h2>
+                        //         <div id="flush-collapseUraianNonKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingUraianNonKegiatan"
+                        //             data-bs-parent="#accordionFlushExample">
+                        //             <div class="accordion-body text-muted"> 
 
-                                        <table id="datatableUraianNonKegiatan" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rute</th>
-                                                    <th>No</th>
-                                                    <th>Negara</th>
-                                                    <th>Lokasi</th>
-                                                    <th>Berangkat</th> 
-                                                    <th>Petugas</th>
-                                                    <th>Catatan</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listUraianNonKegiatan">
-                                            </tbody>
-                                        </table> 
+                        //                 <table id="datatableUraianNonKegiatan" class="table dt-responsive w-100">
+                        //                     <thead>
+                        //                         <tr>
+                        //                             <th>Rute</th>
+                        //                             <th>No</th>
+                        //                             <th>Negara</th>
+                        //                             <th>Lokasi</th>
+                        //                             <th>Berangkat</th> 
+                        //                             <th>Petugas</th>
+                        //                             <th>Catatan</th>
+                        //                         </tr>
+                        //                     </thead>
+                        //                     <tbody id="listUraianNonKegiatan">
+                        //                     </tbody>
+                        //                 </table> 
 
-                                    </div>
-                                </div>
-                            </div> 
-                        `;
+                        //             </div>
+                        //         </div>
+                        //     </div> 
+                        // `;
                         for (let i = 0; i < ress.length; i++){ 
                             countlistCategori += 1;   
                             listCategori += `  

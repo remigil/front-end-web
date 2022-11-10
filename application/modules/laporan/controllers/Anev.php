@@ -78,7 +78,7 @@ class Anev extends MY_Controller
         // print_r($input['listTables']);
         // die;
 
-        $url = 'anev-daily?type=pdf-download&tanggal=2022-11-09&mulaiOperasi=1';
+        $url = 'anev-daily?type=pdf-download&tanggal='.date('Y-md-d').'&mulaiOperasi=1';
         $data = guzzle_requestAnev('GET', $url, [
             'json' => $input['listTables'],
             'headers' => $headers
