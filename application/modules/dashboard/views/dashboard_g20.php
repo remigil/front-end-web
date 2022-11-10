@@ -31,35 +31,32 @@
                 <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
                     <div class="cat jalurBeatDisplay" style="margin-left: 10px;">
                         <label>
-                            <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-user-shield"></i> Jalur Beat</span>
+                            <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
                         </label>
                     </div>
-                    <div class="cat turjawaliDisplay" style="margin-left: 10px;">
+                    <div class="cat" style="margin-left: 10px;">
                         <label>
-                            <!-- <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span><i class="fa fas fa-user-shield"></i> Petugas</span>  -->
-                            <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: black;" data-bs-toggle="dropdown" aria-expanded="false">
+                             
+                            <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fas fa-user-shield"></i> Petugas
                             </div>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
+                               
                               
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="petugas" name="filter" id="turjawaliDisplay"><span style="text-align: start;" id="loadTurjawaliDisplay">Semua Petugas</span> 
-                                </label>
-                              
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;">Gatur</span> 
+                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r2listrik" name="filter" id="r2listrikDisplay"><span style="text-align: start;">R2 Listrik</span> 
+                                    <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span> 
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r4listrik" name="filter" id="r4listrikDisplay"><span style="text-align: start;">R4 Listrik</span> 
+                                    <input checked type="checkbox" value="r4Listrik" name="filter" id="r4ListrikDisplay"><span style="text-align: start;" id="loadR4ListrikDisplay">R4 Listrik</span> 
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r2fosil" name="filter" id="r2fosilDisplay"><span style="text-align: start;">R2 Fosil</span> 
+                                    <input checked type="checkbox" value="r2Fosil" name="filter" id="r2FosilDisplay"><span style="text-align: start;" id="loadR2FosilDisplay">R2 Fosil</span> 
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r4fosil" name="filter" id="r4fosilDisplay"><span style="text-align: start;">R4 Fosil</span> 
+                                    <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span> 
                                 </label> 
                             </div>
                         </label>
@@ -737,14 +734,36 @@
                 </br>
                 Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktifDisplay"></span>
                 </br>
-                Jenis Kendaraan - Mobil : &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasCarDisplay"></span>
+                Jenis Kendaraan - Mobil Listrik : &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasCarListrikDisplay"></span>
                 </br>
-                Jenis Kendaraan - Sepeda Motor : &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasBikeDisplay"></span>
+                Jenis Kendaraan - Sepeda Motor Listrik : &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasBikeListrikDisplay"></span>
+                </br>
+                Jenis Kendaraan - Mobil Fosil : &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasCarFosilDisplay"></span>
+                </br>
+                Jenis Kendaraan - Sepeda Motor Fosil : &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasBikeFosilDisplay"></span>
                 </br>
                 Petugas PAM ROLAKIR : &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasNonDisplay"></span>
                 
             </div>
-            <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
+            <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;"> 
+                <div id="overlayMenuDisplay">
+                    <div class="loading">
+                        <div class="spinner" style="margin-left: 55px;margin-bottom: 10px;"></div>
+                        <p style="color: white; font-size: 15px; margin-left: 3px; text-align: center;">Mohon Tunggu </br> Fitur Akan Aktif Segera</p> 
+                    </div>
+                </div>
+                <table id="datatablePetugasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th> 
+                            <th>Delegasi</th> 
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="isiModalPetugasDisplay">
+                    </tbody>
+                </table>    
             </div>
         </div>
     </div>
@@ -960,9 +979,7 @@
     var panicClusterGroup;
     var userDataTable;
 
-
-    var dummyGetTracking = new Array();
-    var dummyIdTurjawali = new Array();
+ 
 
     var dummyIdKendaraanGpsId= new Array();
     var autoGpsId; 
@@ -976,6 +993,11 @@
     var ressGetGpsId;
 
     var statusSocket = true;
+
+
+    
+
+    var dataTablePetugasDisplay;
 
     $(document).ready(function() {  
 
@@ -1640,10 +1662,17 @@
 
             let countlistDisplay = 0;
             let listDisplay = ""; 
-            let countlistCar = 0;
-            let listCar = ""; 
-            let countlistBike = 0;
-            let listBike = ""; 
+
+            let countlistCarListrik = 0;
+            let listCarListrik = ""; 
+            let countlistBikeListrik = 0;
+            let listBikeListrik = ""; 
+
+            let countlistCarFosil = 0;
+            let listCarFosil = ""; 
+            let countlistBikeFosil = 0;
+            let listBikeFosil = ""; 
+
             let countlistNon = 0;
             let listNon = ""; 
             $.ajax({
@@ -1654,14 +1683,12 @@
                 }, 
                 dataType : "JSON",
                 success : function(result){  
-                    $("#overlay").fadeOut(300); 
-                    // console.log('get tracking');
-                    dummyGetTracking = new Array();
-                    dummyGetTracking = result['data'];  
+                    $("#overlay").fadeOut(300);  
+                    var dummyGetTracking = result['data'];  
 
                     var jenis = '';
-                    var bendera = '';
- 
+                    var bendera = ''; 
+
                      
                     $('#openModalPetugasDisplay').html(`
                         <div id="overlayMenuDisplay">
@@ -1684,8 +1711,7 @@
                         </table>                     
                     `);
                     $('#totalPetugasDisplay').html(dummyGetTracking.length);
-                    $("#overlayMenuDisplay").fadeIn(300);
-                    $("#overlayMenuFilter").fadeIn(300);
+                    $("#overlayMenuDisplay").fadeIn(300);  
                     
 
                     
@@ -1701,29 +1727,928 @@
                         $('#totalPetugasAktifDisplay').html(dummyGetTracking.length - filterDataTidakAktif.length);
                         $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
 
-                        $("#turjawaliDisplay").prop('disabled', true);  
-                        $("#loadTurjawaliDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>Semua Petugas`);
+                      
+
+                        $("#gaturDisplay").prop('disabled', true); 
+                        $("#r2ListrikDisplay").prop('disabled', true); 
+                        $("#r4ListrikDisplay").prop('disabled', true); 
+                        $("#r2FosilDisplay").prop('disabled', true); 
+                        $("#r4FosilDisplay").prop('disabled', true); 
+                        $("#loadGaturDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>PAM ROLAKIR`);
+                        $("#loadR2ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
+                        $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
+                        $("#loadR2FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Fosil`);
+                        $("#loadR4FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Fosil`);
+                         
+
+                        tablePutugasTrack = `
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeListrik">
+                                    <button id="openPetugasGetTrackBikeListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackBikeListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeListrik">
+                                        <input checked type="checkbox" id="allPetugasBikeListrik"/>
+                                        Jenis Kendaraan - R2 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackBikeListrik"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackBikeListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeListrik"
+                                    data-bs-parent="#accordionFlushExampleBikeListrik">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackBikeListrik" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackBikeListrik">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarListrik">
+                                    <button id="openPetugasGetTrackCarListrik" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackCarListrik" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarListrik">
+                                        <input checked type="checkbox" id="allPetugasCarListrik"/>
+                                        Jenis Kendaraan - R4 Listrik &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackCarListrik"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackCarListrik" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarListrik"
+                                    data-bs-parent="#accordionFlushExampleCarListrik">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackCarListrik" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackCarListrik">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBikeFosil">
+                                    <button id="openPetugasGetTrackBikeFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackBikeFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBikeFosil">
+                                        <input checked type="checkbox" id="allPetugasBikeFosil"/>
+                                        Jenis Kendaraan - R2 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackBikeFosil"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackBikeFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBikeFosil"
+                                    data-bs-parent="#accordionFlushExampleBikeFosil">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackBikeFosil" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackBikeFosil">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCarFosil">
+                                    <button id="openPetugasGetTrackCarFosil" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackCarFosil" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCarFosil">
+                                        <input checked type="checkbox" id="allPetugasCarFosil"/>
+                                        Jenis Kendaraan - R4 Fosil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackCarFosil"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackCarFosil" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCarFosil"
+                                    data-bs-parent="#accordionFlushExampleCarFosil">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackCarFosil" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackCarFosil">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
+                                    <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
+                                        <input checked type="checkbox" id="allPetugasNon"/>
+                                        Petugas PAM ROLAKIR &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasGetTrackNon"></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
+                                    data-bs-parent="#accordionFlushExampleNon">
+                                    <div class="accordion-body text-muted">
+
+                                        <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th> 
+                                                    <th>Delegasi</th> 
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="listPetugasGetTrackNon">
+                                            </tbody>
+                                        </table> 
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                        `;
+                        $("#dataPetugasTrack").html(tablePutugasTrack); 
+
+                         
+                        $("#allPetugasCarListrik").prop('disabled', true); 
+                        $("#allPetugasBikeListrik").prop('disabled', true); 
+                        $("#allPetugasCarFosil").prop('disabled', true); 
+                        $("#allPetugasBikeFosil").prop('disabled', true); 
+                        $("#allPetugasNon").prop('disabled', true); 
+
+
+                        countlist = 0;
+                        list = "";
+                        sortRess = dummyGetTracking.sort((a,b) => a.name_officer + b.name_officer);
+
+                        var filterPetugasCarListrik = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Listrik';
+                        }); 
+                        var filterPetugasBikeListrik = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Listrik';
+                        }); 
+                        var filterPetugasCarFosil = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Mobil' && e.fuel_vehicle == 'Fosil';
+                        }); 
+                        var filterPetugasBikeFosil = sortRess.filter(function (e) {
+                            return e.type_vehicle == 'Sepeda Motor' && e.fuel_vehicle == 'Fosil';
+                        }); 
+
+
+                        var filterPetugasNon = sortRess.filter(function (e) {
+                            return e.no_vehicle == 'Pengaturan' && e.type_vehicle == 'Tanpa Kendaraan' && e.fuel_vehicle == 'Fosil';
+                        }); 
+                        
+                        
+                        $("#totalPetugasOn").html(`${sortRess.length}`);
+                        $("#totalPetugasGetTrackCarListrik").html(`${filterPetugasCarListrik.length}`);
+                        $("#totalPetugasGetTrackBikeListrik").html(`${filterPetugasBikeListrik.length}`);
+                        $("#totalPetugasGetTrackCarFosil").html(`${filterPetugasCarFosil.length}`);
+                        $("#totalPetugasGetTrackBikeFosil").html(`${filterPetugasBikeFosil.length}`);
+                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`); 
+
+                        $("#totalPetugasCarListrikDisplay").html(`${filterPetugasCarListrik.length}`);
+                        $("#totalPetugasBikeListrikDisplay").html(`${filterPetugasBikeListrik.length}`);
+                        $("#totalPetugasCarFosilDisplay").html(`${filterPetugasCarFosil.length}`);
+                        $("#totalPetugasBikeFosilDisplay").html(`${filterPetugasBikeFosil.length}`);
+                        $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
+ 
+                        // storeEditDayReporto 
+                        // $.ajax({
+                        //     type : "POST",
+                        //     url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
+                        //     data : {
+                        //         "t_officer_active" : sortRess.length,
+                        //         "t_officer_active_car" : filterPetugasCar.length,
+                        //         "t_officer_active_bike" : filterPetugasBike.length,
+                        //         "t_officer_active_not_driving" : filterPetugasNon.length,
+                        //     }, 
+                        //     dataType : "JSON",
+                        //     success : function(result){ 
+                        //         if(result['status'] == true){
+                        //             console.log('update petugas aktif day report');
+                        //         }else{
+                        //             console.log('GAGAL update petugas aktif day report');
+                        //         }
+                        //     }
+                        // });
+          
+                        filterPetugasCarListrik.forEach(el => { 
+                            if(el.handphone != null && el.handphone != '0'){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                } 
+                            }else{
+                                el.handphone = 0;
+                            }
+
+                            
+
+                            countlistCarListrik += 1;
+                            listCarListrik += `  
+                                <tr>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarListrik}</span>`}</td>
+                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
+                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
+                                    <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickCarListrik${countlistCarListrik}"  
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagCarListrik${countlistCarListrik}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagCarListrik${countlistCarListrik}"></label>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackCarListrik').html(listCarListrik); 
+                        });   
+                       
+                        $(`#allPetugasCarListrik`).on('change', function(e) { 
+                            if($(`#allPetugasCarListrik`).is(':checked')){
+                                $("#r4ListrikDisplay").prop('checked', true);
+                                for (let i = 0; i < countlistCarListrik; i++){ 
+                                    if(markerArray[filterPetugasCarListrik[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#r4ListrikDisplay").prop('checked', false);
+                                for (let i = 0; i < countlistCarListrik; i++){ 
+                                    if(markerArray[filterPetugasCarListrik[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        });
+
+                        $("#r4ListrikDisplay").on("change", function (e) {   
+                            if($(this).is(':checked')){ 
+                                $("#allPetugasCarListrik").prop('checked', true);
+                                for (let i = 0; i < countlistCarListrik; i++){ 
+                                    if(markerArray[filterPetugasCarListrik[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#allPetugasCarListrik").prop('checked', false);
+                                for (let i = 0; i < countlistCarListrik; i++){ 
+                                    if(markerArray[filterPetugasCarListrik[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        }); 
+                        
+                        for (let i = 0; i < countlistCarListrik; i++){ 
+                            $(`#listPetugasClickCarListrik${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);   
+                                markerArray[$(this).data('id')].openPopup();  
+                            });
+
+                            $(`#flagCarListrik${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagCarListrik${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickCarListrik${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickCarListrik${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackCarListrik').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+
+
+                        filterPetugasBikeListrik.forEach(el => { 
+                            if(el.handphone != null && el.handphone != '0'){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                }
+                            }else{
+                                el.handphone = 0;
+                            }
+
+                          
+
+                            countlistBikeListrik += 1;
+                            listBikeListrik += `  
+                                <tr>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeListrik}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeListrik}</span>`}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickBikeListrik${countlistBikeListrik}"   
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagBikeListrik${countlistBikeListrik}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagBikeListrik${countlistBikeListrik}"></label>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackBikeListrik').html(listBikeListrik); 
+                        });   
+                       
+                        
+
+                        $(`#allPetugasBikeListrik`).on('change', function(e) { 
+                            if($(`#allPetugasBikeListrik`).is(':checked')){
+                                $("#r2ListrikDisplay").prop('checked', true);
+                                for (let i = 0; i < countlistBikeListrik; i++){ 
+                                    if(markerArray[filterPetugasBikeListrik[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#r2ListrikDisplay").prop('checked', false);
+                                for (let i = 0; i < countlistBikeListrik; i++){ 
+                                    if(markerArray[filterPetugasBikeListrik[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        });
+
+                        $("#r2ListrikDisplay").on("change", function (e) {   
+                            if($(this).is(':checked')){ 
+                                $("#allPetugasBikeListrik").prop('checked', true);
+                                for (let i = 0; i < countlistBikeListrik; i++){ 
+                                    if(markerArray[filterPetugasBikeListrik[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#allPetugasBikeListrik").prop('checked', false);
+                                for (let i = 0; i < countlistBikeListrik; i++){ 
+                                    if(markerArray[filterPetugasBikeListrik[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        }); 
+
+                        for (let i = 0; i < countlistBikeListrik; i++){ 
+                            $(`#listPetugasClickBikeListrik${i+1}`).click(function(){   
+                                // console.log($(this).data('id'));
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);  
+                                markerArray[$(this).data('id')].openPopup();  
+                            });
+
+                            $(`#flagBikeListrik${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagBikeListrik${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBikeListrik${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBikeListrik${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackBikeListrik').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+
+
+                        filterPetugasCarFosil.forEach(el => { 
+                            if(el.handphone != null && el.handphone != '0'){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                } 
+                            }else{
+                                el.handphone = 0;
+                            }
+
+                           
+
+                            countlistCarFosil += 1;
+                            listCarFosil += `  
+                                <tr>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCarFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCarFosil}</span>`}</td>
+                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
+                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
+                                    <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickCarFosil${countlistCarFosil}"  
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagCarFosil${countlistCarFosil}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagCarFosil${countlistCarFosil}"></label>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackCarFosil').html(listCarFosil); 
+                        });   
+                       
+                        $(`#allPetugasCarFosil`).on('change', function(e) { 
+                            if($(`#allPetugasCarFosil`).is(':checked')){
+                                $("#r4FosilDisplay").prop('checked', true);
+                                for (let i = 0; i < countlistCarFosil; i++){ 
+                                    if(markerArray[filterPetugasCarFosil[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#r4FosilDisplay").prop('checked', false);
+                                for (let i = 0; i < countlistCarFosil; i++){ 
+                                    if(markerArray[filterPetugasCarFosil[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                    } 
+                                }
+                            }
+                        });
+
+                        $("#r4FosilDisplay").on("change", function (e) {   
+                            if($(this).is(':checked')){ 
+                                $("#allPetugasCarFosil").prop('checked', true);
+                                for (let i = 0; i < countlistCarFosil; i++){ 
+                                    if(markerArray[filterPetugasCarFosil[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#allPetugasCarFosil").prop('checked', false);
+                                for (let i = 0; i < countlistCarFosil; i++){ 
+                                    if(markerArray[filterPetugasCarFosil[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]);
+                                    } 
+                                }
+                            }
+                        }); 
+                        
+                        for (let i = 0; i < countlistCarFosil; i++){ 
+                            $(`#listPetugasClickCarFosil${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);   
+                                markerArray[$(this).data('id')].openPopup();  
+                            });
+
+                            $(`#flagCarFosil${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagCarFosil${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickCarFosil${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickCarFosil${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackCarFosil').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+
+
+                        filterPetugasBikeFosil.forEach(el => { 
+                            if(el.handphone != null && el.handphone != '0'){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                }
+                            }else{
+                                el.handphone = 0;
+                            }
+
+                          
+
+                            countlistBikeFosil += 1;
+                            listBikeFosil += `  
+                                <tr>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBikeFosil}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBikeFosil}</span>`}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                                <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickBikeFosil${countlistBikeFosil}"   
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagBikeFosil${countlistBikeFosil}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagBikeFosil${countlistBikeFosil}"></label>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackBikeFosil').html(listBikeFosil); 
+                        });   
+                       
+                        
+
+                        $(`#allPetugasBikeFosil`).on('change', function(e) { 
+                            if($(`#allPetugasBikeFosil`).is(':checked')){
+                                $("#r2FosilDisplay").prop('checked', true);
+                                for (let i = 0; i < countlistBikeFosil; i++){ 
+                                    if(markerArray[filterPetugasBikeFosil[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#r2FosilDisplay").prop('checked', false);
+                                for (let i = 0; i < countlistBikeFosil; i++){ 
+                                    if(markerArray[filterPetugasBikeFosil[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        });
+
+                        $("#r2FosilDisplay").on("change", function (e) {   
+                            if($(this).is(':checked')){ 
+                                $("#allPetugasBikeFosil").prop('checked', true);
+                                for (let i = 0; i < countlistBikeFosil; i++){ 
+                                    if(markerArray[filterPetugasBikeFosil[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#allPetugasBikeFosil").prop('checked', false);
+                                for (let i = 0; i < countlistBikeFosil; i++){ 
+                                    if(markerArray[filterPetugasBikeFosil[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        }); 
+
+                        for (let i = 0; i < countlistBikeFosil; i++){ 
+                            $(`#listPetugasClickBikeFosil${i+1}`).click(function(){   
+                                // console.log($(this).data('id'));
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);  
+                                markerArray[$(this).data('id')].openPopup();  
+                            });
+
+                            $(`#flagBikeFosil${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagBikeFosil${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBikeFosil${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickBikeFosil${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackBikeFosil').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+
+                        filterPetugasNon.forEach(el => { 
+                            if(el.handphone != null){
+                                let nomorDepan = el.handphone.substring(0, 2);
+                                if (nomorDepan === "62") {
+                                    el.handphone = el.handphone;
+                                } else if (nomorDepan === "08") {
+                                    el.handphone = "62" + el.handphone.substring(1);
+                                } else if (nomorDepan === "+6") {
+                                    el.handphone = el.handphone.substring(1);
+                                } else {
+                                    el.handphone = el.handphone;
+                                }
+                            }else{
+                                el.handphone = 0;
+                            } 
+
+                            countlistNon += 1;
+                            listNon += `  
+                                <tr>
+                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
+                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
+                                    <td> ${el.name_country ? el.name_country : '-'}</td>
+                                    <td> 
+                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
+                                        <div style="display: flex;">
+                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
+                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
+                                            <i class="fab fa-telegram"></i>
+                                            </a>
+                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
+                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                                id="listPetugasClickNon${countlistNon}"  
+                                                data-id="${el.id_officer}"   
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}" >
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </button>
+                                            <div class="switch" style="margin-left: -11px;">
+                                                <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
+                                                data-id="${el.id_officer}"  
+                                                data-nama="${el.name_team}"  
+                                                data-akun="${el.name_account}" 
+                                                data-nrp="${el.nrp_user}"
+                                                data-telp="${el.handphone}"
+                                                data-cord="${el.latitude},${el.longitude}"
+                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
+                                                <label for="flagNon${countlistNon}"></label>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#listPetugasGetTrackNon').html(listNon); 
+                        });    
+                        $(`#allPetugasNon`).on('change', function(e) { 
+                            if($(`#allPetugasNon`).is(':checked')){
+                                $("#gaturDisplay").prop('checked', true);
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    if(markerArray[filterPetugasNon[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{
+                                $("#gaturDisplay").prop('checked', false);
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    if(markerArray[filterPetugasNon[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                    }
+                                }
+                            }
+                        });
+                        $("#gaturDisplay").on("change", function (e) {   
+                            if($(this).is(':checked')){  
+                                $("#allPetugasNon").prop('checked', true);  
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    if(markerArray[filterPetugasNon[i]['id_officer']] != null){
+                                        mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                    }
+                                }
+                            }else{ 
+                                $("#allPetugasNon").prop('checked', false);  
+                                for (let i = 0; i < countlistNon; i++){ 
+                                    if(markerArray[filterPetugasNon[i]['id_officer']] != null){
+                                        mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
+                                    }
+                                }
+                            } 
+                        });  
+                        for (let i = 0; i < countlistNon; i++){ 
+                            $(`#listPetugasClickNon${i+1}`).click(function(){   
+                                // console.log('masuk');
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]); 
+                                mapContainer.flyTo([latitude, longitude], 20);  
+                                markerArray[$(this).data('id')].openPopup();    
+                            });
+
+                            $(`#flagNon${i+1}`).on("change", function (e) {
+                                // alert($(this).data('id'));
+                                if($(`#flagNon${i+1}`).is(':checked')){
+                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickNon${i+1}`).hide();
+                                }else{
+                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
+                                    $(`#listPetugasClickNon${i+1}`).show();
+                                }
+                            });
+ 
+                        } 
+                        $('#datatablePetugasGetTrackNon').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        });
+
+
+
+
+
+
+
+
+
+
                         for (let i = 0; i < dummyGetTracking.length; i++) {    
                             setTimeout(() => {
-                                var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
-                                    return val == dummyGetTracking[i].id_officer;
-                                });
-                                if(validasiIdTurjal > 0){ 
-                                    // console.log('id sudah ada');
-                                }else{ 
-                                    dummyIdTurjawali.push(dummyGetTracking[i].id_officer.toString());
-                                    // console.log('id tidak ada');
-                                }   
+                                
 
                                 var cordLat = parseFloat(dummyGetTracking[i].latitude); 
                                 var corLong = parseFloat(dummyGetTracking[i].longitude);  
                                 
-                                if(dummyGetTracking[i].bawa_penumpang == 1 && dummyGetTracking[i].photo_country != '-'){
-                                    iconflagVip = `
-                                        <img src="${dummyGetTracking[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                if(dummyGetTracking[i].bawa_penumpang == 1){
+                                    iconflagVip = `<img src="${dummyGetTracking[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${dummyGetTracking[i].name_country}</span>
-                                        </div>`; 
+                                        </div>`;  
                                 }else{
                                     iconflagVip = `<div style="width: 35px;margin-left: 10px;height: 30px;"></div>`;
                                 }
@@ -2077,10 +3002,30 @@
                                     sSearch: 'Search:' 
                                 },
                             }); 
-                            $("#turjawaliDisplay").prop('disabled', false); 
-                            $("#loadTurjawaliDisplay").html(`Semua Petugas`);
-                            $("#overlayMenuDisplay").fadeOut(300);
-                            $("#overlayMenuFilter").fadeOut(300);
+                            
+
+                            $("#gaturDisplay").prop('disabled', false); 
+                            $("#r2ListrikDisplay").prop('disabled', false); 
+                            $("#r4ListrikDisplay").prop('disabled', false); 
+                            $("#r2FosilDisplay").prop('disabled', false); 
+                            $("#r4FosilDisplay").prop('disabled', false); 
+                            $("#loadGaturDisplay").html(`PAM ROLAKIR`);
+                            $("#loadR2ListrikDisplay").html(`R2 Listrik`);
+                            $("#loadR4ListrikDisplay").html(`R2 Listrik`);
+                            $("#loadR2FosilDisplay").html(`R2 Fosil`);
+                            $("#loadR4FosilDisplay").html(`R4 Fosil`);
+                            
+                            $("#overlayMenuDisplay").fadeOut(300); 
+
+                            
+                            $("#allPetugasCarListrik").prop('disabled', false); 
+                            $("#allPetugasBikeListrik").prop('disabled', false); 
+                            $("#allPetugasCarFosil").prop('disabled', false); 
+                            $("#allPetugasBikeFosil").prop('disabled', false); 
+                            $("#allPetugasNon").prop('disabled', false); 
+                            
+
+
                             Swal.fire(
                                 `Fitur Sudah Dapat Di Gunakan`,
                                 'Terimakasih sudah Menunggu',
@@ -2089,465 +3034,11 @@
                                 
                             });
                         }, dummyGetTracking.length * 500);
-
-                        tablePutugasTrack = `
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackCar">
-                                    <button id="openPetugasGetTrackCar" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackCar" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackCar">
-                                        <input checked type="checkbox" id="allPetugasCar"/>
-                                        Jenis Kendaraan - Mobil &nbsp;<span class="badge bg-primary rounded-pill" id="totalPetugasGetTrackCar"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackCar" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackCar"
-                                    data-bs-parent="#accordionFlushExampleCar">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackCar" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackCar">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackBike">
-                                    <button id="openPetugasGetTrackBike" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackBike" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackBike">
-                                        <input checked type="checkbox" id="allPetugasBike"/>
-                                        Jenis Kendaraan - Sepeda Motor &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasGetTrackBike"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackBike" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackBike"
-                                    data-bs-parent="#accordionFlushExampleBike">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackBike" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackBike">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingPetugasGetTrackNon">
-                                    <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
-                                        <input checked type="checkbox" id="allPetugasNon"/>
-                                        Petugas PAM ROLAKIR &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasGetTrackNon"></span>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
-                                    data-bs-parent="#accordionFlushExampleNon">
-                                    <div class="accordion-body text-muted">
-
-                                        <table id="datatablePetugasGetTrackNon" class="table dt-responsive w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th> 
-                                                    <th>Delegasi</th> 
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="listPetugasGetTrackNon">
-                                            </tbody>
-                                        </table> 
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-                        `;
-                        $("#dataPetugasTrack").html(tablePutugasTrack); 
-
-
-                        countlist = 0;
-                        list = "";
-                        sortRess = dummyGetTracking.sort((a,b) => a.name_officer + b.name_officer);
-
-                        var filterPetugasCar = sortRess.filter(function (e) {
-                            return e.type_vehicle == 'Mobil';
-                        }); 
-                        var filterPetugasBike = sortRess.filter(function (e) {
-                            return e.type_vehicle == 'Sepeda Motor';
-                        }); 
-                        var filterPetugasNon = sortRess.filter(function (e) {
-                            return e.type_vehicle != 'Mobil' && e.type_vehicle != 'Sepeda Motor';
-                        }); 
+                        $("#overlay").fadeOut(300);  
                         
-                        
-                        $("#totalPetugasOn").html(`${sortRess.length}`);
-                        $("#totalPetugasGetTrackCar").html(`${filterPetugasCar.length}`);
-                        $("#totalPetugasGetTrackBike").html(`${filterPetugasBike.length}`);
-                        $("#totalPetugasGetTrackNon").html(`${filterPetugasNon.length}`); 
-
-                        $("#totalPetugasCarDisplay").html(`${filterPetugasCar.length}`);
-                        $("#totalPetugasBikeDisplay").html(`${filterPetugasBike.length}`);
-                        $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
- 
-                        // storeEditDayReporto 
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
-                            data : {
-                                "t_officer_active" : sortRess.length,
-                                "t_officer_active_car" : filterPetugasCar.length,
-                                "t_officer_active_bike" : filterPetugasBike.length,
-                                "t_officer_active_not_driving" : filterPetugasNon.length,
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){ 
-                                if(result['status'] == true){
-                                    console.log('update petugas aktif day report');
-                                }else{
-                                    console.log('GAGAL update petugas aktif day report');
-                                }
-                            }
-                        });
-          
-                        filterPetugasCar.forEach(el => { 
-                            if(el.handphone != null){
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                } 
-                            }else{
-                                el.handphone = 0;
-                            }
-                            countlistCar += 1;
-                            listCar += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistCar}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistCar}</span>`}</td>
-                                    <td><a href="<?php echo base_url()?>operasi/Petugas" target="_blank"> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</a></td>
-                                    <td><a href="<?php echo base_url()?>operasi/Akun" target="_blank"> ${el.name_country ? el.name_country : '-'} </a></td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                            <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickCar${countlistCar}"  
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagCar${countlistCar}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagCar${countlistCar}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackCar').html(listCar); 
-                        });   
-                       
-                        $(`#allPetugasCar`).on('change', function(e) { 
-                            if($(`#allPetugasCar`).is(':checked')){
-                                for (let i = 0; i < countlistCar; i++){ 
-                                    mapContainer.addLayer(markerArray[filterPetugasCar[i]['id_officer']]); 
-                                }
-                            }else{
-                                for (let i = 0; i < countlistCar; i++){ 
-                                    mapContainer.removeLayer(markerArray[filterPetugasCar[i]['id_officer']]); 
-                                }
-                            }
-                        });
-                        
-                        for (let i = 0; i < countlistCar; i++){ 
-                            $(`#listPetugasClickCar${i+1}`).click(function(){   
-                                // console.log('masuk');
-                                var latlong =  $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);   
-                                markerArray[$(this).data('id')].openPopup();  
-                            });
-
-                            $(`#flagCar${i+1}`).on("change", function (e) {
-                                // alert($(this).data('id'));
-                                if($(`#flagCar${i+1}`).is(':checked')){
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickCar${i+1}`).hide();
-                                }else{
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickCar${i+1}`).show();
-                                }
-                            });
- 
-                        } 
-                        $('#datatablePetugasGetTrackCar').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-
-                        filterPetugasBike.forEach(el => { 
-                            if(el.handphone != null){
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            }else{
-                                el.handphone = 0;
-                            }
-                            countlistBike += 1;
-                            listBike += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistBike}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistBike}</span>`}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                                <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickBike${countlistBike}"   
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagBike${countlistBike}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagBike${countlistBike}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackBike').html(listBike); 
-                        });   
-                       
-                        
-
-                        $(`#allPetugasBike`).on('change', function(e) { 
-                            if($(`#allPetugasBike`).is(':checked')){
-                                for (let i = 0; i < countlistBike; i++){ 
-                                    mapContainer.addLayer(markerArray[filterPetugasBike[i]['id_officer']]); 
-                                }
-                            }else{
-                                for (let i = 0; i < countlistBike; i++){ 
-                                    mapContainer.removeLayer(markerArray[filterPetugasBike[i]['id_officer']]); 
-                                }
-                            }
-                        });
-                        for (let i = 0; i < countlistBike; i++){ 
-                            $(`#listPetugasClickBike${i+1}`).click(function(){   
-                                // console.log($(this).data('id'));
-                                var latlong =  $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);  
-                                markerArray[$(this).data('id')].openPopup();  
-                            });
-
-                            $(`#flagBike${i+1}`).on("change", function (e) {
-                                // alert($(this).data('id'));
-                                if($(`#flagBike${i+1}`).is(':checked')){
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickBike${i+1}`).hide();
-                                }else{
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickBike${i+1}`).show();
-                                }
-                            });
- 
-                        } 
-                        $('#datatablePetugasGetTrackBike').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
-
-                        filterPetugasNon.forEach(el => { 
-                            if(el.handphone != null){
-                                let nomorDepan = el.handphone.substring(0, 2);
-                                if (nomorDepan === "62") {
-                                    el.handphone = el.handphone;
-                                } else if (nomorDepan === "08") {
-                                    el.handphone = "62" + el.handphone.substring(1);
-                                } else if (nomorDepan === "+6") {
-                                    el.handphone = el.handphone.substring(1);
-                                } else {
-                                    el.handphone = el.handphone;
-                                }
-                            }else{
-                                el.handphone = 0;
-                            }
-                            countlistNon += 1;
-                            listNon += `  
-                                <tr>
-                                    <td>${el.status_login == 1 ? `<span class="badge rounded-pill bg-primary" style="font-size: 10px;">${countlistNon}</span>` : `<span class="badge rounded-pill bg-danger" style="font-size: 10px;">${countlistNon}</span>`}</td>
-                                    <td> ${el.rank_officer ? el.rank_officer : '' } - ${el.name_officer}</td>
-                                    <td> ${el.name_country ? el.name_country : '-'}</td>
-                                    <td> 
-                                        ${el.status_login == 1 ? `<span style="font-size: 10px; display:none;">Sudah Aktif</span>` : `<span style="font-size: 10px; display:none;">Tidak Aktif</span>`}
-                                        <div style="display: flex;">
-                                            <a class="btn" style="margin-top: -7px; color: #495057;" href="https://api.whatsapp.com/send?phone=${el.handphone}" target="_blank"><i class="fa fas fa-phone "></i></a> 
-                                            <a href="https://t.me/+${el.handphone}" target="_blank" style="margin-right: 10px;font-size: 17px;">
-                                            <i class="fab fa-telegram"></i>
-                                            </a>
-                                            <a class="btn" style="margin-left: -13px;margin-top: -7px; color: #495057;" href="<?php echo base_url('zoom'); ?>" target="_blank" onClick="sendZoomNonEncrypt('${el.id_officer}')"><i class="fa  fas fa-video "></i></a> 
-                                            <button class="btn" style="margin-left: -13px;margin-top: -13px;"
-                                                id="listPetugasClickNon${countlistNon}"  
-                                                data-id="${el.id_officer}"   
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}" >
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </button>
-                                            <div class="switch" style="margin-left: -11px;">
-                                                <input class="flag" type="checkbox" id="flagNon${countlistNon}" 
-                                                data-id="${el.id_officer}"  
-                                                data-nama="${el.name_team}"  
-                                                data-akun="${el.name_account}" 
-                                                data-nrp="${el.nrp_user}"
-                                                data-telp="${el.handphone}"
-                                                data-cord="${el.latitude},${el.longitude}"
-                                                data-toggle="toggle"  data-onstyle="success" data-offstyle="danger" data-on="Approved" data-off="Not Approved" data-size="lg"> 
-                                                <label for="flagNon${countlistNon}"></label>
-                                            </div>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            `;
-                            $('#listPetugasGetTrackNon').html(listNon); 
-                        });    
-                        $(`#allPetugasNon`).on('change', function(e) { 
-                            if($(`#allPetugasNon`).is(':checked')){
-                                for (let i = 0; i < countlistNon; i++){ 
-                                    mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
-                                }
-                            }else{
-                                for (let i = 0; i < countlistNon; i++){ 
-                                    mapContainer.removeLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
-                                }
-                            }
-                        });
-                        for (let i = 0; i < countlistNon; i++){ 
-                            $(`#listPetugasClickNon${i+1}`).click(function(){   
-                                // console.log('masuk');
-                                var latlong =  $(this).data('cord').split(',');
-                                var latitude = parseFloat(latlong[0]);
-                                var longitude = parseFloat(latlong[1]); 
-                                mapContainer.flyTo([latitude, longitude], 20);  
-                                markerArray[$(this).data('id')].openPopup();    
-                            });
-
-                            $(`#flagNon${i+1}`).on("change", function (e) {
-                                // alert($(this).data('id'));
-                                if($(`#flagNon${i+1}`).is(':checked')){
-                                    mapContainer.removeLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickNon${i+1}`).hide();
-                                }else{
-                                    mapContainer.addLayer(markerArray[$(this).data('id')]); 
-                                    $(`#listPetugasClickNon${i+1}`).show();
-                                }
-                            });
- 
-                        } 
-                        $('#datatablePetugasGetTrackNon').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
-
-                            buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-
-                                sSearch: 'Search:'
-
-                            },
-                        });
-
+                    }else{
+                        $("#overlay").fadeOut(300);  
                     } 
-                    $("#overlay").fadeOut(300);  
                 },
                 error: function () { 
                     $("#overlay").fadeOut(300);  
@@ -2555,49 +3046,9 @@
                 } 
             });  
         }
+  
 
-        function serverSideGatur(){
-            $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>dashboard/getGatur", 
-                data : {
-                    "status" : '1',
-                }, 
-                dataType : "JSON",
-                success : function(result){ 
-                    
-                }
-            });
-        }
-
-
-        function getLogout(){
-
-            $.ajax({
-                type : "POST",
-                url : "<?php echo base_url();?>dashboard/getLogout", 
-                data : {
-                    "status" : '1',
-                }, 
-                dataType : "JSON",
-                success : function(result){  
-                    var ress = result['data'];
-                    console.log({a:'GET LOGOUT' ,b:ress});
-                    for (let i = 0; i < ress.length; i++) {   
-                        // console.log(ress[i]['officer_id']);
-                        var id_officer = ress[i]['officer_id'];
-                        if(markerArray[id_officer]  != null){
-                            mapContainer.removeLayer(markerArray[id_officer]); 
-                        }
-                    }
-                }
-            });
-            
-        }
-
-        autoGetLogout = setInterval(getLogout, 5000);
         
-
         const call_wa_dan_biasa = (noTelp, officer_id, statusEncrypt) => {
             // let castNoTelp = noTelp.sub
             
@@ -2659,95 +3110,7 @@
         }
         document.querySelector("button").addEventListener("click", togglePress);
 
-        // socket.on('from server', function(ress) { 
-        //     console.log('ido2'); 
-        //     console.log(ress) 
-
-        //     // for (let i = 0; i < ress.length; i++) {  
-        //         if(markerArray[ress.id_officer] != null){ 
-        //         markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-        //             className: 'location-pin',
-        //             html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-        //             iconSize: [30, 30],
-        //             //iconAnchor: [18, 30]
-        //             iconAnchor: [10, 33]
-        //             }) }).bindPopup(`
-        //             <div class="text-center" style="width: 300px;">
-        //                 <div class="card-block">
-        //                     <a class="avatar avatar-lg" href="javascript:void(0)">
-        //                         <img src="-" alt="Logo">
-        //                     </a>
-        //                     <h4 class="profile-user">-</h4>
-        //                     <h5 class="profile-user">-</h5>
-        //                 </div> 
-        //             </div>
-        //         `).update();  
-        //         }else{ 
-        //         markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-        //             className: 'location-pin',
-        //             html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-        //             iconSize: [30, 30],
-        //             //iconAnchor: [18, 30]
-        //             iconAnchor: [10, 33]
-        //             }) }).bindPopup(`
-        //             <div class="text-center" style="width: 300px;">
-        //                 <div class="card-block">
-        //                     <a class="avatar avatar-lg" href="javascript:void(0)">
-        //                         <img src="-" alt="Logo">
-        //                     </a>
-        //                     <h4 class="profile-user">-</h4>
-        //                     <h5 class="profile-user">-</h5>
-        //                 </div> 
-        //             </div>
-        //         `).addTo(mapContainer);    
-        //         }
-        //     // }
-        // }); 
-        // socketKe2.on('from server', function(ress) { 
-        //     console.log('ido2'); 
-        //     console.log(ress) 
-
-        //     // for (let i = 0; i < ress.length; i++) {  
-        //         if(markerArray[ress.id_officer] != null){ 
-        //         markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-        //             className: 'location-pin',
-        //             html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-        //             iconSize: [30, 30],
-        //             //iconAnchor: [18, 30]
-        //             iconAnchor: [10, 33]
-        //             }) }).bindPopup(`
-        //             <div class="text-center" style="width: 300px;">
-        //                 <div class="card-block">
-        //                     <a class="avatar avatar-lg" href="javascript:void(0)">
-        //                         <img src="-" alt="Logo">
-        //                     </a>
-        //                     <h4 class="profile-user">-</h4>
-        //                     <h5 class="profile-user">-</h5>
-        //                 </div> 
-        //             </div>
-        //         `).update();  
-        //         }else{ 
-        //         markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { icon: L.divIcon({
-        //             className: 'location-pin',
-        //             html: `<img src="-"><div class="pin"></div><div class="pulse"></div>`,
-        //             iconSize: [30, 30],
-        //             //iconAnchor: [18, 30]
-        //             iconAnchor: [10, 33]
-        //             }) }).bindPopup(`
-        //             <div class="text-center" style="width: 300px;">
-        //                 <div class="card-block">
-        //                     <a class="avatar avatar-lg" href="javascript:void(0)">
-        //                         <img src="-" alt="Logo">
-        //                     </a>
-        //                     <h4 class="profile-user">-</h4>
-        //                     <h5 class="profile-user">-</h5>
-        //                 </div> 
-        //             </div>
-        //         `).addTo(mapContainer);    
-        //         }
-        //     // }
-        // }); 
-
+       
 
         startSocket();
         function startSocket(){
@@ -2765,15 +3128,8 @@
                 var jenis = ''; 
 
 
-                var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
-                    return val == ress.id_officer;
-                });
-                if(validasiIdTurjal > 0){ 
-                    // console.log('id sudah ada');
-                }else{ 
-                    dummyIdTurjawali.push(ress.id_officer.toString());
-                    // console.log('id tidak ada');
-                }   
+                 
+ 
 
 
                 // for (let i = 0; i < ress.length; i++) {  
@@ -2791,7 +3147,7 @@
                     
                     
                 
-                        if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
+                        if(ress.bawa_penumpang == 1){
                             iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
@@ -2802,18 +3158,23 @@
 
                         jenis = '';
                         if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
-                            
-                                jenis = `
-                                <div>
-                                    <div style="position: relative;">
-                                        ${iconflagVip}
-                                        <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                    </div>
-                                    <div style="position: absolute;margin-top: -29px;">
-                                        <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                    </div>
-                                </div>`; 
+
+                             
+
+                            jenis = `
+                            <div>
+                                <div style="position: relative;">
+                                    ${iconflagVip}
+                                    <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="position: absolute;margin-top: -29px;">
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                </div>
+                            </div>`; 
                         }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){ 
+
+                            
+
                             jenis = `
                             <div>
                                 <div style="position: relative;">
@@ -2825,6 +3186,9 @@
                                 </div>
                             </div>`;
                         }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
+
+                            
+
                             jenis = `
                             <div>
                                 <div>
@@ -2836,6 +3200,9 @@
                                 </div>
                             </div>`;
                         }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
+
+                           
+
                             jenis = `
                             <div>
                                 <div>
@@ -2847,7 +3214,9 @@
                                 </div>
                             </div>`;
                         }else{
-                            
+
+                             
+
                             jenis = `
                             <div>
                                 <div style="position: relative;">
@@ -3143,17 +3512,9 @@
                 var bendera = '';
                 var jenis = ''; 
 
+ 
 
-                var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
-                    return val == ress.id_officer;
-                });
-                if(validasiIdTurjal > 0){ 
-                    // console.log('id sudah ada');
-                }else{ 
-                    dummyIdTurjawali.push(ress.id_officer.toString());
-                    // console.log('id tidak ada');
-                }   
-
+                
 
                 // for (let i = 0; i < ress.length; i++) {  
         
@@ -3169,7 +3530,7 @@
                     // } 
                     
                     
-                        if(ress.bawa_penumpang == 1 && ress.photo_country != '-'){
+                        if(ress.bawa_penumpang == 1){
                             iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
@@ -3180,18 +3541,23 @@
 
                         jenis = '';
                         if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Fosil"){
+
                             
-                                jenis = `
-                                <div>
-                                    <div style="position: relative;">
-                                        ${iconflagVip}
-                                        <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
-                                    </div>
-                                    <div style="position: absolute;margin-top: -29px;">
-                                        <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
-                                    </div>
-                                </div>`; 
+                            
+                            jenis = `
+                            <div>
+                                <div style="position: relative;">
+                                    ${iconflagVip}
+                                    <img src="<?php echo base_url();?>assets/icon/motor.png" style="width: 40px;margin-top: -45px;margin-left: -18.5px;">
+                                </div>
+                                <div style="position: absolute;margin-top: -29px;">
+                                    <span class="badge rounded-pill bg-primary">${ress.name_officer}</span>
+                                </div>
+                            </div>`; 
                         }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Fosil"){ 
+
+                            
+
                             jenis = `
                             <div>
                                 <div style="position: relative;">
@@ -3203,6 +3569,9 @@
                                 </div>
                             </div>`;
                         }else if(ress.type_vehicle == 'Sepeda Motor' && ress.fuel_vehicle == "Listrik"){ 
+
+                             
+
                             jenis = `
                             <div>
                                 <div>
@@ -3214,6 +3583,9 @@
                                 </div>
                             </div>`;
                         }else if(ress.type_vehicle == 'Mobil' && ress.fuel_vehicle == "Listrik"){
+
+                            
+                            
                             jenis = `
                             <div>
                                 <div>
@@ -3226,6 +3598,8 @@
                             </div>`;
                         }else{
                             
+                            
+
                             jenis = `
                             <div>
                                 <div style="position: relative;">
@@ -4875,29 +5249,37 @@
                 openDisplay = '';  
             } 
         });
+ 
 
-        $("#turjawaliDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#turjawali").prop('checked', true);  
-                $("#myModalPetugasDisplay").modal('show');   
-                serverSideGet();
-                startSocket();
-            }else{
-                openDisplay = '';
-                $("#turjawali").prop('checked', false); 
-                $("#turjawali").val();  
-                socket.off();
-                socketKe2.off(); 
-                for (let i = 0; i < dummyIdTurjawali.length; i++) {   
-                    if(markerArray[dummyIdTurjawali[i]] != null){
-                        // mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
-                        markerArray[dummyIdTurjawali[i]].remove();
+        
+
+
+
+        function getLogout(){ 
+            $.ajax({
+                type : "POST",
+                url : "<?php echo base_url();?>dashboard/getLogout", 
+                data : {
+                    "status" : '1',
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    var ress = result['data'];
+                    console.log({a:'GET LOGOUT' ,b:ress});
+                    for (let i = 0; i < ress.length; i++) {   
+                        // console.log(ress[i]['officer_id']);
+                        var id_officer = ress[i]['officer_id'];
+                        if(markerArray[id_officer]  != null){
+                            mapContainer.removeLayer(markerArray[id_officer]); 
+                        }
                     }
-                } 
-                markerArray = new Array();   
-            } 
-        });  
+                }
+            });
+            
+        } 
+        autoGetLogout = setInterval(getLogout, 5000);
+        
+
 
        
 
@@ -5671,7 +6053,7 @@
                                             weight: 2,
                                             fillOpacity: 0.2
                                         }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
+                                        <div class="text-center" style="width: 400px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3"> 
                                                 <div class="col-md-12 col-12 mt-3">
                                                     <h5>${ressCluster[i].fasum_name}</h5> 
@@ -5793,9 +6175,9 @@
                                     iconAnchor: [5, 10]
                                     // iconAnchor: [10, 33]
                                     }) }).bindPopup(`
-                                        <div class="text-center" style="width: 300px;"> 
+                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
                                             <div class="row mt-3">
-                                                <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
+                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
                                                     <div class="avatar-xl me-3">
                                                         <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                                     </div>
@@ -5808,59 +6190,39 @@
 
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
+                                                        <div class="col-md-12 col-12">
                                                             <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
-                                                        </div>
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_description != null ? ressFasumKhusus[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                        </div> 
                                                     </div> 
                                                 </div>  
                                                 <div class="col-md-12 col-12 mt-2">
                                                     <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
+                                                        <div class="col-md-12 col-12">
                                                             <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_address}</p>
-                                                        </div>
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_address}</p>
+                                                        </div> 
                                                     </div> 
                                                 </div>  
                                                 <div class="col-md-12 col-12"  style="margin-top: -30px;">
                                                     <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
+                                                        <div class="col-md-12 col-12">
                                                             <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_phone}</p>
-                                                        </div>
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_phone}</p>
+                                                        </div> 
                                                     </div> 
                                                 </div>  
                                                 <div class="col-md-12 col-12" style="margin-top: -30px;">
                                                     <div class="row text-start">
-                                                        <div class="col-md-5 col-6">
+                                                        <div class="col-md-12 col-12">
                                                             <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <p style="font-size: 12px;"> : </p>
-                                                        </div>
-                                                        <div class="col-md-6 col-6">
-                                                            <p style="font-size: 12px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
-                                                        </div>
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressFasumKhusus[i].fasum_open_time != null ? ressFasumKhusus[i].fasum_open_time : '00:00'} - ${ressFasumKhusus[i].fasum_close_time != null ? ressFasumKhusus[i].fasum_close_time : '00:00'} WITA</p>
+                                                        </div> 
                                                     </div> 
                                                 </div>   
                                             </div>
                                         </div> 
-                                `,{minWidth : 100,maxWidth : 560,width : 400})
+                                `,{minWidth : 100,maxWidth : 900,width : 500})
                                 );  
                         }
 
