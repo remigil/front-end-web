@@ -772,6 +772,7 @@
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart" style="width: 500vw;"></div>`);
+                    // $("#charta").html(`<div id="chart"></div>`);
 
                     let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
@@ -873,25 +874,15 @@
                                     window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
                                 }
                             },
-                            zoom: {
-                                enabled: true,
-                                type: 'x',
-                                resetIcon: {
-                                    offsetX: -10,
-                                    offsetY: 0,
-                                    fillColor: '#fff',
-                                    strokeColor: '#37474F'
-                                },
-                                selection: {
-                                    background: '#90CAF9',
-                                    border: '#0D47A1'
-                                }
-                            }
+
 
                         },
                         tooltip: {
                             fixed: {
-                                enabled: true
+                                enabled: true,
+                                position: 'topRight',
+                                offsetX: -250,
+                                offsetY: 0,
                             }
                         },
                     };
@@ -946,6 +937,7 @@
                         $("#charta").html(`<div id="chart" style="width: 500vw;"></div>`);
                         $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
+                        let polda_id = result.data.polda_id
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_mobil_penumpang = result.data.polda_mobil_penumpang
@@ -953,7 +945,10 @@
                         let polda_mobil_bus = result.data.polda_mobil_bus
                         let polda_ransus = result.data.polda_ransus
                         let polda_sepeda_motor = result.data.polda_sepeda_motor
+                        // Chart Kecelakaan Lalu Lintas
 
+
+                        // chart laka
                         var chart = {
                             series: [{
                                 name: 'Total Turjawali',
@@ -987,15 +982,10 @@
                                 color: "#E8D42F"
 
                             }],
-                            chart: {
-                                height: 'auto',
-                                type: 'line',
-                                stacked: false
-                            },
                             plotOptions: {
                                 bar: {
                                     horizontal: false,
-                                    columnWidth: '25%',
+                                    columnWidth: '55%',
                                     endingShape: 'rounded',
                                     dataLabels: {
                                         position: 'top'
@@ -1017,6 +1007,9 @@
                             },
                             xaxis: {
                                 categories: polda_name,
+                                tooltip: {
+                                    enabled: false
+                                },
                             },
                             yaxis: [{
                                 axisTicks: {
@@ -1031,10 +1024,35 @@
                                         colors: '#008FFB',
                                     }
                                 },
+
+
                             }, ],
+                            chart: {
+                                height: '400',
+                                type: 'line',
+                                stacked: false,
+                                events: {
+                                    dataPointSelection: (event, chartContext, config) => {
+                                        // var selectedpolda = pad(config.dataPointIndex);
+                                        window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                    }
+                                },
+
+                            },
+                            tooltip: {
+                                fixed: {
+                                    enabled: true,
+                                    position: 'topRight',
+                                    offsetX: -220,
+                                    offsetY: 0,
+                                }
+                            },
                         };
+
+
                         var chart = new ApexCharts(document.querySelector("#chart"), chart);
                         chart.render();
+
                     }
                 })
             }

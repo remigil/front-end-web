@@ -749,6 +749,7 @@
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
 
+                    let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
                     let polda_jumlah = result.data.polda_jumlah
                     let polda_pelanggaran_berat = result.data.polda_pelanggaran_berat
@@ -756,7 +757,6 @@
                     let polda_pelanggaran_sedang = result.data.polda_pelanggaran_sedang
                     let polda_teguran = result.data.polda_teguran
                     // Chart Kecelakaan Lalu Lintas
-
 
                     // chart laka
                     var chart = {
@@ -787,11 +787,6 @@
                             color: "#E8D42F"
 
                         }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
                         plotOptions: {
                             bar: {
                                 horizontal: false,
@@ -834,8 +829,23 @@
 
 
                         }, ],
+                        chart: {
+                            height: '400',
+                            type: 'line',
+                            stacked: false,
+                            events: {
+                                dataPointSelection: (event, chartContext, config) => {
+                                    // var selectedpolda = pad(config.dataPointIndex);
+                                    window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                }
+                            },
 
-                        tooltip: {}
+                        },
+                        tooltip: {
+                            fixed: {
+                                enabled: true
+                            }
+                        },
                     };
 
 
@@ -888,6 +898,7 @@
                         $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
                         // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
+                        let polda_id = result.data.polda_id
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_pelanggaran_berat = result.data.polda_pelanggaran_berat
@@ -924,9 +935,21 @@
 
                             }],
                             chart: {
-                                height: 400,
+                                height: '400',
                                 type: 'line',
-                                stacked: false
+                                stacked: false,
+                                events: {
+                                    dataPointSelection: (event, chartContext, config) => {
+                                        // var selectedpolda = pad(config.dataPointIndex);
+                                        window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                    }
+                                },
+
+                            },
+                            tooltip: {
+                                fixed: {
+                                    enabled: true
+                                }
                             },
                             plotOptions: {
                                 bar: {

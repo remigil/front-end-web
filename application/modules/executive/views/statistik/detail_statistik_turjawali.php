@@ -747,6 +747,7 @@
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                    let polda_id = result.data.polda_id
 
                     let polda_name = result.data.polda_name
                     let polda_jumlah = result.data.polda_jumlah
@@ -786,11 +787,7 @@
                             color: "#E8D42F"
 
                         }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
+
                         plotOptions: {
                             bar: {
                                 horizontal: false,
@@ -833,8 +830,23 @@
 
 
                         }, ],
+                        chart: {
+                            height: '400',
+                            type: 'line',
+                            stacked: false,
+                            events: {
+                                dataPointSelection: (event, chartContext, config) => {
+                                    // var selectedpolda = pad(config.dataPointIndex);
+                                    window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                }
+                            },
 
-                        tooltip: {}
+                        },
+                        tooltip: {
+                            fixed: {
+                                enabled: true
+                            }
+                        },
                     };
 
 
@@ -887,6 +899,7 @@
                         $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
                         // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
+                        let polda_id = result.data.polda_id
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_pengaturan = result.data.polda_pengaturan
@@ -922,11 +935,7 @@
                                 color: "#E8D42F"
 
                             }],
-                            chart: {
-                                height: 400,
-                                type: 'line',
-                                stacked: false
-                            },
+
                             plotOptions: {
                                 bar: {
                                     horizontal: false,
@@ -967,6 +976,23 @@
                                     }
                                 },
                             }, ],
+                            chart: {
+                                height: '400',
+                                type: 'line',
+                                stacked: false,
+                                events: {
+                                    dataPointSelection: (event, chartContext, config) => {
+                                        // var selectedpolda = pad(config.dataPointIndex);
+                                        window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                    }
+                                },
+
+                            },
+                            tooltip: {
+                                fixed: {
+                                    enabled: true
+                                }
+                            },
                         };
                         var chart = new ApexCharts(document.querySelector("#chart"), chart);
                         chart.render();
