@@ -750,13 +750,14 @@
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
 
+                    let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
                     let polda_jumlah = result.data.polda_jumlah
                     let polda_luka_berat = result.data.polda_luka_berat
                     let polda_luka_ringan = result.data.polda_luka_ringan
                     let polda_meninggal_dunia = result.data.polda_meninggal_dunia
                     // Chart Kecelakaan Lalu Lintas
-
+                    console.log(polda_id);
 
                     // chart laka
                     var chart = {
@@ -783,9 +784,21 @@
 
                         }],
                         chart: {
-                            height: 400,
+                            height: '400',
                             type: 'line',
-                            stacked: false
+                            stacked: false,
+                            events: {
+                                dataPointSelection: (event, chartContext, config) => {
+                                    // var selectedpolda = pad(config.dataPointIndex);
+                                    window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                }
+                            },
+
+                        },
+                        tooltip: {
+                            fixed: {
+                                enabled: true
+                            }
                         },
                         plotOptions: {
                             bar: {
@@ -830,7 +843,6 @@
 
                         }, ],
 
-                        tooltip: {}
                     };
 
 
