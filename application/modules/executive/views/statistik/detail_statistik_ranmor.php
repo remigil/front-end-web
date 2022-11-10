@@ -86,6 +86,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
+        .tooltip-inner {
+            background-color: #00acd6 !important;
+            /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+            color: #fff;
+        }
+
+        .apexcharts-xaxistooltip {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .apexcharts-xaxistooltip:hover {
+            background: #46A7B3;
+            color: white;
+            cursor: pointer;
+        }
+
         #overlay {
             position: fixed;
             top: 0;
@@ -728,7 +745,12 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script>
+        $(".apexcharts-xaxistooltip").click(function() {
+            var selectedpolda = $(this).text();
+            // do something
+        });
         $(document).ready(function() {
+
             let filter = 0
             var date = new Date();
             var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -749,7 +771,7 @@
                 success: function(result) {
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
-                    $("#charta").html(`<div id="chart" style="width: 500vw; height: 10vh"></div>`);
+                    $("#charta").html(`<div id="chart" style="width: 500vw;"></div>`);
 
                     let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
@@ -759,8 +781,6 @@
                     let polda_mobil_bus = result.data.polda_mobil_bus
                     let polda_ransus = result.data.polda_ransus
                     let polda_sepeda_motor = result.data.polda_sepeda_motor
-
-                    console.log(polda_name);
                     // Chart Kecelakaan Lalu Lintas
 
 
@@ -772,27 +792,27 @@
                             data: polda_jumlah,
                             color: "#11347A"
                         }, {
-                            name: 'mobil_penumpang',
+                            name: 'Mobil Penumpang',
                             type: 'column',
                             data: polda_mobil_penumpang,
                             color: "#11347A"
                         }, {
-                            name: 'mobil_barang',
+                            name: 'Mobil Barang',
                             type: 'column',
                             data: polda_mobil_barang,
                             color: "#CB2D3E"
                         }, {
-                            name: 'mobil_bus',
+                            name: 'Mobil Bus',
                             type: 'column',
                             data: polda_mobil_bus,
                             color: "#E8D42F"
                         }, {
-                            name: 'ransus',
+                            name: 'Ransus',
                             type: 'column',
                             data: polda_ransus,
                             color: "#E8D42F"
                         }, {
-                            name: 'sepeda motor',
+                            name: 'Sepeda Motor',
                             type: 'column',
                             data: polda_sepeda_motor,
                             color: "#E8D42F"
@@ -823,6 +843,9 @@
                         },
                         xaxis: {
                             categories: polda_name,
+                            tooltip: {
+                                enabled: false
+                            },
                         },
                         yaxis: [{
                             axisTicks: {
@@ -846,11 +869,31 @@
                             stacked: false,
                             events: {
                                 dataPointSelection: (event, chartContext, config) => {
+                                    // var selectedpolda = pad(config.dataPointIndex);
                                     window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
                                 }
+                            },
+                            zoom: {
+                                enabled: true,
+                                type: 'x',
+                                resetIcon: {
+                                    offsetX: -10,
+                                    offsetY: 0,
+                                    fillColor: '#fff',
+                                    strokeColor: '#37474F'
+                                },
+                                selection: {
+                                    background: '#90CAF9',
+                                    border: '#0D47A1'
+                                }
+                            }
+
+                        },
+                        tooltip: {
+                            fixed: {
+                                enabled: true
                             }
                         },
-                        tooltip: {}
                     };
 
 
@@ -901,7 +944,7 @@
                         $("#overlay").fadeOut(300);
                         $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                         $("#charta").html(`<div id="chart" style="width: 500vw;"></div>`);
-                        // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
+                        $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
@@ -918,27 +961,27 @@
                                 data: polda_jumlah,
                                 color: "#11347A"
                             }, {
-                                name: 'mobil_penumpang',
+                                name: 'Mobil Penumpang',
                                 type: 'column',
                                 data: polda_mobil_penumpang,
                                 color: "#11347A"
                             }, {
-                                name: 'mobil_barang',
+                                name: 'Mobil Barang',
                                 type: 'column',
                                 data: polda_mobil_barang,
                                 color: "#CB2D3E"
                             }, {
-                                name: 'mobil_bus',
+                                name: 'Mobil Bus',
                                 type: 'column',
                                 data: polda_mobil_bus,
                                 color: "#E8D42F"
                             }, {
-                                name: 'ransus',
+                                name: 'Ransus',
                                 type: 'column',
                                 data: polda_ransus,
                                 color: "#E8D42F"
                             }, {
-                                name: 'sepeda motor',
+                                name: 'Sepeda Motor',
                                 type: 'column',
                                 data: polda_sepeda_motor,
                                 color: "#E8D42F"
