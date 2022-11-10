@@ -741,7 +741,7 @@
                 </br>
                 Jenis Kendaraan - Sepeda Motor : &nbsp;<span class="badge bg-info rounded-pill" id="totalPetugasBikeDisplay"></span>
                 </br>
-                Petugas PAM ROLAKIR : &nbsp;<span class="badge bg-light rounded-pill" id="totalPetugasNonDisplay"></span>
+                Petugas PAM ROLAKIR : &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasNonDisplay"></span>
                 
             </div>
             <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
@@ -2152,7 +2152,7 @@
                                     <button id="openPetugasGetTrackNon" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapsePetugasGetTrackNon" aria-expanded="false" aria-controls="flush-collapsePetugasGetTrackNon">
                                         <input checked type="checkbox" id="allPetugasNon"/>
-                                        Petugas PAM ROLAKIR &nbsp;<span class="badge bg-light rounded-pill" id="totalPetugasGetTrackNon"></span>
+                                        Petugas PAM ROLAKIR &nbsp;<span class="badge rounded-pill" style="background-color: #800080;" id="totalPetugasGetTrackNon"></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapsePetugasGetTrackNon" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugasGetTrackNon"
@@ -4880,14 +4880,8 @@
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
                 $("#turjawali").prop('checked', true);  
-                $("#myModalPetugasDisplay").modal('show');  
-                for (let i = 0; i < dummyIdTurjawali.length; i++) {   
-                    if(markerArray[dummyIdTurjawali[i]] != null){
-                        // mapContainer.addLayer(markerArray[dummyIdTurjawali[i]]);
-                        // markerArray[dummyIdTurjawali[i]].remove();
-                    }
-                } 
-                // serverSideGet();
+                $("#myModalPetugasDisplay").modal('show');   
+                serverSideGet();
                 startSocket();
             }else{
                 openDisplay = '';
@@ -4897,8 +4891,8 @@
                 socketKe2.off(); 
                 for (let i = 0; i < dummyIdTurjawali.length; i++) {   
                     if(markerArray[dummyIdTurjawali[i]] != null){
-                        mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
-                        // markerArray[dummyIdTurjawali[i]].remove();
+                        // mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
+                        markerArray[dummyIdTurjawali[i]].remove();
                     }
                 } 
                 markerArray = new Array();   
@@ -6354,70 +6348,7 @@
                         countlistCategori = 0;
                         listCategori = "";  
      
-    
-                        
-                        // dataGroupBy.forEach(el => {
-                        // listCategori = `
-                        //     <div class="accordion-item">
-                        //         <div class="btn btn-soft-link waves-effect" id="openPetugas" style="color: #4e555b;position: relative;top: 60px;z-index: 5;left: 490px;"><i class="fa fas fa-redo"></i></div>
-                        //         <h2 class="accordion-header" id="flush-headingPetugas">
-                        //             <button  class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                        //                 data-bs-target="#flush-collapsePetugas" aria-expanded="false" aria-controls="flush-collapsePetugas"> 
-                        //                     <div>
-                        //                         <p>
-                        //                             Personil Lantas &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasOn"></span>
-                        //                             </br>
-                        //                             <b><?php echo format_indoHari(date('Y-m-d'))?></b>
-                        //                         </p>    
-                        //                     </div> 
-                        //             </button>
-                        //         </h2>
-                        //         <div id="flush-collapsePetugas" class="accordion-collapse collapse" aria-labelledby="flush-headingPetugas"
-                        //             data-bs-parent="#accordionFlushExample">
-                        //             <div class="accordion-body text-muted">
-                        //                 <div style="margin-left: 15px;">
-                        //                     </br>
-                        //                     Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktif"></span>
-                        //                     </br>
-                        //                     Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktif"></span>
-                        //                 </div>
-                        //                 <div id="dataPetugasTrack">
-                        //                 </div>
-
-                        //             </div>
-                        //         </div>
-                        //     </div> 
-                        //     <div class="accordion-item">
-                        //         <h2 class="accordion-header" id="flush-headingUraianNonKegiatan">
-                        //             <button id="openUraianNonKegiatan" class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                        //                 data-bs-target="#flush-collapseUraianNonKegiatan" aria-expanded="false" aria-controls="flush-collapseUraianNonKegiatan">
-                        //                 Tidak Terjadwal &nbsp;<span class="badge bg-danger rounded-pill" id="totalUraianNonKegiatan"></span>
-                        //             </button>
-                        //         </h2>
-                        //         <div id="flush-collapseUraianNonKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingUraianNonKegiatan"
-                        //             data-bs-parent="#accordionFlushExample">
-                        //             <div class="accordion-body text-muted"> 
-
-                        //                 <table id="datatableUraianNonKegiatan" class="table dt-responsive w-100">
-                        //                     <thead>
-                        //                         <tr>
-                        //                             <th>Rute</th>
-                        //                             <th>No</th>
-                        //                             <th>Negara</th>
-                        //                             <th>Lokasi</th>
-                        //                             <th>Berangkat</th> 
-                        //                             <th>Petugas</th>
-                        //                             <th>Catatan</th>
-                        //                         </tr>
-                        //                     </thead>
-                        //                     <tbody id="listUraianNonKegiatan">
-                        //                     </tbody>
-                        //                 </table> 
-
-                        //             </div>
-                        //         </div>
-                        //     </div> 
-                        // `;
+     
                         for (let i = 0; i < ress.length; i++){ 
                             countlistCategori += 1;   
                             listCategori += `  
