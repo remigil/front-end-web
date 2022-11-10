@@ -91,7 +91,7 @@ class Polda_executive extends MY_Controller
 
 
 
-        if ($start_date != null && $end_date != null) {
+        if ($start_date != null || $end_date != null) {
             $search = 'filter=true&start_date=' . $start_date . '&end_date=' . $end_date . '&';
         }
 
@@ -152,11 +152,26 @@ class Polda_executive extends MY_Controller
     public function getChartDitgakkum()
     {
         $title = 'DATA DITGAKKUM POLDA';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        if ($filter == 1) {
+            if ($start_date == '' || $end_date == '') {
+                $start_date = date('Y-m-d', strtotime('first day of january this year'));
+                $end_date = date('Y-m-d', strtotime('last day of december this year'));
+                $type = 'month';
+            } else {
+                $type = 'day';
+            }
+        } else {
+            $type = 'month';
+        }
         $filterbaru = [
             'filter' => true,
+            'type' => $type,
             'id' => $this->input->post('id'),
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
+            'start_date' => $start_date,
+            'end_date' => $end_date,
         ];
         $getdata = $this->M_detail_polda->getDitgakkum($filterbaru);
         $data = [
@@ -169,11 +184,26 @@ class Polda_executive extends MY_Controller
     public function getChartDitkamsel()
     {
         $title = 'DATA DITKAMSEL POLDA';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        if ($filter == 1) {
+            if ($start_date == '' || $end_date == '') {
+                $start_date = date('Y-m-d', strtotime('first day of january this year'));
+                $end_date = date('Y-m-d', strtotime('last day of december this year'));
+                $type = 'month';
+            } else {
+                $type = 'day';
+            }
+        } else {
+            $type = 'month';
+        }
         $filterbaru = [
             'filter' => true,
+            'type' => $type,
             'id' => $this->input->post('id'),
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
+            'start_date' => $start_date,
+            'end_date' => $end_date,
         ];
         $getdata = $this->M_detail_polda->getDitkamsel($filterbaru);
         $data = [
@@ -186,11 +216,26 @@ class Polda_executive extends MY_Controller
     public function getChartDitregident()
     {
         $title = 'DATA DITREGIDENT POLDA';
+        $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        if ($filter == 1) {
+            if ($start_date == '' || $end_date == '') {
+                $start_date = date('Y-m-d', strtotime('first day of january this year'));
+                $end_date = date('Y-m-d', strtotime('last day of december this year'));
+                $type = 'month';
+            } else {
+                $type = 'day';
+            }
+        } else {
+            $type = 'month';
+        }
         $filterbaru = [
             'filter' => true,
+            'type' => $type,
             'id' => $this->input->post('id'),
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
+            'start_date' => $start_date,
+            'end_date' => $end_date,
         ];
         $getdata = $this->M_detail_polda->getDitregident($filterbaru);
         $data = [

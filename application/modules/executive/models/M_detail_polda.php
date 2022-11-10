@@ -153,8 +153,7 @@ class M_detail_polda extends CI_Model
 
     public function getDitgakkum($filter)
     {
-        // var_dump($filter);
-        $url = 'ditgakkum/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'ditgakkum/date?type=' . $filter['type'] . '&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
 
         $ditgakkum = guzzle_request('GET', $url, [
             'headers' => [
@@ -188,7 +187,7 @@ class M_detail_polda extends CI_Model
     public function getDitkamsel($filter)
     {
         // var_dump($filter);
-        $url = 'ditkamsel/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'ditkamsel/date?type=' . $filter['type'] . '&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
 
         $ditkamsel = guzzle_request('GET', $url, [
             'headers' => [
@@ -217,7 +216,7 @@ class M_detail_polda extends CI_Model
     public function getDitregident($filter)
     {
         // var_dump($filter);
-        $url = 'ditregident/date?type=month&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        $url = 'ditregident/date?type=' . $filter['type'] . '&polda_id=' . $filter['id'] . '&filter=' . $filter['filter'] . '&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
 
         $ditregident = guzzle_request('GET', $url, [
             'headers' => [
