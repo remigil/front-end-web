@@ -647,9 +647,9 @@
             </div>
             <div style="margin-left: 15px;">
                 </br>
-                Total Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasAktifDisplay"></span>
+                Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktifDisplay"></span>
                 </br>
-                Total Tidak Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasTidakAktifDisplay"></span>
+                Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktifDisplay"></span>
             </div>
             <div class="modal-body" id="openModalPetugasDisplay" style="width: 550px;">  
             </div>
@@ -1610,8 +1610,7 @@
                         $('#totalPetugasTidakAktifDisplay').html(filterDataTidakAktif.length);
 
                         $("#turjawaliDisplay").prop('disabled', true); 
-                        for (let i = 0; i < dummyGetTracking.length; i++) {   
-
+                        for (let i = 0; i < dummyGetTracking.length; i++) {    
                             setTimeout(() => {
                                 var validasiIdTurjal = dummyIdTurjawali.filter(function(val) {
                                     return val == dummyGetTracking[i].id_officer;
@@ -4774,20 +4773,18 @@
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
                 $("#turjawali").prop('checked', true);  
-                // $("#myModalPetugasDisplay").modal('show'); 
+                $("#myModalPetugasDisplay").modal('show');  
+                serverSideGet();
                 startSocket();
-                // serverSideGet(); 
             }else{
                 openDisplay = '';
                 $("#turjawali").prop('checked', false); 
                 $("#turjawali").val();  
                 socket.off();
-                socketKe2.off();
-                // console.log(dummyIdTurjawali);
-                for (let i = 0; i < dummyIdTurjawali.length; i++) {  
-                    // console.log(dummyIdTurjawali[i]); 
-                    // mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
+                socketKe2.off(); 
+                for (let i = 0; i < dummyIdTurjawali.length; i++) {   
                     if(markerArray[dummyIdTurjawali[i]] != null){
+                        // mapContainer.removeLayer(markerArray[dummyIdTurjawali[i]]);
                         markerArray[dummyIdTurjawali[i]].remove();
                     }
                 } 
@@ -6265,9 +6262,9 @@
                                     <div class="accordion-body text-muted">
                                         <div style="margin-left: 15px;">
                                             </br>
-                                            Total Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasAktif"></span>
+                                            Total Aktif : &nbsp;<span class="badge bg-success rounded-pill" id="totalPetugasAktif"></span>
                                             </br>
-                                            Total Tidak Aktif : &nbsp;<span class="badge bg-danger rounded-pill" id="totalPetugasTidakAktif"></span>
+                                            Total Tidak Aktif : &nbsp;<span class="badge bg-warning rounded-pill" id="totalPetugasTidakAktif"></span>
                                         </div>
                                         <div id="dataPetugasTrack">
                                         </div>
