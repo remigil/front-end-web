@@ -40,12 +40,7 @@
                             <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fas fa-user-shield"></i> Petugas
                             </div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
-                               
-                              
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
-                                </label> 
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay"> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
                                     <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span> 
                                 </label> 
@@ -57,6 +52,9 @@
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
                                     <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span> 
+                                </label> 
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
                                 </label> 
                             </div>
                         </label>
@@ -1736,7 +1734,7 @@
                         $("#r4FosilDisplay").prop('disabled', true); 
                         $("#loadGaturDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>PAM ROLAKIR`);
                         $("#loadR2ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
-                        $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Listrik`);
+                        $("#loadR4ListrikDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Listrik`);
                         $("#loadR2FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R2 Fosil`);
                         $("#loadR4FosilDisplay").html(`<i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>R4 Fosil`);
                          
@@ -3011,7 +3009,7 @@
                             $("#r4FosilDisplay").prop('disabled', false); 
                             $("#loadGaturDisplay").html(`PAM ROLAKIR`);
                             $("#loadR2ListrikDisplay").html(`R2 Listrik`);
-                            $("#loadR4ListrikDisplay").html(`R2 Listrik`);
+                            $("#loadR4ListrikDisplay").html(`R4 Listrik`);
                             $("#loadR2FosilDisplay").html(`R2 Fosil`);
                             $("#loadR4FosilDisplay").html(`R4 Fosil`);
                             
