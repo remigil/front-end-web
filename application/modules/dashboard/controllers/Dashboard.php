@@ -1088,9 +1088,11 @@ class Dashboard extends MY_Controller
 
         $totalgarlantas = 0;
         $totallakalantas = 0;
+        $totalturjagwali = 0;
         for ($i = 0; $i < count($getGakkum); $i++) {
             $totalgarlantas += $getGakkum[$i]['garlantas'];
             $totallakalantas += $getGakkum[$i]['lakalantas'];
+            $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
         $getRanmor = guzzle_request('GET', 'ranmor/daily', [
@@ -1117,6 +1119,7 @@ class Dashboard extends MY_Controller
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
             'motor' =>  number_format($totalmotor, 0, '', '.'),
+            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
             'sim' =>  number_format($totalsim, 0, '', '.'),
         ];
         echo json_encode($data);
