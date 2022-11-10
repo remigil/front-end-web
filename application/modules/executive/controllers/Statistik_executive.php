@@ -381,6 +381,7 @@ class Statistik_executive extends MY_Controller
         $data['topLaka'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topLaka']);
     }
+
     public function getLakaYear()
     {
         $firstDay = $this->input->post('firstDay');
@@ -395,5 +396,143 @@ class Statistik_executive extends MY_Controller
 
         $data['topLaka'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topLaka']);
+    }
+
+    public function getTopGarlantas()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+
+    public function getGarlantasMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+
+    public function getGarlantasYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+
+    public function getTopTurjagwali()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'turjagwali/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topTurjagwali']);
+    }
+
+    public function getTurjagwaliMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'turjagwali/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topTurjagwali']);
+    }
+
+    public function getTurjagwaliYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'turjagwali/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topTurjagwali'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topTurjagwali']);
+    }
+
+    public function getTopRanmor()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'ranmor/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topRanmor']);
+    }
+
+    public function getRanmorMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'ranmor/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topRanmor']);
+    }
+
+    public function getRanmorYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'ranmor/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topRanmor'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topRanmor']);
     }
 }
