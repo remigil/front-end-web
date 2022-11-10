@@ -506,11 +506,11 @@ class Dashboard extends MY_Controller
         ]; 
 
         $url = 'track-gatur';
-        $getMe = guzzle_requestTracking('GET', $url, [
+        $getData = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
 
-        echo json_encode($getMe);
+        echo json_encode($getData['data']);
     }
 
     public function getR2Listrik()
@@ -520,11 +520,11 @@ class Dashboard extends MY_Controller
         ]; 
 
         $url = 'track-r2-listrik';
-        $getMe = guzzle_requestTracking('GET', $url, [
+        $getData = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
 
-        echo json_encode($getMe);
+        echo json_encode($getData['data']);
     }
 
     public function getR4Listrik()
@@ -534,11 +534,11 @@ class Dashboard extends MY_Controller
         ]; 
 
         $url = 'track-r4-listrik';
-        $getMe = guzzle_requestTracking('GET', $url, [
+        $getData = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
 
-        echo json_encode($getMe);
+        echo json_encode($getData['data']);
     }
 
     public function getR2Fosil()
@@ -548,11 +548,11 @@ class Dashboard extends MY_Controller
         ]; 
 
         $url = 'track-r2-fosil';
-        $getMe = guzzle_requestTracking('GET', $url, [
+        $getData = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
 
-        echo json_encode($getMe);
+        echo json_encode($getData['data']);
     }
 
     public function getR4Fosil()
@@ -562,11 +562,11 @@ class Dashboard extends MY_Controller
         ]; 
 
         $url = 'track-r4-fosil';
-        $getMe = guzzle_requestTracking('GET', $url, [
+        $getData = guzzle_requestTracking('GET', $url, [
             'headers' => $headers
         ]);
 
-        echo json_encode($getMe);
+        echo json_encode($getData['data']);
     }
 
     public function getTrackingName()
