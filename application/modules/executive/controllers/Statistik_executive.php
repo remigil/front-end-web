@@ -214,30 +214,6 @@ class Statistik_executive extends MY_Controller
             ];
             $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
         }
-
-        // } elseif ($id == 2) {
-        //     $title = 'DATA PELANGGARAN LALU LINTAS';
-        //     $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
-        //         'headers' => $headers
-        //     ]);
-
-        //     $getdata = $getGakkum['data'];
-        // } elseif ($id == 3) {
-        //     $title = 'DATA KENDARAAN BERMOTOR';
-        //     $getRanmor = guzzle_request('GET', 'ranmor/daily', [
-        //         'headers' => $headers
-        //     ]);
-
-        //     $getdata = $getRanmor["data"]["rows"];
-        // } elseif ($id == 4) {
-        //     $title = 'JUMLAH SIM NASIONAL';
-        //     $getSim = guzzle_request('GET', 'sim/daily', [
-        //         'headers' => $headers
-        //     ]);
-
-        //     $getdata = $getSim["data"]["rows"];
-        // }
-
         $data = [
             'data' => $getdata,
             'title' => $title,
@@ -272,7 +248,7 @@ class Statistik_executive extends MY_Controller
             echo json_encode($lakalantasnasional);
         }
     }
-	
+
     public function exportDatagarlantas()
     {
         $start_date = $this->input->post('start_date');

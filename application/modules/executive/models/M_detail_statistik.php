@@ -159,6 +159,7 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
+        $poldaID = array();
         $poldaName = array();
         $polda_mobil_penumpang = array();
         $polda_mobil_barang = array();
@@ -167,6 +168,7 @@ class M_detail_statistik extends CI_Model
         $polda_sepeda_motor = array();
         $polda_jumlah = array();
         foreach ($ranmornasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_mobil_penumpang[] = $key['mobil_penumpang'];
             $polda_mobil_barang[] = $key['mobil_barang'];
@@ -177,6 +179,7 @@ class M_detail_statistik extends CI_Model
         }
 
         return [
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'polda_mobil_penumpang' => $polda_mobil_penumpang,
             'polda_mobil_barang' => $polda_mobil_barang,

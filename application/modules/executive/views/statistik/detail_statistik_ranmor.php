@@ -648,8 +648,9 @@
                 success: function(result) {
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
-                    $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                    $("#charta").html(`<div id="chart" style="width: 500vw; height: 10vh"></div>`);
 
+                    let polda_id = result.data.polda_id
                     let polda_name = result.data.polda_name
                     let polda_jumlah = result.data.polda_jumlah
                     let polda_mobil_penumpang = result.data.polda_mobil_penumpang
@@ -657,6 +658,8 @@
                     let polda_mobil_bus = result.data.polda_mobil_bus
                     let polda_ransus = result.data.polda_ransus
                     let polda_sepeda_motor = result.data.polda_sepeda_motor
+
+                    console.log(polda_name);
                     // Chart Kecelakaan Lalu Lintas
 
 
@@ -694,11 +697,6 @@
                             color: "#E8D42F"
 
                         }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
                         plotOptions: {
                             bar: {
                                 horizontal: false,
@@ -741,7 +739,16 @@
 
 
                         }, ],
-
+                        chart: {
+                            height: '400',
+                            type: 'line',
+                            stacked: false,
+                            events: {
+                                dataPointSelection: (event, chartContext, config) => {
+                                    window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                }
+                            }
+                        },
                         tooltip: {}
                     };
 
@@ -788,7 +795,7 @@
                         console.log(result)
                         $("#overlay").fadeOut(300);
                         $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
-                        $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                        $("#charta").html(`<div id="chart" style="width: 500vw;"></div>`);
                         // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
                         let polda_name = result.data.polda_name
@@ -833,14 +840,14 @@
 
                             }],
                             chart: {
-                                height: 400,
+                                height: 'auto',
                                 type: 'line',
                                 stacked: false
                             },
                             plotOptions: {
                                 bar: {
                                     horizontal: false,
-                                    columnWidth: '55%',
+                                    columnWidth: '25%',
                                     endingShape: 'rounded',
                                     dataLabels: {
                                         position: 'top'
