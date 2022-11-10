@@ -127,23 +127,28 @@ class M_akun extends CI_Model
                         $noDepan = substr($fieldPetugas['phone_officer'], 0, 2);
                         if ($noDepan === "62") {
                             $whatsApp = 'https://api.whatsapp.com/send?phone='.$fieldPetugas['phone_officer'].'';
+                            $fullNomor = $fieldPetugas['phone_officer'];
                         } else if ($noDepan === "08") {
                             $whatsApp = 'https://api.whatsapp.com/send?phone=62'.substr($fieldPetugas['phone_officer'], 1).'';
+                            $fullNomor = substr($fieldPetugas['phone_officer'], 1);
                         } else if ($noDepan === "+6") {
                             $whatsApp = 'https://api.whatsapp.com/send?phone='.substr($fieldPetugas['phone_officer'], 1).'';
+                            $fullNomor = substr($fieldPetugas['phone_officer'], 1);
                         } else {
                             $whatsApp = 'https://api.whatsapp.com/send?phone='.$fieldPetugas['phone_officer'].'';
+                            $fullNomor = $fieldPetugas['phone_officer'];
                         }
                     }else{
                         $whatsApp = 'javascript:void(0)';
                     }
                     $petugas .= '
                     <p>
-                        '.$fieldPetugas['name_officer'].'
-                        &nbsp;<a href="'.$whatsApp.'" target="_blank">
-                            <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
-                        </a>
+                        '.$fieldPetugas['name_officer'].' 
                         </br>
+                        <a href="'.$whatsApp.'" target="_blank">
+                            <img src="https://img.icons8.com/3d-fluency/100/000000/whatsapp.png" style="width: 35px;height: 35px"/>
+                        </a>&nbsp; '.$fullNomor.'
+                        
                     </p>
                     ';
                 }
