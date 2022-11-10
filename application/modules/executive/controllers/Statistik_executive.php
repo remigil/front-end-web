@@ -221,6 +221,24 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
 
+
+    public function getLakalantasByDate()
+    {
+        $title = 'DATA KECELAKAAN TAHUN' . date('Y') . '';
+        $filterbaru = [
+            'filter' => true,
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+        ];
+
+        $getdata = $this->M_detail_statistik->getLakaByDate($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
     public function exportDatalakalantas()
     {
         $start_date = $this->input->post('start_date');
@@ -331,5 +349,51 @@ class Statistik_executive extends MY_Controller
             ]);
             echo json_encode($ranmornasional);
         }
+    }
+
+
+    public function getTopLaka()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'laka_lantas/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getLakaMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+    public function getLakaYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
     }
 }

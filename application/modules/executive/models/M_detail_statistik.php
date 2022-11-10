@@ -362,6 +362,13 @@ class M_detail_statistik extends CI_Model
         ];
     }
 
+
+    public function getLakaByDate($filter)
+    {
+        $url = 'laka_lantas/date?type=month&filter=true&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        var_dump($url);
+    }
+
     public function get_Polda()
     {
         $data = guzzle_request('GET', 'polda', [
