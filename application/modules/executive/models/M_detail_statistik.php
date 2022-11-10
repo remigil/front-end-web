@@ -27,6 +27,7 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
+        $poldaID = array();
         $poldaName = array();
         $polda_meninggal_dunia = array();
         $polda_luka_berat = array();
@@ -34,6 +35,7 @@ class M_detail_statistik extends CI_Model
         $polda_kerugian_material = array();
         $polda_jumlah = array();
         foreach ($lakalantasnasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_meninggal_dunia[] = $key['meninggal_dunia'];
             $polda_luka_berat[] = $key['luka_berat'];
@@ -43,6 +45,7 @@ class M_detail_statistik extends CI_Model
         }
 
         return [
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'polda_meninggal_dunia' => $polda_meninggal_dunia,
             'polda_luka_berat' => $polda_luka_berat,
@@ -71,6 +74,7 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
+        $poldaID = array();
         $poldaName = array();
         $polda_pelanggaran_berat = array();
         $polda_pelanggaran_ringan = array();
@@ -78,6 +82,7 @@ class M_detail_statistik extends CI_Model
         $polda_teguran = array();
         $polda_jumlah = array();
         foreach ($garlantasnasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
             $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
@@ -87,6 +92,7 @@ class M_detail_statistik extends CI_Model
         }
 
         return [
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'polda_pelanggaran_berat' => $polda_pelanggaran_berat,
             'polda_pelanggaran_ringan' => $polda_pelanggaran_ringan,
@@ -115,6 +121,7 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
+        $poldaID = array();
         $poldaName = array();
         $polda_pengaturan = array();
         $polda_penjagaan = array();
@@ -122,6 +129,7 @@ class M_detail_statistik extends CI_Model
         $polda_patroli = array();
         $polda_jumlah = array();
         foreach ($turjawalinasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_pengaturan[] = $key['pengaturan'];
             $polda_penjagaan[] = $key['penjagaan'];
@@ -131,6 +139,7 @@ class M_detail_statistik extends CI_Model
         }
 
         return [
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'polda_pengaturan' => $polda_pengaturan,
             'polda_penjagaan' => $polda_penjagaan,
@@ -159,6 +168,7 @@ class M_detail_statistik extends CI_Model
             ]);
         }
 
+        $poldaID = array();
         $poldaName = array();
         $polda_mobil_penumpang = array();
         $polda_mobil_barang = array();
@@ -167,6 +177,7 @@ class M_detail_statistik extends CI_Model
         $polda_sepeda_motor = array();
         $polda_jumlah = array();
         foreach ($ranmornasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_mobil_penumpang[] = $key['mobil_penumpang'];
             $polda_mobil_barang[] = $key['mobil_barang'];
@@ -177,6 +188,7 @@ class M_detail_statistik extends CI_Model
         }
 
         return [
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'polda_mobil_penumpang' => $polda_mobil_penumpang,
             'polda_mobil_barang' => $polda_mobil_barang,
@@ -213,6 +225,7 @@ class M_detail_statistik extends CI_Model
         array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
         $topPolda = array_slice($dataNasional, 0, 10);
 
+        $poldaID = array();
         $poldaName = array();
         $polda_meninggal_dunia = array();
         $polda_luka_berat = array();
@@ -220,6 +233,7 @@ class M_detail_statistik extends CI_Model
         $polda_kerugian_material = array();
         $polda_jumlah = array();
         foreach ($dataNasional as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_meninggal_dunia[] = $key['meninggal_dunia'];
             $polda_luka_berat[] = $key['luka_berat'];
@@ -239,6 +253,7 @@ class M_detail_statistik extends CI_Model
             'polda_kerugian_material' => $polda_kerugian_material,
             'polda_jumlah' => $polda_jumlah,
             'topPolda' => $topPolda,
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'data_nasional' => $dataNasional
         ];
@@ -271,6 +286,7 @@ class M_detail_statistik extends CI_Model
         array_multisort(array_column($dataNasional, "jumlah"), SORT_DESC, $dataNasional);
         $topPolda = array_slice($dataNasional, 0, 10);
 
+        $poldaID = array();
         $poldaName = array();
         $polda_pelanggaran_berat = array();
         $polda_pelanggaran_ringan = array();
@@ -278,6 +294,7 @@ class M_detail_statistik extends CI_Model
         $polda_teguran = array();
         $polda_jumlah = array();
         foreach ($dataNasional as $key) {
+            $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
             $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
@@ -298,6 +315,7 @@ class M_detail_statistik extends CI_Model
             'polda_teguran' => $polda_teguran,
             'polda_jumlah' => $polda_jumlah,
             'topPolda' => $topPolda,
+            'polda_id' => $poldaID,
             'polda_name' => $poldaName,
             'data_nasional' => $dataNasional
         ];
@@ -357,6 +375,13 @@ class M_detail_statistik extends CI_Model
             'month_jumlah' => $month_jumlah,
             'polda_month' => $poldaMonth
         ];
+    }
+
+
+    public function getLakaByDate($filter)
+    {
+        $url = 'laka_lantas/date?type=month&filter=true&start_date=' . $filter['start_date'] . '&end_date=' . $filter['end_date'] . '';
+        var_dump($url);
     }
 
     public function get_Polda()

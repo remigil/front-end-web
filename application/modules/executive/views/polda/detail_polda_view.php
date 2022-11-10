@@ -409,6 +409,7 @@
     </div>
     <script>
         $(document).ready(function() {
+            let filter = 0;
             let id = '<?= $id ?>'
             var date = new Date();
             var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -458,9 +459,9 @@
                 }
             })
 
-            getDitgakkum(firstDay, lastDay, id)
-            getDitkamsel(firstDay, lastDay, id)
-            getDitregident(firstDay, lastDay, id)
+            getDitgakkum(firstDay, lastDay, id, filter)
+            getDitkamsel(firstDay, lastDay, id, filter)
+            getDitregident(firstDay, lastDay, id, filter)
 
             // var ditkamsel = {
             //     series: [{
@@ -717,6 +718,11 @@
 
         $('#btn_filter').on('click', function(e) {
             e.preventDefault();
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
+
+            let filter = 1;
             let polda_id = $('#polda_id').val()
             let start_date = $('#start_date').val()
             let end_date = $('#end_date').val()
@@ -752,13 +758,13 @@
             $("#chartb").html(`<div id="chart2" style="width: 100vw"></div>`);
             $("#chartc").html(`<div id="chart3" style="width: 100vw"></div>`);
 
-            getDitgakkum(start_date, end_date, polda_id)
-            getDitkamsel(start_date, end_date, polda_id)
-            getDitregident(start_date, end_date, polda_id)
+            getDitgakkum(start_date, end_date, polda_id, filter)
+            getDitkamsel(start_date, end_date, polda_id, filter)
+            getDitregident(start_date, end_date, polda_id, filter)
         })
 
 
-        function getDitgakkum(firstDay, lastDay, id) {
+        function getDitgakkum(firstDay, lastDay, id, filter) {
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitgakkum",
@@ -766,7 +772,7 @@
                     id: id,
                     start_date: firstDay,
                     end_date: lastDay,
-                    filter: 1
+                    filter: filter
                 },
                 dataType: "JSON",
                 success: function(result) {
@@ -872,7 +878,7 @@
             })
         }
 
-        function getDitkamsel(firstDay, lastDay, id) {
+        function getDitkamsel(firstDay, lastDay, id, filter) {
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitkamsel",
@@ -880,7 +886,7 @@
                     id: id,
                     start_date: firstDay,
                     end_date: lastDay,
-                    filter: 1
+                    filter: filter
                 },
                 dataType: "JSON",
                 success: function(result) {
@@ -976,7 +982,7 @@
             })
         }
 
-        function getDitregident(firstDay, lastDay, id) {
+        function getDitregident(firstDay, lastDay, id, filter) {
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>executive/polda_executive/getChartDitregident",
@@ -984,7 +990,7 @@
                     id: id,
                     start_date: firstDay,
                     end_date: lastDay,
-                    filter: 1
+                    filter: filter
                 },
                 dataType: "JSON",
                 success: function(result) {

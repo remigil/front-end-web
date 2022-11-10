@@ -423,7 +423,7 @@
 
                                 </div>
                                 <div class="col-md-6 mt-3">
-									<h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
+                                    <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
                                     <div class="mb-3">
                                         <div class="card shadow-sm">
                                             <div class="" style="overflow:hidden; overflow-y:scroll;">
@@ -623,7 +623,7 @@
                             $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
                             $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
                             $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
-                            $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
+                            $('#sim').html(`<span class="fs-4" >${result.turjagwali}</span >`);
                         }
                     })
 

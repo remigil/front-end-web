@@ -627,16 +627,114 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row m-3">
+                            <div class="col-xl-12">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <div class="row">
+                                            <div class="col-md-12 mt-3">
+                                                <h5>Top 10 Polda Data Turjagwali Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
+                                                <div class="card shadow-sm">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead style="background-color:#007DD8; color:#fff;">
+                                                            <tr class="text-center">
+                                                                <th scope="col">No</th>
+                                                                <th scope="col">Polda</th>
+                                                                <th scope="col">Pengaturan</th>
+                                                                <th scope="col">Penjagaan</th>
+                                                                <th scope="col">Pengawalan</th>
+                                                                <th scope="col">Patroli</th>
+                                                                <th scope="col">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tbody-lakaDay">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-12 mt-3">
+                                                <h5>Top 10 Polda Data Turjagwali Tertinggi <?= date('M Y'); ?></h5>
+                                                <div class="card shadow-sm">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead style="background-color:#007DD8; color:#fff;">
+                                                            <tr class="text-center">
+                                                                <th scope="col">No</th>
+                                                                <th scope="col">Polda</th>
+                                                                <th scope="col">Pengaturan</th>
+                                                                <th scope="col">Penjagaan</th>
+                                                                <th scope="col">Pengawalan</th>
+                                                                <th scope="col">Patroli</th>
+                                                                <th scope="col">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tbody-lakaMonth">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                        <div class="row">
+                                            <div class="col-md-12 mt-3">
+                                                <h5>Top 10 Polda Data Turjagwali Tertinggi <?= date('Y'); ?></h5>
+                                                <div class="card shadow-sm">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead style="background-color:#007DD8; color:#fff;">
+                                                            <tr class="text-center">
+                                                                <th scope="col">No</th>
+                                                                <th scope="col">Polda</th>
+                                                                <th scope="col">Pengaturan</th>
+                                                                <th scope="col">Penjagaan</th>
+                                                                <th scope="col">Pengawalan</th>
+                                                                <th scope="col">Patroli</th>
+                                                                <th scope="col">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tbody-lakaYear">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
     <script src="<?php echo base_url(); ?>assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function() {
             let filter = 0
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var yesterday = new Date(Date.now() - 864e5).toLocaleDateString('en-GB').split('/').reverse().join('-');
+
+            var firstDayMonth = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleDateString("en-GB").split('/').reverse().join('-');
+            var lastDayMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
@@ -649,6 +747,7 @@
                     $("#overlay").fadeOut(300);
                     $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                     $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                    let polda_id = result.data.polda_id
 
                     let polda_name = result.data.polda_name
                     let polda_jumlah = result.data.polda_jumlah
@@ -688,11 +787,7 @@
                             color: "#E8D42F"
 
                         }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
+
                         plotOptions: {
                             bar: {
                                 horizontal: false,
@@ -735,8 +830,23 @@
 
 
                         }, ],
+                        chart: {
+                            height: '400',
+                            type: 'line',
+                            stacked: false,
+                            events: {
+                                dataPointSelection: (event, chartContext, config) => {
+                                    // var selectedpolda = pad(config.dataPointIndex);
+                                    window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                }
+                            },
 
-                        tooltip: {}
+                        },
+                        tooltip: {
+                            fixed: {
+                                enabled: true
+                            }
+                        },
                     };
 
 
@@ -745,6 +855,10 @@
 
                 }
             })
+
+            topTurjagwaliDay(yesterday);
+            topTurjagwaliMonth(firstDayMonth, lastDayMonth)
+            topTurjagwaliYear(firstDay, lastDay)
         })
 
         function ButtonFilter() {
@@ -785,6 +899,7 @@
                         $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
                         // $('#btn_export').attr('href', `http://34.143.227.90:3001/v1/laporan_harian/export_laphar?filter=true&start_date=${start_date}&end_date=${end_date}`)
 
+                        let polda_id = result.data.polda_id
                         let polda_name = result.data.polda_name
                         let polda_jumlah = result.data.polda_jumlah
                         let polda_pengaturan = result.data.polda_pengaturan
@@ -820,11 +935,7 @@
                                 color: "#E8D42F"
 
                             }],
-                            chart: {
-                                height: 400,
-                                type: 'line',
-                                stacked: false
-                            },
+
                             plotOptions: {
                                 bar: {
                                     horizontal: false,
@@ -865,6 +976,23 @@
                                     }
                                 },
                             }, ],
+                            chart: {
+                                height: '400',
+                                type: 'line',
+                                stacked: false,
+                                events: {
+                                    dataPointSelection: (event, chartContext, config) => {
+                                        // var selectedpolda = pad(config.dataPointIndex);
+                                        window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                    }
+                                },
+
+                            },
+                            tooltip: {
+                                fixed: {
+                                    enabled: true
+                                }
+                            },
                         };
                         var chart = new ApexCharts(document.querySelector("#chart"), chart);
                         chart.render();
@@ -904,6 +1032,98 @@
                     }
                 })
             }
+        }
+
+        function topTurjagwaliDay(yesterday) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/statistik_executive/getTopTurjagwali",
+                dataType: "JSON",
+                data: {
+                    yesterday: yesterday
+                },
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    var table = '';
+                    let nf = new Intl.NumberFormat('en-US');
+                    for (let i = 0; i < result.length; i++) {
+                        let x = parseInt(i)
+                        let no = x + 1
+                        table += `<tr class="text-center"> 
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].pengaturan}  </td> 
+                            <td>  ${result[i].penjagaan}  </td> 
+                            <td>  ${result[i].pengawalan}  </td> 
+                            <td>  ${result[i].patroli}  </td>
+                            <td>  ${result[i].total}  </td> 
+                            </tr>`
+                    }
+                    $('#tbody-lakaDay').html(table);
+                }
+            })
+        }
+
+        function topTurjagwaliMonth(firstDayMonth, lastDayMonth) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/statistik_executive/getTurjagwaliMonth",
+                dataType: "JSON",
+                data: {
+                    firstDay: firstDayMonth,
+                    lastDay: lastDayMonth
+                },
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    var table = '';
+                    let nf = new Intl.NumberFormat('en-US');
+                    for (let i = 0; i < result.length; i++) {
+                        let x = parseInt(i)
+                        let no = x + 1
+                        table += `<tr class="text-center"> 
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].pengaturan}  </td> 
+                            <td>  ${result[i].penjagaan}  </td> 
+                            <td>  ${result[i].pengawalan}  </td> 
+                            <td>  ${result[i].patroli}  </td>
+                            <td>  ${result[i].total}  </td>
+                            </tr>`
+                    }
+                    $('#tbody-lakaMonth').html(table);
+                }
+            })
+        }
+
+        function topTurjagwaliYear(firstDay, lastDay) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/statistik_executive/getTurjagwaliYear",
+                dataType: "JSON",
+                data: {
+                    firstDay: firstDay,
+                    lastDay: lastDay
+                },
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    var table = '';
+                    let nf = new Intl.NumberFormat('en-US');
+                    for (let i = 0; i < result.length; i++) {
+                        let x = parseInt(i)
+                        let no = x + 1
+                        table += `<tr class="text-center"> 
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].pengaturan}  </td> 
+                            <td>  ${result[i].penjagaan}  </td> 
+                            <td>  ${result[i].pengawalan}  </td> 
+                            <td>  ${result[i].patroli}  </td>
+                            <td>  ${result[i].total}  </td>
+                            </tr>`
+                    }
+                    $('#tbody-lakaYear').html(table);
+                }
+            })
         }
     </script>
     <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
