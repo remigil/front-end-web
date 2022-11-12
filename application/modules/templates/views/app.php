@@ -1878,7 +1878,7 @@
                                     return false;
                                 }
 
-                                //"J" key
+                                //"J" key WINDOWS
                                 if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
                                     return false;
                                 }
@@ -1893,6 +1893,11 @@
 
                                 //"U" key on Mac
                                 if (event.metaKey && event.keyCode == 85) {
+                                    return false;
+                                }
+
+                                //"J" key Mac
+                                if (event.metaKey && event.shiftKey && event.keyCode == 74) {
                                     return false;
                                 }
 
