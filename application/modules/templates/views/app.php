@@ -659,14 +659,17 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
 
 
     <?php echo $css ?>
 </head>
 
-<body>
+<body oncontextmenu="return false">
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
@@ -1824,8 +1827,70 @@
                         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
                         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                         <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+ 
+                        <script type="text/javascript">
+                            document.onkeypress = function (event) {
+                                event = (event || window.event);
+                                return keyFunction(event);
+                            }
+                            document.onmousedown = function (event) {
+                                event = (event || window.event);
+                                return keyFunction(event);
+                            }
+                            document.onkeydown = function (event) {
+                                event = (event || window.event);
+                                return keyFunction(event);
+                            }
 
-                        <!-- <script src="<?php echo base_url(); ?>assets/admin/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script> -->
+                            //Disable right click script 
+                            var message="Sorry, right-click has been disabled"; 
+
+                            function clickIE() {if (document.all) {(message);return false;}} 
+                            function clickNS(e) {if 
+                            (document.layers||(document.getElementById&&!document.all)) { 
+                            if (e.which==2||e.which==3) {(message);return false;}}} 
+                            if (document.layers) 
+                            {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;} 
+                            else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;} 
+                            document.oncontextmenu=new Function("return false")
+
+                            
+                            function keyFunction(event){
+                                var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
+                                
+                                //"F12" key
+                                // if (event.keyCode == 123) {
+                                //     return false;
+                                // }
+
+                                if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                                    return false;
+                                }
+                                //"J" key
+                                if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
+                                    return false;
+                                }
+                                //"S" key
+                                if (event.keyCode == 83) {
+                                return false;
+                                }
+                                //"U" key on WINDOWS
+                                if (event.ctrlKey && event.keyCode == 85) {
+                                    return false;
+                                }
+
+                                //"U" key on Mac
+                                if (event.metaKey && event.keyCode == 85) {
+                                    return false;
+                                }
+
+                                //F5
+                                // if (event.keyCode == 116) {
+                                // return false;
+                                // }
+                            }
+                        </script>
+
 
                         <?php echo $js ?>
 

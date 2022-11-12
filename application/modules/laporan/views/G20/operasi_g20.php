@@ -31,9 +31,38 @@
 </div>
 <!-- End Page -->
 
+<!-- FullScreen Modals -->
+<div class="modal fade " id="modalGambar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h4 class="modal-title text-white" id="judulModal"></h4>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="layarFull"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
  
 <script>
  
+
+    function encrypt(val){
+        var inputan = val;
+        var encrypted = CryptoJS.AES.encrypt(inputan, "Ngodeinweb");
+        return encrypted.toString();
+    }
+
+    function decrypte(val){
+        var inputan2 = val;
+        var decrypted = CryptoJS.AES.decrypt(inputan2, "Ngodeinweb");
+        return decrypted.toString(CryptoJS.enc.Utf8);
+    }
+ 
+
     $(document).ready(function() {
         
 
@@ -286,12 +315,19 @@
                     }
 
                 });
+ 
+            });
 
 
-
+            $('#modalGambar').on('shown.bs.modal', function(event) {
+                $("#judulModal").html(`${$(event.relatedTarget).data('judul')}`); 
+                $("#layarFull").html(`<img style="width: 100%;" src="${$(event.relatedTarget).data('url')}">`); 
+                
             });
         }
     });
+
+
  
 </script>
 

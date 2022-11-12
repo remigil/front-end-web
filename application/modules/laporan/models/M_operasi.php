@@ -121,10 +121,8 @@ class M_operasi extends CI_Model
 
             
             if($field['foto'] != null){
-                $url = ''.url_api().'laporan/'.$field['foto'].'';
-                // $image = file_get_contents($url);
-                // $base64 = 'data:image/jpg;base64,' . base64_encode($image);
-                $row ['foto'] = '<a href="'.url_api().'laporan/'.$field['foto'].'" target="_blank"><img src="'.$url.'" style="width: 10rem;height: 10rem;" alt="" class="rounded avatar-md"></a>';  
+                $url = ''.url_api().'laporan/'.$field['foto'].''; 
+                $row ['foto'] = '<a href="javascript:void(0)" data-url="'.$url.'" data-judul="'.$field['officer']['name_officer'].'" data-bs-toggle="modal" data-bs-target="#modalGambar"><img src="'.$url.'" style="width: 10rem;height: 10rem;" alt="" class="rounded avatar-md"></a>';  
             }else{
                 $row ['foto'] = '<img src="'.base_url().'assets/no_image.png" alt="" class="rounded avatar-md">'; 
             }
