@@ -1856,7 +1856,18 @@
 
                             
                             function keyFunction(event){
+                                console.log(event);
                                 var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
+
+                                // "SHIFT + RIGHT" key WINDOWS
+                                if (event.shiftKey && event.button == 2) {
+                                    return false;
+                                }
+
+                                // "SHIFT + RIGHT" key MACOS
+                                if (event.keyCode == 16 && event.button == 2) {
+                                    return false;
+                                }
 
                                 // "F12" key
                                 if (event.keyCode == 123) {
@@ -1866,6 +1877,7 @@
                                 if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
                                     return false;
                                 }
+
                                 //"J" key
                                 if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
                                     return false;
