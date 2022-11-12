@@ -1882,6 +1882,13 @@
                                 if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
                                     return false;
                                 }
+
+                                //"C" key WINDOWS
+                                if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
+                                    return false;
+                                } 
+
+
                                 //"S" key
                                 if (event.keyCode == 83) {
                                 return false;
@@ -1898,6 +1905,15 @@
 
                                 //"J" key Mac
                                 if (event.metaKey && event.shiftKey && event.keyCode == 74) {
+                                    return false;
+                                }
+
+                                //"C" key Mac
+                                if (event.metaKey && event.shiftKey && event.keyCode == 67) {
+                                    return false;
+                                }
+
+                                if (event.metaKey && event.keyCode == 73) {
                                     return false;
                                 }
 
