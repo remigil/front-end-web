@@ -1858,7 +1858,7 @@
                             function keyFunction(event){
                                 var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
 
-                                "F12" key
+                                // "F12" key
                                 if (event.keyCode == 123) {
                                     return false;
                                 }
