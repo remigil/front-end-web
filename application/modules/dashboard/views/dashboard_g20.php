@@ -3024,13 +3024,13 @@
                             
 
 
-                            Swal.fire(
-                                `Fitur Sudah Dapat Di Gunakan`,
-                                'Terimakasih sudah Menunggu',
-                                'success'
-                            ).then(function() {
+                            // Swal.fire(
+                            //     `Fitur Sudah Dapat Di Gunakan`,
+                            //     'Terimakasih sudah Menunggu',
+                            //     'success'
+                            // ).then(function() {
                                 
-                            });
+                            // });
                         }, dummyGetTracking.length * 500);
                         $("#overlay").fadeOut(300);  
                         
