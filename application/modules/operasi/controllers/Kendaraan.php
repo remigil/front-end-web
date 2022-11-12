@@ -60,6 +60,23 @@ class Kendaraan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['noKendaraan']) == 1 ||
+            backdoorCek($input['jenisKendaraan']) == 1 ||
+            backdoorCek($input['jenisBahanBakar']) == 1 ||
+            backdoorCek($input['merek']) == 1 ||
+            backdoorCek($input['kepemilikan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $dummy = [
             [
                 'name' => 'no_vehicle',
@@ -186,6 +203,23 @@ class Kendaraan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['noKendaraan']) == 1 ||
+            backdoorCek($input['jenisKendaraan']) == 1 ||
+            backdoorCek($input['jenisBahanBakar']) == 1 ||
+            backdoorCek($input['merek']) == 1 ||
+            backdoorCek($input['kepemilikan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $dummy = [
             [
                 'name' => 'no_vehicle',

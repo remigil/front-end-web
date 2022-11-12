@@ -51,6 +51,19 @@ class Negara extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['name']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];
             $filename = $_FILES['photo']['name'];
@@ -175,6 +188,18 @@ class Negara extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['name']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         if($_FILES['photo']['name'] != null){ 
             $path = $_FILES['photo']['tmp_name'];

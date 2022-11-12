@@ -16,13 +16,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="material-textfield">
-                        <input style="width: 100%;" name="no_lambung" placeholder="" type="text">
+                        <input required style="width: 100%;" name="no_lambung" placeholder="" type="text">
                         <label class="labelmui">Nomor Lambung</label>
                     </div> 
                 </div>
                 <div class="col-md-6">
                     <div class="material-textfield">
-                        <input style="width: 100%;" name="identitas_rt" placeholder="" type="text">
+                        <input required style="width: 100%;" name="identitas_rt" placeholder="" type="text">
                         <label class="labelmui">Identitas RT</label>
                     </div> 
                 </div>
@@ -30,19 +30,19 @@
 
                 <div class="col-md-6">
                     <div class="material-textfield">
-                        <input style="width: 100%;" name="dari_pukul" placeholder="" type="text">
+                        <input required style="width: 100%;" name="dari_pukul" placeholder="" type="text">
                         <label class="labelmui">Dari Pukul</label>
                     </div> 
                 </div>
                 <div class="col-md-6">
                     <div class="material-textfield">
-                        <input style="width: 100%;" name="tujuan_pukul" placeholder="" type="text">
+                        <input required style="width: 100%;" name="tujuan_pukul" placeholder="" type="text">
                         <label class="labelmui">Tujuan Pukul</label>
                     </div> 
                 </div>
                 <div class="col-md-6">
                     <div class="material-textfield">
-                        <input style="width: 100%;" name="jumlah_kendaraan" placeholder="" type="text">
+                        <input required style="width: 100%;" name="jumlah_kendaraan" placeholder="" type="text">
                         <label class="labelmui">Jumlah Kendaraan</label>
                     </div> 
                 </div>

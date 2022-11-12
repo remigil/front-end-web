@@ -70,10 +70,24 @@ class Kegiatan extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
+        if( 
+            backdoorCek($input['kegiatan']) == 1 ||
+            backdoorCek($input['startTime']) == 1 ||
+            backdoorCek($input['address']) == 1 ||
+            backdoorCek($input['cordinate']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
                 [
                     'name' => 'activity',
@@ -277,9 +291,25 @@ class Kegiatan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
+
+        if( 
+            backdoorCek($input['kegiatan']) == 1 ||
+            backdoorCek($input['startTime']) == 1 ||
+            backdoorCek($input['address']) == 1 ||
+            backdoorCek($input['cordinate']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
                 [
                     'name' => 'activity',

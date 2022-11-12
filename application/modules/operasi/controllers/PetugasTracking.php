@@ -54,9 +54,27 @@ class PetugasTracking extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
+        if( 
+            backdoorCek($input['namapetugasTracking']) == 1 ||
+            backdoorCek($input['nrp']) == 1 ||
+            backdoorCek($input['replacementNrp_officer']) == 1 ||
+            backdoorCek($input['pangkat']) == 1 ||
+            backdoorCek($input['struktural']) == 1 ||
+            backdoorCek($input['pam']) == 1 ||
+            backdoorCek($input['noHp']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
                 [
                     'name' => 'name_officer',
@@ -217,9 +235,27 @@ class PetugasTracking extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
+        if( 
+            backdoorCek($input['namapetugasTracking']) == 1 ||
+            backdoorCek($input['nrp']) == 1 ||
+            backdoorCek($input['replacementNrp_officer']) == 1 ||
+            backdoorCek($input['pangkat']) == 1 ||
+            backdoorCek($input['struktural']) == 1 ||
+            backdoorCek($input['pam']) == 1 ||
+            backdoorCek($input['noHp']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
                 [
                     'name' => 'name_officer',

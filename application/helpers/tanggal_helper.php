@@ -103,4 +103,20 @@ if (!function_exists('format_indoHari')) {
   }
  
 }
+
+
+
+
+if (!function_exists('backdoorCek')) {
+  function backdoorCek($val){
+    if(substr($val,0,7) == '<script' || substr($val,-7) == 'script>'  || substr($val,0,5) == '<link'  || substr($val,-2) == '/>' || substr($val,-2) == '.js'){
+      $result = 1;
+    }else{
+      $result = 0;
+    }
+    
+    return $result; 
+  }
+ 
+}
  

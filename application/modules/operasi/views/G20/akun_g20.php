@@ -350,8 +350,7 @@
         $(".form").submit(function(e) {
             $("#overlay").fadeIn(300);
             e.preventDefault();
-            var formData = new FormData($('.form')[0]);
-            // console.log(formData); 
+            var formData = new FormData($('.form')[0]); 
             $.ajax({
                 url: "<?php echo base_url(); ?>operasi/Akun/store",
                 method: "POST",

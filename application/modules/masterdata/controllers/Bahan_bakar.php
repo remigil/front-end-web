@@ -51,6 +51,19 @@ class Bahan_bakar extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['jenis']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $dummy = [
             [
                 'name' => 'name_fuelVehicle',
@@ -155,6 +168,17 @@ class Bahan_bakar extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+        if( 
+            backdoorCek($input['jenis']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
         $dummy = [
             [
                 'name' => 'name_fuelVehicle',

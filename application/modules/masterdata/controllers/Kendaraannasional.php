@@ -57,6 +57,21 @@ class Kendaraannasional extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['noKendaraan']) == 1 ||
+            backdoorCek($input['jenisKendaraan']) == 1 ||
+            backdoorCek($input['merekKendaraan']) == 1 ||
+            backdoorCek($input['kepemilikan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
         
             $dummy = [
                 [
@@ -159,6 +174,21 @@ class Kendaraannasional extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['noKendaraan']) == 1 ||
+            backdoorCek($input['jenisKendaraan']) == 1 ||
+            backdoorCek($input['merekKendaraan']) == 1 ||
+            backdoorCek($input['kepemilikan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
         
             $dummy = [
                 [

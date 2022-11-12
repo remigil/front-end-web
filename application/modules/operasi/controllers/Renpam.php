@@ -167,8 +167,23 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
-        $dummy = array();
 
+        if( 
+            backdoorCek($input['instruksi']) == 1 || 
+            backdoorCek($input['title_start']) == 1 ||
+            backdoorCek($input['title_end']) == 1 || 
+            backdoorCek($input['note_kakor']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+        
+        $dummy = array();
         $dummy['operation_id']    = 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0';
         $dummy['schedule_id']    = null;
         $dummy['name_renpam']    = $input['instruksi'];
@@ -231,8 +246,23 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
-        $dummy = array();
+        
+        if( 
+            backdoorCek($input['instruksiR']) == 1 ||  
+            backdoorCek($input['title_start']) == 1 ||
+            backdoorCek($input['title_end']) == 1 || 
+            backdoorCek($input['note_kakor']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
+        $dummy = array();
         $dummy['operation_id']    = $this->session->userdata['operation_id'];
         $dummy['schedule_id']    = $input['schedule_id'];
         $dummy['name_renpam']    = $input['instruksiR'];
@@ -290,8 +320,20 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
-        $dummy = array();
 
+        if(  
+            backdoorCek($input['note_kakor']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+        
+        $dummy = array();
         // $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
         // $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
         // $dummy ['name_renpam']	= $input['instruksi']; 
@@ -419,8 +461,23 @@ class Renpam extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
-        $dummy = array();
 
+        if( 
+            backdoorCek($input['instruksi']) == 1 ||  
+            backdoorCek($input['title_start']) == 1 ||
+            backdoorCek($input['title_end']) == 1 || 
+            backdoorCek($input['note_kakor']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+        
+        $dummy = array();
         // $dummy ['operation_id']	= 'VTJGc2RHVmtYMS9NRFZlT25BWWlhUUsvY1ZYVEkyeFoyRUJua3o0a1N6bz0'; 
         // $dummy ['schedule_id']	= 'VTJGc2RHVmtYMTllR0hHVUZEZVdxY3pRZFNxTXZjLzRLQkRUNEQ0RTVHMD0'; 
         $dummy['name_renpam']    = $input['instruksi'];

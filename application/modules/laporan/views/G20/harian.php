@@ -195,11 +195,7 @@
                             <thead> 
                                 <tr>
                                     <th>No</th> 
-                                    <th>Tanggal</th>
-                                    <th>Pelanggaran</th>
-                                    <th>Kecelakaan lalu lintas</th>
-                                    <th>Kemacetan</th>
-                                    <th>Bencana Alam</th> 
+                                    <th>Tanggal</th> 
                                     <th>Pengaturan</th>
                                     <th>Pengawalan</th>
                                     <th>Lainnya</th>  
@@ -435,7 +431,7 @@
     
                         optionsLaporan = {
                             series: [{
-                                data: [sumReport_kriminal, sumReport_lalu_lintas, sumReport_kemacetan, sumReport_bencanaalam, sumReport_pengaturan, sumReport_pengawalan, sumReport_lainnya]
+                                data: [sumReport_pengaturan, sumReport_pengawalan, sumReport_lainnya]
                             }],
                             chart: {
                                 height: 350,
@@ -460,11 +456,7 @@
                                 show: false
                             },
                             xaxis: {
-                                categories: [ 
-                                    'Pelanggaran',
-                                    'Kecelakaan lalu lintas',
-                                    'Kemacetan',
-                                    'Bencana Alam',
+                                categories: [  
                                     'Pengaturan',
                                     'Pengawalan',
                                     'Lainnya',
@@ -580,11 +572,7 @@
                             listKegiatan += `
                                 <tr>
                                     <td>${urutanKegiatan}</td>
-                                    <td>${el.date}</td> 
-                                    <td>${el.t_report_kriminal}</td> 
-                                    <td>${el.t_report_lalu_lintas}</td> 
-                                    <td>${el.t_report_kemacetan}</td> 
-                                    <td>${el.t_report_bencanaalam}</td>  
+                                    <td>${el.date}</td>  
                                     <td>${el.t_report_pengaturan}</td>  
                                     <td>${el.t_report_pengawalan}</td>  
                                     <td>${el.t_report_lainnya}</td> 

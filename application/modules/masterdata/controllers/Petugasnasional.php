@@ -53,9 +53,26 @@ class Petugasnasional extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
+
+        if( 
+            backdoorCek($input['nrpPetugas']) == 1 ||
+            backdoorCek($input['namaPetugas']) == 1 ||
+            backdoorCek($input['pangkat']) == 1 ||
+            backdoorCek($input['pamPetugas']) == 1 || 
+            backdoorCek($input['pangkat']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
 				[
 					'name' => 'photo_officer',
@@ -208,9 +225,25 @@ class Petugasnasional extends MY_Controller
         ];
         $input      = $this->input->post();
 
-        $path = $_FILES['photo']['tmp_name'];
-        $filename = $_FILES['photo']['name'];
+        if( 
+            backdoorCek($input['nrpPetugas']) == 1 ||
+            backdoorCek($input['namaPetugas']) == 1 ||
+            backdoorCek($input['pangkat']) == 1 ||
+            backdoorCek($input['pamPetugas']) == 1 || 
+            backdoorCek($input['pangkat']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['photo']['name']){ 
+            $path = $_FILES['photo']['tmp_name'];
+            $filename = $_FILES['photo']['name'];
             $dummy = [
 				[
 					'name' => 'photo_officer',

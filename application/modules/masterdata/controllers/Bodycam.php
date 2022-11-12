@@ -207,6 +207,22 @@ class Bodycam extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
+        if( 
+            backdoorCek($input['address']) == 1 ||
+            backdoorCek($input['type_bodycam']) == 1 ||
+            backdoorCek($input['ip_bodycam']) == 1 ||
+            backdoorCek($input['gateway_bodycam']) == 1 ||
+            backdoorCek($input['username']) == 1 ||
+            backdoorCek($input['password']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         $latlng = explode(",",$input['cordinate']); 
         $dummy = [
@@ -313,6 +329,22 @@ class Bodycam extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
+        if( 
+            backdoorCek($input['addressEdit']) == 1 ||
+            backdoorCek($input['type_bodycamEdit']) == 1 ||
+            backdoorCek($input['ip_bodycamEdit']) == 1 ||
+            backdoorCek($input['gateway_bodycamEdit']) == 1 ||
+            backdoorCek($input['usernameEdit']) == 1 ||
+            backdoorCek($input['passwordEdit']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         // $latlng = explode(",",$input['cordinate']); 
         $dummy = [

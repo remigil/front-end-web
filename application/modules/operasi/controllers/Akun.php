@@ -137,37 +137,18 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
-        // $dummy = [
-        //     [
-        //         'name' => 'id_account',
-        //         'contents' => str_replace(' ', '', $input['namaAkun']),
-        //     ],
-        //     [
-        //         'name' => 'name_account',
-        //         'contents' => $input['namaAkun'],
-        //     ],
-        //     [
-        //         'name' => 'leader_team',
-        //         'contents' => $input['ketuaTeam'],
-        //     ],
-        //     [
-        //         'name' => 'polres_id',
-        //         'contents' => $input['polres'],
-        //     ],
-        //     [
-        //         'name' => 'id_vehicle',
-        //         'contents' => $input['id_kendaraan'],
-        //     ], 
-        //     [
-        //         'name' => 'password',
-        //         'contents' => $input['password'],
-        //     ]
-        // ];
-
-        // $data = guzzle_request('POST', 'account/add', [ 
-        //     'multipart' => $dummy, 
-        //     'headers' => $headers 
-        // ]);
+        
+        $cekBD = backdoorCek($input['namaAkun']);
+        if( $cekBD == 1){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+      
 
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);
@@ -309,6 +290,17 @@ class Akun extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
+
+        $cekBD = backdoorCek($input['namaAkun']);
+        if( $cekBD == 1){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         $dummy = array();
         $dummy['id_account']    = str_replace(' ', '', $input['namaAkun']);

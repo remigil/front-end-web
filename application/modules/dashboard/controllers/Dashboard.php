@@ -449,11 +449,23 @@ class Dashboard extends MY_Controller
         ]);
 
         if ($data['isSuccess'] == true) {
-            $res = array(
-                'status' => true,
-                'message' => 'Berhasil edit data.',
-                'data' => $data
-            );
+            $addManual = guzzle_request('POST', 'day_report/addManual', [
+                'multipart' => $dummy,
+                'headers' => $headers
+            ]);
+            if ($addManual['isSuccess'] == true) {
+                $res = array(
+                    'status' => true,
+                    'message' => 'Berhasil edit data.',
+                    'data' => $data
+                );
+            } else {
+                $res = array(
+                    'status' => false,
+                    'message' => 'Gagal edit data.',
+                    'data' => $data
+                );
+            }
         } else {
             $res = array(
                 'status' => false,

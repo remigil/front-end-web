@@ -55,6 +55,24 @@ class Ht extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['no_lambung']) == 1 ||
+            backdoorCek($input['identitas_rt']) == 1 ||
+            backdoorCek($input['dari_pukul']) == 1 ||
+            backdoorCek($input['tujuan_pukul']) == 1 ||
+            backdoorCek($input['jumlah_kendaraan']) == 1 ||
+            backdoorCek($input['ket']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $dummy = [
             [
                 'name' => 'no_lambung',
@@ -115,6 +133,25 @@ class Ht extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+    
+        if( 
+            backdoorCek($input['no_lambungEdit']) == 1 ||
+            backdoorCek($input['identitas_rtEdit']) == 1 ||
+            backdoorCek($input['dari_pukulEdit']) == 1 ||
+            backdoorCek($input['tujuan_pukulEdit']) == 1 ||
+            backdoorCek($input['jumlah_kendaraanEdit']) == 1 ||
+            backdoorCek($input['ketEdit']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $dummy = [
             [
                 'name' => 'no_lambung',

@@ -208,6 +208,24 @@ class Cctv extends MY_Controller
         $input      = $this->input->post(); 
 
 
+        if( 
+            backdoorCek($input['address']) == 1 ||
+            backdoorCek($input['type_cctv']) == 1 ||
+            backdoorCek($input['ip_cctv']) == 1 ||
+            backdoorCek($input['gateway_cctv']) == 1 ||
+            backdoorCek($input['username']) == 1 ||
+            backdoorCek($input['password']) == 1  ||
+            backdoorCek($input['link_cctv']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         $latlng = explode(",",$input['cordinate']); 
         $dummy = [
             [
@@ -313,6 +331,23 @@ class Cctv extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
+        if( 
+            backdoorCek($input['address']) == 1 ||
+            backdoorCek($input['type_cctv']) == 1 ||
+            backdoorCek($input['ip_cctv']) == 1 ||
+            backdoorCek($input['gateway_cctv']) == 1 ||
+            backdoorCek($input['username']) == 1 ||
+            backdoorCek($input['password']) == 1 ||
+            backdoorCek($input['link_cctv']) == 1 
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         $latlng = explode(",",$input['cordinate']); 
         $dummy = [

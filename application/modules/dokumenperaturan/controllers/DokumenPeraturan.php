@@ -50,6 +50,21 @@ class DokumenPeraturan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],  
         ]; 
         $input      = $this->input->post(); 
+
+        if( 
+            backdoorCek($input['judulPeraturan']) == 1 ||
+            backdoorCek($input['tahunPeraturan']) == 1 ||
+            backdoorCek($input['kategoriPeraturan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
+
         if($_FILES['files']['name'] != null){ 
             $path = $_FILES['files']['tmp_name'];
             $filename = $_FILES['files']['name'];
@@ -175,6 +190,20 @@ class DokumenPeraturan extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
         $input      = $this->input->post();
+
+        if( 
+            backdoorCek($input['judulPeraturan']) == 1 ||
+            backdoorCek($input['tahunPeraturan']) == 1 ||
+            backdoorCek($input['kategoriPeraturan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         if ($_FILES['files']['name'] != null) {
             $path = $_FILES['files']['tmp_name'];
