@@ -29,14 +29,19 @@
                 </div> 
 
                 <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
-                    <div class="cat jalurBeatDisplay" style="margin-left: 10px;">
-                        <label>
+                    <div class="cat jalurBeatDisplay" style="margin-left: 10px;"> 
+                        <div class="btn-group">
+                            <label>
                             <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
-                        </label>
+                            </label>
+                            <button id="jalurBeatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="cat" style="margin-left: 10px;">
+                    <div class="cat" style="margin-left: 10px;">  
                         <label>
-                             
+                            
                             <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fas fa-user-shield"></i> Petugas
                             </div>
@@ -55,48 +60,85 @@
                                 </label> 
                                 <label class="dropdown-item" style="width: 100%;height: 100%;">
                                     <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span> 
+                                </label>  
+                                <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                    <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                        List Personil Lantas
+                                    </button>
                                 </label> 
+
+
                             </div>
-                        </label>
+                        </label> 
                     </div>
                     <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
-                        <label>
-                            <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
-                        </label>
+                        <div class="btn-group">
+                            <label>
+                                <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                            </label>
+                            <button id="fasumFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="cat clusterDisplay" style="margin-left: 10px;">
-                        <label>
+                    <div class="cat clusterDisplay" style="margin-left: 10px;"> 
+                        <div class="btn-group">
+                            <label>
                             <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
-                        </label>
+                            </label>
+                            <button id="clusterFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
     
-                    <div class="cat gpsIdDisplay" style="margin-left: 10px;">
+                    <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                         <label>
                             <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
-                        </label>
+                        </label>  
                     </div>
     
-                    <div class="cat kegiatanDisplay">
-                        <label>
+                    <div class="cat kegiatanDisplay"> 
+                        <div class="btn-group">
+                            <label>
                             <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
-                        </label>
+                            </label>
+                            <button id="jadwalFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
     
-                    <div class="cat cctvDisplay">
-                        <label>
+                    <div class="cat cctvDisplay"> 
+                        <div class="btn-group">
+                            <label>
                             <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
-                        </label>
+                            </label>
+                            <button id="cctvFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="cat operasiDisplay">
-                        <label>
+                    <div class="cat operasiDisplay"> 
+                        <div class="btn-group">
+                            <label>
                             <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
-                        </label>
+                            </label>
+                            <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
     
-                    <div class="cat panicDisplay" style="margin-left: 10px;">
-                        <label>
+                    <div class="cat panicDisplay" style="margin-left: 10px;"> 
+                        <div class="btn-group">
+                            <label>
                             <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
-                        </label>
+                            </label>
+                            <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -2040,6 +2082,7 @@
                                         mapContainer.addLayer(markerArray[filterPetugasCarListrik[i]['id_officer']]); 
                                     }
                                 }
+                                $("#myModalPetugasDisplay").modal('show');
                             }else{
                                 $("#allPetugasCarListrik").prop('checked', false);
                                 for (let i = 0; i < countlistCarListrik; i++){ 
@@ -2178,6 +2221,7 @@
                                         mapContainer.addLayer(markerArray[filterPetugasBikeListrik[i]['id_officer']]); 
                                     }
                                 }
+                                $("#myModalPetugasDisplay").modal('show');
                             }else{
                                 $("#allPetugasBikeListrik").prop('checked', false);
                                 for (let i = 0; i < countlistBikeListrik; i++){ 
@@ -2314,6 +2358,7 @@
                                         mapContainer.addLayer(markerArray[filterPetugasCarFosil[i]['id_officer']]); 
                                     }
                                 }
+                                $("#myModalPetugasDisplay").modal('show');
                             }else{
                                 $("#allPetugasCarFosil").prop('checked', false);
                                 for (let i = 0; i < countlistCarFosil; i++){ 
@@ -2452,6 +2497,7 @@
                                         mapContainer.addLayer(markerArray[filterPetugasBikeFosil[i]['id_officer']]); 
                                     }
                                 }
+                                $("#myModalPetugasDisplay").modal('show');
                             }else{
                                 $("#allPetugasBikeFosil").prop('checked', false);
                                 for (let i = 0; i < countlistBikeFosil; i++){ 
@@ -2583,6 +2629,7 @@
                                         mapContainer.addLayer(markerArray[filterPetugasNon[i]['id_officer']]); 
                                     }
                                 }
+                                $("#myModalPetugasDisplay").modal('show');
                             }else{ 
                                 $("#allPetugasNon").prop('checked', false);  
                                 for (let i = 0; i < countlistNon; i++){ 
@@ -6646,6 +6693,31 @@
         });
 
 
+
+        $("#jalurBeatFilterModal").on("click", function (e) {   
+            $("#myModalJalurBeatDisplay").modal('show'); 
+        }); 
+        $("#petugasFilterModal").on("click", function (e) {   
+            $("#myModalPetugasDisplay").modal('show');
+        }); 
+        $("#jadwalFilterModal").on("click", function (e) {   
+            $("#myModalJadwalDisplay").modal('show');
+        }); 
+        $("#clusterFilterModal").on("click", function (e) {   
+            $("#myModalClusterDisplay").modal('show');
+        }); 
+        $("#cctvFilterModal").on("click", function (e) {   
+            $("#myModalCctvDisplay").modal('show');
+        }); 
+        $("#fasumFilterModal").on("click", function (e) {   
+            $("#myModalFasumKhususDisplay").modal('show');
+        }); 
+        $("#panicFilterModal").on("click", function (e) {   
+            $("#myModalPanicDisplay").modal('show');
+        }); 
+        $("#operasiFilterModal").on("click", function (e) {   
+            $("#myModalLaporanDisplay").modal('show');
+        }); 
 
 
         $("#openLastDisplay").on("click", function(e) {

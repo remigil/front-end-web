@@ -1856,7 +1856,7 @@
 
                             
                             function keyFunction(event){
-                                console.log(event);
+                                // console.log(event);
                                 var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
 
                                 // "SHIFT + RIGHT" key WINDOWS
