@@ -115,7 +115,7 @@
         }
 
         #mapG20Dashboard {
-            height: 940px;
+            height: 1015px;
             width: 100%
         }
 
