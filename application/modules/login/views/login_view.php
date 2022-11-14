@@ -181,7 +181,7 @@
     </script>
  
 </head>
-<body id="top">
+<body id="top"  oncontextmenu="return false">
 <div class="page_loader"></div>
 
 <!-- Login 2 start -->
@@ -254,6 +254,103 @@
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!-- Custom JS Script --> 
+
+<script type="text/javascript">
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        return keyFunction(event);
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        return keyFunction(event);
+    }
+    document.onkeydown = function (event) {
+        event = (event || window.event);
+        return keyFunction(event);
+    }
+
+    //Disable right click script 
+    var message="Sorry, right-click has been disabled"; 
+
+    function clickIE() {if (document.all) {(message);return false;}} 
+    function clickNS(e) {if 
+    (document.layers||(document.getElementById&&!document.all)) { 
+    if (e.which==2||e.which==3) {(message);return false;}}} 
+    if (document.layers) 
+    {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;} 
+    else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;} 
+    document.oncontextmenu=new Function("return false")
+
+    
+    function keyFunction(event){
+        // console.log(event);
+        var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
+
+        // "SHIFT + RIGHT" key WINDOWS
+        if (event.shiftKey && event.button == 2) {
+            return false;
+        }
+
+        // "SHIFT + RIGHT" key MACOS
+        if (event.keyCode == 16 && event.button == 2) {
+            return false;
+        }
+
+        // "F12" key
+        if (event.keyCode == 123) {
+            return false;
+        }
+
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;
+        }
+
+        //"J" key WINDOWS
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
+            return false;
+        }
+
+        //"C" key WINDOWS
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
+            return false;
+        } 
+
+
+        //"S" key
+        // if (event.keyCode == 83) {
+        // return false;
+        // }
+
+        //"U" key on WINDOWS
+        if (event.ctrlKey && event.keyCode == 85) {
+            return false;
+        }
+
+        //"U" key on Mac
+        if (event.metaKey && event.keyCode == 85) {
+            return false;
+        }
+
+        //"J" key Mac
+        if (event.metaKey && event.shiftKey && event.keyCode == 74) {
+            return false;
+        }
+
+        //"C" key Mac
+        if (event.metaKey && event.shiftKey && event.keyCode == 67) {
+            return false;
+        }
+
+        if (event.metaKey && event.keyCode == 73) {
+            return false;
+        }
+
+        //F5
+        // if (event.keyCode == 116) {
+        // return false;
+        // }
+    }
+</script>
 
 </body>
 
