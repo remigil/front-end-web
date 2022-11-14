@@ -2694,7 +2694,7 @@
                                 var corLong = parseFloat(dummyGetTracking[i].longitude);  
                                 
                                 if(dummyGetTracking[i].bawa_penumpang == 1){
-                                    iconflagVip = `<img src="${dummyGetTracking[i].photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                                    iconflagVip = `<img src="${dummyGetTracking[i].photo_country != '-' ? dummyGetTracking[i].photo_country : '<?php echo base_url();?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${dummyGetTracking[i].name_country}</span>
                                         </div>`;  
@@ -3197,7 +3197,7 @@
                     
                 
                         if(ress.bawa_penumpang == 1){
-                            iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                            iconflagVip = `<img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url();?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
                                         </div>`;  
@@ -3580,7 +3580,7 @@
                     
                     
                         if(ress.bawa_penumpang == 1){
-                            iconflagVip = `<img src="${ress.photo_country}" style="width: 35px;margin-left: 10px;height: 30px;">
+                            iconflagVip = `<img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url();?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
                                         </div>`;  
