@@ -443,17 +443,18 @@ class Dashboard extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('PUT', 'day_report/byEdit/' . date('Y-m-d') . '', [
+
+        $addManual = guzzle_request('POST', 'day_report/addManual', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);
-
-        if ($data['isSuccess'] == true) {
-            $addManual = guzzle_request('POST', 'day_report/addManual', [
+        if ($addManual['isSuccess'] == true) {
+            $data = guzzle_request('PUT', 'day_report/byEdit/' . date('Y-m-d') . '', [
                 'multipart' => $dummy,
                 'headers' => $headers
             ]);
-            if ($addManual['isSuccess'] == true) {
+    
+            if ($data['isSuccess'] == true) {
                 $res = array(
                     'status' => true,
                     'message' => 'Berhasil edit data.',
@@ -473,6 +474,8 @@ class Dashboard extends MY_Controller
                 'data' => $data
             );
         }
+
+        
 
         echo json_encode($res);
     }
