@@ -312,14 +312,14 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                                    <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Kendaraan </span>Bermotor
+                                                        <span class="fw-bold">Turjawali</span>
                                                     </span>
                                                     <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -332,7 +332,7 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
+                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                                     <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i> -->
                                                 </div>
                                                 <div class="col-md-10 float-end">
@@ -340,7 +340,7 @@
                                                         <span class="fw-bold">Kendaraan </span>Bermotor
                                                     </span>
                                                     <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
                                                 </div>
                                             </div>
                                         </div>
