@@ -316,10 +316,10 @@
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Turjawali</span>
+                                                        <span class="fw-bold">Turjagwali</span>
                                                     </span>
                                                     <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -416,13 +416,13 @@
             var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
             var lastDay = new Date(date.getFullYear(), 11, 31).toLocaleDateString("en-GB").split('/').reverse().join('-');
             var polda_id = $('#polda_,#polda_id').val();
-            console.log(polda_id)
+            // console.log(polda_id)
 
             // const offset = yourDate.getTimezoneOffset()
             // yourDate = new Date(yourDate.getTime() - (offset * 60 * 1000))
             // let a = firstDay.toISOString().split('T')[0]
             // let b = lastDay.toISOString().split('T')[0]
-            console.log(firstDay, lastDay)
+            // console.log(firstDay, lastDay)
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
@@ -436,7 +436,7 @@
                     var ressPolda = result.polda
                     $("#overlay").fadeOut(300);
                     $('#motor').html(`<h1>${result.motor}</h1>`);
-                    $('#sim').html(`<h1>${result.sim}</h1>`);
+                    $('#turjagwali').html(`<h1>${result.turjagwali}</h1>`);
                     $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
                     $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
                     $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
@@ -741,7 +741,7 @@
                     var ressPolda = result.polda
                     $("#overlay").fadeOut(300);
                     $('#motor').html(`<h1>${result.motor}</h1>`);
-                    $('#sim').html(`<h1>${result.sim}</h1>`);
+                    $('#turjagwali').html(`<h1>${result.turjagwali}</h1>`);
                     $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
                     $('#lakalantas').html(`<h1>${result.lakalantas}</h1>`);
                     $('#logo').html(`<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" alt="img-polda" width="100px">`);
@@ -777,7 +777,7 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
+                    // console.log(result)
                     var ditgakkum = {
                         series: [{
                             name: 'Garlantas',
@@ -891,7 +891,7 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
+                    // console.log(result)
                     var ditkamsel = {
                         series: [{
                             name: 'Dikmaslantas',
@@ -995,7 +995,7 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
+                    // console.log(result)
                     var ditregident = {
                         series: [{
                             name: 'BPKB',
@@ -1010,7 +1010,7 @@
                         }, {
                             name: 'SIM',
                             type: 'column',
-                            data: result.data.sim,
+                            data: result.data.turjagwali,
                             color: "#E8D42F"
                         }, {
                             name: 'RANMOR',

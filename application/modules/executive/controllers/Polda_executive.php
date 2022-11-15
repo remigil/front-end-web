@@ -45,9 +45,11 @@ class Polda_executive extends MY_Controller
 
         $totalgarlantas = 0;
         $totallakalantas = 0;
+        $totalturjagwali = 0;
         for ($i = 0; $i < count($getGakkum); $i++) {
             $totalgarlantas += $getGakkum[$i]['garlantas'];
             $totallakalantas += $getGakkum[$i]['lakalantas'];
+            $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
         $getRanmor = guzzle_request('GET', 'ranmor/daily?polda_id=' . $id, [
@@ -60,15 +62,15 @@ class Polda_executive extends MY_Controller
             $totalmotor += $getRanmor[$i]['sepeda_motor'];
         }
 
-        $getSim = guzzle_request('GET', 'sim/daily?polda_id=' . $id, [
-            'headers' => $headers
-        ]);
-        $getSim = $getSim["data"]["rows"];
+        // $getTurjagwali = guzzle_request('GET', 'turjagwali/daily?polda_id=' . $id, [
+        //     'headers' => $headers
+        // ]);
+        // $getTurjagwali = $getTurjagwali["data"]["rows"];
 
-        $totalsim = 0;
-        for ($i = 0; $i < count($getSim); $i++) {
-            $totalsim += $getSim[$i]['total'];
-        }
+        // $totalsturjagwali = 0;
+        // for ($i = 0; $i < count($getTurjagwali); $i++) {
+        //     $totalsturjagwali += $getTurjagwali[$i]['total'];
+        // }
 
 
         $data = [
@@ -77,7 +79,7 @@ class Polda_executive extends MY_Controller
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' => number_format($totallakalantas, 0, '', '.'),
             'motor' => number_format($totalmotor, 0, '', '.'),
-            'sim' => number_format($totalsim, 0, '', '.'),
+            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
         ];
         echo json_encode($data);
     }
