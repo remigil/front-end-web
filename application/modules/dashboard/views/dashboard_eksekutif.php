@@ -337,13 +337,13 @@
                                         <a href="<?= base_url('executive/Satker_executive/ditkamsel'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditkamsel</button></a>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/bagrenmin'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagRenMin</button></a>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagOps</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/bagops'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagOps</button></a>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="#"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagTik</button></a>
+                                        <a href="<?= base_url('executive/Satker_executive/bagtik'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">BagTik</button></a>
                                     </div>
                                 </div>
                                 <div class="row d-flex justify-content-center mb-5">

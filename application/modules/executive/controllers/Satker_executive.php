@@ -41,6 +41,25 @@ class Satker_executive extends MY_Controller
         $this->load->view('executive/satker/detail_satker_ditregident', $data);
     }
 
+    public function bagops()
+    {
+        $data['polda'] = $this->M_detail_satker->get_Polda();
+        $data['title'] = 'BAGOPS';
+        $this->load->view('executive/satker/detail_satker_bagops', $data);
+    }
+    public function bagrenmin()
+    {
+        $data['polda'] = $this->M_detail_satker->get_Polda();
+        $data['title'] = 'BAGRENMIN';
+        $this->load->view('executive/satker/detail_satker_bagrenmin', $data);
+    }
+    public function bagtik()
+    {
+        $data['polda'] = $this->M_detail_satker->get_Polda();
+        $data['title'] = 'BAGTIK';
+        $this->load->view('executive/satker/detail_satker_bagtik', $data);
+    }
+
     public function getDitgakkum()
     {
         $title = 'DATA DITGAKKUM NASIONAL';
