@@ -23,7 +23,7 @@ class Statistik_executive extends MY_Controller
     public function LakaLantas()
     {
         $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA KECELEKAAN LALU LINTAS';
+        $data['title'] = 'DATA KECELAKAAN LALU LINTAS';
         $this->load->view('executive/statistik/detail_statistik_lakalantas', $data);
     }
     public function Garlantas()
@@ -47,7 +47,7 @@ class Statistik_executive extends MY_Controller
 
     public function getDetailStatistikLakaLantas()
     {
-        $title = 'DATA KECELEKAAN LALU LINTAS';
+        $title = 'DATA KECELAKAAN LALU LINTAS';
         $filter = $this->input->post('filter');
         if ($filter == 0) {
             $filterbaru = [
