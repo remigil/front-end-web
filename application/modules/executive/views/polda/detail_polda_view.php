@@ -332,11 +332,12 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                    <iconify-icon icon="ic:baseline-control-camera" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
+                                                    <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i> -->
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
-                                                        Jumlah <span class="fw-bold">SIM Nasional</span>
+                                                        <span class="fw-bold">Kendaraan </span>Bermotor
                                                     </span>
                                                     <br>
                                                     <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
