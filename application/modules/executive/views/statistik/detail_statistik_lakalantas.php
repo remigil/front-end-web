@@ -736,7 +736,7 @@
             var lastDayMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
 
             lakalantasByDate(firstDay, lastDay)
-            console.log(firstDay, lastDay)
+            // console.log(firstDay, lastDay)
             $("#overlay").fadeIn(300);
             $.ajax({
                 type: "POST",
@@ -868,7 +868,7 @@
                 },
                 dataType: "JSON",
                 success: function(results) {
-                    console.log(results);
+                    // console.log(results);
                 }
             })
         }
