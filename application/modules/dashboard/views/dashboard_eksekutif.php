@@ -274,7 +274,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('executive/Statistik_executive/Turjawali'); ?>">
+                                        <a href="<?= base_url('executive/Statistik_executive/Turjagwali'); ?>">
                                             <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                                 <div class="card-body">
                                                     <div class="row">
@@ -284,10 +284,10 @@
                                                         </div>
                                                         <div class="col-md-10 float-end">
                                                             <span class="fs-6 float-end" style="color:#464646;">
-                                                                <span class="fw-bold">Turjawali</span>
+                                                                <span class="fw-bold">Turjagwali</span>
                                                             </span>
                                                             <br><br>
-                                                            <span class="fs-4 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                                            <span class="fs-4 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -408,11 +408,11 @@
                                                 <div class="col-xl-12">
                                                     <div class="card">
                                                         <div class="card-header">
-                                                            <h5>10 Polda Turjawali Tertinggi</h5>
+                                                            <h5>10 Polda Turjagwali Tertinggi</h5>
                                                         </div>
                                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                                             <div class="main-chart">
-                                                                <div id="chartturjawali" style="width: 100vw"></div>
+                                                                <div id="chartturjagwali" style="width: 100vw"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -504,11 +504,11 @@
                                                     <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
                                                 </div>
                                                 <div class="col-md-3">
+                                                    <span class="fs-6">Total <b>Turjagwali</b></span>
+                                                </div>    
+                                                <div class="col-md-3">
                                                     <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <span class="fs-6">Total <b>Sim Nasional</b></span>
-                                                </div>    
                                             </div>    
                                         </div>
                                         
@@ -521,11 +521,11 @@
                                                     <span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
                                                 </div>
                                                 <div class="col-md-3">
+                                                <span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
+                                                </div>    
+                                                <div class="col-md-3">
                                                     <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <span class="fs-3"> <b>${ressData[i].total}</b></span>
-                                                </div>    
                                             </div>    
                                         </div>
 
@@ -623,7 +623,7 @@
                             $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
                             $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
                             $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
-                            $('#sim').html(`<span class="fs-4" >${result.turjagwali}</span >`);
+                            $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
                         }
                     })
 
@@ -635,7 +635,7 @@
                         success: function(result) {
                             $("#overlay").fadeOut(300);
                             console.log(result)
-                            var turjawali = {
+                            var turjagwali = {
                                 series: [{
                                     name: 'Pengaturan',
                                     type: 'column',
@@ -706,8 +706,8 @@
                                 }, ],
                             };
 
-                            var turjawali = new ApexCharts(document.querySelector("#chartturjawali"), turjawali);
-                            turjawali.render();
+                            var turjagwali = new ApexCharts(document.querySelector("#chartturjagwali"), turjagwali);
+                            turjagwali.render();
                         }
                     })
 

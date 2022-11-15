@@ -453,7 +453,7 @@ class Dashboard extends MY_Controller
                 'multipart' => $dummy,
                 'headers' => $headers
             ]);
-    
+
             if ($data['isSuccess'] == true) {
                 $res = array(
                     'status' => true,
@@ -475,7 +475,7 @@ class Dashboard extends MY_Controller
             );
         }
 
-        
+
 
         echo json_encode($res);
     }
@@ -484,7 +484,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'reportMobile/history-logout';
         $getData = guzzle_request('GET', $url, [
@@ -518,7 +518,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'track-gatur';
         $getData = guzzle_requestTracking('GET', $url, [
@@ -532,7 +532,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'track-r2-listrik';
         $getData = guzzle_requestTracking('GET', $url, [
@@ -546,7 +546,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'track-r4-listrik';
         $getData = guzzle_requestTracking('GET', $url, [
@@ -560,7 +560,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'track-r2-fosil';
         $getData = guzzle_requestTracking('GET', $url, [
@@ -574,7 +574,7 @@ class Dashboard extends MY_Controller
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
-        ]; 
+        ];
 
         $url = 'track-r4-fosil';
         $getData = guzzle_requestTracking('GET', $url, [
@@ -1015,10 +1015,12 @@ class Dashboard extends MY_Controller
             $datadit = [
                 'garlantas' => $getDit[$i]['garlantas'],
                 'lakalantas' => $getDit[$i]['lakalantas'],
+                'turjagwali' => $getDit[$i]['turjagwali'],
             ];
             $dit[] = array_merge($getPolda[$i], $datadit);
         }
-        $ranmor = [];
+        $allData = [];
+
         $urlranmor = 'ranmor/daily';
         $getRanmor = guzzle_request('GET', $urlranmor, [
             'headers' => $headers
@@ -1029,21 +1031,9 @@ class Dashboard extends MY_Controller
             $dataranmor = [
                 'sepeda_motor' => $getRanmor[$i]['sepeda_motor'],
             ];
-            $ranmor[] = array_merge($dit[$i], $dataranmor);
+            $allData[] = array_merge($dit[$i], $dataranmor);
         }
 
-        $allData = [];
-        $urlsim = 'sim/daily';
-        $getSim = guzzle_request('GET', $urlsim, [
-            'headers' => $headers
-        ]);
-        $getSim = $getSim['data']['rows'];
-        for ($i = 0; $i < count($getSim); $i++) {
-            $datasim = [
-                'total' => $getSim[$i]['total'],
-            ];
-            $allData[] = array_merge($ranmor[$i], $datasim);
-        }
 
         $data = $allData;
 
