@@ -757,7 +757,6 @@
                     let polda_luka_ringan = result.data.polda_luka_ringan
                     let polda_meninggal_dunia = result.data.polda_meninggal_dunia
                     // Chart Kecelakaan Lalu Lintas
-                    console.log(polda_id);
 
                     // chart laka
                     var chart = {
@@ -941,9 +940,21 @@
                                 color: "#E8D42F"
                             }],
                             chart: {
-                                height: 400,
+                                height: '400',
                                 type: 'line',
-                                stacked: false
+                                stacked: false,
+                                events: {
+                                    dataPointSelection: (event, chartContext, config) => {
+                                        // var selectedpolda = pad(config.dataPointIndex);
+                                        window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                                    }
+                                },
+
+                            },
+                            tooltip: {
+                                fixed: {
+                                    enabled: true
+                                }
                             },
                             plotOptions: {
                                 bar: {
