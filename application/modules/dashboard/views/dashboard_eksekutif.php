@@ -366,10 +366,9 @@
                         <div class="container-fluid">
 
                             <div class="row d-flex align-items-center">
-                                <div class="col-md-4 mb-1 mt-3">
+                                <div class="col-md-12 mb-1 mt-3 text-center">
                                     <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
                                 </div>
-                                <div class="col-md-2 mb-1 mt-3"></div>
                                 <!-- <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
                                     <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
                                 </div>
@@ -396,35 +395,40 @@
                                                         <th scope="col">Pelanggaran Ringan</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tbody">
+                                                <tbody id="tbody-pelanggaran">
 
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    
-
                                 </div>
-								<div class="col-md-6 mt-3">
-								<h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
+                                <div class="col-md-6 mt-3">
+                                    <h5>10 Polda Kecelakaan Tertinggi</h5>
                                     <div class="mb-3">
-                                        <div class="card shadow-sm">
-                                            <div class="" style="overflow:hidden; overflow-y:scroll;">
-                                                <div style="max-height: 135vh;">
-                                                    <div class="card ms-2 me-2 mx-2 my-2">
-                                                        <div id="laka"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                                            <table class="table table-bordered table-hover rounded">
+                                                <thead class="" style="background-color:#007DD8; color:#fff;">
+                                                    <tr class="text-center">
+                                                        <th scope="col">No</th>
+                                                        <th scope="col">Polda</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Meninggal Dunia</th>
+                                                        <th scope="col">Luka Berat</th>
+                                                        <th scope="col">Luka Ringan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody-kecelakaan">
+
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-								
-								</div>
-                                
+                                </div>
+
                             </div>
                             <div class="row d-flex">
-								<div class="col-md-6 mt-3">
-								<div class="mb-3">
+                                <div class="col-md-6 mt-3">
+                                    <div class="mb-3">
                                         <section class="shadow-sm">
                                             <div class="row">
                                                 <div class="col-xl-12">
@@ -444,20 +448,20 @@
                                     </div>
 
                                 </div>
-								<div class="col-md-6 mt-3">
-									<div class="row">
-										<div class="card">
-											<div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-												<h5>DATA TRIPON HARIAN</h5>
-												<p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
-											</div>
-											<div class="card-body m-0 p-3">
-												<div class="main-chart">
-													<div id="chartjeniskendaraan"></div>
-												</div>
-											</div>
-										</div>
-									</div>
+                                <div class="col-md-6 mt-3">
+                                    <div class="row">
+                                        <div class="card">
+                                            <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                                                <h5>DATA TRIPON HARIAN</h5>
+                                                <p class="fw-bold" style="text-transform:capitalize p-0 m-0">Per Jenis Kendaraan</p>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <div class="main-chart">
+                                                    <div id="chartjeniskendaraan"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -553,30 +557,6 @@
                                     }).addTo(mapContainer);
                             }
 
-							var jenis_kendaraan = {
-								series: [12, 24],
-								chart: {
-									width: 550,
-									type: 'pie',
-								},
-								labels: ['Mobil Pribadi', 'Motor'],
-								responsive: [{
-									breakpoint: 480,
-									options: {
-										chart: {
-											width: 200
-										},
-										legend: {
-											position: 'bottom'
-										}
-									}
-								}]
-							};
-
-							var jenis_kendaraan = new ApexCharts(document.querySelector("#chartjeniskendaraan"), jenis_kendaraan);
-							jenis_kendaraan.render();
-
-
                         }
                     });
 
@@ -603,7 +583,7 @@
                             <td>  ${result[i].pelanggaran_ringan}  </td> 
                             </tr>`
                             }
-                            $('#tbody').html(table);
+                            $('#tbody-pelanggaran').html(table);
                         }
                     })
 
@@ -614,35 +594,21 @@
                         dataType: "JSON",
                         success: function(result) {
                             $("#overlay").fadeOut(300);
-                            var data = '';
+                            var table = '';
 
                             for (let i = 0; i < result.length; i++) {
                                 let x = parseInt(i)
                                 let no = x + 1
-                                data += `<h5 class="card-header border-bottom text-uppercase text-light p-2 m-0" style="background-color:#007DD8; color:#fff;">${no}. ${result[i].name_polda}</h5>
-                                    <div class="card-body">
-                                        <div class="row text-center">
-                                            <div class="col-md-3 col-sm-4">
-                                                <h5 class="fw-bold p-0 m-0">${result[i].total}</h5>
-                                                <p class="p-0 m-0">Total</p>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <h5 class="fw-bold p-0 m-0">${result[i].meninggal_dunia}</h5>
-                                                <p class="p-0 m-0">Meninggal Dunia</p>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <h5 class="fw-bold p-0 m-0">${result[i].luka_berat}</h5>
-                                                <p class="p-0 m-0">Luka Berat</p>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <h5 class="fw-bold p-0 m-0">${result[i].luka_ringan}</h5>
-                                                <p class="p-0 m-0">Luka Ringan</p>
-                                            </div>
-                                        </div>
-                                    </div>`
+                                table += `<tr class="text-center"> 
+                            <td>  ${no}  </td> 
+                            <td>  ${result[i].name_polda}  </td> 
+                            <td>  ${result[i].total}  </td> 
+                            <td>  ${result[i].meninggal_dunia}  </td> 
+                            <td>  ${result[i].luka_berat}  </td> 
+                            <td>  ${result[i].luka_ringan}  </td> 
+                            </tr>`
                             }
-
-                            $('#laka').html(data);
+                            $('#tbody-kecelakaan').html(table);
                         }
                     })
 
@@ -742,6 +708,37 @@
 
                             var turjagwali = new ApexCharts(document.querySelector("#chartturjagwali"), turjagwali);
                             turjagwali.render();
+                        }
+                    })
+
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>dashboard/getTripOn",
+                        type: 'POST',
+                        dataType: 'JSON',
+                        success: function(results) {
+                            console.log(results)
+                            var jenis_kendaraan = {
+                                series: results.jumlah,
+                                chart: {
+                                    width: 550,
+                                    type: 'pie',
+                                },
+                                labels: results.type,
+                                responsive: [{
+                                    breakpoint: 480,
+                                    options: {
+                                        chart: {
+                                            width: 200
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            var jenis_kendaraan = new ApexCharts(document.querySelector("#chartjeniskendaraan"), jenis_kendaraan);
+                            jenis_kendaraan.render();
                         }
                     })
 

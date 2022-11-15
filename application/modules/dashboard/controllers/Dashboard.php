@@ -1129,4 +1129,32 @@ class Dashboard extends MY_Controller
         ];
         echo json_encode($data);
     }
+
+    public function getTripOn()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+
+        $url = 'count-trip-on/jenis_kendaraan';
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $type = array();
+        $jumlah = array();
+
+        foreach ($getTripon['data'] as $key) {
+            $type[] = $key['nama'];
+            $jumlah[] = $key['jumlah'];
+        }
+
+        $data['tripOn'] = [
+            'type' => $type,
+            'jumlah' => $jumlah
+        ];
+
+        echo json_encode($data['tripOn']);
+    }
 }
