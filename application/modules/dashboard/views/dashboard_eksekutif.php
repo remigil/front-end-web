@@ -380,7 +380,7 @@
                                     <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
                                 </div> -->
                             </div>
-                            <div class="row">
+                            <div class="row d-flex">
                                 <div class="col-md-6 mt-3">
                                     <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                                     <div class="mb-3">
@@ -402,8 +402,30 @@
                                             </table>
                                         </div>
                                     </div>
+                                    
+
+                                </div>
+								<div class="col-md-6 mt-3">
+								<h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
                                     <div class="mb-3">
-                                        <section class="shadow-sm mt-5">
+                                        <div class="card shadow-sm">
+                                            <div class="" style="overflow:hidden; overflow-y:scroll;">
+                                                <div style="max-height: 135vh;">
+                                                    <div class="card ms-2 me-2 mx-2 my-2">
+                                                        <div id="laka"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+								
+								</div>
+                                
+                            </div>
+                            <div class="row d-flex">
+								<div class="col-md-6 mt-3">
+								<div class="mb-3">
+                                        <section class="shadow-sm">
                                             <div class="row">
                                                 <div class="col-xl-12">
                                                     <div class="card">
@@ -422,31 +444,20 @@
                                     </div>
 
                                 </div>
-                                <div class="col-md-6 mt-3">
-                                    <h5>Top 10 Polda Data Kecelakaan Tertinggi</h5>
-                                    <div class="mb-3">
-                                        <div class="card shadow-sm">
-                                            <div class="" style="overflow:hidden; overflow-y:scroll;">
-                                                <div style="max-height: 135vh;">
-                                                    <div class="card ms-2 me-2 mx-2 my-2">
-                                                        <div id="laka"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-7">
-
-                                </div>
-                                <div class="col-md-5">
-
-                                </div>
-                                <div class="col-md-7">
-
+								<div class="col-md-6 mt-3">
+									<div class="row">
+										<div class="card">
+											<div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+												<h5>DATA TRIPON HARIAN</h5>
+												<p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
+											</div>
+											<div class="card-body m-0 p-3">
+												<div class="main-chart">
+													<div id="chartjeniskendaraan"></div>
+												</div>
+											</div>
+										</div>
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -541,6 +552,29 @@
                                         width: 400
                                     }).addTo(mapContainer);
                             }
+
+							var jenis_kendaraan = {
+								series: [12, 24],
+								chart: {
+									width: 550,
+									type: 'pie',
+								},
+								labels: ['Mobil Pribadi', 'Motor'],
+								responsive: [{
+									breakpoint: 480,
+									options: {
+										chart: {
+											width: 200
+										},
+										legend: {
+											position: 'bottom'
+										}
+									}
+								}]
+							};
+
+							var jenis_kendaraan = new ApexCharts(document.querySelector("#chartjeniskendaraan"), jenis_kendaraan);
+							jenis_kendaraan.render();
 
 
                         }
