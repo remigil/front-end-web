@@ -19,6 +19,29 @@ class Statistik_executive extends MY_Controller
     //     $data["title"] = "Detail Statistik";
     //     $this->load->view('executive/statistik/detail_statistik_view', $data);
     // }
+	public function getPolda()
+    {
+        $id = $this->input->post('id');
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+
+        $url = 'polda/getId/' . $id;
+        $getPolda = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+		$urlall = 'polda';
+        $getPoldaall = guzzle_request('GET', $urlall, [
+            'headers' => $headers
+        ]);
+
+		$data = [
+            'polda' => $getPolda['data']['data'],
+            'poldaall' => $getPoldaall['data']['data'],
+        ];
+        echo json_encode($data);
+	}
 
     public function LakaLantas()
     {
@@ -32,10 +55,10 @@ class Statistik_executive extends MY_Controller
         $data['title'] = 'DATA PELANGGARAN LALU LINTAS';
         $this->load->view('executive/statistik/detail_statistik_garlantas', $data);
     }
-    public function Turjawali()
+    public function Turjagwali()
     {
         $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA TURJAWALI';
+        $data['title'] = 'DATA TURJAGWALI';
         $this->load->view('executive/statistik/detail_statistik_turjawali', $data);
     }
     public function Ranmor()

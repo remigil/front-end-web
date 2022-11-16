@@ -205,10 +205,12 @@
                 </div>
             </div>
     </header>
-    <div class="filter p-3 mt-5" style="background-color: #2E2E2E; height:125px;">
-        <div class="container">
-            <div class="row">
-                <!-- <div class="col-md-3">
+    <div class="filter p-3 mt-5" style="background-color: #D7D8DB; height:160px;">
+        <div class="container-fluid">
+        <div class="container-fluid">
+        <div class="container-fluid">
+            <!-- <div class="row">
+                <div class="col-md-3">
                         <div class="form-group row">
                             <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
                             <select class="form-control" id="polda_id" name="polda_id">
@@ -217,7 +219,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                    </div> -->
+                    </div>
                 <div class="col-md-9">
                     <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
                     <div class="row">
@@ -234,7 +236,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+			<div class="row align-items-center mt-5">
+				<div class="col-md-2 align-middle">
+					<h1>Satuan Kerja</h1>
+				</div>
+				<div class="col-md-10">
+					<div class="row">
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/ditgakkum'); ?>"><button class="btn btn-outline-secondary text-uppercase fw-bold" style="width: 100%; border-color:#464646;">Ditgakkum</button></a>
+						</div>
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/ditregident'); ?>"><button class="btn btn-outline-secondary text-uppercase fw-bold" style="width: 100%; border-color:#464646;">Ditregident</button></a>
+						</div>
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/ditkamsel'); ?>"><button class="btn btn-primary text-uppercase fw-bold" style="width: 100%; background-color:#007DD8;">Ditkamsel</button></a>
+						</div>
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/bagrenmin'); ?>"><button class="btn btn-outline-secondary text-uppercase fw-bold" style="width: 100%; border-color:#464646;">Bagrenmin</button></a>
+						</div>
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/bagops'); ?>"><button class="btn btn-outline-secondary text-uppercase fw-bold" style="width: 100%; border-color:#464646;">Bagops</button></a>
+						</div>
+						<div class="col-md-2">
+							<a href="<?= base_url('executive/Satker_executive/bagtik'); ?>"><button class="btn btn-outline-secondary text-uppercase fw-bold" style="width: 100%; border-color:#464646;">Bagtik</button></a>
+						</div>
+						
+					</div>
+				
+				</div>
+			</div>
+        </div>
+        </div>
         </div>
     </div>
     <div class="container-fluid mt-5">
