@@ -429,7 +429,7 @@
                     language: 'en',
                     profile: 'car'
                 }),
-                draggableWaypoints: false,
+                draggableWaypoints: true,
                 routeWhileDragging: false,
                 geocoder: L.Control.Geocoder.nominatim({})
             }).addTo(mapContainer);

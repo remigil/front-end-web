@@ -115,7 +115,7 @@ class M_negara extends CI_Model {
             $row ['id']	=  $no++; 
             
             if($field['photo_country'] != null){
-                $row ['photo_country'] = '<img src="'.url_api().'country/'.$field['photo_country'].'" alt="" class="rounded avatar-md">';  
+                $row ['photo_country'] = '<a href="javascript:void(0);"><img src="'.url_api().'country/'.$field['photo_country'].'" alt="" class="rounded avatar-md"></a>';  
             }else{
                 $row ['photo_country'] = '<img src="'.base_url().'assets/no_image.png" alt="" class="rounded avatar-md">'; 
             }
