@@ -86,6 +86,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
+		body{
+			background-color: #F5F6FA !important;
+		}
         .tooltip-inner {
             background-color: #00acd6 !important;
             /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/

@@ -85,6 +85,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+			background-color: #F5F6FA !important;
         }
 
         #overlay {
@@ -359,115 +360,117 @@
                     </div>
                 </div>
             </div>
+		</div>
+	</div>
 
-            <div class="container-fluid" style="background:#E9E9E9">
-                <div class="container-fluid">
-                    <div class="container-fluid">
-                        <div class="container-fluid">
+	<div class="container-fluid" style="background:#E9E9E9">
+		<div class="container-fluid">
+			<div class="container-fluid">
+				<div class="container-fluid">
 
-                            <div class="row d-flex align-items-center">
-                                <div class="col-md-12 mb-1 mt-3 text-center">
-                                    <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
-                                </div>
-                                <!-- <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
-                                </div>
-                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Bulanan</button>
-                                </div>
-                                <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
-                                    <button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
-                                </div> -->
-                            </div>
-                            <div class="row d-flex">
-                                <div class="col-md-6 mt-3">
-                                    <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
-                                    <div class="mb-3">
-                                        <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                            <table class="table table-bordered table-hover rounded">
-                                                <thead class="" style="background-color:#007DD8; color:#fff;">
-                                                    <tr class="text-center">
-                                                        <th scope="col">No</th>
-                                                        <th scope="col">Polda</th>
-                                                        <th scope="col">Total Pelanggaran</th>
-                                                        <th scope="col">Pelanggaran Berat</th>
-                                                        <th scope="col">Pelanggaran Sedang</th>
-                                                        <th scope="col">Pelanggaran Ringan</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="tbody-pelanggaran">
+					<div class="row d-flex align-items-center">
+						<div class="col-md-12 mb-1 mt-3 text-center">
+							<span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
+						</div>
+						<!-- <div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+							<button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Harian</button>
+						</div>
+						<div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+							<button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Bulanan</button>
+						</div>
+						<div class="col-md-2 mb-1 mt-3 d-flex justify-content-around">
+							<button class="btn btn-md btn-outline-primary" style="border-radius:10px; border-color:#007DD8; width:75%;">Tahunan</button>
+						</div> -->
+					</div>
+					<div class="row d-flex">
+						<div class="col-md-6 mt-3">
+							<h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
+							<div class="mb-3">
+								<div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+									<table class="table table-bordered table-hover rounded">
+										<thead class="" style="background-color:#007DD8; color:#fff;">
+											<tr class="text-center">
+												<th scope="col">No</th>
+												<th scope="col">Polda</th>
+												<th scope="col">Total Pelanggaran</th>
+												<th scope="col">Pelanggaran Berat</th>
+												<th scope="col">Pelanggaran Sedang</th>
+												<th scope="col">Pelanggaran Ringan</th>
+											</tr>
+										</thead>
+										<tbody id="tbody-pelanggaran">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <h5>10 Polda Kecelakaan Tertinggi</h5>
-                                    <div class="mb-3">
-                                        <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                            <table class="table table-bordered table-hover rounded">
-                                                <thead class="" style="background-color:#007DD8; color:#fff;">
-                                                    <tr class="text-center">
-                                                        <th scope="col">No</th>
-                                                        <th scope="col">Polda</th>
-                                                        <th scope="col">Total</th>
-                                                        <th scope="col">Meninggal Dunia</th>
-                                                        <th scope="col">Luka Berat</th>
-                                                        <th scope="col">Luka Ringan</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="tbody-kecelakaan">
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<h5>10 Polda Kecelakaan Tertinggi</h5>
+							<div class="mb-3">
+								<div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+									<table class="table table-bordered table-hover rounded">
+										<thead class="" style="background-color:#007DD8; color:#fff;">
+											<tr class="text-center">
+												<th scope="col">No</th>
+												<th scope="col">Polda</th>
+												<th scope="col">Total</th>
+												<th scope="col">Meninggal Dunia</th>
+												<th scope="col">Luka Berat</th>
+												<th scope="col">Luka Ringan</th>
+											</tr>
+										</thead>
+										<tbody id="tbody-kecelakaan">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 
-                            </div>
-                            <div class="row d-flex">
-                                <div class="col-md-6 mt-3">
-                                    <div class="mb-3">
-                                        <section class="shadow-sm">
-                                            <div class="row">
-                                                <div class="col-xl-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h5>10 Polda Turjagwali Tertinggi</h5>
-                                                        </div>
-                                                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                                            <div class="main-chart">
-                                                                <div id="chartturjagwali" style="width: 100vw"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
+					</div>
+					<div class="row d-flex">
+						<div class="col-md-6 mt-3">
+							<div class="mb-3">
+								<section class="shadow-sm">
+									<div class="row">
+										<div class="col-xl-12">
+											<div class="card">
+												<div class="card-header">
+													<h5>10 Polda Turjagwali Tertinggi</h5>
+												</div>
+												<div class="card-body" style="overflow:hidden; overflow-x:scroll">
+													<div class="main-chart">
+														<div id="chartturjagwali" style="width: 100vw"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
 
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="row">
-                                        <div class="card">
-                                            <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
-                                                <h5>DATA TRIPON HARIAN</h5>
-                                                <p class="fw-bold" style="text-transform:capitalize p-0 m-0">Per Jenis Kendaraan</p>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <div class="main-chart">
-                                                    <div id="chartjeniskendaraan"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<div class="row">
+								<div class="card">
+									<div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+										<h5>DATA TRIPON HARIAN</h5>
+										<p class="fw-bold" style="text-transform:capitalize p-0 m-0">Per Jenis Kendaraan</p>
+									</div>
+									<div class="card-body text-center">
+										<div class="main-chart">
+											<div id="chartjeniskendaraan"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
             <script>
                 let app_url = '<%-app_url%>'
                 let path = '<%-path%>'

@@ -86,6 +86,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
+		body{
+			background-color: #F5F6FA !important;
+		}
         #overlay {
             position: fixed;
             top: 0;
