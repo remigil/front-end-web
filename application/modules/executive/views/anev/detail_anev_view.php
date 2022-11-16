@@ -235,15 +235,15 @@
 								<div class="container mt-5">
 									<div class="row d-flex text-center">
 										<div class="col-md-4">
-											<a href="http://34.143.227.90:3001/v1/anev/getDaily?mode=pdf-download&date=2022-10-23" target="_blank"><button class="btn btn-md btn-primary" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px">Harian</button></a>
+											<a href="http://34.143.227.90:3001/v1/anev/getDaily?mode=pdf-download&date=2022-10-23" target="_blank"><button class="btn btn-md btn-info" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px;">Harian</button></a>
 	
 										</div>
 										<div class="col-md-4">
-											<a href="http://34.143.227.90:3001/v1/anev/getMonthly?mode=pdf-download&month=10&year=2022"><button class="btn btn-md btn-primary" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px">Bulanan</button></a>
+											<a href="http://34.143.227.90:3001/v1/anev/getMonthly?mode=pdf-download&month=10&year=2022"><button class="btn btn-md btn-info" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px">Bulanan</button></a>
 	
 										</div>
 										<div class="col-md-4">
-											<a href="http://34.143.227.90:3001/v1/anev/getMonthly?mode=pdf-download&month=10&year=2022"><button class="btn btn-md btn-primary" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px">Tahunan</button></a>
+											<a href="http://34.143.227.90:3001/v1/anev/getMonthly?mode=pdf-download&month=10&year=2022"><button class="btn btn-md btn-info" style="border-radius:10px; border-color:#007DD8; width:100%; height:70px">Tahunan</button></a>
 	
 										</div>
 										

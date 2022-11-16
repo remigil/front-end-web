@@ -674,12 +674,12 @@
                 <div class="container-fluid">
 
                     <div class="row mt-5">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <label for="waktu" class="form-label text-uppercase">Wilayah</label>
                             <select class="form-control" id="polda_id" name="polda_id">
                                 <option value="1">Semua Polda</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-9">
                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
                             <div class="row">

@@ -657,12 +657,12 @@
                 <div class="container-fluid">
 
                     <div class="row mt-5">
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <label for="waktu" class="form-label text-uppercase">Wilayah</label>
                             <select class="form-control" id="polda_id" name="polda_id">
                                 <option value="1">Semua Polda</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-9">
                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
                             <div class="row">
@@ -673,12 +673,12 @@
                                     <input class="form-control" type="date" name="end_date" id="end_date">
                                 </div>
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                    <button type="button" class="btn btn-info float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
                                 </div>
                                 <div class="col-md-2 text-end align-self-center">
-                                    <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                                    <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+                                    <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+                                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                                    <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
                                     <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
                                 </div>
