@@ -616,4 +616,54 @@ class Statistik_executive extends MY_Controller
 
         echo json_encode($data['ditgakkumDate']);
     }
+
+    public function getRanmorDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'ranmor/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ranmor/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ranmor/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $sepeda_motor = 0;
+
+        foreach ($thisYear['data'] as $key) {
+            $sepeda_motor += $key['sepeda_motor'];
+        }
+
+        $data['thisYear'] = [
+            'sepeda_motor' => $sepeda_motor,
+        ];
+
+        $data['ranmorDate'] = [
+            'thisDay' => $thisDay['data'],
+            'thisMonth' => $thisMonth['data'],
+            'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['ranmorDate']);
+    }
 }
