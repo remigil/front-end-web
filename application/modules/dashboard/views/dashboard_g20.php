@@ -1324,7 +1324,7 @@
                                     success : function(result){   
                                         if(result['data'] != null){
                                             $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<a href="javascript:void(0);"><img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}"></a>`);
                                         }
                                     }
                                 });
@@ -1420,7 +1420,7 @@
                                     success : function(result){  
                                         if(result['data'] != null){ 
                                             $(`#namaDelegasiGpsId${el.VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                            $(`#benderaForGpsId${el.VehicleId}`).html(`<a href="javascript:void(0);"><img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}"></a>`);
                                         }
                                     }
                                 });
@@ -1564,7 +1564,7 @@
                             success : function(result){   
                                 if(result['data'] != null){
                                     $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<a href="javascript:void(0);"><img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}"></a>`);
                                 }
                             }
                         });
@@ -1659,7 +1659,7 @@
                             success : function(result){   
                                 if(result['data'] != null){
                                     $(`#namaDelegasiGpsId${ress[0].VehicleId}`).html(`: &nbsp;&nbsp;&nbsp; ${result['data']['name_country']}`);
-                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}">`);
+                                    $(`#benderaForGpsId${ress[0].VehicleId}`).html(`<a href="javascript:void(0);"><img alt="" style="width: 20%;margin-bottom: 10px;" src="<?= url_api()?>country/${result['data']['photo_country']}"></a>`);
                                 }
                             }
                         });
@@ -3298,86 +3298,7 @@
                         // if(ress.status_login == 1){
                             if(markerArray[ress.id_officer] != null){ 
                                 console.log(`UPDATE Track Nama Petugas: B. ( ${ress.nrp_user} ${ress.name_officer} ) - ${ress.type_vehicle} - ST.PENUMPANG: ${ress.bawa_penumpang}`);
-                                // mapContainer.addLayer(markerArray[ress.id_officer]);  
-                                // markerArray[ress.id_officer].setLatLng([ress.latitude,ress.longitude], { icon: L.divIcon({
-                                //     // className: 'location-pin',
-                                //     html: jenis,
-                                //     iconSize: [5, 5],
-                                //     iconAnchor: [5, 10]
-                                //     // iconAnchor: [10, 33]
-                                //     }) }).bindPopup(`
-                                //     <div class="text-center" style="width: 300px;"> 
-                                //         <div class="row mt-3"> 
-                                //             <div class="col-md-12">
-                                //                 ${fotoBendera}
-                                //             </div>
-                                //             ${call_wa_dan_biasa(ress.handphone, ress.id_officer , 'no-encrypt')}
-                                //         </div>
-            
-            
-                                //             <div class="row text-start mt-3">
-                                //                 <div class="col-md-4">
-                                //                     <span style="font-size: 12px;font-weight: bold;">Nama</span>  
-                                //                 </div>
-                                //                 <div class="col-md-1">
-                                //                         :
-                                //                     </div>
-                                //                 <div class="col-md-7">
-                                //                     <span style="font-size: 12px;">${ress.rank_officer} - ${ress.name_officer}</span>
-                                //                 </div> 
-                                //                 <div class="col-md-4">
-                                //                     <span style="font-size: 12px;font-weight: bold;">PAM</span>  
-                                //                 </div>
-                                //                 <div class="col-md-1">
-                                //                         :
-                                //                     </div>
-                                //                 <div class="col-md-7">
-                                //                     <span style="font-size: 12px;">${ress.pam_officer != null ? ress.pam_officer : '-'}</span>
-                                //                 </div>  
-                                //                 <div class="col-md-4">
-                                //                     <span style="font-size: 12px;font-weight: bold;">Delegasi</span>  
-                                //                 </div>
-                                //                 <div class="col-md-1">
-                                //                         :
-                                //                     </div>
-                                //                 <div class="col-md-7">
-                                //                     <span style="font-size: 12px;">${bendera}</span>
-                                //                 </div> 
-        
-                                //                 <div class="col-md-4">
-                                //                     <span style="font-size: 12px;font-weight: bold;">Status Login</span>  
-                                //                 </div>
-                                //                 <div class="col-md-1">
-                                //                     :
-                                //                 </div>
-                                //                 <div class="col-md-7">
-                                //                     ${ress.status_login == 1 ? '<span class="badge rounded-pill bg-primary" style="font-size: 12px;">Aktif</span>' : '<span class="badge rounded-pill bg-danger" style="font-size: 12px;">Tidak Aktif</span>'}
-                                //                 </div> 
-                                                
-        
-                                //                 <div class="col-md-12 text-center  mt-3">
-                                //                     <span class="badge rounded-pill bg-primary" style="font-size: 12px;">Lokasi Petugas</span>  
-                                //                     <p style="font-size: 12px;" id="lokasiMarker${ress.id_officer}"></p>
-                                //                 </div> 
-                                //             </div>  
-                                        
-                                //     </div>
-                                // `).update().on('click', function(e) {
-                                //     // console.log(e.latlng);
-                                //     $.ajax({
-                                //         type : "POST",
-                                //         url : "<?php echo base_url();?>dashboard/getAddres", 
-                                //         data : {
-                                //             "lat" : e.latlng['lat'],
-                                //             "lng" : e.latlng['lng'],
-                                //         }, 
-                                //         dataType : "JSON",
-                                //         success : function(result){  
-                                //             // console.log(result['responseMessage']);
-                                //             $(`#lokasiMarker${ress.id_officer}`).html(`${result['responseMessage']}`);
-                                //         }
-                                //     });
-                                // }); 
+                                
 
                                 markerArray[ress.id_officer].remove();
                                 markerArray[ress.id_officer] = L.marker([ress.latitude,ress.longitude], { renderer: myRenderer, icon: L.divIcon({
@@ -3390,7 +3311,9 @@
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3"> 
                                             <div class="col-md-12">
+                                                <a href="javascript:void(0);">
                                                 ${fotoBendera}
+                                                </a>
                                             </div>
                                             ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                         </div>
@@ -3580,7 +3503,7 @@
                     
                     
                         if(ress.bawa_penumpang == 1){
-                            iconflagVip = `<img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url();?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;">
+                            iconflagVip = `<a href="javascript:void(0);"><img src="${ress.photo_country != '-' ? ress.photo_country : '<?php echo base_url();?>assets/no_image.png'}" style="width: 35px;margin-left: 10px;height: 30px;"></a>
                                         <div style="position: absolute;margin-top: -45px;margin-left: 5px;">
                                             <span class="badge rounded-pill" style="background-color: black; color: white;">${ress.name_country}</span>
                                         </div>`;  
@@ -3691,7 +3614,9 @@
                                     <div class="text-center" style="width: 300px;"> 
                                         <div class="row mt-3"> 
                                             <div class="col-md-12">
+                                                <a href="javascript:void(0);">
                                                 ${fotoBendera}
+                                                </a>
                                             </div>
                                             ${call_wa_dan_biasa(ress.handphone, ress.id_officer, 'no-encrypt')}
                                         </div>
@@ -5799,7 +5724,7 @@
                                     <div>
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
-                                                <a href="<?php echo url_api()?>/laporan/${filterLaporan[i].foto}" target="_blank"><img src="<?php echo url_api()?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                                <a href="javascript:void(0);"><img src="<?php echo url_api()?>/laporan/${filterLaporan[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
                                             </div>
                                             <div class="col-md-12" style="text-align: center;">
                                                 ${call_wa_dan_biasa(filterLaporan[i].officer.phone_officer, filterLaporan[i].officer.id, 'encrypt')}
@@ -5966,7 +5891,7 @@
                                     <div style="width: 300px;">
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
-                                                <a href="<?php echo url_api()?>/laporan/${filterLaporanPanic[i].foto}" target="_blank"><img src="<?php echo url_api()?>/laporan/${filterLaporanPanic[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
+                                            <a href="javascript:void(0);"><img src="<?php echo url_api()?>/laporan/${filterLaporanPanic[i].foto}" class="avatar-xl rounded-circle img-thumbnail"></a>
                                             </div>
 
                                             <div class="col-md-12" style="text-align: center;">
@@ -6228,7 +6153,7 @@
                                             <div class="row mt-3">
                                                 <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
                                                     <div class="avatar-xl me-3">
-                                                        <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                    <a href="javascript:void(0);"><img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 col-12 mt-3">
@@ -6450,7 +6375,9 @@
                                                 <div class="row mt-3"> 
                                                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                         <div class="avatar-xl me-3">
+                                                            <a href="javascript:void(0);">
                                                             <img src="<?php echo url_api();?>schedule/${filterSchedule[i].photo_schedule}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-12 mt-3">
@@ -6820,9 +6747,7 @@
                     
     
                         var countlistCategoriByCateg = 0;
-                        var listCategoriByCateg = ""; 
-
-                        
+                        var listCategoriByCateg = "";  
 
 
                         for (let m = 0; m < ress.length; m++){
@@ -9671,7 +9596,9 @@
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
+                                <a href="javascript:void(0);">
                                     <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
@@ -9852,7 +9779,9 @@
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
+                                <a href="javascript:void(0);">
                                     <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
@@ -10033,7 +9962,9 @@
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
+                                <a href="javascript:void(0);">
                                     <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
@@ -10212,7 +10143,9 @@
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
+                                <a href="javascript:void(0);">
                                     <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
@@ -10392,7 +10325,9 @@
                         <div class="row mt-3">
                             <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                 <div class="avatar-xl me-3">
+                                <a href="javascript:void(0);">
                                     <img src="<?php echo url_api();?>fasum_khusus/${ressFasumKhusus[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-md-12 col-12 mt-3">
