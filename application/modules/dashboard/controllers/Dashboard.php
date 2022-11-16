@@ -9,7 +9,7 @@ class Dashboard extends MY_Controller
         parent::__construct();
         $this->load->helper("logged_helper");
         $this->load->model('operasi/m_renpam');
-        $this->load->model('dashboard/M_dashboard');
+        $this->load->model('dashboard/m_dashboard');
     }
 
     public function index()
@@ -1077,7 +1077,7 @@ class Dashboard extends MY_Controller
 
     public function getTurjagwali()
     {
-        $data['turjagwali'] = $this->M_dashboard->turjagwali_nasional();
+        $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
         echo json_encode($data['turjagwali']);
     }
 
