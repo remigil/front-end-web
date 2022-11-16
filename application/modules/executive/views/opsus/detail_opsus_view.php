@@ -85,6 +85,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+			background-color: #F5F6FA !important;
         }
 
         #overlay {

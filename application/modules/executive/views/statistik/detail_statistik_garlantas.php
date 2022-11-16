@@ -86,6 +86,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
+		body{
+			background-color: #F5F6FA !important;
+		}
         #overlay {
             position: fixed;
             top: 0;
@@ -588,53 +591,53 @@
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="container-fluid">
-                    <div class="card mt-5 p-3 shadow" style="border-radius:36px !important;">
-                        <div class="row m-2">
-                            <div class="col-md-6 align-self-center">
-                                <h1>Data <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Nasional</span></span> </h1>
+					<div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
+						<div class="row m-2">
+                            <div class="col-sm-4 col-md-5 align-self-center">
+                                <h2>Data <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Nasional</span></span> </h2>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-sm-8 col-md-7">
                                 <div class="row m-2">
-                                    <div class="col-md-4 align-self-center">
-                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                            <div class="card-body">
+									<div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body p-1">
                                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-6">
-                                                        <h3>Harian</h3>
+													<div class="col-md-7">
+                                                        <h4 class="mb-0 ms-3">Harian</h4>
                                                     </div>
-                                                    <div class="col-md-6 float-end">
-                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisDay"></h1>
-                                                        <p class="text-center">Kejadian</p>
+                                                    <div class="col-md-5 float-end">
+                                                        <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisDay"></h3>
+                                                        <p class="text-center mb-0">Kejadian</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 align-self-center">
-                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                            <div class="card-body">
+                                    <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body p-1">
                                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-6">
-                                                        <h3>Bulanan</h3>
+                                                    <div class="col-md-7">
+														<h4 class="mb-0 ms-3">Bulanan</h4>
                                                     </div>
-                                                    <div class="col-md-6 float-end">
-                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisMonth"></h1>
-                                                        <p class="text-center">Kejadian</p>
+                                                    <div class="col-md-5 float-end">
+                                                        <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisMonth"></h3>
+                                                        <p class="text-center mb-0">Kejadian</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 align-self-center">
-                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                            <div class="card-body">
+                                    <div class="col-md-4 col-sm-4 col-xl-4 align-self-center">
+                                        <div class="card p-1 mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body p-1">
                                                 <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                    <div class="col-md-6">
-                                                        <h3>Tahunan</h3>
+                                                    <div class="col-md-7">
+														<h4 class="mb-0 ms-3">Tahunan</h4>
                                                     </div>
-                                                    <div class="col-md-6 float-end">
-                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisYear"></h1>
-                                                        <p class="text-center">Kejadian</p>
+                                                    <div class="col-md-5 float-end">
+                                                        <h3 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="garlantasThisYear"></h3>
+                                                        <p class="text-center mb-0">Kejadian</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -656,7 +659,7 @@
             <div class="container-fluid">
                 <div class="container-fluid">
 
-                    <div class="row mt-5">
+                    <div class="row mt-5 justify-content-center">
                         <!-- <div class="col-md-3">
                             <label for="waktu" class="form-label text-uppercase">Wilayah</label>
                             <select class="form-control" id="polda_id" name="polda_id">
