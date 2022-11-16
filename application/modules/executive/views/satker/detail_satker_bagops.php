@@ -205,38 +205,8 @@
                 </div>
             </div>
     </header>
-    <div class="filter p-3 mt-5" style="background-color: #2E2E2E; height:125px;">
-        <div class="container">
-            <div class="row">
-                <!-- <div class="col-md-3">
-                        <div class="form-group row">
-                            <label for="waktu" class="form-label text-white text-uppercase">Wilayah</label>
-                            <select class="form-control" id="polda_id" name="polda_id">
-                                <?php foreach ($polda as $key) : ?>
-                                    <option value="<?= $key['id'] ?>"><?= $key['name_polda'] ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div> -->
-                <div class="col-md-9">
-                    <label for="waktu" class="form-label text-white text-uppercase">Waktu</label>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input class="form-control" type="date" name="start_date" id="start_date">
-
-                        </div>
-                        <div class="col-md-5">
-                            <input class="form-control" type="date" name="end_date" id="end_date">
-
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="mt-5 mb-5"></div>
+    <div class="mt-5 mb-5 p-3"></div>
     <div class="container-fluid mt-5">
         <div class="container-fluid">
             <div class="container-fluid">
@@ -257,120 +227,92 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="title mt-3">
+						<h1>Data Operasi Nasional</h1>
+					</div>
 
-                        <div class="col-md-12 mt-5">
-                            <div class="row justify-content-between align-items-center">
-                                <div class="col-md-4 mb-3">
-                                    <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
-                                </div>
-                                <div class="col-md-3">
-                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-                                    <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-2">
-                                                    <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                                </div>
-                                                <div class="col-md-10 float-end">
-                                                    <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Kecelakaan </span>Lalu Lintas
-                                                    </span>
-                                                    <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
+                    <div class="page mt-3 mb-5">
+							<div class="page mt-3">
+								<div class="card shadow-sm">
+									<div class="card-body">
+										<!-- <div style="width: 25%; float:right; border: 1px; margin-bottom: 10px">
+										<input type="search" class="form-control light-table-filter" data-table="table-hower" placeholder="Search..." />
+									</div> -->
+										<table id="datatable" class="table dt-responsive w-100" style="width: 800px;
+								margin: 0 auto;">
+											<thead>
+												<tr class="table-info">
+													<th>No</th>
+													<th>Nama Operasi</th>
+													<th>Tanggal Mulai</th>
+													<th>Tanggal Berakhir</th>
+													<th>Laporan Harian</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
 
-                                <div class="col-md-3">
-                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-2">
-                                                    <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                                </div>
-                                                <div class="col-md-10 float-end">
-                                                    <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Pelanggaran </span>Lalu Lintas
-                                                    </span>
-                                                    <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
+									</div>
+								</div>
+							</div>
+						</div>
 
-                                <div class="col-md-3">
-                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-2">
-                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                                </div>
-                                                <div class="col-md-10 float-end">
-                                                    <span class="fs-6 float-end" style="color:#464646;">
-                                                        <span class="fw-bold">Data </span>Turjagwali
-                                                    </span>
-                                                    <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
+						<div class="title mt-3">
+							<h1>CCTV Nasional</h1>
+						</div>
 
-                                <div class="col-md-3">
-                                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-2">
-                                                    <i class='bx bxs-id-card ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                                </div>
-                                                <div class="col-md-10 float-end">
-                                                    <span class="fs-6 float-end" style="color:#464646;">
-                                                        Laka <span class="fw-bold">Langgar</span>
-                                                    </span>
-                                                    <br>
-                                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalanggar"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end statistik -->
-                    </div>
+						<div class="row align-items-center">
+							
 
-                    <section class="shadow-sm mt-5">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div id="title"></div>
-                                    </div>
-                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                        <div class="main-chart">
-                                            <div id="charta">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+							<div class="col-md-6">
+								<div class="form-floating mb-3">
+								
+									<select class="form-select" name="kategoriFilter" style="height: 50px;">
+										<option selected value="">Pilih Kategori CCTV</option>
+										<option value="CCTV MAINROAD">CCTV MAINROAD</option>
+										<option value="CCTV GERBANG">CCTV GERBANG</option>
+										<option value="CCTV RAMP">CCTV RAMP</option>
+										<option value="CCTV ETHLE">CCTV ETHLE</option>
+										<option value="BALISATUDATA">BALI SATU DATA</option>
+										<option value="CCTV">CCTV</option> 
+									</select>
+									<label for="kategoriFilter">Filter CCTV</label>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+									<div>
+										<div class="form-floating mb-3">
+											<input type="text" class="form-control" name="searchFilter" placeholder="Search" style="height: 50px;">
+											<label for="searchFilter">Search</label>
+										</div>
+									</div> 
+								</div> 
+							</div>
+							
+
+						</div>
+						<!-- end row -->
+						
+						<div class="row" id="listCCTV"></div>
+
+						<div class="row">
+							<input hidden type="text" name="halaman" id="halaman" value="1">
+							<div class="col-md-6">
+								<nav aria-label="Page navigation example">
+									<ul class="pagination">
+										<li class="page-item" id="backHalaman"><a class="page-link" href="javascript:void(0);">Kembali</a></li>
+										<!-- <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+										<li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+										<li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li> -->
+										<li class="page-item" id="nextHalaman"><a class="page-link" href="javascript:void(0);">Selanjutnya</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
 
                 </div>
             </div>
@@ -378,323 +320,231 @@
     </div>
     <script>
         $(document).ready(function() {
-            $("#overlay").fadeIn(300);
+
+			serverSideGetCCTV(); 
+
+        
+        
+        let countlistCCTV = 0;
+        let listCCTV = ""; 
+        $('[name=kategoriFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
+        });
+        $('[name=searchFilter]').on("change", function (e) {
+            countlistCCTV = 0;
+            listCCTV = "";
+            $('#listCCTV').html(listCCTV); 
+            serverSideGetCCTV();
+        });
+
+        // if($('[name=halaman]').val() == 1){
+        //     $("#backHalaman").addClass("disabled");
+        // }
+        $("#backHalaman").on("click", function (e) {
+            var nilaiHalaman = parseFloat($('[name=halaman]').val()) - 1;
+            if(nilaiHalaman < 1){
+                $("#backHalaman").addClass("disabled");
+            }else{
+                $('[name=halaman]').val(nilaiHalaman);
+                serverSideGetCCTV()
+            } 
+        });
+        $("#nextHalaman").on("click", function (e) {
+            var nilaiHalaman = parseFloat($('[name=halaman]').val()) + 1;
+            if(nilaiHalaman > 1){
+                $("#backHalaman").removeClass("disabled");
+                $('[name=halaman]').val(nilaiHalaman);
+                serverSideGetCCTV()
+            }
+        });
+        function serverSideGetCCTV(){
+            $("#overlay").fadeIn(300); 
             $.ajax({
-                type: "GET",
-                url: "<?php echo base_url(); ?>executive/Satker_executive/getDitgakkum",
-                dataType: "JSON",
-                success: function(result) {
-                    console.log(result)
-                    $('#garlantas').html(`<span class="fs-4" >${result.data.total_garlantas}</span >`);
-                    $('#lakalantas').html(`<span class="fs-4" >${result.data.total_lakalantas}</span >`);
-                    $('#lakalanggar').html(`<span class="fs-4" >${result.data.total_lakalanggar}</span >`);
-                    $('#turjagwali').html(`<span class="fs-4" >${result.data.total_turjagwali}</span >`);
-                    $("#charta").html(`<div id="chart" style="width: 500vw"></div>`);
+                type : "POST",
+                url : "<?php echo base_url();?>masterdata/cctv/getCCTV", 
+                data : {
+                    "kategoriFilter" : $('[name=kategoriFilter]').val(),
+                    "searchFilter": $('[name=searchFilter]').val(),
+                    "page": $('[name=halaman]').val(),
+                }, 
+                dataType : "JSON",
+                success : function(result){  
+                    let ressData = result['data'];
+                    if(ressData.length > 0){
+
+                    }else{
+
+                    } 
+                    let ress = ressData.filter(function (e) {
+                        return e.lat_cctv != null && e.lng_cctv != null;
+                    });   
+                    // console.log(result);
+
                     $("#overlay").fadeOut(300);
-                    var ditgakkum = {
-                        series: [{
-                            name: 'Pelanggaran',
-                            type: 'column',
-                            data: result.data.polda_garlantas,
-                            color: "#11347A"
-                        }, {
-                            name: 'Kecelakaan',
-                            type: 'column',
-                            data: result.data.polda_lakalantas,
-                            color: "#CB2D3E"
-                        }, {
-                            name: 'Turjagwali',
-                            type: 'column',
-                            data: result.data.polda_turjagwali,
-                            color: "#E8D42F"
-                        }, {
-                            name: 'Lakalanggar',
-                            type: 'column',
-                            data: result.data.polda_lakalanggar,
-                            color: "#3CA55C"
-                        }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
-                        plotOptions: {
-                            bar: {
-                                horizontal: false,
-                                columnWidth: '55%',
-                                endingShape: 'rounded',
-                                dataLabels: {
-                                    position: 'top'
-                                }
-                            },
-                        },
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                colors: ['#333']
-                            },
-                            offsetY: -15
-                        },
+                    if(ress.length > 0){   
+                        countlistCCTV = 0;
+                        listCCTV = "";
 
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
-                        },
-                        xaxis: {
-                            categories: result.data.polda_name,
-                        },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            labels: {
-                                style: {
-                                    colors: '#008FFB',
-                                }
-                            },
-
-
-                        }, ],
-
-                        tooltip: {
-                            // custom: function({
-                            //     series,
-                            //     seriesIndex,
-                            //     dataPointIndex,
-                            //     w
-                            // }) {
-                            //     return (
-                            //         `<div class="">
-                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                            //         </div>`
-
-
-                            // '<div class="">' +
-                            // "<span>" +
-                            // w.globals.labels[dataPointIndex] +
-                            // ": " +
-                            // series[seriesIndex][dataPointIndex] +
-                            // "</span>" +
-                            // "</div>"
-                            //         );
-                            //     }
-                        }
-                    };
-
-                    var ditgakkum = new ApexCharts(document.querySelector("#chart"), ditgakkum);
-                    ditgakkum.render();
+                        ress.forEach(el => {
+                            if(el.ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                resource = `<iframe id="myIframe" src="${el.link_cctv}" style="width: 230px; height: 250.25px;"></iframe>`;
+                            }else{
+                                resource = `<img style="width: 230px;" src="${el.link_cctv}" />`;
+                            }
+                            countlistCCTV += 1;
+                            listCCTV += `
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <div class="dropdown text-end">
+                                                <a class="text-muted dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                                </a>
+                                                
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Edit</a> 
+                                                    <a class="dropdown-item" href="#">Hapus</a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mb-4">
+                                                <div class="col-md-12">
+                                                ${resource}
+                                                </div>
+                                            </div>
+                                            <h5 class="font-size-16 mb-1"><a href="#" class="text-dark">${el.type_cctv}</a></h5>
+                                            <p class="text-muted mb-2">${el.address_cctv}</p>
+                                            
+                                        </div> 
+                                    </div> 
+                                </div>
+                            `;
+                            $('#listCCTV').html(listCCTV); 
+                        });  
+                        
+                    }else{
+                        listCCTV = "";
+                        $('#listCCTV').html(listCCTV); 
+                    }
                 }
-            })
+            });
+        } 
+            $("#overlay").fadeIn(300);
 
 
-
-            // var ditregident = {
-            //     series: [{
-            //         name: 'BPKB',
-            //         type: 'column',
-            //         data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-            //         color: "#11347A"
-            //     }, {
-            //         name: 'STNK',
-            //         type: 'column',
-            //         data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-            //         color: "#CB2D3E"
-            //     }, {
-            //         name: 'SIM',
-            //         type: 'column',
-            //         data: [
-            //             62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-            //         ],
-            //         color: "#E8D42F"
-            //     }, {
-            //         name: 'RANMOR',
-            //         type: 'column',
-            //         data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-            //         color: "#3CA55C"
-            //     }],
-            //     chart: {
-            //         height: 400,
-            //         type: 'line',
-            //         stacked: false
-            //     },
-            //     plotOptions: {
-            //         bar: {
-            //             horizontal: false,
-            //             columnWidth: '55%',
-            //             endingShape: 'rounded',
-            //             dataLabels: {
-            //                 position: 'top'
-            //             }
-            //         },
-            //     },
-            //     dataLabels: {
-            //         enabled: true,
-            //         style: {
-            //             colors: ['#333']
-            //         },
-            //         offsetY: -15
-            //     },
-
-            //     stroke: {
-            //         show: true,
-            //         width: [1, 1, 4, 4],
-            //         colors: ['transparent']
-            //     },
-            //     xaxis: {
-            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-            //     },
-            //     yaxis: [{
-            //         axisTicks: {
-            //             show: false,
-            //         },
-            //         axisBorder: {
-            //             show: false,
-            //             color: '#008FFB'
-            //         },
-            //         labels: {
-            //             style: {
-            //                 colors: '#008FFB',
-            //             }
-            //         },
+			userDataTable = $('#datatable').DataTable({
 
 
-            //     }, ],
+			responsive: true,
 
-            //     tooltip: {
-            //         // custom: function({
-            //         //     series,
-            //         //     seriesIndex,
-            //         //     dataPointIndex,
-            //         //     w
-            //         // }) {
-            //         //     return (
-            //         //         `<div class="">
-            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
-            //         //         </div>`
+			scrollX: true,
 
+			// sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-            //         // '<div class="">' +
-            //         // "<span>" +
-            //         // w.globals.labels[dataPointIndex] +
-            //         // ": " +
-            //         // series[seriesIndex][dataPointIndex] +
-            //         // "</span>" +
-            //         // "</div>"
-            //         //         );
-            //         //     }
-            //     }
-            // };
+			// buttons: ["excel", "csv", "pdf"],
 
-            // var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
-            // ditregident.render();
+			oLanguage: {
 
-            // var ditkamsel = {
-            //     series: [{
-            //         name: 'BPKB',
-            //         type: 'column',
-            //         data: [90, 12, 54, 65, 78, 98, 89, 32, 49, 98, 32, 56],
-            //         color: "#11347A"
-            //     }, {
-            //         name: 'STNK',
-            //         type: 'column',
-            //         data: [32, 52, 14, 55, 38, 26, 34, 72, 44, 23, 42, 66],
-            //         color: "#CB2D3E"
-            //     }, {
-            //         name: 'SIM',
-            //         type: 'column',
-            //         data: [
-            //             62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-            //         ],
-            //         color: "#E8D42F"
-            //     }, {
-            //         name: 'RANMOR',
-            //         type: 'column',
-            //         data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
+				sSearch: 'Search:'
 
-            //         color: "#3CA55C"
-            //     }],
-            //     chart: {
-            //         height: 400,
-            //         type: 'line',
-            //         stacked: false
-            //     },
-            //     plotOptions: {
-            //         bar: {
-            //             horizontal: false,
-            //             columnWidth: '55%',
-            //             endingShape: 'rounded',
-            //             dataLabels: {
-            //                 position: 'top'
-            //             }
-            //         },
-            //     },
-            //     dataLabels: {
-            //         enabled: true,
-            //         style: {
-            //             colors: ['#333']
-            //         },
-            //         offsetY: -15
-            //     },
+			},
 
-            //     stroke: {
-            //         show: true,
-            //         width: [1, 1, 4, 4],
-            //         colors: ['transparent']
-            //     },
-            //     xaxis: {
-            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-            //     },
-            //     yaxis: [{
-            //         axisTicks: {
-            //             show: false,
-            //         },
-            //         axisBorder: {
-            //             show: false,
-            //             color: '#008FFB'
-            //         },
-            //         labels: {
-            //             style: {
-            //                 colors: '#008FFB',
-            //             }
-            //         },
+			initComplete: function(settings, json) {},
 
+			retrieve: true,
 
-            //     }, ],
+			processing: true,
 
-            //     tooltip: {
-            //         // custom: function({
-            //         //     series,
-            //         //     seriesIndex,
-            //         //     dataPointIndex,
-            //         //     w
-            //         // }) {
-            //         //     return (
-            //         //         `<div class="">
-            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
-            //         //         </div>`
+			serverSide: true,
+
+			serverMethod: 'POST',
+
+			ajax: {
+
+				dataType: 'json',
+
+				url: '<?php echo base_url(); ?>executive/Opsus_executive/serverSideTable',
+
+				data: function(data) {
+
+					$("#overlay").fadeIn(300);
+
+					// console.log(data);
+
+					// data.filterTgl = $('[name=event_date]').val();
+
+					// data.filterTgl2 = $('[name=event_date_to]').val(); 
+
+					// data.filterStatus = $('[name=status]').val();
+
+					// data.filterName = $('[name=group_name]').val();
+
+					// data.filterPocName = $('[name=group_poc_name]').val();
+
+					// data.filterPhone = $('[name=poc_phone]').val();
+
+					// data.filterThreat = $('[name=threat_level]').val();
+
+					data.orderField = data.order[0] != undefined ? data.order[0].column : '';
+
+					data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
+
+					data.page = Number(data.start / data.length) + 1
+
+				},
+
+				beforeSend: function(xhr, settings) {
+
+				},
+
+				"dataSrc": function(result) {
+
+					result.iTotalRecords = result.iTotalRecords;
+
+					result.iTotalDisplayRecords = result.iTotalRecords;
+
+					return result.aaData;
+
+				}
+
+			},
+
+			columns: [
+
+				{
+					data: 'id'
+				},
+				{
+					data: 'name_operation'
+				},
+				{
+					data: 'date_start_operation'
+				},
+				{
+					data: 'date_end_operation'
+				},
+				{
+					data: 'action',
+					orderable: false
+				}
+
+			],
+
+			order: [
+				[0, "ASC"]
+			],
+
+			drawCallback: function(settings) {
+
+				$("#overlay").fadeOut(300);
+
+			}
 
 
-            //         // '<div class="">' +
-            //         // "<span>" +
-            //         // w.globals.labels[dataPointIndex] +
-            //         // ": " +
-            //         // series[seriesIndex][dataPointIndex] +
-            //         // "</span>" +
-            //         // "</div>"
-            //         //         );
-            //         //     }
-            //     }
-            // };
-
-            // var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
-            // ditkamsel.render();
-
+			});
 
         })
 
