@@ -558,4 +558,62 @@ class Statistik_executive extends MY_Controller
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
     }
+
+    public function getDitgakkumDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'ditgakkum/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ditgakkum/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ditgakkum/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $turjagwali = 0;
+        $lakalantas = 0;
+        $garlantas = 0;
+        $lakalanggar = 0;
+        foreach ($thisYear['data'] as $key) {
+            $turjagwali += $key['turjagwali'];
+            $lakalantas += $key['lakalantas'];
+            $garlantas += $key['garlantas'];
+            $lakalanggar  += $key['lakalanggar'];
+        }
+
+        $data['thisYear'] = [
+            'lakalantas' => $lakalantas,
+            'garlantas' => $garlantas,
+            'lakalanggar' => $lakalanggar,
+            'turjagwali' => $turjagwali
+        ];
+
+        $data['ditgakkumDate'] = [
+            'thisDay' => $thisDay['data'],
+            'thisMonth' => $thisMonth['data'],
+            'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['ditgakkumDate']);
+    }
 }
