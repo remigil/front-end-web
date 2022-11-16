@@ -580,113 +580,113 @@
                 </div>
             </div>
     </header>
-	<div class="card mt-5 mb-5">
+    <div class="card mt-5 mb-5">
 
-	</div>
-	<div class="datastatistik mt-5">
-		
-			<div class="container-fluid">
-			<div class="container-fluid">
-			<div class="container-fluid">
-				<div class="card mt-5 p-3 shadow" style="border-radius:36px !important;">
-					<div class="row m-2">
-						<div class="col-md-6 align-self-center">
-							<h1>Data <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Nasional</span></span> </h1>
-						</div>
-						<div class="col-md-6">
-							<div class="row m-2">
-								<div class="col-md-4 align-self-center">
-									<div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-6">
-													<h3>Harian</h3>
-                                                </div>
-                                                <div class="col-md-6 float-end">
-													<h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="">12</h1>
-                                                    <p class="text-center">Kejadian</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-								</div>
-								<div class="col-md-4 align-self-center">
-									<div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-6">
-													<h3>Bulanan</h3>
-                                                </div>
-                                                <div class="col-md-6 float-end">
-													<h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="">12</h1>
-                                                    <p class="text-center">Kejadian</p>
+    </div>
+    <div class="datastatistik mt-5">
+
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="card mt-5 p-3 shadow" style="border-radius:36px !important;">
+                        <div class="row m-2">
+                            <div class="col-md-6 align-self-center">
+                                <h1>Data <span style="text-transform:uppercase ; color:#2e93e6">Pelanggaran <span style="color:#000;">Nasional</span></span> </h1>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row m-2">
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-6">
+                                                        <h3>Harian</h3>
+                                                    </div>
+                                                    <div class="col-md-6 float-end">
+                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisDay"></h1>
+                                                        <p class="text-center">Kejadian</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-								</div>
-								<div class="col-md-4 align-self-center">
-									<div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
-                                        <div class="card-body">
-                                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                                <div class="col-md-6">
-													<h3>Tahunan</h3>
-                                                </div>
-                                                <div class="col-md-6 float-end">
-													<h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="">12</h1>
-                                                    <p class="text-center">Kejadian</p>
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-6">
+                                                        <h3>Bulanan</h3>
+                                                    </div>
+                                                    <div class="col-md-6 float-end">
+                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisMonth"></h1>
+                                                        <p class="text-center">Kejadian</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				
-			</div>
-			</div>
-			</div>
-		
-	</div>
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="card mt-2 mb-2" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                            <div class="card-body">
+                                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                                    <div class="col-md-6">
+                                                        <h3>Tahunan</h3>
+                                                    </div>
+                                                    <div class="col-md-6 float-end">
+                                                        <h1 class="text-center" style="color:#464646; font-size:30px; color:#2e93e6;" id="garlantasThisYear"></h1>
+                                                        <p class="text-center">Kejadian</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <div class="filter mt-3 mb-3" style=" height:125px;">
         <div class="container-fluid mt-5">
-        <div class="container-fluid">
-        <div class="container-fluid">
-			
-            <div class="row mt-5">
-				<div class="col-md-3">
-					<label for="waktu" class="form-label text-uppercase">Wilayah</label>
-					<select class="form-control" id="polda_id" name="polda_id">
-						<option value="1">Semua Polda</option>
-					</select>
-				</div>
-                <div class="col-md-9">
-                    <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input class="form-control" type="date" name="start_date" id="start_date">
-                        </div>
-                        <div class="col-md-4">
-                            <input class="form-control" type="date" name="end_date" id="end_date">
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                        </div>
-                        <div class="col-md-2 text-end align-self-center">
-                            <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                            <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+            <div class="container-fluid">
+                <div class="container-fluid">
 
-                            <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <label for="waktu" class="form-label text-uppercase">Wilayah</label>
+                            <select class="form-control" id="polda_id" name="polda_id">
+                                <option value="1">Semua Polda</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control" type="date" name="start_date" id="start_date">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="date" name="end_date" id="end_date">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                </div>
+                                <div class="col-md-2 text-end align-self-center">
+                                    <!-- <button type="button" class="btn btn-outline-primary float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+                                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                                    <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+
+                                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </div>
     <div class="container-fluid mt-5">
@@ -817,7 +817,7 @@
 
             var firstDayMonth = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleDateString("en-GB").split('/').reverse().join('-');
             var lastDayMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
-			var polda_id = $('#polda_,#polda_id').val();
+            var polda_id = $('#polda_,#polda_id').val();
 
 
             $.ajax({
@@ -941,7 +941,31 @@
             topGarlantasDay(yesterday);
             topGarlantasMonth(firstDayMonth, lastDayMonth)
             topGarlantasYear(firstDay, lastDay)
+
+            ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+
         })
+
+        function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+                dataType: "JSON",
+                data: {
+                    yesterday,
+                    firstDayMonth,
+                    lastDayMonth,
+                    firstDay,
+                    lastDay
+                },
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+                    $('#garlantasThisDay').text(result.thisDay[0].garlantas)
+                    $('#garlantasThisMonth').text(result.thisMonth[0].garlantas)
+                    $('#garlantasThisYear').text(result.thisYear.garlantas)
+                }
+            })
+        }
 
         function ButtonFilter() {
             let filter = 1;

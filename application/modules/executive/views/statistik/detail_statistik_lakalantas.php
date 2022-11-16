@@ -935,12 +935,12 @@
                     topLakaMonth(firstDayMonth, lastDayMonth);
                     topLakaYear(firstDay, lastDay);
 
-                    laka_thisDay(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+                    ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
                 })
 
 
-                function laka_thisDay(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+                function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
                     $.ajax({
                         type: "POST",
                         url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
