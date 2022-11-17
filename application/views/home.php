@@ -30,8 +30,7 @@
 					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
 					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
 					data-start="1000" 
-					data-responsive_offset="on">
- 
+		
 					<div class="R_title margin-bottom-15"
 					id="slide-2-layer-1"
 					data-x="['left','center','center','center']"
@@ -131,26 +130,11 @@
 			<h3 class="headline centered margin-bottom-35 margin-top-50">www.k3i.korlantas.polri.go.id</h3>
 		</div>
         <div class="col-md-6 mb-5">
-			<span class="centered margin-bottom-35 margin-top-50">Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</span>
+			<span class="centered margin-bottom-35 margin-top-50 text-justify"><p> Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</p></span>
 		</div>
 
 		<div class="col-md-12"> 
-            <div style="display:flex;z-index: 999;position: absolute;">
-                <div class="dropdown d-inline-block">
-                    <div style="cursor: pointer; display:flex; width:350px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="row" style="margin-left: 0px;"> 
-                            <div class="col-md-12">
-                                <div style="display: flex;">
-                                    <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;"></i>
-                                    <input type="text" placeholder="Telusuri Peta" name="search" style="height: 38px;border: none;margin-left: -47px;width: 347px;padding-left: 50px;"> 
-                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                     
-                </div>  
-            </div>  
+            
             <div id="map" style="height: 500px;"></div>
 		</div>
 		  
@@ -165,9 +149,9 @@
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
+                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white">47.965</h2>
+                            <h2 style="color: white" id="lakalantas"></h2>
                             <h4>Kecelakaan Lalu Lintas </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -175,9 +159,9 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-					<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
+					<a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white">47.965</h2>
+                            <h2 style="color: white" id="motor"></h2>
                             <h4>Kendaraan Bermotor </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -185,9 +169,9 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
+                <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white">47.965</h2>
+                            <h2 style="color: white" id="garlantas"></h2>
                             <h4>Pelanggaran Lalu Lintas </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -197,7 +181,7 @@
                 <div class="col-md-6">
                 <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
                         <div class="img-box-content visible">
-                            <h2 style="color: white">47.965</h2>
+                            <h2 style="color: white" id="sim"></h2>
                             <h4>Jumlah SIM </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -598,7 +582,111 @@
 
 
 <script>
+	let app_url = '<%-app_url%>'
+                let path = '<%-path%>'
+                var marker = new Array();
     $(document).ready(function() { 
+		$("#overlay").fadeIn(300);
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>home/getPolda",
+			dataType: "JSON",
+			success: function(result) {
+				$("#overlay").fadeOut(300);
+
+				let ressData = result;
+				// console.log(result);
+
+
+				for (let i = 0; i < ressData.length; i++) {
+					id = i;
+					var latitude = parseFloat(ressData[i].latitude);
+					var longitude = parseFloat(ressData[i].longitude);
+
+					var resource = '';
+
+					marker[i] = L.marker([latitude, longitude], {
+						icon: L.divIcon({
+							// className: 'location-pin',
+							html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
+							iconSize: [5, 5],
+							iconAnchor: [5, 10]
+						})
+					}).bindPopup(
+						`<div style="width: 450px;">
+						<div class="row">
+							<div class="col-md-2 text-center">
+								<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
+							</div>
+							<div class="col-md-10">
+								<span class="fs-5 text-uppercase">Polda <b>${ressData[i].name_polda}</b></span><br>
+								<span>${ressData[i].address}</span>
+							</div>
+							<div class="col-md-12 mt-3 text-center">
+								<div class="row">
+									<div class="col-md-3">
+										<span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+									</div>
+									<div class="col-md-3">
+										<span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+									</div>
+									<div class="col-md-3">
+										<span class="fs-6">Total <b>Turjagwali</b></span>
+									</div>    
+									<div class="col-md-3">
+										<span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+									</div>
+								</div>    
+							</div>
+							
+							<div class="col-md-12 mt-3 text-center">
+								<div class="row">
+									<div class="col-md-3">
+										<span class="fs-3"> <b>${ressData[i].lakalantas}</b></span>
+									</div>
+									<div class="col-md-3">
+										<span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
+									</div>
+									<div class="col-md-3">
+									<span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
+									</div>    
+									<div class="col-md-3">
+										<span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
+									</div>
+								</div>    
+							</div>
+
+							<div class="col-md-12 mt-3">
+								<a href=<?= base_url('executive/Polda_executive/index/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+							</div>
+							</div>
+					</div>
+						
+				`, {
+							minWidth: 100,
+							maxWidth: 560,
+							width: 400
+						}).addTo(mapContainer);
+				}
+
+			}
+		});
+
+		$("#overlay").fadeIn(300);
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>home/getStatistik",
+			dataType: "JSON",
+			success: function(result) {
+				$("#overlay").fadeOut(300);
+
+				$('#lakalantas').html(`${result.lakalantas}`);
+				$('#garlantas').html(`${result.garlantas}`);
+				$('#motor').html(`${result.motor}`);
+				$('#sim').html(`${result.sim}`);
+			}
+		})
+
         var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -621,6 +709,19 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         }); 
+		var gl = L.mapboxGL({
+			accessToken: 'pk.eyJ1IjoibW9yZ2Vua2FmZmVlIiwiYSI6IjIzcmN0NlkifQ.0LRTNgCc-envt9d5MzR75w',
+			style: 'mapbox://styles/mapbox/traffic-day-v2'
+		});
+		var trafficMutant = L.gridLayer.googleMutant({
+			maxZoom: 24,
+			type: "hybrid",
+		}).addGoogleLayer("TrafficLayer");
+
+		var trafficMutantRoad = L.gridLayer.googleMutant({
+			maxZoom: 24,
+			type: "roadmap",
+		}).addGoogleLayer("TrafficLayer");
 
         // StART MAP SECTION
         var mapContainer = L.map('map', {
@@ -632,10 +733,11 @@
         }).setView(initialCenter, initialZoom);  
 
 
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
+        var markerClusterGroup = L.markerClusterGroup();
+		var icon = L.icon({
+			iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+			iconSize: [80, 80], // size of the icon
+		});
                         
                         
         var baseMaps = {
@@ -643,13 +745,18 @@
             "Google Map Satelite": googleSatelite,
             "Google Map Hybrid": googleHybrid,
             "Google Map Terrain": googleTerrain,
+			"Google Map Street Traffic": trafficMutantRoad,
+			"Google Map Hybrid Traffic": trafficMutant,
+			"MappBox Traffic": gl,
         };
         var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
+		L.control.layers(baseMaps, overlayMaps, {
+			position: 'topright'
+		}).addTo(mapContainer);
+		L.control.zoom({
+			position: 'topright'
+		}).addTo(mapContainer);
+
+		mapContainer.doubleClickZoom.enable();
     });
 </script>
