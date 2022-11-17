@@ -203,11 +203,11 @@
                 <div class="col-md-6">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt="">
+							<a href="https://samsatdigital.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt=""></a>
 
 						</div>
 						<div class="col-md-10">
-							<h4>SIGNAL (Samsat Digital Nasional)</h4>
+							<h4><a href="https://samsatdigital.id/">SIGNAL (Samsat Digital Nasional)</a></h4>
 							<p style="text-align:justify;">SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
 
 						</div>
@@ -216,11 +216,11 @@
                 <div class="col-md-6">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt="">
+							<a href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt=""></a>
 
 						</div>
 						<div class="col-md-10">
-							<h4>SINAR (SIM Nasional Presisi)</h4>
+							<h4><a href="https://www.digitalkorlantas.id/">SINAR (SIM Nasional Presisi)</a></h4>
                     		<p style="text-align:justify;">SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
 
 						</div>
@@ -230,11 +230,11 @@
                 <div class="col-md-6">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="">
+							<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
 
 						</div>
 						<div class="col-md-10">
-							<h4>SIM Internasional</h4>
+							<h4><a href="https://siminternasional.korlantas.polri.go.id/">SIM Internasional</a></h4>
                     		<p style="text-align:justify;">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
 
 						</div>
@@ -244,12 +244,13 @@
                 <div class="col-md-6">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt="">
+							<a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
+							<a href="https://ntmcpolri.info/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt=""></a>
 
 						</div>
 						<div class="col-md-10">
-							<h4>NTMC</h4>
-                    		<p style="text-align:justify;">NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU, Perhubungan, Perindustrian, & Riset Teknologi)</p>
+							<h4><a href="#">Website Korlantas & NTMC</a></h4>
+                    		<p style="text-align:justify;">Website Korlantas & NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU Perhubungan, Perindustrian, & Riset Teknologi)</p>
 
 						</div>
 					</div>
@@ -358,131 +359,67 @@
             <ul class="tabs-nav">
                 <li class="active"><a href="#tab1b">News Flash NTMC</a></li>
                 <li><a href="#tab2b">NTMC Channel</a></li>
-                <li><a href="#tab3b">CCTV Report</a></li>
+                
             </ul>
 
             <!-- Tabs Content -->
             <div class="tabs-container">
                 <div class="tab-content" id="tab1b">
-                    <img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+                    <!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
                     <div class="row margin-top-20">
                         <div class="col-md-8">
-                            <iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="760" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div> 
                         <div class="col-md-4">
                             <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/KBoJyLTpw40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/D3LIJIktL08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/eLZyzyg_gjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div> 
                     </div> 
                 </div> 
 				<div class="tab-content" id="tab2b">
-					<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
+					<!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
                     <div class="row margin-top-20">
                         <div class="col-md-8">
-                            <iframe width="760" height="450" src="https://www.youtube.com/embed/yuXCQVd_zaU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="760" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div> 
                         <div class="col-md-4">
                             <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/yaAJ07UKoY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/7jPl7-COisI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/xUoqcbpdrMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/8mAfrS383bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/R8hWWkrBvRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/rvHfWzlVJVA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div> 
                     </div> 
                 </div>
-                <div class="tab-content" id="tab3b">
-					<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
-                    <div class="row margin-top-20">
-                        <div class="col-md-8">
-                            <iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div> 
-                        <div class="col-md-4">
-                            <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-                                </div>
-                                <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div> 
-                    </div> 
-                </div> 
                 
             </div>
 
         </div> 
     </div>
 
-    <div class="col-md-12"> 
-        <div class="row"> 
-            <div class="col-md-8"> 
-                <hr>
-                <h4 class="headline">
-                    Headline Stakeholder Bidang Lalu Lintas dan Angkutan Jalan
-                </h4>
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <img src="<?php echo base_url();?>assets/fe/bersama.png" alt="">
-                        <span style="font-size: 15px;font-variant: all-petite-caps;">KEMENPUR | 22 Desember 2021</span>
-                        <p>Menteri Basuki Dampingi Presiden Jokowi Resmikan 2 Bendungan Multifungsi di Jawa Timur : Tugu dan Gongseng</p> 
-                    </div>
-                    <div class="col-md-5">
-                        <div class="row" style="height: 350px;overflow-y: auto;scrollbar-width: thin;">
-                            <div class="col-md-12"> 
-                                <span style="font-size: 15px;font-variant: all-petite-caps;">DEPHUB | Kamis, 25 November 2021</span>
-                                <h4>Kemenhub Siap Lancarkan Transportasi KTT G-20</h4> 
-                                <hr>
-                            </div>
-                            <div class="col-md-12"> 
-                                <span style="font-size: 15px;font-variant: all-petite-caps;">KEMKES | Dipublikasikan Pada : Kamis, 25 November 2021</span> 
-                                <h4>Menkes Budi Raih Penghargaan People Of The Year 2021</h4> 
-                                <hr>
-                            </div> 
-                            <div class="col-md-12"> 
-                                <span style="font-size: 15px;font-variant: all-petite-caps;">KEMENRISTEK | 30 November, 2021</span> 
-                                <h4>BRIN Dukung Peningkatan Kompetensi Mahasiswa di Lamongan</h4> 
-                                <hr>
-                            </div> 
-                            <div class="col-md-12"> 
-                                <span style="font-size: 15px;font-variant: all-petite-caps;">KEMENPERIN | Kamis, 25 November 2021</span> 
-                                <h4>Menperin Agus Bidik Kontribusi Industri Tembus 20 Persen Tahun 2024</h4> 
-                                <hr>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4"> 
-                <hr>
-                <h4 class="headline">
-                    Layanan Aplikasi Contact Center NTMC Polri
-                </h4>
-
-                <iframe width="380" height="215" src="https://www.youtube.com/embed/2EDCko_aEQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <img src="<?php echo base_url();?>assets/fe/contactntmc.png" alt="">
-            </div>
-        </div>
-    </div>
+    
+	<div class="col-md-12">
+		<hr>
+		<h4 class="headline">
+			Layanan Aplikasi Contact Center NTMC Polri
+		</h4>
+		<img src="<?php echo base_url();?>assets/fe/contactntmc.png" alt="">
+	</div>
 
     <div class="col-md-12 margin-bottom-50 margin-top-50">
         <div class="row">
@@ -583,8 +520,8 @@
 
 <script>
 	let app_url = '<%-app_url%>'
-                let path = '<%-path%>'
-                var marker = new Array();
+	let path = '<%-path%>'
+	var marker = new Array();
     $(document).ready(function() { 
 		$("#overlay").fadeIn(300);
 		$.ajax({
@@ -595,7 +532,7 @@
 				$("#overlay").fadeOut(300);
 
 				let ressData = result;
-				// console.log(result);
+				console.log(result);
 
 
 				for (let i = 0; i < ressData.length; i++) {

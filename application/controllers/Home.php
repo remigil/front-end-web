@@ -10,8 +10,11 @@ class Home extends MX_Controller {
  
 	public function index()
 	{ 
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Home | K3I Korlantas";  
-		$this->template->load('templates/template','home', $data); 
+		$this->template->load('templates/template','home', $data);
+		
 		
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
@@ -36,8 +39,6 @@ class Home extends MX_Controller {
         // $headers = [
         //     'Authorization' => $this->session->userdata['token']
         // ];
-
-
 
         $url = 'polda';
         $getPolda = guzzle_request('GET', $url, [
@@ -130,6 +131,15 @@ class Home extends MX_Controller {
         ];
         echo json_encode($data);
     }
+
+	public function getBerita()
+	{
+		$getBerita = guzzle_request('GET', 'news', [
+            // 'headers' => $headers
+        ]);
+        $getBerita = $getBerita["data"];
+		// var_dump($getBerita);die;
+	}
 
 	public function error()
 	{
