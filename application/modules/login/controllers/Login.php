@@ -18,6 +18,15 @@ class Login extends MX_Controller
             $this->load->view('login_view');
         }
     }
+
+    public function operator()
+    {
+        if (isset($this->session->userdata['logged'])) {
+            redirect('/dashboard');
+        } else {
+            $this->load->view('login_view_operator');
+        }
+    }
     public function auth($sess = null)
     {
         $username = $this->input->post('username');
