@@ -999,7 +999,7 @@ class Dashboard extends MY_Controller
         ];
 
 
-
+        $date = date("Y-m-d");
         $url = 'polda';
         $getPolda = guzzle_request('GET', $url, [
             'headers' => $headers
@@ -1007,7 +1007,7 @@ class Dashboard extends MY_Controller
         $getPolda = $getPolda['data']['data'];
 
         $dit = [];
-        $urldit = 'ditgakkum/daily';
+        $urldit = 'ditgakkum/daily?date=' . $date . '';
         $getDit = guzzle_request('GET', $urldit, [
             'headers' => $headers
         ]);
@@ -1023,7 +1023,7 @@ class Dashboard extends MY_Controller
         }
         $allData = [];
 
-        $urlranmor = 'ranmor/daily';
+        $urlranmor = 'ranmor/daily?date=' . $date . '';
         $getRanmor = guzzle_request('GET', $urlranmor, [
             'headers' => $headers
         ]);
@@ -1051,7 +1051,8 @@ class Dashboard extends MY_Controller
         ];
 
         // $data['garlantas'] = '123';
-        $url = 'garlantas/daily?topPolda=true';
+        $date = date("Y-m-d");
+        $url = 'garlantas/daily?date=' . $date . '&topPolda=true&limit=10';
         $getGarlantas = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -1066,8 +1067,8 @@ class Dashboard extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         // $data['lakalantas'] = '123';
-
-        $url = 'laka_lantas/daily?topPolda=true';
+        $date = date("Y-m-d");
+        $url = 'laka_lantas/daily?date=' . $date . '&topPolda=true&limit=10';
         $getLakalantas = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
@@ -1088,7 +1089,8 @@ class Dashboard extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+        $date = date("Y-m-d");
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
         $getGakkum = $getGakkum["data"];
@@ -1102,7 +1104,7 @@ class Dashboard extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getRanmor = guzzle_request('GET', 'ranmor/daily', [
+        $getRanmor = guzzle_request('GET', 'ranmor/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
         $getRanmor = $getRanmor["data"]["rows"];

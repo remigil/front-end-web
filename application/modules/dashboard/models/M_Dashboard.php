@@ -45,7 +45,8 @@ class M_dashboard extends CI_Model
     public function turjagwali_nasional()
     {
         // Turjagwali
-        $turjagwali = guzzle_request('GET', 'turjagwali/daily?topPolda=true', [
+        $date = date("Y-m-d");
+        $turjagwali = guzzle_request('GET', 'turjagwali/daily?date=' . $date . '&topPolda=true&limit=10', [
 
             'headers' => [
 

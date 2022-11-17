@@ -574,10 +574,6 @@
         .table-remove {
             color: #700;
             cursor: pointer;
-
-            &:hover {
-                color: #f00;
-            }
         }
 
         .table-up,
@@ -606,13 +602,13 @@
         .timer {
             margin-top: 10px;
         }
-        
-        .timer > svg {
+
+        .timer>svg {
             width: 200px;
             height: 200px;
         }
 
-        .timer > svg > circle {
+        .timer>svg>circle {
             fill: none;
             stroke-opacity: 0.3;
             stroke: #0d6efd;
@@ -621,26 +617,24 @@
             transform: rotate(-90deg);
         }
 
-        .timer > svg > circle + circle {
+        .timer>svg>circle+circle {
             stroke-dasharray: 1;
             stroke-dashoffset: 1;
             stroke-linecap: round;
             stroke-opacity: 1;
         }
 
-        .timer.animatable > svg > circle + circle {
+        .timer.animatable>svg>circle+circle {
             transition: stroke-dashoffset 0.3s ease;
         }
 
-        .timer > svg > text {
+        .timer>svg>text {
             font-size: 2rem;
         }
 
-        .timer > svg > text + text {
+        .timer>svg>text+text {
             font-size: 1rem;
         }
- 
-
     </style>
 
     <!-- JAVASCRIPT -->
@@ -660,17 +654,17 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     <script>
-        var csfrData = {}; 
+        var csfrData = {};
         csfrData['<?php echo $csrf_name; ?>'] = '<?php echo $csrf_token; ?>';
         $.ajaxSetup({
-            data: csfrData 
-        });  
+            data: csfrData
+        });
     </script>
 
     <?php echo $css ?>
@@ -1834,37 +1828,52 @@
                         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
                         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                         <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
- 
+
                         <script type="text/javascript">
-                            document.onkeypress = function (event) {
+                            document.onkeypress = function(event) {
                                 event = (event || window.event);
                                 return keyFunction(event);
                             }
-                            document.onmousedown = function (event) {
+                            document.onmousedown = function(event) {
                                 event = (event || window.event);
                                 return keyFunction(event);
                             }
-                            document.onkeydown = function (event) {
+                            document.onkeydown = function(event) {
                                 event = (event || window.event);
                                 return keyFunction(event);
                             }
 
                             //Disable right click script 
-                            var message="Sorry, right-click has been disabled"; 
+                            var message = "Sorry, right-click has been disabled";
 
-                            function clickIE() {if (document.all) {(message);return false;}} 
-                            function clickNS(e) {if 
-                            (document.layers||(document.getElementById&&!document.all)) { 
-                            if (e.which==2||e.which==3) {(message);return false;}}} 
-                            if (document.layers) 
-                            {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;} 
-                            else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;} 
-                            document.oncontextmenu=new Function("return false")
+                            function clickIE() {
+                                if (document.all) {
+                                    (message);
+                                    return false;
+                                }
+                            }
 
-                            
-                            function keyFunction(event){
+                            function clickNS(e) {
+                                if (document.layers || (document.getElementById && !document.all)) {
+                                    if (e.which == 2 || e.which == 3) {
+                                        (message);
+                                        return false;
+                                    }
+                                }
+                            }
+                            if (document.layers) {
+                                document.captureEvents(Event.MOUSEDOWN);
+                                document.onmousedown = clickNS;
+                            } else {
+                                document.onmouseup = clickNS;
+                                document.oncontextmenu = clickIE;
+                            }
+                            document.oncontextmenu = new Function("return false")
+
+
+                            function keyFunction(event) {
                                 // console.log(event);
-                                var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1; 
+                                var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1;
 
                                 // "SHIFT + RIGHT" key WINDOWS
                                 if (event.shiftKey && event.button == 2) {
@@ -1893,7 +1902,7 @@
                                 //"C" key WINDOWS
                                 if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
                                     return false;
-                                } 
+                                }
 
 
                                 //"S" key
