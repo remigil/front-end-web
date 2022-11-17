@@ -32,6 +32,8 @@ class Fasilitasumum extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["title"] = "Fasilitas Umum";
             $page_content["page"] = "masterdata/Polres/fasum_view";
+        }else{
+            redirect(base_url('404_notfound'));
         }
 
         // $getCategory = guzzle_request('GET', 'category_fasum', [
@@ -75,11 +77,12 @@ class Fasilitasumum extends MY_Controller
         $getCategory = guzzle_request('GET', 'category_fasum', [
             'headers' => $headers
         ]);
+        if($getCategory['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getCategory'] = $getCategory['data']['data'];
-
-        // var_dump($getCategory);
-        // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

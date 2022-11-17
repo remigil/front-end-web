@@ -248,6 +248,10 @@ class Petugas extends MY_Controller
         $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['name']);
         // die;
@@ -279,6 +283,10 @@ class Petugas extends MY_Controller
         $getDetail = guzzle_request('GET', 'officer/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
 
         $getRank = guzzle_request('GET', 'rank_officer?order=name_rankOfficer&orderDirection=asc&filter[]=status_rankOfficer&filterSearch[]=1', [  

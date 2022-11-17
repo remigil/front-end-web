@@ -31,7 +31,9 @@ class Pangkat extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/pangkat_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/pangkat_polres";
-        } 
+        } else {
+            redirect(base_url('404_notfound'));
+        }
 
 
         $page_content["data"] = '';
@@ -123,10 +125,14 @@ class Pangkat extends MY_Controller
         $getDetail = guzzle_request('GET', 'rank_officer/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['no_vehicle']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -155,8 +161,12 @@ class Pangkat extends MY_Controller
         $getDetail = guzzle_request('GET', 'rank_officer/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
-        $data['getDetail'] = $getDetail['data'];
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
 
+        $data['getDetail'] = $getDetail['data'];
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

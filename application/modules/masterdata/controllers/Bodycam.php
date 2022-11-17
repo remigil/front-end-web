@@ -31,7 +31,7 @@ class Bodycam extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/bodycam_view";
         }else{
-            redirect(base_url('dashboard'));
+            redirect(base_url('404_notfound'));
         }
  
 
@@ -66,7 +66,7 @@ class Bodycam extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/bodycam_viewgrid";
         }else{
-            redirect(base_url('dashboard'));
+            redirect(base_url('404_notfound'));
         }
  
 
@@ -138,8 +138,12 @@ class Bodycam extends MY_Controller
         $getBodyCam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+        if($getBodyCam['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getBodyCam'] = $getBodyCam['data'];
-
         echo json_encode($data['getBodyCam']);
     }
 
@@ -176,8 +180,12 @@ class Bodycam extends MY_Controller
         $getBodyCam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+        if($getBodyCam['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getBodyCam'] = $getBodyCam['data'];
-
         echo json_encode($data['getBodyCam']);
     }
 
@@ -195,8 +203,12 @@ class Bodycam extends MY_Controller
         $getIdBodyCam = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
-        $data['getIdBodyCam'] = $getIdBodyCam['data'];
+        if($getIdBodyCam['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
 
+        $data['getIdBodyCam'] = $getIdBodyCam['data'];
         echo json_encode($data['getIdBodyCam']);
     }
 
@@ -317,8 +329,12 @@ class Bodycam extends MY_Controller
         $getDetail = guzzle_request('GET', 'bodycam/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data']['data'];
-
         echo json_encode($data['getDetail']);
     }
 

@@ -31,6 +31,8 @@ class RencanaOperasi extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/operasi";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/operasi";
+        } else {
+            redirect(base_url('404_notfound')); 
         }
 
 
@@ -201,6 +203,10 @@ class RencanaOperasi extends MY_Controller
         $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
 
         // die;
@@ -270,6 +276,8 @@ class RencanaOperasi extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/tambah_Kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/tambah_Polres";
+        } else {
+            redirect(base_url('404_notfound')); 
         }
 
 
@@ -303,6 +311,10 @@ class RencanaOperasi extends MY_Controller
         $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
 
         // $getTroublespot = guzzle_request('GET', 'troublespot', [

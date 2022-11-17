@@ -230,10 +230,15 @@ class Kegiatan extends MY_Controller
         $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+
+        
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -263,6 +268,11 @@ class Kegiatan extends MY_Controller
         $getDetail = guzzle_request('GET', 'schedule/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+
         $data['getDetail'] = $getDetail['data'];
 
         $getVip = guzzle_request('GET', 'vip', [  

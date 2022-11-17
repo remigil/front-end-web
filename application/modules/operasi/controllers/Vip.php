@@ -31,6 +31,9 @@ class Vip extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/vip_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/vip_polres";
+        } else {
+            redirect(base_url('404_notfound'));
+             
         }
 
         $getPosition = guzzle_request('GET', 'position', [  
@@ -142,6 +145,10 @@ class Vip extends MY_Controller
         $getDetail = guzzle_request('GET', 'vip/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['name']);
         // die;
@@ -173,6 +180,10 @@ class Vip extends MY_Controller
         $getDetail = guzzle_request('GET', 'vip/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
 
 

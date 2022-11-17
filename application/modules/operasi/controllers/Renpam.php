@@ -402,6 +402,10 @@ class Renpam extends MY_Controller
         $getDetail = guzzle_request('GET', 'renpam/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
         $data['getRoute'] = $getDetail['data']['data']['route'];
         // echo json_encode($data['getRoute']);
@@ -436,6 +440,10 @@ class Renpam extends MY_Controller
         $getDetail = guzzle_request('GET', 'renpam/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']);
         // die;

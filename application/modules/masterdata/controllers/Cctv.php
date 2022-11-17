@@ -138,8 +138,12 @@ class Cctv extends MY_Controller
         $getCCTV = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
-        $data['getCCTV'] = $getCCTV['data'];
+        if($getCCTV['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
 
+        $data['getCCTV'] = $getCCTV['data'];
         echo json_encode($data['getCCTV']);
     }
 
@@ -176,8 +180,12 @@ class Cctv extends MY_Controller
         $getCCTV = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+        if($getCCTV['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getCCTV'] = $getCCTV['data'];
-
         echo json_encode($data['getCCTV']);
     }
 
@@ -195,8 +203,12 @@ class Cctv extends MY_Controller
         $getIdCCTV = guzzle_request('GET', $url, [
             'headers' => $headers
         ]);
+        if($getIdCCTV['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getIdCCTV'] = $getIdCCTV['data'];
-
         echo json_encode($data['getIdCCTV']);
     }
 
@@ -319,8 +331,12 @@ class Cctv extends MY_Controller
         $getDetail = guzzle_request('GET', 'cctv/getId/' . $id . '', [
             'headers' => $headers
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data']['data'];
-
         echo json_encode($data['getDetail']);
     }
 

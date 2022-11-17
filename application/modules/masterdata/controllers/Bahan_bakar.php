@@ -31,7 +31,9 @@ class Bahan_bakar extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/bahan_bakar_polres";
-        } 
+        } else{
+            redirect(base_url('404_notfound'));
+        }
 
 
         $page_content["data"] = '';
@@ -117,16 +119,22 @@ class Bahan_bakar extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/detail_bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/detail_bahan_bakar_polres";
+        }else{
+            redirect(base_url('404_notfound'));
         }
 
 
         $getDetail = guzzle_request('GET', 'fuel_vehicle/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['no_vehicle']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -149,14 +157,20 @@ class Bahan_bakar extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/edit_bahan_bakar_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/edit_bahan_bakar_polres";
+        }else{
+            redirect(base_url('404_notfound'));
         }
 
 
         $getDetail = guzzle_request('GET', 'fuel_vehicle/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
-        $data['getDetail'] = $getDetail['data'];
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
 
+        $data['getDetail'] = $getDetail['data'];
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

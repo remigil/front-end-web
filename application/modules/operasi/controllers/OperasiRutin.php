@@ -29,6 +29,9 @@ class OperasiRutin extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/operasi_rutin_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/operasi_rutin_view";
+        }else {
+            redirect(base_url('404_notfound'));
+             
         }
 
 

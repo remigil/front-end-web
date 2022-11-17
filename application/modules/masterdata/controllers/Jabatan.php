@@ -31,6 +31,8 @@ class Jabatan extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/jabatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/jabatan_polres";
+        }else{
+            redirect(base_url('404_notfound'));
         } 
 
 
@@ -123,10 +125,14 @@ class Jabatan extends MY_Controller
         $getDetail = guzzle_request('GET', 'position/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['no_vehicle']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -149,14 +155,20 @@ class Jabatan extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/edit_jabatan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/edit_jabatan_polres";
+        }else{
+            redirect(base_url('404_notfound'));
         }
 
 
         $getDetail = guzzle_request('GET', 'position/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

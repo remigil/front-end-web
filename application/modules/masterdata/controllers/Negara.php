@@ -31,7 +31,9 @@ class Negara extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/negara_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/negara_polres";
-        } 
+        } else{
+            redirect(base_url('404_notfound'));
+        }
 
 
         $page_content["data"] = '';
@@ -143,10 +145,14 @@ class Negara extends MY_Controller
         $getDetail = guzzle_request('GET', 'country/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['no_vehicle']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -175,8 +181,12 @@ class Negara extends MY_Controller
         $getDetail = guzzle_request('GET', 'country/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

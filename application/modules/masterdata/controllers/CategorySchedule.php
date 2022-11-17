@@ -31,7 +31,9 @@ class CategorySchedule extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/categorySchedule_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/categorySchedule_polres";
-        } 
+        } else{
+            redirect(base_url('404_notfound'));
+        }
 
 
         $page_content["data"] = '';
@@ -122,16 +124,22 @@ class CategorySchedule extends MY_Controller
             $page_content["page"] = "masterdata/Kapolda/detail_categorySchedule_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "masterdata/Polres/detail_categorySchedule_polres";
+        }else{
+            redirect(base_url('404_notfound'));
         }
 
 
         $getDetail = guzzle_request('GET', 'category_schedule/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -160,10 +168,14 @@ class CategorySchedule extends MY_Controller
         $getDetail = guzzle_request('GET', 'category_schedule/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

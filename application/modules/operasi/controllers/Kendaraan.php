@@ -31,7 +31,9 @@ class Kendaraan extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/kendaraan_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/kendaraan_polres";
-        } 
+        } else {
+            redirect(base_url('404_notfound')); 
+        }
 
         $getFuel = guzzle_request('GET', 'fuel_vehicle?filter[]=status_fuelVehicle&filterSearch[]=1', [  
             'headers' => $headers 
@@ -148,10 +150,15 @@ class Kendaraan extends MY_Controller
         $getDetail = guzzle_request('GET', 'vehicle/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['no_vehicle']);
         // die;
-
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
@@ -180,6 +187,11 @@ class Kendaraan extends MY_Controller
         $getDetail = guzzle_request('GET', 'vehicle/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
         $data['getDetail'] = $getDetail['data'];
 
         $getFuel = guzzle_request('GET', 'fuel_vehicle?filter[]=status_fuelVehicle&filterSearch[]=1', [  

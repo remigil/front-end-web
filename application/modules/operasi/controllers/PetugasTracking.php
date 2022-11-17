@@ -31,6 +31,9 @@ class PetugasTracking extends MY_Controller
             $page_content["page"] = "operasi/Kapolda/petugasTracking_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/petugasTracking_polres";
+        } else {
+            redirect(base_url('404_notfound'));
+             
         }
 
 
@@ -190,6 +193,10 @@ class PetugasTracking extends MY_Controller
         $getDetail = guzzle_request('GET', 'track-notif/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['name']);
         // die;
@@ -221,6 +228,10 @@ class PetugasTracking extends MY_Controller
         $getDetail = guzzle_request('GET', 'track-notif/getId/'.$id.'', [  
             'headers' => $headers 
         ]);
+        if($getDetail['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
         $data['getDetail'] = $getDetail['data'];
 
         $page_content["data"] = $data;
