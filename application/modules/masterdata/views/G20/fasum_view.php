@@ -44,6 +44,7 @@
             </div>
             <div class="modal-body">
 				<form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">
 						<div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" /> 
@@ -148,6 +149,7 @@
             </div>
             <div class="modal-body">
 				<form action="" class="form">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
 				<div class="row">
 					    <div class="col-md-12 mb-3" id="detailViewFoto"> 
                            
@@ -245,6 +247,7 @@
             </div>
             <div class="modal-body">
 				<form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
 				<input type="hidden" name="id" value="" id="id_fasum" type="text">
 				<div class="row">
 						<div class="col-md-12 mb-3" id="fotoEdit"> 

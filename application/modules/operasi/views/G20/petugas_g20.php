@@ -49,6 +49,7 @@
             </div>
             <div class="modal-body">
                 <form class="form row" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="col-md-4"></div>
                     <div class="col-md-4"> 
                         <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 

@@ -30,7 +30,9 @@ class DokumenPeraturan extends MY_Controller
             $page_content["page"] = "dokumenperaturan/Kapolda/dokumenperaturan_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dokumenperaturan/Polres/dokumenperaturan_view";
-        } 
+        } else {
+            redirect(base_url('404_notfound'));
+        }
 
 
         $page_content["data"] = '';

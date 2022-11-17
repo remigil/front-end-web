@@ -60,6 +60,7 @@
             </div>
             <div class="modal-body">
                 <form action="">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
                         <label class="labelmui">Kepada</label>
@@ -90,6 +91,7 @@
             </div>
             <div class="modal-body">
                 <form action="">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="material-textfield mb-3">
                         <input style="width: 100%;" name="jenisoperasi" placeholder="" type="text">
                         <label class="labelmui">Kepada</label>

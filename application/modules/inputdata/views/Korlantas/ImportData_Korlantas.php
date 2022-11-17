@@ -33,6 +33,7 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <input type="hidden" name="polda_name" id="polda_name">
                     <input type="hidden" name="jenis_satker_name" id="jenis_satker_name">
                     <input type="hidden" name="jenis_laporan_name" id="jenis_laporan_name">

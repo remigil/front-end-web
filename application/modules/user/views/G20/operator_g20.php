@@ -44,6 +44,7 @@
             </div>
             <div class="modal-body">
                 <form class="form row" method="post" enctype="multipart/form-data">  
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="col-md-12"> 
                         <label class="labelmui">Banner</label>
                         <input type="file" name="banner" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 

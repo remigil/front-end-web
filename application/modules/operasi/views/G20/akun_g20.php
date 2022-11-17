@@ -62,6 +62,7 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3">
                             <div class="material-textfield" style="margin:0 -0.18vh 0 -0.18vh">

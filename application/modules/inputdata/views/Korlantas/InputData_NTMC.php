@@ -13,6 +13,7 @@
 
         <div class="card-body">
             <form action="" id="form-dataharian">
+            <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                 <div class="col-md-12">
                     <div class="row d-flex">
                         

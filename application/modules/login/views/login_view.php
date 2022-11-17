@@ -213,7 +213,8 @@
                         </div> -->
                         <div class="clearfix"></div>  
                         <form method="post" action="<?php echo base_url();?>login/auth" autocomplete="off"> 
-
+                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
+                            
                             <textarea hidden name="token" id="tokenNotif" cols="5" rows="5"></textarea>
                             
                             <div class="material-textfield mb-3">

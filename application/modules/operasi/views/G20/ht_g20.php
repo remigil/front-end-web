@@ -11,6 +11,7 @@
     <div class="card mt-3">
         <div class="card-body ">
             <form class="form row" method="post" enctype="multipart/form-data"> 
+            <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                 <div class="col-md-12 mb-3">  
                     <h3 style="text-align: center;">CEK LIST GIAT WAL PJR DITLANTAS <br>DAN WAL JAJARAN</h3>
                 </div>
@@ -96,6 +97,7 @@
             </div>
             <div class="modal-body">
                 <form class="formEdit row" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="col-md-12 mb-3">  
                         <h3 style="text-align: center;">EDIT <br>CEK LIST GIAT WAL PJR DITLANTAS <br>DAN WAL JAJARAN</h3>
                     </div>

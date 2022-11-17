@@ -209,6 +209,8 @@
         <div class="container">
 
             <form action="" id="form_filter" class="p-3">
+            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group row">

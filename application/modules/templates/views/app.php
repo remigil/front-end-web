@@ -663,9 +663,15 @@
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> 
 
-
+    <script>
+        var csfrData = {}; 
+        csfrData['<?php echo $csrf_name; ?>'] = '<?php echo $csrf_token; ?>';
+        $.ajaxSetup({
+            data: csfrData 
+        });  
+    </script>
 
     <?php echo $css ?>
 </head>

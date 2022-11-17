@@ -13,6 +13,7 @@
     <div class="card">
         <div class="card-body">
             <form class="form" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                 <input hidden name="id" value="<?php echo $data['getDetail']['data']['id'];?>" type="text">
                 <div class="row mb-3">
                     <div class="col-md-6">

@@ -38,6 +38,7 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="material-textfield mb-3">
                         <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg svg" /> 
                     </div>

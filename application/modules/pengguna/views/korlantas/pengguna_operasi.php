@@ -148,6 +148,7 @@
                     </div>
                     <div class="col-md-9">
                         <form action="">
+                        <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="nama_akun" placeholder="Isi nama user">
                                 <label for="nama_akun">Nama Akun</label>
@@ -206,6 +207,7 @@
                     </div>
                     <div class="col-md-9">
                         <form action="">
+                        <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="nama_akun" placeholder="Isi nama user">
                                 <label for="nama_akun">Nama Akun</label>

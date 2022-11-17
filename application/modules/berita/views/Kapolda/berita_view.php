@@ -44,6 +44,7 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
 					<div class="col-md-12 mb-3"> 
                         <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg"/> 
                     </div>
@@ -89,6 +90,7 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form" id="form_edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <input type="hidden" name="id" value="" id="id_berita" type="text">
 					<div class="col-md-12 mb-3"> 
 							<!-- get data foto dari server -->
@@ -137,6 +139,7 @@
 				</div>
 				<div class="modal-body">
 					<form action="" class="form">
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
 					<div class="col-md-12 mb-3"> 
 							<!-- get data foto dari server -->
                             <input type="file" name="photo" id="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="."/> 
@@ -183,6 +186,7 @@
             <div class="modal-body">
 
                 <form action="" class="form">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="col-md-12">
                         <input type="file" name="photo" class="dropify rounded" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url(); ?>assets/no_image.png" />
                     </div>

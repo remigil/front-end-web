@@ -23,6 +23,9 @@ class Templates extends MY_Controller {
             'headers' => $headers
         ]);
         $data['notif'] = $notif['data'];
+
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         // echo json_encode($data['notif']);
         // die;
         

@@ -72,6 +72,7 @@
             </div>
             <div class="modal-body">
                 <form class="formAdd" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -138,6 +139,7 @@
             </div>
             <div class="modal-body">
                 <form class="formDetail" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">

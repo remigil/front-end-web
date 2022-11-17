@@ -147,6 +147,7 @@
                     <div style="width: 308px; background-color: white;border-radius: 0.25rem;margin-left: 7px;margin-top: 0px;">
                         <div style="margin-left: 0px;overflow-x: scroll;height: 435px;scrollbar-width: thin;position: relative; padding: 15px;">
                             <form class="form" method="POST" enctype="multipart/form-data"> 
+                                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                                 <div class="row">
                                     <label for="waktu">Tanggal</label>
                                     <div class="col-md-12" style="display: flex;">  
@@ -425,7 +426,7 @@
             </div>
             <div class="modal-body"> 
             <form class="formR" method="post" enctype="multipart/form-data"> 
-                    
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">  
                         
                         
@@ -690,7 +691,7 @@
             </div>
             <div class="modal-body"> 
                 <form class="formNoteKakor" method="post" enctype="multipart/form-data"> 
-                    
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">   
                         <textarea hidden name="accountsNoteKakor" id="accountsNoteKakor" cols="5" rows="5"></textarea>
                         <div class="col-md-12">

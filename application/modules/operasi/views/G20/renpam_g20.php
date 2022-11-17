@@ -53,6 +53,7 @@
             </div>
             <div class="modal-body">
                 <form class="form" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <input hidden name="category_renpam" value="<?php echo $data['category']; ?>" type="text">
                     
                     <div class="row">

@@ -117,6 +117,7 @@
             </div>
             <div class="modal-body">
                 <form action="">
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="material-selectfield mb-3">
                         <select name="" id="" class="form-select">
                             <option value="">Pilih Tim</option>

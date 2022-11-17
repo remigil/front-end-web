@@ -49,6 +49,7 @@
                                             Masukan nomor handphone anda, agar dapat login pada aplikasi K3I!
                                         </div>
                                         <form class="form mt-4" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                                             <div class="mb-3">
                                                 <label class="form-label">Nomor Handphone</label>
                                                 <input type="text" class="form-control" name="nomor" placeholder="Masukan nomor anda">

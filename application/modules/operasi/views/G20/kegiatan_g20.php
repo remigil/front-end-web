@@ -53,7 +53,7 @@
             </div>
             <div class="modal-body"> 
                 <form class="form" method="post" enctype="multipart/form-data"> 
-                    
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <div class="row">  
                         <div class="col-md-12 mb-3"> 
                             <input type="file" name="photo" class="dropify" data-allowed-file-extensions="jpg png jpeg" data-default-file="<?php echo base_url();?>assets/no_image.png"  /> 
@@ -135,6 +135,7 @@
             </div>
             <div class="modal-body"> 
                 <form class="formR" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
                     <input hidden name="schedule_id" id="schedule_id" class="form-control" type="text" > 
 
                     <div class="row">   
