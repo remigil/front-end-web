@@ -122,6 +122,7 @@ if (!function_exists('backdoorCek')) {
     substr($val,-7) == 'script>'  || 
     substr($val,-7) == 'SCRIPT>'  || 
     substr($val,0,5) == '<link'  || 
+    substr($val,0,5) == '<LINK'  || 
     substr($val,-2) == '/>' || 
     substr($val,-1) == '>' || 
     substr($val,-1) == ' '  ||
