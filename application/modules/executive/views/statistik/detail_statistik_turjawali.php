@@ -86,9 +86,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <style>
-		body{
-			background-color: #F5F6FA !important;
-		}
+        body {
+            background-color: #F5F6FA !important;
+        }
+
         #overlay {
             position: fixed;
             top: 0;
@@ -513,7 +514,13 @@
     <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-
+    <script>
+        var csfrData = {};
+        csfrData['<?php echo $csrf_name; ?>'] = '<?php echo $csrf_token; ?>';
+        $.ajaxSetup({
+            data: csfrData
+        });
+    </script>
 
 </head>
 
@@ -533,9 +540,19 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12 d-flex align-items-center" style="margin:-20px 0 -20px 0;">
-                                        <div class="col-md-10">
-                                            <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
-                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
+                                        <div class="col-md-6">
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
+                                                <iconify-icon icon="cil:home" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
+                                            </a>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive</b></span></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p style="text-align: end;position: relative;top: 12px; margin-right:15px">
+                                                <b style="text-transform: uppercase;font-size: 18px;">
+                                                    <?php echo format_indoHari(date('Y-m-d')) ?>
+                                                </b><br>
+                                                <span id="jam" style="font-size:15px;font-weight: bold;"></span>
+                                            </p>
                                         </div>
                                         <div class="col-md-2 d-flex align-items-center ms-n5 ms-n5 ">
                                             <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button></a>
@@ -574,6 +591,7 @@
                                                     <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                                                 </div>
                                             </div>
+                                            <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b>
                                         </div>
                                     </div>
                                 </div>
@@ -944,6 +962,7 @@
                     topTurjagwaliYear(firstDay, lastDay)
 
                     ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+                    jam()
 
                 })
 
@@ -1232,7 +1251,33 @@
                         }
                     })
                 }
+
+                function jam() {
+                    var a_p = "";
+                    var e = document.getElementById('jam'),
+                        d = new Date(),
+                        h, m, s;
+                    h = d.getHours();
+                    m = set(d.getMinutes());
+                    s = set(d.getSeconds());
+
+                    if (h < 12) {
+                        a_p = "AM";
+                    } else {
+                        a_p = "PM";
+                    }
+
+                    e.innerHTML = h + ':' + m + ':' + s + " " + a_p;
+
+                    setTimeout('jam()', 1000);
+                }
+
+                function set(e) {
+                    e = e < 10 ? '0' + e : e;
+                    return e;
+                }
             </script>
+            <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/libs/apexcharts/apexcharts.min.js"></script>
 </body>
 

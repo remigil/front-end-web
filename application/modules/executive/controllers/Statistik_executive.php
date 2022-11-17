@@ -45,24 +45,32 @@ class Statistik_executive extends MY_Controller
 
     public function LakaLantas()
     {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_statistik->get_Polda();
         $data['title'] = 'DATA KECELAKAAN LALU LINTAS';
         $this->load->view('executive/statistik/detail_statistik_lakalantas', $data);
     }
     public function Garlantas()
     {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_statistik->get_Polda();
         $data['title'] = 'DATA PELANGGARAN LALU LINTAS';
         $this->load->view('executive/statistik/detail_statistik_garlantas', $data);
     }
     public function Turjagwali()
     {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_statistik->get_Polda();
         $data['title'] = 'DATA TURJAGWALI';
         $this->load->view('executive/statistik/detail_statistik_turjawali', $data);
     }
     public function Ranmor()
     {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_statistik->get_Polda();
         $data['title'] = 'DATA KENDARAAN BERMOTOR';
         $this->load->view('executive/statistik/detail_statistik_ranmor', $data);

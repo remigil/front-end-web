@@ -318,7 +318,7 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-2 align-self-center">
-                                                            <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2 mt-2" style="font-size: 45px; color: #464646;"></iconify-icon>
+                                                            <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
                                                         </div>
                                                         <div class="col-md-10 float-end">
                                                             <span class="fs-6 float-end" style="color:#464646;">
