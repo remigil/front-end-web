@@ -175,10 +175,10 @@
                                             <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
                                                 <iconify-icon icon="cil:home" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
                                             </a>
-                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span></a>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive</b></span></a>
                                         </div>
                                         <div class="col-md-4">
-                                            <p style="text-align: end;position: relative;top: 12px; margin-right:5px">
+                                            <p style="text-align: end;position: relative;top: 12px; margin-right:15px">
                                                 <b style="text-transform: uppercase;font-size: 18px;">
                                                     <?php echo format_indoHari(date('Y-m-d')) ?>
                                                 </b><br>
@@ -400,7 +400,7 @@
 						</div> -->
                     </div>
                     <div class="row d-flex">
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-7 mt-3">
                             <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                             <div class="mb-3">
                                 <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
@@ -422,7 +422,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-5 mt-3">
                             <h5>10 Polda Kecelakaan Tertinggi</h5>
                             <div class="mb-3">
                                 <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
