@@ -9,6 +9,8 @@ class Cctv_streaming extends MX_Controller {
  
 	public function index()
 	{ 
+		$data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash(); 
 		$title = "CCTV Streaming | K3I Korlantas";
 		$breadcrumb = "cctv";
 		$headline = "CCTV STREAMING";
@@ -23,6 +25,50 @@ class Cctv_streaming extends MX_Controller {
         $this->template->load('templates/template','lain_lain/cctv_streaming', $data); 
         
 	}
+
+	public function getCCTV()
+    {
+        // $headers = [
+        //     'Authorization' => $this->session->userdata['token']
+        // ];
+
+        $input = $this->input->post();  
+
+        if($input['kategoriFilter']){
+            $kategoriFilter = '&filter[]=type_cctv&filterSearch[]='.$input['kategoriFilter'].'';
+        }else{
+            $kategoriFilter = '';
+        }
+
+        if($input['searchFilter']){
+            $searchData = '&search='.$input['searchFilter'].'';
+        }else{
+            $searchData = '';
+        } 
+
+        if($input['page']){
+            $page = ''.$input['page'].'';
+        }else{
+            $page = '1';
+        } 
+
+
+        $url = 'cctv?serverSide=True&length=8&start='.$page.'&order=id&orderDirection=asc'.$searchData.''.$kategoriFilter.'';
+        // print_r($url);
+        // die;
+        $getCCTV = guzzle_request('GET', $url, [
+            // 'headers' => $headers
+        ]);
+        if($getCCTV['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+        $data['getCCTV'] = $getCCTV['data'];
+        echo json_encode($data['getCCTV']);
+    }
+
+
 	public function error()
 	{
 		$this->load->view('404_notfound');
