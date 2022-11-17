@@ -134,7 +134,13 @@
 
 
 
-
+    <script>
+        var csfrData = {};
+        csfrData['<?php echo $csrf_name; ?>'] = '<?php echo $csrf_token; ?>';
+        $.ajaxSetup({
+            data: csfrData
+        });
+    </script>
 </head>
 
 <body>
@@ -209,7 +215,7 @@
         <div class="container">
 
             <form action="" id="form_filter" class="p-3">
-            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
                 <div class="row">
                     <div class="col-md-3">
@@ -455,9 +461,9 @@
                     $.each(ressPoldaall, (i, resp) => {
                         $('#polda_id').append(`<option value="${resp.id}">Polda ${resp.name_polda}</option>`)
                     })
-                    $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
-                    $("#chartb").html(`<div id="chart2" style="width: 100vw"></div>`);
-                    $("#chartc").html(`<div id="chart3" style="width: 100vw"></div>`);
+                    $("#charta").html(`<div id="chart"></div>`);
+                    $("#chartb").html(`<div id="chart2"></div>`);
+                    $("#chartc").html(`<div id="chart3"></div>`);
 
                 }
             })
@@ -638,78 +644,7 @@
 
             //     }, ],
 
-            //     tooltip: {
-            //         custom: function({
-            //             series,
-            //             seriesIndex,
-            //             dataPointIndex,
-            //             seriesName,
-            //             w
-            //         }) {
-            //             var bulan;
-            //             if (w.globals.labels[dataPointIndex] == 1) {
-            //                 bulan = 'Januari';
-            //             } else if (w.globals.labels[dataPointIndex] == 2) {
-            //                 bulan = 'Februari';
-            //             } else if (w.globals.labels[dataPointIndex] == 3) {
-            //                 bulan = 'Maret';
-            //             } else if (w.globals.labels[dataPointIndex] == 4) {
-            //                 bulan = 'April';
-            //             } else if (w.globals.labels[dataPointIndex] == 5) {
-            //                 bulan = 'Mei';
-            //             } else if (w.globals.labels[dataPointIndex] == 6) {
-            //                 bulan = 'Juni';
-            //             } else if (w.globals.labels[dataPointIndex] == 7) {
-            //                 bulan = 'Juli';
-            //             } else if (w.globals.labels[dataPointIndex] == 8) {
-            //                 bulan = 'Agustus';
-            //             } else if (w.globals.labels[dataPointIndex] == 9) {
-            //                 bulan = 'September';
-            //             } else if (w.globals.labels[dataPointIndex] == 10) {
-            //                 bulan = 'Oktober';
-            //             } else if (w.globals.labels[dataPointIndex] == 11) {
-            //                 bulan = 'November';
-            //             } else if (w.globals.labels[dataPointIndex] == 12) {
-            //                 bulan = 'Desember';
-            //             }
-            //             // return (
-            //             // ` < div class = "" >
-            //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
-            //             // </>`
-
-            //             //         // if (w.globals.labels[dataPointIndex] == 1 - 1) {
-            //             //         //     bulansebelumnya = '';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 2 - 1) {
-            //             //         //     bulansebelumnya = 'Februari';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 3 - 1) {
-            //             //         //     bulansebelumnya = 'Maret';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 4 - 1) {
-            //             //         //     bulansebelumnya = 'April';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 5 - 1) {
-            //             //         //     bulansebelumnya = 'Mei';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 6 - 1) {
-            //             //         //     bulansebelumnya = 'Juni';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 7 - 1) {
-            //             //         //     bulansebelumnya = 'Juli';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 8 - 1) {
-            //             //         //     bulansebelumnya = 'Agustus';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 9 - 1) {
-            //             //         //     bulansebelumnya = 'September';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 10 - 1) {
-            //             //         //     bulansebelumnya = 'Oktober';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 11 - 1) {
-            //             //         //     bulansebelumnya = 'November';
-            //             //         // } else if (w.globals.labels[dataPointIndex] == 12 - 1) {
-            //             //         //     bulansebelumnya = 'Desember';
-            //             //         // }
-            //             //         return (
-
-            //             //             // `<div class="">
-            //             //             //     <header>${series[seriesIndex][dataPointIndex]}</header>
-            //             //             // </div>`
-
-            //         }
-            //     }
+            //     
             // }
 
             // var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
@@ -757,9 +692,9 @@
 
                 }
             })
-            $("#charta").html(`<div id="chart" style="width: 100vw"></div>`);
-            $("#chartb").html(`<div id="chart2" style="width: 100vw"></div>`);
-            $("#chartc").html(`<div id="chart3" style="width: 100vw"></div>`);
+            $("#charta").html(`<div id="chart"></div>`);
+            $("#chartb").html(`<div id="chart2"></div>`);
+            $("#chartc").html(`<div id="chart3"></div>`);
 
             getDitgakkum(start_date, end_date, polda_id, filter)
             getDitkamsel(start_date, end_date, polda_id, filter)
@@ -780,26 +715,31 @@
                 dataType: "JSON",
                 success: function(result) {
                     // console.log(result)
+                    var polda_month = result.data.polda_month;
+                    var garlantas = result.data.garlantas;
+                    var lakalantas = result.data.lakalantas;
+                    var turjagwali = result.data.turjagwali;
+                    var lakalanggar = result.data.lakalanggar;
                     var ditgakkum = {
                         series: [{
                             name: 'Garlantas',
-                            type: 'column',
-                            data: result.data.garlantas,
+                            type: 'line',
+                            data: garlantas,
                             color: "#11347A"
                         }, {
                             name: 'Lakalantas',
-                            type: 'column',
-                            data: result.data.lakalantas,
+                            type: 'line',
+                            data: lakalantas,
                             color: "#CB2D3E"
                         }, {
                             name: 'Turjagwali',
-                            type: 'column',
-                            data: result.data.turjagwali,
+                            type: 'line',
+                            data: turjagwali,
                             color: "#E8D42F"
                         }, {
                             name: 'Lakalanggar',
-                            type: 'column',
-                            data: result.data.lakalanggar,
+                            type: 'line',
+                            data: lakalanggar,
                             color: "#3CA55C"
                         }],
                         chart: {
@@ -824,55 +764,129 @@
                             },
                             offsetY: -15
                         },
-
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
+                        markers: {
+                            size: 4,
+                            colors: '#kkk',
+                            fillOpacity: 0.9,
+                            shape: "circle",
+                            radius: 2,
                         },
                         xaxis: {
-                            categories: result.data.polda_month,
+                            categories: polda_month,
                         },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            labels: {
-                                style: {
-                                    colors: '#008FFB',
-                                }
-                            },
-
-
-                        }, ],
-
                         tooltip: {
-                            // custom: function({
-                            //     series,
-                            //     seriesIndex,
-                            //     dataPointIndex,
-                            //     w
-                            // }) {
-                            //     return (
-                            //         `<div class="">
-                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                            //         </div>`
+                            custom: function({
+                                series,
+                                seriesIndex,
+                                dataPointIndex,
+                                seriesName,
+                                w
+                            }) {
 
 
-                            // '<div class="">' +
-                            // "<span>" +
-                            // w.globals.labels[dataPointIndex] +
-                            // ": " +
-                            // series[seriesIndex][dataPointIndex] +
-                            // "</span>" +
-                            // "</div>"
-                            //         );
-                            //     }
+                                if (w.globals.labels[dataPointIndex] == 1) {
+                                    bulansebelumnya = '';
+                                } else if (w.globals.labels[dataPointIndex] == 2) {
+                                    bulansebelumnya = 'January';
+                                    garlantassebelumnya = garlantas[0];
+                                    lakalantassebelumnya = lakalantas[0];
+                                    turjagwalisebelumnya = turjagwali[0];
+                                    lakalanggarsebelumnya = lakalanggar[0];
+                                } else if (w.globals.labels[dataPointIndex] == 3) {
+                                    bulansebelumnya = 'February';
+                                    garlantassebelumnya = garlantas[1];
+                                    lakalantassebelumnya = lakalantas[1];
+                                    turjagwalisebelumnya = turjagwali[1];
+                                    lakalanggarsebelumnya = lakalanggar[1];
+                                } else if (w.globals.labels[dataPointIndex] == 4) {
+                                    bulansebelumnya = 'March';
+                                    garlantassebelumnya = garlantas[2];
+                                    lakalantassebelumnya = lakalantas[2];
+                                    turjagwalisebelumnya = turjagwali[2];
+                                    lakalanggarsebelumnya = lakalanggar[2];
+                                } else if (w.globals.labels[dataPointIndex] == 5) {
+                                    bulansebelumnya = 'April';
+                                    garlantassebelumnya = garlantas[3];
+                                    lakalantassebelumnya = lakalantas[3];
+                                    turjagwalisebelumnya = turjagwali[3];
+                                    lakalanggarsebelumnya = lakalanggar[3];
+                                } else if (w.globals.labels[dataPointIndex] == 6) {
+                                    bulansebelumnya = 'May';
+                                    garlantassebelumnya = garlantas[4];
+                                    lakalantassebelumnya = lakalantas[4];
+                                    turjagwalisebelumnya = turjagwali[4];
+                                    lakalanggarsebelumnya = lakalanggar[4];
+                                } else if (w.globals.labels[dataPointIndex] == 7) {
+                                    bulansebelumnya = 'June';
+                                    garlantassebelumnya = garlantas[5];
+                                    lakalantassebelumnya = lakalantas[5];
+                                    turjagwalisebelumnya = turjagwali[5];
+                                    lakalanggarsebelumnya = lakalanggar[5];
+                                } else if (w.globals.labels[dataPointIndex] == 8) {
+                                    bulansebelumnya = 'July';
+                                    garlantassebelumnya = garlantas[6];
+                                    lakalantassebelumnya = lakalantas[6];
+                                    turjagwalisebelumnya = turjagwali[6];
+                                    lakalanggarsebelumnya = lakalanggar[6];
+                                } else if (w.globals.labels[dataPointIndex] == 9) {
+                                    bulansebelumnya = 'August';
+                                    garlantassebelumnya = garlantas[7];
+                                    lakalantassebelumnya = lakalantas[7];
+                                    turjagwalisebelumnya = turjagwali[7];
+                                    lakalanggarsebelumnya = lakalanggar[7];
+                                } else if (w.globals.labels[dataPointIndex] == 10) {
+                                    bulansebelumnya = 'September';
+                                    garlantassebelumnya = garlantas[8];
+                                    lakalantassebelumnya = lakalantas[8];
+                                    turjagwalisebelumnya = turjagwali[8];
+                                    lakalanggarsebelumnya = lakalanggar[8];
+                                } else if (w.globals.labels[dataPointIndex] == 11) {
+                                    bulansebelumnya = 'October';
+                                    garlantassebelumnya = garlantas[9];
+                                    lakalantassebelumnya = lakalantas[9];
+                                    turjagwalisebelumnya = turjagwali[9];
+                                    lakalanggarsebelumnya = lakalanggar[9];
+                                } else if (w.globals.labels[dataPointIndex] == 12) {
+                                    bulansebelumnya = 'November';
+                                    garlantassebelumnya = garlantas[10];
+                                    lakalantassebelumnya = lakalantas[10];
+                                    turjagwalisebelumnya = turjagwali[10];
+                                    lakalanggarsebelumnya = lakalanggar[10];
+                                }
+                                return (
+                                    `<div style="width: 36rem; height:18rem;">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `<div class="col-md-4 text-center">
+                                                    <h5 class="card-title">${bulansebelumnya}</h5>
+                                                    <span>Total Pelanggaran  ${garlantassebelumnya}</span><br>
+                                                    <span>Total Kecelakaan  ${lakalantassebelumnya}</span><br>
+                                                    <span>Total Turjagwali  ${turjagwalisebelumnya}</span><br>
+                                                    <span>Total Lakalanggar  ${lakalanggarsebelumnya}</span><br>
+                                                </div> ` : ''}
+                                                
+                                                <div class="col-md-4 text-center">
+                                                    <h5 class="card-title">${polda_month[dataPointIndex]}</h5>
+                                                    <span>Total Pelanggaran  ${garlantas[dataPointIndex]}</span><br>
+                                                    <span>Total Kecelakaan  ${lakalantas[dataPointIndex]}</span><br>
+                                                    <span>Total Turjagwali  ${turjagwali[dataPointIndex]}</span><br>
+                                                    <span>Total Lakalanggar  ${lakalanggar[dataPointIndex]}</span><br>
+                                                </div>
+                                                ${w.globals.labels[dataPointIndex] != 1 ? `<div class="col-md-4 text-center">
+                                                    <h5 class="card-title">Presentase</h5>
+                                                    <span>${garlantas[dataPointIndex]}</span><br>
+                                                    <span>${lakalantas[dataPointIndex]}</span><br>
+                                                    <span>${turjagwali[dataPointIndex]}</span><br>
+                                                    <span>${lakalanggar[dataPointIndex]}</span><br>
+                                                </div>` : ''}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                );
+                            }
                         }
+
                     };
 
                     var ditgakkum = new ApexCharts(document.querySelector("#chart"), ditgakkum);
@@ -897,12 +911,12 @@
                     var ditkamsel = {
                         series: [{
                             name: 'Dikmaslantas',
-                            type: 'column',
+                            type: 'line',
                             data: result.data.dikmaslantas,
                             color: "#11347A"
                         }, {
                             name: 'Penyebaran/Pemasangan',
-                            type: 'column',
+                            type: 'line',
                             data: result.data.penyebaran,
                             color: "#CB2D3E"
                         }],
@@ -928,55 +942,16 @@
                             },
                             offsetY: -15
                         },
-
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
+                        markers: {
+                            size: 4,
+                            colors: '#kkk',
+                            fillOpacity: 0.9,
+                            shape: "circle",
+                            radius: 2,
                         },
                         xaxis: {
                             categories: result.data.polda_month,
                         },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            labels: {
-                                style: {
-                                    colors: '#008FFB',
-                                }
-                            },
-
-
-                        }, ],
-
-                        tooltip: {
-                            // custom: function({
-                            //     series,
-                            //     seriesIndex,
-                            //     dataPointIndex,
-                            //     w
-                            // }) {
-                            //     return (
-                            //         `<div class="">
-                            //             <header>${series[seriesIndex][dataPointIndex]}</header>
-                            //         </div>`
-
-
-                            // '<div class="">' +
-                            // "<span>" +
-                            // w.globals.labels[dataPointIndex] +
-                            // ": " +
-                            // series[seriesIndex][dataPointIndex] +
-                            // "</span>" +
-                            // "</div>"
-                            //         );
-                            //     }
-                        }
                     };
 
                     var ditkamsel = new ApexCharts(document.querySelector("#chart2"), ditkamsel);
@@ -997,28 +972,26 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
-                    // console.log(result)
                     var ditregident = {
                         series: [{
                             name: 'BPKB',
-                            type: 'column',
+                            type: 'line',
                             data: result.data.bpkb,
                             color: "#11347A"
                         }, {
                             name: 'STNK',
-                            type: 'column',
+                            type: 'line',
                             data: result.data.stnk,
                             color: "#CB2D3E"
                         }, {
                             name: 'SIM',
-                            type: 'column',
-                            data: result.data.turjagwali,
+                            type: 'line',
+                            data: result.data.sim,
                             color: "#E8D42F"
                         }, {
                             name: 'RANMOR',
-                            type: 'column',
+                            type: 'line',
                             data: result.data.ranmor,
-
                             color: "#3CA55C"
                         }],
                         chart: {
@@ -1043,32 +1016,17 @@
                             },
                             offsetY: -15
                         },
-
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
+                        markers: {
+                            size: 4,
+                            colors: '#kkk',
+                            fillOpacity: 0.9,
+                            shape: "circle",
+                            radius: 2,
                         },
                         xaxis: {
                             categories: result.data.polda_month,
                         },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            // labels: {
-                            //     style: {
-                            //         colors: '#008FFB',
-                            //     }
-                            // },
-
-
-                        }, ],
-                    }
+                    };
 
                     var ditregident = new ApexCharts(document.querySelector("#chart3"), ditregident);
                     ditregident.render();

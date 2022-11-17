@@ -14,6 +14,8 @@ class Polda_executive extends MY_Controller
     public function index()
     {
         $id = $this->uri->segment(4);
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_polda->get_Polda();
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
