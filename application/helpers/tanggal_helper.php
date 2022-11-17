@@ -109,7 +109,21 @@ if (!function_exists('format_indoHari')) {
 
 if (!function_exists('backdoorCek')) {
   function backdoorCek($val){
-    if(substr($val,0,7) == '<script' || substr($val,-7) == 'script>'  || substr($val,0,5) == '<link'  || substr($val,-2) == '/>' || substr($val,-2) == '.js'){
+    if(substr($val,0,1) == '<' || 
+    substr($val,0,5) == '<body' || 
+    substr($val,0,5) == '<BODY' || 
+    substr($val,0,5) == '<html' || 
+    substr($val,0,5) == '<HTML' || 
+    substr($val,0,4) == '<img' || 
+    substr($val,0,4) == '<IMG' || 
+    substr($val,0,7) == '<SCRIPT' || 
+    substr($val,0,7) == '<script' || 
+    substr($val,-7) == 'script>'  || 
+    substr($val,-7) == 'SCRIPT>'  || 
+    substr($val,0,5) == '<link'  || 
+    substr($val,-2) == '/>' || 
+    substr($val,-1) == '>' || 
+    substr($val,-2) == '.js'){
       $result = 1;
     }else{
       $result = 0;
