@@ -110,6 +110,7 @@ if (!function_exists('format_indoHari')) {
 if (!function_exists('backdoorCek')) {
   function backdoorCek($val){
     if(substr($val,0,1) == '<' || 
+    substr($val,0,1) == ' '  || 
     substr($val,0,5) == '<body' || 
     substr($val,0,5) == '<BODY' || 
     substr($val,0,5) == '<html' || 
