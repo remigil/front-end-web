@@ -159,11 +159,19 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12 d-flex align-items-center" style="margin:-20px 0 -20px 0;">
-                                        <div class="col-md-10">
+                                        <div class="col-md-6">
                                             <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
-                                                <iconify-icon icon="cil:list-filter" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
-                                                <span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive | </b> <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b></span>
+                                                <iconify-icon icon="cil:home" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
                                             </a>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive</b></span></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p style="text-align: end;position: relative;top: 12px; margin-right:15px">
+                                                <b style="text-transform: uppercase;font-size: 18px;">
+                                                    <?php echo format_indoHari(date('Y-m-d')) ?>
+                                                </b><br>
+                                                <span id="jam" style="font-size:15px;font-weight: bold;"></span>
+                                            </p>
                                         </div>
                                         <div class="col-md-2 d-flex align-items-center ms-n5 ms-n5 ">
                                             <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank"><button type="button" class="btn btn-sm btn-outline-primary float-end border border-primary me-3 ms-5">IRSMS</button></a>
@@ -202,6 +210,7 @@
                                                     <a class="dropdown-item" href="<?php echo base_url() ?>login/logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                                                 </div>
                                             </div>
+                                            <b style="text-transform: uppercase; color:#007DD8;"><?= $this->session->userdata('full_name'); ?></b>
                                         </div>
                                     </div>
                                 </div>
@@ -340,8 +349,7 @@
                                         <div class="card-body">
                                             <div class="row justify-content-between align-items-center" style="height: 80px;">
                                                 <div class="col-md-2">
-                                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                                    <!-- <i class='bx bxs-id-card ms-n2' style="font-size: 45px; color: #464646;"></i> -->
+                                                    <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
                                                 </div>
                                                 <div class="col-md-10 float-end">
                                                     <span class="fs-6 float-end" style="color:#464646;">
@@ -471,185 +479,6 @@
             getDitgakkum(firstDay, lastDay, id, filter)
             getDitkamsel(firstDay, lastDay, id, filter)
             getDitregident(firstDay, lastDay, id, filter)
-
-            // var ditkamsel = {
-            //     series: [{
-            //         name: 'Dikmaslantas',
-            //         type: 'column',
-            //         data: result.data.dikmaslantas,
-            //         color: "#11347A"
-            //     }, {
-            //         name: 'Penyebaran/Pemasangan',
-            //         type: 'column',
-            //         data: result.data.penyebaran,
-            //         color: "#CB2D3E"
-            //         // }, {
-            //         //     name: 'SIM',
-            //         //     type: 'column',
-            //         //     data: [
-            //         //         62, 14, 24, 45, 33, 28, 83, 52, 47, 08, 92, 86,
-            //         //     ],
-            //         //     color: "#E8D42F"
-            //         // }, {
-            //         //     name: 'RANMOR',
-            //         //     type: 'column',
-            //         //     data: [21, 23, 37, 39, 36, 58, 19, 12, 34, 43, 13, 22],
-
-            //         //     color: "#3CA55C"
-            //     }],
-            //     chart: {
-            //         height: 400,
-            //         type: 'line',
-            //         stacked: false
-            //     },
-            //     plotOptions: {
-            //         bar: {
-            //             horizontal: false,
-            //             columnWidth: '55%',
-            //             endingShape: 'rounded',
-            //             dataLabels: {
-            //                 position: 'top'
-            //             }
-            //         },
-            //     },
-            //     dataLabels: {
-            //         enabled: true,
-            //         style: {
-            //             colors: ['#333']
-            //         },
-            //         offsetY: -15
-            //     },
-
-            //     stroke: {
-            //         show: true,
-            //         width: [1, 1, 4, 4],
-            //         colors: ['transparent']
-            //     },
-            //     xaxis: {
-            //         categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-            //     },
-            //     yaxis: [{
-            //         axisTicks: {
-            //             show: false,
-            //         },
-            //         axisBorder: {
-            //             show: false,
-            //             color: '#008FFB'
-            //         },
-            //         labels: {
-            //             style: {
-            //                 colors: '#008FFB',
-            //             }
-            //         },
-
-
-            //     }, ],
-
-            //     tooltip: {
-            //         // custom: function({
-            //         //     series,
-            //         //     seriesIndex,
-            //         //     dataPointIndex,
-            //         //     w
-            //         // }) {
-            //         //     return (
-            //         //         `<div class="">
-            //         //             <header>${series[seriesIndex][dataPointIndex]}</header>
-            //         //         </div>`
-
-
-            //         // '<div class="">' +
-            //         // "<span>" +
-            //         // w.globals.labels[dataPointIndex] +
-            //         // ": " +
-            //         // series[seriesIndex][dataPointIndex] +
-            //         // "</span>" +
-            //         // "</div>"
-            //         //         );
-            //         //     }
-            //     }
-            // };
-
-            // var ditkamsel = new ApexCharts(document.querySelector("#chartditkamsel"), ditkamsel);
-            // ditkamsel.render();
-
-            // var ditregident = {
-            //     series: [{
-            //         name: 'BPKB',
-            //         type: 'column',
-            //         data: result.data.bpkb,
-            //         color: "#11347A"
-            //     }, {
-            //         name: 'STNK',
-            //         type: 'column',
-            //         data: result.data.stnk,
-            //         color: "#CB2D3E"
-            //     }, {
-            //         name: 'SIM',
-            //         type: 'column',
-            //         data: result.data.sim,
-            //         color: "#E8D42F"
-            //     }, {
-            //         name: 'RANMOR',
-            //         type: 'column',
-            //         data: result.data.ranmor,
-
-            //         color: "#3CA55C"
-            //     }],
-            //     chart: {
-            //         height: 400,
-            //         type: 'line',
-            //         stacked: false
-            //     },
-            //     plotOptions: {
-            //         bar: {
-            //             horizontal: false,
-            //             columnWidth: '55%',
-            //             endingShape: 'rounded',
-            //             dataLabels: {
-            //                 position: 'top'
-            //             }
-            //         },
-            //     },
-            //     dataLabels: {
-            //         enabled: true,
-            //         style: {
-            //             colors: ['#333']
-            //         },
-            //         offsetY: -15
-            //     },
-
-            //     stroke: {
-            //         show: true,
-            //         width: [1, 1, 4, 4],
-            //         colors: ['transparent']
-            //     },
-            //     xaxis: {
-            //         categories: bulan,
-            //     },
-            //     yaxis: [{
-            //         axisTicks: {
-            //             show: false,
-            //         },
-            //         axisBorder: {
-            //             show: false,
-            //             color: '#008FFB'
-            //         },
-            //         // labels: {
-            //         //     style: {
-            //         //         colors: '#008FFB',
-            //         //     }
-            //         // },
-
-
-            //     }, ],
-
-            //     
-            // }
-
-            // var ditregident = new ApexCharts(document.querySelector("#chartditregident"), ditregident);
-            // ditregident.render();
-
 
         })
 
@@ -789,32 +618,32 @@
                                     turjagwalisebelumnya = turjagwali[0];
                                     lakalanggarsebelumnya = lakalanggar[0];
                                     if (garlantas[0] < garlantas[1]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[0] > garlantas[1]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[0] < lakalantas[1]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[0] > lakalantas[1]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[0] < turjagwali[1]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[0] > turjagwali[1]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[0] < lakalanggar[1]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[0] > lakalanggar[1]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
                                 } else if (w.globals.labels[dataPointIndex] == 3) {
                                     bulansebelumnya = polda_month[1]
@@ -823,32 +652,32 @@
                                     turjagwalisebelumnya = turjagwali[1];
                                     lakalanggarsebelumnya = lakalanggar[1];
                                     if (garlantas[1] < garlantas[2]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[1] > garlantas[2]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[1] < lakalantas[2]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[1] > lakalantas[2]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[1] < turjagwali[2]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[1] > turjagwali[2]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[1] < lakalanggar[2]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[1] > lakalanggar[2]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
 
@@ -859,32 +688,32 @@
                                     turjagwalisebelumnya = turjagwali[2];
                                     lakalanggarsebelumnya = lakalanggar[2];
                                     if (garlantas[2] < garlantas[3]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[2] > garlantas[3]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[2] < lakalantas[3]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[2] > lakalantas[3]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[2] < turjagwali[3]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[2] > turjagwali[3]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[2] < lakalanggar[3]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[2] > lakalanggar[3]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 5) {
@@ -894,32 +723,32 @@
                                     turjagwalisebelumnya = turjagwali[3];
                                     lakalanggarsebelumnya = lakalanggar[3];
                                     if (garlantas[3] < garlantas[4]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[3] > garlantas[4]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[3] < lakalantas[4]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[3] > lakalantas[4]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[3] < turjagwali[4]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[3] > turjagwali[4]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[3] < lakalanggar[4]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[3] > lakalanggar[4]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 6) {
@@ -929,32 +758,32 @@
                                     turjagwalisebelumnya = turjagwali[4];
                                     lakalanggarsebelumnya = lakalanggar[4];
                                     if (garlantas[4] < garlantas[5]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[4] > garlantas[5]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[4] < lakalantas[5]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[4] > lakalantas[5]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[4] < turjagwali[5]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[4] > turjagwali[5]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[4] < lakalanggar[5]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[4] > lakalanggar[5]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 7) {
@@ -964,32 +793,32 @@
                                     turjagwalisebelumnya = turjagwali[5];
                                     lakalanggarsebelumnya = lakalanggar[5];
                                     if (garlantas[5] < garlantas[6]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[5] > garlantas[6]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[5] < lakalantas[6]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[5] > lakalantas[6]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[5] < turjagwali[6]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[5] > turjagwali[6]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[5] < lakalanggar[6]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[5] > lakalanggar[6]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 8) {
@@ -999,32 +828,32 @@
                                     turjagwalisebelumnya = turjagwali[6];
                                     lakalanggarsebelumnya = lakalanggar[6];
                                     if (garlantas[6] < garlantas[7]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[6] > garlantas[7]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[6] < lakalantas[7]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[6] > lakalantas[7]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[6] < turjagwali[7]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[6] > turjagwali[7]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[6] < lakalanggar[7]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[6] > lakalanggar[7]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 9) {
@@ -1034,32 +863,32 @@
                                     turjagwalisebelumnya = turjagwali[7];
                                     lakalanggarsebelumnya = lakalanggar[7];
                                     if (garlantas[7] < garlantas[8]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[7] > garlantas[8]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[7] < lakalantas[8]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[7] > lakalantas[8]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[7] < turjagwali[8]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[7] > turjagwali[8]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[7] < lakalanggar[8]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[7] > lakalanggar[8]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 10) {
@@ -1069,32 +898,32 @@
                                     turjagwalisebelumnya = turjagwali[8];
                                     lakalanggarsebelumnya = lakalanggar[8];
                                     if (garlantas[8] < garlantas[9]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[8] > garlantas[9]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[8] < lakalantas[9]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[8] > lakalantas[9]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[8] < turjagwali[9]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[8] > turjagwali[9]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[8] < lakalanggar[9]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[8] > lakalanggar[9]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 11) {
@@ -1104,32 +933,32 @@
                                     turjagwalisebelumnya = turjagwali[9];
                                     lakalanggarsebelumnya = lakalanggar[9];
                                     if (garlantas[9] < garlantas[10]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[9] > garlantas[10]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = `<span style="color:#978">Seimbang</span>`
+                                        persentasegarlantas = `Seimbang`
                                     }
                                     if (lakalantas[9] < lakalantas[10]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[9] > lakalantas[10]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = `<span style="color:#978">Seimbang</span>`
+                                        persentaselakalantas = `Seimbang`
                                     }
                                     if (turjagwali[9] < turjagwali[10]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[9] > turjagwali[10]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = `<span style="color:#978">Seimbang</span>`
+                                        persentaseturjagwali = `Seimbang`
                                     }
                                     if (lakalanggar[9] < lakalanggar[10]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[9] > lakalanggar[10]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = `<span style="color:#978">Seimbang</span>`
+                                        persentaselakalanggar = `Seimbang`
                                     }
 
                                 } else if (w.globals.labels[dataPointIndex] == 12) {
@@ -1139,63 +968,108 @@
                                     turjagwalisebelumnya = turjagwali[10];
                                     lakalanggarsebelumnya = lakalanggar[10];
                                     if (garlantas[10] < garlantas[11]) {
-                                        persentasegarlantas = '<span style="color:green">Naik</span>'
+                                        persentasegarlantas = 'Naik'
                                     } else if (garlantas[10] > garlantas[11]) {
-                                        persentasegarlantas = '<span style="color:red">Turun</span>'
+                                        persentasegarlantas = 'Turun'
                                     } else {
-                                        persentasegarlantas = '<span style="color:#978">Seimbang</span>'
+                                        persentasegarlantas = 'Seimbang'
                                     }
                                     if (lakalantas[10] < lakalantas[11]) {
-                                        persentaselakalantas = '<span style="color:green">Naik</span>'
+                                        persentaselakalantas = 'Naik'
                                     } else if (lakalantas[10] > lakalantas[11]) {
-                                        persentaselakalantas = '<span style="color:red">Turun</span>'
+                                        persentaselakalantas = 'Turun'
                                     } else {
-                                        persentaselakalantas = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalantas = 'Seimbang'
                                     }
                                     if (turjagwali[10] < turjagwali[11]) {
-                                        persentaseturjagwali = '<span style="color:green">Naik</span>'
+                                        persentaseturjagwali = 'Naik'
                                     } else if (turjagwali[10] > turjagwali[11]) {
-                                        persentaseturjagwali = '<span style="color:red">Turun</span>'
+                                        persentaseturjagwali = 'Turun'
                                     } else {
-                                        persentaseturjagwali = '<span style="color:#978">Seimbang</span>'
+                                        persentaseturjagwali = 'Seimbang'
                                     }
                                     if (lakalanggar[10] < lakalanggar[11]) {
-                                        persentaselakalanggar = '<span style="color:green">Naik</span>'
+                                        persentaselakalanggar = 'Naik'
                                     } else if (lakalanggar[10] > lakalanggar[11]) {
-                                        persentaselakalanggar = '<span style="color:red">Turun</span>'
+                                        persentaselakalanggar = 'Turun'
                                     } else {
-                                        persentaselakalanggar = '<span style="color:#978">Seimbang</span>'
+                                        persentaselakalanggar = 'Seimbang'
                                     }
 
                                 }
 
                                 return (
-                                    `<div style="width: 36rem; height:18rem;">
+                                    `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
                                         <div class="col-md-12">
                                             <div class="row">
-                                            ${w.globals.labels[dataPointIndex] != 1 ? `<div class="col-md-4 text-center">
-                                                    <h5 class="card-title">${bulansebelumnya}</h5>
-                                                    <span>Total Pelanggaran  ${garlantassebelumnya}</span><br>
-                                                    <span>Total Kecelakaan  ${lakalantassebelumnya}</span><br>
-                                                    <span>Total Turjagwali  ${turjagwalisebelumnya}</span><br>
-                                                    <span>Total Lakalanggar  ${lakalanggarsebelumnya}</span><br>
-                                                </div> ` : ''}
-                                                
-                                                <div class="col-md-4 text-center">
-                                                    <h5 class="card-title">${polda_month[dataPointIndex]}</h5>
-                                                    <span>Total Pelanggaran  ${garlantas[dataPointIndex]}</span><br>
-                                                    <span>Total Kecelakaan  ${lakalantas[dataPointIndex]}</span><br>
-                                                    <span>Total Turjagwali  ${turjagwali[dataPointIndex]}</span><br>
-                                                    <span>Total Lakalanggar  ${lakalanggar[dataPointIndex]}</span><br>
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
                                                 </div>
-                                                ${w.globals.labels[dataPointIndex] != 1 ? `<div class="col-md-4 text-center">
-                                                    <h5 class="card-title">Presentase</h5>
-                                                    ${persentasegarlantas}<br>
-                                                    ${persentaselakalantas}<br>
-                                                    ${persentaseturjagwali}<br>
-                                                    ${persentaselakalanggar}<br>
-                                                    
-                                                </div>` : ''}
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total Garlantas</span><br>
+                                                            <span class="fw-bold">Total Lakalantas</span><br>
+                                                            <span class="fw-bold">Total Turjagwali</span><br>
+                                                            <span class="fw-bold">Total Lakalanggar</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
+                                                            <span class="fw-bold">${lakalanggarsebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total Garlantas</span><br>
+                                                            <span class="fw-bold">Total Lakalantas</span><br>
+                                                            <span class="fw-bold">Total Turjagwali</span><br>
+                                                            <span class="fw-bold">Total Lakalanggar</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${lakalanggar[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
+                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
+                                                    <span class="fw-bold">${persentaselakalanggar}</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total Garlantas</span><br>
+                                                            <span class="fw-bold">Total Lakalantas</span><br>
+                                                            <span class="fw-bold">Total Turjagwali</span><br>
+                                                            <span class="fw-bold">Total Lakalanggar</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${lakalanggar[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>`}
                                             </div>
                                         </div>
                                     </div>`
@@ -1205,7 +1079,6 @@
                         }
 
                     };
-
                     var ditgakkum = new ApexCharts(document.querySelector("#chart"), ditgakkum);
                     ditgakkum.render();
                 }
@@ -1225,16 +1098,19 @@
                 dataType: "JSON",
                 success: function(result) {
                     // console.log(result)
+                    let polda_month = result.data.polda_month
+                    let dikmaslantas = result.data.dikmaslantas
+                    let penyebaran = result.data.penyebaran
                     var ditkamsel = {
                         series: [{
                             name: 'Dikmaslantas',
                             type: 'line',
-                            data: result.data.dikmaslantas,
+                            data: dikmaslantas,
                             color: "#11347A"
                         }, {
                             name: 'Penyebaran/Pemasangan',
                             type: 'line',
-                            data: result.data.penyebaran,
+                            data: penyebaran,
                             color: "#CB2D3E"
                         }],
                         chart: {
@@ -1267,8 +1143,305 @@
                             radius: 2,
                         },
                         xaxis: {
-                            categories: result.data.polda_month,
+                            categories: polda_month,
                         },
+                        tooltip: {
+                            custom: function({
+                                series,
+                                seriesIndex,
+                                dataPointIndex,
+                                seriesName,
+                                w
+                            }) {
+                                if (w.globals.labels[dataPointIndex] == 2) {
+                                    bulansebelumnya = polda_month[0]
+                                    dikmaslantassebelumnya = dikmaslantas[0];
+                                    penyebaransebelumnya = penyebaran[0];
+                                    if (dikmaslantas[0] < dikmaslantas[1]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[0] > dikmaslantas[1]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[0] < penyebaran[1]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[0] > penyebaran[1]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+                                } else if (w.globals.labels[dataPointIndex] == 3) {
+                                    bulansebelumnya = polda_month[1]
+                                    dikmaslantassebelumnya = dikmaslantas[1];
+                                    penyebaransebelumnya = penyebaran[1];
+
+                                    if (dikmaslantas[1] < dikmaslantas[2]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[1] > dikmaslantas[2]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[1] < penyebaran[2]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[1] > penyebaran[2]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+                                } else if (w.globals.labels[dataPointIndex] == 4) {
+                                    bulansebelumnya = polda_month[2]
+                                    dikmaslantassebelumnya = dikmaslantas[2];
+                                    penyebaransebelumnya = penyebaran[2];
+
+                                    if (dikmaslantas[2] < dikmaslantas[3]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[2] > dikmaslantas[3]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[2] < penyebaran[3]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[2] > penyebaran[3]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+                                } else if (w.globals.labels[dataPointIndex] == 5) {
+                                    bulansebelumnya = polda_month[3]
+                                    dikmaslantassebelumnya = dikmaslantas[3];
+                                    penyebaransebelumnya = penyebaran[3];
+
+                                    if (dikmaslantas[3] < dikmaslantas[4]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[3] > dikmaslantas[4]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[3] < penyebaran[4]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[3] > penyebaran[4]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 6) {
+                                    bulansebelumnya = polda_month[4]
+                                    dikmaslantassebelumnya = dikmaslantas[4];
+                                    penyebaransebelumnya = penyebaran[4];
+
+                                    if (dikmaslantas[4] < dikmaslantas[5]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[4] > dikmaslantas[5]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[4] < penyebaran[5]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[4] > penyebaran[5]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 7) {
+                                    bulansebelumnya = polda_month[5]
+                                    dikmaslantassebelumnya = dikmaslantas[5];
+                                    penyebaransebelumnya = penyebaran[5];
+
+                                    if (dikmaslantas[5] < dikmaslantas[6]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[5] > dikmaslantas[6]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[5] < penyebaran[6]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[5] > penyebaran[6]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 8) {
+                                    bulansebelumnya = polda_month[6]
+                                    dikmaslantassebelumnya = dikmaslantas[6];
+                                    penyebaransebelumnya = penyebaran[6];
+
+                                    if (dikmaslantas[6] < dikmaslantas[7]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[6] > dikmaslantas[7]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[6] < penyebaran[7]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[6] > penyebaran[7]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 9) {
+                                    bulansebelumnya = polda_month[7]
+                                    dikmaslantassebelumnya = dikmaslantas[7];
+                                    penyebaransebelumnya = penyebaran[7];
+
+                                    if (dikmaslantas[7] < dikmaslantas[8]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[7] > dikmaslantas[8]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[7] < penyebaran[8]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[7] > penyebaran[8]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 10) {
+                                    bulansebelumnya = polda_month[8]
+                                    dikmaslantassebelumnya = dikmaslantas[8];
+                                    penyebaransebelumnya = penyebaran[8];
+
+                                    if (dikmaslantas[8] < dikmaslantas[9]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[8] > dikmaslantas[9]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[8] < penyebaran[9]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[8] > penyebaran[9]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 11) {
+                                    bulansebelumnya = polda_month[9]
+                                    dikmaslantassebelumnya = dikmaslantas[9];
+                                    penyebaransebelumnya = penyebaran[9];
+
+                                    if (dikmaslantas[9] < dikmaslantas[10]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[9] > dikmaslantas[10]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = `Seimbang`
+                                    }
+                                    if (penyebaran[9] < penyebaran[10]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[9] > penyebaran[10]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = `Seimbang`
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 12) {
+                                    bulansebelumnya = polda_month[10]
+                                    dikmaslantassebelumnya = dikmaslantas[10];
+                                    penyebaransebelumnya = penyebaran[10];
+
+                                    if (dikmaslantas[10] < dikmaslantas[11]) {
+                                        persentasedikmaslantas = 'Naik'
+                                    } else if (dikmaslantas[10] > dikmaslantas[11]) {
+                                        persentasedikmaslantas = 'Turun'
+                                    } else {
+                                        persentasedikmaslantas = 'Seimbang'
+                                    }
+                                    if (penyebaran[10] < penyebaran[11]) {
+                                        persentasepenyebaran = 'Naik'
+                                    } else if (penyebaran[10] > penyebaran[11]) {
+                                        persentasepenyebaran = 'Turun'
+                                    } else {
+                                        persentasepenyebaran = 'Seimbang'
+                                    }
+                                }
+                                return (
+                                    `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total Dikmaslantas</span><br>
+                                                            <span class="fw-bold">Total Penyebaran</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${dikmaslantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${penyebaransebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total Dikmaslantas</span><br>
+                                                            <span class="fw-bold">Total Penyebaran</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${penyebaran[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentasedikmaslantas}</span><br>
+                                                    <span class="fw-bold">${persentasepenyebaran}</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total Dikmaslantas</span><br>
+                                                            <span class="fw-bold">Total Penyebaran</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${penyebaran[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                );
+                            }
+                        }
+
                     };
 
                     var ditkamsel = new ApexCharts(document.querySelector("#chart2"), ditkamsel);
@@ -1289,26 +1462,31 @@
                 },
                 dataType: "JSON",
                 success: function(result) {
+                    let polda_month = result.data.polda_month
+                    let bpkb = result.data.bpkb
+                    let stnk = result.data.stnk
+                    let sim = result.data.sim
+                    let ranmor = result.data.ranmor
                     var ditregident = {
                         series: [{
                             name: 'BPKB',
                             type: 'line',
-                            data: result.data.bpkb,
+                            data: bpkb,
                             color: "#11347A"
                         }, {
                             name: 'STNK',
                             type: 'line',
-                            data: result.data.stnk,
+                            data: stnk,
                             color: "#CB2D3E"
                         }, {
                             name: 'SIM',
                             type: 'line',
-                            data: result.data.sim,
+                            data: sim,
                             color: "#E8D42F"
                         }, {
                             name: 'RANMOR',
                             type: 'line',
-                            data: result.data.ranmor,
+                            data: ranmor,
                             color: "#3CA55C"
                         }],
                         chart: {
@@ -1341,8 +1519,483 @@
                             radius: 2,
                         },
                         xaxis: {
-                            categories: result.data.polda_month,
+                            categories: polda_month,
                         },
+                        tooltip: {
+                            custom: function({
+                                series,
+                                seriesIndex,
+                                dataPointIndex,
+                                seriesName,
+                                w
+                            }) {
+                                if (w.globals.labels[dataPointIndex] == 2) {
+                                    bulansebelumnya = polda_month[0]
+                                    bpkbsebelumnya = bpkb[0];
+                                    stnksebelumnya = stnk[0];
+                                    simsebelumnya = sim[0];
+                                    ranmorsebelumnya = ranmor[0];
+                                    if (bpkb[0] < bpkb[1]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[0] > bpkb[1]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[0] < stnk[1]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[0] > stnk[1]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[0] < sim[1]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[0] > sim[1]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[0] < ranmor[1]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[0] > ranmor[1]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+                                } else if (w.globals.labels[dataPointIndex] == 3) {
+                                    bulansebelumnya = polda_month[1]
+                                    bpkbsebelumnya = bpkb[1];
+                                    stnksebelumnya = stnk[1];
+                                    simsebelumnya = sim[1];
+                                    ranmorsebelumnya = ranmor[1];
+                                    if (bpkb[1] < bpkb[2]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[1] > bpkb[2]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[1] < stnk[2]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[1] > stnk[2]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[1] < sim[2]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[1] > sim[2]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[1] < ranmor[2]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[1] > ranmor[2]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+
+                                } else if (w.globals.labels[dataPointIndex] == 4) {
+                                    bulansebelumnya = polda_month[2]
+                                    bpkbsebelumnya = bpkb[2];
+                                    stnksebelumnya = stnk[2];
+                                    simsebelumnya = sim[2];
+                                    ranmorsebelumnya = ranmor[2];
+                                    if (bpkb[2] < bpkb[3]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[2] > bpkb[3]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[2] < stnk[3]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[2] > stnk[3]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[2] < sim[3]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[2] > sim[3]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[2] < ranmor[3]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[2] > ranmor[3]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 5) {
+                                    bulansebelumnya = polda_month[3]
+                                    bpkbsebelumnya = bpkb[3];
+                                    stnksebelumnya = stnk[3];
+                                    simsebelumnya = sim[3];
+                                    ranmorsebelumnya = ranmor[3];
+                                    if (bpkb[3] < bpkb[4]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[3] > bpkb[4]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[3] < stnk[4]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[3] > stnk[4]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[3] < sim[4]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[3] > sim[4]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[3] < ranmor[4]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[3] > ranmor[4]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 6) {
+                                    bulansebelumnya = polda_month[4]
+                                    bpkbsebelumnya = bpkb[4];
+                                    stnksebelumnya = stnk[4];
+                                    simsebelumnya = sim[4];
+                                    ranmorsebelumnya = ranmor[4];
+                                    if (bpkb[4] < bpkb[5]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[4] > bpkb[5]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[4] < stnk[5]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[4] > stnk[5]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[4] < sim[5]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[4] > sim[5]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[4] < ranmor[5]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[4] > ranmor[5]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 7) {
+                                    bulansebelumnya = polda_month[5]
+                                    bpkbsebelumnya = bpkb[5];
+                                    stnksebelumnya = stnk[5];
+                                    simsebelumnya = sim[5];
+                                    ranmorsebelumnya = ranmor[5];
+                                    if (bpkb[5] < bpkb[6]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[5] > bpkb[6]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[5] < stnk[6]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[5] > stnk[6]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[5] < sim[6]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[5] > sim[6]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[5] < ranmor[6]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[5] > ranmor[6]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 8) {
+                                    bulansebelumnya = polda_month[6]
+                                    bpkbsebelumnya = bpkb[6];
+                                    stnksebelumnya = stnk[6];
+                                    simsebelumnya = sim[6];
+                                    ranmorsebelumnya = ranmor[6];
+                                    if (bpkb[6] < bpkb[7]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[6] > bpkb[7]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[6] < stnk[7]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[6] > stnk[7]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[6] < sim[7]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[6] > sim[7]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[6] < ranmor[7]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[6] > ranmor[7]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 9) {
+                                    bulansebelumnya = polda_month[7]
+                                    bpkbsebelumnya = bpkb[7];
+                                    stnksebelumnya = stnk[7];
+                                    simsebelumnya = sim[7];
+                                    ranmorsebelumnya = ranmor[7];
+                                    if (bpkb[7] < bpkb[8]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[7] > bpkb[8]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[7] < stnk[8]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[7] > stnk[8]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[7] < sim[8]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[7] > sim[8]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[7] < ranmor[8]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[7] > ranmor[8]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 10) {
+                                    bulansebelumnya = polda_month[8]
+                                    bpkbsebelumnya = bpkb[8];
+                                    stnksebelumnya = stnk[8];
+                                    simsebelumnya = sim[8];
+                                    ranmorsebelumnya = ranmor[8];
+                                    if (bpkb[8] < bpkb[9]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[8] > bpkb[9]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[8] < stnk[9]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[8] > stnk[9]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[8] < sim[9]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[8] > sim[9]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[8] < ranmor[9]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[8] > ranmor[9]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 11) {
+                                    bulansebelumnya = polda_month[9]
+                                    bpkbsebelumnya = bpkb[9];
+                                    stnksebelumnya = stnk[9];
+                                    simsebelumnya = sim[9];
+                                    ranmorsebelumnya = ranmor[9];
+                                    if (bpkb[9] < bpkb[10]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[9] > bpkb[10]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = `Seimbang`
+                                    }
+                                    if (stnk[9] < stnk[10]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[9] > stnk[10]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = `Seimbang`
+                                    }
+                                    if (sim[9] < sim[10]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[9] > sim[10]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = `Seimbang`
+                                    }
+                                    if (ranmor[9] < ranmor[10]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[9] > ranmor[10]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = `Seimbang`
+                                    }
+
+                                } else if (w.globals.labels[dataPointIndex] == 12) {
+                                    bulansebelumnya = polda_month[10]
+                                    bpkbsebelumnya = bpkb[10];
+                                    stnksebelumnya = stnk[10];
+                                    simsebelumnya = sim[10];
+                                    ranmorsebelumnya = ranmor[10];
+                                    if (bpkb[10] < bpkb[11]) {
+                                        persentasebpkb = 'Naik'
+                                    } else if (bpkb[10] > bpkb[11]) {
+                                        persentasebpkb = 'Turun'
+                                    } else {
+                                        persentasebpkb = 'Seimbang'
+                                    }
+                                    if (stnk[10] < stnk[11]) {
+                                        persentasestnk = 'Naik'
+                                    } else if (stnk[10] > stnk[11]) {
+                                        persentasestnk = 'Turun'
+                                    } else {
+                                        persentasestnk = 'Seimbang'
+                                    }
+                                    if (sim[10] < sim[11]) {
+                                        persentasesim = 'Naik'
+                                    } else if (sim[10] > sim[11]) {
+                                        persentasesim = 'Turun'
+                                    } else {
+                                        persentasesim = 'Seimbang'
+                                    }
+                                    if (ranmor[10] < ranmor[11]) {
+                                        persentaseranmor = 'Naik'
+                                    } else if (ranmor[10] > ranmor[11]) {
+                                        persentaseranmor = 'Turun'
+                                    } else {
+                                        persentaseranmor = 'Seimbang'
+                                    }
+
+                                }
+
+                                return (
+                                    `${w.globals.labels[dataPointIndex] != 1 ? `<div style="width: 36rem; height:10rem;">`:'<div style="width: 16rem; height:10rem;">'}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                            ${w.globals.labels[dataPointIndex] != 1 ? `
+                                                <div class="col-md-4">
+                                                <div class="my-2  text-center"">   
+                                                    <span class="fs-6 fw-bold">${bulansebelumnya}</span>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-8 ms-1">
+                                                            <span class="fw-bold">Total Bpkb</span><br>
+                                                            <span class="fw-bold">Total Stnk</span><br>
+                                                            <span class="fw-bold">Total Sim</span><br>
+                                                            <span class="fw-bold">Total Ranmor</span><br>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <span class="fw-bold">${bpkbsebelumnya}</span><br>
+                                                            <span class="fw-bold">${stnksebelumnya}</span><br>
+                                                            <span class="fw-bold">${simsebelumnya}</span><br>
+                                                            <span class="fw-bold">${ranmorsebelumnya}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-4">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-8">
+                                                            <span class="fw-bold">Total Bpkb</span><br>
+                                                            <span class="fw-bold">Total Stnk</span><br>
+                                                            <span class="fw-bold">Total Sim</span><br>
+                                                            <span class="fw-bold">Total Ranmor</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${bpkb[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${stnk[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${sim[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${ranmor[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                <div class="my-2 text-center">
+                                                    <span class="fs-6 fw-bold">Presentase</span>
+                                                </div>
+                                                    <span class="fw-bold">${persentasebpkb}</span><br>
+                                                    <span class="fw-bold">${persentasestnk}</span><br>
+                                                    <span class="fw-bold">${persentasesim}</span><br>
+                                                    <span class="fw-bold">${persentaseranmor}</span><br>
+                                                </div>
+                                                ` : `
+                                                <div class="col-md-12">
+                                                <div class="my-2 text-center">    
+                                                    <span class="fs-6 fw-bold">${polda_month[dataPointIndex]}</span>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-md-7 ms-2">
+                                                            <span class="fw-bold">Total Bpkb</span><br>
+                                                            <span class="fw-bold">Total Stnk</span><br>
+                                                            <span class="fw-bold">Total Sim</span><br>
+                                                            <span class="fw-bold">Total Ranmor</span><br>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <span class="fw-bold">${bpkb[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${stnk[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${sim[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${ranmor[dataPointIndex]}</span><br>
+                                                        </div>
+                                                    </div>
+                                                </div>`}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                                );
+                            }
+                        }
+
                     };
 
                     var ditregident = new ApexCharts(document.querySelector("#chart3"), ditregident);
