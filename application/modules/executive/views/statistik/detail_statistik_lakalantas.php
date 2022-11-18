@@ -716,7 +716,7 @@
                                     <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <div id="titledate"></div>
+                                                <div id="titleline"></div>
                                             </div>
                                             <div class="card-body">
                                                 <div class="main-chart">
@@ -727,7 +727,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="card">
@@ -988,104 +987,13 @@
                         }
                     })
 
-                    // $.ajax({
-                    //     type: "POST",
-                    //     url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
-                    //     data: {
-                    //         start_date: seven_daysAgo,
-                    //         end_date: yesterday
-                    //     },
-                    //     dataType: "JSON",
-                    //     success: function(results) {
-                    //         $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
-                    //         $("#chartdate").html(`<div id="chart2"></div>`);
-                    //         console.log(results)
-
-                    //         let apolda_name = results.data.polda_name
-                    //         let apolda_luka_berat = results.data.polda_luka_berat
-                    //         let apolda_luka_ringan = results.data.polda_luka_ringan
-                    //         let apolda_meninggal_dunia = results.data.polda_meninggal_dunia
-                    //         let apolda_insiden_kecelakaan = results.data.insiden_kecelakaan
-                    //         var chart = {
-                    //             series: [{
-                    //                 name: 'Total Laka',
-                    //                 type: 'column',
-                    //                 data: results.data.insiden_kecelakaan,
-                    //                 color: "#11347A"
-                    //             }],
-                    //             chart: {
-                    //                 height: '400',
-                    //                 type: 'line',
-                    //                 stacked: false,
-                    //                 events: {
-                    //                     dataPointSelection: (event, chartContext, config) => {
-                    //                         // var selectedpolda = pad(config.dataPointIndex);
-                    //                         window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
-                    //                     }
-                    //                 },
-
-                    //             },
-                    //             tooltip: {
-                    //                 fixed: {
-                    //                     enabled: true
-                    //                 }
-                    //             },
-                    //             plotOptions: {
-                    //                 bar: {
-                    //                     horizontal: false,
-                    //                     columnWidth: '40%',
-                    //                     endingShape: 'rounded',
-                    //                     dataLabels: {
-                    //                         position: 'top'
-                    //                     }
-                    //                 },
-                    //             },
-                    //             dataLabels: {
-                    //                 enabled: true,
-                    //                 style: {
-                    //                     colors: ['#333']
-                    //                 },
-                    //                 offsetY: -15
-                    //             },
-
-                    //             stroke: {
-                    //                 show: true,
-                    //                 width: [1, 1, 4, 4],
-                    //                 colors: ['transparent']
-                    //             },
-                    //             xaxis: {
-                    //                 categories: apolda_name,
-                    //             },
-                    //             yaxis: [{
-                    //                 axisTicks: {
-                    //                     show: false,
-                    //                 },
-                    //                 axisBorder: {
-                    //                     show: false,
-                    //                     color: '#008FFB'
-                    //                 },
-                    //                 labels: {
-                    //                     style: {
-                    //                         colors: '#008FFB',
-                    //                     }
-                    //                 },
-
-
-                    //             }, ],
-
-                    //         };
-
-
-                    //         var chart = new ApexCharts(document.querySelector("#chart2"), chart);
-                    //         chart.render();
-                    //     }
-                    // })
-
                     topLakaDay(yesterday);
                     topLakaMonth(firstDayMonth, lastDayMonth);
-                    topLakaYear(firstDay, lastDay);
+                    topLakaYear(firstDay, lastDay)
 
                     ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+
+                    LakalineChart(seven_daysAgo, yesterday)
                     jam();
                 })
 
@@ -1104,13 +1012,14 @@
                         },
                         dataType: "JSON",
                         success: function(result) {
+                            console.log(result.data)
                             $("#overlay").fadeOut(300);
                             $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                             $("#charta").html(`<div id="chart"></div>`);
 
                             let polda_id = result.data.polda_id
                             let polda_name = result.data.polda_name
-                            let polda_jumlah = result.data.polda_insiden_kecelakaan
+                            let polda_jumlah = result.data.insiden_kecelakaan
                             let polda_luka_berat = result.data.polda_luka_berat
                             let polda_luka_ringan = result.data.polda_luka_ringan
                             let polda_meninggal_dunia = result.data.polda_meninggal_dunia
@@ -1386,7 +1295,87 @@
 
                             }
                         })
+
+                        LakalineChart(start_date, end_date)
                     }
+                }
+
+                function LakalineChart(seven_daysAgo, yesterday) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+                        data: {
+                            start_date: seven_daysAgo,
+                            end_date: yesterday
+                        },
+                        dataType: "JSON",
+                        success: function(results) {
+                            $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
+                            $("#chartdate").html(`<div id="chart2"></div>`);
+                            console.log(results)
+
+                            var chart2 = {
+                                series: [{
+                                    name: 'Total Laka',
+                                    type: 'line',
+                                    data: results.data.polda_insiden_kecelakaan,
+                                    color: "#11347A"
+                                }, {
+                                    name: 'Meninggal Dunia',
+                                    type: 'line',
+                                    data: results.data.polda_meninggal_dunia,
+                                    color: "#CB2D3E"
+                                }, {
+                                    name: 'Luka Berat',
+                                    type: 'line',
+                                    data: results.data.polda_luka_berat,
+                                    color: "#E8D42F"
+                                }, {
+                                    name: 'Luka Ringan',
+                                    type: 'line',
+                                    data: results.data.polda_luka_ringan,
+                                    color: "#3CA55C"
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'line',
+                                    stacked: false
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded',
+                                        dataLabels: {
+                                            position: 'top'
+                                        }
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    style: {
+                                        colors: ['#333']
+                                    },
+                                    offsetY: -15
+                                },
+                                markers: {
+                                    size: 4,
+                                    colors: '#kkk',
+                                    fillOpacity: 0.9,
+                                    shape: "circle",
+                                    radius: 2,
+                                },
+                                xaxis: {
+                                    categories: results.data.polda_name,
+                                }
+
+                            };
+
+                            var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
+                            ditgakkum.render();
+                        }
+                    })
                 }
 
                 function ButtonExport() {

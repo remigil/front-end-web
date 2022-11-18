@@ -46,6 +46,8 @@ class M_detail_statistik extends CI_Model
             $polda_jumlah[] = $key['total'];
         }
 
+
+        
         return [
             'polda_id' => $poldaID,
             'polda_name' => $poldaName,
@@ -62,20 +64,21 @@ class M_detail_statistik extends CI_Model
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'garlantas/daily';
+            $url = 'garlantas/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
             $garlantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'garlantas/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $url = 'garlantas/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
             $garlantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         }
+
 
         $poldaID = array();
         $poldaName = array();
@@ -109,15 +112,15 @@ class M_detail_statistik extends CI_Model
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'turjagwali/daily';
-            $turjawalinasional = guzzle_request('GET', $url, [
+            $url = 'turjagwali/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
+            $turjagwalinasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'turjagwali/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
-            $turjawalinasional = guzzle_request('GET', $url, [
+            $url = 'turjagwali/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $turjagwalinasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
@@ -131,7 +134,7 @@ class M_detail_statistik extends CI_Model
         $polda_pengawalan = array();
         $polda_patroli = array();
         $polda_jumlah = array();
-        foreach ($turjawalinasional['data']['rows'] as $key) {
+        foreach ($turjagwalinasional['data']['rows'] as $key) {
             $poldaID[] = $key['id'];
             $poldaName[] = $key['name_polda'];
             $polda_pengaturan[] = $key['pengaturan'];
@@ -154,16 +157,15 @@ class M_detail_statistik extends CI_Model
 
     public function getRanmorNasional($filterbaru)
     {
-
         if ($filterbaru['filter'] == 0) {
-            $url = 'ranmor/daily';
+            $url = 'ranmor/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
             $ranmornasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'ranmor/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $url = 'ranmor/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
             $ranmornasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
@@ -446,6 +448,132 @@ class M_detail_statistik extends CI_Model
         ];
     }
 
+    public function getGarlantasNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'garlantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'garlantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_pelanggaran_berat = array();
+        $polda_pelanggaran_sedang = array();
+        $polda_pelanggaran_ringan = array();
+        $polda_teguran = array();
+        foreach ($lakalantasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_pelanggaran_berat[] = $key['pelanggaran_berat'];
+            $polda_pelanggaran_sedang[] = $key['pelanggaran_sedang'];
+            $polda_pelanggaran_ringan[] = $key['pelanggaran_ringan'];
+            $polda_teguran[] = $key['teguran'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_pelanggaran_berat' => $polda_pelanggaran_berat,
+            'polda_pelanggaran_sedang' => $polda_pelanggaran_sedang,
+            'polda_pelanggaran_ringan' => $polda_pelanggaran_ringan,
+            'polda_teguran' => $polda_teguran,
+        ];
+    }
+
+    public function getTurjagwaliNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'turjagwali/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'turjagwali/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_pengaturan = array();
+        $polda_penjagaan = array();
+        $polda_pengawalan = array();
+        $polda_patroli = array();
+        foreach ($lakalantasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_pengaturan[] = $key['pengaturan'];
+            $polda_penjagaan[] = $key['penjagaan'];
+            $polda_pengawalan[] = $key['pengawalan'];
+            $polda_patroi[] = $key['patroli'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_pengaturan' => $polda_pengaturan,
+            'polda_penjagaan' => $polda_penjagaan,
+            'polda_pengawalan' => $polda_pengawalan,
+            'polda_patroli' => $polda_patroli,
+        ];
+    }
+
+    public function getRanmorNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'ranmor/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'ranmor/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_mobil_penumpang = array();
+        $polda_mobil_barang = array();
+        $polda_mobil_bus = array();
+        $polda_sepeda_motor = array();
+        $polda_ransus = array();
+
+        foreach ($lakalantasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_mobil_penumpang[] = $key['mobil_penumpang'];
+            $polda_mobil_barang[] = $key['mobil_barang'];
+            $polda_mobil_bus[] = $key['mobil_bus'];
+            $polda_sepeda_motor[] = $key['sepeda_motor'];
+            $polda_ransus[] = $key['ransus'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_mobil_penumpang' => $polda_mobil_penumpang,
+            'polda_mobil_barang' => $polda_mobil_barang,
+            'polda_mobil_bus' => $polda_mobil_bus,
+            'polda_sepeda_motor' => $polda_sepeda_motor,
+            'polda_ransus' => $polda_ransus,
+        ];
+    }
     function getmonth($value)
     {
         $month = '';
