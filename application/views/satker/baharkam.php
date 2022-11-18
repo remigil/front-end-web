@@ -79,14 +79,14 @@
 	</div>
 	<hr>
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<h3>Galeri Foto</h3>
 		</div>
 		<div class="col-md-12">
 			<div class="simple-slick-carousel dots-nav">
 
-				<!-- Listing Item -->
+				Listing Item
 				<div class="carousel-item">
 					<a href="listings-single-page.html" class="listing-item-container compact">
 						<div class="listing-item">
@@ -103,9 +103,9 @@
 						</div>
 					</a>
 				</div>
-				<!-- Listing Item / End -->
+				Listing Item / End
 
-				<!-- Listing Item -->
+				Listing Item
 				<div class="carousel-item">
 					<a href="listings-single-page.html" class="listing-item-container compact">
 						<div class="listing-item">
@@ -124,9 +124,9 @@
 						</div>
 					</a>
 				</div>
-				<!-- Listing Item / End -->		
+				Listing Item / End		
 
-				<!-- Listing Item -->
+				Listing Item
 				<div class="carousel-item">
 					<a href="listings-single-page.html" class="listing-item-container compact">
 						<div class="listing-item">
@@ -146,9 +146,9 @@
 
 					</a>
 				</div>
-				<!-- Listing Item / End -->
+				Listing Item / End
 
-				<!-- Listing Item -->
+				Listing Item
 				<div class="carousel-item">
 					<a href="listings-single-page.html" class="listing-item-container compact">
 						<div class="listing-item">
@@ -165,11 +165,11 @@
 						</div>
 					</a>
 				</div>
-				<!-- Listing Item / End --> 
+				Listing Item / End 
 
 			</div> 
 		</div>
-	</div>
+	</div> -->
 	
 	<div class="row">
 		<div class="col-md-4">

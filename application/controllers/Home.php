@@ -137,8 +137,26 @@ class Home extends MX_Controller {
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
-        $getBerita = $getBerita["data"];
-		// var_dump($getBerita);die;
+        $getBeritaall = $getBerita['data']['datanya'];
+
+		$getTitle = $getBeritaall['data'][0]['title'];
+
+		var_dump($getTitle);die;
+		$data = [
+			'title' => $getTitle,
+		];
+
+		
+		
+
+		// $data = [
+        //     'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+        //     'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+        //     'motor' =>  number_format($totalmotor, 0, '', '.'),
+        //     'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
+        //     'sim' =>  number_format($totalsim, 0, '', '.'),
+        // ];
+		echo json_encode($data);
 	}
 
 	public function error()

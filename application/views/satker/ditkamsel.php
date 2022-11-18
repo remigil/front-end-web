@@ -51,7 +51,7 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-8">
 			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
 			<div class="col-md-3">
@@ -75,7 +75,7 @@
 			</ol>
 		</div>
 	</div>
-	<hr>
+	<hr> -->
 
 	<div class="row">
 		<div class="col-md-12">

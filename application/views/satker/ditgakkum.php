@@ -51,7 +51,7 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
 			<div class="col-md-3">
@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						
-						<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
 				</a>
 			</div>
@@ -86,7 +86,7 @@
 							</div>
 						</div>
 						
-						<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
 				</a>
 			</div>
@@ -105,7 +105,7 @@
 							</div>
 						</div>
 						
-						<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
 				</a>
 			</div>
@@ -124,7 +124,7 @@
 							</div>
 						</div>
 						
-						<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
 				</a>
 			</div>
@@ -163,7 +163,7 @@
 			</div>
 		</div>
 	</div>
-	<hr>
+	<hr> -->
 
 	<div class="row">
 		<div class="col-md-12">
@@ -189,7 +189,7 @@
 	</div>
 	<hr>
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
@@ -207,7 +207,7 @@
 				<p>test</p>
 			</div>
         </div>
-	</div>
+	</div> -->
 
 </div>
 <!-- Container / End -->

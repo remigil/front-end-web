@@ -151,7 +151,7 @@
                 <div class="col-md-6">
                     <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white" id="lakalantas"></h2>
+                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="lakalantas"></h2>
                             <h4>Kecelakaan Lalu Lintas </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -161,7 +161,7 @@
                 <div class="col-md-6">
 					<a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white" id="motor"></h2>
+                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="motor"></h2>
                             <h4>Kendaraan Bermotor </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -171,7 +171,7 @@
                 <div class="col-md-6">
                 <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
                         <div class="img-box-content visible">
-                            <h2 style="color: white" id="garlantas"></h2>
+                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="garlantas"></h2>
                             <h4>Pelanggaran Lalu Lintas </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -181,7 +181,7 @@
                 <div class="col-md-6">
                 <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
                         <div class="img-box-content visible">
-                            <h2 style="color: white" id="sim"></h2>
+                            <h2 class="fw-bolder" style="color: white; font-size:45px;" id="sim"></h2>
                             <h4>Jumlah SIM </h4>
                             <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -268,86 +268,40 @@
     <div class="col-md-12">
         <div class="simple-slick-carousel dots-nav">
 
-            <!-- Listing Item -->
-            <div class="carousel-item">
-                <a href="listings-single-page.html" class="listing-item-container compact">
-                    <div class="listing-item">
-                        <img src="<?php echo base_url();?>assets/fe/news_1.png" alt="">
-
-                        <div class="listing-badge now-open">Now Open</div>
-
-                        <div class="listing-item-content">
-                            <div class="numerical-rating" data-rating="3.5"></div>
-                            <h3>Tom's Restaurant <i class="verified-icon"></i></h3>
-                            <span>964 School Street, New York</span>
-                        </div>
-                        <span class="like-icon"></span>
-                    </div>
-                </a>
-            </div>
-            <!-- Listing Item / End -->
-
-            <!-- Listing Item -->
-            <div class="carousel-item">
-                <a href="listings-single-page.html" class="listing-item-container compact">
-                    <div class="listing-item">
-                        <img src="<?php echo base_url();?>assets/fe/news_2.png" alt="">
-                        <div class="listing-item-details">
-                            <ul>
-                                <li>Friday, August 10</li>
-                            </ul>
-                        </div>
-                        <div class="listing-item-content">
-                            <div class="numerical-rating" data-rating="5.0"></div>
-                            <h3>Sticky Band</h3>
-                            <span>Bishop Avenue, New York</span>
-                        </div>
-                        <span class="like-icon"></span>
-                    </div>
-                </a>
-            </div>
-            <!-- Listing Item / End -->		
-
-            <!-- Listing Item -->
-            <div class="carousel-item">
-                <a href="listings-single-page.html" class="listing-item-container compact">
-                    <div class="listing-item">
-                        <img src="<?php echo base_url();?>assets/fe/news_3.png" alt="">
-                        <div class="listing-item-details">
-                            <ul>
-                                <li>Starting from $59 per night</li>
-                            </ul>
-                        </div>
-                        <div class="listing-item-content">
-                            <div class="numerical-rating" data-rating="2.0"></div>
-                            <h3>Hotel Govendor</h3>
-                            <span>778 Country Street, New York</span>
-                        </div>
-                        <span class="like-icon"></span>
-                    </div>
-
-                </a>
-            </div>
-            <!-- Listing Item / End -->
-
-            <!-- Listing Item -->
-            <div class="carousel-item">
-                <a href="listings-single-page.html" class="listing-item-container compact">
-                    <div class="listing-item">
-                        <img src="<?php echo base_url();?>assets/fe/news_4.png" alt="">
-
-                        <div class="listing-badge now-open">Now Open</div>
-
-                        <div class="listing-item-content">
-                            <div class="numerical-rating" data-rating="5.0"></div>
-                            <h3>Burger House <i class="verified-icon"></i></h3>
-                            <span>2726 Shinn Street, New York</span>
-                        </div>
-                        <span class="like-icon"></span>
-                    </div>
-                </a>
-            </div>
-            <!-- Listing Item / End --> 
+			<div class="card shadow" style="width: 18rem;">
+				<img src="<?= base_url()?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
+				<div class="card-body shadow bg-light">
+					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/"><h5 class="card-title fw-bold text-justify">Pengamanan Pengawalan Delegasi KTT G20 Dinilai Berhasil, Kakorlantas: Berkat Kekompakan Kolaborasi & Kerjasama TNI-Polri</h5></a>
+					<hr>
+					<p class="card-text text-justify">Kepolisian Negara Republik Indonesia (Polri) konsisten melakukan pengamanan dalam perhelatan Konferensi Tingkat Tinggi (KTT) G20 di Provinsi Bali. Dalam hal ini, Polri sebagai institusi keamanan negara menerapkan sistem pengamanan di berbagai sektor, salah satunya lalu lintas.</p>
+					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/" class="btn btn-primary">Selengkapnya</a>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img src="<?= base_url()?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
+				<div class="card-body bg-light rounded">
+					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify">Kepala Negara G20 Bergerak Pulang, Warga Diminta Cari Jalur Alternatif</h5></a>
+					<hr>
+					<p class="card-text text-justify">Polri siap melaksanakan pengamanan dan pengawalan kepulangan kepala negara dan delegasi Konferensi Tingkat Tinggi (KTT) G20 mulai hari ini, Rabu (16/11/2022).</p>
+					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img src="<?= base_url()?>assets/fe/beritafix3.jpg" class="card-img-top" alt="..." height="250px">
+				<div class="card-body bg-light rounded">
+					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/"><h5 class="card-title fw-bold text-justify">Antisipasi Gangguan Kamseltibcarlantas, Satlantas Polres Melawi Perbaiki Jalan Provinsi yang Rusak</h5></a>
+					<p class="card-text text-justify">Aksi perbaikan dan penimbunan jalan provinsi yang ada di kilometer 1 Nanga Pinoh dilakukan oleh Satuan Lalu Lintas (Satlantas) Kepolisian Resort (Polres) Melawi. Hal itu dilakukan sebagai upaya mencegah terjadinya kecelakaan lalu lintas kendaraan yang melintas.</p>
+					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/" class="btn btn-primary">Selengkapnya</a>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img src="<?= base_url()?>assets/fe/beritafix4.jpg" class="card-img-top" alt="..." height="250px">
+				<div class="card-body bg-light rounded">
+					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/"><h5 class="card-title fw-bold text-justify">Satlantas Polres Sigi Sediakan Pelatihan Uji SIM Gratis</h5></a>
+					<p class="card-text text-justify">Satuan Lalu Lintas Polres Sigi memberikan bimbingan belajar alias Bimbel tanpa biaya kepada masyarakat untuk mempermudah warga mendapatkan Surat Izin Mengemudi alias SIM.</p>
+					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/" class="btn btn-primary">Selengkapnya</a>
+				</div>
+			</div>
 
         </div> 
     </div>
@@ -367,19 +321,19 @@
                 <div class="tab-content" id="tab1b">
                     <!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
                     <div class="row margin-top-20">
-                        <div class="col-md-8">
-                            <iframe width="760" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="col-md-8 border-end shadows">
+                            <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div> 
                         <div class="col-md-4">
                             <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/KBoJyLTpw40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/D3LIJIktL08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/eLZyzyg_gjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div> 
@@ -389,18 +343,18 @@
 					<!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
                     <div class="row margin-top-20">
                         <div class="col-md-8">
-                            <iframe width="760" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div> 
                         <div class="col-md-4">
                             <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/7jPl7-COisI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/8mAfrS383bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx285qn30iKm-V_u7wr-gOlj7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-md-12">
-                                    <iframe width="360" height="200" src="https://www.youtube.com/embed/rvHfWzlVJVA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287PYIAGDdyjY67kvhZBUN_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div> 
@@ -449,51 +403,51 @@
                     <div class="logo-slick-carousel dot-navigation">
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt="">
+                            <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt=""></a>
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt="">
+                            <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt=""></a>
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt="">
+                            <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt=""></a>
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt="">
+                            <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt=""></a>
                         </div>
                         
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt="">
+                            <a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt=""></a>
                         </div>		
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/instan.png" alt="">
+                            <a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/instan.png" alt=""></a>
                         </div>	
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt="">
+                            <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt=""></a>
                         </div>
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="">
+                            <a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
                         </div>
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt="">
+                            <a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt=""></a>
                         </div>
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt="">
+                            <a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt=""></a>
                         </div>
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt="">
+                            <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt=""></a>
                         </div>
 
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt="">
+                            <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt=""></a>
                         </div>      
 
 
@@ -532,7 +486,7 @@
 				$("#overlay").fadeOut(300);
 
 				let ressData = result;
-				console.log(result);
+				// console.log(result);
 
 
 				for (let i = 0; i < ressData.length; i++) {
@@ -594,7 +548,7 @@
 							</div>
 
 							<div class="col-md-12 mt-3">
-								<a href=<?= base_url('executive/Polda_executive/index/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+								<a href=${ressData[i].website} target="_blank"><button class="btn btn-primary float-end">Selengkapnya</button></a>   
 							</div>
 							</div>
 					</div>
@@ -615,12 +569,25 @@
 			url: "<?php echo base_url(); ?>home/getStatistik",
 			dataType: "JSON",
 			success: function(result) {
+				// console.log(result)
 				$("#overlay").fadeOut(300);
 
 				$('#lakalantas').html(`${result.lakalantas}`);
 				$('#garlantas').html(`${result.garlantas}`);
 				$('#motor').html(`${result.motor}`);
 				$('#sim').html(`${result.sim}`);
+			}
+		})
+
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>home/getBerita",
+			dataType: "JSON",
+			success: function(result) {
+				console.log(result.data)
+
+				$('#title_berita').html(`${results.title}`);
+				$('#isi_berita').val(result.content)
 			}
 		})
 
