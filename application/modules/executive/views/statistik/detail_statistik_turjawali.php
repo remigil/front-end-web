@@ -542,7 +542,11 @@
                                     <div class="col-md-12 d-flex align-items-center" style="margin:-20px 0 -20px 0;">
                                         <div class="col-md-6">
                                             <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
-                                                <iconify-icon icon="cil:home" style="font-size: 20px; color: #000;" class=" me-2"></iconify-icon>
+                                                <iconify-icon icon="cil:arrow-circle-left" style="font-size: 30px; color:#007DD8;"></iconify-icon>
+                                            </a>
+                                            <span class="fs-1" style="color:#000;"><b style="text-transform: uppercase; "> | </b></span>
+                                            <a href="<?= base_url() ?>dashboard/Dashboardeksekutif">
+                                                <iconify-icon icon="cil:home" style="font-size: 30px; color: #000;" class="me-2"></iconify-icon>
                                             </a>
                                             <a href="<?= base_url() ?>dashboard/Dashboardeksekutif"><span class=" fs-5" style="color:#000;">Welcome to <b style="text-transform: uppercase; ">Dashboard Executive</b></span></a>
                                         </div>
