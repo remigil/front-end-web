@@ -78,13 +78,17 @@ class Statistik_executive extends MY_Controller
 
     public function getDetailStatistikLakaLantas()
     {
-        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $title = 'TOP DATA KECELAKAAN LALU LINTAS';
         $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
                 'start_date' => '',
                 'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasional($filterbaru);
         } elseif ($filter != 0) {
@@ -92,6 +96,7 @@ class Statistik_executive extends MY_Controller
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasional($filterbaru);
         }
@@ -128,13 +133,17 @@ class Statistik_executive extends MY_Controller
 
     public function getDetailStatistikGarlantas()
     {
-        $title = 'DATA PELANGGARAN LALU LINTAS';
+        $title = 'TOP DATA PELANGGARAN LALU LINTAS';
         $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
                 'start_date' => '',
                 'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
             ];
             $getdata = $this->M_detail_statistik->getPelanggaranNasional($filterbaru);
         } elseif ($filter != 0) {
@@ -142,6 +151,7 @@ class Statistik_executive extends MY_Controller
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
             ];
             $getdata = $this->M_detail_statistik->getPelanggaranNasional($filterbaru);
         }
@@ -178,13 +188,17 @@ class Statistik_executive extends MY_Controller
 
     public function getDetailStatistikTurjawali()
     {
-        $title = 'DATA TURJAWALI';
+        $title = 'TOP DATA TURJAWALI';
         $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
                 'start_date' => '',
                 'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
             ];
             $getdata = $this->M_detail_statistik->getTurjawaliNasional($filterbaru);
         } elseif ($filter != 0) {
@@ -192,6 +206,7 @@ class Statistik_executive extends MY_Controller
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
             ];
             $getdata = $this->M_detail_statistik->getTurjawaliNasional($filterbaru);
         }
@@ -230,11 +245,15 @@ class Statistik_executive extends MY_Controller
     {
         $title = 'DATA KENDARAAN BERMOTOR';
         $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
                 'start_date' => '',
                 'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
             ];
             $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
         } elseif ($filter != 0) {
@@ -242,6 +261,7 @@ class Statistik_executive extends MY_Controller
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
             ];
             $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
         }
@@ -633,9 +653,9 @@ class Statistik_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'ranmor/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'ranmor/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'ranmor/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'ditregident/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ditregident/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ditregident/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -656,14 +676,14 @@ class Statistik_executive extends MY_Controller
             ]
         ]);
 
-        $sepeda_motor = 0;
+        $ranmor = 0;
 
         foreach ($thisYear['data'] as $key) {
-            $sepeda_motor += $key['sepeda_motor'];
+            $ranmor += $key['ranmor'];
         }
 
         $data['thisYear'] = [
-            'sepeda_motor' => $sepeda_motor,
+            'ranmor' => $ranmor,
         ];
 
         $data['ranmorDate'] = [
@@ -673,5 +693,118 @@ class Statistik_executive extends MY_Controller
         ];
 
         echo json_encode($data['ranmorDate']);
+    }
+
+    public function getLineLaka()
+    {
+        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    public function getLineGarlantas()
+    {
+        $title = 'DATA PELANGGARAN LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    public function getLineTurjagwali()
+    {
+        $title = 'DATA TURJAGWALI LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    public function getLineRanmor()
+    {
+        $title = 'DATA RANMOR LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getRanmorNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getRanmorNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
     }
 }

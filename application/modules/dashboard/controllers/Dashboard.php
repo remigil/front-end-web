@@ -1104,14 +1104,14 @@ class Dashboard extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getRanmor = guzzle_request('GET', 'ranmor/daily?date=' . $date . '', [
+        $getRanmor = guzzle_request('GET', 'ditregident/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
-        $getRanmor = $getRanmor["data"]["rows"];
+        $getRanmor = $getRanmor["data"];
 
         $totalmotor = 0;
         for ($i = 0; $i < count($getRanmor); $i++) {
-            $totalmotor += $getRanmor[$i]['sepeda_motor'];
+            $totalmotor += $getRanmor[$i]['ranmor'];
         }
 
         $getSim = guzzle_request('GET', 'sim/daily', [

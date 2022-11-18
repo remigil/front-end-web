@@ -606,7 +606,7 @@
                         table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
                             <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].total}  </td> 
+                            <td>  ${result[i].insiden_kecelakaan}  </td> 
                             <td>  ${result[i].meninggal_dunia}  </td> 
                             <td>  ${result[i].luka_berat}  </td> 
                             <td>  ${result[i].luka_ringan}  </td> 
