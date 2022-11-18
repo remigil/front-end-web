@@ -12,14 +12,14 @@ class M_detail_statistik extends CI_Model
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'laka_lantas/daily';
+            $url = 'laka_lantas/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'laka_lantas/daily?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $url = 'laka_lantas/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
@@ -33,6 +33,7 @@ class M_detail_statistik extends CI_Model
         $polda_luka_berat = array();
         $polda_luka_ringan = array();
         $polda_kerugian_material = array();
+        $polda_insiden_kecelakaan = array();
         $polda_jumlah = array();
         foreach ($lakalantasnasional['data']['rows'] as $key) {
             $poldaID[] = $key['id'];
@@ -41,6 +42,7 @@ class M_detail_statistik extends CI_Model
             $polda_luka_berat[] = $key['luka_berat'];
             $polda_luka_ringan[] = $key['luka_ringan'];
             $polda_kerugian_material[] = $key['kerugian_material'];
+            $polda_insiden_kecelakaan[] = $key['insiden_kecelakaan'];
             $polda_jumlah[] = $key['total'];
         }
 
@@ -51,6 +53,7 @@ class M_detail_statistik extends CI_Model
             'polda_luka_berat' => $polda_luka_berat,
             'polda_luka_ringan' => $polda_luka_ringan,
             'polda_kerugian_material' => $polda_kerugian_material,
+            'insiden_kecelakaan' => $polda_insiden_kecelakaan,
             'polda_jumlah' => $polda_jumlah,
         ];
     }
@@ -397,6 +400,50 @@ class M_detail_statistik extends CI_Model
         ]);
 
         return $data['data']['data'];
+    }
+
+    public function getKecelakaanNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'laka_lantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'laka_lantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_meninggal_dunia = array();
+        $polda_luka_berat = array();
+        $polda_luka_ringan = array();
+        $polda_kerugian_material = array();
+        $polda_insinden_kecelakaan = array();
+        foreach ($lakalantasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_meninggal_dunia[] = $key['meninggal_dunia'];
+            $polda_luka_berat[] = $key['luka_berat'];
+            $polda_luka_ringan[] = $key['luka_ringan'];
+            $polda_kerugian_material[] = $key['kerugian_material'];
+            $polda_insiden_kecelakaan[] = $key['insiden_kecelakaan'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_meninggal_dunia' => $polda_meninggal_dunia,
+            'polda_luka_berat' => $polda_luka_berat,
+            'polda_luka_ringan' => $polda_luka_ringan,
+            'polda_kerugian_material' => $polda_kerugian_material,
+            'polda_insiden_kecelakaan' => $polda_insiden_kecelakaan
+        ];
     }
 
     function getmonth($value)

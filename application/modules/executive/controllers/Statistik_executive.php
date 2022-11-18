@@ -78,13 +78,17 @@ class Statistik_executive extends MY_Controller
 
     public function getDetailStatistikLakaLantas()
     {
-        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $title = 'TOP DATA KECELAKAAN LALU LINTAS';
         $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
                 'filter' => $filter,
                 'start_date' => '',
                 'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasional($filterbaru);
         } elseif ($filter != 0) {
@@ -92,6 +96,7 @@ class Statistik_executive extends MY_Controller
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
             ];
             $getdata = $this->M_detail_statistik->getKecelakaanNasional($filterbaru);
         }
@@ -673,5 +678,34 @@ class Statistik_executive extends MY_Controller
         ];
 
         echo json_encode($data['ranmorDate']);
+    }
+
+    public function getLineLaka()
+    {
+        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
     }
 }
