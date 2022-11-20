@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="fs-3 fw-bold text-primary">Detail Operasi</p>
+                    <p class="fs-3 fw-bold text-primary text-uppercase">Detail Operasi</p>
                 </div>
                 <div class="col-md-6 mt-2">
                     <a href="<?php echo base_url() ?>operasi/RencanaOperasi/Edit/<?php echo $data['getDetail']['data']['id']; ?>"> <button type="button" class=" btn btn-primary waves-effect float-end" style="width: 25%;">Edit <i class="mdi mdi-square-edit-outline"></i></button></a>
@@ -71,14 +71,14 @@
             <hr class="mt-5" style="height:5px;border-width:0;color:gray;background-color:gray">
             <div class="row">
                 <div class="col-md-5 mt-4">
-                    <p class="fs-4 fw-bold text-primary">List Akun Operasi</p>
+                    <p class="fs-4 fw-bold text-primary text-uppercase">Daftar Polda yang Terlibat </p>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <button type="button" class="btn btn-primary waves-effect" data-bs-toggle="modal" data-bs-target=".TambahAkun">Tambah Akun</button>
                     </div>
-                </div>
+                </div> -->
                 <div class="card mt-3">
                     <div class="card-body">
                         <table id="datatable" class="table dt-responsive  nowrap w-100">
@@ -91,7 +91,7 @@
                                     <!-- <th>Username</th>
                                     <th>Password</th> -->
                                     <!-- <th>No. Kendaraan</th> -->
-                                    <th>Aksi</th>
+                                    <!-- <th>Aksi</th> -->
                                 </tr>
                             </thead>
                         </table>
@@ -107,7 +107,7 @@
     </div>
 </div>
 <!-- End Page -->
-<div class="modal fade TambahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- <div class="modal fade TambahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
@@ -158,7 +158,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <script>
@@ -257,24 +257,17 @@
                 // {
                 //     data: 'date_end_operation'
                 // },
-                {
-                    data: 'action',
-                    orderable: false
-                }
-
+                // {
+                //     data: 'action',
+                //     orderable: false
+                // }
             ],
-
             order: [
                 [0, "ASC"]
             ],
-
             drawCallback: function(settings) {
-
                 $("#overlay").fadeOut(300);
-
             }
-
-
         });
     });
 </script>

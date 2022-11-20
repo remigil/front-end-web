@@ -22,7 +22,8 @@ class RencanaOperasi extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Operasi Khusus";
-
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
@@ -32,7 +33,7 @@ class RencanaOperasi extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/operasi";
         } else {
-            redirect(base_url('404_notfound')); 
+            redirect(base_url('404_notfound'));
         }
 
 
@@ -144,6 +145,14 @@ class RencanaOperasi extends MY_Controller
                     'contents' => $input['name_operation'],
                 ],
                 [
+                    'name' => 'username',
+                    'contents' => $input['username'],
+                ],
+                [
+                    'name' => 'password',
+                    'contents' => $input['password'],
+                ],
+                [
                     'name' => 'date_start_operation',
                     'contents' => $input['date_start_operation'],
                 ],
@@ -203,7 +212,7 @@ class RencanaOperasi extends MY_Controller
         $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
             'headers' => $headers
         ]);
-        if($getDetail['isSuccess'] == false){
+        if ($getDetail['isSuccess'] == false) {
             redirect(base_url('404_notfound'));
             die;
         }
@@ -277,7 +286,7 @@ class RencanaOperasi extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "operasi/Polres/tambah_Polres";
         } else {
-            redirect(base_url('404_notfound')); 
+            redirect(base_url('404_notfound'));
         }
 
 
@@ -311,7 +320,7 @@ class RencanaOperasi extends MY_Controller
         $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
             'headers' => $headers
         ]);
-        if($getDetail['isSuccess'] == false){
+        if ($getDetail['isSuccess'] == false) {
             redirect(base_url('404_notfound'));
             die;
         }

@@ -23,7 +23,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -40,15 +40,29 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
+
                 <form action="" class="form">
-                    
+
                     <div class="row">
+
                         <div class="col-md-12">
-                        <div class="material-textfield">
-                        <input type="text" name="name_operation" id="" style="width:100% ;">
-                        <label for="" class="labelmui">Nama Operasi</label>
-                    </div>
+                            <div class="material-textfield">
+                                <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+                                <input type="text" name="name_operation" id="" style="width:100% ;">
+                                <label for="" class="labelmui">Nama Operasi</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield">
+                                <input type="text" name="username" id="" style="width:100% ;">
+                                <label for="" class="labelmui">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-textfield">
+                                <input type="password" name="password" id="" style="width:100% ;">
+                                <label for="" class="labelmui">Password</label>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
@@ -63,34 +77,34 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                   <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
-                        <label for="" class="labelmui">Document Sprint</label>
+                            <div class="material-textfield">
+                                <input type="file" name="photo" id="" style="width:100%;" class="form-control">
+                                <label for="" class="labelmui">Document Sprint</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="file" name="photo" id="" style="width:100%;" class="form-control">
+                                <label for="" class="labelmui">Logo</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="file" name="photo" id="" style="width:100%;" class="form-control">
+                                <label for="" class="labelmui">Background Image</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="material-textfield">
+                                <input type="file" name="photo" id="" style="width:100%;" class="form-control">
+                                <label for="" class="labelmui">Banner</label>
+                            </div>
+                        </div>
                     </div>
-                   </div>
-                   <div class="col-md-12">
-                   <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
-                        <label for="" class="labelmui">Logo</label>
-                    </div>
-                   </div>
-                   <div class="col-md-12">
-                   <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
-                        <label for="" class="labelmui">Background Image</label>
-                    </div>
-                   </div>
-                   <div class="col-md-12">
-                   <div class="material-textfield">
-                        <input type="file" name="photo" id="" style="width:100%;" class="form-control">
-                        <label for="" class="labelmui">Banner</label>
-                    </div>
-                   </div>
-                    </div>
-       
-            
-                    
-                    
+
+
+
+
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
                     </div>
@@ -169,7 +183,7 @@
         $('.dropify').dropify();
 
         userDataTable = $('#datatable').DataTable({
-            
+
 
             responsive: true,
 
@@ -250,14 +264,14 @@
                 {
                     data: 'id'
                 },
-				{
-					data: 'name_operation'
+                {
+                    data: 'name_operation'
                 },
-				{
-					data: 'date_start_operation'
-				},
-				{
-					data: 'date_end_operation'
+                {
+                    data: 'date_start_operation'
+                },
+                {
+                    data: 'date_end_operation'
                 },
                 {
                     data: 'action',
@@ -281,37 +295,37 @@
     });
 
     $(".form").submit(function(e) {
-            $("#overlay").fadeIn(300);
-            e.preventDefault();
-            var formData = new FormData($('.form')[0]);
-            $.ajax({
-                url: "<?php echo base_url(); ?>operasi/RencanaOperasi/store",
-                method: "POST",
-                data: formData,
-                dataType: 'JSON',
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $("#overlay").fadeOut(300);
-                    if (data['status'] == true) {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'success'
-                        ).then(function() {
-                            $(".TambahRencanaOperasi").modal('hide');
-                            userDataTable.draw();
-                        });
-                    } else {
-                        Swal.fire(
-                            `${data['message']}`,
-                            '',
-                            'error'
-                        ).then(function() {});
-                    }
+        $("#overlay").fadeIn(300);
+        e.preventDefault();
+        var formData = new FormData($('.form')[0]);
+        $.ajax({
+            url: "<?php echo base_url(); ?>operasi/RencanaOperasi/store",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#overlay").fadeOut(300);
+                if (data['status'] == true) {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".TambahRencanaOperasi").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
                 }
-            });
+            }
         });
+    });
 
     $("#HapusRencanaOperasi").click(function() {
         Swal.fire({

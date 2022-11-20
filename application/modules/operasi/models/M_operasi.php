@@ -104,7 +104,6 @@ class M_operasi extends CI_Model
 
         ]);
 
-        // var_dump($result);die;
 
 
         $no = 1;

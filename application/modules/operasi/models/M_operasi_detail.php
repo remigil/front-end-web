@@ -111,11 +111,11 @@ class M_operasi_detail extends CI_Model
             // $row['name_polda']         = $field['name_polda'];
             // $row['name_polda']         = $field['name_polda'];
 
-            $row['action']         = '   
-                
-			<a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
-                
-            ';
+            // $row['action']         = '   
+
+            // <a href="' . base_url() . 'operasi/RencanaOperasi/detail/' . $field['id'] . '"><button class="btn btn-sm btn-primary"><i class="mdi mdi-cog "></i></button></a>
+
+            // ';
 
             $data[] = $row;
         }
