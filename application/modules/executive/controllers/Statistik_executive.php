@@ -19,7 +19,7 @@ class Statistik_executive extends MY_Controller
     //     $data["title"] = "Detail Statistik";
     //     $this->load->view('executive/statistik/detail_statistik_view', $data);
     // }
-	public function getPolda()
+    public function getPolda()
     {
         $id = $this->input->post('id');
         $headers = [
@@ -31,25 +31,34 @@ class Statistik_executive extends MY_Controller
             'headers' => $headers
         ]);
 
-		$urlall = 'polda';
+        $urlall = 'polda';
         $getPoldaall = guzzle_request('GET', $urlall, [
             'headers' => $headers
         ]);
 
-		$data = [
+        $data = [
             'polda' => $getPolda['data']['data'],
             'poldaall' => $getPoldaall['data']['data'],
         ];
         echo json_encode($data);
-	}
+    }
 
     public function LakaLantas()
     {
         $data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA KECELAKAAN LALU LINTAS';
-        $this->load->view('executive/statistik/detail_statistik_lakalantas', $data);
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "DATA KECELEKAAN LALU LINTAS";
+        $page_content["page"] = "executive/statistik/detail_statistik_lakalantas";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
     }
     public function Garlantas()
     {
