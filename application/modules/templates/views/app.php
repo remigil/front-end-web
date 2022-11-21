@@ -682,24 +682,26 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-            <header id="page-topbar" style="background: #1D1D1D;">
+        <!-- <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+            <header id="page-topbar" style="background: #00000;">
             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                 <header id="page-topbar" style="background: #000dda;">
 
                 <?php } else { ?>
                     <header id="page-topbar">
-                    <?php } ?>
+						<?php } ?> -->
+						<header id="page-topbar">
 
                     <div class="navbar-header">
                         <div class="d-flex">
                             <!-- LOGO -->
-                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                            <!-- <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                                 <div class="navbar-brand-box" style="background: none;">
                                 <?php } else { ?>
                                     <div class="navbar-brand-box">
-                                    <?php } ?>
-
+										<?php } ?> -->
+										
+										<div class="navbar-brand-box">
                                     <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                         <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                                             <span class="logo-sm">
@@ -756,7 +758,7 @@
 
                                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
                                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:black"><?php echo $title; ?></h5>
                                         <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:white"><?php echo $title; ?></h5>
                                         <?php } else { ?>
@@ -768,7 +770,7 @@
 
                                     <?php } else { ?>
                                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:#D3A53A"><?php echo $title; ?></h5>
+                                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:black"><?php echo $title; ?></h5>
                                         <?php } else { ?>
                                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px;"><?php echo $title; ?></h5>
                                         <?php } ?>
@@ -788,7 +790,8 @@
                                         <div class="dropdown d-inline-block">
                                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                                    <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <!-- <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+													<i data-feather="bell" class="icon-lg"></i>
                                                 <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                                     <img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                 <?php } else { ?>
@@ -828,7 +831,9 @@
                                     <div class="dropdown d-inline-block">
                                         <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar">
+                                                <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar"> -->
+												<img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
+												<span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
                                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
 
@@ -853,7 +858,8 @@
 
                     <!-- ========== Left Sidebar Start ========== -->
                     <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
-                        <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
+                        <!-- <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png); background-blend-mode: overlay, normal; background-position: right;background-size: cover;"> -->
+						<div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
                         <?php } else { ?>
                             <div class="vertical-menu" style="color: #fff; background: url(<?php echo base_url() ?>assets/background-sidebar.png), linear-gradient(175.42deg, #0033EA 11.63%, #013F9F 101.04%); background-blend-mode: overlay, normal; background-position: right;background-size: cover;">
                             <?php } ?>
@@ -1168,58 +1174,58 @@
                                             <!-- <img src="" alt=""> -->
                                             <li>
                                                 <a href="<?php echo base_url(); ?>dashboard">
-                                                    <img src="<?= base_url('assets/sidebar/icon-beranda-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Dashboard</span>
+                                                    <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Dashboard</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-authentication" style="color: #FFC300;">Statistik Nasional</span>
+                                                    <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-authentication" style="color: white;">Statistik Nasional</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITGAKKUM</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">DITGAKKUM</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITREGIDENT</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITKAMSEL</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGRENMIN</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGOPS</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
-                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGTIK</span>
+                                                            <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 <a href="<?php echo base_url('anev/Anev'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-anev-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Anev</span>
+                                                    <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Anev</span>
                                                 </a>
                                             </li>
 
