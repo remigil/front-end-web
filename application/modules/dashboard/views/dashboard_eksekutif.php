@@ -2051,7 +2051,7 @@
 
 
 
-        // serverSideGet();
+        serverSideGet();
 
         function serverSideGet(){
             $("#overlay").fadeIn(300);   
@@ -4150,6 +4150,7 @@
                         }, 
                         dataType : "JSON",
                         success : function(result){  
+                            if(result['data'].length > 0){
                             var ress = result['data'][0];
                             console.log(ress);
                             openJalurBeatSt = true;
@@ -5575,6 +5576,8 @@
 
                                 },
                             });
+
+                            }
                         }
                     });
                     
