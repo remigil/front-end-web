@@ -19,10 +19,10 @@ class Templates extends MY_Controller {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
-        $notif = guzzle_request('GET', 'notifikasi?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=is_read&filterSearch[]=0', [
-            'headers' => $headers
-        ]);
-        $data['notif'] = $notif['data'];
+        // $notif = guzzle_request('GET', 'notifikasi?serverSide=True&order=id&orderDirection=desc&length=10&start=1&filter[]=is_read&filterSearch[]=0', [
+        //     'headers' => $headers
+        // ]);
+        // $data['notif'] = $notif['data'];
 
         $data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();

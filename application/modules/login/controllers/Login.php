@@ -88,13 +88,13 @@ class Login extends MX_Controller
                         'contents' => $tokenNotif,
                     ],
                 ];
-                $data = guzzle_request('PUT', 'user/edit/' . $response['user']['data']['id'] . '', [
-                    'multipart' => $dummy,
-                    'headers' => $headers
-                ]);
+                // $data = guzzle_request('PUT', 'user/edit/' . $response['user']['data']['id'] . '', [
+                //     'multipart' => $dummy,
+                //     'headers' => $headers
+                // ]);
 
 
-                if ($data['isSuccess'] == true) {
+                // if ($data['isSuccess'] == true) {
                     if ($response['user']['data']['user_role']['name'] == "Kakor" || $response['user']['data']['user_role']['name'] == "PJU") {
                         redirect(base_url('dashboard?start_date=' . date("Y-m-d") . '&end_date=' . date("Y-m-d") . ''));
                     } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
@@ -105,11 +105,11 @@ class Login extends MX_Controller
                     } else {
                         redirect(base_url('dashboard'));
                     }
-                } else {
-                    $this->session->set_flashdata('error', 'Mohon untuk periksa kembali jaringan anda!');
-                    redirect('login');
-                    die;
-                }
+                // } else {
+                //     $this->session->set_flashdata('error', 'Mohon untuk periksa kembali jaringan anda!');
+                //     redirect('login');
+                //     die;
+                // }
             } else {
                 $this->session->set_flashdata('error', 'Mohon untuk verifikasi akun anda!');
                 redirect('login');
