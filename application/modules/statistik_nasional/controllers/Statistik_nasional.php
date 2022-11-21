@@ -183,4 +183,53 @@ class Statistik_nasional extends MY_Controller
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
+
+    public function Garlantas()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Pelanggaran Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_langgar_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+
+    public function Turjagwali()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Turjagwali Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_turjagwali_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function Ranmor()
+    {
+
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Ranmor Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_ranmor_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
 }

@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="col-md-3">
-            <a href="<?= base_url('executive/Statistik_executive/Garlantas'); ?>">
+            <a href="<?= base_url('statistik_nasional/Garlantas'); ?>">
                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                     <div class="card-body">
                         <div class="row">
@@ -49,7 +49,7 @@
             </a>
         </div>
         <div class="col-md-3">
-            <a href="<?= base_url('executive/Statistik_executive/Turjagwali'); ?>">
+            <a href="<?= base_url('statistik_nasional/Turjagwali'); ?>">
                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                     <div class="card-body">
                         <div class="row">
@@ -70,7 +70,7 @@
             </a>
         </div>
         <div class="col-md-3">
-            <a href="<?= base_url('executive/Statistik_executive/Ranmor'); ?>">
+            <a href="<?= base_url('statistik_nasional/Ranmor'); ?>">
                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                     <div class="card-body">
                         <div class="row">

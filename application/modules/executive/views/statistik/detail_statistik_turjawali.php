@@ -609,7 +609,6 @@
 
     </div>
     <div class="datastatistik mt-5">
-
         <div class="container-fluid">
             <div class="container-fluid">
                 <div class="container-fluid">
