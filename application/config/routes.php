@@ -58,5 +58,6 @@ $route["login"] = "login/index"; //login
 $route["login/auth"] = "login/auth";
 $route["logout"] = "login/logout";
 $route["dashboard"] = "dashboard/dashboard"; 
+$route['executive/Polda_executive/(:any)'] = 'executive/Polda_executive/index/$1';
  
 
