@@ -7144,7 +7144,7 @@
                 openDisplay = this.value; 
                 $("#polda").prop('checked', true); 
                 getPolda();
-                $("#openModalPoldaDisplay").modal('show');
+                $("#myModalPoldaDisplay").modal('show');
             }else{
                 openDisplay = '';
                 for (let i = 0; i < markerPolda.length; i++) { 
@@ -7160,7 +7160,7 @@
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
                 $("#polres").prop('checked', true); 
-                $("#openModalPolresDisplay").modal('show');
+                $("#myModalPolresDisplay").modal('show');
             }else{
                 openDisplay = '';
                 $("#polres").prop('checked', false); 
