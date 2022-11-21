@@ -8,6 +8,7 @@ class Ditgakkum extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
+        $this->load->model("M_ditgakkum");
     }
 
     public function index()
@@ -40,6 +41,72 @@ class Ditgakkum extends MY_Controller
         $page_content["data"] = '';
         $this->templates->loadTemplate($page_content);
     }
+
+    public function getStatistik()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $date = date("Y-m-d");
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
+            'headers' => $headers
+        ]);
+        $getGakkum = $getGakkum["data"];
+
+        $totalgarlantas = 0;
+        $totallakalantas = 0;
+        $totalturjagwali = 0;
+        for ($i = 0; $i < count($getGakkum); $i++) {
+            $totalgarlantas += $getGakkum[$i]['garlantas'];
+            $totallakalantas += $getGakkum[$i]['lakalantas'];
+            $totalturjagwali += $getGakkum[$i]['turjagwali'];
+        }
+
+
+
+        $data = [
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
+            'walpjr' => 0,
+            // 'motor' =>  number_format($totalmotor, 0, '', '.'),
+            // 'sim' =>  number_format($totalsim, 0, '', '.'),
+        ];
+        echo json_encode($data);
+    }
+
+    public function getChartDitgakkum()
+    {
+        $title = 'DATA DITGAKKUM';
+        // $filter = $this->input->post('filter');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        // if ($filter == 1) {
+        //     if ($start_date == '' || $end_date == '') {
+        //         $start_date = date('Y-m-d', strtotime('first day of january this year'));
+        //         $end_date = date('Y-m-d', strtotime('last day of december this year'));
+        //         $type = 'month';
+        //     } else {
+        // $type = 'day';
+        //     }
+        // } else {
+        $type = 'month';
+        // }
+        $filterbaru = [
+            'filter' => true,
+            'type' => $type,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+        ];
+        $getdata = $this->M_ditgakkum->getChartDitgakkum($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
 
     public function data_dakgar_lantas()
     {
