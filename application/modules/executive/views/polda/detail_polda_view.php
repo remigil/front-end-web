@@ -202,6 +202,8 @@
 
 <script>
     $(document).ready(function() {
+        var marker = new Array();
+
         let filter = 0;
         let id = '<?= $data['id'] ?>'
         var date = new Date();
@@ -227,6 +229,78 @@
                 var ressPoldaall = result.poldaall
                 var ressPolda = result.polda
                 $("#overlay").fadeOut(300);
+
+                for (let i = 0; i < ressPoldaall.length; i++) {
+                    id = i;
+                    var latitude = parseFloat(ressPoldaall[i].latitude);
+                    var longitude = parseFloat(ressPoldaall[i].longitude);
+                    marker = ([latitude, longitude])
+
+                    // marker[i] = L.marker([latitude, longitude], {
+                    //     icon: L.divIcon({
+                    //         // className: 'location-pin',
+                    //         html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPoldaall[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
+                    //         iconSize: [5, 5],
+                    //         iconAnchor: [5, 10]
+                    //     })
+                    // }).bindPopup(
+                    //     `<div style="width: 450px;">
+                    //                 <div class="row">
+                    //                     <div class="col-md-2 text-center">
+                    //                         <img src="<?= url_api() . 'polda/logo/' ?>${ressPoldaall[i].logo_polda}" style="width: 50px;">
+                    //                     </div>
+                    //                     <div class="col-md-10">
+                    //                         <span class="fs-5 text-uppercase">Polda <b>${ressPoldaall[i].name_polda}</b></span><br>
+                    //                         <span>${ressPoldaall[i].address}</span>
+                    //                     </div>
+                    //                     <div class="col-md-12 mt-3 text-center">
+                    //                         <div class="row">
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+                    //                             </div>
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+                    //                             </div>
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-6">Total <b>Turjagwali</b></span>
+                    //                             </div>    
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+                    //                             </div>
+                    //                         </div>    
+                    //                     </div>
+
+                    //                     <div class="col-md-12 mt-3 text-center">
+                    //                         <div class="row">
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-3"> <b>${ressPoldaall[i].lakalantas}</b></span>
+                    //                             </div>
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-3"> <b>${ressPoldaall[i].garlantas}</b></span>
+                    //                             </div>
+                    //                             <div class="col-md-3">
+                    //                             <span class="fs-3"> <b>${ressPoldaall[i].turjagwali}</b></span>
+                    //                             </div>    
+                    //                             <div class="col-md-3">
+                    //                                 <span class="fs-3"> <b>${ressPoldaall[i].sepeda_motor}</b></span>
+                    //                             </div>
+                    //                         </div>    
+                    //                     </div>
+
+                    //                     <div class="col-md-12 mt-3">
+                    //                         <a href=<?= base_url('executive/Polda_executive/index/') ?>${ressPoldaall[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+                    //                     </div>
+                    //                     </div>
+                    //             </div>
+
+                    //         `, {
+                    //         minWidth: 100,
+                    //         maxWidth: 560,
+                    //         width: 400
+                    //     }).addTo(mapContainer);
+                    console.log(marker);
+                }
+
                 $('#motor').html(`<h1>${result.motor}</h1>`);
                 $('#turjagwali').html(`<h1>${result.turjagwali}</h1>`);
                 $('#garlantas').html(`<h1>${result.garlantas}</h1>`);
@@ -249,76 +323,11 @@
                 $("#chartb").html(`<div id="chart2"></div>`);
                 $("#chartc").html(`<div id="chart3"></div>`);
 
-                marker = L.marker([latitude, longitude], {
-                    icon: L.divIcon({
-                        // className: 'location-pin',
-                        html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
-                        iconSize: [5, 5],
-                        iconAnchor: [5, 10]
-                    })
-                }).bindPopup(
-                    `<div style="width: 450px;">
-                                    <div class="row">
-                                        <div class="col-md-2 text-center">
-                                            <img src="<?= url_api() . 'polda/logo/' ?>${ressPolda.logo_polda}" style="width: 50px;">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <span class="fs-5 text-uppercase">Polda <b>${ressPolda.name_polda}</b></span><br>
-                                            <span>${ressPolda.address}</span>
-                                        </div>
-                                        <div class="col-md-12 mt-3 text-center">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <span class="fs-6">Total <b>Turjagwali</b></span>
-                                                </div>    
-                                                <div class="col-md-3">
-                                                    <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
-                                                </div>
-                                            </div>    
-                                        </div>
-
-                                        <div class="col-md-12 mt-3 text-center">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <span class="fs-3"> <b>${ressPolda.lakalantas}</b></span>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <span class="fs-3"> <b>${ressPolda.garlantas}</b></span>
-                                                </div>
-                                                <div class="col-md-3">
-                                                <span class="fs-3"> <b>${ressPolda.turjagwali}</b></span>
-                                                </div>    
-                                                <div class="col-md-3">
-                                                    <span class="fs-3"> <b>${ressPolda.sepeda_motor}</b></span>
-                                                </div>
-                                            </div>    
-                                        </div>
-
-                                        <div class="col-md-12 mt-3">
-                                            <a href=<?= base_url('executive/Polda_executive/index/') ?>${ressPolda.id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
-                                        </div>
-                                        </div>
-                                </div>
-
-                            `, {
-                        minWidth: 100,
-                        maxWidth: 560,
-                        width: 400
-                    }).addTo(mapContainer);
 
 
                 let zxc = ressPolda.zoomview.split(",")
                 let lat = parseFloat(zxc[0])
                 let long = parseFloat(zxc[1])
-
-                var latitude = parseFloat(ressPolda.latitude);
-                var longitude = parseFloat(ressPolda.longitude);
 
 
                 var initialCenter = [lat, long];

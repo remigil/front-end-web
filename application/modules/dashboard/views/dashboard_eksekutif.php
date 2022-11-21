@@ -456,12 +456,6 @@
             layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-
 
         var baseMaps = {
             "Google Map Street": googleStreet,
