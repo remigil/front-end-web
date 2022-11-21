@@ -8,7 +8,7 @@ if (!function_exists('token')) {
     {
         $client = new Client();  
         // $request = $client->request('POST', 'http://localhost:3001/v1/', [
-        $request = $client->request('POST', 'http://k3ig20korlantas.id:3001/v1/', [ 
+        $request = $client->request('POST', 'http://34.143.227.90:3001/v1/', [ 
             'form_params' => [
                 'username' => 'G20',
                 'password' => 'a'

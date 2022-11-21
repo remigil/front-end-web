@@ -18,7 +18,7 @@ if (!function_exists('guzzle_request')) {
         try {
             $client = new Client();
             // $request = $client->request($method, 'http://localhost:3001/v1/' . $uri, $body);
-            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/v1/' . $uri, $body); 
+            $request = $client->request($method, 'http://34.143.227.90:3001/v1/' . $uri, $body); 
             $response = $request->getBody();
             $data = json_decode($response, true);
 
@@ -32,13 +32,13 @@ if (!function_exists('guzzle_request')) {
     function url_api()
     {
         // return 'http://localhost:3001/uploads/';
-        return 'http://k3ig20korlantas.id:3001/uploads/'; 
+        return 'http://34.143.227.90:3001/uploads/'; 
     }
 
     function urlApi()
     {
         // return 'http://localhost:3001/uploads/';
-        return 'http://k3ig20korlantas.id:3001/uploads/'; 
+        return 'http://34.143.227.90:3001/uploads/'; 
     }
 }
 
@@ -83,7 +83,7 @@ if (!function_exists('guzzle_requestAnev')) {
         try {
             $client = new Client();
             // $request = $client->request($method, 'http://localhost:3001/' . $uri, $body);
-            $request = $client->request($method, 'http://k3ig20korlantas.id:3001/' . $uri, $body);
+            $request = $client->request($method, 'http://34.143.227.90:3001/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
             return $data;
