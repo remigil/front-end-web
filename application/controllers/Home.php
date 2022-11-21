@@ -13,8 +13,6 @@ class Home extends MX_Controller {
 		$data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash(); 
         $data['title'] = "Home | K3I Korlantas";  
-		$this->template->load('templates/template','home', $data);
-		
 		
 		// $url = 'news?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
 
@@ -24,14 +22,18 @@ class Home extends MX_Controller {
         // $page_content["js"] = '';
         // $page_content["title"] = "Berita";
 
+		$getBerita = guzzle_request('GET', 'news', [
+            // 'headers' => $headers
+        ]);
+		$databerita['getBerita'] = $getBerita['data']['datanya'][0]['data'];
+		// var_dump($databerita['getBerita']);die;
 		
 		
-		
-        // $page_content["data"] = '';
+        $data["databerita"] = $databerita;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
 		// echo json_encode($data); 
-        
+        $this->template->load('templates/template','home', $data);
 	}
 
 	public function getPolda()
@@ -141,7 +143,7 @@ class Home extends MX_Controller {
 
 		$getTitle = $getBeritaall['data'][0]['title'];
 
-		var_dump($getTitle);die;
+		// var_dump($getTitle);die;
 		$data = [
 			'title' => $getTitle,
 		];

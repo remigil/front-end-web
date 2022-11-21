@@ -81,9 +81,13 @@
 						<textarea class="form-control" style="height: 100px" placeholder="isi" name="content"></textarea>
 						<label for="content">Isi Berita</label>
 					</div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
-                    </div>
+					<div class="form-floating mb-3">
+						<input type="text" id="link" class="form-control" name="link" placeholder="judul">
+						<label for="link">Link Berita</label>
+					</div>
+					<div class="col-md-12">
+						<button type="submit" class="btn btn-primary waves-effect float-end" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+					</div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -191,12 +195,13 @@
                         <input type="text" id="title" class="form-control" name="title" placeholder="judul">
                         <label for="title">Judul Berita</label>
                     </div>
-
+					
                     <div class="form-floating mb-3">
 						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
 						<label for="content">Isi Berita</label>
 					</div>
-					</form>
+					
+				</form>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

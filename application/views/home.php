@@ -267,8 +267,19 @@
     </div>
     <div class="col-md-12">
         <div class="simple-slick-carousel dots-nav">
-
-			<div class="card shadow" style="width: 18rem;">
+			<?php foreach ($databerita['getBerita'] as $data) : ?>
+			<div class="card" style="width: 18rem;">
+				<img src="<?= base_url()?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
+				<div class="card-body bg-light rounded">
+					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify"><?= $data['title'];?></h5></a>
+					<button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news']?></button>
+					<hr>
+					<p class="card-text text-justify"><?= substr($data['content'],0,250).'. . . <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>' ?></p>
+					
+				</div>
+			</div>
+			<?php endforeach; ?>
+			<!-- <div class="card shadow" style="width: 18rem;">
 				<img src="<?= base_url()?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body shadow bg-light">
 					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/"><h5 class="card-title fw-bold text-justify">Pengamanan Pengawalan Delegasi KTT G20 Dinilai Berhasil, Kakorlantas: Berkat Kekompakan Kolaborasi & Kerjasama TNI-Polri</h5></a>
@@ -290,6 +301,7 @@
 				<img src="<?= base_url()?>assets/fe/beritafix3.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/"><h5 class="card-title fw-bold text-justify">Antisipasi Gangguan Kamseltibcarlantas, Satlantas Polres Melawi Perbaiki Jalan Provinsi yang Rusak</h5></a>
+					<hr>
 					<p class="card-text text-justify">Aksi perbaikan dan penimbunan jalan provinsi yang ada di kilometer 1 Nanga Pinoh dilakukan oleh Satuan Lalu Lintas (Satlantas) Kepolisian Resort (Polres) Melawi. Hal itu dilakukan sebagai upaya mencegah terjadinya kecelakaan lalu lintas kendaraan yang melintas.</p>
 					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/" class="btn btn-primary">Selengkapnya</a>
 				</div>
@@ -298,10 +310,11 @@
 				<img src="<?= base_url()?>assets/fe/beritafix4.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/"><h5 class="card-title fw-bold text-justify">Satlantas Polres Sigi Sediakan Pelatihan Uji SIM Gratis</h5></a>
+					<hr>
 					<p class="card-text text-justify">Satuan Lalu Lintas Polres Sigi memberikan bimbingan belajar alias Bimbel tanpa biaya kepada masyarakat untuk mempermudah warga mendapatkan Surat Izin Mengemudi alias SIM.</p>
 					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/" class="btn btn-primary">Selengkapnya</a>
 				</div>
-			</div>
+			</div> -->
 
         </div> 
     </div>
@@ -642,8 +655,7 @@
 			iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
 			iconSize: [80, 80], // size of the icon
 		});
-                        
-                        
+
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
