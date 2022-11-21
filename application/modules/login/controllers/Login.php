@@ -100,7 +100,8 @@ class Login extends MX_Controller
                     } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
                         redirect(base_url('inputdata/LaporanHarian'));
                     } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {
-                        redirect(base_url('dashboard/Dashboard/Dashboardeksekutif'));
+                        redirect(base_url('dashboard'));
+                        // redirect(base_url('dashboard/Dashboard/Dashboardeksekutif'));
                     } else {
                         redirect(base_url('dashboard'));
                     }

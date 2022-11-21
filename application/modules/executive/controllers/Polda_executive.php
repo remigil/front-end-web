@@ -11,16 +11,20 @@ class Polda_executive extends MY_Controller
         $this->load->model("executive/M_detail_polda");
     }
 
-    public function index()
+    public function index($id)
     {
-        $id = $this->uri->segment(4);
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Detail Polda";
         $data['csrf_name'] = $this->security->get_csrf_token_name();
         $data['csrf_token'] = $this->security->get_csrf_hash();
         $data['polda'] = $this->M_detail_polda->get_Polda();
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $data["title"] = "Detail Polda";
-        $this->load->view('executive/polda/detail_polda_view', $data);
+        $page_content["data"] = $data;
+        $page_content["page"] = "executive/polda/detail_polda_view";
+        $this->templates->loadTemplate($page_content);
     }
 
 

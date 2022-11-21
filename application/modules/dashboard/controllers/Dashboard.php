@@ -265,23 +265,9 @@ class Dashboard extends MY_Controller
 
             $page_content["data"] = '';
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
-            $page_content["page"] = "dashboard/Kakor/dashboard_view";
 
-            $data['topPolda_garlantas'] = $this->m_dashboard->garlantas_topPolda();
-            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-            $data['topPolda_lakalantas'] = $this->m_dashboard->lakalantas_topPolda();
-            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
-            $data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
-            $data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
-            $data['ranmor'] = $this->m_dashboard->ranmor_nasional();
-            $data['sim'] = $this->m_dashboard->sim_nasional();
-            $data['stnk'] = $this->m_dashboard->stnk_nasional();
-            $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
-            $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
-
+            $data["title"] = "Dashboard Executive";
+            $page_content["page"] = "dashboard/dashboard_eksekutif";
 
             $page_content["data"] = $data;
             // } else if ($this->session->userdata['role'] == 'Kakorlantas') {
@@ -984,11 +970,11 @@ class Dashboard extends MY_Controller
     }
     public function Dashboardeksekutif()
     {
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data["title"] = "Dashboard Executive";
-        $data["page"] = "dashboard/dashboard_eksekutif";
-        $this->load->view('dashboard/dashboard_eksekutif', $data);
+        // $data['csrf_name'] = $this->security->get_csrf_token_name();
+        // $data['csrf_token'] = $this->security->get_csrf_hash();
+        // $data["title"] = "Dashboard Executive";
+        // $data["page"] = "dashboard/dashboard_eksekutif";
+        // $this->load->view('dashboard/dashboard_eksekutif', $data);
     }
 
 

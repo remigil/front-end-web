@@ -1169,93 +1169,60 @@
                                             <li>
                                                 <a href="<?php echo base_url(); ?>dashboard">
                                                     <img src="<?= base_url('assets/sidebar/icon-beranda-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Beranda</span>
+                                                    <span data-key="t-dashboard" style="color: #FFC300;">Dashboard</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
                                                     <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-authentication" style="color: #FFC300;">Rekapitulasi dan Grafik</span>
+                                                    <span data-key="t-authentication" style="color: #FFC300;">Statistik Nasional</span>
                                                 </a>
                                                 <ul class="sub-menu" aria-expanded="false">
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
                                                             <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Pelanggaran</span>
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITGAKKUM</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITREGIDENT</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
                                                             <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Kecelakaan</span>
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">DITKAMSEL</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
                                                             <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                            <span data-key="t-dashboard" style="color: #FFC300;">Data Turjawali</span>
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGRENMIN</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGOPS</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+                                                            <img src="<?= base_url('assets/sidebar/icon-list-emas.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                            <span data-key="t-dashboard" style="color: #FFC300;">BAGTIK</span>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <!-- <?php if ($this->session->userdata['role'] != 'Operator') { ?>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>dashboard/peta">
-                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">Peta</span>
-                                    </a>
-                                </li>
-                            <?php } ?> -->
-
-                                            <li>
-                                                <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
-                                                    <img src="<?= base_url('assets/sidebar/icon-dataOpsus-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Data Harian Opsus</span>
-                                                </a>
-                                            </li>
-
                                             <li>
                                                 <a href="<?php echo base_url('anev/Anev'); ?>">
                                                     <img src="<?= base_url('assets/sidebar/icon-anev-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                     <span data-key="t-dashboard" style="color: #FFC300;">Anev</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-peta-digital-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Peta Digital</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="<?php echo base_url('cctv/Cctv'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-cctv-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">CCTV</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="<?php echo base_url('tripon/Tripon'); ?>">
-                                                    <img src="<?= base_url('assets/sidebar/icon-tripOn-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Trip On</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php">
-                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">ERI</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
-                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">IRSMS</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="dashboard/Dashboard/Dashboardeksekutif">
-                                                    <img src="<?= base_url('assets/sidebar/icon-eri-irsms-emas.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                    <span data-key="t-dashboard" style="color: #FFC300;">Dashboard Eksekutif</span>
-                                                </a>
-                                            </li>
+
                                         <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                             <li>
                                                 <a href="<?php echo base_url(); ?>dashboard">
