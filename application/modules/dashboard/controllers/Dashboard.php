@@ -1075,8 +1075,11 @@ class Dashboard extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $date = date("Y-m-d");
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
+        // $date = date("Y-m-d");
+        // $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
+        //     'headers' => $headers
+        // ]);
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
             'headers' => $headers
         ]);
         $getGakkum = $getGakkum["data"];
@@ -1090,7 +1093,10 @@ class Dashboard extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getRanmor = guzzle_request('GET', 'ditregident/daily?date=' . $date . '', [
+        // $getRanmor = guzzle_request('GET', 'ditregident/daily?date=' . $date . '', [
+        //     'headers' => $headers
+        // ]);
+        $getRanmor = guzzle_request('GET', 'ditregident/daily', [
             'headers' => $headers
         ]);
         $getRanmor = $getRanmor["data"];

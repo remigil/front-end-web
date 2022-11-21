@@ -9,7 +9,7 @@
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-3">
-            <a href="<?= base_url('executive/Statistik_executive/Lakalantas'); ?>">
+            <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>">
                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                     <div class="card-body">
                         <div class="row">
@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-md-10 float-end">
                                 <span class="fs-6 float-end" style="color:#464646;">
-                                    <span class="fw-bold ">Kecelakaan </span>Lalu Lintas
+                                    <span class="fw-bold ">Total Kecelakaan </span>Lalu Lintas
                                 </span>
                                 <br><br>
                                 <span class="fs-4 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-10 float-end">
                                 <span class="fs-6 float-end" style="color:#464646;">
-                                    <span class="fw-bold">Pelanggaran </span>Lalu Lintas
+                                    <span class="fw-bold">Total Pelanggaran </span>Lalu Lintas
                                 </span>
                                 <br><br>
                                 <span class="fs-4 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-md-10 float-end">
                                 <span class="fs-6 float-end" style="color:#464646;">
-                                    <span class="fw-bold">Turjagwali</span>
+                                    <span class="fw-bold">Total Turjagwali</span>
                                 </span>
                                 <br><br>
                                 <span class="fs-4 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-md-10 float-end">
                                 <span class="fs-6 float-end" style="color:#464646;">
-                                    <span class="fw-bold">Kendaraan </span>Bermotor
+                                    <span class="fw-bold">Total Kendaraan </span>Bermotor
                                 </span>
                                 <br><br>
                                 <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
@@ -99,11 +99,12 @@
 
                 <div class="row d-flex align-items-center">
                     <div class="col-md-12 mb-1 mt-3 text-center">
-                        <span style="color:#007DD8;" class="text-uppercase fw-bold fs-5">Data Rekapitulasi Nasional</span>
+                        <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
                     </div>
                 </div>
+
                 <div class="row d-flex">
-                    <div class="col-md-7 mt-3">
+                    <div class="col-md-6 mt-3">
                         <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
@@ -112,10 +113,10 @@
                                         <tr class="text-center">
                                             <th scope="col">No</th>
                                             <th scope="col">Polda</th>
-                                            <th scope="col">Total Pelanggaran</th>
-                                            <th scope="col">Pelanggaran Berat</th>
-                                            <th scope="col">Pelanggaran Sedang</th>
-                                            <th scope="col">Pelanggaran Ringan</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Berat</th>
+                                            <th scope="col">Sedang</th>
+                                            <th scope="col">Ringan</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody-pelanggaran">
@@ -125,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 mt-3">
+                    <div class="col-md-6 mt-3">
                         <h5>10 Polda Kecelakaan Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
@@ -182,7 +183,7 @@
     function getStatistik() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>dashboard/getStatistik",
+            url: "<?php echo base_url(); ?>Statistik_nasional/getStatistik",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -200,7 +201,7 @@
     function getGarlantas() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>dashboard/getGarlantas",
+            url: "<?php echo base_url(); ?>Statistik_nasional/getGarlantas",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -229,7 +230,7 @@
     function getLakalantas() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>dashboard/getLakalantas",
+            url: "<?php echo base_url(); ?>Statistik_nasional/getLakalantas",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -258,7 +259,7 @@
     function getStatistik() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>dashboard/getStatistik",
+            url: "<?php echo base_url(); ?>Statistik_nasional/getStatistik",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -277,7 +278,7 @@
     function getTurjagwali() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>dashboard/getTurjagwali",
+            url: "<?php echo base_url(); ?>Statistik_nasional/getTurjagwali",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
