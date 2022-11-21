@@ -928,7 +928,7 @@
                         name: 'LAKA',
                         type: 'line',
                         data: lakalantas,
-                        color: "#3CA55C"
+                        color: "#EDF12D"
                     }],
                     chart: {
                         height: 400,
