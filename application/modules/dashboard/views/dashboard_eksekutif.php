@@ -6028,6 +6028,24 @@
                         if (filterpolres.length > 0) {
                             var logoMarker = '';
                             var logoBody = '';
+
+                            $('#openModalPolresDisplay').html(`
+                                <table id="datatablePolresOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Type</th> 
+                                            <th>Nama</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPolresDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPolresDisplay = 0;
+                            var listPolresDisplay = '';
+
                             for (let i = 0; i < filterpolres.length; i++) {
 
                                 var latitudePolres = parseFloat(filterpolres[i].latitude);
@@ -6049,10 +6067,10 @@
                                                             <img src="<?php echo base_url(); ?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 col-12 mt-3">
+                                                    <div class="col-md-12 mt-3">
                                                         <h5>${filterpolres[i].name_polres}</h5> 
                                                     </div>
-                                                    <div class="col-md-12 col-12 mt-3">
+                                                    <div class="col-md-12 mt-3">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
@@ -6065,7 +6083,7 @@
                                                             </div>
                                                         </div> 
                                                     </div> 
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="col-md-12">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Kode</span>  
@@ -6078,7 +6096,7 @@
                                                             </div>
                                                         </div> 
                                                     </div>  
-                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="col-md-12" >
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
@@ -6091,7 +6109,7 @@
                                                             </div>
                                                         </div> 
                                                     </div>  
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="col-md-12">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
@@ -6112,8 +6130,50 @@
                                     width: 400
                                 }).addTo(mapContainer);
 
-
+                                countPolresDisplay += 1;
+                                listPolresDisplay += `
+                                    <tr>
+                                        <td>${countPolresDisplay}</td>
+                                        <td>${filterpolres[i].name_polres}</td> 
+                                        <td>${filterpolres[i].address}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterPolres${countPolresDisplay}"
+                                                data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalPolresDisplay').html(listPolresDisplay);      
                             }
+
+                            for (let i = 0; i < countPolresDisplay; i++) {
+                                // console.log(`${i+1}`);
+                                $(`#flyToMapFilterPolres${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 20);
+                                });
+                            }
+
+                            $('#datatablePolresOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
                         }
                     }
 
