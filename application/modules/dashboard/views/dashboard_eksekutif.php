@@ -1864,7 +1864,23 @@
                     let ressData = result;
                     // console.log();
 
-
+                    $("#openModalPoldaDisplay").html(`
+                        <table id="datatablePoldaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th> 
+                                    <th>Alamat</th> 
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="isiModalPoldaDisplay">
+                            </tbody>
+                        </table>
+                    `);
+                    var countPoldaDisplay = 0;
+                    var listPoldaDisplay = '';
+                    
                     for (let i = 0; i < ressData.length; i++) {
                         id = i;
                         var latitude = parseFloat(ressData[i].latitude);
@@ -1935,7 +1951,54 @@
                                 maxWidth: 560,
                                 width: 400
                         }).addTo(mapContainer);
+
+
+                        
+
+                        countPoldaDisplay += 1;
+                        listPoldaDisplay += `
+                            <tr>
+                                <td>${countPoldaDisplay}</td>
+                                <td>${ressData[i].name_polda}</td> 
+                                <td>${ressData[i].address}</td> 
+                                <td>
+                                    <a class="btn" style="margin-top: -10px;"  
+                                        id="flyToMapFilterPolda${countPoldaDisplay}"
+                                        data-cord="${ressData[i].latitude},${ressData[i].longitude}" 
+                                        href="javascript:void(0)">
+                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                    </a> 
+                                </td>
+                            </tr>
+                        `;
+                        $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                     }
+
+                    for (let i = 0; i < countPoldaDisplay; i++) {
+                        // console.log(`${i+1}`);
+                        $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
+                            var latlong = $(this).data('cord').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]);
+                            mapContainer.flyTo([latitude, longitude], 20);
+                        });
+                    }
+
+                    $('#datatablePoldaOnDisplay').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                        buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: {
+
+                            sSearch: 'Search:'
+
+                        },
+                    });
 
                 }
             });
@@ -7244,6 +7307,13 @@
 
 
 
+
+        $("#poldaFilterModal").on("click", function(e) {
+            $("#myModalPoldaDisplay").modal('show');
+        });
+        $("#polresFilterModal").on("click", function(e) {
+            $("#myModalPolresDisplay").modal('show');
+        });
         $("#jalurBeatFilterModal").on("click", function(e) {
             $("#myModalJalurBeatDisplay").modal('show');
         });
