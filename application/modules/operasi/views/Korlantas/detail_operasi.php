@@ -72,6 +72,7 @@
             <div class="row">
                 <div class="col-md-5 mt-4">
                     <p class="fs-4 fw-bold text-primary text-uppercase">Daftar Polda yang Terlibat </p>
+					<button type="button" class="btn btn-primary waves-effect mb-2" data-bs-toggle="modal" data-bs-target=".TambahPolda">Tambah Polda</button>
                 </div>
 
                 <!-- <div class="row">
@@ -106,6 +107,48 @@
         </div>
     </div>
 </div>
+<div class="modal fade TambahPolda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Tambah Polda</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="" class="form">
+				<input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+							<div class="material-textfield">
+								<select name="polda_id" class="form-select" style="width:100%" required>
+									<option selected value="">Pilih Polda</option>
+                                    <?php
+                        				foreach ($data['getPolda'] as $row) : ?>
+                            			<option value="<?php echo $row['id']; ?>"><?php echo $row['name_polda']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="material-textfield">
+									<input type="hidden" name="operation_profile_id" value="<?= $data['getDetail']['data']['id']; ?>" >
+									<!-- <input type="text" name="" id="" value="<?= $data['operationid']; ?>" style="width:100% ;" disabled> -->
+									<!-- <label for="" class="labelmui">Polda yang terlibat</label> -->
+									
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary waves-effect float-end me-4" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- End Page -->
 <!-- <div class="modal fade TambahAkun" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -267,6 +310,38 @@
             ],
             drawCallback: function(settings) {
                 $("#overlay").fadeOut(300);
+            }
+        });
+    });
+	$(".form").submit(function(e) {
+        $("#overlay").fadeIn(300);
+        e.preventDefault();
+        var formData = new FormData($('.form')[0]);
+        $.ajax({
+            url: "<?php echo base_url(); ?>operasi/RencanaOperasi/storePolda",
+            method: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $("#overlay").fadeOut(300);
+                if (data['status'] == true) {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'success'
+                    ).then(function() {
+                        $(".TambahPolda").modal('hide');
+                        userDataTable.draw();
+                    });
+                } else {
+                    Swal.fire(
+                        `${data['message']}`,
+                        '',
+                        'error'
+                    ).then(function() {});
+                }
             }
         });
     });

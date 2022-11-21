@@ -193,6 +193,8 @@ class RencanaOperasi extends MY_Controller
             'Authorization' => $this->session->userdata['token'],
         ];
 
+
+
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Rencana Operasi";
@@ -212,13 +214,20 @@ class RencanaOperasi extends MY_Controller
         $getDetail = guzzle_request('GET', 'operation-profile/getId/' . $id . '', [
             'headers' => $headers
         ]);
+
         if ($getDetail['isSuccess'] == false) {
-            redirect(base_url('404_notfound'));
+			redirect(base_url('404_notfound'));
             die;
         }
         $data['getDetail'] = $getDetail['data'];
 
         // die;
+		$getPolda = guzzle_request('GET', 'polda', [
+            'headers' => [
+                'Authorization' => $headers
+            ]
+        ]);
+        $data['getPolda'] = $getPolda['data']['data'];
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -228,6 +237,47 @@ class RencanaOperasi extends MY_Controller
         $postData = $this->input->post();
         $data = $this->M_operasi_detail->get_datatables($postData);
         echo json_encode($data);
+    }
+	public function storePolda()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
+		// var_dump($headers);die;
+
+        $dummy = [
+			[
+				'name' => 'polda_id',
+				'contents' => $input['polda_id'],
+			],
+            [
+                'name' => 'operation_profile_id',
+                'contents' => $input['operation_profile_id'],
+            ],
+
+        ];
+
+        $data = guzzle_request('POST', 'operation-profile-polda/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
+        ]);
+
+        if ($data['isSuccess'] == true) {
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil tambah data.',
+                'data' => $data
+            );
+        } else {
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal tambah data.',
+                'data' => $data
+            );
+        }
+
+        echo json_encode($res);
     }
 
     public function delete()
