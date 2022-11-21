@@ -19,7 +19,7 @@ class Ditgakkum extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Dashboard";
+        $page_content["title"] = "";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
@@ -29,6 +29,9 @@ class Ditgakkum extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
+        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            $page_content["title"] = "DITGAKKUM";
+            $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
         }
 
 

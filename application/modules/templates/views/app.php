@@ -1851,6 +1851,7 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
             <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
             <script scr="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+            <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
             <script type="text/javascript">
                 document.onkeypress = function(event) {
