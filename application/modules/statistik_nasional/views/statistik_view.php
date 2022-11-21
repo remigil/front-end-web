@@ -183,7 +183,7 @@
     function getStatistik() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>Statistik_nasional/getStatistik",
+            url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -201,7 +201,7 @@
     function getGarlantas() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>Statistik_nasional/getGarlantas",
+            url: "<?php echo base_url(); ?>statistik_nasional/getGarlantas",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -230,7 +230,7 @@
     function getLakalantas() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>Statistik_nasional/getLakalantas",
+            url: "<?php echo base_url(); ?>statistik_nasional/getLakalantas",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -259,7 +259,7 @@
     function getStatistik() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>Statistik_nasional/getStatistik",
+            url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
@@ -278,7 +278,7 @@
     function getTurjagwali() {
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>Statistik_nasional/getTurjagwali",
+            url: "<?php echo base_url(); ?>statistik_nasional/getTurjagwali",
             dataType: "JSON",
             success: function(result) {
                 $("#overlay").fadeOut(300);
