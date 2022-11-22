@@ -323,7 +323,7 @@
 
         </div>
         <div id="mapG20Dashboard">
-            <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */">
+            <div style="display:none; bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */">
                 <img src="<?= base_url() ?>assets/legenda_web.png" style="width: 12vw;" />
             </div>
         </div>
