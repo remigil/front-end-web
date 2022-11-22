@@ -51,83 +51,76 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
-	<!-- <div class="row">
-		<div class="col-md-12">
-			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
-			<div class="col-md-3">
-				<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-					<div class="img-box-content visible">
-						<div class="row">
-							<div class="col-md-12">
-								<img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px">
-							</div>
-							<div class="col-md-12">
-								<h5 style="color: white"><b>IRSMS</b></h5>
-								<p style="color: white;">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
-							</div>
+	<div class="row">
+		<div class="col-md-3">
+			<a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px">
 						</div>
-						
-						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3">
-				<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-					<div class="img-box-content visible">
-						<div class="row">
-							<div class="col-md-12">
-								<img src="<?= base_url()?>assets/fe/client/etle-pmj.png" alt="" width="70px" height="70px">
-
-							</div>
-							<div class="col-md-12">
-								<h5 style="color: white"><b>E-TLE</b></h5>
-								<p style="color: white;">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
-
-							</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>IRSMS</b></h5>
+							<p style="color: white;">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
 						</div>
-						
-						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
-				</a>
-			</div>
-			<div class="col-md-3">
-				<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-					<div class="img-box-content visible">
-						<div class="row">
-							<div class="col-md-12">
-								<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-3">
+			<a href="https://www.etle-pmj.info/id/" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/etle-pmj.png" alt="" width="70px" height="70px">
 
-							</div>
-							<div class="col-md-12">
-								<h5 style="color: white"><b>E-DAKGAR</b></h5>
-								<p style="color: white;">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
-
-							</div>
 						</div>
-						
-						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3">
-				<a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
-					<div class="img-box-content visible">
-						<div class="row">
-							<div class="col-md-12">
-								<img src="<?= base_url()?>assets/fe/client/eturjawali.png" alt="" width="70px" height="70px">
+						<div class="col-md-12">
+							<h5 style="color: white"><b>E-TLE</b></h5>
+							<p style="color: white;">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
 
-							</div>
-							<div class="col-md-12">
-								<h5 style="color: white"><b>E-TURJAWALI</b></h5>
-								<p style="color: white;">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
-
-							</div>
 						</div>
-						
-						<a href="<?php echo base_url()?>home">Selengkapnya</a> 
 					</div>
-				</a>
-			</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-3">
+			<a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>E-DAKGAR</b></h5>
+							<p style="color: white;">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
+
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-3">
+			<a href="https://eturjawali.korlantas.polri.go.id/secure/login?redir=aHR0cHM6Ly9ldHVyamF3YWxpLmtvcmxhbnRhcy5wb2xyaS5nby5pZC8=#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/eturjawali.png" alt="" width="70px" height="70px">
+
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
+							<p style="color: white;">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
 		</div>
 		<div class="col-md-12">
 			<h3>Dokumen Peraturan</h3>
@@ -163,7 +156,7 @@
 			</div>
 		</div>
 	</div>
-	<hr> -->
+	<hr>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -171,43 +164,48 @@
 			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
 		<div class="col-md-8">
-			<iframe width="760" height="450" src="https://www.youtube.com/embed/osBBaCHwQmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div> 
 		<div class="col-md-4">
 			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					<iframe width="340" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 				</div>
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="340" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="340" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div> 
 	</div>
 	<hr>
 
-	<!-- <div class="row">
+	<div class="row">
 		<div class="col-md-12">
 			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
 		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
-			<div class="content-carousel" style="width:fit-content ; margin:0;">
-				<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-				<p>test</p>
-			</div>
-			<div class="content-carousel" style="width:fit-content ;">
-				<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-				<p>test</p>
-			</div>
-			<div class="content-carousel" style="width:fit-content ;">
-				<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-				<p>test</p>
+			<div class="content-carousel"  >
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum1.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum2.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum3.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum4.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg" alt="" width="360" height="200">
+				</a>
 			</div>
         </div>
-	</div> -->
+	</div>
 
 </div>
 <!-- Container / End -->

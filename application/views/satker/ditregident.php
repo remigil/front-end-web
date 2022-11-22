@@ -51,31 +51,112 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
-	<!-- <div class="row">
-		<div class="col-md-8">
-			<h3>Layanan Aplikasi Ditgakkum Korlantas Polri</h3>
-			<div class="col-md-3">
-				test
-			</div>
-			<div class="col-md-3">
-				test
-			</div>
-			<div class="col-md-3">
-				test
-			</div>
-			<div class="col-md-3">
-				test
-			</div>
+	<div class="row">
+		<div class="col-md-3">
+			<a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt=""  width="70px" height="70px">
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>ERI</b></h5>
+							<p style="color: white;">Electronic Registration and Identification adalah sistem untuk mendata serta mengorganisir data-data kendaraan bermotor dan seluruh riwayatnya</p>
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
+			<a href="https://www.digitalkorlantas.id/" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>Digital Korlantas</b></h5>
+							<p style="color: white;">Aplikasi Digital Korlantas POLRI adalah aplikasi resmi dari Korlantas POLRI Indonesia untuk memudahkan masyarakat untuk mendapatkan layanan di Korlantas.</p>
+
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-3">
+			<a href="#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>SBST Online</b></h5>
+							<p style="color: white;">STNK, BPKB, SIM, dan Tanda Nomor Kendaraan Bermotor (SBST) Online adalah platform untuk menganalisa penggunaan material serta Pendapatan Negara Bukan Pajak terkait pelayanan oleh Korlantas POLRI</p>
+
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-3">
+			<a href="https://www.digitalkorlantas.id/faq/" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
+				<div class="img-box-content visible">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+
+						</div>
+						<div class="col-md-12">
+							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
+							<p style="color: white;">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+
+						</div>
+					</div>
+					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+				</div>
+			</a>
+		</div>
+		<div class="col-md-12">
 			<h3>Dokumen Peraturan</h3>
-			<ol>
-				<li>test</li>
-				<li>test</li>
-			</ol>
+			<div class="card">
+				<div class="card-body">
+					<table id="datatable" class="table dt-responsive w-100 table-striped">
+						<thead>
+							<tr>
+								<th width="5%">No</th>
+								<th width="40%">Nama Peraturan</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-striped">
+								<td width="5%">1</td>
+								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/PP-NO-76-THN-2020-TTG-TARIF-PNBP-POLRI.pdf">Peraturan Pemerintah No 76 Tahun 2020 tentang Jenis dan Tarif atas Jenis PNBP yang berlaku pada Polri, dan Lampirannya</a></td>
+							</tr>
+							<tr>
+								<td width="5%">2</td>
+								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/07/Perpres-Nomor-5-Tahun-2015-ttg-Samsat-Ranmor.pdf">Peraturan Presiden Nomor 5 Tahun 2015 tentang Penyelenggaraan Samsat Kendaraan Bermotor</a></td>
+							</tr>
+							<tr>
+								<td width="5%">3</td>
+								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/PERATURAN-KEPOLISIAN-NEGARA-REPUBLIK-INDONESIA-NOMOR-5-TAHUN-2021-TENTANG-PENERBITAN-DAN-PENANDAAN-SURAT-IZIN-MENGEMUDI.pdf">Peraturan Kepolisian Nomor 5 Tahun 2021 tentang Penerbitan dan Penandaan SIM</a></td>
+							</tr>
+							<tr>
+								<td width="5%">4</td>
+								<td width="40%"><a href="https://k3i.korlantas.polri.go.id/wp-content/uploads/2021/08/PERATURAN-POLRI-NOMOR-7-TAHUN-2021-TENTANG-REGISTRASI-DAN-IDENTIFIKASI-KENDARAAN-BERMOTOR.pdf">Peraturan Kepolisian Nomor 7 Tahun 2021 tentang Registrasi dan Identifikasi Kendaraan Bermotor</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-	<hr> -->
+	<hr>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -103,25 +184,29 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Dokumen Kegiatan Ditregident Korlantas Polri</h3>
+			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
-		<div class="col-md-8">
-			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div> 
-		<div class="col-md-4">
-			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-				</div>
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
+		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
+			<div class="content-carousel"  >
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum1.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum2.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum3.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum4.jpg" alt="" width="360" height="200">
+				</a>
+				<a href="#">
+					<img src="<?= base_url()?>assets/fe/ditgakkum/ditgakkum5.jpg" alt="" width="360" height="200">
+				</a>
 			</div>
-		</div> 
+        </div>
 	</div>
+
 
 </div>
 <!-- Container / End -->

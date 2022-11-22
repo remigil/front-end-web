@@ -337,6 +337,7 @@
 								<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
 						</li>
+						<li><a href="<?= base_url()?>login">Dashboard</a></li>
 						
 					</ul>
 				</nav>
