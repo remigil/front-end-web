@@ -1238,7 +1238,7 @@
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">Divtik Mabes Polri</span>
+                                        <span data-key="t-dashboard" style="color: white;">DivTik Mabes Polri</span>
                                     </a>
                                 </li>
 
