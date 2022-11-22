@@ -50,7 +50,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat jalurBeatDisplay" style="margin-left: 10px;"> 
+                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; "> 
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -102,7 +102,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat clusterDisplay" style="margin-left: 10px;">
+                    <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
                         <div class="btn-group">
                             <label>
                                 <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
@@ -119,7 +119,7 @@
                         </label>  
                     </div> -->
     
-                    <div class="cat kegiatanDisplay"> 
+                    <div class="cat kegiatanDisplay" style="display:none"> 
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -140,7 +140,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat operasiDisplay">
+                    <div class="cat operasiDisplay" style="display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
 
-                    <div class="cat panicDisplay" style="margin-left: 10px;">
+                    <div class="cat panicDisplay" style="margin-left: 10px; display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
@@ -1179,12 +1179,14 @@
 
     $(document).ready(function() {
 
+        "use Shapefile\Shapefile";
+        "use Shapefile\ShapefileException";
+        "use Shapefile\ShapefileReader";
 
 
 
-
-        var initialCenter = [-1.210, 121.9213];
-        var initialZoom = 4.8;
+        var initialCenter = [-0.21973, 117.91602];
+        var initialZoom = 5.5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
@@ -1323,6 +1325,50 @@
                 }
             });
         });
+
+
+
+
+
+        var shpfile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+            pointToLayer: function(feature, latlng) {
+                
+                var smallIcon = new L.divIcon({
+                    iconAnchor: [20, 51],
+                    popupAnchor: [0, -51],
+                    className: 'listeo-marker-icon',
+                    html: '<div class="marker-container">' +
+                    '<div class="marker-card">' +
+                    '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                    '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                    '<div class="marker-arrow"></div>' +
+                    '</div>' +
+                    '</div>'
+                });
+                
+           
+                var mark = L.marker(latlng, {icon: smallIcon})
+                cluster.addLayer(mark)
+                return  cluster;
+                
+            },
+            onEachFeature: function(feature, layer) {
+                if (feature.properties) {
+                    layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                        return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+                    }).join("<hr>"), {
+                        maxWidth: 400,
+                        maxHeight: 250, 
+                        scrollbarWidth: 'thin',
+                        className: 'leaflet-infoBox'
+                    });
+                }
+            }
+        });  
+        shpfile.addTo(mapContainer); 
+
+
+
 
 
         // getGpsId();
@@ -1871,7 +1917,7 @@
                                     <th>No</th>
                                     <th>Nama</th> 
                                     <th>Alamat</th> 
-                                    <th></th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="isiModalPoldaDisplay">

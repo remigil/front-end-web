@@ -1893,6 +1893,10 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
             <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
 
+            <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.shpfile.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/js/shp.js"></script>
+
+
 
             <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/moment.min.js"></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/daterangepicker.js"></script>
