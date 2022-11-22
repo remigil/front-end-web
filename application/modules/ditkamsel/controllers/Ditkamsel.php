@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ditgakkum extends MY_Controller
+class Ditkamsel extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-        $this->load->model("M_ditgakkum");
+        $this->load->model("M_ditkamsel");
     }
 
     public function index()
@@ -31,8 +31,8 @@ class Ditgakkum extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
-            $page_content["title"] = "DITGAKKUM";
-            $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
+            $page_content["title"] = "DITKAMSEL";
+            $page_content["page"] = "ditkamsel/korlantas/ditkamsel_view";
         }
 
 
@@ -48,36 +48,30 @@ class Ditgakkum extends MY_Controller
             'Authorization' => $this->session->userdata['token']
         ];
         $date = date("Y-m-d");
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
+        $getkamsel = guzzle_request('GET', 'ditkamsel/daily?date=' . $date . '', [
             'headers' => $headers
         ]);
-        $getGakkum = $getGakkum["data"];
+        $getkamsel = $getkamsel["data"];
 
-        $totalgarlantas = 0;
-        $totallakalantas = 0;
-        $totalturjagwali = 0;
-        for ($i = 0; $i < count($getGakkum); $i++) {
-            $totalgarlantas += $getGakkum[$i]['garlantas'];
-            $totallakalantas += $getGakkum[$i]['lakalantas'];
-            $totalturjagwali += $getGakkum[$i]['turjagwali'];
+        $totaldikmaslantas = 0;
+        for ($i = 0; $i < count($getkamsel); $i++) {
+            $totaldikmaslantas += $getkamsel[$i]['dikmaslantas'];
         }
 
 
 
         $data = [
-            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
-            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
-            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
-            'walpjr' => 72,
-            // 'motor' =>  number_format($totalmotor, 0, '', '.'),
-            // 'sim' =>  number_format($totalsim, 0, '', '.'),
+            'dikmaslantas' => number_format($totaldikmaslantas, 0, '', '.'),
+            'jemenopsrek' =>  0,
+            'cegah' => 0,
+            'audit' => 0,
         ];
         echo json_encode($data);
     }
 
-    public function getChartDitgakkum()
+    public function getChartDitkamsel()
     {
-        $title = 'DATA DITGAKKUM';
+        $title = 'DATA Ditkamsel';
         $filter = $this->input->post('filter');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
@@ -94,7 +88,7 @@ class Ditgakkum extends MY_Controller
             'start_date' => $start_date,
             'end_date' => $end_date,
         ];
-        $getdata = $this->M_ditgakkum->getChartDitgakkum($filterbaru);
+        $getdata = $this->M_ditkamsel->getChartDitkamsel($filterbaru);
         $data = [
             'data' => $getdata,
             'title' => $title,
@@ -108,9 +102,9 @@ class Ditgakkum extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Ditgakkum";
-        $page_content["page"] = "ditgakkum/ditgakkum_dakgar_lantas";
-        $page_content["data"] = ['menu' => 'Ditgakkum', 'submenu' => 'Data Dakgar Lantas', 'headline' => 'data dakgar lalu lintas'];
+        $page_content["title"] = "Ditkamsel";
+        $page_content["page"] = "ditkamsel/ditkamsel_dakgar_lantas";
+        $page_content["data"] = ['menu' => 'Ditkamsel', 'submenu' => 'Data Dakgar Lantas', 'headline' => 'data dakgar lalu lintas'];
         $this->templates->loadTemplate($page_content);
     }
 
@@ -118,9 +112,9 @@ class Ditgakkum extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Ditgakkum";
-        $page_content["page"] = "ditgakkum/ditgakkum_garlantas_konvensional";
-        $page_content["data"] = ['menu' => 'Ditgakkum', 'submenu' => 'Pelanggaran Lalu Lintas Konvensional', 'headline' => 'pelanggaran lalu lintas konvensional'];
+        $page_content["title"] = "Ditkamsel";
+        $page_content["page"] = "ditkamsel/ditkamsel_garlantas_konvensional";
+        $page_content["data"] = ['menu' => 'Ditkamsel', 'submenu' => 'Pelanggaran Lalu Lintas Konvensional', 'headline' => 'pelanggaran lalu lintas konvensional'];
         $this->templates->loadTemplate($page_content);
     }
 
@@ -128,9 +122,9 @@ class Ditgakkum extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Ditgakkum";
-        $page_content["page"] = "ditgakkum/ditgakkum_kecelakaan_lalulintas";
-        $page_content["data"] = ['menu' => 'Ditgakkum', 'submenu' => 'Kecelakaan Lalu Lintas', 'headline' => 'kecelakaan lalu lintas'];
+        $page_content["title"] = "Ditkamsel";
+        $page_content["page"] = "ditkamsel/ditkamsel_kecelakaan_lalulintas";
+        $page_content["data"] = ['menu' => 'Ditkamsel', 'submenu' => 'Kecelakaan Lalu Lintas', 'headline' => 'kecelakaan lalu lintas'];
         $this->templates->loadTemplate($page_content);
     }
 
@@ -138,9 +132,9 @@ class Ditgakkum extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Ditgakkum";
-        $page_content["page"] = "ditgakkum/ditgakkum_turjagwali";
-        $page_content["data"] = ['menu' => 'Ditgakkum', 'submenu' => 'Data Turjagwali', 'headline' => 'data turjagwali'];
+        $page_content["title"] = "Ditkamsel";
+        $page_content["page"] = "ditkamsel/ditkamsel_turjagwali";
+        $page_content["data"] = ['menu' => 'Ditkamsel', 'submenu' => 'Data Turjagwali', 'headline' => 'data turjagwali'];
         $this->templates->loadTemplate($page_content);
     }
 }

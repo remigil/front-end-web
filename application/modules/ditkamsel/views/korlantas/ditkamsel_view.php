@@ -2,7 +2,7 @@
                 <div class="row">
                     <div class="col-md-9 align-self-center">
                         <div id="nama">
-                            <h1 style="color:#007DD8 ; text-transform:uppercase;">Ditgakkum</h1>
+                            <h1 style="color:#007DD8 ; text-transform:uppercase;">Ditkamsel</h1>
                         </div>
                         <p>Today is <?= date('l, j F Y') ?></p>
                     </div>
@@ -18,10 +18,7 @@
                             <div class="col-md-4 mb-3">
                                 <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
                             </div>
-                            <div class="col-md-3">
-                                <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-                                <!-- <p style="color: red; margin-bottom:0;"><?= ucwords('last update ' . date('j F, Y'))  ?></p> -->
-                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-3">
@@ -29,15 +26,14 @@
                                     <div class="card-body">
                                         <div class="row justify-content-between align-items-center" style="height: 80px;">
                                             <div class="col-md-2">
-                                                <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                             </div>
                                             <div class="col-md-10 float-end">
                                                 <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">Total WAL & PJR</span>
-                                                    <!-- <span class="fw-bold">Total WAL & PJR Hari ini</span> -->
+                                                    <span class="fw-bold">Total DIKMAS</span>
                                                 </span>
                                                 <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="walpjr"></span>
+                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="dikmaslantas"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -50,34 +46,14 @@
                                     <div class="card-body">
                                         <div class="row justify-content-between align-items-center" style="height: 80px;">
                                             <div class="col-md-2">
-                                                <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
+                                                <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
                                             </div>
                                             <div class="col-md-10 float-end">
                                                 <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">TATIB </span>
+                                                    <span class="fw-bold">Total JEMENOPSREK</span>
                                                 </span>
                                                 <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                    <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">DAKGAR </span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
+                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="jemenopsrek"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -90,14 +66,34 @@
                                     <div class="card-body">
                                         <div class="row justify-content-between align-items-center" style="height: 80px;">
                                             <div class="col-md-2">
-                                                <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
+                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
                                             </div>
                                             <div class="col-md-10 float-end">
                                                 <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">LAKA</span>
+                                                    <span class="fw-bold">Total CEGAH</span>
                                                 </span>
                                                 <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
+                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="cegah"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                    <div class="card-body">
+                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                            <div class="col-md-2">
+                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                            </div>
+                                            <div class="col-md-10 float-end">
+                                                <span class="fs-6 float-end" style="color:#464646;">
+                                                    <span class="fw-bold">Total AUDIT</span>
+                                                </span>
+                                                <br>
+                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="audit"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -127,11 +123,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjrday"></div>
+                                            <div id="titledikmaslantasday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdaya">
+                                                <div id="chartdaydikmaslantas">
                                                 </div>
                                             </div>
                                         </div>
@@ -144,11 +140,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titletatibday"></div>
+                                            <div id="titlejemenopsrekday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdayb">
+                                                <div id="chartdayjemenopsrek">
                                                 </div>
                                             </div>
                                         </div>
@@ -161,11 +157,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlegarlantasday"></div>
+                                            <div id="titlecegahday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdayc">
+                                                <div id="chartdaycegah">
                                                 </div>
                                             </div>
                                         </div>
@@ -178,11 +174,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlelakalantasday"></div>
+                                            <div id="titleauditday"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartdayd">
+                                                <div id="chartdayaudit">
                                                 </div>
                                             </div>
                                         </div>
@@ -197,11 +193,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjrmonth"></div>
+                                            <div id="titledikmaslantasmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmontha">
+                                                <div id="chartmonthdikmaslantas">
                                                 </div>
                                             </div>
                                         </div>
@@ -214,11 +210,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titletatibmonth"></div>
+                                            <div id="titlejemenopsrekmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmonthb">
+                                                <div id="chartmonthjemenopsrek">
                                                 </div>
                                             </div>
                                         </div>
@@ -231,11 +227,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlegarlantasmonth"></div>
+                                            <div id="titlecegahmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmonthc">
+                                                <div id="chartmonthcegah">
                                                 </div>
                                             </div>
                                         </div>
@@ -248,11 +244,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlelakalantasmonth"></div>
+                                            <div id="titleauditmonth"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartmonthd">
+                                                <div id="chartmonthaudit">
                                                 </div>
                                             </div>
                                         </div>
@@ -268,11 +264,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlewalpjryear"></div>
+                                            <div id="titledikmaslantasyear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyeara">
+                                                <div id="chartyeardikmaslantas">
                                                 </div>
                                             </div>
                                         </div>
@@ -285,11 +281,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titletatibyear"></div>
+                                            <div id="titlejemenopsrekyear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyearb">
+                                                <div id="chartyearjemenopsrek">
                                                 </div>
                                             </div>
                                         </div>
@@ -302,11 +298,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlegarlantasyear"></div>
+                                            <div id="titlecegahyear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyearc">
+                                                <div id="chartyearcegah">
                                                 </div>
                                             </div>
                                         </div>
@@ -319,11 +315,11 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div id="titlelakalantasyear"></div>
+                                            <div id="titleaudityear"></div>
                                         </div>
                                         <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                             <div class="main-chart">
-                                                <div id="chartyeard">
+                                                <div id="chartyearaudit">
                                                 </div>
                                             </div>
                                         </div>
@@ -353,22 +349,22 @@
                 var three_yearAgo = year[0] + '-' + daymonth[1] + '-' + daymonth[2];
 
                 // Day
-                $("#chartdaya").html(`<div id="chartday1"></div>`);
-                $("#chartdayb").html(`<div id="chartday2"></div>`);
-                $("#chartdayc").html(`<div id="chartday3"></div>`);
-                $("#chartdayd").html(`<div id="chartday4"></div>`);
+                $("#chartdaydikmaslantas").html(`<div id="chartday1"></div>`);
+                $("#chartdayjemenopsrek").html(`<div id="chartday2"></div>`);
+                $("#chartdaycegah").html(`<div id="chartday3"></div>`);
+                $("#chartdayaudit").html(`<div id="chartday4"></div>`);
 
                 // Month
-                $("#chartmontha").html(`<div id="chart"></div>`);
-                $("#chartmonthb").html(`<div id="chart2"></div>`);
-                $("#chartmonthc").html(`<div id="chart3"></div>`);
-                $("#chartmonthd").html(`<div id="chart4"></div>`);
+                $("#chartmonthdikmaslantas").html(`<div id="chart"></div>`);
+                $("#chartmonthjemenopsrek").html(`<div id="chart2"></div>`);
+                $("#chartmonthcegah").html(`<div id="chart3"></div>`);
+                $("#chartmonthaudit").html(`<div id="chart4"></div>`);
 
                 // Year
-                $("#chartyeara").html(`<div id="chartyear"></div>`);
-                $("#chartyearb").html(`<div id="chartyear2"></div>`);
-                $("#chartyearc").html(`<div id="chartyear3"></div>`);
-                $("#chartyeard").html(`<div id="chartyear4"></div>`);
+                $("#chartyeardikmaslantas").html(`<div id="chartyear"></div>`);
+                $("#chartyearjemenopsrek").html(`<div id="chartyear2"></div>`);
+                $("#chartyearcegah").html(`<div id="chartyear3"></div>`);
+                $("#chartyearaudit").html(`<div id="chartyear4"></div>`);
 
 
                 getStatistik();
@@ -376,26 +372,26 @@
                 function getStatistik() {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getStatistik",
+                        url: "<?php echo base_url(); ?>ditkamsel/getStatistik",
                         dataType: "JSON",
                         success: function(result) {
                             $("#overlay").fadeOut(300);
-                            $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-                            $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-                            $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
-                            $('#walpjr').html(`<span class="fs-4" >${result.walpjr}</span>`);
+                            $('#dikmaslantas').html(`<span class="fs-4" >${result.dikmaslantas}</span >`);
+                            $('#jemenopsrek').html(`<span class="fs-4" >${result.jemenopsrek}</span >`);
+                            $('#cegah').html(`<span class="fs-4" >${result.cegah}</span >`);
+                            $('#audit').html(`<span class="fs-4" >${result.audit}</span>`);
                         }
                     })
                 }
 
-                getDitgakkumday(today, seven_daysAgo)
-                getDitgakkummonth(firstDay, lastDay)
-                getDitgakkumyear(three_yearAgo, lastDay)
+                getDitkamselday(today, seven_daysAgo)
+                getDitkamselmonth(firstDay, lastDay)
+                getDitkamselyear(three_yearAgo, lastDay)
                 // Day
-                function getDitgakkumday(today, seven_daysAgo) {
+                function getDitkamselday(today, seven_daysAgo) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditkamsel/getChartDitkamsel",
                         data: {
                             start_date: seven_daysAgo,
                             end_date: today,
@@ -404,20 +400,20 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjrday').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR HARIAN</h4>`);
-                            $('#titletatibday').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB HARIAN</h4>`);
-                            $('#titlegarlantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR HARIAN</h4>`);
-                            $('#titlelakalantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA HARIAN</h4>`);
+                            let dikmaslantas = result.data.dikmaslantas
+                            let jemenopsrek = result.data.jemenopsrek
+                            let cegah = result.data.cegah
+                            let audit = result.data.audit
+                            $('#titledikmaslantasday').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS HARIAN</h4>`);
+                            $('#titlejemenopsrekday').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK HARIAN</h4>`);
+                            $('#titlecegahday').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK HARIAN</h4>`);
+                            $('#titleauditday').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI HARIAN</h4>`);
 
-                            var ditgakkumwalpjrday = {
+                            var ditkamseldikmaslantasday = {
                                 series: [{
-                                    name: 'WAL & PJR',
+                                    name: 'DIKMASLANTAS',
                                     type: 'line',
-                                    data: walpjr,
+                                    data: dikmaslantas,
                                     color: "#11347A"
                                 }],
                                 chart: {
@@ -462,65 +458,65 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
+                                            dikmaslantassebelumnya = dikmaslantas[0];
 
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
+                                            if (dikmaslantas[0] < dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[0] > dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[1];
+                                            if (dikmaslantas[1] < dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[1] > dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            walpjrsebelumnya = walpjr[2];
-                                            if (walpjr[2] < walpjr[3]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[2] > walpjr[3]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[2];
+                                            if (dikmaslantas[2] < dikmaslantas[3]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[2] > dikmaslantas[3]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            walpjrsebelumnya = walpjr[3];
-                                            if (walpjr[3] < walpjr[4]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[3] > walpjr[4]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[3];
+                                            if (dikmaslantas[3] < dikmaslantas[4]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[3] > dikmaslantas[4]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            walpjrsebelumnya = walpjr[4];
-                                            if (walpjr[4] < walpjr[5]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[4] > walpjr[5]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[4];
+                                            if (dikmaslantas[4] < dikmaslantas[5]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[4] > dikmaslantas[5]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            walpjrsebelumnya = walpjr[5];
-                                            if (walpjr[5] < walpjr[6]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[5] > walpjr[6]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[5];
+                                            if (dikmaslantas[5] < dikmaslantas[6]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[5] > dikmaslantas[6]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         }
                                         return (
@@ -534,10 +530,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
+                                                            <span class="fw-bold">${dikmaslantassebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -547,17 +543,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
+                                                    <span class="fw-bold">${persentasedikmaslantas}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -566,10 +562,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -581,15 +577,15 @@
                                 }
                             };
 
-                            var ditgakkumwalpjrday = new ApexCharts(document.querySelector("#chartday1"), ditgakkumwalpjrday);
-                            ditgakkumwalpjrday.render();
+                            var ditkamseldikmaslantasday = new ApexCharts(document.querySelector("#chartday1"), ditkamseldikmaslantasday);
+                            ditkamseldikmaslantasday.render();
 
 
-                            var ditgakkumtatibday = {
+                            var ditkamseljemenopsrekday = {
                                 series: [{
-                                    name: 'Tatib',
+                                    name: 'JEMENOPSREK',
                                     type: 'line',
-                                    data: turjagwali,
+                                    data: jemenopsrek,
                                     color: "#CB2D3E"
                                 }],
                                 chart: {
@@ -634,56 +630,56 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
+                                            jemenopsreksebelumnya = jemenopsrek[0];
 
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
+                                            if (jemenopsrek[0] < jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[0] > jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[1];
+                                            if (jemenopsrek[1] < jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[1] > jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            turjagwalisebelumnya = turjagwali[2];
-                                            if (turjagwali[2] < turjagwali[3]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[2] > turjagwali[3]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[2];
+                                            if (jemenopsrek[2] < jemenopsrek[3]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[2] > jemenopsrek[3]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            turjagwalisebelumnya = turjagwali[3];
-                                            if (turjagwali[3] < turjagwali[4]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[3] > turjagwali[4]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[3];
+                                            if (jemenopsrek[3] < jemenopsrek[4]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[3] > jemenopsrek[4]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[5]
-                                            turjagwalisebelumnya = turjagwali[4];
-                                            if (turjagwali[4] < turjagwali[5]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[4] > turjagwali[5]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[4];
+                                            if (jemenopsrek[4] < jemenopsrek[5]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[4] > jemenopsrek[5]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         }
 
@@ -698,10 +694,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
+                                                            <span class="fw-bold">${jemenopsreksebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -711,17 +707,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
+                                                    <span class="fw-bold">${persentasejemenopsrek}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -730,10 +726,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -747,15 +743,15 @@
 
                             };
 
-                            var ditgakkumtatibday = new ApexCharts(document.querySelector("#chartday2"), ditgakkumtatibday);
-                            ditgakkumtatibday.render();
+                            var ditkamseljemenopsrekday = new ApexCharts(document.querySelector("#chartday2"), ditkamseljemenopsrekday);
+                            ditkamseljemenopsrekday.render();
 
 
-                            var ditgakkumdakgarday = {
+                            var cegahday = {
                                 series: [{
-                                    name: 'DAKGAR',
+                                    name: 'CEGAH & TINDAK',
                                     type: 'line',
-                                    data: garlantas,
+                                    data: cegah,
                                     color: "#3CA55C"
                                 }],
                                 chart: {
@@ -800,56 +796,56 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
+                                            cegahsebelumnya = cegah[0];
 
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
+                                            if (cegah[0] < cegah[1]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[0] > cegah[1]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[1];
+                                            if (cegah[1] < cegah[2]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[1] > cegah[2]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            garlantassebelumnya = garlantas[2];
-                                            if (garlantas[2] < garlantas[3]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[2] > garlantas[3]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[2];
+                                            if (cegah[2] < cegah[3]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[2] > cegah[3]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            garlantassebelumnya = garlantas[3];
-                                            if (garlantas[3] < garlantas[4]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[3] > garlantas[4]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[3];
+                                            if (cegah[3] < cegah[4]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[3] > cegah[4]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            garlantassebelumnya = garlantas[4];
-                                            if (garlantas[4] < garlantas[5]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[4] > garlantas[5]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[4];
+                                            if (cegah[4] < cegah[5]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[4] > cegah[5]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         }
 
@@ -864,10 +860,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${cegahsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -877,17 +873,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
+                                                    <span class="fw-bold">${cegah}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -896,10 +892,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -913,15 +909,15 @@
 
                             };
 
-                            var ditgakkumdakgarday = new ApexCharts(document.querySelector("#chartday3"), ditgakkumdakgarday);
-                            ditgakkumdakgarday.render();
+                            var cegahday = new ApexCharts(document.querySelector("#chartday3"), cegahday);
+                            cegahday.render();
 
 
-                            var ditgakkumlakaday = {
+                            var auditday = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'AUDIT & INSPEKSI',
                                     type: 'line',
-                                    data: lakalantas,
+                                    data: audit,
                                     color: "#EDF12D"
                                 }],
                                 chart: {
@@ -966,56 +962,56 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
+                                            auditsebelumnya = audit[0];
 
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
+                                            if (audit[0] < audit[1]) {
+                                                audit = 'Naik'
+                                            } else if (audit[0] > audit[1]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[1];
+                                            if (audit[1] < audit[2]) {
+                                                audit = 'Naik'
+                                            } else if (audit[1] > audit[2]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            lakalantassebelumnya = lakalantas[2];
-                                            if (lakalantas[2] < lakalantas[3]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[2] > lakalantas[3]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[2];
+                                            if (audit[2] < audit[3]) {
+                                                audit = 'Naik'
+                                            } else if (audit[2] > audit[3]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            lakalantassebelumnya = lakalantas[3];
-                                            if (lakalantas[3] < lakalantas[4]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[3] > lakalantas[4]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[3];
+                                            if (audit[3] < audit[4]) {
+                                                audit = 'Naik'
+                                            } else if (audit[3] > audit[4]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            lakalantassebelumnya = lakalantas[4];
-                                            if (lakalantas[4] < lakalantas[5]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[4] > lakalantas[5]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[4];
+                                            if (audit[4] < audit[5]) {
+                                                audit = 'Naik'
+                                            } else if (audit[4] > audit[5]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         }
 
@@ -1030,10 +1026,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${auditsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1043,17 +1039,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${audit}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1062,10 +1058,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -1079,18 +1075,18 @@
 
                             };
 
-                            var ditgakkumlakaday = new ApexCharts(document.querySelector("#chartday4"), ditgakkumlakaday);
-                            ditgakkumlakaday.render();
+                            var auditday = new ApexCharts(document.querySelector("#chartday4"), auditday);
+                            auditday.render();
                         }
                     })
                 }
 
 
-                // Month
-                function getDitgakkummonth(firstDay, lastDay) {
+                // // Month
+                function getDitkamselmonth(firstDay, lastDay) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditkamsel/getChartDitkamsel",
                         data: {
                             start_date: firstDay,
                             end_date: lastDay,
@@ -1099,20 +1095,20 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjrmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR BULANAN</h4>`);
-                            $('#titletatibmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB BULANAN</h4>`);
-                            $('#titlegarlantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR BULANAN</h4>`);
-                            $('#titlelakalantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA BULANAN</h4>`);
+                            let dikmaslantas = result.data.dikmaslantas
+                            let jemenopsrek = result.data.jemenopsrek
+                            let cegah = result.data.cegah
+                            let audit = result.data.audit
+                            $('#titledikmaslantasmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS BULANAN</h4>`);
+                            $('#titlejemenopsrekmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK BULANAN</h4>`);
+                            $('#titlecegahmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK BULANAN</h4>`);
+                            $('#titleauditmonth').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI BULANAN</h4>`);
 
-                            var ditgakkumwalpjr = {
+                            var ditkamseldikmaslantasmonth = {
                                 series: [{
-                                    name: 'WAL & PJR',
+                                    name: 'DIKMASLANTAS',
                                     type: 'line',
-                                    data: walpjr,
+                                    data: dikmaslantas,
                                     color: "#11347A"
                                 }],
                                 chart: {
@@ -1157,117 +1153,117 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
+                                            dikmaslantassebelumnya = dikmaslantas[0];
 
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
+                                            if (dikmaslantas[0] < dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[0] > dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[1];
+                                            if (dikmaslantas[1] < dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[1] > dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            walpjrsebelumnya = walpjr[2];
-                                            if (walpjr[2] < walpjr[3]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[2] > walpjr[3]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[2];
+                                            if (dikmaslantas[2] < dikmaslantas[3]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[2] > dikmaslantas[3]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            walpjrsebelumnya = walpjr[3];
-                                            if (walpjr[3] < walpjr[4]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[3] > walpjr[4]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[3];
+                                            if (dikmaslantas[3] < dikmaslantas[4]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[3] > dikmaslantas[4]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            walpjrsebelumnya = walpjr[4];
-                                            if (walpjr[4] < walpjr[5]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[4] > walpjr[5]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[4];
+                                            if (dikmaslantas[4] < dikmaslantas[5]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[4] > dikmaslantas[5]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            walpjrsebelumnya = walpjr[5];
-                                            if (walpjr[5] < walpjr[6]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[5] > walpjr[6]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[5];
+                                            if (dikmaslantas[5] < dikmaslantas[6]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[5] > dikmaslantas[6]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            walpjrsebelumnya = walpjr[6];
-                                            if (walpjr[6] < walpjr[7]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[6] > walpjr[7]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[6];
+                                            if (dikmaslantas[6] < dikmaslantas[7]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[6] > dikmaslantas[7]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            walpjrsebelumnya = walpjr[7];
-                                            if (walpjr[7] < walpjr[8]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[7] > walpjr[8]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[7];
+                                            if (dikmaslantas[7] < dikmaslantas[8]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[7] > dikmaslantas[8]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
-                                            walpjrsebelumnya = walpjr[8];
-                                            if (walpjr[8] < walpjr[9]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[8] > walpjr[9]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[8];
+                                            if (dikmaslantas[8] < dikmaslantas[9]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[8] > dikmaslantas[9]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            walpjrsebelumnya = walpjr[9];
-                                            if (walpjr[9] < walpjr[10]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[9] > walpjr[10]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[9];
+                                            if (dikmaslantas[9] < dikmaslantas[10]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[9] > dikmaslantas[10]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = `Sama`
+                                                persentasedikmaslantas = `Sama`
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            walpjrsebelumnya = walpjr[10];
-                                            if (walpjr[10] < walpjr[11]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[10] > walpjr[11]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[10];
+                                            if (dikmaslantas[10] < dikmaslantas[11]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[10] > dikmaslantas[11]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
                                         }
 
@@ -1282,10 +1278,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
+                                                            <span class="fw-bold">${dikmaslantassebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1295,17 +1291,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
+                                                    <span class="fw-bold">${persentasedikmaslantas}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1314,10 +1310,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -1329,15 +1325,15 @@
                                 }
                             };
 
-                            var ditgakkumwalpjr = new ApexCharts(document.querySelector("#chart"), ditgakkumwalpjr);
-                            ditgakkumwalpjr.render();
+                            var ditkamseldikmaslantasmonth = new ApexCharts(document.querySelector("#chart"), ditkamseldikmaslantasmonth);
+                            ditkamseldikmaslantasmonth.render();
 
 
-                            var ditgakkumtatib = {
+                            var ditkamseljemenopsrekmonth = {
                                 series: [{
-                                    name: 'Tatib',
+                                    name: 'JEMENOPSREK',
                                     type: 'line',
-                                    data: turjagwali,
+                                    data: jemenopsrek,
                                     color: "#CB2D3E"
                                 }],
                                 chart: {
@@ -1382,117 +1378,117 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
+                                            jemenopsreksebelumnya = jemenopsrek[0];
 
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
+                                            if (jemenopsrek[0] < jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[0] > jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[1];
+                                            if (jemenopsrek[1] < jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[1] > jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            turjagwalisebelumnya = turjagwali[2];
-                                            if (turjagwali[2] < turjagwali[3]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[2] > turjagwali[3]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[2];
+                                            if (jemenopsrek[2] < jemenopsrek[3]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[2] > jemenopsrek[3]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            turjagwalisebelumnya = turjagwali[3];
-                                            if (turjagwali[3] < turjagwali[4]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[3] > turjagwali[4]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[3];
+                                            if (jemenopsrek[3] < jemenopsrek[4]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[3] > jemenopsrek[4]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            turjagwalisebelumnya = turjagwali[4];
-                                            if (turjagwali[4] < turjagwali[5]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[4] > turjagwali[5]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[4];
+                                            if (jemenopsrek[4] < jemenopsrek[5]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[4] > jemenopsrek[5]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            turjagwalisebelumnya = turjagwali[5];
-                                            if (turjagwali[5] < turjagwali[6]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[5] > turjagwali[6]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[5];
+                                            if (jemenopsrek[5] < jemenopsrek[6]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[5] > jemenopsrek[6]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            turjagwalisebelumnya = turjagwali[6];
-                                            if (turjagwali[6] < turjagwali[7]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[6] > turjagwali[7]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[6];
+                                            if (jemenopsrek[6] < jemenopsrek[7]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[6] > jemenopsrek[7]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            turjagwalisebelumnya = turjagwali[7];
-                                            if (turjagwali[7] < turjagwali[8]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[7] > turjagwali[8]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[7];
+                                            if (jemenopsrek[7] < jemenopsrek[8]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[7] > jemenopsrek[8]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
-                                            turjagwalisebelumnya = turjagwali[8];
-                                            if (turjagwali[8] < turjagwali[9]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[8] > turjagwali[9]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[8];
+                                            if (jemenopsrek[8] < jemenopsrek[9]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[8] > jemenopsrek[9]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            turjagwalisebelumnya = turjagwali[9];
-                                            if (turjagwali[9] < turjagwali[10]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[9] > turjagwali[10]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[9];
+                                            if (jemenopsrek[9] < jemenopsrek[10]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[9] > jemenopsrek[10]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = `Sama`
+                                                persentasejemenopsrek = `Sama`
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            turjagwalisebelumnya = turjagwali[10];
-                                            if (turjagwali[10] < turjagwali[11]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[10] > turjagwali[11]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[10];
+                                            if (jemenopsrek[10] < jemenopsrek[11]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[10] > jemenopsrek[11]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
                                         }
 
@@ -1507,10 +1503,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
+                                                            <span class="fw-bold">${jemenopsreksebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1520,17 +1516,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
+                                                    <span class="fw-bold">${persentasejemenopsrek}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1539,10 +1535,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -1556,15 +1552,15 @@
 
                             };
 
-                            var ditgakkumtatib = new ApexCharts(document.querySelector("#chart2"), ditgakkumtatib);
-                            ditgakkumtatib.render();
+                            var ditkamseljemenopsrekmonth = new ApexCharts(document.querySelector("#chart2"), ditkamseljemenopsrekmonth);
+                            ditkamseljemenopsrekmonth.render();
 
 
-                            var ditgakkumdakgar = {
+                            var ditkamselcegahmonth = {
                                 series: [{
-                                    name: 'DAKGAR',
+                                    name: 'CEGAH & TINDAK',
                                     type: 'line',
-                                    data: garlantas,
+                                    data: cegah,
                                     color: "#3CA55C"
                                 }],
                                 chart: {
@@ -1609,117 +1605,117 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
+                                            cegahsebelumnya = cegah[0];
 
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
+                                            if (cegah[0] < cegah[1]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[0] > cegah[1]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[1];
+                                            if (cegah[1] < cegah[2]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[1] > cegah[2]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            garlantassebelumnya = garlantas[2];
-                                            if (garlantas[2] < garlantas[3]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[2] > garlantas[3]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[2];
+                                            if (cegah[2] < cegah[3]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[2] > cegah[3]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            garlantassebelumnya = garlantas[3];
-                                            if (garlantas[3] < garlantas[4]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[3] > garlantas[4]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[3];
+                                            if (cegah[3] < cegah[4]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[3] > cegah[4]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            garlantassebelumnya = garlantas[4];
-                                            if (garlantas[4] < garlantas[5]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[4] > garlantas[5]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[4];
+                                            if (cegah[4] < cegah[5]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[4] > cegah[5]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            garlantassebelumnya = garlantas[5];
-                                            if (garlantas[5] < garlantas[6]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[5] > garlantas[6]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[5];
+                                            if (cegah[5] < cegah[6]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[5] > cegah[6]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            garlantassebelumnya = garlantas[6];
-                                            if (garlantas[6] < garlantas[7]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[6] > garlantas[7]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[6];
+                                            if (cegah[6] < cegah[7]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[6] > cegah[7]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            garlantassebelumnya = garlantas[7];
-                                            if (garlantas[7] < garlantas[8]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[7] > garlantas[8]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[7];
+                                            if (cegah[7] < cegah[8]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[7] > cegah[8]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
-                                            garlantassebelumnya = garlantas[8];
-                                            if (garlantas[8] < garlantas[9]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[8] > garlantas[9]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[8];
+                                            if (cegah[8] < cegah[9]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[8] > cegah[9]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            garlantassebelumnya = garlantas[9];
-                                            if (garlantas[9] < garlantas[10]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[9] > garlantas[10]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[9];
+                                            if (cegah[9] < cegah[10]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[9] > cegah[10]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = `Sama`
+                                                cegah = `Sama`
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            garlantassebelumnya = garlantas[10];
-                                            if (garlantas[10] < garlantas[11]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[10] > garlantas[11]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[10];
+                                            if (cegah[10] < cegah[11]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[10] > cegah[11]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
                                         }
 
@@ -1734,10 +1730,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${cegahsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1747,17 +1743,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
+                                                    <span class="fw-bold">${cegah}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1766,10 +1762,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -1783,15 +1779,15 @@
 
                             };
 
-                            var ditgakkumdakgar = new ApexCharts(document.querySelector("#chart3"), ditgakkumdakgar);
-                            ditgakkumdakgar.render();
+                            var ditkamselcegahmonth = new ApexCharts(document.querySelector("#chart3"), ditkamselcegahmonth);
+                            ditkamselcegahmonth.render();
 
 
-                            var ditgakkumlaka = {
+                            var ditkamselauditmonth = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'AUDIT & INSPEKSI',
                                     type: 'line',
-                                    data: lakalantas,
+                                    data: audit,
                                     color: "#EDF12D"
                                 }],
                                 chart: {
@@ -1836,117 +1832,117 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
+                                            auditsebelumnya = audit[0];
 
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
+                                            if (audit[0] < audit[1]) {
+                                                audit = 'Naik'
+                                            } else if (audit[0] > audit[1]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[1];
+                                            if (audit[1] < audit[2]) {
+                                                audit = 'Naik'
+                                            } else if (audit[1] > audit[2]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
-                                            lakalantassebelumnya = lakalantas[2];
-                                            if (lakalantas[2] < lakalantas[3]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[2] > lakalantas[3]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[2];
+                                            if (audit[2] < audit[3]) {
+                                                audit = 'Naik'
+                                            } else if (audit[2] > audit[3]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
-                                            lakalantassebelumnya = lakalantas[3];
-                                            if (lakalantas[3] < lakalantas[4]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[3] > lakalantas[4]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[3];
+                                            if (audit[3] < audit[4]) {
+                                                audit = 'Naik'
+                                            } else if (audit[3] > audit[4]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
-                                            lakalantassebelumnya = lakalantas[4];
-                                            if (lakalantas[4] < lakalantas[5]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[4] > lakalantas[5]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[4];
+                                            if (audit[4] < audit[5]) {
+                                                audit = 'Naik'
+                                            } else if (audit[4] > audit[5]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
-                                            lakalantassebelumnya = lakalantas[5];
-                                            if (lakalantas[5] < lakalantas[6]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[5] > lakalantas[6]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[5];
+                                            if (audit[5] < audit[6]) {
+                                                audit = 'Naik'
+                                            } else if (audit[5] > audit[6]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
-                                            lakalantassebelumnya = lakalantas[6];
-                                            if (lakalantas[6] < lakalantas[7]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[6] > lakalantas[7]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[6];
+                                            if (audit[6] < audit[7]) {
+                                                audit = 'Naik'
+                                            } else if (audit[6] > audit[7]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
-                                            lakalantassebelumnya = lakalantas[7];
-                                            if (lakalantas[7] < lakalantas[8]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[7] > lakalantas[8]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[7];
+                                            if (audit[7] < audit[8]) {
+                                                audit = 'Naik'
+                                            } else if (audit[7] > audit[8]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
-                                            lakalantassebelumnya = lakalantas[8];
-                                            if (lakalantas[8] < lakalantas[9]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[8] > lakalantas[9]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[8];
+                                            if (audit[8] < audit[9]) {
+                                                audit = 'Naik'
+                                            } else if (audit[8] > audit[9]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
-                                            lakalantassebelumnya = lakalantas[9];
-                                            if (lakalantas[9] < lakalantas[10]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[9] > lakalantas[10]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[9];
+                                            if (audit[9] < audit[10]) {
+                                                audit = 'Naik'
+                                            } else if (audit[9] > audit[10]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = `Sama`
+                                                audit = `Sama`
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 12) {
                                             bulansebelumnya = polda_month[10]
-                                            lakalantassebelumnya = lakalantas[10];
-                                            if (lakalantas[10] < lakalantas[11]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[10] > lakalantas[11]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[10];
+                                            if (audit[10] < audit[11]) {
+                                                audit = 'Naik'
+                                            } else if (audit[10] > audit[11]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
                                         }
 
@@ -1961,10 +1957,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${auditsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -1974,17 +1970,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${audit}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1993,10 +1989,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -2010,17 +2006,17 @@
 
                             };
 
-                            var ditgakkumlaka = new ApexCharts(document.querySelector("#chart4"), ditgakkumlaka);
-                            ditgakkumlaka.render();
+                            var ditkamselauditmonth = new ApexCharts(document.querySelector("#chart4"), ditkamselauditmonth);
+                            ditkamselauditmonth.render();
                         }
                     })
                 }
 
-                // Year
-                function getDitgakkumyear(three_yearAgo, lastDay) {
+                // // Year
+                function getDitkamselyear(three_yearAgo, lastDay) {
                     $.ajax({
                         type: "POST",
-                        url: "<?php echo base_url(); ?>ditgakkum/getChartDitgakkum",
+                        url: "<?php echo base_url(); ?>ditkamsel/getChartDitkamsel",
                         data: {
                             start_date: three_yearAgo,
                             end_date: lastDay,
@@ -2029,20 +2025,20 @@
                         dataType: "JSON",
                         success: function(result) {
                             let polda_month = result.data.polda_month
-                            let walpjr = result.data.walpjr
-                            let turjagwali = result.data.turjagwali
-                            let garlantas = result.data.garlantas
-                            let lakalantas = result.data.lakalantas
-                            $('#titlewalpjryear').html(`<h4 class="card-title mb-0 text-uppercase">DATA WAL & PJR TAHUNAN</h4>`);
-                            $('#titletatibyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA TATIB TAHUNAN</h4>`);
-                            $('#titlegarlantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA DAKGAR TAHUNAN</h4>`);
-                            $('#titlelakalantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA LAKA TAHUNAN</h4>`);
+                            let dikmaslantas = result.data.dikmaslantas
+                            let jemenopsrek = result.data.jemenopsrek
+                            let cegah = result.data.cegah
+                            let audit = result.data.audit
+                            $('#titledikmaslantasyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA DIKMAS TAHUNAN</h4>`);
+                            $('#titlejemenopsrekyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA JEMENOPSREK TAHUNAN</h4>`);
+                            $('#titlecegahyear').html(`<h4 class="card-title mb-0 text-uppercase">DATA CEGAH & TINDAK TAHUNAN</h4>`);
+                            $('#titleaudityear').html(`<h4 class="card-title mb-0 text-uppercase">DATA & INSPEKSI TAHUNAN</h4>`);
 
-                            var ditgakkumwalpjryear = {
+                            var ditkamseldikmaslantasyear = {
                                 series: [{
-                                    name: 'WAL & PJR',
+                                    name: 'DIKMASLANTAS',
                                     type: 'line',
-                                    data: walpjr,
+                                    data: dikmaslantas,
                                     color: "#11347A"
                                 }],
                                 chart: {
@@ -2087,25 +2083,25 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            walpjrsebelumnya = walpjr[0];
+                                            dikmaslantassebelumnya = dikmaslantas[0];
 
-                                            if (walpjr[0] < walpjr[1]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[0] > walpjr[1]) {
-                                                persentasewalpjr = 'Turun'
+                                            if (dikmaslantas[0] < dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[0] > dikmaslantas[1]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            walpjrsebelumnya = walpjr[1];
-                                            if (walpjr[1] < walpjr[2]) {
-                                                persentasewalpjr = 'Naik'
-                                            } else if (walpjr[1] > walpjr[2]) {
-                                                persentasewalpjr = 'Turun'
+                                            dikmaslantassebelumnya = dikmaslantas[1];
+                                            if (dikmaslantas[1] < dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Naik'
+                                            } else if (dikmaslantas[1] > dikmaslantas[2]) {
+                                                persentasedikmaslantas = 'Turun'
                                             } else {
-                                                persentasewalpjr = 'Sama'
+                                                persentasedikmaslantas = 'Sama'
                                             }
 
                                         }
@@ -2121,10 +2117,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${walpjrsebelumnya}</span><br>
+                                                            <span class="fw-bold">${dikmaslantassebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2134,17 +2130,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasewalpjr}</span><br>
+                                                    <span class="fw-bold">${persentasedikmaslantas}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2153,10 +2149,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total WAL & PJR</span><br>
+                                                            <span class="fw-bold">Total dikmaslantas</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${walpjr[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${dikmaslantas[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -2168,15 +2164,15 @@
                                 }
                             };
 
-                            var ditgakkumwalpjryear = new ApexCharts(document.querySelector("#chartyear"), ditgakkumwalpjryear);
-                            ditgakkumwalpjryear.render();
+                            var ditkamseldikmaslantasyear = new ApexCharts(document.querySelector("#chartyear"), ditkamseldikmaslantasyear);
+                            ditkamseldikmaslantasyear.render();
 
 
-                            var ditgakkumtatibyear = {
+                            var ditkamseljemenopsrekyear = {
                                 series: [{
-                                    name: 'Tatib',
+                                    name: 'JEMENOPSREK',
                                     type: 'line',
-                                    data: turjagwali,
+                                    data: jemenopsrek,
                                     color: "#CB2D3E"
                                 }],
                                 chart: {
@@ -2221,25 +2217,25 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            turjagwalisebelumnya = turjagwali[0];
+                                            jemenopsreksebelumnya = jemenopsrek[0];
 
-                                            if (turjagwali[0] < turjagwali[1]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[0] > turjagwali[1]) {
-                                                persentaseturjagwali = 'Turun'
+                                            if (jemenopsrek[0] < jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[0] > jemenopsrek[1]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            turjagwalisebelumnya = turjagwali[1];
-                                            if (turjagwali[1] < turjagwali[2]) {
-                                                persentaseturjagwali = 'Naik'
-                                            } else if (turjagwali[1] > turjagwali[2]) {
-                                                persentaseturjagwali = 'Turun'
+                                            jemenopsreksebelumnya = jemenopsrek[1];
+                                            if (jemenopsrek[1] < jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Naik'
+                                            } else if (jemenopsrek[1] > jemenopsrek[2]) {
+                                                persentasejemenopsrek = 'Turun'
                                             } else {
-                                                persentaseturjagwali = 'Sama'
+                                                persentasejemenopsrek = 'Sama'
                                             }
 
                                         }
@@ -2255,10 +2251,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${turjagwalisebelumnya}</span><br>
+                                                            <span class="fw-bold">${jemenopsreksebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2268,17 +2264,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaseturjagwali}</span><br>
+                                                    <span class="fw-bold">${persentasejemenopsrek}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2287,10 +2283,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total TATIB</span><br>
+                                                            <span class="fw-bold">Total jemenopsrek</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${turjagwali[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${jemenopsrek[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -2304,15 +2300,15 @@
 
                             };
 
-                            var ditgakkumtatibyear = new ApexCharts(document.querySelector("#chartyear2"), ditgakkumtatibyear);
-                            ditgakkumtatibyear.render();
+                            var ditkamseljemenopsrekyear = new ApexCharts(document.querySelector("#chartyear2"), ditkamseljemenopsrekyear);
+                            ditkamseljemenopsrekyear.render();
 
 
-                            var ditgakkumdakgaryear = {
+                            var ditkamselcegahyear = {
                                 series: [{
-                                    name: 'DAKGAR',
+                                    name: 'CEGAH & TINDAK',
                                     type: 'line',
-                                    data: garlantas,
+                                    data: cegah,
                                     color: "#3CA55C"
                                 }],
                                 chart: {
@@ -2357,25 +2353,25 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            garlantassebelumnya = garlantas[0];
+                                            cegahsebelumnya = cegah[0];
 
-                                            if (garlantas[0] < garlantas[1]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[0] > garlantas[1]) {
-                                                persentasegarlantas = 'Turun'
+                                            if (cegah[0] < cegah[1]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[0] > cegah[1]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            garlantassebelumnya = garlantas[1];
-                                            if (garlantas[1] < garlantas[2]) {
-                                                persentasegarlantas = 'Naik'
-                                            } else if (garlantas[1] > garlantas[2]) {
-                                                persentasegarlantas = 'Turun'
+                                            cegahsebelumnya = cegah[1];
+                                            if (cegah[1] < cegah[2]) {
+                                                cegah = 'Naik'
+                                            } else if (cegah[1] > cegah[2]) {
+                                                cegah = 'Turun'
                                             } else {
-                                                persentasegarlantas = 'Sama'
+                                                cegah = 'Sama'
                                             }
 
                                         }
@@ -2391,10 +2387,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${garlantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${cegahsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2404,17 +2400,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentasegarlantas}</span><br>
+                                                    <span class="fw-bold">${cegah}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2423,10 +2419,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total DAKGAR</span><br>
+                                                            <span class="fw-bold">Total cegah</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${garlantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${cegah[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -2440,15 +2436,15 @@
 
                             };
 
-                            var ditgakkumdakgaryear = new ApexCharts(document.querySelector("#chartyear3"), ditgakkumdakgaryear);
-                            ditgakkumdakgaryear.render();
+                            var ditkamselcegahyear = new ApexCharts(document.querySelector("#chartyear3"), ditkamselcegahyear);
+                            ditkamselcegahyear.render();
 
 
-                            var ditgakkumlakayear = {
+                            var ditkamselaudityear = {
                                 series: [{
-                                    name: 'LAKA',
+                                    name: 'AUDIT & INSPEKSI',
                                     type: 'line',
-                                    data: lakalantas,
+                                    data: audit,
                                     color: "#EDF12D"
                                 }],
                                 chart: {
@@ -2493,25 +2489,25 @@
                                     }) {
                                         if (w.globals.labels[dataPointIndex] == 2) {
                                             bulansebelumnya = polda_month[0]
-                                            lakalantassebelumnya = lakalantas[0];
+                                            auditsebelumnya = audit[0];
 
-                                            if (lakalantas[0] < lakalantas[1]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[0] > lakalantas[1]) {
-                                                persentaselakalantas = 'Turun'
+                                            if (audit[0] < audit[1]) {
+                                                audit = 'Naik'
+                                            } else if (audit[0] > audit[1]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
-                                            lakalantassebelumnya = lakalantas[1];
-                                            if (lakalantas[1] < lakalantas[2]) {
-                                                persentaselakalantas = 'Naik'
-                                            } else if (lakalantas[1] > lakalantas[2]) {
-                                                persentaselakalantas = 'Turun'
+                                            auditsebelumnya = audit[1];
+                                            if (audit[1] < audit[2]) {
+                                                audit = 'Naik'
+                                            } else if (audit[1] > audit[2]) {
+                                                audit = 'Turun'
                                             } else {
-                                                persentaselakalantas = 'Sama'
+                                                audit = 'Sama'
                                             }
 
                                         }
@@ -2527,10 +2523,10 @@
                                                 </div>
                                                     <div class="row">
                                                         <div class="col-md-8 ms-1">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="fw-bold">${lakalantassebelumnya}</span><br>
+                                                            <span class="fw-bold">${auditsebelumnya}</span><br>
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -2540,17 +2536,17 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>                                                        </div>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${persentaselakalantas}</span><br>
+                                                    <span class="fw-bold">${audit}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2559,10 +2555,10 @@
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-7 ms-2">
-                                                            <span class="fw-bold">Total LAKA</span><br>
+                                                            <span class="fw-bold">Total audit</span><br>
                                                             </div>
                                                         <div class="col-md-4">
-                                                            <span class="fw-bold">${lakalantas[dataPointIndex]}</span><br>
+                                                            <span class="fw-bold">${audit[dataPointIndex]}</span><br>
                                                             </div>
                                                     </div>
                                                 </div>`}
@@ -2576,8 +2572,8 @@
 
                             };
 
-                            var ditgakkumlakayear = new ApexCharts(document.querySelector("#chartyear4"), ditgakkumlakayear);
-                            ditgakkumlakayear.render();
+                            var ditkamselaudityear = new ApexCharts(document.querySelector("#chartyear4"), ditkamselaudityear);
+                            ditkamselaudityear.render();
                         }
                     })
                 }
