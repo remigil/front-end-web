@@ -7,7 +7,8 @@
                         <p>Today is <?= date('l, j F Y') ?></p>
                     </div>
                     <div class="col-md-3 text-end align-self-center">
-                        <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=2022-11-21" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                        <a href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y-m-d'); ?>" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
                     </div>
                 </div>
 
