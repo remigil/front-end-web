@@ -1175,18 +1175,19 @@
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">Dashboard</span>
+                                        <span data-key="t-dashboard" style="color: white;">Dashboard Executive</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+
                                         <span data-key="t-dashboard" style="color: white;">Statistik Nasional</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-authentication" style="color: white;">Subsatker Korlantas</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
@@ -1234,13 +1235,16 @@
                                         <span data-key="t-dashboard" style="color: white;">Anev</span>
                                     </a>
                                 </li>
-
+                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
+                                <!-- <hr style="height: 5px; background-color:white !Important;"> -->
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">DivTik Mabes Polri</span>
+                                        <!-- <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                        <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
                                     </a>
                                 </li>
+                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
+                                <!-- <hr style="height: 5px; background-color:white !Important;"> -->
 
                                 <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung Internal</li>
                                 <li>
