@@ -270,22 +270,22 @@
                  // chart laka
                  var chart = {
                      series: [{
-                         name: 'Total Laka',
+                         name: '<h6>Total Laka</h6>',
                          type: 'column',
                          data: polda_insiden_kecelakaan,
                          color: "#11347A"
                      }, {
-                         name: 'Meninggal Dunia',
+                         name: '<h6>Meninggal Dunia</h6>',
                          type: 'column',
                          data: polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: 'Luka Berat',
+                         name: '<h6>Luka Berat</h6>',
                          type: 'column',
                          data: polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: 'Luka Ringan',
+                         name: '<h6>Luka Ringan</h6>',
                          type: 'column',
                          data: polda_luka_ringan,
                          color: "#3CA55C"
@@ -336,11 +336,13 @@
                          labels: {
                              show: true,
                              style: {
-                                 colors: '#bd0d0d',
+                                 colors: 'red',
                                  fontSize: '18px',
                                  fontWeight: 400,
+
                              }
-                         }
+                         },
+                         tickPlacement: 'between'
                      },
                      yaxis: [{
                          axisTicks: {
@@ -409,22 +411,22 @@
                  // chart laka
                  var chart = {
                      series: [{
-                         name: 'Total Laka',
+                         name: '<h6>Total Laka</h6>',
                          type: 'column',
                          data: polda_jumlah,
                          color: "#11347A"
                      }, {
-                         name: 'Meninggal Dunia',
+                         name: '<h6>Meninggal Dunia</h6>',
                          type: 'column',
                          data: polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: 'Luka Berat',
+                         name: '<h6>Luka Berat</h6>',
                          type: 'column',
                          data: polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: 'Luka Ringan',
+                         name: '<h6>Luka Ringan</h6>',
                          type: 'column',
                          data: polda_luka_ringan,
                          color: "#3CA55C"
@@ -479,7 +481,8 @@
                                  fontSize: '18px',
                                  fontWeight: 400,
                              }
-                         }
+                         },
+                         tickPlacement: 'between'
                      },
                      yaxis: [{
                          axisTicks: {
@@ -581,22 +584,22 @@
 
                      var chart = {
                          series: [{
-                             name: 'Total Laka',
+                             name: '<h6>Total Laka</h6>',
                              type: 'column',
                              data: polda_jumlah,
                              color: "#11347A"
                          }, {
-                             name: 'Meninggal Dunia',
+                             name: '<h6>Meninggal Dunia</h6>',
                              type: 'column',
                              data: polda_meninggal_dunia,
                              color: "#CB2D3E"
                          }, {
-                             name: 'Luka Berat',
+                             name: '<h6>Luka Berat</h6>',
                              type: 'column',
                              data: polda_luka_berat,
                              color: "#E8D42F"
                          }, {
-                             name: 'Luka Ringan',
+                             name: '<h6>Luka Ringan</h6>',
                              type: 'column',
                              data: polda_luka_ringan,
                              color: "#3CA55C"
@@ -651,7 +654,8 @@
                                      fontSize: '18px',
                                      fontWeight: 1000,
                                  }
-                             }
+                             },
+                             tickPlacement: 'between'
                          },
                          yaxis: [{
                              axisTicks: {
@@ -700,22 +704,22 @@
 
                  var chart2 = {
                      series: [{
-                         name: 'Total Laka',
+                         name: '<h6>Total Laka</h6>',
                          type: 'line',
                          data: results.data.polda_insiden_kecelakaan,
                          color: "#11347A"
                      }, {
-                         name: 'Meninggal Dunia',
+                         name: '<h6>Meninggal Dunia</h6>',
                          type: 'line',
                          data: results.data.polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: 'Luka Berat',
+                         name: '<h6>Luka Berat</h6>',
                          type: 'line',
                          data: results.data.polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: 'Luka Ringan',
+                         name: '<h6>Luka Ringan</h6>',
                          type: 'line',
                          data: results.data.polda_luka_ringan,
                          color: "#3CA55C"
@@ -758,7 +762,8 @@
                                  fontSize: '18px',
                                  fontWeight: 400,
                              }
-                         }
+                         },
+                         tickPlacement: 'between'
                      }
 
                  };

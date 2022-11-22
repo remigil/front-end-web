@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
@@ -103,7 +104,7 @@
             </div>
         </div>
 
-        <div class="row m-3">
+        <div class="row m-3" style="font-size: 16px;">
             <div class="col-xl-12">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -291,6 +292,16 @@
                     },
                     xaxis: {
                         categories: polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: 'red',
+                                fontSize: '18px',
+                                fontWeight: 400,
+
+                            }
+                        },
+                        tickPlacement: 'between'
                     },
                     yaxis: [{
                         axisTicks: {
@@ -427,6 +438,16 @@
                     },
                     xaxis: {
                         categories: polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: 'red',
+                                fontSize: '18px',
+                                fontWeight: 400,
+
+                            }
+                        },
+                        tickPlacement: 'between'
                     },
                     yaxis: [{
                         axisTicks: {
@@ -595,6 +616,16 @@
                         },
                         xaxis: {
                             categories: polda_name,
+                            labels: {
+                                show: true,
+                                style: {
+                                    colors: 'red',
+                                    fontSize: '18px',
+                                    fontWeight: 400,
+
+                                }
+                            },
+                            tickPlacement: 'between'
                         },
                         yaxis: [{
                             axisTicks: {
@@ -704,6 +735,16 @@
                     },
                     xaxis: {
                         categories: results.data.polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: 'red',
+                                fontSize: '18px',
+                                fontWeight: 400,
+
+                            }
+                        },
+                        tickPlacement: 'between'
                     }
 
                 };
