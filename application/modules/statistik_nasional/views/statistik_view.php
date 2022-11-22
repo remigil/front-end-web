@@ -17,10 +17,15 @@
                                 <i class="bx bxs-car-crash ms-n2 mt-2 mb-2" style="font-size: 40px; color: #464646;"></i>
                             </div>
                             <div class="col-md-10 float-end">
-                                <span class="fs-6 float-end" style="color:#464646;">
+                                <span class="fs-4 float-end" style="color:#464646;">
                                     <span class="fw-bold ">Total Kecelakaan </span>Lalu Lintas
+                                    <span>
+                                        <p class="float-end m-0 p-0" style="font-size: 11px;">Efektif data Senin, 6 November 2022</p>
+                                    </span>
                                 </span>
-                                <br><br>
+
+                                <br>
+                                <br>
                                 <span class="fs-4 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
                             </div>
                         </div>
@@ -37,7 +42,7 @@
                                 <i class="bx bxs-car-crash ms-n2 mt-2 mb-2" style="font-size: 40px; color: #464646;"></i>
                             </div>
                             <div class="col-md-10 float-end">
-                                <span class="fs-6 float-end" style="color:#464646;">
+                                <span class="fs-4 float-end" style="color:#464646;">
                                     <span class="fw-bold">Total Pelanggaran </span>Lalu Lintas
                                 </span>
                                 <br><br>
@@ -58,7 +63,7 @@
                                 <i class='bx bxs-id-card ms-n2' style="font-size: 40px; color: #464646;"></i>
                             </div>
                             <div class="col-md-10 float-end">
-                                <span class="fs-6 float-end" style="color:#464646;">
+                                <span class="fs-4 float-end" style="color:#464646;">
                                     <span class="fw-bold">Total Turjagwali</span>
                                 </span>
                                 <br><br>
@@ -78,7 +83,7 @@
                                 <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
                             </div>
                             <div class="col-md-10 float-end">
-                                <span class="fs-6 float-end" style="color:#464646;">
+                                <span class="fs-4 float-end" style="color:#464646;">
                                     <span class="fw-bold">Total Kendaraan </span>Bermotor
                                 </span>
                                 <br><br>
@@ -108,7 +113,7 @@
                         <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded">
+                                <table class="table table-bordered table-hover rounded" style="font-size: 16px;">
                                     <thead class="" style="background-color:#007DD8; color:#fff;">
                                         <tr class="text-center">
                                             <th scope="col">No</th>
@@ -130,7 +135,7 @@
                         <h5>10 Polda Kecelakaan Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded">
+                                <table class="table table-bordered table-hover rounded" style="font-size: 16px;">
                                     <thead class="" style="background-color:#007DD8; color:#fff;">
                                         <tr class="text-center">
                                             <th scope="col">No</th>
@@ -325,7 +330,7 @@
                         style: {
                             colors: ['#333']
                         },
-                        offsetY: -15
+                        offsetY: -15,
                     },
 
                     stroke: {
@@ -335,6 +340,14 @@
                     },
                     xaxis: {
                         categories: result.polda_name,
+                        labels: {
+                            show: true,
+                            style: {
+                                colors: ['#f70505'],
+                                fontSize: '16px',
+                                fontWeight: 400,
+                            }
+                        }
                     },
                     yaxis: [{
                         axisTicks: {
