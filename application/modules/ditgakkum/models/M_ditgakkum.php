@@ -30,7 +30,14 @@ class M_ditgakkum extends CI_Model
         $month_lakalantas = array();
         $month_turjagwali = array();
         foreach ($ditgakkum['data'] as $key) {
-            $poldaMonth[] = $key['date'];
+            if ($filter['type'] == 'day') {
+                $datee = explode("-", $key['date']);
+                $poldaMonth[] = $datee[2] . "-" . $datee[1] . "-" . $datee[0];
+            } else if ($filter['type'] == 'month') {
+                $poldaMonth[] = $key['date'];
+            } else if ($filter['type'] == 'year') {
+                $poldaMonth[] = $key['date'];
+            }
             $month_garlantas[] = $key['garlantas'];
             $month_lakalanggar[] = $key['lakalanggar'];
             $month_lakalantas[] = $key['lakalantas'];
@@ -38,7 +45,6 @@ class M_ditgakkum extends CI_Model
             $month_walpjr[] = 0;
             // $month_walpjr[] = $key['walpjr'];
         }
-
         return [
             'polda_month' => $poldaMonth,
             'garlantas' => $month_garlantas,

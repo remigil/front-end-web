@@ -78,20 +78,16 @@ class Ditgakkum extends MY_Controller
     public function getChartDitgakkum()
     {
         $title = 'DATA DITGAKKUM';
-        // $filter = $this->input->post('filter');
+        $filter = $this->input->post('filter');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
-        // if ($filter == 1) {
-        //     if ($start_date == '' || $end_date == '') {
-        //         $start_date = date('Y-m-d', strtotime('first day of january this year'));
-        //         $end_date = date('Y-m-d', strtotime('last day of december this year'));
-        //         $type = 'month';
-        //     } else {
-        // $type = 'day';
-        //     }
-        // } else {
-        $type = 'month';
-        // }
+        if ($filter == 'day') {
+            $type = 'day';
+        } elseif ($filter == 'month') {
+            $type = 'month';
+        } elseif ($filter == 'year') {
+            $type = 'year';
+        }
         $filterbaru = [
             'filter' => true,
             'type' => $type,
