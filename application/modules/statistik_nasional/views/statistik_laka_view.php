@@ -1,4 +1,5 @@
  <div class="container-fluid">
+     <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
@@ -58,38 +59,34 @@
  </div>
 
 
- <div class="filter mt-3 mb-3" style=" height:125px;">
-     <div class="container-fluid mt-5">
-         <div class="container-fluid">
-             <div class="container-fluid">
-                 <div class="row mt-5 justify-content-center">
-                     <div class="col-md-9 align-self-center">
-                         <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                         <div class="row">
-                             <div class="col-md-4">
-                                 <input class="form-control" type="date" name="start_date" id="start_date">
-                             </div>
-                             <div class="col-md-4">
-                                 <input class="form-control" type="date" name="end_date" id="end_date">
-                             </div>
-                             <div class="col-md-2">
-                                 <button type="button" class="btn btn-info float-end" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                             </div>
-                             <div class="col-md-2 text-end align-self-center">
-                                 <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                                 <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+ <div class="filter" style=" height:125px;">
+     <div class="container-fluid">
+         <div class="row justify-content-center">
+             <div class="col-md-9 align-self-center">
+                 <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                 <div class="row">
+                     <div class="col-md-4">
+                         <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                     </div>
+                     <div class="col-md-4">
+                         <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                     </div>
+                     <div class="col-md-2">
+                         <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                     </div>
+                     <div class="col-md-2 text-end align-self-center">
+                         <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+                         <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                         <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
-                                 <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                             </div>
-                         </div>
+                         <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
                      </div>
                  </div>
              </div>
          </div>
      </div>
  </div>
- <div class="container-fluid mt-5">
+ <div class="container-fluid">
      <div class="card">
          <div class="row">
              <div class="col-xl-12">
@@ -135,7 +132,7 @@
              </div>
          </div>
 
-         <div class="row m-3">
+         <div class="row m-3" style="font-size: 16px;">
              <div class="col-xl-12">
                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                      <li class="nav-item" role="presentation">
@@ -281,17 +278,17 @@
                          name: 'Meninggal Dunia',
                          type: 'column',
                          data: polda_meninggal_dunia,
-                         color: "#11347A"
+                         color: "#CB2D3E"
                      }, {
                          name: 'Luka Berat',
                          type: 'column',
                          data: polda_luka_berat,
-                         color: "#CB2D3E"
+                         color: "#E8D42F"
                      }, {
                          name: 'Luka Ringan',
                          type: 'column',
                          data: polda_luka_ringan,
-                         color: "#E8D42F"
+                         color: "#3CA55C"
 
                      }],
                      chart: {
@@ -336,6 +333,14 @@
                      },
                      xaxis: {
                          categories: polda_name,
+                         labels: {
+                             show: true,
+                             style: {
+                                 colors: '#bd0d0d',
+                                 fontSize: '18px',
+                                 fontWeight: 400,
+                             }
+                         }
                      },
                      yaxis: [{
                          axisTicks: {
@@ -412,17 +417,17 @@
                          name: 'Meninggal Dunia',
                          type: 'column',
                          data: polda_meninggal_dunia,
-                         color: "#11347A"
+                         color: "#CB2D3E"
                      }, {
                          name: 'Luka Berat',
                          type: 'column',
                          data: polda_luka_berat,
-                         color: "#CB2D3E"
+                         color: "#E8D42F"
                      }, {
                          name: 'Luka Ringan',
                          type: 'column',
                          data: polda_luka_ringan,
-                         color: "#E8D42F"
+                         color: "#3CA55C"
 
                      }],
                      chart: {
@@ -467,6 +472,14 @@
                      },
                      xaxis: {
                          categories: polda_name,
+                         labels: {
+                             show: true,
+                             style: {
+                                 colors: ['#f70505'],
+                                 fontSize: '18px',
+                                 fontWeight: 400,
+                             }
+                         }
                      },
                      yaxis: [{
                          axisTicks: {
@@ -576,17 +589,17 @@
                              name: 'Meninggal Dunia',
                              type: 'column',
                              data: polda_meninggal_dunia,
-                             color: "#11347A"
+                             color: "#CB2D3E"
                          }, {
                              name: 'Luka Berat',
                              type: 'column',
                              data: polda_luka_berat,
-                             color: "#CB2D3E"
+                             color: "#E8D42F"
                          }, {
                              name: 'Luka Ringan',
                              type: 'column',
                              data: polda_luka_ringan,
-                             color: "#E8D42F"
+                             color: "#3CA55C"
 
                          }],
                          chart: {
@@ -631,6 +644,14 @@
                          },
                          xaxis: {
                              categories: polda_name,
+                             labels: {
+                                 show: true,
+                                 style: {
+                                     colors: ['#f70505'],
+                                     fontSize: '18px',
+                                     fontWeight: 1000,
+                                 }
+                             }
                          },
                          yaxis: [{
                              axisTicks: {
@@ -730,6 +751,14 @@
                      },
                      xaxis: {
                          categories: results.data.polda_name,
+                         labels: {
+                             show: true,
+                             style: {
+                                 colors: ['#f70505'],
+                                 fontSize: '18px',
+                                 fontWeight: 400,
+                             }
+                         }
                      }
 
                  };

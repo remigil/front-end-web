@@ -750,10 +750,10 @@
                             <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                         </div>
                     </button>
-                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20') { ?>
+                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
                         <div>
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI - &nbsp;<span style="color: red;">PAM LANTAS KTT G20 BALI 2022<span></h3>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI</h3>
                         </div>
 
                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
@@ -1232,6 +1232,60 @@
                                     <a href="<?php echo base_url('anev/Anev'); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard" style="color: white;">Anev</span>
+                                    </a>
+                                </li>
+
+                                <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung Internal</li>
+                                <li>
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ERI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">IRSMS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://dakgargakkum.com/dashboard" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">E-TILANG</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://backoffice.etle-bali.info" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ETLE</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="http://siwalpjr.gps.id" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">GPS RANMOR LISTRIK</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="http://pjrstream.com/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">BODYCAM</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung Eksternal</li>
+                                <li>
+                                    <a href="https://vo.1data.tech/" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">SAMAPTA</span>
                                     </a>
                                 </li>
 
@@ -1854,118 +1908,6 @@
             <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
-
-            <script type="text/javascript">
-                document.onkeypress = function(event) {
-                    event = (event || window.event);
-                    return keyFunction(event);
-                }
-                document.onmousedown = function(event) {
-                    event = (event || window.event);
-                    return keyFunction(event);
-                }
-                document.onkeydown = function(event) {
-                    event = (event || window.event);
-                    return keyFunction(event);
-                }
-
-                //Disable right click script 
-                var message = "Sorry, right-click has been disabled";
-
-                function clickIE() {
-                    if (document.all) {
-                        (message);
-                        return false;
-                    }
-                }
-
-                function clickNS(e) {
-                    if (document.layers || (document.getElementById && !document.all)) {
-                        if (e.which == 2 || e.which == 3) {
-                            (message);
-                            return false;
-                        }
-                    }
-                }
-                if (document.layers) {
-                    document.captureEvents(Event.MOUSEDOWN);
-                    document.onmousedown = clickNS;
-                } else {
-                    document.onmouseup = clickNS;
-                    document.oncontextmenu = clickIE;
-                }
-                document.oncontextmenu = new Function("return false")
-
-
-                function keyFunction(event) {
-                    // console.log(event);
-                    var isMacOS = navigator.userAgent.toLowerCase().indexOf("mac") != -1;
-
-                    // "SHIFT + RIGHT" key WINDOWS
-                    if (event.shiftKey && event.button == 2) {
-                        return false;
-                    }
-
-                    // "SHIFT + RIGHT" key MACOS
-                    if (event.keyCode == 16 && event.button == 2) {
-                        return false;
-                    }
-
-                    // "F12" key
-                    if (event.keyCode == 123) {
-                        return false;
-                    }
-
-                    if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-                        return false;
-                    }
-
-                    //"J" key WINDOWS
-                    if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
-                        return false;
-                    }
-
-                    //"C" key WINDOWS
-                    if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
-                        return false;
-                    }
-
-
-                    //"S" key
-                    // if (event.keyCode == 83) {
-                    // return false;
-                    // }
-
-                    //"U" key on WINDOWS
-                    if (event.ctrlKey && event.keyCode == 85) {
-                        return false;
-                    }
-
-                    //"U" key on Mac
-                    if (event.metaKey && event.keyCode == 85) {
-                        return false;
-                    }
-
-                    //"J" key Mac
-                    if (event.metaKey && event.shiftKey && event.keyCode == 74) {
-                        return false;
-                    }
-
-                    //"C" key Mac
-                    if (event.metaKey && event.shiftKey && event.keyCode == 67) {
-                        return false;
-                    }
-
-                    if (event.metaKey && event.keyCode == 73) {
-                        return false;
-                    }
-
-                    //F5
-                    // if (event.keyCode == 116) {
-                    // return false;
-                    // }
-                }
-            </script>
 
 
             <?php echo $js ?>

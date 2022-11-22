@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4 mb-1">
-        <h4 style="text-transform: uppercase; color:#007DD8;">Statistik Nasional</h4>
+        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a> Statistik Nasional</h3>
     </div>
     <div class="col-md-3">
     </div>
@@ -20,7 +20,7 @@
                                 <span class="fs-4 float-end" style="color:#464646;">
                                     <span class="fw-bold ">Total Kecelakaan </span>Lalu Lintas
                                     <span>
-                                        <p class="float-end m-0 p-0" style="font-size: 11px;">Efektif data Senin, 6 November 2022</p>
+                                        <p class="float-end m-0 p-0" style="font-size: 14px;">Efektif data Rabu, 16 November 2022</p>
                                     </span>
                                 </span>
 
@@ -113,15 +113,15 @@
                         <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded" style="font-size: 16px;">
+                                <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
                                     <thead class="" style="background-color:#007DD8; color:#fff;">
                                         <tr class="text-center">
                                             <th scope="col">No</th>
                                             <th scope="col">Polda</th>
                                             <th scope="col">Total</th>
-                                            <th scope="col">Berat</th>
-                                            <th scope="col">Sedang</th>
-                                            <th scope="col">Ringan</th>
+                                            <th scope="col">Pelanggaran Berat</th>
+                                            <th scope="col">Pelanggaran Sedang</th>
+                                            <th scope="col">Pelanggaran Ringan</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody-pelanggaran">
@@ -135,7 +135,7 @@
                         <h5>10 Polda Kecelakaan Tertinggi</h5>
                         <div class="mb-3">
                             <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded" style="font-size: 16px;">
+                                <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
                                     <thead class="" style="background-color:#007DD8; color:#fff;">
                                         <tr class="text-center">
                                             <th scope="col">No</th>
@@ -167,7 +167,7 @@
                                             </div>
                                             <div class="card-body" style="overflow:hidden; overflow-x:scroll">
                                                 <div class="main-chart">
-                                                    <div id="chartturjagwali" style="width: 100vw"></div>
+                                                    <div id="chartturjagwali" style="width: 130vw"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -344,7 +344,7 @@
                             show: true,
                             style: {
                                 colors: ['#f70505'],
-                                fontSize: '16px',
+                                fontSize: '18px',
                                 fontWeight: 400,
                             }
                         }
