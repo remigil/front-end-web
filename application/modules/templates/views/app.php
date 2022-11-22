@@ -1573,18 +1573,14 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
+                                        <a href="javascript: void(0);" class="has-arrow">
                                             <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                            <span data-key="t-blackspot">Import Laporan Harian</span>
+                                            <span data-key="t-inputdata">Import Data</span>
                                         </a>
-                                    </li>
-                                    <!-- <li>
-                                                    <a href="<?= base_url('inputdata/ImportLaporanHarian') ?>">
-                                                        <img src="<?= base_url('assets/sidebar/icon-inputdata.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                                        <span data-key="t-blackspot">Import Laporan Operasional</span>
-                                                    </a>
-                                                </li> -->
-
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('inputdata/ImportLaporanHarian') ?>" data-key="t-read-email">Laporan Harian Rutin</a></li>
+                                            <li><a href="<?= base_url('inputdata/ImportLaporanOperasi') ?>" data-key="t-read-email">Laporan Operasi Khusus</a></li>
+                                        </ul>
                                     </li>
                                     <?php if ($this->session->userdata['role'] == 'Korlantas') { ?>
                                         <li>

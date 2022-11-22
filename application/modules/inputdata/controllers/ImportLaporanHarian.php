@@ -20,34 +20,20 @@ class ImportLaporanHarian extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Import Laporan Harian";
+        $page_content["title"] = "Import Laporan Harian Rutin";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
-        } else if ($this->session->userdata['role'] == 'Korlantas') {
+        } else {
             $getPolda = guzzle_request('GET', 'polda', [
                 'headers' => $this->_headers
             ]);
             $data['getPolda'] = $getPolda['data']['data'];
-            $page_content["page"] = "inputdata/Korlantas/ImportData_Korlantas";
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "inputdata/Kapolda/ImportData_Kapolda";
-        } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "inputdata/Polres/ImportData_Polres";
+            $page_content["page"] = "inputdata/Korlantas/ImportLaporanHarianRutin_Korlantas";
         }
 
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
-    }
-
-    public function getPolres()
-    {
-        $id = $this->input->post('polda_id');
-        $getDetail = guzzle_request('GET', 'polres/getPolda/' . $id . '', [
-            'headers' => $this->_headers
-        ]);
-        $results = $getDetail['data']['data'];
-        echo json_encode($results);
     }
 
     /**
@@ -60,7 +46,7 @@ class ImportLaporanHarian extends MY_Controller
             /**
              * Parameter
              */
-            $polda_id = $this->input->post('polda_id');
+            // $polda_id = $this->input->post('polda_id');
             $jenis_satker = $this->input->post('jenis_satker');
             $jenis_laporan = $this->input->post('jenis_laporan');
             $tanggal = $this->input->post('date');
@@ -73,12 +59,12 @@ class ImportLaporanHarian extends MY_Controller
              */
 			$filename = $_FILES['userfile']['name'];
 			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
-			$rename = $jenis_laporan_name.'-'.'REPORT-'.$polda_name.'-'.$jenis_satker_name.'-'.$tanggal.'.'.$file_ext;
+			$rename = $jenis_laporan_name.'-'.'REPORT-'.$jenis_satker_name.'-'.$tanggal.'.'.$file_ext;
 
             /**
              * Set direktori and config uploaded file
              */
-			$structure = 'files/import';
+			$structure = 'files/import/harian';
 			$config['upload_path'] = $structure;
 			$config['allowed_types'] = 'xlsx';
 			$config['max_size']	= '100';
@@ -98,7 +84,7 @@ class ImportLaporanHarian extends MY_Controller
                 $url = 'import/file';
                 $data = guzzle_request('POST', $url, [
                     'json' => [
-                        'polda_id' => $polda_id,
+                        // 'polda_id' => $polda_id,
                         'jenis_satker' => $jenis_satker,
                         'jenis_laporan' => $jenis_laporan,
                         'tanggal' => $tanggal,
@@ -138,7 +124,7 @@ class ImportLaporanHarian extends MY_Controller
     public function listof_import_file()
     {
         $postData = $this->input->post();
-        $data = $this->M_import->get_datatables($postData);
+        $data = $this->M_import->get_datatables_harian($postData);
         echo json_encode($data);
     }
 
@@ -146,7 +132,7 @@ class ImportLaporanHarian extends MY_Controller
     {
 		$id = $this->input->post('id');
 		$file_name = $this->input->post('file_name');
-        $structure = 'files/import/'.$file_name;
+        $structure = 'files/import/harian/'.$file_name;
 
         /**
          * Send request parameter to api
@@ -180,7 +166,7 @@ class ImportLaporanHarian extends MY_Controller
 	function view()
 	{
 		$file_name = $this->uri->segment('4');
-        $structure = 'files/import/'.$file_name;
+        $structure = 'files/import/harian/'.$file_name;
 
         if(file_exists($structure)){
             $data = file_get_contents($structure);
@@ -255,7 +241,7 @@ class ImportLaporanHarian extends MY_Controller
 	function process()
 	{
 		$id = $this->input->post('id');
-		$polda_id = $this->input->post('polda_id');
+		// $polda_id = $this->input->post('polda_id');
 		$tanggal = $this->input->post('tanggal');
 		$status = $this->input->post('status');
 		$file_name = $this->input->post('file_name');
@@ -263,7 +249,7 @@ class ImportLaporanHarian extends MY_Controller
 		$message = '';
 
 		if ($status=='0') {
-			$structure = 'files/import/';
+			$structure = 'files/import/harian/';
 			$file_name = $structure.$file_name;
 
 			try {
@@ -304,8 +290,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $K = trim(trim($row['K']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'capture_camera'=>$C,
                                     'statis'=>$D,
@@ -333,8 +319,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'pelanggaran_berat'=>$C,
                                     'pelanggaran_sedang'=>$D,
@@ -355,15 +341,19 @@ class ImportLaporanHarian extends MY_Controller
                                 $D = trim(trim($row['D']));
                                 $E = trim(trim($row['E']));
                                 $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+                                $H = trim(trim($row['H']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'meninggal_dunia'=>$C,
                                     'luka_berat'=>$D,
                                     'luka_ringan'=>$E,
-                                    'kerugian_material'=>$F
+                                    'kerugian_material'=>$F,
+                                    'insiden_kecelakaan'=>$G,
+                                    'total_korban'=>$H
                                 );
 
                             }else if($type==4) {
@@ -381,8 +371,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'penjagaan'=>$C,
                                     'pengawalan'=>$D,
@@ -405,8 +395,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'media_cetak'=>$C,
                                     'media_elektronik'=>$D,
@@ -430,8 +420,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $G = trim(trim($row['G']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'stiker'=>$C,
                                     'leaflet'=>$D,
@@ -453,8 +443,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $D = trim(trim($row['D']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'baru'=>$C,
                                     'perpanjangan'=>$D
@@ -474,8 +464,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $E = trim(trim($row['E']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'baru'=>$C,
                                     'perpanjangan'=>$D,
@@ -498,8 +488,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $G = trim(trim($row['G']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'mobil_penumpang'=>$C,
                                     'mobil_barang'=>$D,
@@ -522,8 +512,8 @@ class ImportLaporanHarian extends MY_Controller
                                 $E = trim(trim($row['E']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$polda_id,
-                                    'polres_name'=>$B,
+                                    'polda_id'=>$B,
+                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
                                     'baru'=>$C,
                                     'perpanjangan'=>$D,
