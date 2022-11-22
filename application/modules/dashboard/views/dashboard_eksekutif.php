@@ -30,27 +30,27 @@
 
                 <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
 
-                    <div class="cat poldaDisplay" style="margin-left: 10px;"> 
+                    <div class="cat poldaDisplay" style="margin-left: 10px;">
                         <div class="btn-group">
                             <label>
-                            <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
+                                <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
                             </label>
                             <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="cat polresDisplay" style="margin-left: 10px;"> 
+                    <div class="cat polresDisplay" style="margin-left: 10px;">
                         <div class="btn-group">
                             <label>
-                            <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
+                                <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
                             </label>
                             <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; "> 
+                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none;">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -112,14 +112,14 @@
                             </button>
                         </div>
                     </div>
-    
+
                     <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                         <label>
                             <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
                         </label>  
                     </div> -->
-    
-                    <div class="cat kegiatanDisplay" style="display:none"> 
+
+                    <div class="cat kegiatanDisplay" style="display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -181,13 +181,13 @@
                                         <p style="font-size: 17px;">OPERASI</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox"  name="filter" value="polda" id="polda" class="form-input" >  
-                                        <span>Polda</span> 
-                                    </div> 
+                                        <input type="checkbox" name="filter" value="polda" id="polda" class="form-input">
+                                        <span>Polda</span>
+                                    </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox"  name="filter" value="polres" id="polres" class="form-input" >  
-                                        <span>Polres</span> 
-                                    </div> 
+                                        <input type="checkbox" name="filter" value="polres" id="polres" class="form-input">
+                                        <span>Polres</span>
+                                    </div>
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="instruksi" id="instruksi" class="form-input">
                                         <span>Instruksi</span>
@@ -863,10 +863,10 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay">Polda</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay">Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPoldaDisplay" style="width: 550px;">  
+            <div class="modal-body" id="openModalPoldaDisplay" style="width: 550px;">
             </div>
         </div>
     </div>
@@ -875,10 +875,10 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPolresDisplay">Polres</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPolresDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPolresDisplay">Polres</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPolresDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPolresDisplay" style="width: 550px;">  
+            <div class="modal-body" id="openModalPolresDisplay" style="width: 550px;">
             </div>
         </div>
     </div>
@@ -1221,27 +1221,29 @@
             type: "roadmap",
         }).addGoogleLayer("TrafficLayer");
 
-        var shpfile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        var shpfile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
             pointToLayer: function(feature, latlng) {
-                
+
                 var smallIcon = new L.divIcon({
                     iconAnchor: [20, 51],
                     popupAnchor: [0, -51],
                     className: 'listeo-marker-icon',
                     html: '<div class="marker-container">' +
-                    '<div class="marker-card">' +
-                    '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-                    '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-                    '<div class="marker-arrow"></div>' +
-                    '</div>' +
-                    '</div>'
+                        '<div class="marker-card">' +
+                        '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                        '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                        '<div class="marker-arrow"></div>' +
+                        '</div>' +
+                        '</div>'
                 });
-                
-            
-                var mark = L.marker(latlng, {icon: smallIcon})
+
+
+                var mark = L.marker(latlng, {
+                    icon: smallIcon
+                })
                 cluster.addLayer(mark)
-                return  cluster;
-                
+                return cluster;
+
             },
             onEachFeature: function(feature, layer) {
                 if (feature.properties) {
@@ -1249,13 +1251,13 @@
                         return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
                     }).join("<hr>"), {
                         maxWidth: 400,
-                        maxHeight: 250, 
+                        maxHeight: 250,
                         scrollbarWidth: 'thin',
                         className: 'leaflet-infoBox'
                     });
                 }
             }
-        });  
+        });
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
@@ -1278,7 +1280,7 @@
 
 
 
-        
+
         // shpfile.addTo(mapContainer);  
 
         var baseMaps = {
@@ -1370,8 +1372,8 @@
 
 
 
-        
-         
+
+
 
 
 
@@ -1932,7 +1934,7 @@
                     `);
                     var countPoldaDisplay = 0;
                     var listPoldaDisplay = '';
-                    
+
                     for (let i = 0; i < ressData.length; i++) {
                         id = i;
                         var latitude = parseFloat(ressData[i].latitude);
@@ -2002,10 +2004,10 @@
                                 minWidth: 100,
                                 maxWidth: 560,
                                 width: 400
-                        }).addTo(mapContainer);
+                            }).addTo(mapContainer);
 
 
-                        
+
 
                         countPoldaDisplay += 1;
                         listPoldaDisplay += `
@@ -6011,7 +6013,7 @@
                 // fasumKhususClusterGroup.removeLayer(markerCluster[i]);
                 mapContainer.removeLayer(markerCluster[i]);
             }
-            markerCluster = new Array();  
+            markerCluster = new Array();
 
             for (let i = 0; i < markerPolres.length; i++) {
                 mapContainer.removeLayer(markerPolres[i]);
@@ -6048,7 +6050,7 @@
                 success: function(result) {
                     $("#overlay").fadeOut(300);
                     var ressTurjawali = result['data']['turjawali'];
-                   
+
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
                     var ressLAP = result['data']['titik_laporan'];
@@ -6069,11 +6071,11 @@
                         });
                     }
 
-                    
 
 
-                    if(ressPolres && ressPolres.length > 0){  
-                        var filterpolres = ressPolres.filter(function (e) {
+
+                    if (ressPolres && ressPolres.length > 0) {
+                        var filterpolres = ressPolres.filter(function(e) {
                             return e.latitude != null && e.longitude != null;
                         });
 
@@ -6198,7 +6200,7 @@
                                         </td>
                                     </tr>
                                 `;
-                                $('#isiModalPolresDisplay').html(listPolresDisplay);      
+                                $('#isiModalPolresDisplay').html(listPolresDisplay);
                             }
 
                             for (let i = 0; i < countPolresDisplay; i++) {
@@ -7226,30 +7228,30 @@
 
         $("#filterCari").on("click", function(e) {
 
-            if($("#polda").is(':checked')){ 
-                $("#poldaDisplay").prop('checked', true); 
+            if ($("#polda").is(':checked')) {
+                $("#poldaDisplay").prop('checked', true);
                 getPolda();
                 // $("#myModalClusterDisplay").modal('show');
-            }else{
-                $("#poldaDisplay").prop('checked', false); 
-                for (let i = 0; i < markerPolda.length; i++) { 
+            } else {
+                $("#poldaDisplay").prop('checked', false);
+                for (let i = 0; i < markerPolda.length; i++) {
                     mapContainer.removeLayer(markerPolda[i]);
                 }
-                markerPolda = new Array(); 
+                markerPolda = new Array();
                 $("#poldaDisplay").val();
             }
-            
-            if($("#polres").is(':checked')){ 
-                $("#polresDisplay").prop('checked', true); 
+
+            if ($("#polres").is(':checked')) {
+                $("#polresDisplay").prop('checked', true);
                 $("#myModalClusterDisplay").modal('show');
-            }else{
-                $("#polresDisplay").prop('checked', false); 
+            } else {
+                $("#polresDisplay").prop('checked', false);
                 $("#polresDisplay").val();
             }
-            
 
-            if($("#cctv").is(':checked')){ 
-                $("#cctvDisplay").prop('checked', true); 
+
+            if ($("#cctv").is(':checked')) {
+                $("#cctvDisplay").prop('checked', true);
                 // $("#myModalCctvDisplay").modal('show');
             } else {
                 $("#cctvDisplay").prop('checked', false);
@@ -7270,8 +7272,8 @@
                 $("#clusterDisplay").val();
             }
 
-            if($("#jadwal").is(':checked')){ 
-                $("#kegiatanDisplay").prop('checked', true); 
+            if ($("#jadwal").is(':checked')) {
+                $("#kegiatanDisplay").prop('checked', true);
                 // $("#myModalJadwalDisplay").modal('show');
             } else {
                 $("#kegiatanDisplay").prop('checked', false);
@@ -7314,40 +7316,40 @@
 
 
 
-        $("#poldaDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#polda").prop('checked', true); 
+        $("#poldaDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polda").prop('checked', true);
                 getPolda();
                 $("#myModalPoldaDisplay").modal('show');
-            }else{
+            } else {
                 openDisplay = '';
-                for (let i = 0; i < markerPolda.length; i++) { 
+                for (let i = 0; i < markerPolda.length; i++) {
                     mapContainer.removeLayer(markerPolda[i]);
                 }
-                markerPolda = new Array(); 
-                $("#polda").prop('checked', false); 
+                markerPolda = new Array();
+                $("#polda").prop('checked', false);
                 $("#polda").val();
             }
             serverSideFilter();
         });
-        $("#polresDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#polres").prop('checked', true); 
+        $("#polresDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polres").prop('checked', true);
                 $("#myModalPolresDisplay").modal('show');
-            }else{
+            } else {
                 openDisplay = '';
-                $("#polres").prop('checked', false); 
+                $("#polres").prop('checked', false);
                 $("#polres").val();
             }
             serverSideFilter();
         });
 
-        $("#fasumKhususDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#fasum_khusus").prop('checked', true);  
+        $("#fasumKhususDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#fasum_khusus").prop('checked', true);
                 $("#myModalFasumKhususDisplay").modal('show');
             } else {
                 openDisplay = '';
