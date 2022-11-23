@@ -1,11 +1,25 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-9 align-self-center">
+        <div class="col-md-8 align-self-center">
             <div id="nama">
-                <h1 style="color:#007DD8 ; text-transform:uppercase;">Bagrenmin</h1>
+                <div class="row">
+                    <div class="col-md-1">
+                        <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                    </div>
+                    <div class="col-md-3 ms-n4">
+                        <h3 style="text-transform: uppercase; color:#007DD8;"> Bagrenmin</h3>
+                    </div>
+                </div>
             </div>
             <p>Today is <?= date('l, j F Y') ?></p>
         </div>
+        <div class="col-md-1 text-end align-self-center">
+            <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+            </button>
+
+        </div>
+
         <div class="col-md-3 text-end align-self-center">
             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
         </div>
@@ -327,6 +341,24 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel">Struktur Organisasi <?= $title; ?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <img src="<?= base_url('assets/fe/strukturorganisasi/strukturbagrenmin.png'); ?>" alt="" srcset="">
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

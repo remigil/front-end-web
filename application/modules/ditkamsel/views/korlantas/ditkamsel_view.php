@@ -1,12 +1,24 @@
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-9 align-self-center">
-                        <div id="nama">
-                            <h1 style="color:#007DD8 ; text-transform:uppercase;">Ditkamsel</h1>
+                    <div class="col-md-8 align-self-center">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                            </div>
+                            <div class="col-md-3 ms-n4">
+                                <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                            </div>
                         </div>
                         <p>Today is <?= date('l, j F Y') ?></p>
                     </div>
+                    <div class="col-md-1 text-end align-self-center">
+                        <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+                        </button>
+
+                    </div>
                     <div class="col-md-3 text-end align-self-center">
+
                         <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
                     </div>
                 </div>
@@ -327,6 +339,24 @@
                                 </div>
                             </div>
                         </section>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-uppercase" id="exampleModalLabel">Struktur Organisasi <?= $title; ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <center>
+                                <img src="<?= base_url('assets/fe/strukturorganisasi/strukturditkamsel.png'); ?>" alt="" srcset="">
+                            </center>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -965,53 +995,53 @@
                                             auditsebelumnya = audit[0];
 
                                             if (audit[0] < audit[1]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[0] > audit[1]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
                                             auditsebelumnya = audit[1];
                                             if (audit[1] < audit[2]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[1] > audit[2]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
                                             auditsebelumnya = audit[2];
                                             if (audit[2] < audit[3]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[2] > audit[3]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
                                             auditsebelumnya = audit[3];
                                             if (audit[3] < audit[4]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[3] > audit[4]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
                                             auditsebelumnya = audit[4];
                                             if (audit[4] < audit[5]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[4] > audit[5]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         }
 
@@ -1049,7 +1079,7 @@
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${audit}</span><br>
+                                                    <span class="fw-bold">${presentaseaudit}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -1835,101 +1865,101 @@
                                             auditsebelumnya = audit[0];
 
                                             if (audit[0] < audit[1]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[0] > audit[1]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
                                             auditsebelumnya = audit[1];
                                             if (audit[1] < audit[2]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[1] > audit[2]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 4) {
                                             bulansebelumnya = polda_month[2]
                                             auditsebelumnya = audit[2];
                                             if (audit[2] < audit[3]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[2] > audit[3]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 5) {
                                             bulansebelumnya = polda_month[3]
                                             auditsebelumnya = audit[3];
                                             if (audit[3] < audit[4]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[3] > audit[4]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 6) {
                                             bulansebelumnya = polda_month[4]
                                             auditsebelumnya = audit[4];
                                             if (audit[4] < audit[5]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[4] > audit[5]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 7) {
                                             bulansebelumnya = polda_month[5]
                                             auditsebelumnya = audit[5];
                                             if (audit[5] < audit[6]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[5] > audit[6]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 8) {
                                             bulansebelumnya = polda_month[6]
                                             auditsebelumnya = audit[6];
                                             if (audit[6] < audit[7]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[6] > audit[7]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 9) {
                                             bulansebelumnya = polda_month[7]
                                             auditsebelumnya = audit[7];
                                             if (audit[7] < audit[8]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[7] > audit[8]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 10) {
                                             bulansebelumnya = polda_month[8]
                                             auditsebelumnya = audit[8];
                                             if (audit[8] < audit[9]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[8] > audit[9]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         } else if (w.globals.labels[dataPointIndex] == 11) {
                                             bulansebelumnya = polda_month[9]
                                             auditsebelumnya = audit[9];
                                             if (audit[9] < audit[10]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[9] > audit[10]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
                                                 audit = `Sama`
                                             }
@@ -1938,11 +1968,11 @@
                                             bulansebelumnya = polda_month[10]
                                             auditsebelumnya = audit[10];
                                             if (audit[10] < audit[11]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[10] > audit[11]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
                                         }
 
@@ -1980,7 +2010,7 @@
                                                 <div class="my-2 text-center">
                                                     <span class="fs-6 fw-bold">Presentase</span>
                                                 </div>
-                                                    <span class="fw-bold">${audit}</span><br>
+                                                    <span class="fw-bold">${presentaseaudit}</span><br>
                                                 </div>
                                                 ` : `
                                                 <div class="col-md-12">
@@ -2492,22 +2522,22 @@
                                             auditsebelumnya = audit[0];
 
                                             if (audit[0] < audit[1]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[0] > audit[1]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         } else if (w.globals.labels[dataPointIndex] == 3) {
                                             bulansebelumnya = polda_month[1]
                                             auditsebelumnya = audit[1];
                                             if (audit[1] < audit[2]) {
-                                                audit = 'Naik'
+                                                presentaseaudit = 'Naik'
                                             } else if (audit[1] > audit[2]) {
-                                                audit = 'Turun'
+                                                presentaseaudit = 'Turun'
                                             } else {
-                                                audit = 'Sama'
+                                                presentaseaudit = 'Sama'
                                             }
 
                                         }
