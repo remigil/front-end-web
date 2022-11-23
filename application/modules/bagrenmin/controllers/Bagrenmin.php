@@ -27,7 +27,7 @@ class Bagrenmin extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagRenmin') {
             $page_content["title"] = "BAGRENMIN";
             $page_content["page"] = "bagrenmin/korlantas/bagrenmin_view";
         }

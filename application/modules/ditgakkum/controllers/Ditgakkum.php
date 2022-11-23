@@ -30,7 +30,7 @@ class Ditgakkum extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["title"] = "DITGAKKUM";
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
         }

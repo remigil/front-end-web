@@ -30,7 +30,7 @@ class Ditregident extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditregident') {
             $page_content["title"] = "DITREGIDENT";
             $page_content["page"] = "ditregident/korlantas/ditregident_view";
         }
