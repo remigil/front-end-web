@@ -73,6 +73,8 @@
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bataspolda/css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
@@ -1938,6 +1940,7 @@
             <script src="<?php echo base_url(); ?>assets/admin/js/app.js"></script>
 
             <!-- Leaflet -->
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/qgis2web_expressions.js"></script>
             <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.markercluster.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/Control.Geocoder.js"></script>
@@ -1952,6 +1955,14 @@
 
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEY9jbE_zL8SV7c6meCf7-lV3JLcbKnlY" async defer></script>
             <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.rotatedMarker.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet.pattern.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/leaflet-hash.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/Autolinker.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/rbush.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/labelgun.min.js"></script>
+            <script src="<?php echo base_url(); ?>assets/admin/bataspolda/js/labels.js"></script>
 
             <script src="<?php echo base_url(); ?>assets/admin/js/leaflet.shpfile.js"></script>
             <script src="<?php echo base_url(); ?>assets/admin/js/shp.js"></script>
