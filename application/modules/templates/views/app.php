@@ -73,7 +73,8 @@
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bataspolda/css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bataspolda/css/qgis2web.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -1143,43 +1144,43 @@
                             <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
                                 <!-- <div class="text-center mt-3">
-                                                <?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
-                                                    <img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
-                                                    <p style="color: #969696;">KAKORLANTAS POLRI</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') { ?>
-                                                    <img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
-                                                    <p style="color: #969696;">DIRKAMSEL</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
-                                                    <img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
-                                                    <p style="color: #969696;">DIRGAKKUM</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'Ditregident') { ?>
-                                                    <img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
-                                                    <p style="color: #969696;">DIRREGIDENT</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagOps') { ?>
-                                                    <img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
-                                                    <p style="color: #969696;">KABAG OPS</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') { ?>
-                                                    <img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
-                                                    <p style="color: #969696;">KABAG RENMIN</p>
-                                                <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
-                                                    <img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
-                                                    <h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
-                                                    <p style="color: #969696;">KABAG TIK</p>
-                                                <?php } ?>
-                                            </div> -->
+                <?php if ($this->session->userdata['role'] == 'Kakorlantas') { ?>
+                    <img src="<?= base_url('assets/profil_kakor.png') ?>" alt="" width="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</h5>
+                    <p style="color: #969696;">KAKORLANTAS POLRI</p>
+                <?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') { ?>
+                    <img src="<?= base_url('assets/fe/profil/DIRKAMSEL-CRYSHNANDA.png') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">BRIGJEN POL Prof. Dr. CHRYSHNANDA DWILAKSANA, M.Si.</h5>
+                    <p style="color: #969696;">DIRKAMSEL</p>
+                <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
+                    <img src="<?= base_url('assets/fe/profil/DIRGAKKUM-AAN-RAHANAN.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. AAN SUHANAN, M.Si.</h5>
+                    <p style="color: #969696;">DIRGAKKUM</p>
+                <?php } elseif ($this->session->userdata['role'] == 'Ditregident') { ?>
+                    <img src="<?= base_url('assets/fe/profil/DIRREGIDENT-YUSRI-YUNUS.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">BRIGJEN POL Drs. YUSRI YUNUS</h5>
+                    <p style="color: #969696;">DIRREGIDENT</p>
+                <?php } elseif ($this->session->userdata['role'] == 'KaBagOps') { ?>
+                    <img src="<?= base_url('assets/fe/profil/BAGOPS-EDDY-DJUNAED.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">KOMBES POL EDDY DJUNAEDI, S.I.K.</h5>
+                    <p style="color: #969696;">KABAG OPS</p>
+                <?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') { ?>
+                    <img src="<?= base_url('assets/fe/profil/BAGRENMIN-Singgamata.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">KOMBES POL I MADE AGUS PRASATYA, S.I.K., M.Hum</h5>
+                    <p style="color: #969696;">KABAG RENMIN</p>
+                <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
+                    <img src="<?= base_url('assets/fe/BAGTIK-AGUS PRASATYA.jpg') ?>" alt="" width="100px" height="100px" style="border-radius: 100%;" class="mb-3">
+                    <h5 style="color: #FFCE31;">KOMBES POL SINGGAMATA, S.I.K., M.H.</h5>
+                    <p style="color: #969696;">KABAG TIK</p>
+                <?php } ?>
+            </div> -->
                                 <!-- <img src="" alt=""> -->
                                 <!-- <li>
-                                    <a href="<?php echo base_url(); ?>dashboard">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">Dashboard Executive</span>
-                                    </a>
-                                </li> -->
+    <a href="<?php echo base_url(); ?>dashboard">
+        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+        <span data-key="t-dashboard" style="color: white;">Dashboard Executive</span>
+    </a>
+</li> -->
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
                                         <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1192,42 +1193,54 @@
                                         <span data-key="t-authentication" style="color: white;">Subsatker Korlantas</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
-                                        <li>
-                                            <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DITGAKKUM</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
-                                            </a>
-                                        </li>
+                                        <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">DITGAKKUM</span>
+                                                </a>
+                                            </li>
+                                        <?php }
+                                        if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditregident') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
+                                                </a>
+                                            </li>
+                                        <?php }
+                                        if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
+                                                </a>
+                                            </li>
+                                        <?php }
+                                        if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagRenmin') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
+                                                </a>
+                                            </li>
+                                        <?php }
+                                        if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
+                                                </a>
+                                            </li>
+                                        <?php }
+                                        if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'kaBagTIK') { ?>
+                                            <li>
+                                                <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                                 <li>
@@ -1244,41 +1257,41 @@
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li>
-                                            <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                            <a href="<?php echo base_url('#'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
                                             </a>
                                         </li>
                                         <!-- <li>
-                                            <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
-                                            </a>
-                                        </li> -->
+            <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
+                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
+                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
+                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
+                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
+            </a>
+        </li> -->
                                     </ul>
                                 </li>
 
@@ -1288,13 +1301,29 @@
                                         <span data-key="t-dashboard" style="color: white;">Anev</span>
                                     </a>
                                 </li>
-                                <!-- <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
+                                <!-- Ini nanti dilanjut -->
                                 <li>
-                                    <a href="<?php echo base_url(); ?>statistik_nasional">
-                                        <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <img src="<?= base_url('assets/sidebar/icon-profile.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-authentication" style="color: white;">Masyarakat</span>
                                     </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li>
+                                            <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">TripOn</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div> -->
+                                <!-- Ini nanti dilanjut -->
+                                <!-- <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
+<li>
+    <a href="<?php echo base_url(); ?>statistik_nasional">
+        <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
+    </a>
+</li>
+<div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div> -->
                                 <!-- <hr style="height: 5px; background-color:white !Important;"> -->
 
                                 <li class="menu-title mt-2 mb-n3" data-key="t-components">Sistem Pendukung Internal</li>
@@ -1351,6 +1380,83 @@
                                     </a>
                                 </li>
 
+                            <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>dashboard">
+                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Beranda</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-authentication">Rekapitulasi dan Grafik</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li>
+                                            <a href="<?php echo base_url('rekapitulasi/Rekap_pelanggaran'); ?>" data-key="t-login">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <span data-key="t-dashboard">Data Pelanggaran</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('rekapitulasi/Rekap_kecelakaan'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <span data-key="t-dashboard">Data Kecelakaan</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('rekapitulasi/Rekap_turjawali'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <span data-key="t-dashboard">Data Turjawali</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo base_url(); ?>data_harian_opsus/Data_harian_opsus">
+                                        <img src="<?= base_url('assets/sidebar/icon-dataharianOpsus.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Data Harian Opsus</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<?php echo base_url('anev/Anev'); ?>">
+                                        <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Anev</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('peta_digital/Peta_digital'); ?>">
+                                        <img src="<?= base_url('assets/sidebar/icon-petaDigital.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Peta Digital</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('cctv/Cctv'); ?>">
+                                        <img src="<?= base_url('assets/sidebar/icon-cctv.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">CCTV</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('tripon/Tripon'); ?>">
+                                        <img src="<?= base_url('assets/sidebar/icon-tripon.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">Trip On</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php">
+                                        <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">ERI</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell">
+                                        <img src="<?= base_url('assets/sidebar/icon-eri-irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard">IRSMS</span>
+                                    </a>
+                                </li>
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">

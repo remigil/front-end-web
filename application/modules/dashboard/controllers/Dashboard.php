@@ -215,56 +215,56 @@ class Dashboard extends MY_Controller
             $page_content["page"] = "dashboard/Polres/dashboard_view";
 
             $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-            $page_content["page"] = "dashboard/Ditkamsel/dashboard_view";
+            // } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            //     $page_content["page"] = "dashboard/Ditkamsel/dashboard_view";
 
-            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
-            $data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
-            $data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
-            $data['ranmor'] = $this->m_dashboard->ranmor_nasional();
-            $data['sim'] = $this->m_dashboard->sim_nasional();
-            $data['stnk'] = $this->m_dashboard->stnk_nasional();
-            $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
-            $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
+            //     $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            //     $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            //     $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            //     $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            //     $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+            //     $data['pelanggaran'] = $this->m_dashboard->pelanggaran_nasional();
+            //     $data['kecelakaan'] = $this->m_dashboard->kecelakaan_nasional();
+            //     $data['ranmor'] = $this->m_dashboard->ranmor_nasional();
+            //     $data['sim'] = $this->m_dashboard->sim_nasional();
+            //     $data['stnk'] = $this->m_dashboard->stnk_nasional();
+            //     $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_nasional();
+            //     $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_nasional();
 
-            $page_content["data"] = $data;
-        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-            $page_content["page"] = "dashboard/Ditgakkum/dashboard_view";
+            //     $page_content["data"] = $data;
+            // } else if ($this->session->userdata['role'] == 'Ditgakkum') {
+            //     $page_content["page"] = "dashboard/Ditgakkum/dashboard_view";
 
-            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+            //     $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            //     $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            //     $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            //     $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            //     $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
 
-            $page_content["data"] = $data;
-        } else if ($this->session->userdata['role'] == 'Ditregident') {
-            $page_content["page"] = "dashboard/Ditregident/dashboard_view";
+            //     $page_content["data"] = $data;
+            // } else if ($this->session->userdata['role'] == 'Ditregident') {
+            //     $page_content["page"] = "dashboard/Ditregident/dashboard_view";
 
-            $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
-            $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
-            $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
+            //     $data['turjagwali'] = $this->m_dashboard->turjagwali_nasional();
+            //     $data['ditgakkum'] = $this->m_dashboard->ditgakkum_nasional();
+            //     $data['ditregident'] =  $this->m_dashboard->ditregident_nasional();
+            //     $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
+            //     $data['troublespot'] = $this->m_dashboard->troublespot_nasional();
 
-            $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'KaBagOps') {
-            $page_content["page"] = "dashboard/Bagops/dashboard_view";
+            //     $page_content["data"] = '';
+            // } else if ($this->session->userdata['role'] == 'KaBagOps') {
+            //     $page_content["page"] = "dashboard/Bagops/dashboard_view";
 
-            $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-            $page_content["page"] = "dashboard/Bagrenmin/dashboard_view";
+            //     $page_content["data"] = '';
+            // } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            //     $page_content["page"] = "dashboard/Bagrenmin/dashboard_view";
 
-            $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
-            $page_content["page"] = "dashboard/Bagtik/dashboard_view";
+            //     $page_content["data"] = '';
+            // } else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            //     $page_content["page"] = "dashboard/Bagtik/dashboard_view";
 
-            $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+            //     $page_content["data"] = '';
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {
 
             $data["title"] = "Dashboard Executive";
             $page_content["page"] = "dashboard/dashboard_eksekutif";
@@ -400,7 +400,7 @@ class Dashboard extends MY_Controller
             $type = '&type=mosque';
         }
 
-        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . ''.$polda_id.'';
+        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . '' . $polda_id . '';
         // echo json_encode($url);
         // die;
         $getMe = guzzle_request('GET', $url, [
