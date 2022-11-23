@@ -753,7 +753,7 @@
                     <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
                         <div>
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda">K3I KORLANTAS POLRI</h3>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp <span style="color:green ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
                         </div>
 
                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
@@ -1172,16 +1172,15 @@
                                                 <?php } ?>
                                             </div> -->
                                 <!-- <img src="" alt=""> -->
-                                <li>
+                                <!-- <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard" style="color: white;">Dashboard Executive</span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
                                         <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-
                                         <span data-key="t-dashboard" style="color: white;">Statistik Nasional</span>
                                     </a>
                                 </li>
@@ -1230,73 +1229,123 @@
                                     </ul>
                                 </li>
                                 <li>
+                                    <a href="<?php echo base_url(); ?>#">
+                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <!-- <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                        <span data-key="t-dashboard" style="color: white;">Kewilayahan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-authentication" style="color: white;">Satker Polri</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li>
+                                            <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
+                                            </a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('bagops'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">BAGOPS</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
+                                            </a>
+                                        </li> -->
+                                    </ul>
+                                </li>
+
+                                <li>
                                     <a href="<?php echo base_url('anev/Anev'); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-dashboard" style="color: white;">Anev</span>
                                     </a>
                                 </li>
-                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
-                                <!-- <hr style="height: 5px; background-color:white !Important;"> -->
+                                <!-- <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
-                                        <!-- <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                         <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
                                     </a>
                                 </li>
-                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div>
+                                <div class="" style="height:2px; width:90%; background-color:white; margin:auto;"></div> -->
                                 <!-- <hr style="height: 5px; background-color:white !Important;"> -->
 
-                                <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung Internal</li>
-                                <li>
+                                <li class="menu-title mt-2 mb-n3" data-key="t-components">Sistem Pendukung Internal</li>
+                                <li class="mb-n2">
                                     <a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">ERI</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">ERI</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="mb-n2">
                                     <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">IRSMS</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 13px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">IRSMS</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="mb-n2">
                                     <a href="https://dakgargakkum.com/dashboard" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">E-TILANG</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">E-TILANG</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="mb-n2">
                                     <a href="http://backoffice.etle-bali.info" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">ETLE</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">ETLE</span>
                                     </a>
                                 </li>
 
-                                <li>
+                                <li class="mb-n2">
                                     <a href="http://dashboard.korlantaspolri.id/expose" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">GPS RANMOR FOSIL</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">GPS RANMOR FOSIL</span>
                                     </a>
                                 </li>
 
-                                <li>
+                                <li class="mb-n2">
                                     <a href="http://siwalpjr.gps.id" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">GPS RANMOR LISTRIK</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">GPS RANMOR LISTRIK</span>
                                     </a>
                                 </li>
 
-                                <li>
+                                <li class="mb-n2">
                                     <a href="http://pjrstream.com/" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">BODYCAM</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">BODYCAM</span>
                                     </a>
                                 </li>
-                                <li class="menu-title mt-2" data-key="t-components">Sistem Pendukung Eksternal</li>
-                                <li>
+                                <li class="menu-title mt-2 mb-n3" data-key="t-components">Sistem Pendukung Eksternal</li>
+                                <li class="mb-n2">
                                     <a href="https://vo.1data.tech/" target="_blank">
-                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard">SAMAPTA</span>
+                                        <img src="<?= base_url('assets/sidebar/eri_irsms.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span class="" style="font-size:13px" data-key="t-dashboard">SAMAPTA</span>
                                     </a>
                                 </li>
 
