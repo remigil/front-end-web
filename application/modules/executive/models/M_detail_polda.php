@@ -164,13 +164,14 @@ class M_detail_polda extends CI_Model
 
         $poldaMonth = array();
         $month_garlantas = array();
-        $month_lakalanggar = array();
+        $month_walpjr = array();
         $month_lakalantas = array();
         $month_turjagwali = array();
         foreach ($ditgakkum['data'] as $key) {
             $poldaMonth[] = $key['date'];
             $month_garlantas[] = $key['garlantas'];
-            $month_lakalanggar[] = $key['lakalanggar'];
+            $month_walpjr[] = 0;
+            // $month_walpjr[] = $key['walpjr'];
             $month_lakalantas[] = $key['lakalantas'];
             $month_turjagwali[] = $key['turjagwali'];
         }
@@ -178,7 +179,7 @@ class M_detail_polda extends CI_Model
         return [
             'polda_month' => $poldaMonth,
             'garlantas' => $month_garlantas,
-            'lakalanggar' => $month_lakalanggar,
+            'walpjr' => $month_walpjr,
             'lakalantas' => $month_lakalantas,
             'turjagwali' => $month_turjagwali
         ];
