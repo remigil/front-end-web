@@ -99,7 +99,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
+                <div class="cat clusterDisplay" style="margin-left: 10px;">
                     <div class="btn-group">
                         <label>
                             <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
