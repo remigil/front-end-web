@@ -387,6 +387,12 @@ class Dashboard extends MY_Controller
             $coordinate = '&coordinate=-8.451740, 115.089643';
         }
 
+        if (isset($input['polda_id'])) {
+            $polda_id = '&polda_id=' . $input['polda_id'] . '';
+        } else {
+            $polda_id = '';
+        }
+
         if ($input['type']) {
             $type = '&type=' . $input['type'] . '';
         } else {
@@ -394,7 +400,7 @@ class Dashboard extends MY_Controller
             $type = '&type=mosque';
         }
 
-        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . '';
+        $url = 'filter-search' . $radius . '' . $filter . '' . $coordinate . '' . $type . ''.$polda_id.'';
         // echo json_encode($url);
         // die;
         $getMe = guzzle_request('GET', $url, [
