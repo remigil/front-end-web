@@ -1265,6 +1265,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
+            trackResize: true,
             layers: [googleHybrid, shpfile]
         }).setView(initialCenter, initialZoom);
 
