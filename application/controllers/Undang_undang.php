@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UU_peraturan extends MX_Controller {
+class Undang_undang extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->helper("logged_helper");
+		// $this->load->helper("logged_helper");
 		$this->load->model('m_undang_undang');
     }
  
@@ -22,7 +22,7 @@ class UU_peraturan extends MX_Controller {
 		
 	];
         
-        $this->template->load('templates/template','informasi_publik/uu_peraturan', $data); 
+        $this->template->load('templates/template','informasi_publik/undang_undang', $data); 
         
 	}
 	public function error()
