@@ -202,7 +202,7 @@
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="lakalantas"></h2>
                             <h4>Kecelakaan Lalu Lintas </h4>
-                            <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
+                            <p style="color: white">Data Kecelakaan Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
                         </div>
                     </a>
@@ -222,7 +222,7 @@
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="garlantas"></h2>
                             <h4>Pelanggaran Lalu Lintas </h4>
-                            <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
+                            <p style="color: white">Data Pelanggaran Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
                         </div>
                     </a>
@@ -232,7 +232,7 @@
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="sim"></h2>
                             <h4>Jumlah SIM </h4>
-                            <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
+                            <p style="color: white">Data SIM Januari s.d Desember 2021 </br></p>
                             <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
                         </div>
                     </a>
