@@ -10,7 +10,7 @@ class Dashboard extends MY_Controller
         $this->load->helper("logged_helper");
         $this->load->model('operasi/m_renpam');
         $this->load->model('dashboard/m_dashboard');
-    } 	
+    }
 
     public function index()
     {
@@ -264,45 +264,43 @@ class Dashboard extends MY_Controller
             //     $page_content["page"] = "dashboard/Bagtik/dashboard_view";
 
             //     $page_content["data"] = '';
-        // } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') {
+            // } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') {
 
-        }else if($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
 
             $mobile = detect_mobile();
-            if($mobile === true)
-            {
+            if ($mobile === true) {
                 redirect('statistik_nasional');
                 die;
-            }else{ 
+            } else {
                 $data["title"] = "Dashboard Executive";
                 $page_content["page"] = "dashboard/dashboard_eksekutif";
-    
+
                 $page_content["data"] = $data;
             }
-        
-        }else if($this->session->userdata['role'] == 'DivTikMabesPolri') {
+        } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {
             redirect('divtik/div_tik');
             die;
-        }else if($this->session->userdata['role'] == 'Ditgakkum') {
+        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
             redirect('ditgakkum');
             die;
-        }else if($this->session->userdata['role'] == 'Ditregident') {
+        } else if ($this->session->userdata['role'] == 'Ditregident') {
             redirect('ditregident');
             die;
-        }else if($this->session->userdata['role'] == 'Ditkamsel') {
+        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
             redirect('ditkamsel');
             die;
-        }else if($this->session->userdata['role'] == 'KaBagRenmin') {
+        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
             redirect('bagrenmin');
             die;
-        }else if($this->session->userdata['role'] == 'KaBagOps') {
-            redirect('bagops');
-            die;
-        }else if($this->session->userdata['role'] == 'KaBagTIK') {
+            // } else if ($this->session->userdata['role'] == 'KaBagOps') {
+            //     redirect('bagops');
+            //     die;
+        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
             redirect('bagtik');
             die;
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            redirect('executive/Polda_executive/'.$this->session->userdata['polda_id'].'');
+            redirect('executive/Polda_executive/' . $this->session->userdata['polda_id'] . '');
             die;
             // $page_content["page"] = "dashboard/Kapolda/dashboard_view";
             // // $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
@@ -342,7 +340,7 @@ class Dashboard extends MY_Controller
 
             $page_content["data"] = $data;
         } else {
-            $this->session->set_flashdata('error', 'Role Tidak Di Temukan'); 
+            $this->session->set_flashdata('error', 'Role Tidak Di Temukan');
             redirect('login/logout');
         }
 
