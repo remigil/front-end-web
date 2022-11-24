@@ -62,7 +62,7 @@
 			<li data-index="rs-3" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
 				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/banner-home3.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+				<img src="<?php echo base_url();?>assets/fe/banner-home2.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
 
 				<!-- Caption-->
 				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
@@ -111,7 +111,8 @@
 			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
 				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/banner-home2.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+				<img src="<?php echo base_url();?>assets/fe/banner-home7.jpg"  alt=""  data-bgposition="bottom buttom" 
+				data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
 
 				<!-- Caption-->
 				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
@@ -371,7 +372,7 @@
         <div class="simple-slick-carousel dots-nav">
 			<?php foreach ($databerita['getBerita'] as $data) : ?>
 			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
+				<img src="<?= base_url()?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify"><?= $data['title'];?></h5></a>
 					<button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news']?></button>
@@ -580,7 +581,7 @@
   
 
 
-
+<script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
 	let app_url = '<%-app_url%>'

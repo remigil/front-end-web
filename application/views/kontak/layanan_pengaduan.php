@@ -1,4 +1,4 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
+<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png');"> -->
 
 </div>
 <!-- ======= Breadcrumbs ======= -->
@@ -31,7 +31,7 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="containter">
+<div class="containter mb-5">
 
 	<section id="contact" class="contact">
 		<div class="container">

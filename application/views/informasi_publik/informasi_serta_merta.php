@@ -1,4 +1,4 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
+<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png');"> -->
 
 </div>
 <!-- ======= Breadcrumbs ======= -->

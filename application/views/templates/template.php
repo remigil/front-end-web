@@ -214,19 +214,19 @@
 	<!-- Header -->
 	<div id="header" style="background-color:#073888 ; border-bottom: 10px solid red">
 		<div class="container-fluid">
-			<div class="container-fluid">
+			
 				<div class="container-fluid align-middle">
 			
 			<!-- Left Side Content -->
-			<div class="left-side">
+			<div class="left-side" style="margin-right: 25px;">
 				
-				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo3.png" alt=""></a> 
+				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo3.png" alt="" width="170px"></a> 
 			</div>
 			<!-- Left Side Content / End -->
 
 
 			<!-- Right Side Content / End -->
-			<div class="right-side mt-4">
+			<div class="right-side mt-4" >
 
 				<!-- Mobile Navigation -->
 				<div class="mmenu-trigger">
@@ -300,7 +300,7 @@
 								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
 								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
 								<li><a href="<?= base_url()?>informasi_serta_merta">Informasi Serta Merta</a></li>
-								<li><a href="<?= base_url()?>uu_peraturan">UU dan Peraturan</a></li> 
+								<li><a href="<?= base_url()?>undang_undang">UU dan Peraturan</a></li> 
 							</ul>
 						</li>
  
@@ -340,9 +340,10 @@
 						<li><a href="#"><b class="text-white">DOWNLOAD APP</b></a>
 							<ul>
 								<li>Scan QR Code untuk download ⬇️</li>
-								<li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li> 
-								<li><a href="https://play.google.com/" style="padding: 0 !important; "><img src="<?= base_url()?>assets/fe/get-googleplay.png" alt="" width="100%"></a></li> 
-								<li><a href="https://www.apple.com/id/app-store/" style="padding: 0 !important; "><img src="<?= base_url()?>assets/fe/get-appstore.png" alt="" width="100%"></a></li> 
+								<!-- <li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li>  -->
+								<li><a href="www.qr-code-generator.com/" border="0" style="cursor:default; padding:4px !important;" rel="nofollow"><img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fplay.google.com%2F&chs=180x180&choe=UTF-8&chld=L|2"></a></li> 
+								<li><a href="https://play.google.com/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-googleplay.png" alt="" width="100%" ></a></li> 
+								<li><a href="https://www.apple.com/id/app-store/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-appstore.png" alt="" width="100%" ></a></li> 
 							</ul>
 						</li>
 						
@@ -352,7 +353,7 @@
 				
 				<div class="clearfix">
 					<div class="row justify-content-end">
-						<p class="text-end text-white fs-1 fw-bold" style="width:fit-content ;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
+						<p class="text-end text-white fs-1 mb-0 mt-2" style="width:fit-content ;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
 						
 					</div>
 				</div>
@@ -364,10 +365,10 @@
  
 
 				</div>
-			</div>
+			
 		</div>
 	</div>
-	<img src="<?= base_url()?>assets/fe/pattern.jpg" alt="" width="100%" height="40px" style="margin-top: 100px; object-fit:cover">
+	<img src="<?= base_url()?>assets/fe/border-nav.svg" alt="" width="100%" height="40px" style="margin-top: 98px; object-fit:cover">
 	<!-- Header / End -->
 
 	
