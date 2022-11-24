@@ -759,17 +759,28 @@
                         <?php } ?>
                     </div>
 
-                    <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
-                        <div id="changeicon">
-                            <input type="text" id="statusicon" name="statusicon" value="right" hidden>
-                            <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
-                            <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
-                        </div>
-                    </button>
+                    <?php $mobile = detect_mobile(); if($mobile === false){ ?>
+                        <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
+                            <div id="changeicon">
+                                <input type="text" id="statusicon" name="statusicon" value="right" hidden>
+                                <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
+                                <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
+                            </div>
+                        </button>
+                    <?php } else { ?>
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    <?php } ?>
                     <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                         <div>
-                            <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#000dda ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
+                            <?php $mobile = detect_mobile(); if($mobile === true){ ?>
+                                <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#000dda ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                            <?php } else { ?>
+                                <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#000dda ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
+                            <?php } ?>
                         </div>
 
                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
@@ -796,12 +807,14 @@
 
                 <div class="d-flex">
 
-                    <p style="text-align: end;position: relative;top: 12px;">
-                        <b style="text-transform: uppercase;font-size: 18px;">
-                            <?php echo format_indoHari(date('Y-m-d')) ?>
-                        </b></br>
-                        <span id="jam" style="font-size:15px;font-weight: bold;"></span>
-                    </p>
+                    <?php $mobile = detect_mobile(); if($mobile === false){ ?>
+                        <p style="text-align: end;position: relative;top: 12px;">
+                            <b style="text-transform: uppercase;font-size: 18px;">
+                                <?php echo format_indoHari(date('Y-m-d')) ?>
+                            </b></br>
+                            <span id="jam" style="font-size:15px;font-weight: bold;"></span>
+                        </p>
+                    <?php } ?>
                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
