@@ -707,8 +707,7 @@
                     <header id="page-topbar">
 						<?php } ?> -->
         <?php $mobile = detect_mobile(); if($mobile === false){ ?>
-        <header id="page-topbar">
-
+        <header id="page-topbar"> 
 
             <div class="navbar-header">
                 <div class="d-flex">

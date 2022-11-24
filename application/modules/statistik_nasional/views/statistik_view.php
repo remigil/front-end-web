@@ -97,92 +97,180 @@
 
     </div>
 </div>
-<div class="container-fluid" style="background:#E9E9E9">
-    <div class="container-fluid">
+
+
+<?php $mobile = detect_mobile(); if($mobile === true){ ?>
+     
+    
+
+        <div class="row d-flex align-items-center">
+            <div class="col-md-12 mb-1 mt-3 text-center">
+                <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
+            </div>
+        </div>
+
+        <div class="row d-flex">
+            <div class="col-md-6 mt-3">
+                <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
+                <div class="mb-3">
+                    <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;" >
+                        <table class="table table-bordered table-hover rounded" style="font-size: 17px;" id="tablePelanggaran">
+                            <thead class="" style="background-color:#007DD8; color:#fff;">
+                                <tr class="text-center">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Polda</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Pelanggaran Berat</th>
+                                    <th scope="col">Pelanggaran Sedang</th>
+                                    <th scope="col">Pelanggaran Ringan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-pelanggaran">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mt-3">
+                <h5>10 Polda Kecelakaan Tertinggi</h5>
+                <div class="mb-3">
+                    <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                        <table class="table table-bordered table-hover rounded" style="font-size: 17px;" id="tableKecelakaan">
+                            <thead class="" style="background-color:#007DD8; color:#fff;">
+                                <tr class="text-center">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Polda</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Meninggal Dunia</th>
+                                    <th scope="col">Luka Berat</th>
+                                    <th scope="col">Luka Ringan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-kecelakaan">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-12 mt-3">
+                <div class="mb-3">
+                    <section class="shadow-sm">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>10 Polda Turjagwali Tertinggi</h5>
+                                    </div>
+                                    <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                        <div class="main-chart">
+                                            <div id="chartturjagwali" style="width: 130vw"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+  
+<?php } else { ?>
+    <div class="container-fluid" style="background:#E9E9E9">
         <div class="container-fluid">
             <div class="container-fluid">
-
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-12 mb-1 mt-3 text-center">
-                        <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
-                    </div>
-                </div>
-
-                <div class="row d-flex">
-                    <div class="col-md-6 mt-3">
-                        <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
-                        <div class="mb-3">
-                            <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
-                                    <thead class="" style="background-color:#007DD8; color:#fff;">
-                                        <tr class="text-center">
-                                            <th scope="col">No</th>
-                                            <th scope="col">Polda</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Pelanggaran Berat</th>
-                                            <th scope="col">Pelanggaran Sedang</th>
-                                            <th scope="col">Pelanggaran Ringan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody-pelanggaran">
-
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="container-fluid">
+    
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-12 mb-1 mt-3 text-center">
+                            <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
                         </div>
                     </div>
-                    <div class="col-md-6 mt-3">
-                        <h5>10 Polda Kecelakaan Tertinggi</h5>
-                        <div class="mb-3">
-                            <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
-                                <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
-                                    <thead class="" style="background-color:#007DD8; color:#fff;">
-                                        <tr class="text-center">
-                                            <th scope="col">No</th>
-                                            <th scope="col">Polda</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Meninggal Dunia</th>
-                                            <th scope="col">Luka Berat</th>
-                                            <th scope="col">Luka Ringan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody-kecelakaan">
-
-                                    </tbody>
-                                </table>
+    
+                    <div class="row d-flex">
+                        <div class="col-md-6 mt-3">
+                            <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
+                            <div class="mb-3">
+                                <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                                    <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
+                                        <thead class="" style="background-color:#007DD8; color:#fff;">
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Pelanggaran Berat</th>
+                                                <th scope="col">Pelanggaran Sedang</th>
+                                                <th scope="col">Pelanggaran Ringan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-pelanggaran">
+    
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-md-6 mt-3">
+                            <h5>10 Polda Kecelakaan Tertinggi</h5>
+                            <div class="mb-3">
+                                <div class="card shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                                    <table class="table table-bordered table-hover rounded" style="font-size: 17px;">
+                                        <thead class="" style="background-color:#007DD8; color:#fff;">
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Meninggal Dunia</th>
+                                                <th scope="col">Luka Berat</th>
+                                                <th scope="col">Luka Ringan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-kecelakaan">
+    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+    
                     </div>
-
-                </div>
-                <div class="row d-flex">
-                    <div class="col-md-12 mt-3">
-                        <div class="mb-3">
-                            <section class="shadow-sm">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h5>10 Polda Turjagwali Tertinggi</h5>
-                                            </div>
-                                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                                <div class="main-chart">
-                                                    <div id="chartturjagwali" style="width: 130vw"></div>
+                    <div class="row d-flex">
+                        <div class="col-md-12 mt-3">
+                            <div class="mb-3">
+                                <section class="shadow-sm">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>10 Polda Turjagwali Tertinggi</h5>
+                                                </div>
+                                                <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                                                    <div class="main-chart">
+                                                        <div id="chartturjagwali" style="width: 130vw"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 
 <script>
+
+    
+    
     getStatistik();
 
     function getStatistik() {
@@ -225,6 +313,24 @@
                                 </tr>`
                 }
                 $('#tbody-pelanggaran').html(table);
+
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+        
+                    $('#tablePelanggaran').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?>
             }
         });
     }
@@ -254,6 +360,22 @@
                                 </tr>`
                 }
                 $('#tbody-kecelakaan').html(table);
+
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>   
+                    $('#tableKecelakaan').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    });  
+                <?php } ?>
             }
         })
     }
