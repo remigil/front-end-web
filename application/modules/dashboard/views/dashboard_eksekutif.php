@@ -9,19 +9,19 @@
 
         <div class="row" style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
-                <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div style="cursor: pointer; display:flex; width:300px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
                         <div class="row" style="margin-left: 0px;">
                             <div class="col-md-12">
                                 <div style="display: flex;">
                                     <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;" onClick="hitungGpsId()"></i>
                                     <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;">
-                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: 0px;"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                    <button class="btn" style=" display:none; color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </button>
                     <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
@@ -60,7 +60,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat" style="margin-left: 10px;">
+                    <div class="cat" style="margin-left: 10px;  display:none;">
                         <label>
 
                             <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
@@ -2755,7 +2755,7 @@
 
 
 
-        serverSideGet();
+        // serverSideGet();
 
         function serverSideGet() {
             $("#overlay").fadeIn(300);
@@ -4231,7 +4231,7 @@
 
 
 
-        startSocket();
+        // startSocket();
 
         function startSocket() {
             socket.on('sendToAdminMobile', function(ress) {
@@ -6409,7 +6409,7 @@
             });
 
         }
-        autoGetLogout = setInterval(getLogout, 5000);
+        // autoGetLogout = setInterval(getLogout, 5000);
 
 
 

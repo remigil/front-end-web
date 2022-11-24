@@ -2492,7 +2492,7 @@
                         }
                     });
 
-                    serverSideGet();
+                    // serverSideGet();
 
                     function serverSideGet() {
                         $("#overlay").fadeIn(300);
@@ -3960,7 +3960,7 @@
 
 
 
-                    startSocket();
+                    // startSocket();
 
                     function startSocket() {
                         socket.on('sendToAdminMobile', function(ress) {
@@ -6127,7 +6127,7 @@
                         });
 
                     }
-                    autoGetLogout = setInterval(getLogout, 5000);
+                    // autoGetLogout = setInterval(getLogout, 5000);
                     var centerMap = mapContainer.getCenter();
                     var centerLat = centerMap['lat'];
                     var centerLng = centerMap['lng'];
