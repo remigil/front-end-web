@@ -102,4 +102,32 @@ class Tripon extends MY_Controller
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
+
+
+    public function getTripOn()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+
+        $url = 'count-trip-on/jenis_kendaraan';
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $jumlah = array();
+
+        foreach ($getTripon['data'] as $key) {
+            $type[] = $key['nama'];
+            $jumlah[] = $key['jumlah'];
+        }
+
+        $data['tripOn'] = [
+            'type' => $type,
+            'jumlah' => $jumlah
+        ];
+
+        echo json_encode($data['tripOn']);
+    }
 }

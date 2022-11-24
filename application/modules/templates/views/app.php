@@ -1349,7 +1349,7 @@
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li>
-                                            <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                            <a href="<?= base_url('tripon') ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">TripOn</span>
                                             </a>
@@ -1650,7 +1650,7 @@
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li>
-                                            <a href="#">
+                                            <a href="<?= base_url('ditgakkum/inputData') ?>">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                 <span data-key="t-tripon">Ditgakkum</span>
                                             </a>

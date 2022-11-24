@@ -11,6 +11,8 @@ class Ditgakkum extends MY_Controller
         $this->load->model("M_ditgakkum");
     }
 
+    
+
     public function index()
     {
 
@@ -33,6 +35,25 @@ class Ditgakkum extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum') {
             $page_content["title"] = "DITGAKKUM";
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
+        }
+
+
+
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function inputData()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Input Data Harian Ditgakkum";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "ditgakkum/korlantas/inputdata_ditgakkum";
         }
 
 

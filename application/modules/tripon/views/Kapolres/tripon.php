@@ -7,7 +7,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="card">
+    <div class="card" style="display: none;">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 ">
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="display: none;">
         <div class="card-header bg-primary ">
             <h5 class="modal-title text-white">Filter</h5>
         </div>
@@ -92,7 +92,7 @@
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -103,7 +103,7 @@
 
 
 <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('.dropify').dropify();
 
         userDataTable = $('#dataTable').DataTable({
@@ -196,10 +196,10 @@
                 {
                     data: 'type_vehicle'
                 },
-				{
+                {
                     data: 'brand_vehicle'
                 },
-                
+
                 // {
                 //     data: 'passenger'
                 // },
@@ -223,10 +223,10 @@
 
         });
 
-        
+
     });
     $(document).ready(function() {
-        
+
 
         var keberangkatan = {
             series: [{
@@ -461,6 +461,4 @@
     </div>
         `)
     }
-  
-    
 </script>
