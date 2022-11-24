@@ -1,4 +1,4 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
+<div class="head_content" style="background-image: url('assets/fe/hero.png'); background-size:cover;"></div>
 
 </div>
 <!-- ======= Breadcrumbs ======= -->
@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-md-12">
 				
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/ow8-5ukIXbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -86,7 +86,7 @@
 			<div class="row">
 				<div class="col-md-12">
 				
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/3o2E47KJGkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/Ryp4UsZPvkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">
@@ -119,7 +119,7 @@
 			<div class="row">
 				<div class="col-md-12">
 			
-					<iframe width="100%" height="450" src="https://www.youtube.com/embed/7BOTFrY-O3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				</div>
 				<div class="col-md-6">

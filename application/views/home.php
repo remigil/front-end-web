@@ -10,16 +10,15 @@
 		<ul>
 
 			<!-- Slide  -->
-			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+			<li data-index="rs-3" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
 				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/hero.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
+				<img src="<?php echo base_url();?>assets/fe/banner-home3.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
 
 				<!-- Caption-->
-				<!-- <div class="tp-caption custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
-					id="slide-1-layer-2" 
-					data-x="['left','left','left','left']"
-					data-hoffset="['0','40','40','40']"
+				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+					id="slide-2-layer-2" 
+					data-x="['center','center','center','center']" data-hoffset="['0']" 
 					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
 					data-width="['640','640', 640','420','320']"
 					data-height="auto"
@@ -30,11 +29,13 @@
 					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
 					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
 					data-start="1000" 
-		
+					data-responsive_offset="on">
+
+					 
 					<div class="R_title margin-bottom-15"
-					id="slide-2-layer-1"
-					data-x="['left','center','center','center']"
-					data-hoffset="['0','0','40','0']"
+					id="slide-2-layer-3"
+					data-x="['center','center','center','center']"
+					data-hoffset="['0','0','0','0']"
 					data-y="['middle','middle','middle','middle']"
 					data-voffset="['-40','-40','-20','-80']"
 					data-fontsize="['42','36', '32','36','22']"
@@ -50,22 +51,67 @@
 					data-basealign="slide"
 					data-responsive_offset="off"
 					data-responsive="off"
-					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Selamat Datang</div>
+					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
 
-					<div class="caption-text"> 
-                        <p style="color: red; font-weight: bold">DI PORTAL K3I KORLANTAS POLRI</p> 
-                        <p style="font-weight: bold">PUSAT KENDALI KORDINASI KOMUNIKASI DAN INFORMASI</p> 
-                        <p style="color: yellow">KORPS LALU LINTAS KEPOLISIAN NEGARA REPUBLIK INDONESIA</p></div>
-					<a href="#" class="button medium">Get Started</a>
+					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
+					<a href="#" class="button medium">Read More</a>
 				</div> -->
 
 			</li>
-
 			<!-- Slide  -->
 			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
 				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/SLIDER_2.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+				<img src="<?php echo base_url();?>assets/fe/banner-home2.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+
+				<!-- Caption-->
+				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+					id="slide-2-layer-2" 
+					data-x="['center','center','center','center']" data-hoffset="['0']" 
+					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
+					data-width="['640','640', 640','420','320']"
+					data-height="auto"
+					data-whitespace="nowrap"
+					data-transform_idle="o:1;"	
+					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
+					data-transform_out="" 
+					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
+					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+					data-start="1000" 
+					data-responsive_offset="on">
+
+					 
+					<div class="R_title margin-bottom-15"
+					id="slide-2-layer-3"
+					data-x="['center','center','center','center']"
+					data-hoffset="['0','0','0','0']"
+					data-y="['middle','middle','middle','middle']"
+					data-voffset="['-40','-40','-20','-80']"
+					data-fontsize="['42','36', '32','36','22']"
+					data-lineheight="['70','60','60','45','35']"
+					data-width="['640','640', 640','420','320']"
+					data-height="none" data-whitespace="normal"
+					data-transform_idle="o:1;"
+					data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;"
+					data-transform_out="opacity:0;s:300;"
+					data-start="600"
+					data-splitin="none"
+					data-splitout="none"
+					data-basealign="slide"
+					data-responsive_offset="off"
+					data-responsive="off"
+					style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 600; ">Streamline Your Business</div>
+
+					<div class="caption-text">Proactively envisioned multimedia based on expertise cross-media growth strategies. Pontificate installed base portals after maintainable products.</div>
+					<a href="#" class="button medium">Read More</a>
+				</div> -->
+
+			</li>
+			<!-- Slide  -->
+			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+
+				<!-- Background -->
+				<img src="<?php echo base_url();?>assets/fe/banner-home1.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
 
 				<!-- Caption-->
 				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
@@ -123,14 +169,17 @@
 ================================================== -->
 
 <!-- Container -->
-<div class="container margin-top-30">
+<div class="container-fluid margin-top-30">
 	<div class="row">
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
 			<h3 class="headline centered margin-bottom-35 margin-top-50">www.k3i.korlantas.polri.go.id</h3>
-		</div>
-        <div class="col-md-6 mb-5">
-			<span class="centered margin-bottom-35 margin-top-50 text-justify"><p> Merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. selengkapnya</p></span>
+		</div> -->
+        <div class="col-md-12 mb-5 p-5 mt-5">
+			<div class="container-fluid p-5">
+				<span class="centered margin-bottom-35 margin-top-50 text-center"><p><a href="<?= base_url()?>">www.k3i.korlantas.polri.go.id</a> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p></span>
+
+			</div>
 		</div>
 
 		<div class="col-md-12"> 
@@ -148,7 +197,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="lakalantas"></h2>
@@ -158,7 +207,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
 					<a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="motor"></h2>
@@ -168,7 +217,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                 <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="garlantas"></h2>
@@ -178,7 +227,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                 <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="sim"></h2>
@@ -379,15 +428,6 @@
         </div> 
     </div>
 
-    
-	<div class="col-md-12">
-		<hr>
-		<h4 class="headline">
-			Layanan Aplikasi Contact Center NTMC Polri
-		</h4>
-		<img src="<?php echo base_url();?>assets/fe/contactntmc.png" alt="">
-	</div>
-
     <div class="col-md-12 margin-bottom-50 margin-top-50">
         <div class="row">
             <div class="col-md-4">
@@ -404,7 +444,7 @@
 
 	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
         <!-- Logo Carousel -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <div class="col-md-12">
@@ -575,6 +615,24 @@
 
 			}
 		});
+
+	// 	getStatistik();
+
+    // function getStatistik() {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
+    //         dataType: "JSON",
+    //         success: function(result) {
+    //             $("#overlay").fadeOut(300);
+
+    //             $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
+    //             $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
+    //             $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
+    //             $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
+    //         }
+    //     })
+    // }
 
 		$("#overlay").fadeIn(300);
 		$.ajax({

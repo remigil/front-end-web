@@ -1,6 +1,6 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-</div>
+
+
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
     	<nav>
@@ -51,17 +51,19 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
+	<!-- Layanan Aplikasi Satker -->
 	<div class="row">
+		<h3 style="text-transform:uppercase ;">Layanan Aplikasi <?= $breadcrumb?></h3>
 		<div class="col-md-3">
 			<a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
 				<div class="img-box-content visible">
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/irsms.png" alt=""  width="70px" height="70px">
+							<h5 style="color: white"><b>IRSMS</b></h5>
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>IRSMS</b></h5>
-							<p style="color: white;">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
+							<p style="color: white; font-size:10px">Integrated Road Safety Management System adalah pendataan secara elektronik fenomena kecelakaan lalu lintas dan analisanya</p>
 						</div>
 					</div>
 					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -74,11 +76,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/etle-pmj.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>E-TLE</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>E-TLE</b></h5>
-							<p style="color: white;">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
+							<p style="color: white; font-size:10px">Electronic Traffic Law Enforcement adalah sistem penegakkan hukum lalu lintas berbasis elektronik dengan bukti – bukti pelanggaran dalam format elektronik</p>
 
 						</div>
 					</div>
@@ -92,11 +94,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>E-DAKGAR</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>E-DAKGAR</b></h5>
-							<p style="color: white;">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
+							<p style="color: white; font-size:10px">E – Dakgar adalah sistem Penindakan Pelanggaran Secara Online dan Transparan yang dicatat secara elektronik dan, dapat di cek secara online.</p>
 
 						</div>
 					</div>
@@ -110,11 +112,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/eturjawali.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
-							<p style="color: white;">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+							<p style="color: white; font-size:10px">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
 
 						</div>
 					</div>
@@ -122,8 +124,10 @@
 				</div>
 			</a>
 		</div>
+
+		<!-- Dokumen Peraturan Satker -->
 		<div class="col-md-12">
-			<h3>Dokumen Peraturan</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
 			<div class="card">
 				<div class="card-body">
 					<table id="datatable" class="table dt-responsive w-100 table-striped">
@@ -158,9 +162,10 @@
 	</div>
 	<hr>
 
+	<!-- Media Channel -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Media Channel</h3>
+			<h3 style="text-transform:uppercase ;">Media Channel</h3>
 			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
 		<div class="col-md-8">
@@ -182,9 +187,10 @@
 	</div>
 	<hr>
 
+	<!-- Dokumen Kegiatan Satker -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
 		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
 			<div class="content-carousel"  >

@@ -212,7 +212,7 @@
 <header id="header-container">
 
 	<!-- Header -->
-	<div id="header">
+	<div id="header" style="background-color:#073888 ; border-bottom: 10px solid red">
 		<div class="container-fluid">
 			<div class="container-fluid">
 				<div class="container-fluid align-middle">
@@ -220,7 +220,7 @@
 			<!-- Left Side Content -->
 			<div class="left-side">
 				
-				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo.png" alt=""></a> 
+				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/logo-nav.png" alt=""></a> 
 			</div>
 			<!-- Left Side Content / End -->
 
@@ -241,9 +241,9 @@
 				<nav id="navigation" class="style-1">
 					<ul id="responsive mt-5">
 
-						<li><a class="current" href="<?php echo base_url()?>home">&nbsp;<i class="im im-icon-Home"></i></a></li>
+						<li><a class="current" href="<?php echo base_url()?>home" style="background-color: white;">&nbsp;<i class="im im-icon-Home" style="color: black; font-weight:bolder;"></i></a></li>
 						
-						<li><a  href="#">PROFIL</a>
+						<li><a  href="#"><b>PROFIL</b> </a>
 							<ul>
 								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
 								<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
@@ -255,7 +255,7 @@
 							</ul>
 						</li>
 
-						<li><a href="#">SATKER MABES</a>
+						<!-- <li><a href="#">SATKER MABES</a>
 							<div class="mega-menu mobile-styles two-columns">
 
 									<div class="mega-menu-section">
@@ -283,19 +283,19 @@
 									</div> 
 									
 							</div>
-						</li>
+						</li> -->
 
-						<li><a href="#">PUBLIKASI</a>
+						<li><a href="#"><b>PUBLIKASI</b></a>
 							<ul>
 								<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
 								<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
-								<li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li>
+								<!-- <li><a href="<?= base_url()?>riset_media">Riset Media Center NTMC</a></li> -->
 								<li><a href="<?= base_url()?>kegiatan_khusus">Kegiatan Khusus (PAM PPKM)</a></li> 
 							</ul>
 						</li>
  
 
-						<li><a href="#">INFORMASI PUBLIK</a>
+						<li><a href="#"><b>PUSTAKA</b></a>
 							<ul>
 								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
 								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
@@ -305,7 +305,7 @@
 						</li>
  
 
-						<li><a href="#">MEDIA UPDATE</a>
+						<!-- <li><a href="#">MEDIA UPDATE</a>
 							<ul>
 								<li><a href="<?= base_url()?>berita_ppkm">Update Berita PPKM</a></li>
 								<li><a href="<?= base_url()?>berita_kecelakaan">Update Berita Kecelakaan Lalulintas</a></li>
@@ -315,37 +315,49 @@
 								<li><a href="<?= base_url()?>berita_etle">Update Berita ETLE</a></li>
 								<li><a href="<?= base_url()?>berita_kontijensi">Update Berita Kontijensi (Penanganan Covid-19)</a></li> 
 							</ul>
-						</li>
+						</li> -->
 
-						<li><a href="#">KONTAK KAMI</a>
+						<li><a href="#"><b>KONTAK KAMI</b></a>
 							<ul>
-								<li><a href="<?= base_url()?>layanan_chatbot">Layanan Chatbot k3i Korlantas</a></li>
+								<!-- <li><a href="<?= base_url()?>layanan_chatbot">Layanan Chatbot k3i Korlantas</a></li> -->
 								<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
 								<li><a href="<?= base_url()?>layanan_pengaduan">Layanan Pengaduan</a></li>
 								<li><a href="<?= base_url()?>contact_center">Contact Center NTMC</a></li> 
 							</ul>
 						</li>
 
-						<li><a href="#">LAIN - LAIN</a>
+						<!-- <li><a href="#">LAIN - LAIN</a>
 							<ul>
 								<li><a href="<?= base_url()?>cctv_streaming">CCTV Streaming</a></li>
-								<!-- <li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li> -->
+								<li><a href="<?= base_url()?>link_pengecekan_etle">Link Pengecekan Status ETLE</a></li>
 								<li><a href="https://etle-pmj.info/id">Link Pengecekan Status ETLE</a></li>
-								<!-- <li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li> -->
+								<li><a href="<?= base_url()?>link_layanan_polisiku">Link ke Layanan Polisiku</a></li>
 								<li><a href="https://polri.go.id/polisiku">Link ke Layanan Polisiku</a></li>
-								<!-- <li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li>  -->
+								<li><a href="<?= base_url()?>link_tvradio_polri">Link ke TV-RADIO POLRI</a></li> 
 								<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
+						</li> -->
+						<li><a href="#"><b>DOWNLOAD APP</b></a>
+							<ul>
+								<li>Scan QR Code untuk download ⬇️</li>
+								<li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li> 
+								<li><a href="https://play.google.com/" style="padding: 0 !important; "><img src="<?= base_url()?>assets/fe/get-googleplay.png" alt="" width="100%"></a></li> 
+								<li><a href="https://www.apple.com/id/app-store/" style="padding: 0 !important; "><img src="<?= base_url()?>assets/fe/get-appstore.png" alt="" width="100%"></a></li> 
+							</ul>
 						</li>
-						<li><a href="<?= base_url()?>login">Dashboard</a></li>
 						
 					</ul>
 				</nav>
-				<div class="clearfix"></div>
+				
+				
+				<div class="clearfix">
+					<div class="row justify-content-end">
+						<p class="text-end text-white fs-1 fw-bold" style="width:fit-content ;"><?php echo format_indoHari(date('Y-m-d')) ?></p>
+						
+					</div>
+				</div>
 				<!-- Main Navigation / End -->
-				<!-- <div class="time">
-					<p><?php echo format_indoHari(date('Y-m-d')) ?></p>
-				</div> -->
+				
 				
 			</div>
 			<!-- Right Side Content / End -->
@@ -355,14 +367,22 @@
 			</div>
 		</div>
 	</div>
+	<img src="<?= base_url()?>assets/fe/pattern.jpg" alt="" width="100%" height="30px" style="margin-top: 110px; object-fit:cover">
 	<!-- Header / End -->
 
+	
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
 
 
-<?php echo $contents ?> 
+
+	
+	
+		<?php echo $contents ?> 
+	
+	
+
 
 
 
@@ -372,7 +392,7 @@
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
+			<!-- <div class="col-md-5">
 				<p style="color: white;">Peta Ke Korlantas Polri </p> 
 				<div style="background-color: white; border: 1px solid black; border-radius: 10px;">
 					<h5 class="headline centered margin-top-20" style="font-weight: bold;">Dapatkan arah Transportasi Umum ke Kantor Pusat Kendali Koordinasi Komunikasi dan Informasi Korlantas Polri</h5>
@@ -403,7 +423,7 @@
 					<li><a href="#">ERI</a></li>
 				</ul>
 				<div class="clearfix"></div>
-			</div>	
+			</div>	 -->
 
 			<div class="col-md-3">
 				<h4>Info Kontak</h4>
@@ -427,6 +447,11 @@
 					<li><a class="instagram" href="https://www.instagram.com/k3ikorlantaspolri/"><i class="icon-instagram"></i></a></li>
 					<li><a class="youtube" href="https://www.youtube.com/channel/UCXr0rFTNDPLYkU0-PONdjLg"><i class="icon-youtube"></i></a></li>
 				</ul>
+			</div>
+
+			<div class="col-md-6"> 
+				<h4>Layanan Aplikasi Contact Center NTMC Polri</h4>
+				<img src="<?php echo base_url();?>assets/fe/contactntmc.png" alt="" style="border-radius: 10px;">
 			</div>
 
 		</div>

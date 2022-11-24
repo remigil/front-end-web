@@ -1,6 +1,6 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-</div>
+
+
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
     	<nav>
@@ -58,7 +58,6 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3>Link Youtube</h3>
-			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
 		<div class="col-md-8">
 			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -79,97 +78,6 @@
 	</div>
 	<hr>
 
-	<div class="row">
-		<div class="col-md-12">
-			<h3>Galeri Foto</h3>
-		</div>
-		<div class="col-md-12">
-			<div class="simple-slick-carousel dots-nav">
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container compact">
-						<div class="listing-item">
-							<img src="<?php echo base_url();?>assets/fe/news_1.png" alt="">
-
-							<div class="listing-badge now-open">Now Open</div>
-
-							<div class="listing-item-content">
-								<div class="numerical-rating" data-rating="3.5"></div>
-								<h3>Tom's Restaurant <i class="verified-icon"></i></h3>
-								<span>964 School Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container compact">
-						<div class="listing-item">
-							<img src="<?php echo base_url();?>assets/fe/news_2.png" alt="">
-							<div class="listing-item-details">
-								<ul>
-									<li>Friday, August 10</li>
-								</ul>
-							</div>
-							<div class="listing-item-content">
-								<div class="numerical-rating" data-rating="5.0"></div>
-								<h3>Sticky Band</h3>
-								<span>Bishop Avenue, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End -->		
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container compact">
-						<div class="listing-item">
-							<img src="<?php echo base_url();?>assets/fe/news_3.png" alt="">
-							<div class="listing-item-details">
-								<ul>
-									<li>Starting from $59 per night</li>
-								</ul>
-							</div>
-							<div class="listing-item-content">
-								<div class="numerical-rating" data-rating="2.0"></div>
-								<h3>Hotel Govendor</h3>
-								<span>778 Country Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-
-					</a>
-				</div>
-				<!-- Listing Item / End -->
-
-				<!-- Listing Item -->
-				<div class="carousel-item">
-					<a href="listings-single-page.html" class="listing-item-container compact">
-						<div class="listing-item">
-							<img src="<?php echo base_url();?>assets/fe/news_4.png" alt="">
-
-							<div class="listing-badge now-open">Now Open</div>
-
-							<div class="listing-item-content">
-								<div class="numerical-rating" data-rating="5.0"></div>
-								<h3>Burger House <i class="verified-icon"></i></h3>
-								<span>2726 Shinn Street, New York</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-					</a>
-				</div>
-				<!-- Listing Item / End --> 
-
-			</div> 
-		</div>
-	</div>
 	
 	<div class="row">
 		<div class="col-md-12 margin-bottom-50 margin-top-50">
