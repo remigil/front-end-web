@@ -93,6 +93,11 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <style>
+        @font-face {
+            font-family: 'MortendBold';
+            src: url("<?= base_url('assets/fe/font/MortendBold.otf'); ?>");
+        }
+
         .animateLine {
             stroke-dasharray: 10;
             animation: dash linear infinite;
@@ -638,6 +643,14 @@
         .timer>svg>text+text {
             font-size: 1rem;
         }
+
+        .aneh {
+            width: 100%;
+        }
+
+        .aneh:hover {
+            background-color: #003a91;
+        }
     </style>
 
     <!-- JAVASCRIPT -->
@@ -753,10 +766,12 @@
                             <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                         </div>
                     </button>
-                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
+                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                         <div>
+
+
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color: #000dda" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp <span style="color:green ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
+                            <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#000dda ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
                         </div>
 
                     <?php } else if ($this->uri->segment(1) == "dashboard") { ?>
@@ -836,7 +851,7 @@
                             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                                 <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar"> -->
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
+                                <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span> -->
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
 
@@ -1141,6 +1156,13 @@
                                     </a>
                                 </li>
 
+                            <?php } elseif ($this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('divtik/div_tik'); ?>" data-key="t-login">
+                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">Statistik Nasional</span>
+                                    </a>
+                                </li>
                             <?php } elseif ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
 
                                 <!-- <div class="text-center mt-3">
@@ -1189,7 +1211,7 @@
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
                                         <span data-key="t-authentication" style="color: white;">Subsatker Korlantas</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
@@ -1244,20 +1266,22 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>#">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <!-- <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
+                                    <button type="button" class="btn aneh" data-toggle="modal" data-target="#myModalPoldaDisplay1" id="getPoldatable">
+                                        <img src="<?= base_url('assets/sidebar/WILAYAH.svg') ?>" alt="" style="width: 20px; margin-right:10px; margin-left:-90px; ">
                                         <span data-key="t-dashboard" style="color: white;">Kewilayahan</span>
-                                    </a>
+                                    </button>
+                                    <!-- <a href="<?php echo base_url(); ?>#">
+                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    </a> -->
                                 </li>
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <img src="<?= base_url('assets/sidebar/satker_polri.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                         <span data-key="t-authentication" style="color: white;">Satker Polri</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li>
-                                            <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                            <a href="<?php echo base_url('divtik/div_tik'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
                                             </a>
@@ -1298,7 +1322,7 @@
                                 <li>
                                     <a href="<?php echo base_url('anev/Anev'); ?>">
                                         <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-dashboard" style="color: white;">Anev</span>
+                                        <span data-key="t-dashboard" style="color: white;">Laporan Anev</span>
                                     </a>
                                 </li>
                                 <!-- Ini nanti dilanjut -->
@@ -1955,10 +1979,113 @@
             </div>
             <!-- /Right-bar -->
 
+
+            <div class="modal right fade" id="myModalPoldaDisplay1" id="getPoldatable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay1" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary ">
+                            <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay1">Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill"></span>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="openModalPoldaDisplay1" style="width: 300px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Right bar overlay-->
             <div class="rightbar-overlay"></div>
 
 
+
+            <script>
+                // EKSEKUTIF
+
+                $('#getPoldatable').on('click', function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url(); ?>dashboard/getPolda",
+                        dataType: "JSON",
+                        success: function(result) {
+                            $("#overlay").fadeOut(300);
+
+                            let ressData = result;
+                            // console.log();
+
+                            $("#openModalPoldaDisplay1").html(`
+                <table id="datatablePoldaOnDisplay1" class="table dt-responsive w-100" style="font-size: 12px;">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Nama</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isiModalPoldaDisplay1">
+                    </tbody>
+                </table>
+            `);
+                            var countPoldaDisplay1 = 0;
+                            var listPoldaDisplay1 = '';
+
+                            for (let i = 0; i < ressData.length; i++) {
+                                id = i;
+                                var latitude = parseFloat(ressData[i].latitude);
+                                var longitude = parseFloat(ressData[i].longitude);
+
+
+
+
+
+
+                                countPoldaDisplay1 += 1;
+                                listPoldaDisplay1 += `
+                                <tr>
+                                    <td>
+                                        <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}>
+                                            <img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}>
+                                            ${ressData[i].name_polda}
+                                        </a>
+                                    </td>
+                                    </tr>
+                `;
+                                $('#isiModalPoldaDisplay1').html(listPoldaDisplay1);
+                            }
+
+                            for (let i = 0; i < countPoldaDisplay1; i++) {
+                                // console.log(`${i+1}`);
+                                $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 20);
+                                });
+                            }
+
+                            $('#datatablePoldaOnDisplay1').DataTable({
+                                // responsive: true,
+
+                                // scrollX: true,
+
+                                // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                // buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+                                    sSearch: 'Search:'
+                                },
+                                sDom: '<"top"f>t<"bottom"p><"clear">'
+                            });
+
+                        }
+                    });
+                })
+                $(document).ready(function() {
+
+                })
+            </script>
             <!-- pace js -->
             <script src="<?php echo base_url(); ?>assets/admin/libs/pace-js/pace.min.js"></script>
 
