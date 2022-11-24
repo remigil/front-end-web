@@ -123,7 +123,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaDay">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -147,7 +147,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaMonth">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -171,7 +171,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaYear">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -814,6 +814,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaDay').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaDay').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -845,6 +862,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaMonth').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaMonth').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -876,6 +910,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaYear').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaYear').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
