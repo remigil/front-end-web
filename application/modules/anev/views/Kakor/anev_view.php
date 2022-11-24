@@ -90,9 +90,9 @@
 					<table style="margin-left:auto;margin-right:auto">
 						<thead>
 							<tr>
-								<th style="width: 8vw;">Selasa, 18-10-2022</th>
+								<th style="width: 8vw;">Kamis, 24-11-2022</th>
 								<th style="width: 5vw;"></th>
-								<th style="width: 8vw;">Rabu, 19-10-2022</th>
+								<th style="width: 8vw;">Jum'at, 25-11-2022</th>
 								<th style="width: 5vw;"></th>
 								<th style="width: 5vw;">Angka</th>
 								<th style="width: 5vw;">Presentase</th>
@@ -120,8 +120,8 @@
 									</div>
 								</td>
 								<td>29</td>
-								<td style="color: blue;">29</td>
-								<td>-5%</td>
+								<td style="color: blue;">-144</td>
+								<td>-80%</td>
 							</tr>
 							<tr>
 								<td>
@@ -144,8 +144,8 @@
 									</div>
 								</td>
 								<td>5</td>
-								<td style="color: blue;">5</td>
-								<td>76%</td>
+								<td style="color: blue;">0</td>
+								<td>0%</td>
 							</tr>
 							<tr>
 								<td>
@@ -168,8 +168,8 @@
 									</div>
 								</td>
 								<td>10</td>
-								<td style="color: blue;">10</td>
-								<td>80%</td>
+								<td style="color: blue;">4</td>
+								<td>67%</td>
 							</tr>
 							<tr>
 								<td>
@@ -192,8 +192,8 @@
 									</div>
 								</td>
 								<td>35</td>
-								<td style="color: blue;">35</td>
-								<td>30%</td>
+								<td style="color: blue;">-66</td>
+								<td>-65%</td>
 							</tr>
 						</tbody>
 					</table>
@@ -221,9 +221,9 @@
 								<table style="margin-left:auto; margin-right:auto;">
 									<thead>
 										<tr>
-											<th style="width: 8vw;">Selasa, 18-10-2022</th>
+											<th style="width: 8vw;">Kamis, 24-11-2022</th>
 											<th style="width: 5vw;"></th>
-											<th style="width: 8vw;">Rabu, 19-10-2022</th>
+											<th style="width: 8vw;">Jum'at, 25-11-2022</th>
 											<th style="width: 5vw;"></th>
 											<th style="width: 5vw;">Angka</th>
 											<th style="width: 5vw;">Presentase</th>
@@ -251,8 +251,8 @@
 												</div>
 											</td>
 											<td>29</td>
-											<td style="color: blue;">29</td>
-											<td>-5%</td>
+											<td style="color: blue;">-144</td>
+											<td>-80%</td>
 										</tr>
 									</tbody>
 								</table>
@@ -278,8 +278,8 @@
 							<th scope="col" rowspan="2">Laporan Anev</th>
 						</tr>
 						<tr>
-							<th>Selasa, 18-10-2022</th>
-							<th>Rabu, 19-10-2022</th>
+							<th>Kamis, 24-11-2022</th>
+							<th>Jum'at, 25-11-2022</th>
 							<th>Angka</th>
 							<th>Presentase</th>
 						</tr>
@@ -363,9 +363,9 @@
 					<table style="margin-left:auto;margin-right:auto">
 						<thead>
 							<tr>
-								<th style="width: 8vw;">Selasa, 18-10-2022</th>
+								<th style="width: 8vw;">Kamis, 24-11-2022</th>
 								<th style="width: 5vw;"></th>
-								<th style="width: 8vw;">Rabu, 19-10-2022</th>
+								<th style="width: 8vw;">Jum'at, 25-11-2022</th>
 								<th style="width: 5vw;"></th>
 								<th style="width: 5vw;">Angka</th>
 								<th style="width: 5vw;">Presentase</th>
@@ -393,8 +393,8 @@
 									</div>
 								</td>
 								<td>29</td>
-								<td style="color: blue;">29</td>
-								<td>-5%</td>
+								<td style="color: blue;">-144</td>
+								<td>-80%</td>
 							</tr>
 							<tr>
 								<td>
@@ -417,8 +417,8 @@
 									</div>
 								</td>
 								<td>5</td>
-								<td style="color: blue;">5</td>
-								<td>76%</td>
+								<td style="color: blue;">0</td>
+								<td>0%</td>
 							</tr>
 							<tr>
 								<td>
@@ -441,8 +441,8 @@
 									</div>
 								</td>
 								<td>10</td>
-								<td style="color: blue;">10</td>
-								<td>80%</td>
+								<td style="color: blue;">4</td>
+								<td>67%</td>
 							</tr>
 							<tr>
 								<td>
@@ -465,8 +465,8 @@
 									</div>
 								</td>
 								<td>35</td>
-								<td style="color: blue;">35</td>
-								<td>30%</td>
+								<td style="color: blue;">-66</td>
+								<td>-65%</td>
 							</tr>
 						</tbody>
 					</table>
@@ -490,8 +490,8 @@
 							<th scope="col" rowspan="2">Laporan Anev</th>
 						</tr>
 						<tr>
-							<th>Selasa, 18-10-2022</th>
-							<th>Rabu, 19-10-2022</th>
+							<th>Kamis, 24-11-2022</th>
+							<th>Jum'at, 25-11-2022</th>
 							<th>Angka</th>
 							<th>Presentase</th>
 						</tr>
@@ -730,7 +730,7 @@
 				colors: ['transparent']
 			},
 			xaxis: {
-				categories: ['Selasa, 18-10-2022', 'Rabu, 19-10-2022'],
+				categories: ['Kamis, 24-11-2022', 'Jumat, 25-11-2022'],
 			},
 			yaxis: [{
 				axisTicks: {
@@ -810,7 +810,7 @@
 				colors: ['transparent']
 			},
 			xaxis: {
-				categories: ['Selasa, 18-10-2022', 'Rabu, 19-10-2022'],
+				categories: ['Kamis, 24-11-2022', 'Jumat, 25-11-2022'],
 			},
 			yaxis: [{
 				axisTicks: {
