@@ -706,7 +706,9 @@
                 <?php } else { ?>
                     <header id="page-topbar">
 						<?php } ?> -->
+        <?php $mobile = detect_mobile(); if($mobile === false){ ?>
         <header id="page-topbar">
+
 
             <div class="navbar-header">
                 <div class="d-flex">
@@ -884,6 +886,7 @@
                 </div>
             </div>
         </header>
+        <?php } ?>
 
         <!-- ========== Left Sidebar Start ========== -->
         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
