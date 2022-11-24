@@ -23,8 +23,8 @@
 
                             <div class="dropdown-menu" style="width: 200px;">
                                 <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=<?= date('m') ?>&type=month">Bulanan</a>
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y') ?>&type=years">Tahunan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=month&date=<?= date('m'); ?>">Bulanan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -42,8 +42,8 @@
 
                                 <div class="dropdown-menu" style="width: 200px;">
                                     <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                    <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('m') ?>&type=month">Bulanan</a>
-                                    <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y') ?>type=years">Tahunan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=month&date=<?= date('m'); ?>">Bulanan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                                 </div>
                             </div>
                         </div>
