@@ -711,7 +711,7 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleSatelite]
         }).setView(initialCenter, initialZoom);  
 
 
