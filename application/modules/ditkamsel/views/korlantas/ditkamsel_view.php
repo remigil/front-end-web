@@ -1,36 +1,49 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8 align-self-center">
-                        <div class="row">
-                            <div class="col-md-1">
+                        <div style="display: flex;"> 
                                 <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
-                            </div>
-                            <div class="col-md-3 ms-n4">
-                                <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
-                            </div>
+                                &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                          
                         </div>
                         <p>Today is <?= date('l, j F Y') ?></p>
                     </div>
-                    <div class="col-md-1 text-end align-self-center">
-                        <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
-                        </button>
-
-                    </div>
-                    <div class="col-md-3 text-end align-self-center">
-
-                        <div class="btn-group">
+                    <?php $mobile = detect_mobile(); if($mobile === true){ ?>
+                        <div class="col-md-12" style="margin-left: -15px;">
+                            <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+                            </button>  
                             <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
                                 Export Laporan
                             </button>
 
                             <div class="dropdown-menu" style="width: 200px;">
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_ditkamsel?date=<?= date('m') ?>&type=month">Bulanan</a>
-                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_ditkamsel?date=<?= date('Y') ?>type=years">Tahunan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('m') ?>&type=month">Bulanan</a>
+                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y') ?>type=years">Tahunan</a>
                             </div>
                         </div>
-                    </div>
+                    <?php } else { ?>
+                        <div class="col-md-1 text-end align-self-center">
+                            <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
+                            </button> 
+                        </div>
+                        <div class="col-md-3 text-end align-self-center">
+
+                            <div class="btn-group">
+                                <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                                    Export Laporan
+                                </button>
+
+                                <div class="dropdown-menu" style="width: 200px;">
+                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                    <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('m') ?>&type=month">Bulanan</a>
+                                    <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y') ?>type=years">Tahunan</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?> 
                 </div>
 
                 <div class="row">
