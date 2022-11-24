@@ -176,32 +176,6 @@
                         height: 350,
                         type: 'line',
                     },
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            fontSize: '14px',
-                            fontFamily: 'Helvetica, Arial, sans-serif',
-                            fontWeight: 'bold',
-                            colors: undefined
-                        },
-                        background: {
-                            enabled: true,
-                            foreColor: '#fff',
-                            padding: 4,
-                            borderRadius: 2,
-                            borderWidth: 1,
-                            borderColor: '#fff',
-                            opacity: 0.9,
-                            dropShadow: {
-                                enabled: false,
-                                top: 1,
-                                left: 1,
-                                blur: 1,
-                                color: '#000',
-                                opacity: 0.45
-                            }
-                        },
-                    },
                     title: {
                         text: 'Jumlah Kecelakaan',
                         align: 'left'
@@ -212,8 +186,70 @@
                             sizeOffset: 6
                         }
                     },
+                    dataLabels: {
+                        enabled: true,
+                        offsetX: 0,
+                        offsetY: -10,
+                        style: {
+                            fontSize: '14px',
+                            fontFamily: 'Helvetica, Arial, sans-serif',
+                            fontWeight: 'bold',
+                            colors: undefined
+                        },
+                        background: {
+                            enabled: false,
+                        }
+                    },
+                    stroke: {
+                        show: true,
+                        lineCap: 'butt',
+                        colors: undefined,
+                        width: 2,
+                        dashArray: 0,
+                    },
+                    legend: {
+                        show: true,
+                        showForSingleSeries: false,
+                        showForNullSeries: true,
+                        showForZeroSeries: true,
+                        position: 'bottom',
+                        horizontalAlign: 'center',
+                        floating: false,
+                        fontSize: '14px',
+                        fontFamily: 'Helvetica, Arial',
+                        fontWeight: 400,
+                        formatter: undefined,
+                        inverseOrder: false,
+                        width: undefined,
+                        height: undefined,
+                        tooltipHoverFormatter: undefined,
+                        customLegendItems: [],
+                        offsetX: 0,
+                        offsetY: 0,
+                        labels: {
+                            colors: '#000',
+                            useSeriesColors: false
+                        },
+                    },
                     xaxis: {
                         categories: result.laka_polda_name,
+                        labels: {
+                            show: true,
+                            rotate: -45,
+                            rotateAlways: false,
+                            hideOverlappingLabels: true,
+                            showDuplicates: false,
+                            trim: false,
+                            minHeight: undefined,
+                            maxHeight: 120,
+                            style: {
+                                colors: [],
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 400,
+                                cssClass: 'apexcharts-xaxis-label',
+                            },
+                        },
                     },
                     tooltip: {
                         y: [{
