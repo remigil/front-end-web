@@ -22,11 +22,22 @@
                     <div class="col-md-3 text-end align-self-center">
 
                         <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=2022-11-21" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                        <a href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y-m-d'); ?>" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y-m-d'); ?>" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle btn-outline-primary" data-toggle="dropdown" aria-expanded="false" style="width: 200px; border-color:#007DD8;">
+                                Export Laporan
+                            </button>
+
+                            <div class="dropdown-menu" style="width: 200px;">
+                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_gakkum?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('m') ?>&type=month">Bulanan</a>
+                                <a class="dropdown-item" href="http://localhost:3001/v1/laporan_harian/anev_gakkum?date=<?= date('Y') ?>type=years">Tahunan</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class=" row">
 
                     <div class="col-md-12 mt-5">
                         <div class="row justify-content-between align-items-center">
