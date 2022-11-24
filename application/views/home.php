@@ -241,8 +241,8 @@
         </div>
         <div class="col-md-1"></div> 
 	</div>
-
-    <div class="col-md-12">
+	<div class="container-fluid">
+	<div class="col-md-12">
         <div class="margin-bottom-45 margin-top-50">
             <h3 class="headline centered ">
                 LAYANAN ONLINE TERINTEGRASI
@@ -251,7 +251,7 @@
             <div class="row">
                 <div class="col-md-6">
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-2 align-self-center">
 							<a href="https://samsatdigital.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt=""></a>
 
 						</div>
@@ -264,7 +264,7 @@
                 </div>
                 <div class="col-md-6">
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-2 align-self-center">
 							<a href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt=""></a>
 
 						</div>
@@ -278,8 +278,8 @@
                 </div>
                 <div class="col-md-6">
 					<div class="row">
-						<div class="col-md-2">
-							<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
+						<div class="col-md-2 align-self-center">
+							<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
 
 						</div>
 						<div class="col-md-10">
@@ -292,8 +292,8 @@
                 </div>
                 <div class="col-md-6">
 					<div class="row">
-						<div class="col-md-2">
-							<a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
+						<div class="col-md-2 align-self-center">
+							<a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
 							<a href="https://ntmcpolri.info/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt=""></a>
 
 						</div>
@@ -308,8 +308,11 @@
             </div>
         </div>
     </div>
+	</div>
 
-    <div class="col-md-12">
+    
+	<div class="container">
+	<div class="col-md-12">
         <h3 class="headline centered margin-bottom-45 margin-top-50">
             BERITA TERUPDATE
         </h3>
@@ -367,8 +370,7 @@
 
         </div> 
     </div>
-
-    <div class="col-md-12 margin-bottom-50 margin-top-50"> 
+	<div class="col-md-12 margin-bottom-50 margin-top-50"> 
         <div class="style-1">
 
             <!-- Tabs Navigation -->
@@ -427,6 +429,11 @@
 
         </div> 
     </div>
+	</div>
+
+    
+
+    
 
     <div class="col-md-12 margin-bottom-50 margin-top-50">
         <div class="row">
