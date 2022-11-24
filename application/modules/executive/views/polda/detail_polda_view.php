@@ -55,13 +55,13 @@
             <!-- <div class="col-md-12"> -->
             <div class="row" style="display:flex;z-index: 999;position: absolute;">
                 <div class="dropdown d-inline-block">
-                    <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div style="cursor: pointer; display:flex; width:200px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div>
                             <div class="row" style="margin-left: 0px;">
                                 <div class="col-md-12">
                                     <div style="display: flex;">
                                         <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;" onClick="hitungGpsId()"></i>
-                                        <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;">
+                                        <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 200px;padding-left: 50px;">
                                         <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat polresDisplay" style="margin-left: 10px;">
+                        <div class="cat polresDisplay" style="margin-left: -40px;">
                             <div class="btn-group">
                                 <label>
                                     <input checked type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
@@ -381,7 +381,7 @@
                                 </div>
                                 <div class="col-md-10 float-end">
                                     <span class="fs-6 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Kecelakaan </span>Lalu Lintas
+                                        <span class="fw-bold">Lakalantas </span>Harian
                                     </span>
                                     <br>
                                     <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
@@ -401,7 +401,7 @@
                                 </div>
                                 <div class="col-md-10 float-end">
                                     <span class="fs-6 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Pelanggaran </span>Lalu Lintas
+                                        <span class="fw-bold">Dakgarlantas </span>Harian
                                     </span>
                                     <br>
                                     <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
@@ -441,7 +441,7 @@
                                 </div>
                                 <div class="col-md-10 float-end">
                                     <span class="fs-6 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Kendaraan </span>Bermotor
+                                        Jumlah <span class="fw-bold">Ranmor </span>
                                     </span>
                                     <br>
                                     <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>

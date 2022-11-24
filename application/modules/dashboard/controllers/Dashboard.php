@@ -264,7 +264,7 @@ class Dashboard extends MY_Controller
             //     $page_content["page"] = "dashboard/Bagtik/dashboard_view";
 
             //     $page_content["data"] = '';
-        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') {
 
             $data["title"] = "Dashboard Executive";
             $page_content["page"] = "dashboard/dashboard_eksekutif";
@@ -278,7 +278,7 @@ class Dashboard extends MY_Controller
             //     $page_content["data"] = '';
         } else if ($this->session->userdata['role'] == 'Kapolda') {
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";
-            $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
+            // $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
 
             // echo json_encode($data['ditgakkum']);
             // die;

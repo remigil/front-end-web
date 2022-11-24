@@ -766,10 +766,8 @@
                             <i style="margin-left: -11px;" id="iconright" class="fa fa-fw fas fa-angle-right"></i>
                         </div>
                     </button>
-                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                    <?php if ($this->uri->segment(1) == "dashboard" && $this->session->userdata['role'] == 'G20' || $this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                         <div>
-
-
                             <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                             <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#000dda ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
                         </div>
@@ -807,7 +805,7 @@
                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon position-relative openNotif" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                                     <!-- <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                     <i data-feather="bell" class="icon-lg"></i>
                                 <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
@@ -848,7 +846,7 @@
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
+                            <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                                 <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar"> -->
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
                                 <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span> -->
@@ -1274,19 +1272,20 @@
                                         <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                     </a> -->
                                 </li>
-                                <li>
-                                    <a href="javascript: void(0);" class="has-arrow">
-                                        <img src="<?= base_url('assets/sidebar/satker_polri.svg') ?>" alt="" style="width: 20px; margin-right:10px">
-                                        <span data-key="t-authentication" style="color: white;">Satker Polri</span>
-                                    </a>
-                                    <ul class="sub-menu" aria-expanded="false">
-                                        <li>
-                                            <a href="<?php echo base_url('divtik/div_tik'); ?>" data-key="t-login">
-                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
-                                                <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
+                                <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <img src="<?= base_url('assets/sidebar/satker_polri.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                            <span data-key="t-authentication" style="color: white;">Satker Polri</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li>
+                                                <a href="<?php echo base_url('divtik/div_tik'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">DIVTIK MABES POLRI</span>
+                                                </a>
+                                            </li>
+                                            <!-- <li>
             <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                 <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
@@ -1316,8 +1315,9 @@
                 <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
             </a>
         </li> -->
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>
+                                <?php } ?>
 
                                 <li>
                                     <a href="<?php echo base_url('anev/Anev'); ?>">

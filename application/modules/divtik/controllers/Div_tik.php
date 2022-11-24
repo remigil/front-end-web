@@ -24,7 +24,7 @@ class Div_tik extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "Statistik Nasional - DivTik Mabes Polri";
             $page_content["page"] = "divtik/divtik_view";
         } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {

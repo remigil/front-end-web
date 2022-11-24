@@ -2480,8 +2480,8 @@
                         markerPolda[i] = L.marker([latitude, longitude], {
                             icon: L.divIcon({
                                 // className: 'location-pin',
-                                // html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-                                html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
                                 iconSize: [5, 5],
                                 iconAnchor: [5, 10]
                             })
