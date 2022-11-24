@@ -243,10 +243,10 @@
                             minHeight: undefined,
                             maxHeight: 120,
                             style: {
-                                colors: [],
+                                // color: '#000000',
                                 fontSize: '12px',
                                 fontFamily: 'Helvetica, Arial, sans-serif',
-                                fontWeight: 400,
+                                fontWeight: 'bold',
                                 cssClass: 'apexcharts-xaxis-label',
                             },
                         },
