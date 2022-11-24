@@ -76,7 +76,7 @@
 
                     <div style="position: absolute;left: 330px;width: 1500px;top: 6px;"> 
 
-                        <?php $mobile = detect_mobile(); if($mobile === false){ ?>
+                         
 
                             <div class="cat poldaDisplay" style="margin-left: 10px; display: none;">
                                 <div class="btn-group">
@@ -210,7 +210,7 @@
                                 </div>
                             </div> 
 
-                        <?php } ?>
+                        
 
                     </div>
 
