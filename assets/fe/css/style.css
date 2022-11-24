@@ -601,8 +601,8 @@ body .user-menu ul li a:hover,
 }
 #navigation.style-1 > ul > li > a.current,
 #navigation.style-1 > ul > li:hover > a {
-  background: rgba(102, 103, 107, 0.06);
-  color: #66676b;
+  background: white;
+  color: white;
 }
 #navigation.style-1 ul li li a {
   background: #fff !important;

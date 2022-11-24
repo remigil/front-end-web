@@ -220,7 +220,7 @@
 			<!-- Left Side Content -->
 			<div class="left-side">
 				
-				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/logo-nav.png" alt=""></a> 
+				<a href="<?php echo base_url()?>home"><img src="<?php echo base_url(); ?>assets/main-logo3.png" alt=""></a> 
 			</div>
 			<!-- Left Side Content / End -->
 
@@ -243,7 +243,7 @@
 
 						<li><a class="current" href="<?php echo base_url()?>home" style="background-color: white;">&nbsp;<i class="im im-icon-Home" style="color: black; font-weight:bolder;"></i></a></li>
 						
-						<li><a  href="#"><b>PROFIL</b> </a>
+						<li><a  href="#"><b class="text-white">PROFIL</b> </a>
 							<ul>
 								<li><a href="<?= base_url()?>sambutan">Sambutan</a></li>
 								<li><a href="<?= base_url()?>struktur_organisasi">Struktur Organisasi</a></li>
@@ -285,7 +285,7 @@
 							</div>
 						</li> -->
 
-						<li><a href="#"><b>PUBLIKASI</b></a>
+						<li><a href="#"><b class="text-white">PUBLIKASI</b></a>
 							<ul>
 								<li><a href="<?= base_url()?>konferensi_pers">Konfersi Pers</a></li>
 								<li><a href="<?= base_url()?>kegiatan_kakor">Kegiatan Kakorlantas</a></li>
@@ -295,7 +295,7 @@
 						</li>
  
 
-						<li><a href="#"><b>PUSTAKA</b></a>
+						<li><a href="#"><b class="text-white">PUSTAKA</b></a>
 							<ul>
 								<li><a href="<?= base_url()?>informasi_setiap_saat">Informasi Setiap Saat</a></li>
 								<li><a href="<?= base_url()?>informasi_berkala">Informasi Berkala</a></li>
@@ -317,7 +317,7 @@
 							</ul>
 						</li> -->
 
-						<li><a href="#"><b>KONTAK KAMI</b></a>
+						<li><a href="#"><b class="text-white">KONTAK KAMI</b></a>
 							<ul>
 								<!-- <li><a href="<?= base_url()?>layanan_chatbot">Layanan Chatbot k3i Korlantas</a></li> -->
 								<li><a href="<?= base_url()?>survey_kepuasan">Survey Kepuasan</a></li>
@@ -337,7 +337,7 @@
 								<li><a href="https://tvradio.polri.go.id/">Link ke TV-RADIO POLRI</a></li> 
 							</ul>
 						</li> -->
-						<li><a href="#"><b>DOWNLOAD APP</b></a>
+						<li><a href="#"><b class="text-white">DOWNLOAD APP</b></a>
 							<ul>
 								<li>Scan QR Code untuk download ⬇️</li>
 								<li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li> 
@@ -367,7 +367,7 @@
 			</div>
 		</div>
 	</div>
-	<img src="<?= base_url()?>assets/fe/pattern.jpg" alt="" width="100%" height="30px" style="margin-top: 110px; object-fit:cover">
+	<img src="<?= base_url()?>assets/fe/pattern.jpg" alt="" width="100%" height="40px" style="margin-top: 100px; object-fit:cover">
 	<!-- Header / End -->
 
 	
