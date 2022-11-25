@@ -1,22 +1,22 @@
-
 <!-- Slider
 ================================================== -->
 
 <!-- Revolution Slider -->
 <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
 
-<!-- 5.0.7 auto mode -->
-	<div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
-		<ul>
+    <!-- 5.0.7 auto mode -->
+    <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+        <!-- <div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7"> -->
+        <ul>
 
-			<!-- Slide  -->
-			<li data-index="rs-4" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+            <!-- Slide  -->
+            <li data-index="rs-4" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/hero.png"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+                <!-- Background -->
+                <img src="<?php echo base_url(); ?>assets/fe/hero.png" alt="" data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
-				<!-- Caption-->
-				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+                <!-- Caption-->
+                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
 					id="slide-2-layer-2" 
 					data-x="['center','center','center','center']" data-hoffset="['0']" 
 					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
@@ -57,15 +57,15 @@
 					<a href="#" class="button medium">Read More</a>
 				</div> -->
 
-			</li>
-			<!-- Slide  -->
-			<li data-index="rs-3" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+            </li>
+            <!-- Slide  -->
+            <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/banner-home2.jpeg"  alt=""  data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+                <!-- Background -->
+                <img src="<?php echo base_url(); ?>assets/fe/banner-home2.jpeg" alt="" data-bgposition="center buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
-				<!-- Caption-->
-				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+                <!-- Caption-->
+                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
 					id="slide-2-layer-2" 
 					data-x="['center','center','center','center']" data-hoffset="['0']" 
 					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
@@ -106,16 +106,15 @@
 					<a href="#" class="button medium">Read More</a>
 				</div> -->
 
-			</li>
-			<!-- Slide  -->
-			<li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+            </li>
+            <!-- Slide  -->
+            <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/banner-home7.jpg"  alt=""  data-bgposition="bottom buttom" 
-				data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+                <!-- Background -->
+                <img src="<?php echo base_url(); ?>assets/fe/banner-home7.jpg" alt="" data-bgposition="bottom buttom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
-				<!-- Caption-->
-				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+                <!-- Caption-->
+                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
 					id="slide-2-layer-2" 
 					data-x="['center','center','center','center']" data-hoffset="['0']" 
 					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
@@ -156,15 +155,15 @@
 					<a href="#" class="button medium">Read More</a>
 				</div> -->
 
-			</li>
-			<!-- Slide  -->
-			<li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+            </li>
+            <!-- Slide  -->
+            <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
 
-				<!-- Background -->
-				<img src="<?php echo base_url();?>assets/fe/banner-home4.jpeg"  alt=""  data-bgposition="center bottom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"> 
+                <!-- Background -->
+                <img src="<?php echo base_url(); ?>assets/fe/banner-home4.jpeg" alt="" data-bgposition="center bottom" data-bgfit="buttom" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
-				<!-- Caption-->
-				<!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
+                <!-- Caption-->
+                <!-- <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" 
 					id="slide-2-layer-2" 
 					data-x="['center','center','center','center']" data-hoffset="['0']" 
 					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
@@ -205,12 +204,12 @@
 					<a href="#" class="button medium">Read More</a>
 				</div> -->
 
-			</li>
+            </li>
 
-		</ul>
-		<div class="tp-static-layers"></div>
+        </ul>
+        <div class="tp-static-layers"></div>
 
-	</div>
+    </div>
 </div>
 <!-- Revolution Slider / End -->
 
@@ -220,26 +219,28 @@
 
 <!-- Container -->
 <div class="container-fluid margin-top-30">
-	<div class="row">
+    <div class="row">
 
         <!-- <div class="col-md-6">
 			<h3 class="headline centered margin-bottom-35 margin-top-50">www.k3i.korlantas.polri.go.id</h3>
 		</div> -->
         <div class="col-md-12 px-5">
-			<div class="container-fluid mb-3 px-5" >
-				<h1 class="text-center mb-5"><a href="<?= base_url()?>"><b>www.k3i.korlantas.polri.go.id</b></a></h1>
-				<span class="centered margin-bottom-35 margin-top-50 text-center"><p style="font-size: 25px;"> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p></span>
+            <div class="container-fluid mb-3 px-5">
+                <h1 class="text-center mb-5"><a href="<?= base_url() ?>"><b>www.k3i.korlantas.polri.go.id</b></a></h1>
+                <span class="centered margin-bottom-35 margin-top-50 text-center">
+                    <p style="font-size: 25px;"> merupakan bentuk pelayanan masyarakat online di bidang Lalu Lintas dan Angkutan Jalan (LLAJ), dimana salah satu elemen penting dalam mewujudkan penyelenggaraan negara yang terbuka adalah hak publik untuk memperoleh pelayanan dan informasi publik sesuai tatanan di dalam berbangsa dan bernegara. Dalam hal ini, pemerintahan di Indonesia beserta institusi lainnya seperti kami Korlantas Polri bekerja untuk memastikan bahwa setiap rakyat di seluruh tanah air harus dapat merasakan kehadiran pelayanan pemerintahan di bidang LLAJ yang diselenggarakan oleh Polri sebagai salah satu pemangku kepentingan sesuai amanat Undang-Undang No.22 Tahun 2009 tentang LLAJ.</p>
+                </span>
 
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<div class="col-md-12"> 
-		
+        <div class="col-md-12">
 
-        
+
+
             <div id="map" style="height: 500px;"></div>
-		</div>
-		  
+        </div>
+
         <div class="col-md-12">
             <h3 class="headline centered margin-bottom-45 margin-top-50">
                 STATISTIK NASIONAL
@@ -250,142 +251,144 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-3">
-                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/kecelakaan.png">
+                <div class="col-md-3 ">
+                    <a href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/kecelakaan.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="lakalantas"></h2>
                             <h4>Kecelakaan Lalu Lintas </h4>
-                            <p style="color: white">Data Kecelakaan Januari s.d Desember 2021 </br></p>
-                            <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+                            <!-- <p style="color: white">Data Kecelakaan</br></p> -->
+                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-					<a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/mobil_crash.png">
+                <div class="col-md-3 ">
+                    <a href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/mobil_crash.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="motor"></h2>
                             <h4>Kendaraan Bermotor </h4>
-                            <p style="color: white">Data Ranmor Januari s.d Desember 2021 </br></p>
-                            <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+                            <!-- <p style="color: white">Data Ranmor</br></p> -->
+                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/pelanggaran.png">
+                <div class="col-md-3 ">
+                    <a href="https://dakgargakkum.com/dashboard" target="_blank" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/pelanggaran.png">
                         <div class="img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="garlantas"></h2>
                             <h4>Pelanggaran Lalu Lintas </h4>
-                            <p style="color: white">Data Pelanggaran Januari s.d Desember 2021 </br></p>
-                            <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+                            <!-- <p style="color: white">Data Pelanggaran</br></p> -->
+                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                <a href="#" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/sim.jpg">
-                        <div class="img-box-content visible">
+                <div class="col-md-3 ">
+                    <a href="#" class="img-box" data-background-image="<?php echo base_url(); ?>assets/fe/sim.jpg">
+                        <div class=" img-box-content visible">
                             <h2 class="fw-bolder" style="color: white; font-size:45px;" id="sim"></h2>
                             <h4>Jumlah SIM </h4>
-                            <p style="color: white">Data SIM Januari s.d Desember 2021 </br></p>
-                            <!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
+                            <!-- <p style="color: white">Data SIM</br></p> -->
+                            <!-- <a href="<?php echo base_url() ?>home">Selengkapnya</a> -->
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-1"></div> 
-	</div>
-	<div class="container-fluid">
-	<div class="col-md-12">
-        <div class="margin-bottom-45 margin-top-50">
-            <h3 class="headline centered ">
-                LAYANAN ONLINE TERINTEGRASI
-            </h3>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="margin-bottom-45 margin-top-50">
+                <h3 class="headline centered ">
+                    LAYANAN ONLINE TERINTEGRASI
+                </h3>
 
-            <div class="row">
-                <div class="col-md-6">
-					<div class="row">
-						<div class="col-md-2 align-self-center">
-							<a href="https://samsatdigital.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt=""></a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-2 align-self-center">
+                                <a href="https://samsatdigital.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SIGNAL.png" alt=""></a>
 
-						</div>
-						<div class="col-md-10">
-							<h4><a href="https://samsatdigital.id/">SIGNAL (Samsat Digital Nasional)</a></h4>
-							<p style="text-align:justify;">SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
+                            </div>
+                            <div class="col-md-10">
+                                <h4><a href="https://samsatdigital.id/">SIGNAL (Samsat Digital Nasional)</a></h4>
+                                <p style="text-align:justify;">SIGNAL adalah samsat digital nasional, sebuah aplikasi untuk memudahkan masyarakat membayar pajak kendaraan bermotor secara aman dan mudah</p>
 
-						</div>
-					</div>
-                </div>
-                <div class="col-md-6">
-					<div class="row">
-						<div class="col-md-2 align-self-center">
-							<a href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-2 align-self-center">
+                                <a href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/SINAR.png" alt=""></a>
 
-						</div>
-						<div class="col-md-10">
-							<h4><a href="https://www.digitalkorlantas.id/">SINAR (SIM Nasional Presisi)</a></h4>
-                    		<p style="text-align:justify;">SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
+                            </div>
+                            <div class="col-md-10">
+                                <h4><a href="https://www.digitalkorlantas.id/">SINAR (SIM Nasional Presisi)</a></h4>
+                                <p style="text-align:justify;">SINAR adalah Sistem perpanjangan SIM secara online yang dapat dimanfaatkan masyarakat untuk mendapatkan pelayanan yang lebih optimal</p>
 
-						</div>
-					</div>
-                    
-                </div>
-                <div class="col-md-6">
-					<div class="row">
-						<div class="col-md-2 align-self-center">
-							<a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
+                            </div>
+                        </div>
 
-						</div>
-						<div class="col-md-10">
-							<h4><a href="https://siminternasional.korlantas.polri.go.id/">SIM Internasional</a></h4>
-                    		<p style="text-align:justify;">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-2 align-self-center">
+                                <a href="https://siminternasional.korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
 
-						</div>
-					</div>
-                    
-                </div>
-                <div class="col-md-6">
-					<div class="row">
-						<div class="col-md-2 align-self-center">
-							<a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
-							<a href="https://ntmcpolri.info/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt=""></a>
+                            </div>
+                            <div class="col-md-10">
+                                <h4><a href="https://siminternasional.korlantas.polri.go.id/">SIM Internasional</a></h4>
+                                <p style="text-align:justify;">Pelayanan SIM Internasional Korlantas Polri merupakan portal pendaftaran dan penerbitan SIM Internasional secara online bagi seluruh warga negara Indonesia yang akan mengemudikan kendaraan bermotor di luar negeri.</p>
 
-						</div>
-						<div class="col-md-10">
-							<h4><a href="#">Website Korlantas & NTMC</a></h4>
-                    		<p style="text-align:justify;">Website Korlantas & NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU Perhubungan, Perindustrian, & Riset Teknologi)</p>
+                            </div>
+                        </div>
 
-						</div>
-					</div>
-                    
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-2 align-self-center">
+                                <a href="https://korlantas.polri.go.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt="" width="115px"></a>
+                                <a href="https://ntmcpolri.info/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC1.png" alt=""></a>
+
+                            </div>
+                            <div class="col-md-10">
+                                <h4><a href="#">Website Korlantas & NTMC</a></h4>
+                                <p style="text-align:justify;">Website Korlantas & NTMC adalah pusat kendali informasi & komunikasi yang mengintegrasikan sistem informasi di ke lima pemangku kepentingan bidang lalu lintas (Polri, Kementerian PU Perhubungan, Perindustrian, & Riset Teknologi)</p>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-	</div>
 
-    
-	<div class="container">
-	<div class="col-md-12">
-        <h3 class="headline centered margin-bottom-45 margin-top-50">
-            BERITA TERUPDATE
-        </h3>
-    </div>
-    <div class="col-md-12">
-        <div class="simple-slick-carousel dots-nav">
-			<?php foreach ($databerita['getBerita'] as $data) : ?>
-			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
-				<div class="card-body bg-light rounded">
-					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify"><?= $data['title'];?></h5></a>
-					<button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news']?></button>
-					<hr>
-					<p class="card-text text-justify"><?= substr($data['content'],0,250).'. . . <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>' ?></p>
-					
-				</div>
-			</div>
-			<?php endforeach; ?>
-			<!-- <div class="card shadow" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
+
+    <div class="container">
+        <div class="col-md-12">
+            <h3 class="headline centered margin-bottom-45 margin-top-50">
+                BERITA TERUPDATE
+            </h3>
+        </div>
+        <div class="col-md-12">
+            <div class="simple-slick-carousel dots-nav">
+                <?php foreach ($databerita['getBerita'] as $data) : ?>
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= base_url() ?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
+                        <div class="card-body bg-light rounded">
+                            <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/">
+                                <h5 class="card-title fw-bold text-justify"><?= $data['title']; ?></h5>
+                            </a>
+                            <button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news'] ?></button>
+                            <hr>
+                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>' ?></p>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <!-- <div class="card shadow" style="width: 18rem;">
+				<img src="<?= base_url() ?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body shadow bg-light">
 					<a href="https://korlantas.polri.go.id/news/pengamanan-pengawalan-delegasi-ktt-g20-dinilai-berhasil-kakorlantas-berkat-kekompakan-kolaborasi-kerjasama-tni-polri/"><h5 class="card-title fw-bold text-justify">Pengamanan Pengawalan Delegasi KTT G20 Dinilai Berhasil, Kakorlantas: Berkat Kekompakan Kolaborasi & Kerjasama TNI-Polri</h5></a>
 					<hr>
@@ -394,7 +397,7 @@
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
+				<img src="<?= base_url() ?>assets/fe/beritafix2.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/"><h5 class="card-title fw-bold text-justify">Kepala Negara G20 Bergerak Pulang, Warga Diminta Cari Jalur Alternatif</h5></a>
 					<hr>
@@ -403,7 +406,7 @@
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix3.jpg" class="card-img-top" alt="..." height="250px">
+				<img src="<?= base_url() ?>assets/fe/beritafix3.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/news/antisipasi-gangguan-kamseltibcarlantas-satlantas-polres-melawi-perbaiki-jalan-provinsi-yang-rusak/"><h5 class="card-title fw-bold text-justify">Antisipasi Gangguan Kamseltibcarlantas, Satlantas Polres Melawi Perbaiki Jalan Provinsi yang Rusak</h5></a>
 					<hr>
@@ -412,7 +415,7 @@
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img src="<?= base_url()?>assets/fe/beritafix4.jpg" class="card-img-top" alt="..." height="250px">
+				<img src="<?= base_url() ?>assets/fe/beritafix4.jpg" class="card-img-top" alt="..." height="250px">
 				<div class="card-body bg-light rounded">
 					<a href="https://korlantas.polri.go.id/news/satlantas-polres-sigi-sediakan-pelatihan-uji-sim-gratis/"><h5 class="card-title fw-bold text-justify">Satlantas Polres Sigi Sediakan Pelatihan Uji SIM Gratis</h5></a>
 					<hr>
@@ -421,72 +424,72 @@
 				</div>
 			</div> -->
 
-        </div> 
-    </div>
-	<div class="col-md-12 margin-bottom-50 margin-top-50"> 
-        <div class="style-1">
-
-            <!-- Tabs Navigation -->
-            <ul class="tabs-nav">
-                <li class="active"><a href="#tab1b">News Flash NTMC</a></li>
-                <li><a href="#tab2b">NTMC Channel</a></li>
-                
-            </ul>
-
-            <!-- Tabs Content -->
-            <div class="tabs-container">
-                <div class="tab-content" id="tab1b">
-                    <!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
-                    <div class="row margin-top-20">
-                        <div class="col-md-8 border-end shadows">
-                            <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div> 
-                        <div class="col-md-4">
-                            <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                <div class="col-md-12">
-								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-                                </div>
-                                <div class="col-md-12">
-								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-md-12">
-								<iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div> 
-                    </div> 
-                </div> 
-				<div class="tab-content" id="tab2b">
-					<!-- <img src="<?php echo base_url();?>assets/fe/banner.png" alt=""> -->
-                    <div class="row margin-top-20">
-                        <div class="col-md-8">
-                            <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div> 
-                        <div class="col-md-4">
-                            <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
-                                <div class="col-md-12">
-                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-                                </div>
-                                <div class="col-md-12">
-                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx285qn30iKm-V_u7wr-gOlj7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-md-12">
-                                    <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287PYIAGDdyjY67kvhZBUN_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div> 
-                    </div> 
-                </div>
-                
             </div>
+        </div>
+        <div class="col-md-12 margin-bottom-50 margin-top-50">
+            <div class="style-1">
 
-        </div> 
+                <!-- Tabs Navigation -->
+                <ul class="tabs-nav">
+                    <li class="active"><a href="#tab1b">News Flash NTMC</a></li>
+                    <li><a href="#tab2b">NTMC Channel</a></li>
+
+                </ul>
+
+                <!-- Tabs Content -->
+                <div class="tabs-container">
+                    <div class="tab-content" id="tab1b">
+                        <!-- <img src="<?php echo base_url(); ?>assets/fe/banner.png" alt=""> -->
+                        <div class="row margin-top-20">
+                            <div class="col-md-8 border-end shadows">
+                                <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhSU5ruui7cfGnPqrWNyDUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhr68Y7Q3pYszu3xwwGGEWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZiRhVpxCG_GIkU8qIDuVsoL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLkRjBQuRKlZhPvc90jNW4o-6KH6gLSLm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tab2b">
+                        <!-- <img src="<?php echo base_url(); ?>assets/fe/banner.png" alt=""> -->
+                        <div class="row margin-top-20">
+                            <div class="col-md-8">
+                                <iframe width="740" height="450" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287MG9mUCeRI2TMD1rGZgKew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287WCl8x8yRe5PSd3VROvZ4Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx285qn30iKm-V_u7wr-gOlj7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <iframe width="335" height="200" src="https://www.youtube.com/embed/videoseries?list=PLeX9JoXPx287PYIAGDdyjY67kvhZBUN_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </div>
-	</div>
 
-    
 
-    
+
+
 
     <div class="col-md-12 margin-bottom-50 margin-top-50">
         <div class="row">
@@ -498,11 +501,11 @@
             </div>
             <div class="col-md-4">
                 <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="" style="border: 1px solid rgba(0, 0, 0, 0.09);border-radius: 15px;position: static; visibility: visible; width: 100%; height: 400px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/KemenkesRI?dnt=false&amp;embedId=twitter-widget-2&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=id&amp;maxHeight=1000px&amp;origin=https%3A%2F%2Fk3i.korlantas.polri.go.id%2F&amp;sessionId=0311759d0e3ab0003a26bc5fd6f7aa2b8d9d553c&amp;showHeader=true&amp;showReplies=false&amp;siteScreenName=K3IKorlantas&amp;transparent=false&amp;widgetsVersion=1bfeb5c3714e8%3A1661975971032" frameborder="0"></iframe>
-            </div> 
-        </div> 
+            </div>
+        </div>
     </div>
 
-	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
+    <div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
         <!-- Logo Carousel -->
         <div class="container-fluid">
             <div class="row">
@@ -510,34 +513,34 @@
                 <div class="col-md-12">
                     <h3 class="headline centered margin-bottom-40 margin-top-10">APLIKASI KORLANTAS TERINTEGRASI</h3>
                 </div>
-                
+
                 <!-- Carousel -->
                 <div class="col-md-12">
                     <div class="logo-slick-carousel dot-navigation">
-                        
+
                         <div class="item">
                             <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt=""></a>
                         </div>
-                        
+
                         <div class="item">
                             <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt=""></a>
                         </div>
-                        
+
                         <div class="item">
                             <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt=""></a>
                         </div>
-                        
+
                         <div class="item">
                             <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt=""></a>
                         </div>
-                        
+
                         <div class="item">
                             <a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt=""></a>
-                        </div>		
+                        </div>
 
                         <div class="item">
                             <a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/instan.png" alt=""></a>
-                        </div>	
+                        </div>
 
                         <div class="item">
                             <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt=""></a>
@@ -561,7 +564,7 @@
 
                         <div class="item">
                             <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt=""></a>
-                        </div>      
+                        </div>
 
 
                     </div>
@@ -572,53 +575,53 @@
         </div>
         <!-- Logo Carousel / End -->
     </div>
- 
 
 
-    
+
+
 
 </div>
 <!-- Container / End -->
 
-  
+
 
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
-	let app_url = '<%-app_url%>'
-	let path = '<%-path%>'
-	var marker = new Array();
-    $(document).ready(function() { 
-		$("#overlay").fadeIn(300);
-		$.ajax({
-			type: "POST",
-			url: "<?php echo base_url(); ?>home/getPolda",
-			dataType: "JSON",
-			success: function(result) {
-				$("#overlay").fadeOut(300);
+    let app_url = '<%-app_url%>'
+    let path = '<%-path%>'
+    var marker = new Array();
+    $(document).ready(function() {
+        $("#overlay").fadeIn(300);
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>home/getPolda",
+            dataType: "JSON",
+            success: function(result) {
+                $("#overlay").fadeOut(300);
 
-				let ressData = result;
-				// console.log(result);
+                let ressData = result;
+                // console.log(result);
 
 
-				for (let i = 0; i < ressData.length; i++) {
-					id = i;
-					var latitude = parseFloat(ressData[i].latitude);
-					var longitude = parseFloat(ressData[i].longitude);
+                for (let i = 0; i < ressData.length; i++) {
+                    id = i;
+                    var latitude = parseFloat(ressData[i].latitude);
+                    var longitude = parseFloat(ressData[i].longitude);
 
-					var resource = '';
+                    var resource = '';
 
-					marker[i] = L.marker([latitude, longitude], {
-						icon: L.divIcon({
-                                // className: 'location-pin',
-                                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
-                                iconSize: [5, 5],
-                                iconAnchor: [5, 10]
-                            })
-					}).bindPopup(
-						`<div style="width: 450px;">
+                    marker[i] = L.marker([latitude, longitude], {
+                        icon: L.divIcon({
+                            // className: 'location-pin',
+                            html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                            // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                            iconSize: [5, 5],
+                            iconAnchor: [5, 10]
+                        })
+                    }).bindPopup(
+                        `<div style="width: 450px;">
 						<div class="row">
 							<div class="col-md-2 text-center">
 								<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
@@ -668,60 +671,60 @@
 					</div>
 						
 				`, {
-							minWidth: 100,
-							maxWidth: 560,
-							width: 400
-						}).addTo(mapContainer);
-				}
+                            minWidth: 100,
+                            maxWidth: 560,
+                            width: 400
+                        }).addTo(mapContainer);
+                }
 
-			}
-		});
+            }
+        });
 
-	// 	getStatistik();
+        // 	getStatistik();
 
-    // function getStatistik() {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
-    //         dataType: "JSON",
-    //         success: function(result) {
-    //             $("#overlay").fadeOut(300);
+        // function getStatistik() {
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
+        //         dataType: "JSON",
+        //         success: function(result) {
+        //             $("#overlay").fadeOut(300);
 
-    //             $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-    //             $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-    //             $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
-    //             $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
-    //         }
-    //     })
-    // }
+        //             $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
+        //             $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
+        //             $('#motor').html(`<span class="fs-4" >${result.motor}</span>`);
+        //             $('#sim').html(`<span class="fs-4" >${result.sim}</span >`);
+        //         }
+        //     })
+        // }
 
-		$("#overlay").fadeIn(300);
-		$.ajax({
-			type: "POST",
-			url: "<?php echo base_url(); ?>home/getStatistik",
-			dataType: "JSON",
-			success: function(result) {
-				// console.log(result)
-				$("#overlay").fadeOut(300);
+        $("#overlay").fadeIn(300);
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>home/getStatistik",
+            dataType: "JSON",
+            success: function(result) {
+                // console.log(result)
+                $("#overlay").fadeOut(300);
 
-				$('#lakalantas').html(`${result.lakalantas}`);
-				$('#garlantas').html(`${result.garlantas}`);
-				$('#motor').html(`${result.motor}`);
-				$('#sim').html(`${result.sim}`);
-			}
-		})
+                $('#lakalantas').html(`${result.lakalantas}`);
+                $('#garlantas').html(`${result.garlantas}`);
+                $('#motor').html(`${result.motor}`);
+                $('#sim').html(`${result.sim}`);
+            }
+        })
 
-		$.ajax({
-			type: "POST",
-			url: "<?php echo base_url(); ?>home/getBerita",
-			dataType: "JSON",
-			success: function(result) {
-				console.log(result.data)
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>home/getBerita",
+            dataType: "JSON",
+            success: function(result) {
+                console.log(result.data)
 
-				$('#title_berita').html(`${results.title}`);
-				$('#isi_berita').val(result.content)
-			}
-		})
+                $('#title_berita').html(`${results.title}`);
+                $('#isi_berita').val(result.content)
+            }
+        })
 
         var initialCenter = [-0.21973, 117.91602];
         var initialZoom = 5.5;
@@ -766,35 +769,35 @@
             zoomSnap: 0.25,
             zoomControl: false,
             layers: [googleHybrid]
-        }).setView(initialCenter, initialZoom);  
+        }).setView(initialCenter, initialZoom);
 
 
         var markerClusterGroup = L.markerClusterGroup();
-		var icon = L.icon({
-			iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-			iconSize: [80, 80], // size of the icon
-		});
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        });
 
         var baseMaps = {
             "Google Map Street": googleStreet,
             "Google Map Satelite": googleSatelite,
             "Google Map Hybrid": googleHybrid,
             "Google Map Terrain": googleTerrain,
-			"Google Map Street Traffic": trafficMutantRoad,
-			"Google Map Hybrid Traffic": trafficMutant,
-			"MappBox Traffic": gl,
+            "Google Map Street Traffic": trafficMutantRoad,
+            "Google Map Hybrid Traffic": trafficMutant,
+            "MappBox Traffic": gl,
         };
         var overlayMaps = {};
-		L.control.layers(baseMaps, overlayMaps, {
-			position: 'topright'
-		}).addTo(mapContainer);
-		L.control.zoom({
-			position: 'topright'
-		}).addTo(mapContainer);
+        L.control.layers(baseMaps, overlayMaps, {
+            position: 'topright'
+        }).addTo(mapContainer);
+        L.control.zoom({
+            position: 'topright'
+        }).addTo(mapContainer);
 
-		mapContainer.doubleClickZoom.disable();
+        mapContainer.doubleClickZoom.disable();
 
-		var autolinker = new Autolinker({
+        var autolinker = new Autolinker({
             truncate: {
                 length: 30,
                 location: 'smart'
@@ -802,7 +805,7 @@
         });
         var bounds_group = new L.featureGroup([]);
 
-		function setBounds() {}
+        function setBounds() {}
 
 
         function pop_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1(feature, layer) {
@@ -816,7 +819,8 @@
                 maxHeight: 400
             });
         }
-		function style_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1_0(feature) {
+
+        function style_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1_0(feature) {
             switch (String(feature.properties['PROVINSI'])) {
                 case 'ACEH':
                     return {
@@ -1361,7 +1365,7 @@
         mapContainer.addLayer(layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1);
         setBounds();
 
-		$("[name=searchAlamat]").on("change", function(e) {
+        $("[name=searchAlamat]").on("change", function(e) {
             $('#listAddress').show();
             // console.log(this.value);
             $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
