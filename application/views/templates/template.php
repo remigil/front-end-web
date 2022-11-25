@@ -212,7 +212,7 @@
 <header id="header-container">
 
 	<!-- Header -->
-	<div id="header" style="background-color:#073888 ; border-bottom: 10px solid red">
+	<div id="header" style="background-color:#073888 ; border-bottom: 15px solid red; border-image:url(assets/fe/border-nav.jpg) 30 round">
 		<div class="container-fluid">
 			
 				<div class="container-fluid align-middle">
@@ -368,7 +368,7 @@
 			
 		</div>
 	</div>
-	<img src="<?= base_url()?>assets/fe/border-nav.svg" alt="" width="100%" height="40px" style="margin-top: 98px; object-fit:cover">
+	<img src="<?= base_url()?>assets/fe/border-nav.svg" alt="" width="100%" height="20px" style="margin-top: 101px; object-fit:cover">
 	<!-- Header / End -->
 
 	

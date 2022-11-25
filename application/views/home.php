@@ -234,7 +234,9 @@
 		</div>
 
 		<div class="col-md-12"> 
-            
+		
+
+        
             <div id="map" style="height: 500px;"></div>
 		</div>
 		  
@@ -609,11 +611,12 @@
 
 					marker[i] = L.marker([latitude, longitude], {
 						icon: L.divIcon({
-							// className: 'location-pin',
-							html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
-							iconSize: [5, 5],
-							iconAnchor: [5, 10]
-						})
+                                // className: 'location-pin',
+                                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                            })
 					}).bindPopup(
 						`<div style="width: 450px;">
 						<div class="row">
@@ -1357,5 +1360,45 @@
         bounds_group.addLayer(layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1);
         mapContainer.addLayer(layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1);
         setBounds();
+
+		$("[name=searchAlamat]").on("change", function(e) {
+            $('#listAddress').show();
+            // console.log(this.value);
+            $.get(`https://nominatim.openstreetmap.org/search?format=json&q=${this.value}`, function(ress) {
+                console.log(ress);
+                countlist = 0;
+                list = "";
+                ress.forEach(el => {
+                    countlist += 1;
+                    list += `<a class="list-group-item" style="width: 300px;"
+                    id="list${countlist}"   
+                    data-alamat="${el.display_name}"
+                    data-cords="${el.lat},${el.lon}" href="javascript:void(0)">${el.display_name}</a>`;
+                    $('#listAddress').html(list);
+                });
+
+
+                if (list == "") {
+                    countlist = 0;
+                    list = "";
+                    $('#listAddress').html(list);
+                }
+
+
+                for (let i = 0; i < ress.length; i++) {
+                    $(`#list${i+1}`).click(function() {
+                        var latlong = $(this).data('cords').split(',');
+                        var latitude = parseFloat(latlong[0]);
+                        var longitude = parseFloat(latlong[1]);
+
+                        $('#listAddress').hide();
+                        // console.log({a:latitude, b:longitude});
+                        $('[name=address]').val($(this).data('alamat'));
+                        $('[name=cordinate]').val($(this).data('cords'));
+                        mapContainer.flyTo([latitude, longitude], 17);
+                    });
+                }
+            });
+        });
     });
 </script>
