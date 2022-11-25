@@ -305,8 +305,16 @@
                         height: 350,
                         type: 'line',
                     },
+                    markers: {
+                        size: 0,
+                        hover: {
+                            sizeOffset: 6
+                        }
+                    },
                     dataLabels: {
                         enabled: true,
+                        offsetX: 0,
+                        offsetY: -10,
                         style: {
                             fontSize: '14px',
                             fontFamily: 'Helvetica, Arial, sans-serif',
@@ -314,22 +322,15 @@
                             colors: undefined
                         },
                         background: {
-                            enabled: true,
-                            foreColor: '#fff',
-                            padding: 4,
-                            borderRadius: 2,
-                            borderWidth: 1,
-                            borderColor: '#fff',
-                            opacity: 0.9,
-                            dropShadow: {
-                                enabled: false,
-                                top: 1,
-                                left: 1,
-                                blur: 1,
-                                color: '#000',
-                                opacity: 0.45
-                            }
-                        },
+                            enabled: false,
+                        }
+                    },
+                    stroke: {
+                        show: true,
+                        lineCap: 'butt',
+                        colors: undefined,
+                        width: 2,
+                        dashArray: 0,
                     },
                     title: {
                         text: 'Jumlah Pelanggaran',
@@ -343,6 +344,23 @@
                     },
                     xaxis: {
                         categories: result.pelanggaran_polda_name,
+                        labels: {
+                            show: true,
+                            rotate: -45,
+                            rotateAlways: false,
+                            hideOverlappingLabels: true,
+                            showDuplicates: false,
+                            trim: false,
+                            minHeight: undefined,
+                            maxHeight: 120,
+                            style: {
+                                // color: '#000000',
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 'bold',
+                                cssClass: 'apexcharts-xaxis-label',
+                            },
+                        }
                     },
                     tooltip: {
                         y: [{
@@ -388,7 +406,7 @@
                     }],
                     chart: {
                         type: 'bar',
-                        height: 350
+                        height: 300,
                     },
                     plotOptions: {
                         bar: {
@@ -426,6 +444,13 @@
                         text: '5 Polda Total Turjagwali Tertinggi Hari Ini',
                         align: 'left'
                     },
+                    stroke: {
+                        show: true,
+                        lineCap: 'butt',
+                        colors: undefined,
+                        width: 2,
+                        dashArray: 0,
+                    },
                     xaxis: {
                         categories: result.turjagwali_polda_name,
                     },
@@ -446,78 +471,6 @@
             }
         })
     }
-    var options4 = {
-        series: [{
-            name: 'Mobil Penumpang',
-            data: [44, 55, 41, 67, 22, 43]
-        }, {
-            name: 'Mobil Bus',
-            data: [13, 23, 20, 8, 13, 27]
-        }, {
-            name: 'Mobil Barang',
-            data: [11, 17, 15, 15, 21, 14]
-        }, {
-            name: 'Ransus',
-            data: [21, 7, 25, 13, 22, 8]
-        }, {
-            name: 'Sepeda Motor',
-            data: [21, 7, 25, 13, 22, 8]
-        }],
-        chart: {
-            type: 'bar',
-            height: 350,
-            stacked: true,
-            toolbar: {
-                show: true
-            },
-            zoom: {
-                enabled: true
-            }
-        },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                legend: {
-                    position: 'bottom',
-                    offsetX: -10,
-                    offsetY: 0
-                }
-            }
-        }],
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                borderRadius: 10,
-                dataLabels: {
-                    total: {
-                        enabled: true,
-                        style: {
-                            fontSize: '13px',
-                            fontWeight: 900
-                        }
-                    }
-                }
-            },
-        },
-        xaxis: {
-            type: 'datetime',
-            categories: ['01/01/2011 GMT', '01/02/2011 GMT', '01/03/2011 GMT', '01/04/2011 GMT',
-                '01/05/2011 GMT', '01/06/2011 GMT'
-            ],
-        },
-        legend: {
-            position: 'right',
-            offsetY: 40
-        },
-        fill: {
-            opacity: 1
-        },
-
-        title: {
-            text: '5 Polda Total Ranmor Tertinggi Hari Ini',
-            align: 'left'
-        },
-    };
 
     var chart4 = new ApexCharts(document.querySelector("#chart_ranmor"), options4);
     chart4.render();
@@ -551,7 +504,7 @@
                     }],
                     chart: {
                         type: 'bar',
-                        height: 350,
+                        height: 300,
                         stacked: true,
                         toolbar: {
                             show: true
