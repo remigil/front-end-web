@@ -27,7 +27,7 @@ class Bagtik extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagTIK') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "BAGTIK";
             $page_content["page"] = "bagtik/korlantas/bagtik_view";
         }

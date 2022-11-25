@@ -11,7 +11,7 @@ class Ditgakkum extends MY_Controller
         $this->load->model("M_ditgakkum");
     }
 
-    
+
 
     public function index()
     {
@@ -32,7 +32,7 @@ class Ditgakkum extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "DITGAKKUM";
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
         }

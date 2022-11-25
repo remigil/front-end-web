@@ -2,8 +2,12 @@
                 <div class="row">
                     <div class="col-md-8 align-self-center">
                         <div style="display: flex;">
-                            <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
-                            &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                            <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
+                                <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                                &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                            <?php } else { ?>
+                                <h3 style="text-transform: uppercase; color:#007DD8;"> Ditkamsel</h3>
+                            <?php } ?>
 
                         </div>
                         <p>Today is <?= date('l, j F Y') ?></p>
