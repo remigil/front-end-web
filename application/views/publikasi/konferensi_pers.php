@@ -14,11 +14,15 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
+        </div>
+        </div>
         </div>
     	</nav>
     </div><!-- End Breadcrumbs -->
@@ -30,13 +34,15 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="container">
+<div class="container-fluid">
+<div class="container-fluid">
+<div class="container-fluid">
 
 	<p class="text-center">Konferensi pers atau jumpa pers adalah acara khusus yang dibuat sebagai sarana untuk mengumumkan, menjelaskan, mempertahankan atau mempromosikan kebijakan pelayanan publik Korlantas Polri dalam rangka mewujudkan Kamseltibcarlantas seluruh jajaran</p>
 
 	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
         <!-- YT Carousel -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <div class="col-md-12">
@@ -75,7 +81,7 @@
 
 	<div class="fullwidth border-top margin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
         <!-- YT Carousel -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <div class="col-md-12">
@@ -113,6 +119,8 @@
     </div>
 
 	
+</div>
+</div>
 </div>
 <!-- Container / End -->
 

@@ -14,11 +14,15 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
+        </div>
+        </div>
         </div>
     	</nav>
     </div><!-- End Breadcrumbs -->
@@ -28,7 +32,9 @@
 ================================================== -->
 
 <!-- Container -->
-<div class="container margin-top-30">
+<div class="container-fluid margin-top-30">
+<div class="container-fluid">
+<div class="container-fluid">
 	
 	<div class="row">
 		<div class="col-md-12">
@@ -39,13 +45,13 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center">Visi Korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Visi Korlantas Polri</h4>
 			<p class="text-break" style="text-align:justify ;">
 			Polisi Lalu Lintas (Polantas) Indonesia adalah mewujudkan pelayanan kamseltibcarlantas yang prima dan unggul melalui penegakan hukum yang tegas, adil, dan humanis; dalam rangka meningkatkan kesadaran dan kepatuhan berlalu lintas, serta terjalinnya sinergi polisional yang proaktif, dalam rangka memantapkan situasi keamanan dalam negeri.
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h4 class="text-center">Misi korlantas Polri</h4>
+			<h4 class="text-center mt-2 p-2" style="background-color: #003A91; color:white; border-radius:10px; height:30px;">Misi Korlantas Polri</h4>
 			<p class="text-break">
 				<ol style="text-align:justify ;">
 					<li>Memelihara dan mewujudkan pelayanan keamanan, keselamatan, ketertiban dan kelancaran lalu lintas yang prima dan unggul secara cepat, tepat, efisien, transparan dan akuntabel.</li>
@@ -61,6 +67,8 @@
 		</div>
 	</div>
 
+</div>
+</div>
 </div>
 <!-- Container / End -->
 

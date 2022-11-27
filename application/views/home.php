@@ -520,50 +520,62 @@
 
                         <div class="item">
                             <a target="_blank" href="http://103.154.174.55/#/pages/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/big data.png" alt=""></a>
+                            <p>Big Data</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="http://k3i.korlantas.polri.go.id/cctv/"><img src="<?php echo base_url(); ?>assets/fe/client/cctv.png" alt=""></a>
+                            <p>CCTV</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="https://k3i.korlantas.polri.go.id/dis/"><img src="<?php echo base_url(); ?>assets/fe/client/dis.png" alt=""></a>
+                            <p>DIS</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="http://dakgargakkum.com/dashboard"><img src="<?php echo base_url(); ?>assets/fe/client/e-tilang.png" alt=""></a>
+                            <p>E-TILANG</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="http://rc.korlantas.polri.go.id:8900/eri2017/laprekappolda.php"><img src="<?php echo base_url(); ?>assets/fe/client/Eri.png" alt=""></a>
+                            <p>ERI</p>
                         </div>
 
                         <div class="item">
-                            <a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/instan.png" alt=""></a>
+                            <a target="_blank" href="https://maps.korlantas.polri.go.id/portal/home/"><img src="<?php echo base_url(); ?>assets/fe/client/intan.png" alt=""></a>
+                            <p>INTAN</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="https://irsms.korlantas.polri.go.id/dashboard/irsms_icell/#"><img src="<?php echo base_url(); ?>assets/fe/client/irsms.png" alt=""></a>
+                            <p>IRSMS</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="https://www.digitalkorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/korlantas.png" alt=""></a>
+                            <p>Korlantas</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="https://1500669.com/"><img src="<?php echo base_url(); ?>assets/fe/client/NTMC.png" alt=""></a>
+                            <p>NTMC</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="https://rasirosakorlantas.id/"><img src="<?php echo base_url(); ?>assets/fe/client/rarirosa.png" alt=""></a>
+                            <p>RASIROSA</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="http://sbstkorlantas.net/korlantas/"><img src="<?php echo base_url(); ?>assets/fe/client/SBST.png" alt=""></a>
+                            <p>SBST</p>
                         </div>
 
                         <div class="item">
                             <a target="_blank" href="http://sislapops.com/home"><img src="<?php echo base_url(); ?>assets/fe/client/Sislapops.png" alt=""></a>
+                            <p>SISLAPOPS</p>
                         </div>
 
 
