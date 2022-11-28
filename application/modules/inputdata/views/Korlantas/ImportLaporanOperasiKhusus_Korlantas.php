@@ -53,9 +53,10 @@
                             <div class="material-selectfield mb-3">
                                 <select name="operasi_id" id="operasi_id">
                                     <option value="0">Pilih</option>
-                                    <?php foreach ($data['getOperasi'] as $key) : ?>
+                                    <option value="VTJGc2RHVmtYMS9pcmlCbHQzdnk4MEEzVE1pU3JFYW8rVVNVMGdCRTFkVT0">Puri Agung G20 Bali 2022</option>
+                                    <!-- <?php foreach ($data['getOperasi'] as $key) : ?>
                                         <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
-                                    <?php endforeach; ?>
+                                    <?php endforeach; ?> -->
                                 </select>
                                 <label class="labelmui">Operasi</label>
                             </div>
@@ -350,10 +351,11 @@
 	function process(type)
     {
 		id = $('#btn-process').data('id');
-		// polda_id = $('#btn-process').data('polda_id');
+		operasi_id = $('#btn-process').data('operasi_id');
 		tanggal = $('#btn-process').data('tanggal');
 		status = $('#btn-process').data('status');
 		file_name = $('#btn-process').data('file_name');
+
         Swal.fire({
             title: 'Do you want to process this data?',
             showDenyButton: false,
@@ -366,7 +368,7 @@
                     type:"POST",
                     dataType:"json",data:{
                         id:id,
-                        // polda_id:polda_id,
+                        operasi_id:operasi_id,
                         tanggal:tanggal,
                         status:status,
                         file_name:file_name,

@@ -117,7 +117,7 @@ class M_import extends CI_Model
             $searchData = '';
         }
 
-        $url = 'import/listoperasi?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
+        $url = 'import/listops?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
         $result = guzzle_request('GET', $url, [
             'headers' => [
                 'Authorization' => $this->session->userdata['token']

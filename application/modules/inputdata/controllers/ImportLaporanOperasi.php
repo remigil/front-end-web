@@ -25,18 +25,17 @@ class ImportLaporanOperasi extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else {
+
             $getPolda = guzzle_request('GET', 'polda', [
                 'headers' => $this->_headers
             ]);
 
             $getOperasi = guzzle_request('GET', 'operation-profile', [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
+                'headers' => $this->_headers
             ]);
 
             $data['getPolda'] = $getPolda['data']['data'];
-            $data['getOperasi'] = $getOperasi['data']['data'];
+            // $data['getOperasi'] = $getOperasi['data']['data'];
             $page_content["page"] = "inputdata/Korlantas/ImportLaporanOperasiKhusus_Korlantas";
         }
 
@@ -448,10 +447,10 @@ class ImportLaporanOperasi extends MY_Controller
                             }else if($type==7) {
                                 
                                 /**
-                                 * usiapelaku
+                                 * usia
                                  */
 
-                                $url = 'import/usiapelaku';
+                                $url = 'import/usia';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -573,40 +572,106 @@ class ImportLaporanOperasi extends MY_Controller
                             }else if($type==11) {
                                 
                                 /**
-                                 * langgarmotor
+                                 * dikmaslantasops
                                  */
 
-                                $url = 'import/langgarmotor';
+                                $url = 'import/dikmaslantasops';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
                                 $D = trim(trim($row['D']));
                                 $E = trim(trim($row['E']));
                                 $F = trim(trim($row['F']));
-                                $G = trim(trim($row['G']));
-                                $H = trim(trim($row['H']));
-                                $I = trim(trim($row['I']));
 
                                 $raws[] = array(
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'tanpa_helm'=>$C,
-                                    'lawan_arus'=>$D,
-                                    'bermain_hp'=>$E,
-                                    'pengaruh_alkohol'=>$F,
-                                    'max_kecepatan'=>$G,
-                                    'dibawah_umur'=>$H,
-                                    'lain_lain'=>$I
+                                    'media_cetak'=>$C,
+                                    'media_elektronik'=>$D,
+                                    'media_sosial'=>$E,
+                                    'laka_langgar'=>$F
                                 );
 
                             }else if($type==12) {
                                 
                                 /**
-                                 * langgarmobil
+                                 * giatlantas
                                  */
 
-                                $url = 'import/langgarmobil';
+                                $url = 'import/giatlantas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'operasi_id'=>$operasi_id,
+                                    'polda_id'=>$B,
+                                    'date'=>$tanggal,
+                                    'pengaturan'=>$C,
+                                    'penjagaan'=>$D,
+                                    'pengawalan'=>$E,
+                                    'patroli'=>$F
+                                );
+
+                            }else if($type==13) {
+                                
+                                /**
+                                 * lakalantas
+                                 */
+
+                                $url = 'import/lakalantas';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'operasi_id'=>$operasi_id,
+                                    'polda_id'=>$B,
+                                    'date'=>$tanggal,
+                                    'meninggal_dunia'=>$C,
+                                    'luka_berat'=>$D,
+                                    'luka_ringan'=>$E,
+                                    'kerugian_material'=>$E
+                                );
+
+                            }else if($type==14) {
+                                
+                                /**
+                                 * fungsijalan
+                                 */
+
+                                $url = 'import/fungsijalan';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+
+                                $raws[] = array(
+                                    'operasi_id'=>$operasi_id,
+                                    'polda_id'=>$B,
+                                    'date'=>$tanggal,
+                                    'arteri'=>$C,
+                                    'kolektor'=>$D,
+                                    'lokal'=>$E,
+                                    'lingkungan'=>$F
+                                );
+
+                            }else if($type==15) {
+                                
+                                /**
+                                 * pekerjaankorban
+                                 */
+
+                                $url = 'import/pekerjaankorban';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -621,22 +686,82 @@ class ImportLaporanOperasi extends MY_Controller
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'lawan_arus'=>$C,
-                                    'bermain_hp'=>$D,
-                                    'pengaruh_alkohol'=>$E,
-                                    'max_kecepatan'=>$F,
-                                    'dibawah_umur'=>$G,
-                                    'tanpa_sabuk'=>$H,
+                                    'pns'=>$C,
+                                    'karyawan'=>$D,
+                                    'mahasiswa'=>$E,
+                                    'pengemudi'=>$F,
+                                    'tni'=>$G,
+                                    'polri'=>$H,
                                     'lain_lain'=>$I
                                 );
 
-                            }else if($type==13) {
+                            }else if($type==16) {
                                 
                                 /**
-                                 * barangbukti
+                                 * pekerjaanpelaku
                                  */
 
-                                $url = 'import/barangbukti';
+                                $url = 'import/pekerjaanpelaku';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+                                $H = trim(trim($row['H']));
+                                $I = trim(trim($row['I']));
+
+                                $raws[] = array(
+                                    'operasi_id'=>$operasi_id,
+                                    'polda_id'=>$B,
+                                    'date'=>$tanggal,
+                                    'pns'=>$C,
+                                    'karyawan'=>$D,
+                                    'mahasiswa'=>$E,
+                                    'pengemudi'=>$F,
+                                    'tni'=>$G,
+                                    'polri'=>$H,
+                                    'lain_lain'=>$I
+                                );
+
+                            }else if($type==17) {
+                                
+                                /**
+                                 * pendidikankorban
+                                 */
+
+                                $url = 'import/pendidikankorban';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+                                $H = trim(trim($row['H']));
+                                $I = trim(trim($row['I']));
+
+                                $raws[] = array(
+                                    'operasi_id'=>$operasi_id,
+                                    'polda_id'=>$B,
+                                    'date'=>$tanggal,
+                                    'sd'=>$C,
+                                    'sltp'=>$D,
+                                    'slta'=>$E,
+                                    'd3'=>$F,
+                                    's1'=>$G,
+                                    's2'=>$H,
+                                    'tidak_diketahui'=>$I
+                                );
+
+                            }else if($type==18) {
+                                
+                                /**
+                                 * penyebaranops
+                                 */
+
+                                $url = 'import/penyebaranops';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -648,18 +773,19 @@ class ImportLaporanOperasi extends MY_Controller
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'sim'=>$C,
-                                    'stnk'=>$D,
-                                    'kendaraan_bermotor'=>$E
+                                    'spanduk'=>$C,
+                                    'leaflet'=>$D,
+                                    'stiker'=>$E,
+                                    'billboard'=>$F
                                 );
 
-                            }else if($type==14) {
+                            }else if($type==19) {
                                 
                                 /**
-                                 * kendaraanterlibat
+                                 * ranmorops
                                  */
 
-                                $url = 'import/kendaraanterlibat';
+                                $url = 'import/ranmorops';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -679,13 +805,13 @@ class ImportLaporanOperasi extends MY_Controller
                                     'ransus'=>$G
                                 );
 
-                            }else if($type==15) {
+                            }else if($type==20) {
                                 
                                 /**
-                                 * profesipelaku
+                                 * usiakorban
                                  */
 
-                                $url = 'import/profesipelaku';
+                                $url = 'import/usiakorban';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -695,21 +821,33 @@ class ImportLaporanOperasi extends MY_Controller
                                 $G = trim(trim($row['G']));
                                 $H = trim(trim($row['H']));
                                 $I = trim(trim($row['I']));
+                                $J = trim(trim($row['J']));
+                                $K = trim(trim($row['K']));
+                                $L = trim(trim($row['L']));
+                                $M = trim(trim($row['M']));
+                                $N = trim(trim($row['N']));
+                                $O = trim(trim($row['O']));
 
                                 $raws[] = array(
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'pns'=>$C,
-                                    'karyawan'=>$D,
-                                    'mahasiswa_pelajar'=>$E,
-                                    'pengemudi'=>$F,
-                                    'tni'=>$G,
-                                    'polri'=>$H,
-                                    'lain_lain'=>$I
+                                    'max_4'=>$C,
+                                    'max_9'=>$D,
+                                    'max_14'=>$E,
+                                    'max_19'=>$F,
+                                    'max_24'=>$G,
+                                    'max_29'=>$H,
+                                    'max_34'=>$I,
+                                    'max_39'=>$J,
+                                    'max_44'=>$K,
+                                    'max_49'=>$L,
+                                    'max_54'=>$M,
+                                    'max_59'=>$N,
+                                    'lain_lain'=>$O
                                 );
 
-                            }else if($type==16) {
+                            }else if($type==21) {
                                 
                                 /**
                                  * usiapelaku
@@ -727,168 +865,29 @@ class ImportLaporanOperasi extends MY_Controller
                                 $I = trim(trim($row['I']));
                                 $J = trim(trim($row['J']));
                                 $K = trim(trim($row['K']));
-                                $L = trim(trim($row['L']));
-                                $M = trim(trim($row['M']));
 
                                 $raws[] = array(
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'max_15'=>$C,
-                                    'max_20'=>$D,
-                                    'max_25'=>$E,
-                                    'max_30'=>$F,
-                                    'max_35'=>$G,
-                                    'max_40'=>$H,
-                                    'max_45'=>$I,
-                                    'max_50'=>$J,
-                                    'max_55'=>$K,
-                                    'max_60'=>$L,
-                                    'lain_lain'=>$M
-                                );
-
-                            }else if($type==17) {
-                                
-                                /**
-                                 * simpelaku
-                                 */
-
-                                $url = 'import/simpelaku';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-                                $G = trim(trim($row['G']));
-                                $H = trim(trim($row['H']));
-                                $I = trim(trim($row['I']));
-                                $J = trim(trim($row['J']));
-                                $K = trim(trim($row['K']));
-                                $L = trim(trim($row['L']));
-                                $M = trim(trim($row['M']));
-
-                                $raws[] = array(
-                                    'operasi_id'=>$operasi_id,
-                                    'polda_id'=>$B,
-                                    'date'=>$tanggal,
-                                    'sim_a'=>$C,
-                                    'sim_a_umum'=>$D,
-                                    'sim_b'=>$E,
-                                    'sim_b_satu_umum'=>$F,
-                                    'sim_b_dua'=>$G,
-                                    'sim_b_dua_umum'=>$H,
-                                    'sim_c'=>$I,
-                                    'sim_d'=>$J,
-                                    'sim_internasional'=>$K,
-                                    'tanpa_sim'=>$L
-                                );
-
-                            }else if($type==18) {
-                                
-                                /**
-                                 * lokasikawasan
-                                 */
-
-                                $url = 'import/lokasikawasan';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-                                $G = trim(trim($row['G']));
-
-                                $raws[] = array(
-                                    'operasi_id'=>$operasi_id,
-                                    'polda_id'=>$B,
-                                    'date'=>$tanggal,
-                                    'pemukiman'=>$C,
-                                    'perbelanjaan'=>$D,
-                                    'perkantoran'=>$E,
-                                    'wisata'=>$F,
-                                    'industri'=>$G
-                                );
-
-                            }else if($type==19) {
-                                
-                                /**
-                                 * statusjalan
-                                 */
-
-                                $url = 'import/statusjalan';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-
-                                $raws[] = array(
-                                    'operasi_id'=>$operasi_id,
-                                    'polda_id'=>$B,
-                                    'date'=>$tanggal,
-                                    'nasional'=>$C,
-                                    'provinsi'=>$D,
-                                    'kab_kota'=>$E,
-                                    'desa_lingkungan'=>$F
-                                );
-
-                            }else if($type==20) {
-                                
-                                /**
-                                 * statusjalan
-                                 */
-
-                                $url = 'import/statusjalan';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-
-                                $raws[] = array(
-                                    'operasi_id'=>$operasi_id,
-                                    'polda_id'=>$B,
-                                    'date'=>$tanggal,
-                                    'nasional'=>$C,
-                                    'provinsi'=>$D,
-                                    'kab_kota'=>$E,
-                                    'desa_lingkungan'=>$F
-                                );
-
-                            }else if($type==21) {
-                                
-                                /**
-                                 * statusjalan
-                                 */
-
-                                $url = 'import/statusjalan';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-
-                                $raws[] = array(
-                                    'operasi_id'=>$operasi_id,
-                                    'polda_id'=>$B,
-                                    'date'=>$tanggal,
-                                    'nasional'=>$C,
-                                    'provinsi'=>$D,
-                                    'kab_kota'=>$E,
-                                    'desa_lingkungan'=>$F
+                                    'max_14'=>$C,
+                                    'max_16'=>$D,
+                                    'max_21'=>$E,
+                                    'max_29'=>$F,
+                                    'max_39'=>$G,
+                                    'max_49'=>$H,
+                                    'max_59'=>$I,
+                                    'lain_lain'=>$J,
+                                    'tidak_diketahui'=>$K
                                 );
 
                             }else if($type==22) {
                                 
                                 /**
-                                 * statusjalan
+                                 * turjagwaliops
                                  */
 
-                                $url = 'import/statusjalan';
+                                $url = 'import/turjagwaliops';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -900,10 +899,10 @@ class ImportLaporanOperasi extends MY_Controller
                                     'operasi_id'=>$operasi_id,
                                     'polda_id'=>$B,
                                     'date'=>$tanggal,
-                                    'nasional'=>$C,
-                                    'provinsi'=>$D,
-                                    'kab_kota'=>$E,
-                                    'desa_lingkungan'=>$F
+                                    'penjagaan'=>$C,
+                                    'pengawalan'=>$D,
+                                    'patroli'=>$E,
+                                    'pengaturan'=>$F
                                 );
 
                             }
