@@ -1,5 +1,15 @@
  <div class="container-fluid">
-     <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+     <div class="row">
+         <div class="col-md-6">
+             <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+         </div>
+         <div class="col-md-6 text-end align-self-center">
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+             <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+         </div>
+     </div>
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
@@ -59,105 +69,39 @@
  </div>
 
 
-<?php $mobile = detect_mobile(); if($mobile === true){ ?>
-    <div class="filter mb-5" style=" height:125px;">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-12 align-self-center">
-                    <label for="waktu" class="form-label text-uppercase">Waktu</label>  
-                </div>
-                
-            </div>
-            <div style="display: flex;">
-                
-                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date"> 
-                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                 
-            </div>
-             
-                <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button> 
-                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+ <?php $mobile = detect_mobile();
+    if ($mobile === true) { ?>
+     <div class="filter mb-5" style=" height:125px;">
+         <div class="container-fluid">
+             <div class="row justify-content-center">
+                 <div class="col-md-12 align-self-center">
+                     <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                 </div>
 
-          
-        </div>
-    </div>
-<?php } else { ?>
+             </div>
+             <div style="display: flex;">
 
-    <div class="filter" style=" height:125px;">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-9 align-self-center">
-                    <label for="waktu" class="form-label text-uppercase">Waktu</label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                        </div>
-                        <div class="col-md-4">
-                            <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                        </div>
-                        <div class="col-md-2 text-end align-self-center">
-                            <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                            <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                            <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
-   
-                            <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+                 <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                 <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+
+             </div>
+
+             <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+
+
+         </div>
+     </div>
+ <?php } else { ?>
+
+
+
+
+ <?php } ?>
 
  <div class="container-fluid">
-     <div class="card">
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="titleline"></div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="chartdate">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             <div class="col-xl-12">
-                 <div class="card">
-                     <div class="card-header">
-                         <div id="title"></div>
-                         <div class="row">
-                             <div class="col-md-2">
-                                 <div class="form-group">
-                                     <label for="exampleFormControlSelect1">Show data</label>
-                                     <select class="form-control" id="limit_showData">
-                                         <option value="3">3</option>
-                                         <option value="5" selected>5</option>
-                                         <option value="7">7</option>
-                                         <option value="10">10</option>
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card-body">
-                         <div class="main-chart">
-                             <div id="charta">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
 
+     <div class="card">
          <div class="row m-3" style="font-size: 16px;">
              <div class="col-xl-12">
                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -172,7 +116,7 @@
                      </li>
                  </ul>
 
-                 
+
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
@@ -243,6 +187,71 @@
                                          </tbody>
                                      </table>
                                  </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <hr style="width:97%; margin: auto">
+             <div class="filter mt-4" style=" height:125px;">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                 </div>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="titleline"></div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="chartdate">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="title"></div>
+                         <div class="row">
+                             <div class="col-md-2">
+                                 <div class="form-group">
+                                     <label for="exampleFormControlSelect1">Show data</label>
+                                     <select class="form-control" id="limit_showData">
+                                         <option value="3">3</option>
+                                         <option value="5" selected>5</option>
+                                         <option value="7">7</option>
+                                         <option value="10">10</option>
+                                     </select>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="charta">
                              </div>
                          </div>
                      </div>
@@ -844,13 +853,13 @@
                  yesterday: yesterday
              },
              success: function(result) {
-                $("#overlay").fadeOut(300);
-                var table = '';
-                let nf = new Intl.NumberFormat('en-US');
-                for (let i = 0; i < result.length; i++) {
-                    let x = parseInt(i)
-                    let no = x + 1
-                    table += `<tr class="text-center"> 
+                 $("#overlay").fadeOut(300);
+                 var table = '';
+                 let nf = new Intl.NumberFormat('en-US');
+                 for (let i = 0; i < result.length; i++) {
+                     let x = parseInt(i)
+                     let no = x + 1
+                     table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
                         <td>  ${result[i].name_polda}  </td> 
                         <td>  ${result[i].meninggal_dunia}  </td> 
@@ -859,25 +868,26 @@
                         <td>  ${result[i].insiden_kecelakaan}  </td>
                         <td>  ${nf.format(result[i].kerugian_material)}  </td> 
                         </tr>`
-                }
-                $('#tbody-lakaDay').html(table);
-                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-        
-                    $('#tableLakaDay').DataTable({
-                        responsive: true,
+                 }
+                 $('#tbody-lakaDay').html(table);
+                 <?php $mobile = detect_mobile();
+                    if ($mobile === true) { ?>
 
-                        scrollX: true,
+                     $('#tableLakaDay').DataTable({
+                         responsive: true,
 
-                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+                         scrollX: true,
 
-                        // buttons: ["excel", "csv", "pdf"],
-                        processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
-                        },
-                    }); 
-                
-                <?php } ?> 
+                         sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                         // buttons: ["excel", "csv", "pdf"],
+                         processing: true,
+                         oLanguage: {
+                             sSearch: 'Search:'
+                         },
+                     });
+
+                 <?php } ?>
              }
          })
      }
@@ -909,23 +919,24 @@
                             </tr>`
                  }
                  $('#tbody-lakaMonth').html(table);
-                 <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-        
-                    $('#tableLakaMonth').DataTable({
-                        responsive: true,
+                 <?php $mobile = detect_mobile();
+                    if ($mobile === true) { ?>
 
-                        scrollX: true,
+                     $('#tableLakaMonth').DataTable({
+                         responsive: true,
 
-                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+                         scrollX: true,
 
-                        // buttons: ["excel", "csv", "pdf"],
-                        processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
-                        },
-                    }); 
-                
-                <?php } ?> 
+                         sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                         // buttons: ["excel", "csv", "pdf"],
+                         processing: true,
+                         oLanguage: {
+                             sSearch: 'Search:'
+                         },
+                     });
+
+                 <?php } ?>
              }
          })
      }
@@ -957,23 +968,24 @@
                             </tr>`
                  }
                  $('#tbody-lakaYear').html(table);
-                 <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
-        
-                    $('#tableLakaYear').DataTable({
-                        responsive: true,
+                 <?php $mobile = detect_mobile();
+                    if ($mobile === true) { ?>
 
-                        scrollX: true,
+                     $('#tableLakaYear').DataTable({
+                         responsive: true,
 
-                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+                         scrollX: true,
 
-                        // buttons: ["excel", "csv", "pdf"],
-                        processing: true,
-                        oLanguage: { 
-                            sSearch: 'Search:' 
-                        },
-                    }); 
-                
-                <?php } ?> 
+                         sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                         // buttons: ["excel", "csv", "pdf"],
+                         processing: true,
+                         oLanguage: {
+                             sSearch: 'Search:'
+                         },
+                     });
+
+                 <?php } ?>
              }
          })
      }

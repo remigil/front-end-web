@@ -48,6 +48,8 @@ class Statistik_nasional extends MY_Controller
         ]);
         $getGakkum = $getGakkum["data"];
 
+
+        $totalwalpjr = 72;
         $totalgarlantas = 0;
         $totallakalantas = 0;
         $totalturjagwali = 0;
@@ -57,36 +59,77 @@ class Statistik_nasional extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        // $getRanmor = guzzle_request('GET', 'ditregident/daily?date=' . $date . '', [
+        $getKamsel = guzzle_request('GET', 'ditkamsel/daily', [
+            'headers' => $headers
+        ]);
+        $getKamsel = $getKamsel["data"];
+
+        $totaldikmas = 0;
+        $totaljemenopsrek = 0;
+        $totalcegah = 0;
+        $totalaudit = 0;
+        for ($i = 0; $i < count($getKamsel); $i++) {
+            $totaldikmas += $getKamsel[$i]['dikmaslantas'];
+            // $totaljemenopsrek += $getKamsel[$i]['jemenopsrek'];
+            // $totalcegah += $getKamsel[$i]['cegah'];
+            // $totalaudit += $getKamsel[$i]['audit'];
+        }
+
+        $getRegident = guzzle_request('GET', 'ditregident/daily', [
+            'headers' => $headers
+        ]);
+        $getRegident = $getRegident["data"];
+
+        $totalbpkb = 0;
+        $totalstnk = 0;
+        $totalsim = 0;
+        $totalsbst = 0;
+        for ($i = 0; $i < count($getRegident); $i++) {
+            $totalbpkb += $getRegident[$i]['bpkb'];
+            $totalstnk += $getRegident[$i]['stnk'];
+            $totalsim += $getRegident[$i]['sim'];
+            // $totalsbst += $getRegident[$i]['sbst'];
+        }
+
+        // $getOps = guzzle_request('GET', 'bagops/daily', [
         //     'headers' => $headers
         // ]);
-        $getRanmor = guzzle_request('GET', 'ditregident/daily', [
-            'headers' => $headers
-        ]);
-        $getRanmor = $getRanmor["data"];
+        // $getOps = $getOps["data"];
 
-        $totalmotor = 0;
-        for ($i = 0; $i < count($getRanmor); $i++) {
-            $totalmotor += $getRanmor[$i]['ranmor'];
-        }
+        $totalsubrenop = 0;
+        $totalsubdalops = 0;
+        $totalsubkerma = 0;
+        $totalsubanev = 0;
+        // for ($i = 0; $i < count($getOps); $i++) {
+        //     $totalsubrenop += $getOps[$i]['subrenop'];
+        //     $totalsubdalops += $getOps[$i]['subdalops'];
+        //     $totalsubkerma += $getOps[$i]['subkerma'];
+        // $totalsubanev += $getOps[$i]['subanev'];
+        // }
 
-        $getSim = guzzle_request('GET', 'sim/daily', [
-            'headers' => $headers
-        ]);
-        $getSim = $getSim["data"]["rows"];
-
-        $totalsim = 0;
-        for ($i = 0; $i < count($getSim); $i++) {
-            $totalsim += $getSim[$i]['total'];
-        }
 
         $data = [
-            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
-            'motor' =>  number_format($totalmotor, 0, '', '.'),
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
+            'walpjr' =>  number_format($totalwalpjr, 0, '', '.'),
+
+            'bpkb' => number_format($totalbpkb, 0, '', '.'),
+            'stnk' =>  number_format($totalstnk, 0, '', '.'),
             'sim' =>  number_format($totalsim, 0, '', '.'),
+            'sbst' => number_format($totalsbst, 0, '', '.'),
+
+            'dikmas' => number_format($totaldikmas, 0, '', '.'),
+            'jemenopsrek' =>  number_format($totaljemenopsrek, 0, '', '.'),
+            'cegah' =>  number_format($totalcegah, 0, '', '.'),
+            'audit' => number_format($totalaudit, 0, '', '.'),
+
+            'subrenop' => number_format($totalsubrenop, 0, '', '.'),
+            'subdalops' =>  number_format($totalsubdalops, 0, '', '.'),
+            'subkerma' =>  number_format($totalsubkerma, 0, '', '.'),
+            'subanev' => number_format($totalsubanev, 0, '', '.'),
         ];
+
         echo json_encode($data);
     }
 

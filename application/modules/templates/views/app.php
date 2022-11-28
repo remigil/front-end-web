@@ -1325,11 +1325,89 @@
                                     <?php } ?>
 
                                     <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                            <span data-key="t-authentication" style="color: white;">Laporan</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Harian</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Mingguan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Bulanan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Triwulan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Tahunan</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">
+                                            <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
+                                            <span data-key="t-authentication" style="color: white;">Laporan Anev</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Harian</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-login">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Mingguan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Bulanan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Triwulan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                    <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                    <span data-key="t-dashboard" style="color: white;">Tahunan</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li>
                                         <a href="<?php echo base_url('anev/Anev'); ?>">
                                             <img src="<?= base_url('assets/sidebar/icon-anev.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                             <span data-key="t-dashboard" style="color: white;">Laporan Anev</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <!-- Ini nanti dilanjut -->
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">
