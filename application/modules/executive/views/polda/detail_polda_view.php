@@ -263,7 +263,7 @@
                         <div class="cat blankspotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                                    <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Blank Spot</span>
                                 </label>
                                 <button id="blankspotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
