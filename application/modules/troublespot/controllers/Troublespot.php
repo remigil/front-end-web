@@ -280,11 +280,11 @@ class Troublespot extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "troublespot/G20/edit_G20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "troublespot/Korlantas/edit_Korlantas";
+            $page_content["page"] = "troublespot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "troublespot/Kapolda/edit_Kapolda";
+            $page_content["page"] = "troublespot/Kapolda/edit_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "troublespot/Polres/edit_Polres";
+            $page_content["page"] = "troublespot/Polres/edit_polres";
         }
         $getDetail = guzzle_request('GET', 'troublespot/getId/' . $id . '', [
             'headers' => $headers
