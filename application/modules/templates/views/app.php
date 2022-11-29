@@ -2063,12 +2063,12 @@
             <!-- /Right-bar -->
 
 
-            <div class="modal right fade" id="myModalPoldaDisplay1" id="getPoldatable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay1" aria-hidden="true" data-backdrop="false">
+            <div class="modal right fade" id="myModalPoldaDisplay1" id="getPoldatable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay1" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header bg-primary ">
                             <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay1">Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill"></span>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="tutupModalPolda"></button>
                         </div>
                         <div class="modal-body" id="openModalPoldaDisplay1" style="width: 300px;">
                         </div>
@@ -2082,6 +2082,9 @@
 
             <script>
                 // EKSEKUTIF
+                // tutupModalPolda
+
+                 
 
                 $('#getPoldatable').on('click', function(e) {
                     $.ajax({
@@ -2095,17 +2098,17 @@
                             // console.log();
 
                             $("#openModalPoldaDisplay1").html(`
-                <table id="datatablePoldaOnDisplay1" class="table dt-responsive w-100" style="font-size: 12px;">
-                    <thead>
-                        <tr>
-                            <th>Logo</th>
-                            <th>Nama</th>
-                        </tr>
-                    </thead>
-                    <tbody id="isiModalPoldaDisplay1">
-                    </tbody>
-                </table>
-            `);
+                                <table id="datatablePoldaOnDisplay1" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <th>Nama</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPoldaDisplay1">
+                                    </tbody>
+                                </table>
+                            `);
                             var countPoldaDisplay1 = 0;
                             var listPoldaDisplay1 = '';
 

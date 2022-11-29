@@ -61,7 +61,7 @@
                             Subsatker Polda
                         </button>
 
-                        <div class="dropdown-menu" style="width: 100%; ">
+                        <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
                             <a class="dropdown-item" href="#">Subditgakkum Polda</a>
                             <a class="dropdown-item" href="#">Subditregident Polda</a>
                             <a class="dropdown-item" href="#">Subdikamsel Polda</a>
