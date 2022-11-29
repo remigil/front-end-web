@@ -17,7 +17,7 @@ if (!function_exists('guzzle_request')) {
     { 
         try {
             $client = new Client();
-            // $request = $client->request($method, 'http://localhost:3019/v1/' . $uri, $body); 
+            // $request = $client->request($method, 'http://localhost:3020/v1/' . $uri, $body); 
             $request = $client->request($method, 'http://34.143.227.90:3019/v1/' . $uri, $body); 
             $response = $request->getBody();
             $data = json_decode($response, true);
@@ -31,13 +31,13 @@ if (!function_exists('guzzle_request')) {
 
     function url_api()
     {
-        // return 'http://localhost:3019/uploads/';
+        // return 'http://localhost:3020/uploads/';
         return 'http://34.143.227.90:3019/uploads/'; 
     }
 
     function urlApi()
     {
-        // return 'http://localhost:3019/uploads/';
+        // return 'http://localhost:3020/uploads/';
         return 'http://34.143.227.90:3019/uploads/'; 
     }
 }
@@ -55,7 +55,7 @@ if (!function_exists('guzzle_requestTracking')) {
     {
         try {
             $client = new Client();
-            // $request = $client->request($method, 'http://localhost:3019/track-location/' . $uri, $body);
+            // $request = $client->request($method, 'http://localhost:3020/track-location/' . $uri, $body);
             $request = $client->request($method, 'http://103.163.139.100:3005/track-location/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
@@ -82,7 +82,7 @@ if (!function_exists('guzzle_requestAnev')) {
     {
         try {
             $client = new Client();
-            // $request = $client->request($method, 'http://localhost:3019/' . $uri, $body);
+            // $request = $client->request($method, 'http://localhost:3020/' . $uri, $body);
             $request = $client->request($method, 'http://34.143.227.90:3019/' . $uri, $body);
             $response = $request->getBody();
             $data = json_decode($response, true);
