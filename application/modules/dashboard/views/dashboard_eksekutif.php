@@ -30,7 +30,7 @@
 
                 <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
 
-                    <div class="cat poldaDisplay" style="margin-left: 10px;">
+                    <div class="cat poldaDisplay" style="margin-left: 10px; ">
                         <div class="btn-group">
                             <label>
                                 <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
@@ -40,7 +40,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat polresDisplay" style="margin-left: 10px;">
+                    <div class="cat polresDisplay" style="margin-left: 10px; ">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
@@ -140,7 +140,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat operasiDisplay" >
+                    <div class="cat operasiDisplay" style="display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
@@ -151,12 +151,45 @@
                         </div>
                     </div>
 
-                    <div class="cat panicDisplay" style="margin-left: 10px;">
+                    <div class="cat panicDisplay" style="margin-left: 10px; display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
                             </label>
                             <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cat samsatDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
+                            </label>
+                            <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cat troublespotDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="troublespot" name="filter" id="troublespotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                            </label>
+                            <button id="troublespotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cat blankspotDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                            </label>
+                            <button id="blankspotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
@@ -1938,8 +1971,7 @@
                         id = i;
                         var latitude = parseFloat(ressData[i].latitude);
                         var longitude = parseFloat(ressData[i].longitude);
-                        
-                        console.log({a:latitude ,b:longitude});
+                         
                         var resource = '';
 
                         markerPolda[i] = L.marker([latitude, longitude], {
@@ -6040,7 +6072,7 @@
                 dataType: "JSON",
                 success: function(result) {
                     $("#overlay").fadeOut(300);
-                    // var ressTurjawali = result['data']['turjawali'];
+                    var ressTurjawali = result['data']['turjawali'];
 
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
@@ -6056,11 +6088,11 @@
                     var ressOperasi = result['data']['operasi'];
                     console.log(result['data']);
 
-                    // if (ressTurjawali && ressTurjawali.length > 0) {
-                    //     var filterTurjawali = ressTurjawali.filter(function(e) {
-                    //         return e.latitude != null && e.longitude != null;
-                    //     });
-                    // }
+                    if (ressTurjawali && ressTurjawali.length > 0) {
+                        var filterTurjawali = ressTurjawali.filter(function(e) {
+                            return e.latitude != null && e.longitude != null;
+                        });
+                    }
 
 
 

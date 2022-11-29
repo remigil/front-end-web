@@ -126,7 +126,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; ">
+                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -178,7 +178,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat clusterDisplay" style="margin-left: 10px; ;">
+                        <div class="cat clusterDisplay" style="margin-left: 10px; display:none;">
                             <div class="btn-group">
                                 <label>
                                     <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
@@ -195,7 +195,7 @@
                                 </label>  
                             </div> -->
 
-                        <div class="cat kegiatanDisplay" style="">
+                        <div class="cat kegiatanDisplay" style="display:none">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -216,7 +216,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat operasiDisplay" style="">
+                        <div class="cat operasiDisplay" style="display:none">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
@@ -227,12 +227,45 @@
                             </div>
                         </div>
 
-                        <div class="cat panicDisplay" style="margin-left: 10px; ">
+                        <div class="cat panicDisplay" style="margin-left: 10px; display:none">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
                                 </label>
                                 <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat samsatDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
+                                </label>
+                                <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat troublespotDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="troublespot" name="filter" id="troublespotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                                </label>
+                                <button id="troublespotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cat blankspotDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                                </label>
+                                <button id="blankspotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
