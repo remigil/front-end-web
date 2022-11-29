@@ -274,7 +274,7 @@
             maxZoom: 19,
             minZoom: 1,
             zoomControl: false,
-            layers: [googleSatelite]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var markerClusterGroup = L.markerClusterGroup();
@@ -340,7 +340,7 @@
                 minZoom: 1,
                 zoomSnap: 0.25,
                 zoomControl: false,
-                layers: [googleSatelite]
+                layers: [googleHybrid]
             }).setView(initialCenter, initialZoom); 
             
 
@@ -686,7 +686,7 @@
                 $("[name=cordinate]").val('');
                 $("[name=latitude]").val(null);
                 $("[name=longitude]").val(null);
-                
+
                 routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
                 $('#routeUtama').val(JSON.stringify(routingAlternativeUtama));
             }

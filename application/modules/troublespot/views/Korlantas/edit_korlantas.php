@@ -198,7 +198,7 @@
             maxZoom: 19,
             minZoom: 1,
             zoomControl: false,
-            layers: [googleSatelite]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
 
         var markerClusterGroup = L.markerClusterGroup();
