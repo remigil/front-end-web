@@ -216,7 +216,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat operasiDisplay" style="display:none">
+                        <div class="cat operasiDisplay" >
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Trouble Spot</span>
