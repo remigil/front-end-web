@@ -7,10 +7,10 @@ if (!function_exists('token')) {
     function token()
     {
         $client = new Client();  
-        // $request = $client->request('POST', 'http://localhost:3001/v1/', [
-        $request = $client->request('POST', 'http://34.143.227.90:3001/v1/', [ 
+        // $request = $client->request('POST', 'http://localhost:3020/v1/', [
+        $request = $client->request('POST', 'http://34.143.227.90:3020/v1/', [ 
             'form_params' => [
-                'username' => 'G20',
+                'username' => 'Kakor',
                 'password' => 'a'
             ]
         ]);
