@@ -15,7 +15,7 @@ class Troublespot extends MY_Controller
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -43,7 +43,7 @@ class Troublespot extends MY_Controller
         $data['getPolda'] = $getPolda['data']['data'];
         $data['getPolres'] = $getPolres['data']['data'];
 
-        // var_dump($getPolres);
+        // var_dump($getPolda);
         // die;
         // $getVehicle = guzzle_request('GET', 'vehicle', [
         //     'headers' => $headers
@@ -138,8 +138,11 @@ class Troublespot extends MY_Controller
                 'name' => 'result',
                 'contents' => $input['hasil_dicapai'],
             ],
-        ];
-
+            [
+                'name' => 'route',
+                'contents' => $input['routeUtama'],
+            ],
+        ]; 
 
         $data = guzzle_request('POST', 'troublespot/add', [
             'multipart' => $dummy,
@@ -367,7 +370,14 @@ class Troublespot extends MY_Controller
                 'name' => 'result',
                 'contents' => $input['hasil_dicapai'],
             ],
+            [
+                'name' => 'route',
+                'contents' => $input['routeUtama'],
+            ],
         ];
+
+        // echo json_encode($dummy);
+        // die;
 		
 
         $data = guzzle_request('PUT', 'troublespot/edit/' . $input['id'] . '', [
@@ -406,7 +416,7 @@ class Troublespot extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('DELETE', 'troublespot/delete', [
+        $data = guzzle_request('DELETE', 'troublespot/hardDelete', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);
