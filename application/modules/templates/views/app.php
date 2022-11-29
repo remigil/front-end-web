@@ -686,7 +686,7 @@
     <?php echo $css ?>
 </head>
 
-<body oncontextmenu="return false" <?php if ($this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri' || $this->session->userdata['role'] == 'Kapolda') { ?> data-layout="horizontal" <?php } ?>>
+<body oncontextmenu="return false" >
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
@@ -698,8 +698,7 @@
     <div id="layout-wrapper">
 
 
-        <?php $mobile = detect_mobile();
-        if ($mobile === false) { ?>
+        
             <header id="page-topbar">
 
                 <div class="navbar-header">
@@ -881,18 +880,14 @@
                     </div>
                 </div>
             </header>
-        <?php } ?>
+       
 
 
 
 
 
 
-        <?php if ($this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri' || $this->session->userdata['role'] == 'Kapolda') { ?>
-
-            <!-- KOSONG -->
-
-        <?php } else { ?>
+       
 
             <!-- ========== Left Sidebar Start ========== -->
             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') { ?>
@@ -1906,7 +1901,7 @@
                     </div>
                     <!-- Left Sidebar End -->
 
-                <?php } ?>
+     
 
 
 
