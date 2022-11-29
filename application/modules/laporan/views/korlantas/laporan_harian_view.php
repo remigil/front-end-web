@@ -76,8 +76,18 @@
             $('#start_date').attr('type', 'month')
             $('#end_date').attr('type', 'month')
         } else if (options_waktu == 3) {
-            $('#start_date').attr('type', 'date')
-            $('#end_date').attr('type', 'date')
+            $('#start_date').attr({
+                type: "number",
+                min: "2000",
+                max: "2100",
+                placehoder: 'YYYY'
+            })
+            $('#end_date').attr({
+                type: "number",
+                min: "2000",
+                max: "2100",
+                placehoder: 'YYYY'
+            })
         }
     })
 </script>

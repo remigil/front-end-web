@@ -33,7 +33,7 @@ class Laporan_umum extends MY_Controller
             $page_content["page"] = "laporan/Polres/operasi_polres";
         } else if ($this->session->userdata['role'] == 'Kakorlantas') {
             $page_content["title"] = "Laporan Harian";
-            $page_content["page"] = "laporan/Korlantas/laporan_harian_view";
+            $page_content["page"] = "laporan/korlantas/laporan_harian_view";
         }
 
 
@@ -44,6 +44,7 @@ class Laporan_umum extends MY_Controller
 
         $data['polda'] = $getPolda['data']['data'];
 
+    
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }

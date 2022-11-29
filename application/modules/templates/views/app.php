@@ -1327,7 +1327,7 @@
                                     <ul class="sub-menu" aria-expanded="false">
 
                                         <li>
-                                            <a href="<?php echo base_url('laporan/Laporan_umum'); ?>" data-key="t-login">
+                                            <a href="<?php echo base_url('laporan/laporan_umum'); ?>" data-key="t-login">
                                                 <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                 <span data-key="t-dashboard" style="color: white;">Harian</span>
                                             </a>
