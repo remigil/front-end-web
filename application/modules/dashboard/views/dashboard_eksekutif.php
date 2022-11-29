@@ -143,7 +143,7 @@
                     <div class="cat operasiDisplay" style="display:none">
                         <div class="btn-group">
                             <label>
-                                <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                                <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Trouble Spot</span>
                             </label>
                             <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -173,7 +173,7 @@
                         </div>
                     </div>
 
-                    <div class="cat troublespotDisplay" style="margin-left: 10px;">
+                    <!-- <div class="cat troublespotDisplay" style="margin-left: 10px;">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="troublespot" name="filter" id="troublespotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
@@ -182,7 +182,7 @@
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="cat blankspotDisplay" style="margin-left: 10px;">
                         <div class="btn-group">
@@ -1072,55 +1072,7 @@
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
-
-<!-- <script>
-      
-        var socket = io('http://103.163.139.100:3005/', {
-        // transports: ["websocket",],
-        // path:'/socket.io/',
-        query: {
-        
-            username: "Kakor",
-            password: "a",
-            
-            type: "Admin"
-        }
-    });
-    socket.on("connected", function(resSocket){
-            console.log(socket.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
-            socket.on("sendToAdminMobile", function(resSocket){
-            // console.log(socket.id);
-            // console.log(resSocket);
-            // console.log('sendToAdminMobile');
-        });
-            socket.on("from server", function(resSocket){
-            // console.log(socket.id);
-            console.log(resSocket);
-            console.log('from server');
-        });
-        $('document').ready(function() {
-            let no = 1
-
-        socket.on("connected", function(resSocket){
-            console.log(socket.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
-            socket.on("sendToAdminMobile", function(resSocket){
-            // console.log(socket.id);
-            // console.log(resSocket);
-            // console.log('sendToAdminMobile');
-        });
-            socket.on("from server", function(resSocket){
-            // console.log(socket.id);
-            console.log(resSocket);
-            console.log('from server');
-        }); 
-        }) 
-      </script> -->
+ 
 
 <script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
@@ -1129,7 +1081,7 @@
 
     let data = [];
     let connected = false;
-    var socket = io('http://103.163.139.100:3005/', {
+    var socket = io('http://34.143.227.90:3019/', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1142,7 +1094,7 @@
             type: "Admin"
         }
     });
-    var socketKe2 = io('http://103.163.139.100:3001/', {
+    var socketKe2 = io('http://34.143.227.90:3019/', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',

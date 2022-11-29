@@ -219,7 +219,7 @@
                         <div class="cat operasiDisplay" style="display:none">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                                    <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Trouble Spot</span>
                                 </label>
                                 <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -249,7 +249,7 @@
                             </div>
                         </div>
 
-                        <div class="cat troublespotDisplay" style="margin-left: 10px;">
+                        <!-- <div class="cat troublespotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="troublespot" name="filter" id="troublespotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
@@ -258,7 +258,7 @@
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="cat blankspotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
