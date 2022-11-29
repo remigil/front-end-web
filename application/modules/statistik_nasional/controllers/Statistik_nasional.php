@@ -210,10 +210,6 @@ class Statistik_nasional extends MY_Controller
 
     public function Lakalantas()
     {
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Data Kecelakaan Nasional";
@@ -225,10 +221,6 @@ class Statistik_nasional extends MY_Controller
 
     public function Garlantas()
     {
-
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
@@ -243,10 +235,6 @@ class Statistik_nasional extends MY_Controller
     public function Turjagwali()
     {
 
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
-
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Data Turjagwali Nasional";
@@ -256,17 +244,133 @@ class Statistik_nasional extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
-    public function Ranmor()
+    public function Walpjr()
     {
-
-        $headers = [
-            'Authorization' => $this->session->userdata['token'],
-        ];
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Ranmor Nasional";
-        $page_content["page"] = "statistik_nasional/statistik_ranmor_view";
+        $page_content["title"] = "Data WAL & PJR Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_walpjr_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Sim()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Sim Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_sim_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Bpkb()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Bpkb Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_bpkb_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Stnk()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Stnk Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_stnk_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Sbst()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Fasmat Sbst Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_sbst_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Dikmas()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Dikmaslantas Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_dikmaslantas_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Jemenopsrek()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Jemenopsrek Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_jemenopsrek_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Cegah()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Cegah Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_cegah_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Audit()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Audit Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_audit_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subrenop()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Renop Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_renop_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subdalops()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Dalops Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_dalops_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subkerma()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Kerma Nasional";
+        $page_content["page"] = "statistik_nasional/statistik_kerma_view";
+        $page_content["data"] = '';
+        // $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subanev()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Anev Nasional";
+        $page_content["page"] = "statistik_nasional/anev_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
