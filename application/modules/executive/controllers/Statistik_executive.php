@@ -281,6 +281,38 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
 
+    public function getDetailStatistikSim()
+    {
+        $title = 'TOP DATA SIM LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
 
     public function getLakalantasByDate()
     {
@@ -411,7 +443,19 @@ class Statistik_executive extends MY_Controller
         }
     }
 
+    public function getTopSim()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
+        $simTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
 
+        $data['topSim'] = $simTopPolda['data']['rows'];
+        echo json_encode($data['topSim']);
+    }
     public function getTopLaka()
     {
         $yesterday = $this->input->post('yesterday');
@@ -594,6 +638,58 @@ class Statistik_executive extends MY_Controller
 
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
+    }
+
+    public function getSimDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'sim/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'sim/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'sim/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $baru = 0;
+        $perpanjangan = 0;
+        foreach ($thisYear['data'] as $key) {
+            $baru += $key['baru'];
+            $perpanjangan += $key['perpanjangan'];
+        }
+
+        $data['thisYear'] = [
+            'baru' => $baru,
+            'perpanjangan' => $perpanjangan,
+        ];
+
+        $data['simDate'] = [
+            'thisDay' => $thisDay['data'],
+            'thisMonth' => $thisMonth['data'],
+            'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['simDate']);
     }
 
     public function getDitgakkumDate()

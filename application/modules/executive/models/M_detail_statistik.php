@@ -47,7 +47,7 @@ class M_detail_statistik extends CI_Model
         }
 
 
-        
+
         return [
             'polda_id' => $poldaID,
             'polda_name' => $poldaName,
@@ -201,6 +201,43 @@ class M_detail_statistik extends CI_Model
             'polda_ransus' => $polda_ransus,
             'polda_sepeda_motor' => $polda_sepeda_motor,
             'polda_jumlah' => $polda_jumlah,
+        ];
+    }
+
+    public function getSimNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'sim/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'sim/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaID = array();
+        $poldaName = array();
+        $polda_baru = array();
+        $polda_perpanjangan = array();
+        foreach ($lakalantasnasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
+            $poldaName[] = $key['name_polda'];
+            $polda_baru[] = $key['baru'];
+            $polda_perpanjangan[] = $key['perpanjangan'];
+        }
+        return [
+            'polda_id' => $poldaID,
+            'polda_name' => $poldaName,
+            'polda_baru' => $polda_baru,
+            'polda_perpanjangan' => $polda_perpanjangan,
         ];
     }
 
