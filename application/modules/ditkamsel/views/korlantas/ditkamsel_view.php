@@ -23,9 +23,11 @@
                             </button>
 
                             <div class="dropdown-menu" style="width: 200px;">
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
-                                <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=triwulan&date=<?= date('m'); ?>">Triwulan</a>
+                                <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -42,9 +44,11 @@
                                 </button>
 
                                 <div class="dropdown-menu" style="width: 200px;">
-                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
-                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
-                                    <a class="dropdown-item" href="http://34.143.227.90:3001/v1/laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=day&date=<?= date('Y-m-d'); ?>">Harian</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=weeks&date=<?= date('Y-m-d'); ?>">Mingguan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=month&date=<?= date('m'); ?>">Bulanan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=triwulan&date=<?= date('m'); ?>">Triwulan</a>
+                                    <a class="dropdown-item" href="http://34.143.227.90:3019/v1/laporan_harian/anev_ditkamsel?type=years&date=<?= date('Y'); ?>">Tahunan</a>
                                 </div>
                             </div>
                         </div>
