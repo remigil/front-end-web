@@ -126,7 +126,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none">
+                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; ">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -178,7 +178,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat clusterDisplay" style="margin-left: 10px; display:none;">
+                        <div class="cat clusterDisplay" style="margin-left: 10px; ;">
                             <div class="btn-group">
                                 <label>
                                     <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
@@ -195,7 +195,7 @@
                                 </label>  
                             </div> -->
 
-                        <div class="cat kegiatanDisplay" style="display:none">
+                        <div class="cat kegiatanDisplay" style="">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -216,7 +216,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat operasiDisplay" style="display:none">
+                        <div class="cat operasiDisplay" style="">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
@@ -227,7 +227,7 @@
                             </div>
                         </div>
 
-                        <div class="cat panicDisplay" style="margin-left: 10px; display:none">
+                        <div class="cat panicDisplay" style="margin-left: 10px; ">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
@@ -1319,7 +1319,41 @@
                         type: "roadmap",
                     }).addGoogleLayer("TrafficLayer");
 
-
+                    var shpFile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/SHP/${result.polda.file_shp}`, {
+                        pointToLayer: function(feature, latlng) {
+                            
+                            var smallIcon = new L.divIcon({
+                                iconAnchor: [20, 51],
+                                popupAnchor: [0, -51],
+                                className: 'listeo-marker-icon',
+                                html: '<div class="marker-container">' +
+                                '<div class="marker-card">' +
+                                '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                                '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                                '<div class="marker-arrow"></div>' +
+                                '</div>' +
+                                '</div>'
+                            });
+                            
+                    
+                            var mark = L.marker(latlng, {icon: smallIcon})
+                            cluster.addLayer(mark)
+                            return  cluster;
+                            
+                        },
+                        onEachFeature: function(feature, layer) {
+                            if (feature.properties) {
+                                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                                    return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+                                }).join("<hr>"), {
+                                    maxWidth: 400,
+                                    maxHeight: 250, 
+                                    scrollbarWidth: 'thin',
+                                    className: 'leaflet-infoBox'
+                                });
+                            }
+                        }
+                    });
 
                     // StART MAP SECTION
                     var mapContainer = L.map('mapG20Dashboard', {
@@ -1327,7 +1361,7 @@
                         minZoom: 1,
                         zoomSnap: 0.25,
                         zoomControl: false,
-                        layers: [googleHybrid]
+                        layers: [googleHybrid, shpFile]
                     }).setView(initialCenter, initialZoom);
 
                     var myRenderer = L.canvas({
@@ -1351,7 +1385,7 @@
                         "MappBox Traffic": gl,
                     };
                     var overlayMaps = {
-
+                        "Batas Wilayah": shpFile
                     };
                     L.control.layers(baseMaps, overlayMaps, {
                         position: 'topright'
@@ -1364,575 +1398,7 @@
 
 
 
-
-
-                    var autolinker = new Autolinker({
-                        truncate: {
-                            length: 30,
-                            location: 'smart'
-                        }
-                    });
-                    var bounds_group = new L.featureGroup([]);
-
-                    function setBounds() {}
-
-
-                    function pop_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1(feature, layer) {
-                        var popupContent = `<table> 
-                            <tr>
-                                <h5>Provinsi</h5>
-                                <td colspan="2"> ${feature.properties['PROVINSI'] !== null ? autolinker.link(feature.properties['PROVINSI'].toLocaleString()) : ''} </td>
-                            </tr> 
-                        </table>`;
-                        layer.bindPopup(popupContent, {
-                            maxHeight: 400
-                        });
-                    }
-
-                    function style_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1_0(feature) {
-                        switch (String(feature.properties['PROVINSI'])) {
-                            case 'ACEH':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(51,160,44,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(215,25,28,0.00392156862745098)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'BALI':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(255,5,13,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(219,43,36,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'BANTEN':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(0,0,0,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(224,60,44,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'BENGKULU':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(251,230,44,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(228,78,52,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'DAERAH ISTIMEWA YOGYAKARTA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(73,211,126,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(233,95,60,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'DKI JAKARTA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(166,206,227,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(237,113,69,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'GORONTALO':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(178,223,138,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(242,130,77,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'JAMBI':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(255,127,0,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(246,148,85,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'JAWA BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(202,0,32,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(251,165,93,0.0196078431372549)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'JAWA TENGAH':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(251,154,153,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(253,179,103,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'JAWA TIMUR':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(166,206,227,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(253,188,114,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KALIMANTAN BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(31,120,180,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(254,198,125,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KALIMANTAN SELATAN':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(253,191,111,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(254,207,136,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KALIMANTAN TENGAH':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(178,223,138,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(254,217,147,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KALIMANTAN TIMUR':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(145,82,45,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(254,226,158,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KALIMANTAN UTARA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(213,180,60,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(255,236,170,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KEPULAUAN BANGKA BELITUNG':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(141,90,153,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(255,245,181,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'KEPULAUAN RIAU':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(232,113,141,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(255,255,192,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'LAMPUNG':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(190,178,151,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(245,251,182,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'MALUKU':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(183,72,75,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(234,246,172,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'MALUKU UTARA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(225,89,137,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(224,242,162,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'NUSA TENGGARA BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(125,139,143,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(213,237,152,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'NUSA TENGGARA TIMUR':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(213,180,60,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(203,233,141,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'PAPUA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(243,166,178,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(192,228,131,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'PAPUA BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(125,183,140,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(182,224,121,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'RIAU':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(150,227,255,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(171,219,111,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SULAWESI BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(125,183,162,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(158,213,104,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SULAWESI SELATAN':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(153,164,88,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(141,205,99,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SULAWESI TENGAH':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(198,113,232,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(125,197,94,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SULAWESI TENGGARA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(98,113,72,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(108,189,89,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SULAWESI UTARA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(231,209,72,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(92,182,84,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SUMATERA BARAT':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(80,207,104,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(75,174,79,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SUMATERA SELATAN':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(141,125,143,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(59,166,75,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            case 'SUMATERA UTARA':
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(35,35,35,1.0)',
-                                        dashArray: '10,5',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 3.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(42,158,70,0.0)',
-                                        interactive: true,
-                                }
-                                break;
-                            default:
-                                return {
-                                    pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                                        opacity: 1,
-                                        color: 'rgba(35,35,35,1.0)',
-                                        dashArray: '',
-                                        lineCap: 'butt',
-                                        lineJoin: 'miter',
-                                        weight: 1.0,
-                                        fill: true,
-                                        fillOpacity: 1,
-                                        fillColor: 'rgba(26,150,65,1.0)',
-                                        interactive: true,
-                                }
-                                break;
-                        }
-                    }
-                    mapContainer.createPane('pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1');
-                    mapContainer.getPane('pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1').style.zIndex = 401;
-                    mapContainer.getPane('pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1').style['mix-blend-mode'] = 'normal';
-                    var layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1 = new L.geoJson(json_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1, {
-                        attribution: '',
-                        interactive: true,
-                        dataVar: 'json_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                        layerName: 'layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                        pane: 'pane_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1',
-                        onEachFeature: pop_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1,
-                        style: style_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1_0,
-                    });
-                    bounds_group.addLayer(layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1);
-                    mapContainer.addLayer(layer_BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1);
-                    setBounds();
+                    
 
 
                     socket.on("connected", function(resSocket) {
