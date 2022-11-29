@@ -252,4 +252,113 @@ class Polda_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
+
+    public function statistik_polda($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Statistik Polda";
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $page_content["page"] = "executive/polda/statistik_polda_view";
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function getStatistik($id)
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id, [
+            'headers' => $headers
+        ]);
+        $getGakkum = $getGakkum["data"];
+
+
+        $totalwalpjr = 72;
+        $totalgarlantas = 0;
+        $totallakalantas = 0;
+        $totalturjagwali = 0;
+        for ($i = 0; $i < count($getGakkum); $i++) {
+            $totalgarlantas += $getGakkum[$i]['garlantas'];
+            $totallakalantas += $getGakkum[$i]['lakalantas'];
+            $totalturjagwali += $getGakkum[$i]['turjagwali'];
+        }
+
+        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?polda_id=' . $id, [
+            'headers' => $headers
+        ]);
+        $getKamsel = $getKamsel["data"];
+
+        $totaldikmas = 0;
+        $totaljemenopsrek = 0;
+        $totalcegah = 0;
+        $totalaudit = 0;
+        for ($i = 0; $i < count($getKamsel); $i++) {
+            $totaldikmas += $getKamsel[$i]['dikmaslantas'];
+            // $totaljemenopsrek += $getKamsel[$i]['jemenopsrek'];
+            // $totalcegah += $getKamsel[$i]['cegah'];
+            // $totalaudit += $getKamsel[$i]['audit'];
+        }
+
+        $getRegident = guzzle_request('GET', 'ditregident/daily?polda_id=' . $id, [
+            'headers' => $headers
+        ]);
+        $getRegident = $getRegident["data"];
+
+        $totalbpkb = 0;
+        $totalstnk = 0;
+        $totalsim = 0;
+        $totalsbst = 0;
+        for ($i = 0; $i < count($getRegident); $i++) {
+            $totalbpkb += $getRegident[$i]['bpkb'];
+            $totalstnk += $getRegident[$i]['stnk'];
+            $totalsim += $getRegident[$i]['sim'];
+            // $totalsbst += $getRegident[$i]['sbst'];
+        }
+
+        // $getOps = guzzle_request('GET', 'bagops/daily', [
+        //     'headers' => $headers
+        // ]);
+        // $getOps = $getOps["data"];
+
+        $totalsubrenop = 0;
+        $totalsubdalops = 0;
+        $totalsubkerma = 0;
+        $totalsubanev = 0;
+        // for ($i = 0; $i < count($getOps); $i++) {
+        //     $totalsubrenop += $getOps[$i]['subrenop'];
+        //     $totalsubdalops += $getOps[$i]['subdalops'];
+        //     $totalsubkerma += $getOps[$i]['subkerma'];
+        // $totalsubanev += $getOps[$i]['subanev'];
+        // }
+
+
+        $data = [
+            'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
+            'garlantas' => number_format($totalgarlantas, 0, '', '.'),
+            'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
+            'walpjr' =>  number_format($totalwalpjr, 0, '', '.'),
+
+            'bpkb' => number_format($totalbpkb, 0, '', '.'),
+            'stnk' =>  number_format($totalstnk, 0, '', '.'),
+            'sim' =>  number_format($totalsim, 0, '', '.'),
+            'sbst' => number_format($totalsbst, 0, '', '.'),
+
+            'dikmas' => number_format($totaldikmas, 0, '', '.'),
+            'jemenopsrek' =>  number_format($totaljemenopsrek, 0, '', '.'),
+            'cegah' =>  number_format($totalcegah, 0, '', '.'),
+            'audit' => number_format($totalaudit, 0, '', '.'),
+
+            'subrenop' => number_format($totalsubrenop, 0, '', '.'),
+            'subdalops' =>  number_format($totalsubdalops, 0, '', '.'),
+            'subkerma' =>  number_format($totalsubkerma, 0, '', '.'),
+            'subanev' => number_format($totalsubanev, 0, '', '.'),
+        ];
+
+        echo json_encode($data);
+    }
 }

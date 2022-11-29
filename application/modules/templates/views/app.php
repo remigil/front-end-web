@@ -1383,7 +1383,9 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo base_url('#'); ?>" data-key="t-register">
+                                                <!-- <img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"> -->
+                                                <!-- 'http://34.143.227.90:3020/v1/anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=2022' -->
+                                                <a href="<?= url_api('anev/getMonthly?mode=pdf-download&month=' . date('n') . '&year=' . date('Y')); ?>" data-key="t-register">
                                                     <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
                                                     <span data-key="t-dashboard" style="color: white;">Bulanan</span>
                                                 </a>

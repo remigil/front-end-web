@@ -39,10 +39,6 @@ class Statistik_nasional extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        // $date = date("Y-m-d");
-        // $getGakkum = guzzle_request('GET', 'ditgakkum/daily?date=' . $date . '', [
-        //     'headers' => $headers
-        // ]);
         $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
             'headers' => $headers
         ]);
