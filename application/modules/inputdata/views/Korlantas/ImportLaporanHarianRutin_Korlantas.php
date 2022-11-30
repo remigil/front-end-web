@@ -28,7 +28,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Import Laporan Harian</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Import Laporan Harian Rutin</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -38,7 +38,7 @@
                     <input type="hidden" name="jenis_satker_name" id="jenis_satker_name">
                     <input type="hidden" name="jenis_laporan_name" id="jenis_laporan_name">
                     <div class="row">
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="material-selectfield mb-3">
                                 <select name="polda_id" id="polda_id">
                                     <option value="0">Pilih</option>
@@ -48,7 +48,7 @@
                                 </select>
                                 <label class="labelmui">Polda</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
@@ -212,10 +212,10 @@
         $("#jenis_satker_name").val(jenis_satker_name);
     })
 
-    $('#polda_id').on('change', function() {
-        const polda_name = $('#polda_id option:selected').text();
-        $("#polda_name").val(polda_name);
-    })
+    // $('#polda_id').on('change', function() {
+    //     const polda_name = $('#polda_id option:selected').text();
+    //     $("#polda_name").val(polda_name);
+    // })
 
     $('#jenis_laporan').on('change', function() {
         const jenis_laporan_name = $('#jenis_laporan option:selected').text();
@@ -306,6 +306,7 @@
     function view()
     {
         file_name = $('#btn-view').data('file_name');
+        alert(file_name)
         Swal.fire({
             title: 'Do you want to view this data?',
             showDenyButton: false,
@@ -327,7 +328,7 @@
 	function process(type)
     {
 		id = $('#btn-process').data('id');
-		polda_id = $('#btn-process').data('polda_id');
+		// polda_id = $('#btn-process').data('polda_id');
 		tanggal = $('#btn-process').data('tanggal');
 		status = $('#btn-process').data('status');
 		file_name = $('#btn-process').data('file_name');
@@ -343,7 +344,7 @@
                     type:"POST",
                     dataType:"json",data:{
                         id:id,
-                        polda_id:polda_id,
+                        // polda_id:polda_id,
                         tanggal:tanggal,
                         status:status,
                         file_name:file_name,
