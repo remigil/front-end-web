@@ -63,8 +63,7 @@ class M_tripon extends CI_Model {
         }else{
 
             $searchData = '';
-
-        } 
+        }
 
         // if($filter_threat){
 
@@ -98,7 +97,7 @@ class M_tripon extends CI_Model {
 
 
         // $url_trip_on = 'trip_on';
-        $url_trip_on = 'trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
+        $url_trip_on = 'trip_on?serverSide=True&length=' . $rowperpage . '&start=' . $page . '&order=' . $orderFieldRess . '&orderDirection=' . $orderValue . '' . $searchData . '';
         // $url_passanger_trip_on = 'passanger_trip_on?serverSide=True&length='.$rowperpage.'&start='.$page.'&order='.$orderFieldRess.'&orderDirection='.$orderValue.''.$searchData.'';
         
 
@@ -110,17 +109,19 @@ class M_tripon extends CI_Model {
 
             ]
 
-        ]);  
+        ]);
 
         // echo "<pre>";
         // var_dump($result['data']['trip_on']['rows']);die;
-        
+
         // $asd = $result['data']['data'];
         // var_dump($asd);die;
-        
-		
+
+
+
+
         $no=1;
-		foreach  ($result['data']['rows'] as $field) { 
+        foreach ($result['data']['rows'] as $field) { 
 		// foreach  ($result['data']['data'] as $field) { 
             
             $row = array();   
@@ -129,7 +130,11 @@ class M_tripon extends CI_Model {
             $row ['person_name']	= $field['society']['person_name'];
             $row ['no_vehicle']	= $field["public_vehicle"]['no_vehicle'];
             $row ['type_vehicle']	= $field['type_vehicle']['type_name'];
+            $row['passanger'] = count($field['passenger_trip_ons']);
             $row ['brand_vehicle']	= $field['brand_vehicle']['brand_name'];
+            $row['location_start'] = $field['district_start'] . ' , ' . $field['province_start'];
+            $row['location_end'] = $field['district_end'] . ' , ' . $field['province_end'];
+
             // $row ['brand_vehicle']	= $field['brand_vehicle'];  
             // $row ['type_vehicle'] = $field['type_vehicle'];
             // foreach ($field['passenger_trip_ons'] as $tes){

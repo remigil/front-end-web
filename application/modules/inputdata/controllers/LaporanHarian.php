@@ -72,7 +72,7 @@ class LaporanHarian extends MY_Controller
     public function getPolda()
     {
         $headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $getPolda = guzzle_request('GET', 'polda/', [
@@ -86,7 +86,7 @@ class LaporanHarian extends MY_Controller
     public function getPolresID()
     {
         $headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $id = $this->input->post('polres_id');

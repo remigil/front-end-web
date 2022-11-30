@@ -104,7 +104,7 @@ class Tripon extends MY_Controller
     }
 
 
-    public function getTripOn()
+    public function getTipe_Kendaraan()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
@@ -126,6 +126,34 @@ class Tripon extends MY_Controller
         $data['tripOn'] = [
             'type' => $type,
             'jumlah' => $jumlah
+        ];
+
+        echo json_encode($data['tripOn']);
+    }
+
+    public function tripon_prov()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+
+        $limit = $this->input->post('limit');
+        $url = 'count-trip-on/prov_tripon?topTripon=true&limit=' . $limit . '';
+        $getTripon = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        foreach ($getTripon['data'] as $key) {
+            $kedatangan[] = $key['kedatangan'];
+            $keberangkatan[] = $key['keberangkatan'];
+            $provinsi[] = $key['nama'];
+        }
+
+        $data['tripOn'] = [
+            'kedatangan' => $kedatangan,
+            'keberangkatan' => $keberangkatan,
+            'provinsi' => $provinsi
         ];
 
         echo json_encode($data['tripOn']);
