@@ -32,7 +32,6 @@ class LaporanOperasiKhusus extends MY_Controller
                 'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
 
-
             $getOperasi = guzzle_request('GET', 'operation-profile', [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
