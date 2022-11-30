@@ -231,18 +231,18 @@ class M_detail_statistik_polda extends CI_Model
 
     // Pelanggaran (garlantas)
 
-    public function getPelanggaranNasional($filterbaru)
+    public function getPelanggaranPolda($filterbaru)
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'garlantas/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
+            $url = 'garlantas/daily?polda_id=' . $filterbaru['id'] . '&date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
             $garlantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'garlantas/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $url = 'garlantas/daily?polda_id=' . $filterbaru['id'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
             $garlantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
@@ -514,18 +514,18 @@ class M_detail_statistik_polda extends CI_Model
         ];
     }
 
-    public function getSimNasionalDate($filterbaru)
+    public function getSimPoldaDate($filterbaru)
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'sim/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'sim/date?type=day&polda_id=' . $filterbaru['id'] . 'filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'sim/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'sim/date?type=day&polda_id=' . $filterbaru['id'] . 'filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
@@ -674,18 +674,18 @@ class M_detail_statistik_polda extends CI_Model
     }
 
 
-    public function getDikmasNasionalDate($filterbaru)
+    public function getDikmasPoldaDate($filterbaru)
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'dikmaslantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'dikmaslantas/date?type=day&polda_id=' . $filterbaru['id'] . 'filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $dikmasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'dikmaslantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'dikmaslantas/date?type=day&polda_id=' . $filterbaru['id'] . 'filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $dikmasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']

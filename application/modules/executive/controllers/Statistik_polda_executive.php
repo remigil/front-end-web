@@ -169,37 +169,40 @@ class Statistik_polda_executive extends MY_Controller
     // Garlantas
 
 
-    // public function getDetailStatistikGarlantas()
-    // {
-    //     $title = 'TOP DATA PELANGGARAN LALU LINTAS';
-    //     $filter = $this->input->post('filter');
-    //     $limit = $this->input->post('limit');
-    //     $yesterday = $this->input->post('yesterday');
-    //     if ($filter == 0) {
-    //         $filterbaru = [
-    //             'filter' => $filter,
-    //             'start_date' => '',
-    //             'end_date' => '',
-    //             'limit' => $limit,
-    //             'yesterday' => $yesterday
-    //         ];
-    //         $getdata = $this->M_detail_statistik_polda->getPelanggaranNasional($filterbaru);
-    //     } elseif ($filter != 0) {
-    //         $filterbaru = [
-    //             'filter' => $filter,
-    //             'start_date' => $this->input->post('start_date'),
-    //             'end_date' => $this->input->post('end_date'),
-    //             'limit' => $limit
-    //         ];
-    //         $getdata = $this->M_detail_statistik_polda->getPelanggaranNasional($filterbaru);
-    //     }
+    public function getDetailStatistikGarlantas($id)
+    {
+        $title = 'TOP DATA PELANGGARAN LALU LINTAS';
+        $id = $this->input->post('id');
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'id' => $id,
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik_polda->getPelanggaranPolda($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'id' => $id,
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik_polda->getPelanggaranPolda($filterbaru);
+        }
 
-    //     $data = [
-    //         'data' => $getdata,
-    //         'title' => $title,
-    //     ];
-    //     echo json_encode($data);
-    // }
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
 
     // public function exportDatagarlantas()
     // {
@@ -522,7 +525,7 @@ class Statistik_polda_executive extends MY_Controller
         echo json_encode($data['topsim']);
     }
 
-    public function getLineSim()
+    public function getLineSim($id)
     {
         $title = 'DATA SIM LALU LINTAS';
         $filter = $this->input->post('filter');
@@ -530,18 +533,19 @@ class Statistik_polda_executive extends MY_Controller
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getSimNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getSimPoldaDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
-                'filter' => $filter,
+                'id' => $id,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getSimNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getSimPoldaDate($filterbaru);
         }
 
         $data = [
@@ -695,7 +699,7 @@ class Statistik_polda_executive extends MY_Controller
         echo json_encode($data);
     }
 
-    public function getLineDikmas()
+    public function getLineDikmas($id)
     {
         $title = 'DATA DIKMASLANTAS';
         $filter = $this->input->post('filter');
@@ -703,18 +707,20 @@ class Statistik_polda_executive extends MY_Controller
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getDikmasNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getDikmasPoldaDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getDikmasNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getDikmasPoldaDate($filterbaru);
         }
 
         $data = [
@@ -1266,7 +1272,7 @@ class Statistik_polda_executive extends MY_Controller
 
         echo json_encode($data['ditgakkumDate']);
     }
-    public function getDitkamselDate()
+    public function getDitkamselDate($id)
     {
         $yesterday = $this->input->post('yesterday');
         $firstDayMonth = $this->input->post('firstDayMonth');
@@ -1274,9 +1280,9 @@ class Statistik_polda_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'ditkamsel/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'ditkamsel/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'ditkamsel/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'ditkamsel/date?type=day&polda_id=' . $id . '&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ditkamsel/date?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ditkamsel/date?type=month&polda_id=' . $id . '&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [
@@ -1319,7 +1325,7 @@ class Statistik_polda_executive extends MY_Controller
         echo json_encode($data['ditkamselDate']);
     }
 
-    public function getDitregidentDate()
+    public function getDitregidentDate($id)
     {
         $yesterday = $this->input->post('yesterday');
         $firstDayMonth = $this->input->post('firstDayMonth');
@@ -1327,9 +1333,9 @@ class Statistik_polda_executive extends MY_Controller
         $firstDay = $this->input->post('firstDay');
         $lastDay = $this->input->post('lastDay');
 
-        $url_thisDay = 'ditregident/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
-        $url_thisMonth = 'ditregident/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
-        $url_thisYear = 'ditregident/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+        $url_thisDay = 'ditregident/date?polda_id=' . $id . '&type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ditregident/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ditregident/date?polda_id=' . $id . '&type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
 
 
         $thisDay = guzzle_request('GET', $url_thisDay, [

@@ -274,7 +274,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
              data: {
                  filter: filter,
                  limit: limit,
@@ -415,7 +415,7 @@
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
              data: {
                  filter: filter,
                  limit: limit,
@@ -543,7 +543,7 @@
      function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -588,7 +588,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -719,7 +719,7 @@
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineLaka",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -816,7 +816,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -838,7 +838,7 @@
      function topLakaDay(yesterday) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopLaka",
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -884,7 +884,7 @@
      function topLakaMonth(firstDayMonth, lastDayMonth) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaMonth",
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -931,7 +931,7 @@
      function topLakaYear(firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaYear",
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

@@ -449,10 +449,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Kecelakaan Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Kecelakaan Polda";
         $page_content["page"] = "executive/polda/statistik_laka_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -463,10 +463,10 @@ class Polda_executive extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Pelanggaran Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Pelanggaran Polda";
         $page_content["page"] = "executive/polda/statistik_langgar_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -478,10 +478,10 @@ class Polda_executive extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Turjagwali Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Turjagwali Polda";
         $page_content["page"] = "executive/polda/statistik_turjagwali_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -492,10 +492,10 @@ class Polda_executive extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data WAL & PJR Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data WAL & PJR Polda";
         $page_content["page"] = "executive/polda/statistik_walpjr_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -504,10 +504,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Sim Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Sim Polda";
         $page_content["page"] = "executive/polda/statistik_sim_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -516,10 +516,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Bpkb Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Bpkb Polda";
         $page_content["page"] = "executive/polda/statistik_bpkb_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -528,10 +528,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Stnk Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Stnk Polda";
         $page_content["page"] = "executive/polda/statistik_stnk_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -540,10 +540,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Fasmat Sbst Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Fasmat Sbst Polda";
         $page_content["page"] = "executive/polda/statistik_sbst_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -552,10 +552,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Dikmaslantas Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Dikmaslantas Polda";
         $page_content["page"] = "executive/polda/statistik_dikmaslantas_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -564,10 +564,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Jemenopsrek Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Jemenopsrek Polda";
         $page_content["page"] = "executive/polda/statistik_jemenopsrek_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -576,10 +576,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Cegah Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Cegah Polda";
         $page_content["page"] = "executive/polda/statistik_cegah_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -588,10 +588,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Audit Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Audit Polda";
         $page_content["page"] = "executive/polda/statistik_audit_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -600,10 +600,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Subbag Renop Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Subbag Renop Polda";
         $page_content["page"] = "executive/polda/statistik_renop_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -612,10 +612,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Subbag Dalops Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Subbag Dalops Polda";
         $page_content["page"] = "executive/polda/statistik_dalops_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -624,10 +624,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Subbag Kerma Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Subbag Kerma Polda";
         $page_content["page"] = "executive/polda/statistik_kerma_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
@@ -636,10 +636,10 @@ class Polda_executive extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Data Subbag Anev Nasional";
+        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
+        $page_content["title"] = "Data Subbag Anev Polda";
         $page_content["page"] = "executive/polda/statistik_anev_view";
         // $page_content["data"] = '';
-        $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);

@@ -279,6 +279,8 @@
 
  <script>
      $(document).ready(function() {
+         let id = '<?= $data['id'] ?>'
+
          let filter = 0
          var date = new Date();
          var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -295,7 +297,7 @@
          var limit = $('#limit_showData').val();
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikGarlantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikGarlantas/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -435,12 +437,14 @@
      })
 
      $('#limit_showData').on('change', function() {
+         let id = '<?= $data['id'] ?> '
+
          let filter = 0
          var limit = $('#limit_showData').val();
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikGarlantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikGarlantas/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -570,9 +574,11 @@
      })
 
      function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate/" + id,
              dataType: "JSON",
              data: {
                  yesterday,
@@ -591,6 +597,8 @@
      }
 
      function ButtonFilter() {
+         let id = '<?= $data['id'] ?> '
+
          let filter = 1;
          let start_date = $('#start_date').val()
          let end_date = $('#end_date').val()
@@ -615,7 +623,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikGarlantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikGarlantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -743,10 +751,11 @@
      }
 
      function GarlantaslineChart(seven_daysAgo, yesterday) {
+         let id = '<?= $data['id'] ?> '
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineGarlantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineGarlantas/" + id,
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -844,7 +853,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatagarlantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatagarlantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -864,9 +873,11 @@
      }
 
      function topGarlantasDay(yesterday) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopGarlantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopGarlantas/" + id,
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -912,9 +923,11 @@
      }
 
      function topGarlantasMonth(firstDayMonth, lastDayMonth) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getGarlantasMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getGarlantasMonth/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -961,9 +974,11 @@
      }
 
      function topGarlantasYear(firstDay, lastDay) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getGarlantasYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getGarlantasYear/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

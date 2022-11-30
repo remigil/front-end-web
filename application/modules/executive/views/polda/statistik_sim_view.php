@@ -256,6 +256,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
  <script>
      $(document).ready(function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var date = new Date();
          var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -273,7 +274,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikSim",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikSim/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -395,12 +396,13 @@
 
 
      $('#limit_showData').on('change', function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var limit = $('#limit_showData').val();
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikSim",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikSim/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -509,9 +511,10 @@
 
 
      function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+         let id = '<?= $data['id'] ?>'
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitregidentDate/" + id,
              dataType: "JSON",
              data: {
                  yesterday,
@@ -532,6 +535,7 @@
 
 
      function ButtonFilter() {
+         let id = '<?= $data['id'] ?>'
          let filter = 1;
          let start_date = $('#start_date').val()
          let end_date = $('#end_date').val()
@@ -556,7 +560,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikSim",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikSim/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -665,46 +669,37 @@
                  }
              })
 
-             LakalineChart(start_date, end_date)
+             SimlineChart(start_date, end_date)
          }
      }
 
      function SimlineChart(seven_daysAgo, yesterday) {
-
+         let id = '<?= $data['id'] ?>'
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineSim",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineSim/" + id,
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
              },
              dataType: "JSON",
              success: function(results) {
+                 console.log(results);
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
 
 
                  var chart2 = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'line',
-                         data: results.data.polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
                          name: '<h6>Baru</h6>',
                          type: 'line',
-                         data: results.data.polda_meninggal_dunia,
+                         data: results.data.polda_baru,
                          color: "#CB2D3E"
                      }, {
                          name: '<h6>Perpanjangan</h6>',
                          type: 'line',
                          data: results.data.polda_perpanjangan,
                          color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'line',
-                         data: results.data.polda_luka_ringan,
-                         color: "#3CA55C"
                      }],
                      chart: {
                          height: 400,
@@ -770,7 +765,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -790,9 +785,10 @@
      }
 
      function topSimDay(yesterday) {
+         let id = '<?= $data['id'] ?>'
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopSim",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopSim/" + id,
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -835,9 +831,10 @@
      }
 
      function topSimMonth(firstDayMonth, lastDayMonth) {
+         let id = '<?= $data['id'] ?>'
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getSimMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getSimMonth/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -881,9 +878,10 @@
      }
 
      function topSimYear(firstDay, lastDay) {
+         let id = '<?= $data['id'] ?>'
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getSimYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getSimYear/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

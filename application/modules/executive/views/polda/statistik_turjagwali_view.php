@@ -250,6 +250,7 @@
 
 <script>
     $(document).ready(function() {
+        let id = '<?= $data['id'] ?>'
         let filter = 0
         var date = new Date();
         var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -266,7 +267,7 @@
         $("#overlay").fadeIn(300);
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikTurjawali",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikTurjawali/" + id,
             data: {
                 filter: filter,
                 limit: limit,
@@ -407,12 +408,13 @@
     })
 
     $('#limit_showData').on('change', function() {
+        let id = '<?= $data['id'] ?>'
         let filter = 0
         var limit = $('#limit_showData').val();
         var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikTurjawali",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikTurjawali/" + id,
             data: {
                 filter: filter,
                 limit: limit,
@@ -544,9 +546,10 @@
     })
 
     function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+        let id = '<?= $data['id'] ?>'
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate/" + id,
             dataType: "JSON",
             data: {
                 yesterday,
@@ -565,6 +568,7 @@
     }
 
     function ButtonFilter() {
+        let id = '<?= $data['id'] ?>'
         let filter = 1;
         let start_date = $('#start_date').val()
         let end_date = $('#end_date').val()
@@ -590,7 +594,7 @@
             $("#chart").remove();
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikTurjawali",
+                url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikTurjawali/" + id,
                 data: {
                     filter: filter,
                     start_date: start_date,
@@ -719,10 +723,10 @@
     }
 
     function TurjagwalilineChart(seven_daysAgo, yesterday) {
-
+        let id = '<?= $data['id'] ?>'
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineTurjagwali",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineTurjagwali/" + id,
             data: {
                 start_date: seven_daysAgo,
                 end_date: yesterday
@@ -820,7 +824,7 @@
             $("#chart").remove();
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url(); ?>executive/statistik_executive/exportDataturjawali",
+                url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDataturjawali/" + id,
                 data: {
                     filter: filter,
                     start_date: start_date,
@@ -840,9 +844,10 @@
     }
 
     function topTurjagwaliDay(yesterday) {
+        let id = '<?= $data['id'] ?>'
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getTopTurjagwali",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopTurjagwali/" + id,
             dataType: "JSON",
             data: {
                 yesterday: yesterday
@@ -888,9 +893,10 @@
     }
 
     function topTurjagwaliMonth(firstDayMonth, lastDayMonth) {
+        let id = '<?= $data['id'] ?>'
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getTurjagwaliMonth",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTurjagwaliMonth/" + id,
             dataType: "JSON",
             data: {
                 firstDay: firstDayMonth,
@@ -937,9 +943,10 @@
     }
 
     function topTurjagwaliYear(firstDay, lastDay) {
+        let id = '<?= $data['id'] ?>'
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>executive/statistik_executive/getTurjagwaliYear",
+            url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTurjagwaliYear/" + id,
             dataType: "JSON",
             data: {
                 firstDay: firstDay,

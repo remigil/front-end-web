@@ -259,6 +259,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
  <script>
      $(document).ready(function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var date = new Date();
          var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -277,7 +278,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikDikmaslantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikDikmaslantas/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -393,13 +394,13 @@
              }
          })
 
-         topDikmasDay(yesterday);
-         topDikmasMonth(firstDayMonth, lastDayMonth);
-         topDikmasYear(firstDay, lastDay)
+         topDikmasDay(yesterday, id);
+         topDikmasMonth(firstDayMonth, lastDayMonth, id);
+         topDikmasYear(firstDay, lastDay, id)
 
-         ditkamsel_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         ditkamsel_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay, id)
 
-         DikmaslineChart(seven_daysAgo, yesterday)
+         DikmaslineChart(seven_daysAgo, yesterday, id)
          jam();
      })
 
@@ -410,7 +411,7 @@
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikDikmaslantas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikDikmaslantas/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -529,10 +530,10 @@
      })
 
 
-     function ditkamsel_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function ditkamsel_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitkamselDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitkamselDate/" + id,
              dataType: "JSON",
              data: {
                  yesterday,
@@ -553,6 +554,7 @@
 
 
      function ButtonFilter() {
+         let id = '<?= $data['id'] ?>'
          let filter = 1;
          let start_date = $('#start_date').val()
          let end_date = $('#end_date').val()
@@ -577,7 +579,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikDikmaslantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikDikmaslantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -694,15 +696,15 @@
                  }
              })
 
-             DikmaslineChart(start_date, end_date)
+             DikmaslineChart(start_date, end_date, id)
          }
      }
 
-     function DikmaslineChart(seven_daysAgo, yesterday) {
+     function DikmaslineChart(seven_daysAgo, yesterday, id) {
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineDikmas/" + id,
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -794,7 +796,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -813,10 +815,10 @@
          }
      }
 
-     function topDikmasDay(yesterday) {
+     function topDikmasDay(yesterday, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopDikmas",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopDikmas/" + id,
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -859,10 +861,10 @@
          })
      }
 
-     function topDikmasMonth(firstDayMonth, lastDayMonth) {
+     function topDikmasMonth(firstDayMonth, lastDayMonth, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDikmasMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDikmasMonth/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -906,10 +908,10 @@
          })
      }
 
-     function topDikmasYear(firstDay, lastDay) {
+     function topDikmasYear(firstDay, lastDay, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDikmasYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDikmasYear/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

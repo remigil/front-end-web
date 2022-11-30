@@ -284,7 +284,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas/" + id,
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -419,139 +419,141 @@
      })
 
 
-     //  $('#limit_showData').on('change', function() {
-     //      let filter = 0
-     //      var limit = $('#limit_showData').val();
-     //      var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
-     //      $.ajax({
-     //          type: "POST",
-     //          url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
-     //          data: {
-     //              filter: filter,
-     //              limit: limit,
-     //              yesterday: yesterday
-     //          },
-     //          dataType: "JSON",
-     //          success: function(result) {
-     //              console.log(result.data)
-     //              $("#overlay").fadeOut(300);
-     //              $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
-     //              $("#charta").html(`<div id="chart"></div>`);
+     $('#limit_showData').on('change', function() {
+         let id = '<?= $data['id'] ?> '
+         let filter = 0
+         var limit = $('#limit_showData').val();
+         var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
+         $.ajax({
+             type: "POST",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas/" + id,
+             data: {
+                 filter: filter,
+                 limit: limit,
+                 yesterday: yesterday
+             },
+             dataType: "JSON",
+             success: function(result) {
+                 console.log(result.data)
+                 $("#overlay").fadeOut(300);
+                 $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
+                 $("#charta").html(`<div id="chart"></div>`);
 
-     //              let polda_id = result.data.polda_id
-     //              let polda_name = result.data.polda_name
-     //              let polda_jumlah = result.data.insiden_kecelakaan
-     //              let polda_luka_berat = result.data.polda_luka_berat
-     //              let polda_luka_ringan = result.data.polda_luka_ringan
-     //              let polda_meninggal_dunia = result.data.polda_meninggal_dunia
-     //              // Chart Kecelakaan Lalu Lintas
+                 let polda_id = result.data.polda_id
+                 let polda_name = result.data.polda_name
+                 let polda_jumlah = result.data.insiden_kecelakaan
+                 let polda_luka_berat = result.data.polda_luka_berat
+                 let polda_luka_ringan = result.data.polda_luka_ringan
+                 let polda_meninggal_dunia = result.data.polda_meninggal_dunia
+                 // Chart Kecelakaan Lalu Lintas
 
-     //              // chart laka
-     //              var chart = {
-     //                  series: [{
-     //                      name: '<h6>Total Laka</h6>',
-     //                      type: 'column',
-     //                      data: polda_jumlah,
-     //                      color: "#11347A"
-     //                  }, {
-     //                      name: '<h6>Meninggal Dunia</h6>',
-     //                      type: 'column',
-     //                      data: polda_meninggal_dunia,
-     //                      color: "#CB2D3E"
-     //                  }, {
-     //                      name: '<h6>Luka Berat</h6>',
-     //                      type: 'column',
-     //                      data: polda_luka_berat,
-     //                      color: "#E8D42F"
-     //                  }, {
-     //                      name: '<h6>Luka Ringan</h6>',
-     //                      type: 'column',
-     //                      data: polda_luka_ringan,
-     //                      color: "#3CA55C"
+                 // chart laka
+                 var chart = {
+                     series: [{
+                         name: '<h6>Total Laka</h6>',
+                         type: 'column',
+                         data: polda_jumlah,
+                         color: "#11347A"
+                     }, {
+                         name: '<h6>Meninggal Dunia</h6>',
+                         type: 'column',
+                         data: polda_meninggal_dunia,
+                         color: "#CB2D3E"
+                     }, {
+                         name: '<h6>Luka Berat</h6>',
+                         type: 'column',
+                         data: polda_luka_berat,
+                         color: "#E8D42F"
+                     }, {
+                         name: '<h6>Luka Ringan</h6>',
+                         type: 'column',
+                         data: polda_luka_ringan,
+                         color: "#3CA55C"
 
-     //                  }],
-     //                  chart: {
-     //                      height: '400',
-     //                      type: 'line',
-     //                      stacked: false,
-     //                      events: {
-     //                          dataPointSelection: (event, chartContext, config) => {
-     //                              // var selectedpolda = pad(config.dataPointIndex);
-     //                              window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
-     //                          }
-     //                      },
+                     }],
+                     chart: {
+                         height: '400',
+                         type: 'line',
+                         stacked: false,
+                         events: {
+                             dataPointSelection: (event, chartContext, config) => {
+                                 // var selectedpolda = pad(config.dataPointIndex);
+                                 window.location.href = '../../executive/Polda_executive/index/' + polda_id[config.dataPointIndex]
+                             }
+                         },
 
-     //                  },
-     //                  tooltip: {
-     //                      fixed: {
-     //                          enabled: true
-     //                      }
-     //                  },
-     //                  plotOptions: {
-     //                      bar: {
-     //                          horizontal: false,
-     //                          columnWidth: '40%',
-     //                          endingShape: 'rounded',
-     //                          dataLabels: {
-     //                              position: 'top'
-     //                          }
-     //                      },
-     //                  },
-     //                  dataLabels: {
-     //                      enabled: true,
-     //                      style: {
-     //                          colors: ['#333']
-     //                      },
-     //                      offsetY: -15
-     //                  },
+                     },
+                     tooltip: {
+                         fixed: {
+                             enabled: true
+                         }
+                     },
+                     plotOptions: {
+                         bar: {
+                             horizontal: false,
+                             columnWidth: '40%',
+                             endingShape: 'rounded',
+                             dataLabels: {
+                                 position: 'top'
+                             }
+                         },
+                     },
+                     dataLabels: {
+                         enabled: true,
+                         style: {
+                             colors: ['#333']
+                         },
+                         offsetY: -15
+                     },
 
-     //                  stroke: {
-     //                      show: true,
-     //                      width: [1, 1, 4, 4],
-     //                      colors: ['transparent']
-     //                  },
-     //                  xaxis: {
-     //                      categories: polda_name,
-     //                      labels: {
-     //                          show: true,
-     //                          style: {
-     //                              colors: ['#f70505'],
-     //                              fontSize: '18px',
-     //                              fontWeight: 400,
-     //                          }
-     //                      },
-     //                      tickPlacement: 'between'
-     //                  },
-     //                  yaxis: [{
-     //                      axisTicks: {
-     //                          show: false,
-     //                      },
-     //                      axisBorder: {
-     //                          show: false,
-     //                          color: '#008FFB'
-     //                      },
-     //                      labels: {
-     //                          style: {
-     //                              colors: '#008FFB',
-     //                          }
-     //                      },
-
-
-     //                  }, ],
-
-     //              };
+                     stroke: {
+                         show: true,
+                         width: [1, 1, 4, 4],
+                         colors: ['transparent']
+                     },
+                     xaxis: {
+                         categories: polda_name,
+                         labels: {
+                             show: true,
+                             style: {
+                                 colors: ['#f70505'],
+                                 fontSize: '18px',
+                                 fontWeight: 400,
+                             }
+                         },
+                         tickPlacement: 'between'
+                     },
+                     yaxis: [{
+                         axisTicks: {
+                             show: false,
+                         },
+                         axisBorder: {
+                             show: false,
+                             color: '#008FFB'
+                         },
+                         labels: {
+                             style: {
+                                 colors: '#008FFB',
+                             }
+                         },
 
 
-     //              var chart = new ApexCharts(document.querySelector("#chart"), chart);
-     //              chart.render();
+                     }, ],
 
-     //          }
-     //      })
-     //  })
+                 };
+
+
+                 var chart = new ApexCharts(document.querySelector("#chart"), chart);
+                 chart.render();
+
+             }
+         })
+     })
 
 
      function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
-         let id = '<?= $data['id'] ?>'
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
              url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate/" + id,
@@ -575,7 +577,8 @@
 
 
      function ButtonFilter() {
-         let id = '<?= $data['id'] ?>'
+         let id = '<?= $data['id'] ?> '
+
          let filter = 1;
          let start_date = $('#start_date').val()
          let end_date = $('#end_date').val()
@@ -600,7 +603,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas/" + id,
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -829,7 +832,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -849,9 +852,11 @@
      }
 
      function topLakaDay(yesterday) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopLaka/" + id,
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -897,9 +902,11 @@
      }
 
      function topLakaMonth(firstDayMonth, lastDayMonth) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaMonth/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -946,9 +953,11 @@
      }
 
      function topLakaYear(firstDay, lastDay) {
+         let id = '<?= $data['id'] ?> '
+
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaYear/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

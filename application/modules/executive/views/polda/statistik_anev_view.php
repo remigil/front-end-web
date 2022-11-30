@@ -271,7 +271,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikWalpjr",
              data: {
                  filter: filter,
                  limit: limit,
@@ -391,7 +391,7 @@
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikWalpjr",
              data: {
                  filter: filter,
                  limit: limit,
@@ -497,7 +497,7 @@
      function anev_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getWalpjrDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -543,7 +543,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikWalpjr",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -655,7 +655,7 @@
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineWalpjr",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineWalpjr",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -736,7 +736,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -758,7 +758,7 @@
      function topAnevDay(yesterday) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopWalpjr",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopWalpjr",
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -802,7 +802,7 @@
      function topAnevMonth(firstDayMonth, lastDayMonth) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getWalpjrMonth",
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -847,7 +847,7 @@
      function topAnevYear(firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getWalpjrYear",
              dataType: "JSON",
              data: {
                  firstDay: firstDay,
