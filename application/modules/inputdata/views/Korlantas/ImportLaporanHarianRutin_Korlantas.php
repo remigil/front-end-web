@@ -137,7 +137,8 @@
                     $("#overlay").fadeIn(300);
                     data.orderField = data.order[0] != undefined ? data.order[0].column : '';
                     data.orderValue = data.order[0] != undefined ? data.order[0].dir : '';
-                    data.page = Number(data.start / data.length) + 1
+                    data.page = Number(data.start / data.length)
+                    // data.page = Number(data.start / data.length) + 1
                 },
                 beforeSend: function(xhr, settings) {
                 },
@@ -306,7 +307,6 @@
     function view()
     {
         file_name = $('#btn-view').data('file_name');
-        alert(file_name)
         Swal.fire({
             title: 'Do you want to view this data?',
             showDenyButton: false,

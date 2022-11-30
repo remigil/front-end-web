@@ -4,7 +4,7 @@ use phpDocumentor\Reflection\Types\Object_;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ImportLaporanHarian extends MY_Controller
+class ImportLaporanNtmc extends MY_Controller
 {
 
     public function __construct()
@@ -20,19 +20,15 @@ class ImportLaporanHarian extends MY_Controller
     {
         $page_content["css"] = '';
         $page_content["js"] = '';
-        $page_content["title"] = "Import Laporan Harian Rutin";
+        $page_content["title"] = "Import Laporan NTMC";
 
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else {
-            $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => ['Authorization' => $this->session->userdata['token']]
-            ]);
-            $data['getPolda'] = isset($getPolda['data']['data'])?$getPolda['data']['data']:'';
-            $page_content["page"] = "inputdata/Korlantas/ImportLaporanHarianRutin_Korlantas";
+            $page_content["page"] = "inputdata/Korlantas/ImportLaporanNtmc_Korlantas";
         }
 
-        $page_content["data"] = $data;
+        $page_content["data"] = array();
         $this->templates->loadTemplate($page_content);
     }
 
@@ -46,11 +42,9 @@ class ImportLaporanHarian extends MY_Controller
             /**
              * Parameter
              */
-            // $polda_id = $this->input->post('polda_id');
             $jenis_satker = $this->input->post('jenis_satker');
             $jenis_laporan = $this->input->post('jenis_laporan');
             $tanggal = $this->input->post('date');
-            // $polda_name = strtoupper(str_replace(' ','-',$this->input->post('polda_name')));
             $jenis_satker_name = strtoupper(str_replace(' ','-',$this->input->post('jenis_satker_name')));
             $jenis_laporan_name = strtoupper(str_replace(' ','-',$this->input->post('jenis_laporan_name')));
 
@@ -64,7 +58,7 @@ class ImportLaporanHarian extends MY_Controller
             /**
              * Set direktori and config uploaded file
              */
-			$structure = 'files/import/harian';
+			$structure = 'files/import/ntmc';
 			$config['upload_path'] = $structure;
 			$config['allowed_types'] = 'xlsx';
 			$config['max_size']	= '100';
@@ -81,10 +75,9 @@ class ImportLaporanHarian extends MY_Controller
                 /**
                  * Send request parameter to api
                  */
-                $url = 'import/file';
+                $url = 'import/ntmc';
                 $data = guzzle_request('POST', $url, [
                     'json' => [
-                        // 'polda_id' => $polda_id,
                         'jenis_satker' => $jenis_satker,
                         'jenis_laporan' => $jenis_laporan,
                         'tanggal' => $tanggal,
@@ -124,7 +117,7 @@ class ImportLaporanHarian extends MY_Controller
     public function listof_import_file()
     {
         $postData = $this->input->post();
-        $data = $this->M_import->get_datatables_harian($postData);
+        $data = $this->M_import->get_datatables_ntmc($postData);
         echo json_encode($data);
     }
 
@@ -132,12 +125,12 @@ class ImportLaporanHarian extends MY_Controller
     {
 		$id = $this->input->post('id');
 		$file_name = $this->input->post('file_name');
-        $structure = 'files/import/harian/'.$file_name;
+        $structure = 'files/import/ntmc/'.$file_name;
 
         /**
          * Send request parameter to api
          */
-        $url = 'import/rmfile';
+        $url = 'import/rmfilentmc';
         $data = guzzle_request('POST', $url, [
             'json' => [
                 'id' => $id
@@ -166,7 +159,7 @@ class ImportLaporanHarian extends MY_Controller
 	function view()
 	{
 		$file_name = $this->uri->segment('4');
-        $structure = 'files/import/harian/'.$file_name;
+        $structure = 'files/import/ntmc/'.$file_name;
 
         if(file_exists($structure)){
             $data = file_get_contents($structure);
@@ -184,43 +177,51 @@ class ImportLaporanHarian extends MY_Controller
 		echo json_encode($return);		
 	}
 
+	
+
 	function format()
 	{
 		$type = $this->uri->segment('4');
         switch ($type) {
             case '1':
-                $filename = 'Format-Import-Dakgar-Lantas.xlsx';
+                $filename = 'Format-Import-Ntmc-Dokumentasi-Media-TV.xlsx';
             break;
             case '2':
-                $filename = 'Format-Import-Pelanggaran-Konvensional.xlsx';
+                $filename = 'Format-Import-Ntmc-Media-Facebook.xlsx';
             break;
             case '3':
-                $filename = 'Format-Import-Kecelakaan-Lalu-Lintas.xlsx';
+                $filename = 'Format-Import-Ntmc-Media-Instagram.xlsx';
             break;
             case '4':
-                $filename = 'Format-Import-Turjagwali.xlsx';
+                $filename = 'Format-Import-Ntmc-Media-Portal-Online.xlsx';
             break;
             case '5':
-                $filename = 'Format-Import-Dikmaslantas.xlsx';
+                $filename = 'Format-Import-Ntmc-Media-Sosial-Ntmc.xlsx';
             break;
             case '6':
-                $filename = 'Format-Import-Penyebaran-dan-Pemasangan.xlsx';
+                $filename = 'Format-Import-Ntmc-Media-Twitter.xlsx';
             break;
             case '7':
-                $filename = 'Format-Import-SIM.xlsx';
+                $filename = 'Format-Import-Ntmc-Off-Air-Program.xlsx';
             break;
             case '8':
-                $filename = 'Format-Import-BPKB.xlsx';
+                $filename = 'Format-Import-Ntmc-On-Air-Program-Media-Sosial.xlsx';
             break;
             case '9':
-                $filename = 'Format-Import-RANMOR.xlsx';
+                $filename = 'Format-Import-Ntmc-On-Air-Program-Online.xlsx';
             break;
             case '10':
-                $filename = 'Format-Import-STNK.xlsx';
+                $filename = 'Format-Import-Ntmc-On-Air-Program-TV.xlsx';
+            break;
+            case '11':
+                $filename = 'Format-Import-Ntmc-On-Air-Radio-Ntmc.xlsx';
+            break;
+            case '12':
+                $filename = 'Format-Import-Ntmc-Pengaduan.xlsx';
             break;
         }
         
-        $structure = 'files/format/harian/'.$filename;
+        $structure = 'files/format/ntmc/'.$filename;
 
         if(file_exists($structure)){
             $data = file_get_contents($structure);
@@ -241,7 +242,6 @@ class ImportLaporanHarian extends MY_Controller
 	function process()
 	{
 		$id = $this->input->post('id');
-		// $polda_id = $this->input->post('polda_id');
 		$tanggal = $this->input->post('tanggal');
 		$status = $this->input->post('status');
 		$file_name = $this->input->post('file_name');
@@ -249,7 +249,7 @@ class ImportLaporanHarian extends MY_Controller
 		$message = '';
 
 		if ($status=='0') {
-			$structure = 'files/import/harian/';
+			$structure = 'files/import/ntmc/';
 			$file_name = $structure.$file_name;
 
 			try {
@@ -273,144 +273,101 @@ class ImportLaporanHarian extends MY_Controller
                             if($type==1) {
 
                                 /**
-                                 * dakgarlantas
+                                 * programtv
                                  */
                                 
-                                $url = 'import/dakgarlantas';
+                                $url = 'import/programtv';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
                                 $D = trim(trim($row['D']));
                                 $E = trim(trim($row['E']));
                                 $F = trim(trim($row['F']));
-                                $G = trim(trim($row['G']));
-                                $H = trim(trim($row['H']));
-                                $I = trim(trim($row['I']));
-                                $J = trim(trim($row['J']));
-                                $K = trim(trim($row['K']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'capture_camera'=>$C,
-                                    'statis'=>$D,
-                                    'mobile'=>$E,
-                                    'online'=>$F,
-                                    'posko'=>$G,
-                                    'preemtif'=>$H,
-                                    'preventif'=>$I,
-                                    'odol_227'=>$J,
-                                    'odol_307'=>$K
+                                    'program'=>$B,
+                                    'live_report'=>$C,
+                                    'live_program'=>$D,
+                                    'tapping'=>$E,
+                                    'vlog_cctv'=>$F
                                 );
 
                             }else if($type==2) {
                                 
                                 /**
-                                 * Konvensional
+                                 * programonline
                                  */
 
-                                $url = 'import/konvensional';
+                                $url = 'import/programonline';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'pelanggaran_berat'=>$C,
-                                    'pelanggaran_sedang'=>$D,
-                                    'pelanggaran_ringan'=>$E,
-                                    'teguran'=>$F
+                                    'web_ntmc'=>$B,
+                                    'web_korlantas'=>$C
                                 );
 
                             }else if($type==3) {
                                 
                                 /**
-                                 * Kecelakaan Lalu Lintas
+                                 * programmedsos
                                  */
 
-                                $url = 'import/lalulintas';
+                                $url = 'import/programmedsos';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
                                 $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
-                                $G = trim(trim($row['G']));
-                                $H = trim(trim($row['H']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'meninggal_dunia'=>$C,
-                                    'luka_berat'=>$D,
-                                    'luka_ringan'=>$E,
-                                    'kerugian_material'=>$F,
-                                    'insiden_kecelakaan'=>$G,
-                                    'total_korban'=>$H
+                                    'facebook'=>$B,
+                                    'instagram'=>$C,
+                                    'twitter'=>$D
                                 );
 
                             }else if($type==4) {
                                 
                                 /**
-                                 * Turjagwali
+                                 * offairprogram
                                  */
 
-                                $url = 'import/turjagwali';
+                                $url = 'import/offairprogram';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'penjagaan'=>$C,
-                                    'pengawalan'=>$D,
-                                    'patroli'=>$E,
-                                    'pengaturan'=>$F
+                                    'sosialisasi'=>$B,
+                                    'timtam'=>$C
                                 );
 
                             }else if($type==5) {
                                 
                                 /**
-                                 * Dikmaslantas
+                                 * mediatv
                                  */
 
-                                $url = 'import/dikmaslantas';
+                                $url = 'import/mediatv';
 
                                 $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-                                $F = trim(trim($row['F']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'media_cetak'=>$C,
-                                    'media_elektronik'=>$D,
-                                    'media_sosial'=>$E,
-                                    'laka_langgar'=>$F
+                                    'media_tv'=>$B
                                 );
 
                             }else if($type==6) {
                                 
                                 /**
-                                 * Penyebaran/Pemasangan
+                                 * twitter
                                  */
 
-                                $url = 'import/penyebaran';
+                                $url = 'import/twitter';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -420,65 +377,23 @@ class ImportLaporanHarian extends MY_Controller
                                 $G = trim(trim($row['G']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'stiker'=>$C,
-                                    'leaflet'=>$D,
-                                    'spanduk'=>$E,
-                                    'billboard'=>$F,
-                                    'jemensosprek'=>$G
+                                    'positif_korlantas'=>$B,
+                                    'negatif_korlantas'=>$C,
+                                    'lakalantas'=>$D,
+                                    'positif_polri'=>$E,
+                                    'negatif_polri'=>$F,
+                                    'liputan'=>$G,
+                                    'kategori'=>6
                                 );
 
                             }else if($type==7) {
                                 
                                 /**
-                                 * SIM
+                                 * facebook
                                  */
 
-                                $url = 'import/sim';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-
-                                $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
-                                    'date'=>$tanggal,
-                                    'baru'=>$C,
-                                    'perpanjangan'=>$D
-                                );
-
-                            }else if($type==8) {
-                                
-                                /**
-                                 * BPKB
-                                 */
-
-                                $url = 'import/bpkb';
-
-                                $B = trim(trim($row['B']));
-                                $C = trim(trim($row['C']));
-                                $D = trim(trim($row['D']));
-                                $E = trim(trim($row['E']));
-
-                                $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
-                                    'date'=>$tanggal,
-                                    'baru'=>$C,
-                                    'perpanjangan'=>$D,
-                                    'rubentina'=>$E
-                                );
-
-                            }else if($type==9) {
-                                
-                                /**
-                                 * RANMOR
-                                 */
-
-                                $url = 'import/ranmor';
+                                $url = 'import/facebook';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -488,23 +403,92 @@ class ImportLaporanHarian extends MY_Controller
                                 $G = trim(trim($row['G']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'mobil_penumpang'=>$C,
-                                    'mobil_barang'=>$D,
-                                    'mobil_bus'=>$E,
-                                    'ransus'=>$F,
-                                    'sepeda_motor'=>$G
+                                    'positif_korlantas'=>$B,
+                                    'negatif_korlantas'=>$C,
+                                    'lakalantas'=>$D,
+                                    'positif_polri'=>$E,
+                                    'negatif_polri'=>$F,
+                                    'liputan'=>$G,
+                                    'kategori'=>7
+                                );
+
+                            }else if($type==8) {
+                                
+                                /**
+                                 * portal
+                                 */
+
+                                $url = 'import/portal';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+
+                                $raws[] = array(
+                                    'date'=>$tanggal,
+                                    'positif_korlantas'=>$B,
+                                    'negatif_korlantas'=>$C,
+                                    'lakalantas'=>$D,
+                                    'positif_polri'=>$E,
+                                    'negatif_polri'=>$F,
+                                    'liputan'=>$G,
+                                    'kategori'=>8
+                                );
+
+                            }else if($type==9) {
+                                
+                                /**
+                                 * instagram
+                                 */
+
+                                $url = 'import/instagram';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+                                $F = trim(trim($row['F']));
+                                $G = trim(trim($row['G']));
+
+                                $raws[] = array(
+                                    'date'=>$tanggal,
+                                    'positif_korlantas'=>$B,
+                                    'negatif_korlantas'=>$C,
+                                    'lakalantas'=>$D,
+                                    'positif_polri'=>$E,
+                                    'negatif_polri'=>$F,
+                                    'liputan'=>$G,
+                                    'kategori'=>9
                                 );
 
                             }else if($type==10) {
                                 
                                 /**
-                                 * STNK
+                                 * sosial
                                  */
 
-                                $url = 'import/stnk';
+                                $url = 'import/sosial';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+
+                                $raws[] = array(
+                                    'date'=>$tanggal,
+                                    'facebook'=>$B,
+                                    'twitter'=>$C
+                                );
+
+                            }else if($type==11) {
+                                
+                                /**
+                                 * radio
+                                 */
+
+                                $url = 'import/radio';
 
                                 $B = trim(trim($row['B']));
                                 $C = trim(trim($row['C']));
@@ -512,12 +496,32 @@ class ImportLaporanHarian extends MY_Controller
                                 $E = trim(trim($row['E']));
 
                                 $raws[] = array(
-                                    'polda_id'=>$B,
-                                    // 'polres_name'=>$B,
                                     'date'=>$tanggal,
-                                    'baru'=>$C,
-                                    'perpanjangan'=>$D,
-                                    'rubentina'=>$E
+                                    'gen_fm'=>$B,
+                                    'jak_fm'=>$C,
+                                    'most_fm'=>$D,
+                                    'kiss_fm'=>$E
+                                );
+
+                            }else if($type==12) {
+                                
+                                /**
+                                 * pengaduan
+                                 */
+
+                                $url = 'import/pengaduan';
+
+                                $B = trim(trim($row['B']));
+                                $C = trim(trim($row['C']));
+                                $D = trim(trim($row['D']));
+                                $E = trim(trim($row['E']));
+
+                                $raws[] = array(
+                                    'date'=>$tanggal,
+                                    'radio_pjr'=>$B,
+                                    'sms_9119'=>$C,
+                                    'wa_center'=>$D,
+                                    'call_center'=>$E
                                 );
 
                             }

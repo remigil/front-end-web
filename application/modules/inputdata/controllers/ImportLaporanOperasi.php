@@ -27,15 +27,15 @@ class ImportLaporanOperasi extends MY_Controller
         } else {
 
             $getPolda = guzzle_request('GET', 'polda', [
-                'headers' => $this->_headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
 
             $getOperasi = guzzle_request('GET', 'operation-profile', [
-                'headers' => $this->_headers
+                'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
 
-            $data['getPolda'] = $getPolda['data']['data'];
-            // $data['getOperasi'] = $getOperasi['data']['data'];
+            $data['getPolda'] = isset($getPolda['data']['data'])?$getPolda['data']['data']:'';
+            $data['getOperasi'] = isset($getOperasi['data']['data'])?$getOperasi['data']['data']:'';
             $page_content["page"] = "inputdata/Korlantas/ImportLaporanOperasiKhusus_Korlantas";
         }
 

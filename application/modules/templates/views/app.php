@@ -1855,6 +1855,8 @@
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li><a href="<?= base_url('inputdata/ImportLaporanHarian') ?>" data-key="t-read-email">Laporan Harian Rutin</a></li>
                                             <li><a href="<?= base_url('inputdata/ImportLaporanOperasi') ?>" data-key="t-read-email">Laporan Operasi Khusus</a></li>
+                                            <li><a href="<?= base_url('inputdata/ImportLaporanNtmc') ?>" data-key="t-read-email">Laporan Harian NTMC</a></li>
+                                            <li><a href="<?= base_url('inputdata/ImportLaporanMasyarakat') ?>" data-key="t-read-email">Laporan Kegiatan Masyarakat</a></li>
                                         </ul>
                                     </li>
                                     <?php if ($this->session->userdata['role'] == 'Korlantas') { ?>

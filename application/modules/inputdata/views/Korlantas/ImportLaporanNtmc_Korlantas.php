@@ -28,13 +28,12 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Import Laporan Operasi Khusus</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Import Laporan NTMC</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="" class="form">
                 <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
-                    <input type="hidden" name="operasi_name" id="operasi_name">
                     <input type="hidden" name="jenis_satker_name" id="jenis_satker_name">
                     <input type="hidden" name="jenis_laporan_name" id="jenis_laporan_name">
                     <div class="row">
@@ -51,23 +50,12 @@
                         </div> -->
                         <div class="col-md-12">
                             <div class="material-selectfield mb-3">
-                                <select name="operasi_id" id="operasi_id">
-                                    <option value="0">Pilih</option>
-                                    <!-- <option value="VTJGc2RHVmtYMS9pcmlCbHQzdnk4MEEzVE1pU3JFYW8rVVNVMGdCRTFkVT0">Puri Agung G20 Bali 2022</option> -->
-                                    <?php foreach ($data['getOperasi'] as $key) : ?>
-                                        <option value="<?= $key['id'] ?>"><?= $key['name_operation'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label class="labelmui">Operasi</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <option value="">Pilih</option>
-                                    <option value="1">Pelanggaran</option>
-                                    <option value="2">Kecelakaan</option>
-                                    <option value="3">Turjagwali</option>
+                                    <option value="1">Media Center NTMC On Air</option>
+                                    <option value="2">Media Center NTMC Off Air</option>
+                                    <option value="3">Dokumentasi (Monitoring)</option>
+                                    <option value="4">Aktivitas NTMC Korlantas</option>
                                 </select>
                                 <label class="labelmui">Satker</label>
                             </div>
@@ -106,33 +94,23 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabel">Format Import Laporan Operasi Khusus</h5>
+                <h5 class="modal-title text-white" id="myLargeModalLabel">Format Import Laporan NTMC</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <ul class="list-group">
-                    <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Barang Bukti</button></li>
-                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
-                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Giat Lantas</button></li>
-                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
-                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Kendaraan Yang Terlibat</button></li>
-                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Fungsi Jalan</button></li>
-                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Kawasan</button></li>
-                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Status Jalan</button></li>
-                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import Pekerjaan Korban</button></li>
-                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import Pekerjaan Pelaku</button></li>
-                    <li class="list-group-item"><button onclick="format(11)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Lalu Lintas</button></li>
-                    <li class="list-group-item"><button onclick="format(12)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Ranmor Roda 2</button></li>
-                    <li class="list-group-item"><button onclick="format(13)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Ranmor Roda 4</button></li>
-                    <li class="list-group-item"><button onclick="format(14)" id="btn-format" class="btn btn-xs btn-info">Format Import Pendidikan Korban</button></li>
-                    <li class="list-group-item"><button onclick="format(15)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran Pemasangan</button></li>
-                    <li class="list-group-item"><button onclick="format(16)" id="btn-format" class="btn btn-xs btn-info">Format Import Profesi Pelaku</button></li>
-                    <li class="list-group-item"><button onclick="format(17)" id="btn-format" class="btn btn-xs btn-info">Format Import Ranmor Terlibat</button></li>
-                    <li class="list-group-item"><button onclick="format(18)" id="btn-format" class="btn btn-xs btn-info">Format Import SIM Pelaku</button></li>
-                    <li class="list-group-item"><button onclick="format(19)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
-                    <li class="list-group-item"><button onclick="format(20)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia Korban</button></li>
-                    <li class="list-group-item"><button onclick="format(21)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia Pelaku</button></li>
-                    <li class="list-group-item"><button onclick="format(22)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia</button></li>
+                    <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Dokumentasi Media TV</button></li>
+                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Media Facebook</button></li>
+                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Media Instagram</button></li>
+                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Media Portal Online</button></li>
+                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Media Sosial Ntmc</button></li>
+                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Media Twitter</button></li>
+                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Off Air Program</button></li>
+                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc On Air Program Media Sosial</button></li>
+                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc On Air Program Online</button></li>
+                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc On Air Program TV</button></li>
+                    <li class="list-group-item"><button onclick="format(11)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc On Air Radio Ntmc</button></li>
+                    <li class="list-group-item"><button onclick="format(12)" id="btn-format" class="btn btn-xs btn-info">Format Import Ntmc Pengaduan</button></li>
                 </ul>
             </div>
         </div>
@@ -156,7 +134,7 @@
             serverMethod: 'POST',
             ajax: {
                 dataType: 'json',
-                url: '<?php echo base_url(); ?>inputdata/ImportLaporanOperasi/listof_import_file',
+                url: '<?php echo base_url(); ?>inputdata/ImportLaporanNtmc/listof_import_file',
                 data: function(data) {
                     $("#overlay").fadeIn(300);
                     data.orderField = data.order[0] != undefined ? data.order[0].column : '';
@@ -207,38 +185,33 @@
             $('#jenis_laporan')
             .append(`
                     <option value="">Pilih</option>
-                    <option value="1">Pelanggaran Lalu Lintas</option>
-                    <option value="2">Pelanggaran Ranmor Roda 2</option>
-                    <option value="3">Pelanggaran Ranmor Roda 4</option>
-                    <option value="4">Barang Bukti</option>
-                    <option value="5">Kendaraan yang Terlibat</option>
-                    <option value="6">Profesi Pelaku</option>
-                    <option value="7">Usia Pelaku</option>
-                    <option value="8">SIM Pelaku</option>
-                    <option value="9">Lokasi Kawasan</option>
-                    <option value="10">Lokasi Status Jalan</option>
-                    <option value="11">Lokasi Fungsi Jalan</option>
-                    <option value="12">Dikmaslantas</option>
-                    <option value="13">Penyebaran / Pemasangan</option>
-                    <option value="14">Giat Lantas</option>
+                    <option value="1">NTMC On Air Program TV</option>
+                    <option value="2">NTMC On Air Program Online</option>
+                    <option value="3">NTMC On Air Program Media Sosial</option>
                 `)
         } else if (jenis_satker == 2) {
             $('#jenis_laporan')
             .append(`
                     <option value="">Pilih</option>
-                    <option value="15">Kecelakaan Lalu Lintas</option>
-                    <option value="16">Usia Korban</option>
-                    <option value="17">Pekerjaan Korban</option>
-                    <option value="18">Pendidikan Korban</option>
-                    <option value="19">Usia Pelaku</option>
-                    <option value="20">Pekerjaan Pelaku</option>
-                    <option value="21">Ranmor yang Terlibat</option>
+                    <option value="4">NTMC Off Air Program </option>
                 `)
         } else if (jenis_satker == 3) {
             $('#jenis_laporan')
             .append(`
                     <option value="">Pilih</option>
-                    <option value="22">Turjagwali</option>
+                    <option value="5">Dokumentasi Media TV</option>
+                    <option value="6">Dokumentasi Media Twitter</option>
+                    <option value="7">Dokumentasi Media Facebook</option>
+                    <option value="8">Dokumentasi Media Portal Online</option>
+                    <option value="9">Dokumentasi Media Instagram</option>
+                `)
+        } else if (jenis_satker == 4) {
+            $('#jenis_laporan')
+            .append(`
+                    <option value="">Pilih</option>
+                    <option value="10">Aktivitas Media Sosial NTMC</option>
+                    <option value="11">Aktivitas On Air Radio NTMC</option>
+                    <option value="12">Aktivitas Pengaduan NTMC</option>
                 `)
         } else {
             $('#jenis_laporan')
@@ -247,11 +220,6 @@
                 `)
         }
         $("#jenis_satker_name").val(jenis_satker_name);
-    })
-
-    $('#operasi_id').on('change', function() {
-        const operasi_name = $('#operasi_id option:selected').text();
-        $("#operasi_name").val(operasi_name);
     })
 
     $('#jenis_laporan').on('change', function() {
@@ -264,7 +232,7 @@
         e.preventDefault();
         var formData = new FormData($('.form')[0]);
         $.ajax({
-            url: "<?php echo base_url(); ?>inputdata/ImportLaporanOperasi/uploadFile",
+            url: "<?php echo base_url(); ?>inputdata/ImportLaporanNtmc/uploadFile",
             method: "POST",
             data: formData,
             dataType: 'JSON',
@@ -309,7 +277,7 @@
                     dataType:"json",data:{
                         id:id,
                         file_name:file_name
-                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanOperasi/rmfile",
+                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanNtmc/rmfile",
                     success: function(response) {
                         if (response.status===true) {
                             Swal.fire(
@@ -351,20 +319,19 @@
             confirmButtonText: 'Process'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanOperasi/view/"+file_name+"";
+                window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanNtmc/view/"+file_name+"";
             }
         });
     }
 
     function format(type)
     {
-        window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanOperasi/format/"+type+"";
+        window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanNtmc/format/"+type+"";
     }
 
 	function process(type)
     {
 		id = $('#btn-process').data('id');
-		operasi_id = $('#btn-process').data('operasi_id');
 		tanggal = $('#btn-process').data('tanggal');
 		status = $('#btn-process').data('status');
 		file_name = $('#btn-process').data('file_name');
@@ -381,12 +348,11 @@
                     type:"POST",
                     dataType:"json",data:{
                         id:id,
-                        operasi_id:operasi_id,
                         tanggal:tanggal,
                         status:status,
                         file_name:file_name,
                         type: type
-                    },url:'<?php echo base_url(); ?>inputdata/ImportLaporanOperasi/process',
+                    },url:'<?php echo base_url(); ?>inputdata/ImportLaporanNtmc/process',
                     success: function(response) {
                         $("#overlay").fadeOut(300);
                         if (response.status===true) {

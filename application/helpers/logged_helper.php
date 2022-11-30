@@ -10,7 +10,7 @@ if (!isset($this->session->userdata['logged'])) {
     ];
  
     $client = new \GuzzleHttp\Client();
-    // $request = $client->request('POST', 'http://localhost:3020/v1/auth/validate_login', [
+    // $request = $client->request('POST', 'http://localhost:3002/v1/auth/validate_login', [
     $request = $client->request('POST', 'http://34.143.227.90:3019/v1/auth/validate_login', [
         'headers' => $headers 
     ]);
