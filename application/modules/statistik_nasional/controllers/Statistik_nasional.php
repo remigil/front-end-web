@@ -370,7 +370,7 @@ class Statistik_nasional extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Data Subbag Anev Nasional";
-        $page_content["page"] = "statistik_nasional/anev_view";
+        $page_content["page"] = "statistik_nasional/statistik_anev_view";
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
