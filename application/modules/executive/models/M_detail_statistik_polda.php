@@ -202,6 +202,7 @@ class M_detail_statistik_polda extends CI_Model
             ]);
         }
 
+
         $polda_date = array();
         $polda_meninggal_dunia = array();
         $polda_luka_berat = array();
