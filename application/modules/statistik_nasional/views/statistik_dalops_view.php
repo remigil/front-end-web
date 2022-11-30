@@ -13,7 +13,7 @@
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Dalops <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-8 col-md-7">
                  <div class="row m-2">
@@ -25,8 +25,8 @@
                                          <h4 class="mb-0 ms-3">Harian</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisDay"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dalopsThisDay"></h1>
+                                         <p class="text-center mb-0">Dalops</p>
                                      </div>
                                  </div>
                              </div>
@@ -40,8 +40,8 @@
                                          <h4 class="mb-0 ms-3">Bulanan</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisMonth"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dalopsThisMonth"></h1>
+                                         <p class="text-center mb-0">Dalops</p>
                                      </div>
                                  </div>
                              </div>
@@ -55,8 +55,8 @@
                                          <h4 class="mb-0 ms-3">Tahunan</h4>
                                      </div>
                                      <div class="col-md-5 float-end">
-                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisYear"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="dalopsThisYear"></h1>
+                                         <p class="text-center mb-0">Dalops</p>
                                      </div>
                                  </div>
                              </div>
@@ -121,21 +121,17 @@
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
                              <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('d M Y'); ?></h5>
+                                 <h5>Ranking Polda Data Dalops Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaDay">
+                                     <table class="table table-bordered table-hover" id="tableDalopsDay">
                                          <thead style="background-color:#007DD8; color:#fff;">
                                              <tr class="text-center">
                                                  <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Dalops</th>
                                              </tr>
                                          </thead>
-                                         <tbody id="tbody-lakaDay">
+                                         <tbody id="tbody-dalopsDay">
                                          </tbody>
                                      </table>
                                  </div>
@@ -145,21 +141,17 @@
                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                          <div class="row">
                              <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('M Y'); ?></h5>
+                                 <h5>Ranking Polda Data Dalops Tertinggi <?= date('M Y'); ?></h5>
                                  <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaMonth">
+                                     <table class="table table-bordered table-hover" id="tableDalopsMonth">
                                          <thead style="background-color:#007DD8; color:#fff;">
                                              <tr class="text-center">
                                                  <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Dalops</th>
                                              </tr>
                                          </thead>
-                                         <tbody id="tbody-lakaMonth">
+                                         <tbody id="tbody-dalopsMonth">
                                          </tbody>
                                      </table>
                                  </div>
@@ -171,19 +163,15 @@
                              <div class="col-md-12 mt-3">
                                  <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('Y'); ?></h5>
                                  <div class="card shadow-sm">
-                                     <table class="table table-bordered table-hover" id="tableLakaYear">
+                                     <table class="table table-bordered table-hover" id="tableDalopsYear">
                                          <thead style="background-color:#007DD8; color:#fff;">
                                              <tr class="text-center">
                                                  <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Dalops</th>
                                              </tr>
                                          </thead>
-                                         <tbody id="tbody-lakaYear">
+                                         <tbody id="tbody-dalopsYear">
                                          </tbody>
                                      </table>
                                  </div>
@@ -283,7 +271,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
              data: {
                  filter: filter,
                  limit: limit,
@@ -297,36 +285,15 @@
 
                  let polda_id = result.data.polda_id
                  let polda_name = result.data.polda_name
-                 let polda_jumlah = result.data.polda_jumlah
-                 let polda_luka_berat = result.data.polda_luka_berat
-                 let polda_luka_ringan = result.data.polda_luka_ringan
-                 let polda_meninggal_dunia = result.data.polda_meninggal_dunia
-                 let polda_insiden_kecelakaan = result.data.insiden_kecelakaan
-                 // Chart Kecelakaan Lalu Lintas
+                 let polda_dalops = result.data.polda_walpjr
+                 // Chart Wal pjr Lalu Lintas
 
-                 // chart laka
                  var chart = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
+                         name: '<h6>Total Dalops</h6>',
                          type: 'column',
-                         data: polda_insiden_kecelakaan,
+                         data: polda_dalops,
                          color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
-                         type: 'column',
-                         data: polda_meninggal_dunia,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Luka Berat</h6>',
-                         type: 'column',
-                         data: polda_luka_berat,
-                         color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'column',
-                         data: polda_luka_ringan,
-                         color: "#3CA55C"
-
                      }],
                      chart: {
                          height: '400',
@@ -407,13 +374,13 @@
              }
          })
 
-         topLakaDay(yesterday);
-         topLakaMonth(firstDayMonth, lastDayMonth);
-         topLakaYear(firstDay, lastDay)
+         topDalopsDay(yesterday);
+         topDalopsMonth(firstDayMonth, lastDayMonth);
+         topDalopsYear(firstDay, lastDay)
 
-         ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         dalops_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
-         LakalineChart(seven_daysAgo, yesterday)
+         DalopslineChart(seven_daysAgo, yesterday)
          jam();
      })
 
@@ -424,7 +391,7 @@
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
              data: {
                  filter: filter,
                  limit: limit,
@@ -432,42 +399,20 @@
              },
              dataType: "JSON",
              success: function(result) {
-                 console.log(result.data)
                  $("#overlay").fadeOut(300);
                  $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#charta").html(`<div id="chart"></div>`);
 
                  let polda_id = result.data.polda_id
                  let polda_name = result.data.polda_name
-                 let polda_jumlah = result.data.insiden_kecelakaan
-                 let polda_luka_berat = result.data.polda_luka_berat
-                 let polda_luka_ringan = result.data.polda_luka_ringan
-                 let polda_meninggal_dunia = result.data.polda_meninggal_dunia
-                 // Chart Kecelakaan Lalu Lintas
+                 let polda_dalops = result.data.walpjr
 
-                 // chart laka
                  var chart = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
+                         name: '<h6>Total Dalops</h6>',
                          type: 'column',
-                         data: polda_jumlah,
+                         data: polda_dalops,
                          color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
-                         type: 'column',
-                         data: polda_meninggal_dunia,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Luka Berat</h6>',
-                         type: 'column',
-                         data: polda_luka_berat,
-                         color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'column',
-                         data: polda_luka_ringan,
-                         color: "#3CA55C"
-
                      }],
                      chart: {
                          height: '400',
@@ -549,10 +494,10 @@
      })
 
 
-     function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function dalops_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -562,10 +507,11 @@
                  lastDay
              },
              success: function(result) {
+                 console.log(result);
                  $("#overlay").fadeOut(300);
-                 $('#lakaThisDay').text(result.thisDay[0].lakalantas)
-                 $('#lakaThisMonth').text(result.thisMonth[0].lakalantas)
-                 $('#lakaThisYear').text(result.thisYear.lakalantas)
+                 $('#dalopsThisDay').text(result.thisDay)
+                 $('#dalopsThisMonth').text(result.thisMonth)
+                 $('#dalopsThisYear').text(result.thisYear)
 
              }
          })
@@ -597,7 +543,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikWalpjr",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -614,33 +560,14 @@
 
                      let polda_id = result.data.polda_id
                      let polda_name = result.data.polda_name
-                     let polda_jumlah = result.data.insiden_kecelakaan
-                     let polda_luka_berat = result.data.polda_luka_berat
-                     let polda_luka_ringan = result.data.polda_luka_ringan
-                     let polda_meninggal_dunia = result.data.polda_meninggal_dunia
+                     let polda_walpjr = result.data.walpjr
 
                      var chart = {
                          series: [{
-                             name: '<h6>Total Laka</h6>',
+                             name: '<h6>Total Dalops</h6>',
                              type: 'column',
-                             data: polda_jumlah,
+                             data: polda_walpjr,
                              color: "#11347A"
-                         }, {
-                             name: '<h6>Meninggal Dunia</h6>',
-                             type: 'column',
-                             data: polda_meninggal_dunia,
-                             color: "#CB2D3E"
-                         }, {
-                             name: '<h6>Luka Berat</h6>',
-                             type: 'column',
-                             data: polda_luka_berat,
-                             color: "#E8D42F"
-                         }, {
-                             name: '<h6>Luka Ringan</h6>',
-                             type: 'column',
-                             data: polda_luka_ringan,
-                             color: "#3CA55C"
-
                          }],
                          chart: {
                              height: '400',
@@ -720,15 +647,15 @@
                  }
              })
 
-             LakalineChart(start_date, end_date)
+             DalopslineChart(start_date, end_date)
          }
      }
 
-     function LakalineChart(seven_daysAgo, yesterday) {
+     function DalopslineChart(seven_daysAgo, yesterday) {
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineWalpjr",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -737,29 +664,13 @@
              success: function(results) {
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
-                 console.log(results)
 
                  var chart2 = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
+                         name: '<h6>Total Dalops</h6>',
                          type: 'line',
-                         data: results.data.polda_insiden_kecelakaan,
+                         data: results.data.polda_walpjr,
                          color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
-                         type: 'line',
-                         data: results.data.polda_meninggal_dunia,
-                         color: "#CB2D3E"
-                     }, {
-                         name: '<h6>Luka Berat</h6>',
-                         type: 'line',
-                         data: results.data.polda_luka_berat,
-                         color: "#E8D42F"
-                     }, {
-                         name: '<h6>Luka Ringan</h6>',
-                         type: 'line',
-                         data: results.data.polda_luka_ringan,
-                         color: "#3CA55C"
                      }],
                      chart: {
                          height: 400,
@@ -805,8 +716,8 @@
 
                  };
 
-                 var ditgakkum = new ApexCharts(document.querySelector("#chart2"), chart2);
-                 ditgakkum.render();
+                 var dalops = new ApexCharts(document.querySelector("#chart2"), chart2);
+                 dalops.render();
              }
          })
      }
@@ -844,10 +755,10 @@
          }
      }
 
-     function topLakaDay(yesterday) {
+     function topDalopsDay(yesterday) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopWalpjr",
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -861,19 +772,15 @@
                      let no = x + 1
                      table += `<tr class="text-center"> 
                         <td>  ${no}  </td> 
-                        <td>  ${result[i].name_polda}  </td> 
-                        <td>  ${result[i].meninggal_dunia}  </td> 
-                        <td>  ${result[i].luka_berat}  </td> 
-                        <td>  ${result[i].luka_ringan}  </td> 
-                        <td>  ${result[i].insiden_kecelakaan}  </td>
-                        <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                        <td>  ${result[i].name_polda}  </td>  
+                        <td>  ${result[i].walpjr}  </td> 
                         </tr>`
                  }
-                 $('#tbody-lakaDay').html(table);
+                 $('#tbody-dalopsDay').html(table);
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaDay').DataTable({
+                     $('#tableDalopsDay').DataTable({
                          responsive: true,
 
                          scrollX: true,
@@ -892,10 +799,10 @@
          })
      }
 
-     function topLakaMonth(firstDayMonth, lastDayMonth) {
+     function topDalopsMonth(firstDayMonth, lastDayMonth) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrMonth",
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -910,19 +817,15 @@
                      let no = x + 1
                      table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].meninggal_dunia}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_ringan}  </td> 
-                            <td>  ${result[i].insiden_kecelakaan}  </td>
-                            <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                            <td>  ${result[i].name_polda}  </td>  
+                            <td>  ${result[i].walpjr}  </td> 
                             </tr>`
                  }
-                 $('#tbody-lakaMonth').html(table);
+                 $('#tbody-dalopsMonth').html(table);
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaMonth').DataTable({
+                     $('#tableDalopsMonth').DataTable({
                          responsive: true,
 
                          scrollX: true,
@@ -941,10 +844,10 @@
          })
      }
 
-     function topLakaYear(firstDay, lastDay) {
+     function topDalopsYear(firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaYear",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getWalpjrYear",
              dataType: "JSON",
              data: {
                  firstDay: firstDay,
@@ -959,19 +862,15 @@
                      let no = x + 1
                      table += `<tr class="text-center"> 
                             <td>  ${no}  </td> 
-                            <td>  ${result[i].name_polda}  </td> 
-                            <td>  ${result[i].meninggal_dunia}  </td> 
-                            <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_ringan}  </td> 
-                            <td>  ${result[i].insiden_kecelakaan}  </td>
-                            <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                            <td>  ${result[i].name_polda}  </td>  
+                            <td>  ${result[i].walpjr}  </td> 
                             </tr>`
                  }
-                 $('#tbody-lakaYear').html(table);
+                 $('#tbody-dalopsYear').html(table);
                  <?php $mobile = detect_mobile();
                     if ($mobile === true) { ?>
 
-                     $('#tableLakaYear').DataTable({
+                     $('#tableDalopsYear').DataTable({
                          responsive: true,
 
                          scrollX: true,
