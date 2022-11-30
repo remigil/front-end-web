@@ -548,9 +548,9 @@ class M_detail_statistik extends CI_Model
         ];
     }
 
-// STNK
+    // STNK
 
-public function getStnkNasional($filterbaru)
+    public function getStnkNasional($filterbaru)
     {
 
         if ($filterbaru['filter'] == 0) {
@@ -627,7 +627,90 @@ public function getStnkNasional($filterbaru)
             'polda_rubentina' => $polda_rubentina,
         ];
     }
-    // END STNK
+    // END DIKMASLAN
+
+
+    // DIKMASLANTAS
+
+    public function getDikmasNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'dikmaslantas/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
+            $dikmaslantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'dikmaslantas/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $dikmaslantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $poldaID = array();
+        $poldaName = array();
+        $polda_media_cetak = array();
+        $polda_media_elektronik = array();
+        $polda_media_sosial = array();
+        foreach ($dikmaslantasnasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
+            $poldaName[] = $key['name_polda'];
+            $polda_media_cetak[] = $key['media_cetak'];
+            $polda_media_elektronik[] = $key['media_elektronik'];
+            $polda_media_sosial[] = $key['media_sosial'];
+        }
+        return [
+            'polda_id' => $poldaID,
+            'polda_name' => $poldaName,
+            'polda_media_cetak' => $polda_media_cetak,
+            'polda_media_elektronik' => $polda_media_elektronik,
+            'polda_media_sosial' => $polda_media_sosial,
+        ];
+    }
+
+
+    public function getDikmasNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'dikmaslantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $dikmasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'dikmaslantas/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $dikmasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_media_cetak = array();
+        $polda_media_elektronik = array();
+        $polda_media_sosial = array();
+        foreach ($dikmasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_media_cetak[] = $key['media_cetak'];
+            $polda_media_elektronik[] = $key['media_elektronik'];
+            $polda_media_sosial[] = $key['media_sosial'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_media_cetak' => $polda_media_cetak,
+            'polda_media_elektronik' => $polda_media_elektronik,
+            'polda_media_sosial' => $polda_media_sosial,
+        ];
+    }
+    // END DIKMASLANTAS
 
 
 

@@ -681,7 +681,7 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
     // End Sim
-// STNK
+    // STNK
     public function getDetailStatistikStnk()
     {
         $title = 'TOP DATA STNK LALU LINTAS';
@@ -792,10 +792,121 @@ class Statistik_executive extends MY_Controller
     // END STNK
 
 
+    // Dikmaslantas
+    public function getDetailStatistikDikmaslantas()
+    {
+        $title = 'TOP DATA DIKMASLANTAS LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik->getDikmasNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik->getDikmasNasional($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getLineDikmas()
+    {
+        $title = 'DATA DIKMASLANTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getDikmasNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getDikmasNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getTopDikmas()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'dikmaslantas/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getDikmasMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'dikmaslantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getDikmasYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'dikmaslantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    // END Dikmas
+
+
     // Wal Pjr
     public function getDetailStatistikWalpjr()
     {
-        $title = 'TOP DATA WAL & PJR';
+        $title = 'TOP DATA';
         // $filter = $this->input->post('filter');
         // $limit = $this->input->post('limit');
         // $yesterday = $this->input->post('yesterday');
@@ -1016,7 +1127,7 @@ class Statistik_executive extends MY_Controller
 
     public function getLineWalpjr()
     {
-        $title = 'DATA WAL & PJR';
+        $title = 'DATA';
         // $filter = $this->input->post('filter');
         // $limit = $this->input->post('limit');
         // $yesterday = $this->input->post('yesterday');
@@ -1284,6 +1395,58 @@ class Statistik_executive extends MY_Controller
         ];
 
         echo json_encode($data['ditgakkumDate']);
+    }
+    public function getDitkamselDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'ditkamsel/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'ditkamsel/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'ditkamsel/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $dikmaslantas = 0;
+        $penyebaran = 0;
+
+        foreach ($thisYear['data'] as $key) {
+            $dikmaslantas += $key['dikmaslantas'];
+            $penyebaran += $key['penyebaran'];
+        }
+
+        $data['thisYear'] = [
+            'penyebaran' => $penyebaran,
+            'dikmaslantas' => $dikmaslantas
+        ];
+
+        $data['ditkamselDate'] = [
+            'thisDay' => $thisDay['data'],
+            'thisMonth' => $thisMonth['data'],
+            'thisYear' => $data['thisYear']
+        ];
+
+        echo json_encode($data['ditkamselDate']);
     }
 
     public function getDitregidentDate()
