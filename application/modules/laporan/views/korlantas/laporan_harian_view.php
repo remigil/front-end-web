@@ -18,7 +18,7 @@
                             <div class="material-selectfield mb-3">
                                 <select name="options_waktu" id="options_waktu">
                                     <!-- <select name="" id=""  multiple required> -->
-                                    <option value="">--Pilih jenis waktu laporan--</option>
+                                    <option value="0">--Pilih jenis waktu laporan--</option>
                                     <option value="1">Harian</option>
                                     <option value="2">Bulanan</option>
                                     <option value="3">Tahunan</option>
@@ -89,5 +89,67 @@
                 placehoder: 'YYYY'
             })
         }
+    })
+
+    $('#btn_pilih').on('click', function(e) {
+        let options_waktu = $('#options_waktu').val()
+        if (options_waktu == 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Jenis waktu laporan harus dipilih',
+            })
+        } else {
+            var dates = new Date();
+
+            let date = ''
+            let polda_id = $('#polda_id').val()
+            let filter = true
+            let start_date = $('#start_date').val()
+            let end_date = $('#end_date').val()
+
+
+            if (options_waktu == 1) {
+                if (start_date == '' && end_date == '') {
+                    filter = ''
+                    date = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
+                }
+            } else if (options_waktu == 2) {
+                if (start_date == '' && end_date == '') {
+                    filter = true
+                    start_date = new Date(dates.getFullYear(), dates.getMonth(), 1).toLocaleDateString("en-GB").split('/').reverse().join('-');
+                    end_date = new Date(dates.getFullYear(), dates.getMonth() + 1, 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
+                } else {
+                    filter = true
+                    start_date = moment(start_date).startOf("month").format("YYYY-MM-DD")
+                    end_date = moment(end_date).endOf("month").format("YYYY-MM-DD");
+                }
+            } else if (options_waktu == 3) {
+                if (start_date == '' && end_date == '') {
+                    filter = true
+                    start_date = moment().startOf("years").format("YYYY-MM-DD");
+                    end_date = moment().endOf("years").format("YYYY-MM-DD");
+                } else {
+                    filter = true
+                    start_date = moment(start_date).startOf("years").format("YYYY-MM-DD")
+                    end_date = moment(end_date).endOf("years").format("YYYY-MM-DD");
+                }
+            }
+
+
+            if (polda_id != 0) {
+                polda_id = $('#polda_id').val()
+            } else {
+                polda_id = ''
+            }
+
+            // console.log(`<?= ApiUrl() ?>laporan_harian/export_laphar?date=${date}&polda_id=${polda_id}&filter=${filter}&start_date=${start_date}&end_date=${end_date}`)
+
+            window.open(
+                `<?= ApiUrl() ?>laporan_harian/export_laphar?date=${date}&polda_id=${polda_id}&filter=${filter}&start_date=${start_date}&end_date=${end_date}`,
+                '_blank' // <- This is what makes it open in a new window.
+            );
+        }
+
+
     })
 </script>
