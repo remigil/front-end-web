@@ -270,7 +270,6 @@
 
          var limit = $('#limit_showData').val();
 
-         // console.log(firstDay, lastDay)
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
@@ -391,7 +390,7 @@
 
          sim_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
-         LakalineChart(seven_daysAgo, yesterday)
+         SimlineChart(seven_daysAgo, yesterday)
          jam();
      })
 
@@ -410,7 +409,6 @@
              },
              dataType: "JSON",
              success: function(result) {
-                 console.log(result.data)
                  $("#overlay").fadeOut(300);
                  $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                  $("#charta").html(`<div id="chart"></div>`);
@@ -525,9 +523,9 @@
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
-                 $('#simThisDay').text(result.thisDay[0].lakalantas)
-                 $('#simThisMonth').text(result.thisMonth[0].lakalantas)
-                 $('#simThisYear').text(result.thisYear.lakalantas)
+                 $('#simThisDay').text(result.thisDay[0].baru)
+                 $('#simThisMonth').text(result.thisMonth[0].baru)
+                 $('#simThisYear').text(result.thisYear.baru)
 
              }
          })
@@ -568,7 +566,6 @@
                  },
                  dataType: "JSON",
                  success: function(result) {
-                     console.log(result)
                      $("#overlay").fadeOut(300);
                      $('#title').html(`<h4 class="card-title mb-0 text-uppercase">${result.title}</h1>`);
                      $("#charta").html(`<div id="chart"></div>`);
@@ -581,26 +578,15 @@
 
                      var chart = {
                          series: [{
-                             name: '<h6>Total Laka</h6>',
+                             name: '<h6>Sim Baru</h6>',
                              type: 'column',
                              data: polda_baru,
                              color: "#11347A"
                          }, {
-                             name: '<h6>Baru</h6>',
-                             type: 'column',
-                             data: polda_meninggal_dunia,
-                             color: "#CB2D3E"
-                         }, {
-                             name: '<h6>Perpanjangan</h6>',
+                             name: '<h6>Sim Perpanjangan</h6>',
                              type: 'column',
                              data: polda_perpanjangan,
-                             color: "#E8D42F"
-                         }, {
-                             name: '<h6>Luka Ringan</h6>',
-                             type: 'column',
-                             data: polda_luka_ringan,
-                             color: "#3CA55C"
-
+                             color: "#CB2D3E"
                          }],
                          chart: {
                              height: '400',
@@ -684,11 +670,11 @@
          }
      }
 
-     function LakalineChart(seven_daysAgo, yesterday) {
+     function SimlineChart(seven_daysAgo, yesterday) {
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineSim",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -697,7 +683,7 @@
              success: function(results) {
                  $('#titleline').html(`<h4 class="card-title mb-0 text-uppercase">${results.title}</h1>`);
                  $("#chartdate").html(`<div id="chart2"></div>`);
-                 console.log(results)
+
 
                  var chart2 = {
                      series: [{
@@ -813,7 +799,6 @@
                  yesterday: yesterday
              },
              success: function(result) {
-                 console.log(result);
                  $("#overlay").fadeOut(300);
                  var table = '';
                  let nf = new Intl.NumberFormat('en-US');

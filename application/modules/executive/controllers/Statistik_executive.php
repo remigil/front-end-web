@@ -43,6 +43,7 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
 
+    // Laka
     public function LakaLantas()
     {
         $data['csrf_name'] = $this->security->get_csrf_token_name();
@@ -59,30 +60,6 @@ class Statistik_executive extends MY_Controller
         $page_content["data"] = '';
         // $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
-    }
-    public function Garlantas()
-    {
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA PELANGGARAN LALU LINTAS';
-        $this->load->view('executive/statistik/detail_statistik_garlantas', $data);
-    }
-    public function Turjagwali()
-    {
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA TURJAGWALI';
-        $this->load->view('executive/statistik/detail_statistik_turjawali', $data);
-    }
-    public function Ranmor()
-    {
-        $data['csrf_name'] = $this->security->get_csrf_token_name();
-        $data['csrf_token'] = $this->security->get_csrf_hash();
-        $data['polda'] = $this->M_detail_statistik->get_Polda();
-        $data['title'] = 'DATA KENDARAAN BERMOTOR';
-        $this->load->view('executive/statistik/detail_statistik_ranmor', $data);
     }
 
     public function getDetailStatistikLakaLantas()
@@ -140,6 +117,136 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
 
+    public function getLakalantasByDate()
+    {
+        $title = 'DATA KECELAKAAN TAHUN' . date('Y') . '';
+        $filterbaru = [
+            'filter' => true,
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+        ];
+
+        $getdata = $this->M_detail_statistik->getLakaByDate($filterbaru);
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function exportDatalakalantas()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filter = $this->input->post('filter');
+        if ($start_date == '' && $end_date == '') {
+            $url = 'laporan_harian/export_laphar';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($lakalantasnasional);
+        } elseif ($start_date != '' && $end_date != '') {
+            $filterbaru = [
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($lakalantasnasional);
+        }
+    }
+    public function getTopLaka()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'laka_lantas/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getLakaMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getLakaYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+    public function getLineLaka()
+    {
+        $title = 'DATA KECELAKAAN LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    // End Laka
+
+    // Garlantas
+    public function Garlantas()
+    {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $data['polda'] = $this->M_detail_statistik->get_Polda();
+        $data['title'] = 'DATA PELANGGARAN LALU LINTAS';
+        $this->load->view('executive/statistik/detail_statistik_garlantas', $data);
+    }
+
     public function getDetailStatistikGarlantas()
     {
         $title = 'TOP DATA PELANGGARAN LALU LINTAS';
@@ -193,6 +300,119 @@ class Statistik_executive extends MY_Controller
             'title' => $title,
         ];
         echo json_encode($data);
+    }
+
+    public function exportDatagarlantas()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filter = $this->input->post('filter');
+        if ($start_date == '' && $end_date == '') {
+            $url = 'laporan_harian/export_laphar';
+            $garlantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($garlantasnasional);
+        } elseif ($start_date != '' && $end_date != '') {
+            $filterbaru = [
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $garlantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($garlantasnasional);
+        }
+    }
+
+    public function getTopGarlantas()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+
+    public function getGarlantasMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+
+    public function getGarlantasYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topGarlantas']);
+    }
+    public function getLineGarlantas()
+    {
+        $title = 'DATA PELANGGARAN LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    // End Garlantas
+
+    // Turjagwali
+    public function Turjagwali()
+    {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $data['polda'] = $this->M_detail_statistik->get_Polda();
+        $data['title'] = 'DATA TURJAGWALI';
+        $this->load->view('executive/statistik/detail_statistik_turjawali', $data);
     }
 
     public function getDetailStatistikTurjawali()
@@ -249,305 +469,6 @@ class Statistik_executive extends MY_Controller
         ];
         echo json_encode($data);
     }
-
-    public function getDetailStatistikRanmor()
-    {
-        $title = 'DATA KENDARAAN BERMOTOR';
-        $filter = $this->input->post('filter');
-        $limit = $this->input->post('limit');
-        $yesterday = $this->input->post('yesterday');
-        if ($filter == 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => '',
-                'end_date' => '',
-                'limit' => $limit,
-                'yesterday' => $yesterday
-            ];
-            $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
-        } elseif ($filter != 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-                'limit' => $limit
-            ];
-            $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
-        }
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
-
-    public function getDetailStatistikSim()
-    {
-        $title = 'TOP DATA SIM LALU LINTAS';
-        $filter = $this->input->post('filter');
-        $limit = $this->input->post('limit');
-        $yesterday = $this->input->post('yesterday');
-        if ($filter == 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => '',
-                'end_date' => '',
-                'limit' => $limit,
-                'yesterday' => $yesterday
-            ];
-            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
-        } elseif ($filter != 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-                'limit' => $limit
-            ];
-            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
-        }
-
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
-
-
-    public function getLakalantasByDate()
-    {
-        $title = 'DATA KECELAKAAN TAHUN' . date('Y') . '';
-        $filterbaru = [
-            'filter' => true,
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
-        ];
-
-        $getdata = $this->M_detail_statistik->getLakaByDate($filterbaru);
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
-
-    public function exportDatalakalantas()
-    {
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        $filter = $this->input->post('filter');
-        if ($start_date == '' && $end_date == '') {
-            $url = 'laporan_harian/export_laphar';
-            $lakalantasnasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($lakalantasnasional);
-        } elseif ($start_date != '' && $end_date != '') {
-            $filterbaru = [
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
-            $lakalantasnasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($lakalantasnasional);
-        }
-    }
-
-    public function exportDatagarlantas()
-    {
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        $filter = $this->input->post('filter');
-        if ($start_date == '' && $end_date == '') {
-            $url = 'laporan_harian/export_laphar';
-            $garlantasnasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($garlantasnasional);
-        } elseif ($start_date != '' && $end_date != '') {
-            $filterbaru = [
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
-            $garlantasnasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($garlantasnasional);
-        }
-    }
-
-    public function exportDataturjawali()
-    {
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        $filter = $this->input->post('filter');
-        if ($start_date == '' && $end_date == '') {
-            $url = 'laporan_harian/export_laphar';
-            $turjawalinasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($turjawalinasional);
-        } elseif ($start_date != '' && $end_date != '') {
-            $filterbaru = [
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
-            $turjawalinasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($turjawalinasional);
-        }
-    }
-
-    public function exportDataranmor()
-    {
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        $filter = $this->input->post('filter');
-        if ($start_date == '' && $end_date == '') {
-            $url = 'laporan_harian/export_laphar';
-            $ranmornasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($ranmornasional);
-        } elseif ($start_date != '' && $end_date != '') {
-            $filterbaru = [
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
-            $ranmornasional = guzzle_request('GET', $url, [
-                'headers' => [
-                    'Authorization' => $this->session->userdata['token']
-                ]
-            ]);
-            echo json_encode($ranmornasional);
-        }
-    }
-
-    public function getTopSim()
-    {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
-        $simTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topSim'] = $simTopPolda['data']['rows'];
-        echo json_encode($data['topSim']);
-    }
-    public function getTopLaka()
-    {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'laka_lantas/daily?date=' . $yesterday . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
-    }
-
-    public function getLakaMonth()
-    {
-        $firstDay = $this->input->post('firstDay');
-        $lastDay = $this->input->post('lastDay');
-
-        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
-    }
-
-    public function getLakaYear()
-    {
-        $firstDay = $this->input->post('firstDay');
-        $lastDay = $this->input->post('lastDay');
-
-        $url = 'laka_lantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topLaka'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topLaka']);
-    }
-
-    public function getTopGarlantas()
-    {
-        $yesterday = $this->input->post('yesterday');
-        $url = 'garlantas/daily?date=' . $yesterday . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topGarlantas']);
-    }
-
-    public function getGarlantasMonth()
-    {
-        $firstDay = $this->input->post('firstDay');
-        $lastDay = $this->input->post('lastDay');
-
-        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topGarlantas']);
-    }
-
-    public function getGarlantasYear()
-    {
-        $firstDay = $this->input->post('firstDay');
-        $lastDay = $this->input->post('lastDay');
-
-        $url = 'garlantas/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
-        $lakaTopPolda = guzzle_request('GET', $url, [
-            'headers' => [
-                'Authorization' => $this->session->userdata['token']
-            ]
-        ]);
-
-        $data['topGarlantas'] = $lakaTopPolda['data']['rows'];
-        echo json_encode($data['topGarlantas']);
-    }
-
     public function getTopTurjagwali()
     {
         $yesterday = $this->input->post('yesterday');
@@ -594,6 +515,246 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data['topTurjagwali']);
     }
 
+    public function getLineTurjagwali()
+    {
+        $title = 'DATA TURJAGWALI LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    public function exportDataturjawali()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filter = $this->input->post('filter');
+        if ($start_date == '' && $end_date == '') {
+            $url = 'laporan_harian/export_laphar';
+            $turjawalinasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($turjawalinasional);
+        } elseif ($start_date != '' && $end_date != '') {
+            $filterbaru = [
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $turjawalinasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($turjawalinasional);
+        }
+    }
+    // End Turjagwali
+
+    // Sim
+    public function getDetailStatistikSim()
+    {
+        $title = 'TOP DATA SIM LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getTopSim()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
+        $simTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topSim'] = $simTopPolda['data']['rows'];
+        echo json_encode($data['topSim']);
+    }
+
+    public function getSimMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'sim/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $simTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topsim'] = $simTopPolda['data']['rows'];
+
+        echo json_encode($data['topsim']);
+    }
+
+    public function getSimYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'sim/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $simTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topsim'] = $simTopPolda['data']['rows'];
+        echo json_encode($data['topsim']);
+    }
+
+    public function getLineSim()
+    {
+        $title = 'DATA SIM LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getSimNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    // End Sim
+    public function Ranmor()
+    {
+        $data['csrf_name'] = $this->security->get_csrf_token_name();
+        $data['csrf_token'] = $this->security->get_csrf_hash();
+        $data['polda'] = $this->M_detail_statistik->get_Polda();
+        $data['title'] = 'DATA KENDARAAN BERMOTOR';
+        $this->load->view('executive/statistik/detail_statistik_ranmor', $data);
+    }
+
+
+
+
+
+
+
+
+
+    public function getDetailStatistikRanmor()
+    {
+        $title = 'DATA KENDARAAN BERMOTOR';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik->getRanmorNasional($filterbaru);
+        }
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+    public function exportDataranmor()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $filter = $this->input->post('filter');
+        if ($start_date == '' && $end_date == '') {
+            $url = 'laporan_harian/export_laphar';
+            $ranmornasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($ranmornasional);
+        } elseif ($start_date != '' && $end_date != '') {
+            $filterbaru = [
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $url = 'laporan_harian/export_laphar?filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $ranmornasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+            echo json_encode($ranmornasional);
+        }
+    }
     public function getTopRanmor()
     {
         $yesterday = $this->input->post('yesterday');
@@ -607,7 +768,6 @@ class Statistik_executive extends MY_Controller
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
     }
-
     public function getRanmorMonth()
     {
         $firstDay = $this->input->post('firstDay');
@@ -623,7 +783,6 @@ class Statistik_executive extends MY_Controller
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
     }
-
     public function getRanmorYear()
     {
         $firstDay = $this->input->post('firstDay');
@@ -639,7 +798,6 @@ class Statistik_executive extends MY_Controller
         $data['topRanmor'] = $lakaTopPolda['data']['rows'];
         echo json_encode($data['topRanmor']);
     }
-
     public function getSimDate()
     {
         $yesterday = $this->input->post('yesterday');
@@ -691,7 +849,6 @@ class Statistik_executive extends MY_Controller
 
         echo json_encode($data['simDate']);
     }
-
     public function getDitgakkumDate()
     {
         $yesterday = $this->input->post('yesterday');
@@ -749,7 +906,6 @@ class Statistik_executive extends MY_Controller
 
         echo json_encode($data['ditgakkumDate']);
     }
-
     public function getRanmorDate()
     {
         $yesterday = $this->input->post('yesterday');
@@ -798,91 +954,6 @@ class Statistik_executive extends MY_Controller
         ];
 
         echo json_encode($data['ranmorDate']);
-    }
-
-    public function getLineLaka()
-    {
-        $title = 'DATA KECELAKAAN LALU LINTAS';
-        $filter = $this->input->post('filter');
-        $limit = $this->input->post('limit');
-        $yesterday = $this->input->post('yesterday');
-        if ($filter == 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
-        } elseif ($filter != 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getKecelakaanNasionalDate($filterbaru);
-        }
-
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
-    public function getLineGarlantas()
-    {
-        $title = 'DATA PELANGGARAN LALU LINTAS';
-        $filter = $this->input->post('filter');
-        $limit = $this->input->post('limit');
-        $yesterday = $this->input->post('yesterday');
-        if ($filter == 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
-        } elseif ($filter != 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getGarlantasNasionalDate($filterbaru);
-        }
-
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
-    public function getLineTurjagwali()
-    {
-        $title = 'DATA TURJAGWALI LALU LINTAS';
-        $filter = $this->input->post('filter');
-        $limit = $this->input->post('limit');
-        $yesterday = $this->input->post('yesterday');
-        if ($filter == 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
-        } elseif ($filter != 0) {
-            $filterbaru = [
-                'filter' => $filter,
-                'start_date' => $this->input->post('start_date'),
-                'end_date' => $this->input->post('end_date'),
-            ];
-            $getdata = $this->M_detail_statistik->getTurjagwaliNasionalDate($filterbaru);
-        }
-
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
     }
     public function getLineRanmor()
     {
