@@ -627,6 +627,7 @@
 
 <script>
     var tanggal;
+    var isitype  = 'day';
 
 
 
@@ -634,10 +635,13 @@
         $("[name=filter]").on("change", function(e) { 
             if (this.value == 'day') {
                 tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
+                isitype = 'day';
             }else if (this.value == 'month'){
                 tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
+                isitype = 'month';
             }else if(this.value == 'year'){
                 tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
+                isitype = 'year';
             } 
             // console.log(tanggal[0]);
             getStatistik();
@@ -650,7 +654,7 @@
                 type: "POST",
                 url: "<?php echo base_url(); ?>statistik_nasional/Statistik_nasional/getStatistik",
                 data : {
-                    "type": $("[name=filter]").val(),
+                    "type": isitype,
                     "startDate" : tanggal ? tanggal[0] : `${moment().format('YYYY-MM-DD')}`,
                     "endDate" : tanggal ? tanggal[1] : `${moment().format('YYYY-MM-DD')}`
                 }, 

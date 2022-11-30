@@ -159,6 +159,7 @@ class Statistik_nasional extends MY_Controller
  
 
         $data = [ 
+            'date' => $date1,
             'compare' => [
                 'lakalantas' => $findCompareLaka,
                 'garlantas' => $findComparegarla,
