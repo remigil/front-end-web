@@ -548,7 +548,86 @@ class M_detail_statistik extends CI_Model
         ];
     }
 
+// STNK
 
+public function getStnkNasional($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'stnk/daily?date=' . $filterbaru['yesterday'] . '&topPolda=true&limit=' . $filterbaru['limit'] . '';
+            $stnknasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'stnk/daily?topPolda=true&limit=' . $filterbaru['limit'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'];
+            $stnknasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+        $poldaID = array();
+        $poldaName = array();
+        $polda_baru = array();
+        $polda_perpanjangan = array();
+        $polda_rubentina = array();
+        foreach ($stnknasional['data']['rows'] as $key) {
+            $poldaID[] = $key['id'];
+            $poldaName[] = $key['name_polda'];
+            $polda_baru[] = $key['baru'];
+            $polda_perpanjangan[] = $key['perpanjangan'];
+            $polda_rubentina[] = $key['rubentina'];
+        }
+        return [
+            'polda_id' => $poldaID,
+            'polda_name' => $poldaName,
+            'polda_baru' => $polda_baru,
+            'polda_perpanjangan' => $polda_perpanjangan,
+            'polda_rubentina' => $polda_rubentina,
+        ];
+    }
+
+
+    public function getStnkNasionalDate($filterbaru)
+    {
+
+        if ($filterbaru['filter'] == 0) {
+            $url = 'stnk/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        } elseif ($filterbaru['filter'] == 1) {
+            $url = 'stnk/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $lakalantasnasional = guzzle_request('GET', $url, [
+                'headers' => [
+                    'Authorization' => $this->session->userdata['token']
+                ]
+            ]);
+        }
+
+        $polda_date = array();
+        $polda_baru = array();
+        $polda_perpanjangan = array();
+        $polda_rubentina = array();
+        foreach ($lakalantasnasional['data'] as $key) {
+            $polda_date[] = $key['date'];
+            $polda_baru[] = $key['baru'];
+            $polda_perpanjangan[] = $key['perpanjangan'];
+            $polda_rubentina[] = $key['rubentina'];
+        }
+
+        return [
+            'polda_name' => $polda_date,
+            'polda_baru' => $polda_baru,
+            'polda_perpanjangan' => $polda_perpanjangan,
+            'polda_rubentina' => $polda_rubentina,
+        ];
+    }
+    // END STNK
 
 
 

@@ -13,7 +13,7 @@
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Kecelakaan <span style="color:#000;">Nasional</span></span> </h2>
+                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">BPKB <span style="color:#000;">Nasional</span></span> </h2>
              </div>
              <div class="col-sm-8 col-md-7">
                  <div class="row m-2">
@@ -26,7 +26,7 @@
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisDay"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <p class="text-center mb-0">BPKB</p>
                                      </div>
                                  </div>
                              </div>
@@ -41,7 +41,7 @@
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisMonth"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <p class="text-center mb-0">BPKB</p>
                                      </div>
                                  </div>
                              </div>
@@ -56,7 +56,7 @@
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisYear"></h1>
-                                         <p class="text-center mb-0">Kejadian</p>
+                                         <p class="text-center mb-0">BPKB</p>
                                      </div>
                                  </div>
                              </div>
@@ -121,18 +121,15 @@
                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                          <div class="row">
                              <div class="col-md-12 mt-3">
-                                 <h5>Ranking Polda Data Kecelakaan Tertinggi <?= date('d M Y'); ?></h5>
+                                 <h5>Ranking Polda Data BPKB Tertinggi <?= date('d M Y'); ?></h5>
                                  <div class="card shadow-sm">
                                      <table class="table table-bordered table-hover" id="tableLakaDay">
                                          <thead style="background-color:#007DD8; color:#fff;">
                                              <tr class="text-center">
-                                                 <th scope="col">No</th>
+                                             <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Baru</th>
+                                                 <th scope="col">Perpanjangan</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-lakaDay">
@@ -150,13 +147,10 @@
                                      <table class="table table-bordered table-hover" id="tableLakaMonth">
                                          <thead style="background-color:#007DD8; color:#fff;">
                                              <tr class="text-center">
-                                                 <th scope="col">No</th>
+                                             <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Baru</th>
+                                                 <th scope="col">Perpanjangan</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-lakaMonth">
@@ -176,11 +170,8 @@
                                              <tr class="text-center">
                                                  <th scope="col">No</th>
                                                  <th scope="col">Polda</th>
-                                                 <th scope="col">Meninggal Dunia</th>
-                                                 <th scope="col">Luka Berat</th>
-                                                 <th scope="col">Luka Ringan</th>
-                                                 <th scope="col">Insiden Kejadian</th>
-                                                 <th scope="col">Kerugian Material</th>
+                                                 <th scope="col">Baru</th>
+                                                 <th scope="col">Perpanjangan</th>
                                              </tr>
                                          </thead>
                                          <tbody id="tbody-lakaYear">
@@ -864,9 +855,7 @@
                         <td>  ${result[i].name_polda}  </td> 
                         <td>  ${result[i].meninggal_dunia}  </td> 
                         <td>  ${result[i].luka_berat}  </td> 
-                        <td>  ${result[i].luka_ringan}  </td> 
-                        <td>  ${result[i].insiden_kecelakaan}  </td>
-                        <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                       
                         </tr>`
                  }
                  $('#tbody-lakaDay').html(table);
@@ -913,9 +902,7 @@
                             <td>  ${result[i].name_polda}  </td> 
                             <td>  ${result[i].meninggal_dunia}  </td> 
                             <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_ringan}  </td> 
-                            <td>  ${result[i].insiden_kecelakaan}  </td>
-                            <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                           
                             </tr>`
                  }
                  $('#tbody-lakaMonth').html(table);
@@ -962,9 +949,7 @@
                             <td>  ${result[i].name_polda}  </td> 
                             <td>  ${result[i].meninggal_dunia}  </td> 
                             <td>  ${result[i].luka_berat}  </td> 
-                            <td>  ${result[i].luka_ringan}  </td> 
-                            <td>  ${result[i].insiden_kecelakaan}  </td>
-                            <td>  ${nf.format(result[i].kerugian_material)}  </td> 
+                             
                             </tr>`
                  }
                  $('#tbody-lakaYear').html(table);
