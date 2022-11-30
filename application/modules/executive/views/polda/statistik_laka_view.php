@@ -14,7 +14,7 @@
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
-                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Kecelakaan <span style="color:#000;">Polda</span></span> </h2>
+                 <h2>DATA <span style="text-transform:uppercase ; color:#2e93e6">Kecelakaan <span style="color:#000;">Polda&nbsp;<?= $data['poldaid']['name_polda']; ?></span></span> </h2>
              </div>
              <div class="col-sm-8 col-md-7">
                  <div class="row m-2">
