@@ -1,44 +1,11 @@
 <div class="row">
     <div class="col-md-4 mb-1">
-        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a>&nbsp;<?= $title; ?></h3>
+        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i> | </a>&nbsp;<?= $title; ?> <?= $data['poldaid']['name_polda']; ?></h3>
     </div>
     <div class="col-md-3">
     </div>
 </div>
 
-<!-- <div class="filter" style=" height:125px;">
-    <div class="container">
-
-        <form action="" id="form_filter" class="">
-            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
-            <div class="row" style="display:none">
-                <div class="col-md-3">
-                    <div class="form-group row">
-                        <div class="" id="polda_"></div>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <label for="waktu" class="form-label  text-uppercase">Waktu</label>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input class="form-control" type="date" name="start_date" id="start_date">
-                        </div>
-                        <div class="col-md-5">
-                            <input class="form-control" type="date" name="end_date" id="end_date">
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" type="submit" id="btn_filter" style="width: 100%;">Tampilkan</button>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </form>
-
-    </div>
-</div> -->
 <div class="container-fluid">
     <div class="card mt-2 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">

@@ -477,6 +477,7 @@
             getStatistik();
 
             function getStatistik() {
+                $("#overlay").fadeIn(300);
                 $.ajax({
                     type: "POST",
                     url: "<?php echo base_url(); ?>executive/Polda_executive/getStatistik/" + id,
