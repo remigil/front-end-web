@@ -558,6 +558,9 @@
             background-color: #e8f0fe;
         }
 
+        .harianDisplay input:checked+.cat {
+            background-color: red;
+        }
 
         <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU'  || $this->session->userdata['role'] != 'Operator') { ?>.mm-active .active {
             background: #1d1d1d !important;
@@ -1907,8 +1910,14 @@
                 <!-- ============================================================== -->
                 <div class="main-content">
 
-                    <div class="page-content" style="background-color: #f5f3f4;">
-                        <div class="container-fluid">
+                    <div class="page-content"  
+                        <?php if($this->uri->segment(1) == 'statistik_nasional' && $this->uri->segment(2) == ''){?>
+                            style="background-image: radial-gradient(#013F9F 10.63%, #0087c4 101.04%); "
+                        <?php }else{ ?>
+                                style="background-color: #f5f3f4;"
+                        <?php }?>
+                    >
+                        <div class="container-fluid" >
 
                             <!-- Page Content-->
                             <?php $this->load->view($page_content) ?>

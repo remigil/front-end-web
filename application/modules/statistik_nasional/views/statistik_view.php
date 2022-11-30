@@ -1,401 +1,468 @@
-<div class="row">
-    <div class="col-md-4 mb-1">
-        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a> Statistik Nasional</h3>
-    </div>
-    <div class="col-md-3">
-    </div>
-</div>
-<div class="row mt-5">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>">
+ 
+    <div class="row">
+        <div class="col-md-4">
+            <h3 style="text-transform: uppercase; color:#ffffff;"><a href="<?= base_url('dashboard') ?>" style="color:#ffffff ;"><i class="fas fa-less-than"></i> | </a> Statistik Nasional</h3>
+        </div>
 
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold ">Total LAKA </span>
-                                        <span>
-                                            <p class="float-end m-0 p-0" style="font-size: 14px;">Efektif data Rabu, 16 November 2022</p>
-                                        </span>
-                                    </span>
-
-                                    <br>
-                                    <br>
-                                    <span class="fs-4 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
-                                </div>
-                            </div>
-                        </div>
+        <div class="row justify-content-center">
+            <div class="col-4" style="justify-content: center;display: flex;">
+                <div class="grid-example mt-2 mt-sm-0">
+                    <div class="cat">
+                        <label>
+                            <input checked type="radio" value="day" name="filter" id="harianDisplay"><span> Harian</span>
+                        </label>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Garlantas'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total GARLANTAS </span>
-                                    </span>
-                                    <br><br>
-                                    <span class="fs-4 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cat">
+                        <label>
+                            <input type="radio" value="month" name="filter" id="bulananDisplay"><span> Bulanan</span>
+                        </label>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Turjagwali'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total Turjagwali</span>
-                                    </span>
-                                    <br><br>
-                                    <span class="fs-4 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cat">
+                        <label>
+                            <input type="radio" value="year" name="filter" id="tahunanDisplay"><span> Tahunan</span>
+                        </label>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
-
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total WAL & PJR</span>
-                                        <!-- <span class="fw-bold">Total WAL & PJR Hari ini</span> -->
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="walpjr"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="col-md-12" style="text-align: center;">
             
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Ranmor'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2 align-self-center">
-                                    <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total Kendaraan </span>Bermotor
-                                    </span>
-                                    <br><br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="motor"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        </div> -->
-
-        <div class="row">
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Sim'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total SIM</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Bpkb'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total BPKB</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="bpkb"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Stnk'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total STNK</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="stnk"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Sbst'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total FASMAT SBST</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sbst"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <!-- <button class="btn btn-primary" style="border-radius: 20px;"> Harian</button>
+            <button class="btn btn-primary" style="border-radius: 20px;"> Bulanan</button>
+            <button class="btn btn-primary" style="border-radius: 20px;"> Tahunan</button> -->
         </div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Dikmas'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total DIKMAS</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="dikmas"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Jemenopsrek'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total JEMENOPSREK</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="jemenopsrek"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Cegah'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total CEGAH</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="cegah"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Audit'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total AUDIT</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="audit"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Subrenop'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG RENOP</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subrenop"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Subdalops'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG DALOPS</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subdalops"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Subkerma'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG KERMA</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subkerma"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3">
-                <a href="<?= base_url('statistik_nasional/Subanev'); ?>">
-                    <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                        <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-                                <div class=" col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-4 float-end" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG ANEV</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subanev"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-
     </div>
-
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>">
+    
+                        <div class="card" style="border-color: #10627a; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#10627a">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                   
+                                    <div class="col-md-10 float-start">
+                                        <span class="fs-5 float-start" style="color:#ffffff;">
+                                            Total<span class="fw-bold "> LAKA </span> 
+                                            </br>
+                                            <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="lakalantas"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailLaka"></p> 
+                                        </span>  
+                                    </div> 
+                                    <div class="col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #ffffff;"></i> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Garlantas'); ?>">
+                        <div class="card" style="border-color: #cb2e3f; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#cb2e3f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <span class="fs-5 float-start" style="color:#ffffff;">
+                                            Total<span class="fw-bold"> GARLANTAS </span>
+                                            </br> 
+                                            <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="garlantas"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailgarlantas"></p>  
+                                        </span>
+                                       
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/GARLANTAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 30px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Turjagwali'); ?>">
+                        <div class="card" style="border-color: #ca3fd8; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#ca3fd8">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <span class="fs-5 float-start" style="color:#ffffff;">
+                                            Total <span class="fw-bold"> Turjagwali</span>
+                                            </br>
+                                            <span class="fs-5 fw-bold float-start" style="color:#ffffff;" id="turjagwali"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailturjagwali"></p> 
+                                        </span> 
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/TURJAGWALI.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
+    
+                        <div class="card" style="border-color: #babf01; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#babf01">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <span class="fs-5 float-start" style="color:#ffffff;">
+                                            Total<span class="fw-bold"> WAL & PJR</span>
+                                            </br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="walpjr"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailwalpjr"></p> 
+                                        </span> 
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/WAL_PJR.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #ffffff;"></i> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="row">
+                
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Ranmor'); ?>">
+                        <div class="card" style="border-color: #10627a; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#10627a">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2 align-self-center">
+                                        <img src="<?= base_url() ?>assets/dashboard/icon-ranmor.svg" alt="ranmor" width="60px">
+                                    </div>
+                                    <div class="col-md-10"> float-start
+                                        <span class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total Kendaraan </span>Bermotor
+                                        </span>
+                                        <br><br> float-start
+                                        <span class="fs-6 fw-bold" style="color:#ffffff;" id="motor"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+            </div> -->
+    
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Sim'); ?>">
+                        <div class="card" style="border-color: #f3478f; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#f3478f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            Total<span class="fw-bold"> SIM</span>
+                                            </br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Bpkb'); ?>">
+                        <div class="card" style="border-color: #48c0f4; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#48c0f4">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total BPKB</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="bpkb"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailbpkb"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Stnk'); ?>">
+                        <div class="card" style="border-color: #f4af48; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#f4af48">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total STNK</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="stnk"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailstnk"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Sbst'); ?>">
+                        <div class="card" style="border-color: #f34799; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#f34799">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total FASMAT SBST</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sbst"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/FASMAT_SBST.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Dikmas'); ?>">
+                        <div class="card" style="border-color: #7b113f; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#7b113f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                   
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total DIKMAS</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="dikmas"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detaildikmas"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/DIKMAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Jemenopsrek'); ?>">
+                        <div class="card" style="border-color: #e2ab1d; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#e2ab1d">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total JEMENOPSREK</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="jemenopsrek"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/JEMENOPSREK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Cegah'); ?>">
+                        <div class="card" style="border-color: #7b113f; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#7b113f">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total CEGAH</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="cegah"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/CEGAH.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Audit'); ?>">
+                        <div class="card" style="border-color: #36c602; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#36c602">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total AUDIT</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="audit"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/AUDIT.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Subrenop'); ?>">
+                        <div class="card" style="border-color: #33c36c; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#33c36c">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total SUBBAG RENOP</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subrenop"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Subdalops'); ?>">
+                        <div class="card" style="border-color: #9d2cf8; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#9d2cf8">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total SUBBAG DALOPS</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subdalops"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Subkerma'); ?>">
+                        <div class="card" style="border-color: #f14924; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#f14924">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total SUBBAG KERMA</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-md-3">
+                    <a href="<?= base_url('statistik_nasional/Subanev'); ?>">
+                        <div class="card" style="border-color: #3263c2; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#3263c2">
+                            <div class="card-body">
+                                <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                    
+                                    <div class="col-md-10 float-start">
+                                        <p class="fs-5 float-start" style="color:#ffffff;">
+                                            <span class="fw-bold">Total SUBBAG ANEV</span>
+                                            <br>
+                                            <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subanev"></span>
+                                            <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubanev"></p> 
+                                        </p>
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                        <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #ffffff;"></iconify-icon> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+    
+        </div>
+    </div>
 
     <?php $mobile = detect_mobile();
-    if ($mobile === true) { ?>
-
-
-
+    if ($mobile === true) { ?> 
+    
         <div class="row d-flex align-items-center">
             <div class="col-md-12 mb-1 mt-3 text-center">
                 <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
             </div>
         </div>
-
+    
         <div class="row d-flex">
             <div class="col-md-6 mt-3">
                 <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
@@ -413,13 +480,13 @@
                                 </tr>
                             </thead>
                             <tbody id="tbody-pelanggaran">
-
+    
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-md-6 mt-3">
                 <h5>10 Polda Kecelakaan Tertinggi</h5>
                 <div class="mb-3">
@@ -436,13 +503,13 @@
                                 </tr>
                             </thead>
                             <tbody id="tbody-kecelakaan">
-
+    
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
+    
         </div>
         <div class="row d-flex">
             <div class="col-md-12 mt-3">
@@ -466,19 +533,19 @@
                 </div>
             </div>
         </div>
-
+    
     <?php } else { ?>
         <!-- <div class="container-fluid" style="background:#E9E9E9">
             <div class="container-fluid">
                 <div class="container-fluid">
                     <div class="container-fluid">
-
+    
                         <div class="row d-flex align-items-center">
                             <div class="col-md-12 mb-1 mt-3 text-center">
                                 <span style="color:#007DD8;" class="text-uppercase fw-bold fs-1">Data Rekapitulasi Nasional</span>
                             </div>
                         </div>
-
+    
                         <div class="row d-flex">
                             <div class="col-md-6 mt-3">
                                 <h5>10 Polda Pelanggaran Lantas Tertinggi</h5>
@@ -496,7 +563,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody-pelanggaran">
-
+    
                                             </tbody>
                                         </table>
                                     </div>
@@ -518,13 +585,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody-kecelakaan">
-
+    
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
+    
                         </div>
                         <div class="row d-flex">
                             <div class="col-md-12 mt-3">
@@ -553,259 +620,96 @@
             </div>
         </div> -->
     <?php } ?>
+    
+ 
 
-    <script>
+
+
+<script>
+    var tanggal;
+
+
+
+    $('document').ready(function() {
+        $("[name=filter]").on("change", function(e) { 
+            if (this.value == 'day') {
+                tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
+            }else if (this.value == 'month'){
+                tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
+            }else if(this.value == 'year'){
+                tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
+            } 
+            // console.log(tanggal[0]);
+            getStatistik();
+        }); 
+
+        
         getStatistik();
-
         function getStatistik() {
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
-                dataType: "JSON",
+                url: "<?php echo base_url(); ?>statistik_nasional/Statistik_nasional/getStatistik",
+                data : {
+                    "type": $("[name=filter]").val(),
+                    "startDate" : tanggal ? tanggal[0] : `${moment().format('YYYY-MM-DD')}`,
+                    "endDate" : tanggal ? tanggal[1] : `${moment().format('YYYY-MM-DD')}`
+                }, 
+                dataType : "JSON",
                 success: function(result) {
                     $("#overlay").fadeOut(300);
 
-                    $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-                    $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-                    $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
-                    $('#walpjr').html(`<span class="fs-4" >${result.walpjr}</span>`);
+                    $('#lakalantas').html(`<span class="fs-5" >${result.lakalantas}</span >`);
+                    $('#detailLaka').html(`${result['compare']['lakalantas']}`);
+                    
 
-                    $('#bpkb').html(`<span class="fs-4" >${result.bpkb}</span >`);
-                    $('#stnk').html(`<span class="fs-4" >${result.stnk}</span >`);
-                    $('#sim').html(`<span class="fs-4" >${result.sim}</span>`);
-                    $('#sbst').html(`<span class="fs-4" >${result.sbst}</span >`);
+                    $('#garlantas').html(`<span class="fs-5" >${result.garlantas}</span >`);
+                    $('#detailgarlantas').html(`${result['compare']['garlantas']}`);
 
-                    $('#dikmas').html(`<span class="fs-4" >${result.dikmas}</span >`);
-                    $('#jemenopsrek').html(`<span class="fs-4" >${result.jemenopsrek}</span >`);
-                    $('#cegah').html(`<span class="fs-4" >${result.cegah}</span>`);
-                    $('#audit').html(`<span class="fs-4" >${result.audit}</span >`);
+                    $('#turjagwali').html(`<span class="fs-5" >${result.turjagwali}</span >`);
+                    $('#detailturjagwali').html(`${result['compare']['turjagwali']}`);
 
-                    $('#subrenop').html(`<span class="fs-4" >${result.subrenop}</span >`);
-                    $('#subdalops').html(`<span class="fs-4" >${result.subdalops}</span >`);
-                    $('#subkerma').html(`<span class="fs-4" >${result.subkerma}</span>`);
-                    $('#subanev').html(`<span class="fs-4" >${result.subanev}</span >`);
+                    $('#walpjr').html(`<span class="fs-5" >${result.walpjr}</span>`);
+                    $('#detailwalpjr').html(`${result['compare']['walpjr']}`);
+
+                    $('#bpkb').html(`<span class="fs-5" >${result.bpkb}</span >`);
+                    $('#detailbpkb').html(`${result['compare']['bpkb']}`);
+
+                    $('#stnk').html(`<span class="fs-5" >${result.stnk}</span >`);
+                    $('#detailstnk').html(`${result['compare']['stnk']}`);
+
+                    $('#sim').html(`<span class="fs-5" >${result.sim}</span>`);
+                    $('#detailsim').html(`${result['compare']['sim']}`);
+
+                    $('#sbst').html(`<span class="fs-5" >${result.sbst}</span >`);
+                    $('#detailsbst').html(`${result['compare']['sbst']}`);
+
+                    $('#dikmas').html(`<span class="fs-5" >${result.dikmas}</span >`);
+                    $('#detaildikmas').html(`${result['compare']['dikmas']}`);
+
+                    $('#jemenopsrek').html(`<span class="fs-5" >${result.jemenopsrek}</span >`);
+                    $('#detailjemenopsrek').html(`${result['compare']['jemenopsrek']}`);
+
+                    $('#cegah').html(`<span class="fs-5" >${result.cegah}</span>`);
+                    $('#detailcegah').html(`${result['compare']['cegah']}`);
+
+                    $('#audit').html(`<span class="fs-5" >${result.audit}</span >`);
+                    $('#detailaudit').html(`${result['compare']['audit']}`);
+
+                    $('#subrenop').html(`<span class="fs-5" >${result.subrenop}</span >`);
+                    $('#detailsubrenop').html(`${result['compare']['subrenop']}`);
+
+                    $('#subdalops').html(`<span class="fs-5" >${result.subdalops}</span >`);
+                    $('#detailsubdalops').html(`${result['compare']['subdalops']}`);
+
+                    $('#subkerma').html(`<span class="fs-5" >${result.subkerma}</span>`);
+                    $('#detailsubkerma').html(`${result['compare']['subkerma']}`);
+
+                    $('#subanev').html(`<span class="fs-5" >${result.subanev}</span >`);
+                    $('#detailsubanev').html(`${result['compare']['subanev']}`);
+
                 }
             })
         }
-
-        getGarlantas();
-
-        function getGarlantas() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>statistik_nasional/getGarlantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var table = '';
-
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        table += `<tr class="text-center"> 
-                                <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].total}  </td> 
-                                <td>  ${result[i].pelanggaran_berat}  </td> 
-                                <td>  ${result[i].pelanggaran_sedang}  </td> 
-                                <td>  ${result[i].pelanggaran_ringan}  </td> 
-                                </tr>`
-                    }
-                    $('#tbody-pelanggaran').html(table);
-
-                    <?php $mobile = detect_mobile();
-                    if ($mobile === true) { ?>
-
-                        $('#tablePelanggaran').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
-
-                            // buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-                                sSearch: 'Search:'
-                            },
-                        });
-
-                    <?php } ?>
-                }
-            });
-        }
-
-
-        getLakalantas();
-
-        function getLakalantas() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>statistik_nasional/getLakalantas",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    var table = '';
-
-                    for (let i = 0; i < result.length; i++) {
-                        let x = parseInt(i)
-                        let no = x + 1
-                        table += `<tr class="text-center"> 
-                                <td>  ${no}  </td> 
-                                <td>  ${result[i].name_polda}  </td> 
-                                <td>  ${result[i].insiden_kecelakaan}  </td> 
-                                <td>  ${result[i].meninggal_dunia}  </td> 
-                                <td>  ${result[i].luka_berat}  </td> 
-                                <td>  ${result[i].luka_ringan}  </td> 
-                                </tr>`
-                    }
-                    $('#tbody-kecelakaan').html(table);
-
-                    <?php $mobile = detect_mobile();
-                    if ($mobile === true) { ?>
-                        $('#tableKecelakaan').DataTable({
-                            responsive: true,
-
-                            scrollX: true,
-
-                            sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
-
-                            // buttons: ["excel", "csv", "pdf"],
-                            processing: true,
-                            oLanguage: {
-                                sSearch: 'Search:'
-                            },
-                        });
-                    <?php } ?>
-                }
-            })
-        }
-
-        getTurjagwali();
-
-        function getTurjagwali() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>statistik_nasional/getTurjagwali",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-                    // console.log(result)
-                    var turjagwali = {
-                        series: [{
-                            name: 'Pengaturan',
-                            type: 'column',
-                            data: result.polda_pengaturan,
-                            color: "#11347A"
-                        }, {
-                            name: 'Pengawalan',
-                            type: 'column',
-                            data: result.polda_pengawalan,
-                            color: "#CB2D3E"
-                        }, {
-                            name: 'Patroli',
-                            type: 'column',
-                            data: result.polda_patroli,
-                            color: "#E8D42F"
-                        }, {
-                            name: 'Penjagaan',
-                            type: 'column',
-                            data: result.polda_penjagaan,
-                            color: "#346EFA"
-                        }],
-                        chart: {
-                            height: 400,
-                            type: 'line',
-                            stacked: false
-                        },
-                        plotOptions: {
-                            bar: {
-                                horizontal: false,
-                                columnWidth: '55%',
-                                endingShape: 'rounded',
-                                dataLabels: {
-                                    position: 'top'
-                                }
-                            },
-                        },
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                colors: ['#333']
-                            },
-                            offsetY: -15,
-                        },
-
-                        stroke: {
-                            show: true,
-                            width: [1, 1, 4, 4],
-                            colors: ['transparent']
-                        },
-                        xaxis: {
-                            categories: result.polda_name,
-                            labels: {
-                                show: true,
-                                style: {
-                                    colors: ['#f70505'],
-                                    fontSize: '18px',
-                                    fontWeight: 400,
-                                }
-                            }
-                        },
-                        yaxis: [{
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                                color: '#008FFB'
-                            },
-                            // labels: {
-                            //     style: {
-                            //         colors: '#008FFB',
-                            //     }
-                            // },
-
-
-                        }, ],
-                    };
-
-                    var turjagwali = new ApexCharts(document.querySelector("#chartturjagwali"), turjagwali);
-                    turjagwali.render();
-                }
-            })
-        }
-
-        getStatistik();
-
-        function getStatistik() {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>statistik_nasional/getStatistik",
-                dataType: "JSON",
-                success: function(result) {
-                    $("#overlay").fadeOut(300);
-
-                    $('#lakalantas').html(`<span class="fs-4" >${result.lakalantas}</span >`);
-                    $('#garlantas').html(`<span class="fs-4" >${result.garlantas}</span >`);
-                    $('#turjagwali').html(`<span class="fs-4" >${result.turjagwali}</span >`);
-                    $('#walpjr').html(`<span class="fs-4" >${result.walpjr}</span>`);
-
-                    $('#bpkb').html(`<span class="fs-4" >${result.bpkb}</span >`);
-                    $('#stnk').html(`<span class="fs-4" >${result.stnk}</span >`);
-                    $('#sim').html(`<span class="fs-4" >${result.sim}</span>`);
-                    $('#sbst').html(`<span class="fs-4" >${result.sbst}</span >`);
-
-                    $('#dikmas').html(`<span class="fs-4" >${result.dikmas}</span >`);
-                    $('#jemenopsrek').html(`<span class="fs-4" >${result.jemenopsrek}</span >`);
-                    $('#cegah').html(`<span class="fs-4" >${result.cegah}</span>`);
-                    $('#audit').html(`<span class="fs-4" >${result.audit}</span >`);
-
-                    $('#subrenop').html(`<span class="fs-4" >${result.subrenop}</span >`);
-                    $('#subdalops').html(`<span class="fs-4" >${result.subdalops}</span >`);
-                    $('#subkerma').html(`<span class="fs-4" >${result.subkerma}</span>`);
-                    $('#subanev').html(`<span class="fs-4" >${result.subanev}</span >`);
-                }
-            })
-        }
-    </script>
+ 
+    });
+</script>

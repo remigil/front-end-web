@@ -39,7 +39,12 @@ class Statistik_nasional extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily', [
+
+        $input      = $this->input->post();
+        // echo json_encode($input);
+        // die;
+
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?filter=true&start_date='.$input['startDate'].'&end_date='.$input['endDate'].'', [
             'headers' => $headers
         ]);
         $getGakkum = $getGakkum["data"];
@@ -55,7 +60,7 @@ class Statistik_nasional extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getKamsel = guzzle_request('GET', 'ditkamsel/daily', [
+        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?filter=true&start_date='.$input['startDate'].'&end_date='.$input['endDate'].'', [
             'headers' => $headers
         ]);
         $getKamsel = $getKamsel["data"];
@@ -71,7 +76,7 @@ class Statistik_nasional extends MY_Controller
             // $totalaudit += $getKamsel[$i]['audit'];
         }
 
-        $getRegident = guzzle_request('GET', 'ditregident/daily', [
+        $getRegident = guzzle_request('GET', 'ditregident/daily?filter=true&start_date='.$input['startDate'].'&end_date='.$input['endDate'].'', [
             'headers' => $headers
         ]);
         $getRegident = $getRegident["data"];
@@ -103,8 +108,79 @@ class Statistik_nasional extends MY_Controller
         // $totalsubanev += $getOps[$i]['subanev'];
         // }
 
+        if($input['type'] == 'day'){
+            $date1 = date('Y-m-d',strtotime("-1 days"));
+        }else if($input['type'] == 'month'){
+            $date1 = date('Y-m-d',strtotime("-1 month"));
+        }else if($input['type'] == 'year'){
+            $date1 = date('Y-m-d',strtotime("-1 year"));
+        }
 
-        $data = [
+        $getCompareDitgakum = guzzle_request('GET', 'ditgakkum/date?type='.$input['type'].'&filter=true&start_date='.$date1.'&end_date='.$input['endDate'].'', [
+            'headers' => $headers
+        ]);
+        $getCompareDitgakum = $getCompareDitgakum["data"];
+
+        $arrLaka = array_map (function($value){
+            return intval($value['lakalantas']);
+        } , $getCompareDitgakum);
+        // $nilaiCompareLaka = max($arrLaka);
+        if( $arrLaka[0] > $arrLaka[1]){
+            $findCompareLaka = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrLaka[0] == 0 && $arrLaka[1] == 0) {
+            $findCompareLaka = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findCompareLaka = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrgarla = array_map (function($value){
+            return intval($value['garlantas']);
+        } , $getCompareDitgakum);
+        // $nilaiComparegarla = max($arrgarla);
+        if( $arrgarla[0] > $arrgarla[1]){
+            $findComparegarla = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrgarla[0] == 0 && $arrgarla[1] == 0) {
+            $findComparegarla = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findComparegarla = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrturja = array_map (function($value){
+            return intval($value['turjagwali']);
+        } , $getCompareDitgakum);
+        // $nilaiCompareturja = max($arrturja);
+        if( $arrturja[0] > $arrturja[1]){
+            $findCompareturja = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrturja[0] == 0 && $arrturja[1] == 0) {
+            $findCompareturja = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findCompareturja = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+ 
+
+        $data = [ 
+            'compare' => [
+                'lakalantas' => $findCompareLaka,
+                'garlantas' => $findComparegarla,
+                'turjagwali' => $findCompareturja,
+                'walpjr' =>  '',
+
+                'bpkb' => '',
+                'stnk' => '',
+                'sim' => '',
+                'sbst' => '',
+
+                'dikmas' => '',
+                'jemenopsrek' => '',
+                'cegah' => '',
+                'audit' => '',
+
+                'subrenop' => '',
+                'subdalops' => '',
+                'subkerma' => '',
+                'subanev' => '',
+ 
+            ],
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
@@ -124,6 +200,9 @@ class Statistik_nasional extends MY_Controller
             'subdalops' =>  number_format($totalsubdalops, 0, '', '.'),
             'subkerma' =>  number_format($totalsubkerma, 0, '', '.'),
             'subanev' => number_format($totalsubanev, 0, '', '.'),
+
+
+            
         ];
 
         echo json_encode($data);
@@ -149,6 +228,24 @@ class Statistik_nasional extends MY_Controller
     }
 
     public function getLakaLantas()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token']
+        ];
+        // $data['lakalantas'] = '123';
+        // $date = date("Y-m-d");
+        // $url = 'laka_lantas/daily?date=' . $date . '&topPolda=true&limit=10';
+        $url = 'laka_lantas/daily?topPolda=true&limit=10';
+
+        $getLakalantas = guzzle_request('GET', $url, [
+            'headers' => $headers
+        ]);
+
+        $data['lakalantas'] = $getLakalantas["data"]["rows"];
+        echo json_encode($data['lakalantas']);
+    }
+
+    public function getDetLakaLantas()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token']
