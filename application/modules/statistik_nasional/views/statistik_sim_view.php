@@ -388,8 +388,7 @@
          topSimMonth(firstDayMonth, lastDayMonth);
          topSimYear(firstDay, lastDay)
 
-         sim_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
-
+         ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
          SimlineChart(seven_daysAgo, yesterday)
          jam();
      })
@@ -509,10 +508,10 @@
      })
 
 
-     function sim_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getSimDate",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -523,9 +522,9 @@
              },
              success: function(result) {
                  $("#overlay").fadeOut(300);
-                 $('#simThisDay').text(result.thisDay[0].baru)
-                 $('#simThisMonth').text(result.thisMonth[0].baru)
-                 $('#simThisYear').text(result.thisYear.baru)
+                 $('#simThisDay').text(result.thisDay[0].sim)
+                 $('#simThisMonth').text(result.thisMonth[0].sim)
+                 $('#simThisYear').text(result.thisYear.sim)
 
              }
          })

@@ -1,5 +1,14 @@
 <div class="container-fluid">
-    <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+    <div class="row">
+<div class="col-md-6">
+<a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+</div>
+<div class="col-md-6 text-end align-self-center">
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             
+         </div>
+    </div>
+    
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
@@ -59,52 +68,8 @@
 </div>
 
 <div class="container-fluid">
-    <section class="shadow-sm mt-5">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div id="titleline"></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="main-chart">
-                            <div id="chartdate">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div id="title"></div>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Show data</label>
-                                    <select class="form-control" id="limit_showData">
-                                        <option value="3">3</option>
-                                        <option value="5" selected>5</option>
-                                        <option value="7">7</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="main-chart">
-                            <div id="charta">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row m-3" style="font-size: 16px;">
+<div class="card">
+<div class="row m-3" style="font-size: 16px;">
             <div class="col-xl-12">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -193,7 +158,93 @@
                 </div>
             </div>
         </div>
-    </section>
+        <div class="row">
+             <hr style="width:97%; margin: auto">
+             <div class="filter mt-4" style=" height:125px;">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                 </div>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="titleline"></div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="chartdate">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div id="title"></div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Show data</label>
+                                    <select class="form-control" id="limit_showData">
+                                        <option value="3">3</option>
+                                        <option value="5" selected>5</option>
+                                        <option value="7">7</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="main-chart">
+                            <div id="charta">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+    
+        <!-- <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div id="titleline"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="main-chart">
+                            <div id="chartdate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+
+
+   
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
