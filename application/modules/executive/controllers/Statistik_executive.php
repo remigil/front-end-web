@@ -681,6 +681,275 @@ class Statistik_executive extends MY_Controller
         echo json_encode($data);
     }
     // End Sim
+
+    // Wal Pjr
+    public function getDetailStatistikWalpjr()
+    {
+        $title = 'TOP DATA WAL & PJR';
+        // $filter = $this->input->post('filter');
+        // $limit = $this->input->post('limit');
+        // $yesterday = $this->input->post('yesterday');
+        // if ($filter == 0) {
+        //     $filterbaru = [
+        //         'filter' => $filter,
+        //         'start_date' => '',
+        //         'end_date' => '',
+        //         'limit' => $limit,
+        //         'yesterday' => $yesterday
+        //     ];
+        //     $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        // } elseif ($filter != 0) {
+        //     $filterbaru = [
+        //         'filter' => $filter,
+        //         'start_date' => $this->input->post('start_date'),
+        //         'end_date' => $this->input->post('end_date'),
+        //         'limit' => $limit
+        //     ];
+        //     $getdata = $this->M_detail_statistik->getSimNasional($filterbaru);
+        // }
+
+        // $data = [
+
+        //     'data' => $getdata,
+        //     'title' => $title,
+        // ];
+        $data = [
+            'data' => [
+                'polda_name' => ['Banten', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Metro Jaya '],
+                'polda_walpjr' => ['0', '0', '0', '0', '0']
+            ],
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+    public function getWalpjrDate()
+    {
+        // $yesterday = $this->input->post('yesterday');
+        // $firstDayMonth = $this->input->post('firstDayMonth');
+        // $lastDayMonth = $this->input->post('lastDayMonth');
+        // $firstDay = $this->input->post('firstDay');
+        // $lastDay = $this->input->post('lastDay');
+
+        // $url_thisDay = 'ditgakkum/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        // $url_thisMonth = 'ditgakkum/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        // $url_thisYear = 'ditgakkum/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        // $thisDay = guzzle_request('GET', $url_thisDay, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+        // $thisMonth = guzzle_request('GET', $url_thisMonth, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+        // $thisYear = guzzle_request('GET', $url_thisYear, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+        // $turjagwali = 0;
+        // $lakalantas = 0;
+        // $garlantas = 0;
+        // $lakalanggar = 0;
+        // foreach ($thisYear['data'] as $key) {
+        //     $turjagwali += $key['turjagwali'];
+        //     $lakalantas += $key['lakalantas'];
+        //     $garlantas += $key['garlantas'];
+        //     $lakalanggar  += $key['lakalanggar'];
+        // }
+
+        // $data['thisYear'] = [
+        //     'lakalantas' => $lakalantas,
+        //     'garlantas' => $garlantas,
+        //     'lakalanggar' => $lakalanggar,
+        //     'turjagwali' => $turjagwali
+        // ];
+
+        // $data['ditgakkumDate'] = [
+        //     'thisDay' => $thisDay['data'],
+        //     'thisMonth' => $thisMonth['data'],
+        //     'thisYear' => $data['thisYear']
+        // ];
+        $data['walpjrDate'] = [
+            'thisDay' => 0,
+            'thisMonth' => 0,
+            'thisYear' => 0
+        ];
+
+        echo json_encode($data['walpjrDate']);
+    }
+
+
+    public function getTopWalpjr()
+    {
+        // $yesterday = $this->input->post('yesterday');
+        // $url = 'sim/daily?date=' . $yesterday . '&topPolda=true';
+        // $simTopPolda = guzzle_request('GET', $url, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+        // $data['topSim'] = $simTopPolda['data']['rows'];
+        // echo json_encode($data['topSim']);
+        $dummy = [
+            [
+                'name_polda' => 'Banten',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Barat',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Timur',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Tengah',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Metro Jaya',
+                'walpjr' => '0'
+            ],
+        ];
+        echo json_encode($dummy);
+    }
+
+    public function getWalpjrMonth()
+    {
+        // $firstDay = $this->input->post('firstDay');
+        // $lastDay = $this->input->post('lastDay');
+
+        // $url = 'sim/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        // $simTopPolda = guzzle_request('GET', $url, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+        // $data['topsim'] = $simTopPolda['data']['rows'];
+
+        // echo json_encode($data['topsim']);
+        $dummy = [
+            [
+                'name_polda' => 'Banten',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Barat',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Timur',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Tengah',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Metro Jaya',
+                'walpjr' => '0'
+            ],
+        ];
+        echo json_encode($dummy);
+    }
+
+    public function getWalpjrYear()
+    {
+        // $firstDay = $this->input->post('firstDay');
+        // $lastDay = $this->input->post('lastDay');
+
+        // $url = 'sim/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        // $simTopPolda = guzzle_request('GET', $url, [
+        //     'headers' => [
+        //         'Authorization' => $this->session->userdata['token']
+        //     ]
+        // ]);
+
+
+        $dummy = [
+            [
+                'name_polda' => 'Banten',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Barat',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Timur',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Jawa Tengah',
+                'walpjr' => '0'
+            ],
+            [
+                'name_polda' => 'Metro Jaya',
+                'walpjr' => '0'
+            ],
+        ];
+        echo json_encode($dummy);
+        // $data['topsim'] = $simTopPolda['data']['rows'];
+        // echo json_encode($data['topsim']);
+    }
+
+    public function getLineWalpjr()
+    {
+        $title = 'DATA WAL & PJR';
+        // $filter = $this->input->post('filter');
+        // $limit = $this->input->post('limit');
+        // $yesterday = $this->input->post('yesterday');
+        // if ($filter == 0) {
+        //     $filterbaru = [
+        //         'filter' => $filter,
+        //         'start_date' => $this->input->post('start_date'),
+        //         'end_date' => $this->input->post('end_date'),
+        //     ];
+        //     $getdata = $this->M_detail_statistik->getWalpjrNasionalDate($filterbaru);
+        // } elseif ($filter != 0) {
+        //     $filterbaru = [
+        //         'filter' => $filter,
+        //         'start_date' => $this->input->post('start_date'),
+        //         'end_date' => $this->input->post('end_date'),
+        //     ];
+        //     $getdata = $this->M_detail_statistik->getWalpjrNasionalDate($filterbaru);
+        // }
+
+        // $data = [
+        //     'data' => $getdata,
+        //     'title' => $title,
+        // ];
+
+        // $date = date("d-m-Y");
+        $date = date("d-m-Y");
+        $onedays = date('d-m-Y', strtotime($date . "-1 days"));
+        $twodays = date('d-m-Y', strtotime($date . "-2 days"));
+        $threedays = date('d-m-Y', strtotime($date . "-3 days"));
+        $fourdays = date('d-m-Y', strtotime($date . "-4 days"));
+        $fivedays = date('d-m-Y', strtotime($date . "-5 days"));
+        $sixdays = date('d-m-Y', strtotime($date . "-6 days"));
+        $data = [
+            'data' => [
+                'polda_name' => [$sixdays, $fivedays, $fourdays, $threedays, $twodays, $onedays, $date],
+                'polda_walpjr' => ['0', '0', '0', '0', '0', '0', '0']
+            ],
+            'title' => $title,
+        ];
+
+        echo json_encode($data);
+    }
+
     public function Ranmor()
     {
         $data['csrf_name'] = $this->security->get_csrf_token_name();
