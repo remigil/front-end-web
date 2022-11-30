@@ -21,7 +21,6 @@ class Polda_executive extends MY_Controller
         $data['polda'] = $this->M_detail_polda->get_Polda();
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
         $data["id"] = $id;
-        $data["title"] = "Detail Polda";
         $page_content["data"] = $data;
         $page_content["page"] = "executive/polda/detail_polda_view";
         $this->templates->loadTemplate($page_content);
@@ -360,5 +359,189 @@ class Polda_executive extends MY_Controller
         ];
 
         echo json_encode($data);
+    }
+
+    public function Lakalantas($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Kecelakaan Nasional";
+        $page_content["page"] = "executive/polda/statistik_laka_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function Garlantas($id)
+    {
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Pelanggaran Nasional";
+        $page_content["page"] = "executive/polda/statistik_langgar_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+
+    public function Turjagwali($id)
+    {
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Turjagwali Nasional";
+        $page_content["page"] = "executive/polda/statistik_turjagwali_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function Walpjr($id)
+    {
+
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data WAL & PJR Nasional";
+        $page_content["page"] = "executive/polda/statistik_walpjr_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Sim($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Sim Nasional";
+        $page_content["page"] = "executive/polda/statistik_sim_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Bpkb($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Bpkb Nasional";
+        $page_content["page"] = "executive/polda/statistik_bpkb_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Stnk($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Stnk Nasional";
+        $page_content["page"] = "executive/polda/statistik_stnk_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Sbst($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Fasmat Sbst Nasional";
+        $page_content["page"] = "executive/polda/statistik_sbst_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Dikmas($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Dikmaslantas Nasional";
+        $page_content["page"] = "executive/polda/statistik_dikmaslantas_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Jemenopsrek($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Jemenopsrek Nasional";
+        $page_content["page"] = "executive/polda/statistik_jemenopsrek_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Cegah($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Cegah Nasional";
+        $page_content["page"] = "executive/polda/statistik_cegah_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Audit($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Audit Nasional";
+        $page_content["page"] = "executive/polda/statistik_audit_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subrenop($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Renop Nasional";
+        $page_content["page"] = "executive/polda/statistik_renop_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subdalops($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Dalops Nasional";
+        $page_content["page"] = "executive/polda/statistik_dalops_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subkerma($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Kerma Nasional";
+        $page_content["page"] = "executive/polda/statistik_kerma_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+    public function Subanev($id)
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Data Subbag Anev Nasional";
+        $page_content["page"] = "executive/polda/statistik_anev_view";
+        // $page_content["data"] = '';
+        $data["id"] = $id;
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
     }
 }

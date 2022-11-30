@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4 mb-1">
-        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a> Detail Polda</h3>
+        <h3 style="text-transform: uppercase; color:#007DD8;"><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a>&nbsp;<?= $title; ?></h3>
     </div>
     <div class="col-md-3">
     </div>
@@ -40,44 +40,59 @@
     </div>
 </div> -->
 <div class="container-fluid">
-    <div class="row">
-        <!-- <div class="row mt-5"> -->
-        <div class="col-md-1 d-flex">
-            <div id="logo"></div>
-        </div>
-        <div class="col-md-7 align-self-center">
-            <div id="nama"></div>
-            <p>Today is <?= date('l, j F Y') ?></p>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-
-                <div class="col-md-6 text-end align-self-center">
-                    <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['id']); ?>" class="text-center "><button class="btn btn-primary fs-6 fw-bold" style="width: 100%;">Statistik Polda</button></a>
+    <div class="card mt-2 p-1 shadow" style="border-radius:36px !important;">
+        <div class="row m-2">
+            <div class="col-sm-6 col-md-6 align-self-center">
+                <div class="row">
+                    <div class="col-md-2 d-flex">
+                        <div id="logo"></div>
+                    </div>
+                    <div class="col-md-10 align-self-center">
+                        <div id="nama"></div>
+                        <p>Today is <?= date('l, j F Y') ?></p>
+                    </div>
                 </div>
-                <div class="col-md-6 text-end align-self-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn dropdown-toggle btn-primary fs-6 fw-bold" data-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                            Subsatker Polda
-                        </button>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="row m-2">
+                    <!-- <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['id']); ?>" class="text-center "><button class="btn btn-primary fs-6 fw-bold" style="width: 100%;">Statistik Polda</button></a> -->
 
-                        <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
-                            <a class="dropdown-item" href="#">Subditgakkum Polda</a>
-                            <a class="dropdown-item" href="#">Subditregident Polda</a>
-                            <a class="dropdown-item" href="#">Subdikamsel Polda</a>
-                            <a class="dropdown-item" href="#">Subbagrenmin Polda</a>
-                            <a class="dropdown-item" href="#">Subbagops Polda</a>
-                            <a class="dropdown-item" href="#">Subbagtik Polda</a>
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center ">
+                        <a href="<?php echo base_url('executive/Polda_executive/statistik_polda/' . $data['id']); ?>" class="text-center ">
+                            <div class="card p-1 mt-2 mb-2  bg-primary" style="border-radius: 20px !important; border-color:#D9D9D9">
+                                <div class="card-body p-1 ">
+                                    <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                        <div class="col-md-12">
+                                            <h4 class="mb-0 text-white">Statistik Polda</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xl-6 align-self-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle fs-6 fw-bold bg-primary" data-toggle="dropdown" aria-expanded="false" style="width: 100%; padding:0 4vw 0 4vw;  border-radius: 20px !important; border-color:#D9D9D9; height:95px; ">
+                                <!-- Subsatker Polda -->
+                                <h4 class="mb-0 text-white">Subsatker Polda</h4>
+                            </button>
+                            <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
+                                <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subditregident Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subdikamsel Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- <div class="col-md-6 text-end align-self-center">
-                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar?polda_id=<?= $data['id'] ?>" class="text-center" id="btn_export"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
-            </div> -->
     </div>
+</div>
+<div class="container-fluid">
+
     <div class="row mt-3">
         <div class="col-md-12">
             <!-- <div class="col-md-12"> -->
@@ -216,7 +231,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="cat operasiDisplay"  style="display:none">
+                        <div class="cat operasiDisplay" style="display:none">
                             <div class="btn-group">
                                 <label>
                                     <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
@@ -320,7 +335,7 @@
                                         <div class="col-md-6">
                                             <input type="checkbox" checked name="filter" value="samsat" id="samsat" class="form-input">
                                             <span>Samsat</span>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <input type="checkbox" checked name="filter" value="trouble_spot" id="trouble_spot" class="form-input">
                                             <span>Trouble Spot</span>
@@ -1397,27 +1412,29 @@
                         type: "roadmap",
                     }).addGoogleLayer("TrafficLayer");
 
-                    var shpFile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/SHP/${result.polda.file_shp}`, {
+                    var shpFile = new L.Shapefile(`<?php echo base_url(); ?>assets/admin/shp/SHP/${result.polda.file_shp}`, {
                         pointToLayer: function(feature, latlng) {
-                            
+
                             var smallIcon = new L.divIcon({
                                 iconAnchor: [20, 51],
                                 popupAnchor: [0, -51],
                                 className: 'listeo-marker-icon',
                                 html: '<div class="marker-container">' +
-                                '<div class="marker-card">' +
-                                '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
-                                '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
-                                '<div class="marker-arrow"></div>' +
-                                '</div>' +
-                                '</div>'
+                                    '<div class="marker-card">' +
+                                    '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                                    '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                                    '<div class="marker-arrow"></div>' +
+                                    '</div>' +
+                                    '</div>'
                             });
-                            
-                    
-                            var mark = L.marker(latlng, {icon: smallIcon})
+
+
+                            var mark = L.marker(latlng, {
+                                icon: smallIcon
+                            })
                             cluster.addLayer(mark)
-                            return  cluster;
-                            
+                            return cluster;
+
                         },
                         onEachFeature: function(feature, layer) {
                             if (feature.properties) {
@@ -1425,7 +1442,7 @@
                                     return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
                                 }).join("<hr>"), {
                                     maxWidth: 400,
-                                    maxHeight: 250, 
+                                    maxHeight: 250,
                                     scrollbarWidth: 'thin',
                                     className: 'leaflet-infoBox'
                                 });
@@ -1476,7 +1493,7 @@
 
 
 
-                    
+
 
 
                     socket.on("connected", function(resSocket) {
@@ -6234,7 +6251,7 @@
                                             id = i;
                                             var latitudeSamsat = parseFloat(filterSamsat[i].samsat_lat);
                                             var longitudeSamsat = parseFloat(filterSamsat[i].samsat_lng);
- 
+
 
                                             samsatClusterGroup.addLayer(markerSamsat[i] = L.marker([latitudeSamsat, longitudeSamsat], {
                                                 icon: L.divIcon({
@@ -6319,11 +6336,11 @@
                                         var checkedTroubleSpot1 = [];
 
                                         for (let i = 0; i < filterTroubleSpot.length; i++) {
-                                            countTroubleSpotDisplay += 1; 
+                                            countTroubleSpotDisplay += 1;
                                             countlistTroubleSpot += 1;
                                             id = i;
 
-                                            if(filterTroubleSpot[i].route == null){
+                                            if (filterTroubleSpot[i].route == null) {
                                                 listTroubleSpotDisplay += `
                                                     <tr>
                                                         <td>${countTroubleSpotDisplay}</td>
@@ -6341,9 +6358,9 @@
                                                     </tr>
                                                 `;
                                                 $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
-                                                
+
                                                 var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
-                                                var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude); 
+                                                var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude);
                                                 troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
                                                     icon: L.divIcon({
                                                         // className: 'location-pin',
@@ -6367,8 +6384,8 @@
                                                     minWidth: 100,
                                                     maxWidth: 560,
                                                     width: 400
-                                                })); 
-                                            }else{
+                                                }));
+                                            } else {
                                                 listTroubleSpotDisplay += `
                                                     <tr>
                                                         <td>${countTroubleSpotDisplay}</td>
@@ -6384,8 +6401,8 @@
                                                     </tr>
                                                 `;
                                                 $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
-                                                
-                                                
+
+
                                                 checkedTroubleSpot1.push({
                                                     reporter_name: filterTroubleSpot[i]['reporter_name'],
                                                     checked: 0,
@@ -6395,7 +6412,7 @@
 
                                         for (let i = 0; i < countlistTroubleSpot; i++) {
                                             $(`#listTsDisplay${i+1}`).on("change", function(e) {
-                                                
+
                                                 var cordRute = $(this).data('cord');
                                                 if (cordRute != null && cordRute[0]['latLng'] != null) {
                                                     if ($(this).is(':checked')) {
@@ -6428,7 +6445,7 @@
                                                                     //         draggable: this.draggableWaypoints,
                                                                     //     },
                                                                     //     marker = L.marker(wp.latLng);
-                
+
                                                                     // return marker;
                                                                 }
                                                             },
@@ -7613,11 +7630,11 @@
 
                     $("#samsatFilterModal").on("click", function(e) {
                         $("#myModalSamsatDisplay").modal('show');
-                    }); 
+                    });
                     $("#troubleSpotFilterModal").on("click", function(e) {
                         $("#myModalTroubleSpotDisplay").modal('show');
                     });
-                    
+
                     $("#fasumFilterModal").on("click", function(e) {
                         $("#myModalFasumKhususDisplay").modal('show');
                     });
