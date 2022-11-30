@@ -40,6 +40,12 @@ if (!function_exists('guzzle_request')) {
         // return 'http://localhost:3020/uploads/';
         return 'http://34.143.227.90:3019/uploads/'; 
     }
+
+    function ApiUrl()
+    {
+        // return 'http://localhost:3020/v1/';
+        return 'http://34.143.227.90:3019/v1/';
+    }
 }
 
 if (!function_exists('guzzle_requestTracking')) {
