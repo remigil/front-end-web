@@ -260,6 +260,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
  <script>
      $(document).ready(function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var date = new Date();
          var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -278,7 +279,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikStnk",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikStnk/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -394,24 +395,25 @@
              }
          })
 
-         topStnkDay(yesterday);
-         topStnkMonth(firstDayMonth, lastDayMonth);
-         topStnkYear(firstDay, lastDay)
+         topStnkDay(yesterday, id);
+         topStnkMonth(firstDayMonth, lastDayMonth, id);
+         topStnkYear(firstDay, lastDay, id)
 
-         ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay, id)
 
-         StnklineChart(seven_daysAgo, yesterday)
+         StnklineChart(seven_daysAgo, yesterday, id)
          jam();
      })
 
 
      $('#limit_showData').on('change', function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var limit = $('#limit_showData').val();
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikStnk",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikStnk/" + id,
              data: {
                  filter: filter,
                  limit: limit,
@@ -529,10 +531,10 @@
      })
 
 
-     function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function ditregident_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitregidentDate",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitregidentDate/" + id,
              dataType: "JSON",
              data: {
                  yesterday,
@@ -553,6 +555,7 @@
 
 
      function ButtonFilter() {
+         let id = '<?= $data['id'] ?>'
          let filter = 1;
          let start_date = $('#start_date').val()
          let end_date = $('#end_date').val()
@@ -577,7 +580,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikStnk",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikStnk/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -695,15 +698,15 @@
                  }
              })
 
-             StnklineChart(start_date, end_date)
+             StnklineChart(start_date, end_date, id)
          }
      }
 
-     function StnklineChart(seven_daysAgo, yesterday) {
+     function StnklineChart(seven_daysAgo, yesterday, id) {
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/Statistik_executive/getLineStnk",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineStnk/" + id,
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -716,19 +719,19 @@
 
                  var chart2 = {
                      series: [{
-                         name: '<h6>Total STNK</h6>',
-                         type: 'line',
-                         data: results.data.polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
                          name: '<h6>STNK Baru</h6>',
                          type: 'line',
-                         data: results.data.polda_meninggal_dunia,
+                         data: results.data.polda_baru,
+                         color: "#11347A"
+                     }, {
+                         name: '<h6>STNK Perpanjangan</h6>',
+                         type: 'line',
+                         data: results.data.polda_perpanjangan,
                          color: "#3CA55C"
                      }, {
-                         name: '<h6>STNK Perpanjang</h6>',
+                         name: '<h6>STNK Rubentina</h6>',
                          type: 'line',
-                         data: results.data.polda_luka_berat,
+                         data: results.data.polda_rubentina,
                          color: "#E8D42F"
                      }, ],
                      chart: {
@@ -795,7 +798,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas/" + id,
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -814,10 +817,10 @@
          }
      }
 
-     function topStnkDay(yesterday) {
+     function topStnkDay(yesterday, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopStnk",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopStnk/" + id,
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -860,10 +863,10 @@
          })
      }
 
-     function topStnkMonth(firstDayMonth, lastDayMonth) {
+     function topStnkMonth(firstDayMonth, lastDayMonth, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getStnkMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getStnkMonth/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -907,10 +910,10 @@
          })
      }
 
-     function topStnkYear(firstDay, lastDay) {
+     function topStnkYear(firstDay, lastDay, id) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getStnkYear",
+             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getStnkYear/" + id,
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

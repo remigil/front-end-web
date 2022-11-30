@@ -591,18 +591,18 @@ class M_detail_statistik_polda extends CI_Model
     }
 
 
-    public function getStnkNasionalDate($filterbaru)
+    public function getStnkPoldaDate($filterbaru)
     {
 
         if ($filterbaru['filter'] == 0) {
-            $url = 'stnk/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'stnk/date?type=day&polda_id=' . $filterbaru['id'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']
                 ]
             ]);
         } elseif ($filterbaru['filter'] == 1) {
-            $url = 'stnk/date?type=day&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
+            $url = 'stnk/date?type=day&polda_id=' . $filterbaru['id'] . '&filter=true&start_date=' . $filterbaru['start_date'] . '&end_date=' . $filterbaru['end_date'] . '';
             $lakalantasnasional = guzzle_request('GET', $url, [
                 'headers' => [
                     'Authorization' => $this->session->userdata['token']

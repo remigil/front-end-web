@@ -588,7 +588,7 @@ class Statistik_polda_executive extends MY_Controller
         echo json_encode($data);
     }
 
-    public function getLineStnk()
+    public function getLineStnk($id)
     {
         $title = 'DATA STNK';
         $filter = $this->input->post('filter');
@@ -596,18 +596,20 @@ class Statistik_polda_executive extends MY_Controller
         $yesterday = $this->input->post('yesterday');
         if ($filter == 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getStnkNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getStnkPoldaDate($filterbaru);
         } elseif ($filter != 0) {
             $filterbaru = [
+                'id' => $id,
                 'filter' => $filter,
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
             ];
-            $getdata = $this->M_detail_statistik_polda->getStnkNasionalDate($filterbaru);
+            $getdata = $this->M_detail_statistik_polda->getStnkPoldaDate($filterbaru);
         }
 
         $data = [

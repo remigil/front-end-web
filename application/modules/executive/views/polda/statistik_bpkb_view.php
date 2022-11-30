@@ -256,6 +256,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
  <script>
      $(document).ready(function() {
+         let id = '<?= $data['id'] ?>'
          let filter = 0
          var date = new Date();
          var firstDay = new Date(date.getFullYear(), 0).toLocaleDateString("en-GB").split('/').reverse().join('-');
@@ -274,7 +275,7 @@
          $("#overlay").fadeIn(300);
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
              data: {
                  filter: filter,
                  limit: limit,
@@ -298,22 +299,17 @@
                  // chart laka
                  var chart = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'column',
-                         data: polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
+                         name: '<h6>BPKB Baru</h6>',
                          type: 'column',
                          data: polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: '<h6>Luka Berat</h6>',
+                         name: '<h6>BPKB Perpanjangan</h6>',
                          type: 'column',
                          data: polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: '<h6>Luka Ringan</h6>',
+                         name: '<h6>BPKB Rubentina</h6>',
                          type: 'column',
                          data: polda_luka_ringan,
                          color: "#3CA55C"
@@ -415,7 +411,7 @@
          var yesterday = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-')
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
              data: {
                  filter: filter,
                  limit: limit,
@@ -439,22 +435,17 @@
                  // chart laka
                  var chart = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'column',
-                         data: polda_jumlah,
-                         color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
+                         name: '<h6>BPKB Baru</h6>',
                          type: 'column',
                          data: polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: '<h6>Luka Berat</h6>',
+                         name: '<h6>BPKB Perpanjangan</h6>',
                          type: 'column',
                          data: polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: '<h6>Luka Ringan</h6>',
+                         name: '<h6>BPKB Rubentina</h6>',
                          type: 'column',
                          data: polda_luka_ringan,
                          color: "#3CA55C"
@@ -543,7 +534,7 @@
      function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDitgakkumDate",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -588,7 +579,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getDetailStatistikLakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_executive/getDetailStatistikLakalantas",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -612,22 +603,17 @@
 
                      var chart = {
                          series: [{
-                             name: '<h6>Total Laka</h6>',
-                             type: 'column',
-                             data: polda_jumlah,
-                             color: "#11347A"
-                         }, {
-                             name: '<h6>Meninggal Dunia</h6>',
+                             name: '<h6>BPKB Baru</h6>',
                              type: 'column',
                              data: polda_meninggal_dunia,
                              color: "#CB2D3E"
                          }, {
-                             name: '<h6>Luka Berat</h6>',
+                             name: '<h6>BPKB Perpanjangan</h6>',
                              type: 'column',
                              data: polda_luka_berat,
                              color: "#E8D42F"
                          }, {
-                             name: '<h6>Luka Ringan</h6>',
+                             name: '<h6>BPKB Rubentina</h6>',
                              type: 'column',
                              data: polda_luka_ringan,
                              color: "#3CA55C"
@@ -719,7 +705,7 @@
 
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLineLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getLineLaka",
              data: {
                  start_date: seven_daysAgo,
                  end_date: yesterday
@@ -732,22 +718,17 @@
 
                  var chart2 = {
                      series: [{
-                         name: '<h6>Total Laka</h6>',
-                         type: 'line',
-                         data: results.data.polda_insiden_kecelakaan,
-                         color: "#11347A"
-                     }, {
-                         name: '<h6>Meninggal Dunia</h6>',
+                         name: '<h6>BPKB Baru</h6>',
                          type: 'line',
                          data: results.data.polda_meninggal_dunia,
                          color: "#CB2D3E"
                      }, {
-                         name: '<h6>Luka Berat</h6>',
+                         name: '<h6>BPKB Perpanjangan</h6>',
                          type: 'line',
                          data: results.data.polda_luka_berat,
                          color: "#E8D42F"
                      }, {
-                         name: '<h6>Luka Ringan</h6>',
+                         name: '<h6>BPKB Rubentina</h6>',
                          type: 'line',
                          data: results.data.polda_luka_ringan,
                          color: "#3CA55C"
@@ -816,7 +797,7 @@
              $("#chart").remove();
              $.ajax({
                  type: "POST",
-                 url: "<?php echo base_url(); ?>executive/statistik_polda_executive/exportDatalakalantas",
+                 url: "<?php echo base_url(); ?>executive/statistik_executive/exportDatalakalantas",
                  data: {
                      filter: filter,
                      start_date: start_date,
@@ -838,7 +819,7 @@
      function topLakaDay(yesterday) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getTopLaka",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getTopLaka",
              dataType: "JSON",
              data: {
                  yesterday: yesterday
@@ -884,7 +865,7 @@
      function topLakaMonth(firstDayMonth, lastDayMonth) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaMonth",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaMonth",
              dataType: "JSON",
              data: {
                  firstDay: firstDayMonth,
@@ -931,7 +912,7 @@
      function topLakaYear(firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_polda_executive/getLakaYear",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaYear",
              dataType: "JSON",
              data: {
                  firstDay: firstDay,

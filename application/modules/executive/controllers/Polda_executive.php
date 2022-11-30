@@ -505,7 +505,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Sim Polda";
+        $page_content["title"] = "Data SIM Polda";
         $page_content["page"] = "executive/polda/statistik_sim_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -517,7 +517,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Bpkb Polda";
+        $page_content["title"] = "Data BPKB Polda";
         $page_content["page"] = "executive/polda/statistik_bpkb_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -529,7 +529,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Stnk Polda";
+        $page_content["title"] = "Data STNK Polda";
         $page_content["page"] = "executive/polda/statistik_stnk_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -541,7 +541,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Fasmat Sbst Polda";
+        $page_content["title"] = "Data Fasmat SBST Polda";
         $page_content["page"] = "executive/polda/statistik_sbst_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -601,7 +601,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Subbag Renop Polda";
+        $page_content["title"] = "Data SUBBAG Renop Polda";
         $page_content["page"] = "executive/polda/statistik_renop_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -613,7 +613,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Subbag Dalops Polda";
+        $page_content["title"] = "Data SUBBAG Dalops Polda";
         $page_content["page"] = "executive/polda/statistik_dalops_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -625,7 +625,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Subbag Kerma Polda";
+        $page_content["title"] = "Data SUBBAG Kerma Polda";
         $page_content["page"] = "executive/polda/statistik_kerma_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
@@ -637,7 +637,7 @@ class Polda_executive extends MY_Controller
         $page_content["css"] = '';
         $page_content["js"] = '';
         $data['poldaid'] = $this->M_detail_polda->get_Poldaid($id);
-        $page_content["title"] = "Data Subbag Anev Polda";
+        $page_content["title"] = "Data SUBBAG Anev Polda";
         $page_content["page"] = "executive/polda/statistik_anev_view";
         // $page_content["data"] = '';
         $data["id"] = $id;
