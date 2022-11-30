@@ -87,24 +87,17 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form" id="form_tambah" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <!-- <div class="col-md-6">
-                            <div class="material-textfield">
-                                <input type="text" name="no_ts" id="">
-                                <label for="" class="labelmui">No. TS</label>
-                            </div>
-                        </div> -->
-
-
+                    <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                    <div class="row">  
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="date" name="tanggal_pelaporan" id="">
+                                <input type="date" name="tanggal_pelaporan" id="" required>
                                 <label for="" class="labelmui">Tanggal Pelaporan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="material-textfield">
-                                <input type="text" name="nama_pelapor" id="">
+                                <input type="text" name="nama_pelapor" id="" required>
                                 <label for="" class="labelmui">Nama Pelapor</label>
                             </div>
                         </div>
@@ -132,46 +125,75 @@
                                 <label for="" class="labelmui">Polres</label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="material-textfield">
                                 <input type="text" name="penyebab_kemacetan" id="">
                                 <label for="" class="labelmui">Penyebab Kemacetan</label>
                             </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="lokasi_kejadian" name="lokasi_kejadian"></textarea>
-                                <label for="">Lokasi Kejadian</label>
-                            </div>
-                            <div class="list-group" id="listAddress"></div>
-                        </div>
-                        <div class="col-md-6" style="display: none;">
-                            <div class="material-textfield mb-3">
-                                <input style="width: 100%;" name="cordinate" placeholder="" type="text">
-                                <label class="labelmui">Coordinate</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
-                                    <label for="latitude">Latitude</label>
+                        <div class="col-md-6 ms-3">
+                            <h5 class="font-size-14 mb-3"> Pilih Tampilan Marker</h5>
+                            <div style="display: flex;">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" value="1" name="formRadios"
+                                        id="formRadios1" checked>
+                                    <label class="form-check-label" for="formRadios1">
+                                        Titik Marker
+                                    </label>
+                                </div>
+                                <div class="form-check ms-3">
+                                    <input class="form-check-input" type="radio" value="2" name="formRadios"
+                                        id="formRadios2">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Route Marker
+                                    </label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
-                                    <label for="longitude">Longitude</label>
-                                </div>
-                            </div>
+                        </div>
 
+                        <div id="titikMarker"> 
+                            <div class="col-md-12">
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" style="height: 100px" placeholder="Alamat" id="lokasi_kejadian" name="lokasi_kejadian"></textarea>
+                                    <label for="">Lokasi Kejadian</label>
+                                </div>
+                                <div class="list-group" id="listAddress"></div>
+                            </div>
+                            <div class="col-md-6" style="display: none;">
+                                <div class="material-textfield mb-3">
+                                    <input style="width: 100%;" name="cordinate" placeholder="" type="text">
+                                    <label class="labelmui">Coordinate</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Samsat">
+                                        <label for="latitude">Latitude</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Samsat">
+                                        <label for="longitude">Longitude</label>
+                                    </div>
+                                </div> 
+                            </div> 
                         </div>
-                        <div class="col-md-12 mt-3">
+                            
+                        <div id="routeMarker">
+                            <textarea hidden name="routeUtama" id="routeUtama" cols="30" rows="10"></textarea>
+                        </div>
+                                
+
+                        <div class="col-md-12 mt-3 mb-3">
                             <div id="mapG20Kegiatan" style="height: 400px">
-                                <img src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
+                                <img id="titikMarkerMap" src="<?php echo base_url(); ?>assets/pin.png" width="80" height="80" style="position: relative;z-index: 1000;left: 43%;top: 37%;">
                             </div>
                         </div>
+
+
                         <div class="col-md-12">
                             <div class="material-textfield">
                                 <input type="text" name="keterangan" id="">
@@ -217,10 +239,15 @@
 </div><!-- /.modal -->
 
 <script>
-    $(document).ready(function() {
 
-        $('[name=cordinate]').val('-1.5707209, 115.4875168');
-        var initialCenter = [-1.5707209, 115.4875168];
+    let arrayWaypointUtama = [];
+    var routeAlternativeUtama;
+
+    $(document).ready(function() {
+        $('#tripon').DataTable();
+
+
+        var initialCenter = [-2.548926, 118.0148634];
         var initialZoom = 5;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
@@ -242,15 +269,21 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
         });
-
         // StART MAP SECTION
-        var mapContainer = L.map('mapG20Kegiatan', {
-            maxZoom: 20,
+        var mapContainer = L.map('mapG20Dashboard', {
+            maxZoom: 19,
             minZoom: 1,
-            zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleStreet]
+            layers: [googleHybrid]
         }).setView(initialCenter, initialZoom);
+
+        var markerClusterGroup = L.markerClusterGroup();
+        var icon = L.icon({
+            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
+            iconSize: [80, 80], // size of the icon
+        }); 
+
+
 
         var baseMaps = {
             "Google Map Street": googleStreet,
@@ -265,9 +298,139 @@
         L.control.zoom({
             position: 'bottomleft'
         }).addTo(mapContainer);
+        
 
-        $('#myModal').on('shown.bs.modal', function() {
-            mapContainer.invalidateSize();
+        $('#myModal').on('shown.bs.modal', function() { 
+            
+            // $("#titikMarker").hide();
+            // $("#titikMarkerMap").hide(); 
+            $("#routeMarker").hide();
+            $("[name=lokasi_kejadian]").val('');
+            $("[name=cordinate]").val('');
+            $("[name=latitude]").val('');
+            $("[name=longitude]").val(''); 
+            // $("[name=formRadios]").prop('checked', false); 
+
+            // $('[name=cordinate]').val('-1.5707209, 115.4875168');
+            var initialCenter = [-1.5707209, 115.4875168];
+            var initialZoom = 5;
+            var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                maxZoom: 20,
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            });
+            var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                maxZoom: 20,
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            });
+            var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                maxZoom: 20,
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            });
+            var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+                maxZoom: 20,
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
+            });
+
+            var mapContainerMarker = L.map('mapG20Kegiatan', {
+                maxZoom: 20,
+                minZoom: 1,
+                zoomSnap: 0.25,
+                zoomControl: false,
+                layers: [googleHybrid]
+            }).setView(initialCenter, initialZoom); 
+            
+
+            var baseMaps = {
+                "Google Map Street": googleStreet,
+                "Google Map Satelite": googleSatelite,
+                "Google Map Hybrid": googleHybrid,
+                "Google Map Terrain": googleTerrain,
+            };
+            var overlayMaps = {};
+            L.control.layers(baseMaps, overlayMaps, {
+                position: 'topleft'
+            }).addTo(mapContainerMarker);
+            L.control.zoom({
+                position: 'bottomleft'
+            }).addTo(mapContainerMarker); 
+
+
+
+            $("[name=formRadios]").on("change", function(e) { 
+                $("[name=lokasi_kejadian]").val('');
+                $("[name=cordinate]").val('');
+                $("[name=latitude]").val(null);
+                $("[name=longitude]").val(null);
+                $('#routeUtama').val('');
+                
+                if (this.value == '1') {
+                     
+                    $("#titikMarker").show();
+                    $("#titikMarkerMap").show();
+                    $("#routeMarker").hide();
+                    mapContainerMarker.invalidateSize();
+
+                    if(routeAlternativeUtama){
+                        routeAlternativeUtama.remove();         
+                    }
+                }else{
+                    $("#titikMarker").hide();
+                    $("#titikMarkerMap").hide();
+                    $("#routeMarker").show();
+                    mapContainerMarker.invalidateSize();
+
+                    routeAlternativeUtama = L.Routing.control({
+                        waypoints: arrayWaypointUtama,
+                        router: new L.Routing.osrmv1({
+                            language: 'en',
+                            profile: 'car'
+                        }),
+                        geocoder: L.Control.Geocoder.nominatim({})
+                    }).addTo(mapContainerMarker);
+
+                    function createButton(label, container) {
+                        var btn = L.DomUtil.create('button', '', container);
+                        btn.setAttribute('type', 'button');
+                        btn.innerHTML = label;
+                        return btn;
+                    }
+
+                    mapContainerMarker.on('click', function(e) {
+                        var container = L.DomUtil.create('div'),
+                            startBtn = createButton('Start from this location', container),
+                            destBtn = createButton('Go to this location', container);
+
+                        L.DomEvent.on(startBtn, 'click', function() {
+
+                            routeAlternativeUtama.spliceWaypoints(0, 1, e.latlng);
+                            mapContainerMarker.closePopup();
+                        });
+                        L.DomEvent.on(destBtn, 'click', function() {
+
+                            routeAlternativeUtama.spliceWaypoints(routeAlternativeUtama.getWaypoints().length - 1, 1, e.latlng);
+                            mapContainerMarker.closePopup();
+
+                            routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
+                            $('#routeUtama').val(JSON.stringify(routingAlternativeUtama));
+                        });
+                        L.popup()
+                        .setContent(container)
+                        .setLatLng(e.latlng)
+                        .openOn(mapContainerMarker); 
+                    });
+                }
+
+                
+                mapContainerMarker.flyTo([-1.5707209, 115.4875168], 5);
+            });
+
+            
+
+            
 
             $('.dropify').dropify();
 
@@ -296,6 +459,7 @@
                         $('#listAddress').html(list);
                     }
 
+                    $('#listAddress').show();
 
                     for (let i = 0; i < ress.length; i++) {
                         $(`#list${i+1}`).click(function() {
@@ -309,7 +473,8 @@
                             // console.log({a:latitude, b:longitude});
                             $('[name=lokasi_kejadian]').val($(this).data('alamat'));
                             $('[name=cordinate]').val($(this).data('cords'));
-                            mapContainer.flyTo([latitude, longitude], 17);
+                            mapContainerMarker.flyTo([latitude, longitude], 17);
+                            $('#listAddress').hide();
                         });
                     }
                 });
@@ -327,15 +492,15 @@
 
                 $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${cordLat}&lon=${corLong}`, function(data) {
                     $('[name=lokasi_kejadian]').val(data['display_name']);
-                    mapContainer.flyTo([cordLat, corLong], 17);
+                    mapContainerMarker.flyTo([cordLat, corLong], 17);
                 });
             });
 
 
-            mapContainer.on("dragend", function(e) {
+            mapContainerMarker.on("dragend", function(e) {
 
-                var corLat = mapContainer.getCenter()['lat'];
-                var corLng = mapContainer.getCenter()['lng'];
+                var corLat = mapContainerMarker.getCenter()['lat'];
+                var corLng = mapContainerMarker.getCenter()['lng'];
                 var cord = `${corLat},${corLng}`;
 
                 $("[name=latitude]").val(corLat);
@@ -512,13 +677,27 @@
             $("#overlay").fadeIn(300);
             e.preventDefault();
             var formData = new FormData($('.form')[0]);
+             
+
+            if($("[name=latitude]").val() != null && $("[name=longitude]").val() != ''){
+                $('#routeUtama').val('');
+            }else{
+                $("[name=lokasi_kejadian]").val('');
+                $("[name=cordinate]").val('');
+                $("[name=latitude]").val(null);
+                $("[name=longitude]").val(null);
+
+                routingAlternativeUtama = routeAlternativeUtama.getWaypoints();
+                $('#routeUtama').val(JSON.stringify(routingAlternativeUtama));
+            }
+
             $.ajax({
                 url: "<?php echo base_url(); ?>troublespot/Troublespot/store",
                 method: "POST",
                 data: formData,
                 dataType: 'JSON',
                 contentType: false,
-                processData: false,
+                processData: false,  
                 success: function(data) {
                     $("#overlay").fadeOut(300);
                     if (data['status'] == true) {
@@ -538,7 +717,7 @@
                         ).then(function() {});
                     }
                 }
-            });
+            }); 
         });
 
         var start = moment().subtract(29, 'days');
@@ -569,170 +748,6 @@
 
     });
 
-    $(document).ready(function() {
-        $('#tripon').DataTable();
-
-
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
-            minZoom: 1,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);
-
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-
-        var arrayData = $.grep(data, function(element, index) {
-            return element.coordinate != null && element.coordinate != '';
-        });
-        // console.log(arrayData); 
-        // StART MAP SECTION
-        var mapContainer = L.map('mapG20Dashboard', {
-            maxZoom: 19,
-            minZoom: 1,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);
-
-        var markerClusterGroup = L.markerClusterGroup();
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-
-        var arrayData = $.grep(data, function(element, index) {
-            return element.coordinate != null && element.coordinate != '';
-        });
-        // console.log(arrayData); 
-
-        for (let i = 0; i < arrayData.length; i++) {
-            var cordinate = arrayData[i].coordinate;
-            var latlong = cordinate.split(',');
-            var latitude = parseFloat(latlong[0]);
-            var longitude = parseFloat(latlong[1]);
-            // console.log({a:latitude , b:longitude});
-
-            markerClusterGroup.addLayer(
-                L.marker([latitude, longitude], {
-                    icon
-                }).bindPopup(`
-                <div class="text-center" style="width: 300px;">
-                    <div class="card-block">
-                        <a class="avatar avatar-lg" href="javascript:void(0)">
-                            <img src="${window.location.origin}/${pisah[1]}/assets_admin/assets/images/logo-colored.png" alt="Logo">
-                        </a>
-                        <h4 class="profile-user">${arrayData[i].group_name}</h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Location :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].obvit_name}</p>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">POC :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].group_poc_name}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                        <div class="col-md-12 col-12" style="margin-top: -15px;">
-                            <div class="row text-left">
-                                <div class="col-md-4 col-4">
-                                    <h5 class="profile-job">Demand :</h5>  
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <p style="margin-top: 11px;">${arrayData[i].demand}</p>
-                                </div>
-                            </div> 
-                        </div>  
-                    </div>
-                    <div class="card-footer">
-                        <div class="row no-space">
-                            <div class="col-4" style="display: grid">
-                                <span>Participant/s</span>
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].participant_number}</span> 
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Threat Level</span> 
-                                ${arrayData[i].threat_level == 1 ? '<span class="badge badge-round badge-warning" style="margin-left: 5px;margin-right: 5px;">Low</span>' : ''}
-                                ${arrayData[i].threat_level == 2 ? '<span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">Medium</span>' : ''}
-                                ${arrayData[i].threat_level == 3 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 4 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 5 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 6 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 7 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 8 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 9 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 10 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 11 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                                ${arrayData[i].threat_level == 12 ? '<span class="badge badge-round badge-danger" style="margin-left: 5px;margin-right: 5px;">High</span>' : ''}
-                            </div>
-                            <div class="col-4" style="display: grid">
-                                <span>Event Date</span> 
-                                <span class="badge badge-round badge-primary" style="margin-left: 5px;margin-right: 5px;">${arrayData[i].event_date}</span> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `)
-            );
-        }
-        mapContainer.addLayer(markerClusterGroup);
-        mapContainer.setView(initialCenter, initialZoom);
-
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'topright'
-        }).addTo(mapContainer);
-        L.control.zoom({
-            position: 'bottomleft'
-        }).addTo(mapContainer);
-
-
-
-
-    });
+    
     // Conditional select Polda Polres
 </script>

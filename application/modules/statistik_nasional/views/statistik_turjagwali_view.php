@@ -1,5 +1,14 @@
 <div class="container-fluid">
-    <a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+    <div class="row">
+<div class="col-md-6">
+<a href="<?= base_url('statistik_nasional') ?>" style="color:#0a0a0a ;" class="fs-6"><i class="fas fa-less-than"></i> Kembali</a>
+</div>
+<div class="col-md-6 text-end align-self-center">
+             <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+             
+         </div>
+    </div>
+    
     <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
         <div class="row m-2">
             <div class="col-sm-4 col-md-5 align-self-center">
@@ -59,16 +68,90 @@
 </div>
 
 <div class="container-fluid">
-    <section class="shadow-sm mt-5">
-        <div class="row">
+<div class="card">
+<div class="row m-3" style="font-size: 16px;">
             <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div id="titleline"></div>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
+                                <div class="card shadow-sm">
+                                    <table class="table table-bordered table-hover" id="tableLakaDay">
+                                        <thead style="background-color:#007DD8; color:#fff;">
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Pengaturan</th>
+                                                <th scope="col">Penjagaan</th>
+                                                <th scope="col">Pengawalan</th>
+                                                <th scope="col">Patroli</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-lakaDay">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="main-chart">
-                            <div id="chartdate">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('M Y'); ?></h5>
+                                <div class="card shadow-sm">
+                                    <table class="table table-bordered table-hover" id="tableLakaMonth">
+                                        <thead style="background-color:#007DD8; color:#fff;">
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Pengaturan</th>
+                                                <th scope="col">Penjagaan</th>
+                                                <th scope="col">Pengawalan</th>
+                                                <th scope="col">Patroli</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-lakaMonth">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('Y'); ?></h5>
+                                <div class="card shadow-sm">
+                                    <table class="table table-bordered table-hover" id="tableLakaYear">
+                                        <thead style="background-color:#007DD8; color:#fff;">
+                                            <tr class="text-center">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Polda</th>
+                                                <th scope="col">Pengaturan</th>
+                                                <th scope="col">Penjagaan</th>
+                                                <th scope="col">Pengawalan</th>
+                                                <th scope="col">Patroli</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-lakaYear">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -76,6 +159,43 @@
             </div>
         </div>
         <div class="row">
+             <hr style="width:97%; margin: auto">
+             <div class="filter mt-4" style=" height:125px;">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-9">
+                             <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                             <div class="row">
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                                 </div>
+                                 <div class="col-md-4">
+                                     <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                                 </div>
+                                 <div class="col-md-2">
+                                     <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                                 </div>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-xl-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <div id="titleline"></div>
+                     </div>
+                     <div class="card-body">
+                         <div class="main-chart">
+                             <div id="chartdate">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
@@ -103,97 +223,28 @@
                 </div>
             </div>
         </div>
+</div>
 
-        <div class="row m-3" style="font-size: 16px;">
+    
+        <!-- <div class="row">
             <div class="col-xl-12">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Pengaturan</th>
-                                                <th scope="col">Penjagaan</th>
-                                                <th scope="col">Pengawalan</th>
-                                                <th scope="col">Patroli</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaDay">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div id="titleline"></div>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('M Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Pengaturan</th>
-                                                <th scope="col">Penjagaan</th>
-                                                <th scope="col">Pengawalan</th>
-                                                <th scope="col">Patroli</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaMonth">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h5>Ranking Polda Data Turjagwali Tertinggi <?= date('Y'); ?></h5>
-                                <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
-                                        <thead style="background-color:#007DD8; color:#fff;">
-                                            <tr class="text-center">
-                                                <th scope="col">No</th>
-                                                <th scope="col">Polda</th>
-                                                <th scope="col">Pengaturan</th>
-                                                <th scope="col">Penjagaan</th>
-                                                <th scope="col">Pengawalan</th>
-                                                <th scope="col">Patroli</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbody-lakaYear">
-                                        </tbody>
-                                    </table>
-                                </div>
+                    <div class="card-body">
+                        <div class="main-chart">
+                            <div id="chartdate">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div> -->
+        
+
+
+   
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
@@ -814,6 +865,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaDay').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaDay').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -845,6 +913,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaMonth').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaMonth').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -876,6 +961,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaYear').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaYear').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }

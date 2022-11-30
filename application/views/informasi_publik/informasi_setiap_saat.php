@@ -1,4 +1,4 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
+<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png');"> -->
 
 </div>
 <!-- ======= Breadcrumbs ======= -->
@@ -14,11 +14,15 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
+        </div>
+        </div>
         </div>
     	</nav>
     </div><!-- End Breadcrumbs -->
@@ -30,10 +34,13 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="container margin-top-30">
+<div class="container-fluid margin-top-30">
+<div class="container-fluid">
+<div class="container-fluid">
 
-	
-			<h3>Informasi Berkala</h3>
+	<div class="row">
+		<div class="col-md-6">
+		<h3>Informasi Berkala</h3>
 			<p>deskripsi:</p>
 			<p>Seluruh Informasi berkala merupakan Informasi yang wajib disediakan setiap saat.</p>
 		
@@ -92,8 +99,9 @@
 				<li>Persiapan Pelaksanaan Anggaran DIPA</li>
 				<li>Persyaratan Penyedia Barang/Jasa</li>
 			</ul>
-
-			<h3>Statistik dan Informasi Transportasi</h3>
+		</div>
+		<div class="col-md-6">
+		<h3>Statistik dan Informasi Transportasi</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai Statistik dan Informasi bidang lalu lintas yang dirangkum ke dalam sebuah buku dan di terbitkan setiap tahunnya :</p>
 			<ul>
@@ -129,8 +137,15 @@
 				<li>Tahun 2020</li>
 				<li>Tahun 2019</li>
 			</ul>
+		</div>
+	</div>
+			
+
+			
 		
 
+</div>
+</div>
 </div>
 <!-- Container / End -->
 

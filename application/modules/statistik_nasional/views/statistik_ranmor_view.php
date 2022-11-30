@@ -58,31 +58,53 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row mt-5 justify-content-center">
-        <div class="col-md-9">
-            <label for="waktu" class="form-label text-uppercase">Waktu</label>
-            <div class="row">
-                <div class="col-md-4">
-                    <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
-                </div>
-                <div class="col-md-4">
-                    <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
-                </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
-                </div>
-                <div class="col-md-2 text-end align-self-center">
-                    <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
-                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
-                    <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
 
-                    <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+<?php $mobile = detect_mobile(); if($mobile === true){ ?>
+    <div class="container-fluid">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-9">
+                <label for="waktu" class="form-label text-uppercase">Waktu</label> 
+            </div>
+
+            <div style="display: flex;">
+                
+                <input class="form-control form-control-lg" type="date" name="start_date" id="start_date"> 
+                <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                 
+            </div>
+            <div>
+                <button type="button" class="btn btn-info float-end btn-sm" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button> 
+                <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info float-end btn-sm mt-2" style="width: 100%; border-color:#007DD8;">Export Laporan</a>
+            </div>
+        </div>
+    </div>
+<?php } else { ?>
+    <div class="container-fluid">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-9">
+                <label for="waktu" class="form-label text-uppercase">Waktu</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control form-control-lg" type="date" name="start_date" id="start_date">
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control form-control-lg" type="date" name="end_date" id="end_date">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-info float-end btn-lg" style="width: 100%;" onclick="ButtonFilter()">Tampilkan</button>
+                    </div>
+                    <div class="col-md-2 text-end align-self-center">
+                        <!-- <button type="button" class="btn btn-outline-info float-end" id="btn_export" style="width: 100%;" onclick="ButtonExport()" style="width: 200px; border-color:#007DD8;">Tampilkan</button> -->
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center" id="btn_export"><button class="btn btn-outline-info" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                        <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" type="button" button class="btn btn-outline-info btn-lg" style="width: 200px; border-color:#007DD8;">Export Laporan</a>
+    
+                        <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 
 <div class="container-fluid">
     <section class="shadow-sm mt-5">
@@ -149,7 +171,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Ranmor Tertinggi <?= date('d M Y', strtotime("-1 days")); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaDay">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -174,7 +196,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Ranmor Tertinggi <?= date('M Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaMonth">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -199,7 +221,7 @@
                             <div class="col-md-12 mt-3">
                                 <h5>Ranking Polda Data Ranmor Tertinggi <?= date('Y'); ?></h5>
                                 <div class="card shadow-sm">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover" id="tableLakaYear">
                                         <thead style="background-color:#007DD8; color:#fff;">
                                             <tr class="text-center">
                                                 <th scope="col">No</th>
@@ -889,6 +911,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaDay').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+        
+                    $('#tableLakaDay').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -921,6 +960,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaMonth').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+                    
+                    $('#tableLakaMonth').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }
@@ -953,6 +1009,23 @@
                             </tr>`
                 }
                 $('#tbody-lakaYear').html(table);
+                <?php $mobile = detect_mobile(); if($mobile === true){ ?>  
+        
+                    $('#tableLakaYear').DataTable({
+                        responsive: true,
+
+                        scrollX: true,
+
+                        sDom: '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: { 
+                            sSearch: 'Search:' 
+                        },
+                    }); 
+                
+                <?php } ?> 
             }
         })
     }

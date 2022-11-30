@@ -15,7 +15,7 @@ class Troublespot extends MY_Controller
     {
 
         $headers = [
-            'Token' => $this->session->userdata['token'],
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -43,7 +43,7 @@ class Troublespot extends MY_Controller
         $data['getPolda'] = $getPolda['data']['data'];
         $data['getPolres'] = $getPolres['data']['data'];
 
-        // var_dump($getPolres);
+        // var_dump($getPolda);
         // die;
         // $getVehicle = guzzle_request('GET', 'vehicle', [
         //     'headers' => $headers
@@ -138,8 +138,11 @@ class Troublespot extends MY_Controller
                 'name' => 'result',
                 'contents' => $input['hasil_dicapai'],
             ],
-        ];
-
+            [
+                'name' => 'route',
+                'contents' => $input['routeUtama'],
+            ],
+        ]; 
 
         $data = guzzle_request('POST', 'troublespot/add', [
             'multipart' => $dummy,
@@ -277,11 +280,11 @@ class Troublespot extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "troublespot/G20/edit_G20";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
-            $page_content["page"] = "troublespot/Korlantas/edit_Korlantas";
+            $page_content["page"] = "troublespot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "troublespot/Kapolda/edit_Kapolda";
+            $page_content["page"] = "troublespot/Kapolda/edit_kapolda";
         } else if ($this->session->userdata['role'] == 'Polres') {
-            $page_content["page"] = "troublespot/Polres/edit_Polres";
+            $page_content["page"] = "troublespot/Polres/edit_polres";
         }
         $getDetail = guzzle_request('GET', 'troublespot/getId/' . $id . '', [
             'headers' => $headers
@@ -367,7 +370,14 @@ class Troublespot extends MY_Controller
                 'name' => 'result',
                 'contents' => $input['hasil_dicapai'],
             ],
+            [
+                'name' => 'route',
+                'contents' => $input['routeUtama'],
+            ],
         ];
+
+        // echo json_encode($dummy);
+        // die;
 		
 
         $data = guzzle_request('PUT', 'troublespot/edit/' . $input['id'] . '', [
@@ -406,7 +416,7 @@ class Troublespot extends MY_Controller
             ]
         ];
 
-        $data = guzzle_request('DELETE', 'troublespot/delete', [
+        $data = guzzle_request('DELETE', 'troublespot/hardDelete', [
             'multipart' => $dummy,
             'headers' => $headers
         ]);

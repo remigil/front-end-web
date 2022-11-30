@@ -1,6 +1,5 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-</div>
+
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
     	<nav>
@@ -51,17 +50,19 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
+	<!-- Layanan Aplikasi Satker -->
 	<div class="row">
+		<h3 style="text-transform:uppercase ;">Layanan Aplikasi <?= $breadcrumb?></h3>
 		<div class="col-md-3">
 			<a href="http://rc.korlantas.polri.go.id:8900/eri2017/index.php" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
 				<div class="img-box-content visible">
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt=""  width="70px" height="70px">
+							<h5 style="color: white"><b>ERI</b></h5>
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>ERI</b></h5>
-							<p style="color: white;">Electronic Registration and Identification adalah sistem untuk mendata serta mengorganisir data-data kendaraan bermotor dan seluruh riwayatnya</p>
+							<p style="color: white; font-size:10px">Electronic Registration and Identification adalah sistem untuk mendata serta mengorganisir data-data kendaraan bermotor dan seluruh riwayatnya</p>
 						</div>
 					</div>
 					<!-- <a href="<?php echo base_url()?>home">Selengkapnya</a> --> 
@@ -74,11 +75,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>Digital Korlantas</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>Digital Korlantas</b></h5>
-							<p style="color: white;">Aplikasi Digital Korlantas POLRI adalah aplikasi resmi dari Korlantas POLRI Indonesia untuk memudahkan masyarakat untuk mendapatkan layanan di Korlantas.</p>
+							<p style="color: white; font-size:10px">Aplikasi Digital Korlantas POLRI adalah aplikasi resmi dari Korlantas POLRI Indonesia untuk memudahkan masyarakat untuk mendapatkan layanan di Korlantas.</p>
 
 						</div>
 					</div>
@@ -92,11 +93,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>SBST Online</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>SBST Online</b></h5>
-							<p style="color: white;">STNK, BPKB, SIM, dan Tanda Nomor Kendaraan Bermotor (SBST) Online adalah platform untuk menganalisa penggunaan material serta Pendapatan Negara Bukan Pajak terkait pelayanan oleh Korlantas POLRI</p>
+							<p style="color: white; font-size:10px">STNK, BPKB, SIM, dan Tanda Nomor Kendaraan Bermotor (SBST) Online adalah platform untuk menganalisa penggunaan material serta Pendapatan Negara Bukan Pajak terkait pelayanan oleh Korlantas POLRI</p>
 
 						</div>
 					</div>
@@ -110,11 +111,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>E-TURJAWALI</b></h5>
-							<p style="color: white;">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
+							<p style="color: white; font-size:10px">Portal Korlantas untuk pengawasan dan pengendalian kegiatan polantas dalam melaksanakan tugas pengaturan, penjagaan dan patroli atau turjawali</p>
 
 						</div>
 					</div>
@@ -122,8 +123,10 @@
 				</div>
 			</a>
 		</div>
+
+		<!-- Dokumen Peraturan Satker -->
 		<div class="col-md-12">
-			<h3>Dokumen Peraturan</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
 			<div class="card">
 				<div class="card-body">
 					<table id="datatable" class="table dt-responsive w-100 table-striped">
@@ -158,9 +161,10 @@
 	</div>
 	<hr>
 
+	<!-- Media Channel -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Media Channel</h3>
+			<h3 style="text-transform:uppercase ;">Media Channel</h3>
 			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
 		<div class="col-md-8">
@@ -182,9 +186,10 @@
 	</div>
 	<hr>
 
+	<!-- Dokumen Kegiatan Satker -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
 		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
 			<div class="content-carousel"  >

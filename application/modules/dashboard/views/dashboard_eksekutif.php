@@ -9,19 +9,19 @@
 
         <div class="row" style="display:flex;z-index: 999;position: absolute;">
             <div class="dropdown d-inline-block">
-                <div style="cursor: pointer; display:flex; width:260px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div style="cursor: pointer; display:flex; width:300px; height:40px; background-color:white; border-radius:0.25rem;margin: 10px;border: 1px solid var(--bs-input-border);" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div>
                         <div class="row" style="margin-left: 0px;">
                             <div class="col-md-12">
                                 <div style="display: flex;">
                                     <i class="fa fa-fw fas fa-align-justify" style="margin: 10px;z-index: 9;" onClick="hitungGpsId()"></i>
                                     <input type="text" placeholder="Telusuri Peta" name="searchAlamat" style="height: 38px;border: none;margin-left: -47px;width: 260px;padding-left: 50px;">
-                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: -30px;"></i>
+                                    <i class="fa fa-fw fas fa-search" style="margin: 10px;z-index: 9;margin-left: 0px;"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn" style="color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
+                    <button class="btn" style=" display:none; color: #495057; margin-left: 10px; background-color: #fff;width: 40px;font-size: 15px;" data-bs-toggle="modal" data-bs-target="#myModalFilter">
                         <i style="margin-left: -2px;" class="fa fa-fw fas fa-filter"></i>
                     </button>
                     <div id="listAddress" style="position: absolute;top: 60px;margin-left: 4px;border-radius: 0.3rem;"></div>
@@ -30,27 +30,27 @@
 
                 <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
 
-                    <div class="cat poldaDisplay" style="margin-left: 10px;"> 
+                    <div class="cat poldaDisplay" style="margin-left: 10px; ">
                         <div class="btn-group">
                             <label>
-                            <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
+                                <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
                             </label>
                             <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="cat polresDisplay" style="margin-left: 10px;"> 
+                    <div class="cat polresDisplay" style="margin-left: 10px; ">
                         <div class="btn-group">
                             <label>
-                            <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
+                                <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
                             </label>
                             <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; "> 
+                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none;">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
@@ -60,7 +60,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="cat" style="margin-left: 10px;">
+                    <div class="cat" style="margin-left: 10px; ">
                         <label>
 
                             <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,14 +112,14 @@
                             </button>
                         </div>
                     </div>
-    
+
                     <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                         <label>
                             <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
                         </label>  
                     </div> -->
-    
-                    <div class="cat kegiatanDisplay" style="display:none"> 
+
+                    <div class="cat kegiatanDisplay" style="display:none">
                         <div class="btn-group">
                             <label>
                                 <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
@@ -162,6 +162,39 @@
                         </div>
                     </div>
 
+                    <div class="cat samsatDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
+                            </label>
+                            <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cat trouble_spotDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="trouble_spot" name="filter" id="trouble_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                            </label>
+                            <button id="troubleSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cat blankspotDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Blank Spot</span>
+                            </label>
+                            <button id="blankspotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
@@ -181,13 +214,13 @@
                                         <p style="font-size: 17px;">OPERASI</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox"  name="filter" value="polda" id="polda" class="form-input" >  
-                                        <span>Polda</span> 
-                                    </div> 
+                                        <input type="checkbox" name="filter" value="polda" id="polda" class="form-input">
+                                        <span>Polda</span>
+                                    </div>
                                     <div class="col-md-6">
-                                        <input type="checkbox"  name="filter" value="polres" id="polres" class="form-input" >  
-                                        <span>Polres</span> 
-                                    </div> 
+                                        <input type="checkbox" name="filter" value="polres" id="polres" class="form-input">
+                                        <span>Polres</span>
+                                    </div>
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="instruksi" id="instruksi" class="form-input">
                                         <span>Instruksi</span>
@@ -323,15 +356,14 @@
 
         </div>
         <div id="mapG20Dashboard">
-            <div style="bottom: 10px;left: 10px;position: absolute;z-index: 999;/*! text-align: end; */">
+            <div style="display:none; bottom: 10px;left: 10px;position: absolute;z-index: 999;">
                 <img src="<?= base_url() ?>assets/legenda_web.png" style="width: 12vw;" />
             </div>
         </div>
-        <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
+        <!-- <hr class="mt-4 mb-4" style="border: 2px; color:#007DD8; opacity:100%; ">
         <div class="container">
             <div class="row d-flex justify-content-between mb-3">
 
-                <!-- <div class="d-flex justify-content-between"> -->
                 <div class="col-md-2">
                     <a href="<?= base_url('executive/Satker_executive/ditgakkum'); ?>"><button class="btn btn-outline-primary text-uppercase fw-bold" style="width: 100%; border-color:#007DD8;">Ditgakkum</button></a>
                 </div>
@@ -359,12 +391,12 @@
                     <a href="<?= base_url() ?>executive/Anev_executive/index"><button class="btn btn-md text-uppercase fw-bold" style="width: 100%;  background: #E4E4E4;">Anev</button></a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
 
-<div class="container-fluid" style="background:#E9E9E9">
+<!-- <div class="container-fluid" style="background:#E9E9E9">
     <div class="container-fluid">
         <div class="container-fluid">
             <div class="container-fluid">
@@ -446,7 +478,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <!-- Modal -->
@@ -863,10 +895,10 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay">Polda</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay">Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPoldaDisplay" style="width: 550px;">  
+            <div class="modal-body" id="openModalPoldaDisplay" style="width: 300px;">
             </div>
         </div>
     </div>
@@ -875,10 +907,10 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelPolresDisplay">Polres</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalPolresDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelPolresDisplay">Polres</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPolresDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="openModalPolresDisplay" style="width: 550px;">  
+            <div class="modal-body" id="openModalPolresDisplay" style="width: 550px;">
             </div>
         </div>
     </div>
@@ -1012,6 +1044,33 @@
         </div>
     </div>
 </div>
+
+<div class="modal right fade" id="myModalSamsatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSamsatDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSamsatDisplay">SAMSAT</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalSamsatDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalSamsatDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalTroubleSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelTroubleSpotDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelTroubleSpotDisplay">Trouble Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalTroubleSpotDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalTroubleSpotDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="modal right fade" id="myModalLaporanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelLaporanDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1040,64 +1099,16 @@
 
 <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
+ 
 
-<!-- <script>
-      
-        var socket = io('http://103.163.139.100:3005/', {
-        // transports: ["websocket",],
-        // path:'/socket.io/',
-        query: {
-        
-            username: "Kakor",
-            password: "a",
-            
-            type: "Admin"
-        }
-    });
-    socket.on("connected", function(resSocket){
-            console.log(socket.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
-            socket.on("sendToAdminMobile", function(resSocket){
-            // console.log(socket.id);
-            // console.log(resSocket);
-            // console.log('sendToAdminMobile');
-        });
-            socket.on("from server", function(resSocket){
-            // console.log(socket.id);
-            console.log(resSocket);
-            console.log('from server');
-        });
-        $('document').ready(function() {
-            let no = 1
-
-        socket.on("connected", function(resSocket){
-            console.log(socket.id);
-            console.log(resSocket);
-            console.log('ido1');
-        });
-            socket.on("sendToAdminMobile", function(resSocket){
-            // console.log(socket.id);
-            // console.log(resSocket);
-            // console.log('sendToAdminMobile');
-        });
-            socket.on("from server", function(resSocket){
-            // console.log(socket.id);
-            console.log(resSocket);
-            console.log('from server');
-        }); 
-        }) 
-      </script> -->
-
-
+<script src="<?php echo base_url(); ?>assets/admin/bataspolda/data/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL_1.js"></script>
 <script>
     let app_url = '<%-app_url%>'
     let path = '<%-path%>'
 
     let data = [];
     let connected = false;
-    var socket = io('http://103.163.139.100:3005/', {
+    var socket = io('http://34.143.227.90:3019/', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1110,7 +1121,7 @@
             type: "Admin"
         }
     });
-    var socketKe2 = io('http://103.163.139.100:3001/', {
+    var socketKe2 = io('http://34.143.227.90:3019/', {
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1130,6 +1141,9 @@
     var markerGpsId = new Array();
     var markerJadwal = new Array();
     var markerCCTV = new Array();
+    var markerSamsat = new Array();
+    var markerTroubleSpot = new Array();
+
     var markerLaporanPanic = new Array();
     var markerLaporan = new Array();
     var markerFasum = new Array();
@@ -1145,6 +1159,9 @@
     var routingJadwalRenpam3 = new Array();
     var routingJadwalRenpam4 = new Array();
 
+
+    var routingTroubleSpot = new Array();
+
     var routingRenpam = new Array();
     var routingRenpam1 = new Array();
     var routingRenpam2 = new Array();
@@ -1154,6 +1171,9 @@
     var arrayFilterFasumKategori = [];
 
     var cctvClusterGroup;
+    var samsatClusterGroup;
+    var troubleSpotClusterGroup;
+
     var jadwalClusterGroup;
     var fasumKhususClusterGroup;
     var laporanClusterGroup;
@@ -1178,11 +1198,6 @@
     var dataTablePetugasDisplay;
 
     $(document).ready(function() {
-
-        "use Shapefile\Shapefile";
-        "use Shapefile\ShapefileException";
-        "use Shapefile\ShapefileReader";
-
 
 
         var initialCenter = [-0.21973, 117.91602];
@@ -1221,7 +1236,7 @@
             type: "roadmap",
         }).addGoogleLayer("TrafficLayer");
 
-        var shpfile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+        var shpFile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
             pointToLayer: function(feature, latlng) {
                 
                 var smallIcon = new L.divIcon({
@@ -1237,7 +1252,7 @@
                     '</div>'
                 });
                 
-            
+           
                 var mark = L.marker(latlng, {icon: smallIcon})
                 cluster.addLayer(mark)
                 return  cluster;
@@ -1255,7 +1270,8 @@
                     });
                 }
             }
-        });  
+        });
+
 
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
@@ -1263,7 +1279,8 @@
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid, shpfile]
+            trackResize: true,
+            layers: [googleHybrid, shpFile]
         }).setView(initialCenter, initialZoom);
 
         var myRenderer = L.canvas({
@@ -1274,12 +1291,8 @@
         var icon = L.icon({
             iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
             iconSize: [80, 80], // size of the icon
-        });
-
-
-
-        
-        // shpfile.addTo(mapContainer);  
+        }); 
+  
 
         var baseMaps = {
             "Google Map Street": googleStreet,
@@ -1291,7 +1304,7 @@
             "MappBox Traffic": gl,
         };
         var overlayMaps = {
-            "Indonesia": shpfile
+            "Batas Wilayah": shpFile
         };
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topright'
@@ -1301,6 +1314,17 @@
         }).addTo(mapContainer);
 
         mapContainer.doubleClickZoom.disable();
+
+
+
+ 
+
+
+
+
+
+
+
 
         socket.on("connected", function(resSocket) {
             console.log(socket.id);
@@ -1370,8 +1394,8 @@
 
 
 
-        
-         
+
+
 
 
 
@@ -1920,10 +1944,8 @@
                         <table id="datatablePoldaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Nama</th> 
-                                    <th>Alamat</th> 
-                                    <th>Aksi</th>
+                                    <th>Logo</th>
+                                    <th>Nama</th>
                                 </tr>
                             </thead>
                             <tbody id="isiModalPoldaDisplay">
@@ -1932,19 +1954,19 @@
                     `);
                     var countPoldaDisplay = 0;
                     var listPoldaDisplay = '';
-                    
+
                     for (let i = 0; i < ressData.length; i++) {
                         id = i;
                         var latitude = parseFloat(ressData[i].latitude);
                         var longitude = parseFloat(ressData[i].longitude);
-
+                         
                         var resource = '';
 
                         markerPolda[i] = L.marker([latitude, longitude], {
                             icon: L.divIcon({
                                 // className: 'location-pin',
                                 html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
-                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 35px; margin-top: -35px;margin-left: -14.5px;">`,
+                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
                                 iconSize: [5, 5],
                                 iconAnchor: [5, 10]
                             })
@@ -2002,25 +2024,17 @@
                                 minWidth: 100,
                                 maxWidth: 560,
                                 width: 400
-                        }).addTo(mapContainer);
+                            }).addTo(mapContainer);
 
 
-                        
+
 
                         countPoldaDisplay += 1;
                         listPoldaDisplay += `
                             <tr>
-                                <td>${countPoldaDisplay}</td>
-                                <td>${ressData[i].name_polda}</td> 
-                                <td>${ressData[i].address}</td> 
-                                <td>
-                                    <a class="btn" style="margin-top: -10px;"  
-                                        id="flyToMapFilterPolda${countPoldaDisplay}"
-                                        data-cord="${ressData[i].latitude},${ressData[i].longitude}" 
-                                        href="javascript:void(0)">
-                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                    </a> 
-                                </td>
+                                <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
+                                <td>${ressData[i].name_polda}</td>
+                                
                             </tr>
                         `;
                         $('#isiModalPoldaDisplay').html(listPoldaDisplay);
@@ -2037,19 +2051,18 @@
                     }
 
                     $('#datatablePoldaOnDisplay').DataTable({
-                        responsive: true,
+                        // responsive: true,
 
-                        scrollX: true,
+                        // scrollX: true,
 
-                        sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                        // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                        buttons: ["excel", "csv", "pdf"],
+                        // buttons: ["excel", "csv", "pdf"],
                         processing: true,
                         oLanguage: {
-
                             sSearch: 'Search:'
-
                         },
+                        sDom: '<"top"f>t<"bottom"p><"clear">'
                     });
 
                 }
@@ -2227,7 +2240,7 @@
 
 
 
-        serverSideGet();
+        // serverSideGet();
 
         function serverSideGet() {
             $("#overlay").fadeIn(300);
@@ -3703,7 +3716,7 @@
 
 
 
-        startSocket();
+        // startSocket();
 
         function startSocket() {
             socket.on('sendToAdminMobile', function(ress) {
@@ -5881,7 +5894,7 @@
             });
 
         }
-        autoGetLogout = setInterval(getLogout, 5000);
+        // autoGetLogout = setInterval(getLogout, 5000);
 
 
 
@@ -5912,6 +5925,27 @@
         });
 
 
+
+        samsatClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#420fd4;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-police-badge"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+        troubleSpotClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
         cctvClusterGroup = L.markerClusterGroup({
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({
@@ -5996,6 +6030,18 @@
             }
             markerCCTV = new Array();
 
+            for (let i = 0; i < markerSamsat.length; i++) {
+                // mapContainer.removeLayer(markerSamsat[i]);
+                samsatClusterGroup.removeLayer(markerSamsat[i]);
+            }
+            markerSamsat = new Array();
+
+            for (let i = 0; i < markerTroubleSpot.length; i++) {
+                // mapContainer.removeLayer(markerTroubleSpot[i]);
+                troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
+            }
+            markerTroubleSpot = new Array();
+
             for (let i = 0; i < markerFasum.length; i++) {
                 mapContainer.removeLayer(markerFasum[i]);
             }
@@ -6011,7 +6057,7 @@
                 // fasumKhususClusterGroup.removeLayer(markerCluster[i]);
                 mapContainer.removeLayer(markerCluster[i]);
             }
-            markerCluster = new Array();  
+            markerCluster = new Array();
 
             for (let i = 0; i < markerPolres.length; i++) {
                 mapContainer.removeLayer(markerPolres[i]);
@@ -6048,9 +6094,12 @@
                 success: function(result) {
                     $("#overlay").fadeOut(300);
                     var ressTurjawali = result['data']['turjawali'];
-                   
+
                     var ressPolres = result['data']['polres'];
                     var ressCctv = result['data']['cctv'];
+                    var ressSamsat = result['data']['samsat'];
+                    var ressTroubleSpot = result['data']['trouble_spot'];
+
                     var ressLAP = result['data']['titik_laporan'];
                     var ressPanic = result['data']['titik_panicButton'];
                     var ressFasum = result['data']['fasum'];
@@ -6069,11 +6118,11 @@
                         });
                     }
 
-                    
 
 
-                    if(ressPolres && ressPolres.length > 0){  
-                        var filterpolres = ressPolres.filter(function (e) {
+
+                    if (ressPolres && ressPolres.length > 0) {
+                        var filterpolres = ressPolres.filter(function(e) {
                             return e.latitude != null && e.longitude != null;
                         });
 
@@ -6198,7 +6247,7 @@
                                         </td>
                                     </tr>
                                 `;
-                                $('#isiModalPolresDisplay').html(listPolresDisplay);      
+                                $('#isiModalPolresDisplay').html(listPolresDisplay);
                             }
 
                             for (let i = 0; i < countPolresDisplay; i++) {
@@ -6342,6 +6391,291 @@
                     }
 
 
+                    if (ressSamsat && ressSamsat.length > 0) {
+                        var filterSamsat = ressSamsat.filter(function(e) {
+                            return e.samsat_lat != null && e.samsat_lng != null;
+                        });
+
+                        if (filterSamsat.length > 0) {
+                            $('#openModalSamsatDisplay').html(`
+                            <table id="datatableSamsatOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Waktu</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalSamsatDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                            var countSamsatDisplay = 0;
+                            var listSamsatDisplay = '';
+                            $('#totalSamsatDisplay').html(filterSamsat.length);
+
+                            for (let i = 0; i < filterSamsat.length; i++) {
+                                countSamsatDisplay += 1;
+                                listSamsatDisplay += `
+                                <tr>
+                                    <td>${countSamsatDisplay}</td>
+                                    <td>${filterSamsat[i].name_samsat}</td> 
+                                    <td>${filterSamsat[i].address}</td> 
+                                    <td>${filterSamsat[i].samsat_open_time} - ${filterSamsat[i].samsat_close_time}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterSamsat${countSamsatDisplay}"
+                                            data-cord="${filterSamsat[i].samsat_lat},${filterSamsat[i].samsat_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                                $('#isiModalSamsatDisplay').html(listSamsatDisplay);
+
+
+
+                                id = i;
+                                var latitudeSamsat = parseFloat(filterSamsat[i].samsat_lat);
+                                var longitudeSamsat = parseFloat(filterSamsat[i].samsat_lng);
+
+
+                                samsatClusterGroup.addLayer(markerSamsat[i] = L.marker([latitudeSamsat, longitudeSamsat], {
+                                    icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url(); ?>assets/icon/lainnya.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                    })
+                                }).bindPopup(`
+                                <div style="width: 300px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <h5>${filterSamsat[i].name_samsat}</h5>
+                                        </div>
+                                        <div class="col-md-12"> 
+                                                
+                                        </div> 
+                                    </div>
+                                </div>
+                                    
+                                `, {
+                                    minWidth: 100,
+                                    maxWidth: 560,
+                                    width: 400
+                                }));
+                            }
+
+
+                            for (let i = 0; i < countSamsatDisplay; i++) {
+                                // console.log(`${i+1}`);
+                                $(`#flyToMapFilterSamsat${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 20);
+                                });
+                            }
+                            $('#datatableSamsatOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                            mapContainer.addLayer(samsatClusterGroup);
+                        }
+                    }
+
+                    if (ressTroubleSpot && ressTroubleSpot.length > 0) {
+                        var filterTroubleSpot = ressTroubleSpot;
+
+                        if (filterTroubleSpot.length > 0) {
+                            $('#openModalTroubleSpotDisplay').html(`
+                                <table id="datatableTroubleSpotOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th> 
+                                            <th>Alamat</th> 
+                                            <th>Waktu</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalTroubleSpotDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+
+                            var countTroubleSpotDisplay = 0;
+                            var listTroubleSpotDisplay = '';
+                            $('#totalTroubleSpotDisplay').html(filterTroubleSpot.length);
+                            var countlistTroubleSpot = 0;
+                            var checkedTroubleSpot1 = [];
+
+                            for (let i = 0; i < filterTroubleSpot.length; i++) {
+                                countTroubleSpotDisplay += 1; 
+                                countlistTroubleSpot += 1;
+                                id = i;
+
+                                if(filterTroubleSpot[i].route == null){
+                                    listTroubleSpotDisplay += `
+                                        <tr>
+                                            <td>${countTroubleSpotDisplay}</td>
+                                            <td>${filterTroubleSpot[i].reporter_name}</td> 
+                                            <td>${filterTroubleSpot[i].location}</td> 
+                                            <td>${filterTroubleSpot[i].desc}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterTroubleSpot${countTroubleSpotDisplay}"
+                                                    data-cord="${filterTroubleSpot[i].latitude},${filterTroubleSpot[i].longitude}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+                                    
+                                    var latitudeTroubleSpot = parseFloat(filterTroubleSpot[i].latitude);
+                                    var longitudeTroubleSpot = parseFloat(filterTroubleSpot[i].longitude); 
+                                    troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
+                                        icon: L.divIcon({
+                                            // className: 'location-pin',
+                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                            iconSize: [5, 5],
+                                            iconAnchor: [5, 10]
+                                            // iconAnchor: [10, 33]
+                                        })
+                                    }).bindPopup(`
+                                        <div style="width: 300px;">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <h5>${filterTroubleSpot[i].reporter_name}</h5>
+                                                </div>
+                                                <div class="col-md-12"> 
+                                                        
+                                                </div> 
+                                            </div>
+                                        </div> 
+                                    `, {
+                                        minWidth: 100,
+                                        maxWidth: 560,
+                                        width: 400
+                                    })); 
+                                }else{
+                                    listTroubleSpotDisplay += `
+                                        <tr>
+                                            <td>${countTroubleSpotDisplay}</td>
+                                            <td>${filterTroubleSpot[i].reporter_name}</td> 
+                                            <td>${filterTroubleSpot[i].location}</td> 
+                                            <td>${filterTroubleSpot[i].desc}</td> 
+                                            <td>
+                                                <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                                id="listTsDisplay${countlistTroubleSpot}"  
+                                                data-name="${filterTroubleSpot[i]['reporter_name']}" 
+                                                data-cord='${JSON.stringify(filterTroubleSpot[i]['route'])}'> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalTroubleSpotDisplay').html(listTroubleSpotDisplay);
+                                    
+                                    
+                                    checkedTroubleSpot1.push({
+                                        reporter_name: filterTroubleSpot[i]['reporter_name'],
+                                        checked: 0,
+                                    });
+                                }
+                            }
+
+                            for (let i = 0; i < countlistTroubleSpot; i++) {
+                                $(`#listTsDisplay${i+1}`).on("change", function(e) {
+                                    
+                                    var cordRute = $(this).data('cord');
+                                    if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                        if ($(this).is(':checked')) {
+                                            routingTroubleSpot[i] = null;
+                                            routingTroubleSpot[i] = L.Routing.control({
+                                                show: false,
+                                                draggableWaypoints: false,
+                                                addWaypoints: false,
+                                                waypoints: cordRute,
+                                                router: new L.Routing.osrmv1({
+                                                    language: 'en',
+                                                    profile: 'car'
+                                                }),
+                                                lineOptions: {
+                                                    styles: [{
+                                                        color: "#a50000",
+                                                        weight: 5,
+                                                        // className: 'animateRoute'
+                                                    }]
+                                                },
+                                                createMarker: function(i, wp, nWps) {
+                                                    if (i === 0 || i === nWps + 1) {
+                                                        // here change the starting and ending icons
+                                                        // return L.marker(wp.latLng);
+                                                    } else if (i === nWps - 1) {
+                                                        // return L.marker(wp.latLng);
+                                                    } else {
+                                                        // here change all the others
+                                                        // var options = {
+                                                        //         draggable: this.draggableWaypoints,
+                                                        //     },
+                                                        //     marker = L.marker(wp.latLng);
+    
+                                                        // return marker;
+                                                    }
+                                                },
+                                                // geocoder: L.Control.Geocoder.nominatim({})
+                                            }).addTo(mapContainer);
+                                            // mapContainer.addControl(routingTroubleSpot[i]); 
+                                        } else {
+                                            mapContainer.removeControl(routingTroubleSpot[i]);
+                                        }
+                                    }
+                                });
+                            }
+
+                            for (let i = 0; i < countTroubleSpotDisplay; i++) {
+
+                                $(`#flyToMapFilterTroubleSpot${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 20);
+                                });
+                            }
+                            $('#datatableTroubleSpotOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
+                            mapContainer.addLayer(troubleSpotClusterGroup);
+                        }
+                    }
 
 
                     if (ressLAP && ressLAP.length > 0) {
@@ -7225,31 +7559,45 @@
         }
 
         $("#filterCari").on("click", function(e) {
+            if ($("#samsat").is(':checked')) {
+                $("#samsatDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#samsatDisplay").prop('checked', false);
+                $("#samsatDisplay").val();
+            }
+            if ($("#trouble_spot").is(':checked')) {
+                $("#trouble_spotDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#trouble_spotDisplay").prop('checked', false);
+                $("#trouble_spotDisplay").val();
+            }
 
-            if($("#polda").is(':checked')){ 
-                $("#poldaDisplay").prop('checked', true); 
+            if ($("#polda").is(':checked')) {
+                $("#poldaDisplay").prop('checked', true);
                 getPolda();
                 // $("#myModalClusterDisplay").modal('show');
-            }else{
-                $("#poldaDisplay").prop('checked', false); 
-                for (let i = 0; i < markerPolda.length; i++) { 
+            } else {
+                $("#poldaDisplay").prop('checked', false);
+                for (let i = 0; i < markerPolda.length; i++) {
                     mapContainer.removeLayer(markerPolda[i]);
                 }
-                markerPolda = new Array(); 
+                markerPolda = new Array();
                 $("#poldaDisplay").val();
             }
-            
-            if($("#polres").is(':checked')){ 
-                $("#polresDisplay").prop('checked', true); 
+
+            if ($("#polres").is(':checked')) {
+                $("#polresDisplay").prop('checked', true);
                 $("#myModalClusterDisplay").modal('show');
-            }else{
-                $("#polresDisplay").prop('checked', false); 
+            } else {
+                $("#polresDisplay").prop('checked', false);
                 $("#polresDisplay").val();
             }
-            
 
-            if($("#cctv").is(':checked')){ 
-                $("#cctvDisplay").prop('checked', true); 
+
+            if ($("#cctv").is(':checked')) {
+                $("#cctvDisplay").prop('checked', true);
                 // $("#myModalCctvDisplay").modal('show');
             } else {
                 $("#cctvDisplay").prop('checked', false);
@@ -7270,8 +7618,8 @@
                 $("#clusterDisplay").val();
             }
 
-            if($("#jadwal").is(':checked')){ 
-                $("#kegiatanDisplay").prop('checked', true); 
+            if ($("#jadwal").is(':checked')) {
+                $("#kegiatanDisplay").prop('checked', true);
                 // $("#myModalJadwalDisplay").modal('show');
             } else {
                 $("#kegiatanDisplay").prop('checked', false);
@@ -7311,43 +7659,66 @@
 
 
 
+        $("#samsatDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#samsat").prop('checked', true);
+                $("#myModalSamsatDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#samsat").prop('checked', false);
+                $("#samsat").val();
+            }
+            serverSideFilter();
+        });
+        $("#trouble_spotDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#trouble_spot").prop('checked', true);
+                $("#myModalTroubleSpotDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#trouble_spot").prop('checked', false);
+                $("#trouble_spot").val();
+            }
+            serverSideFilter();
+        });
 
 
-
-        $("#poldaDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#polda").prop('checked', true); 
+        $("#poldaDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polda").prop('checked', true);
                 getPolda();
                 $("#myModalPoldaDisplay").modal('show');
-            }else{
+            } else {
                 openDisplay = '';
-                for (let i = 0; i < markerPolda.length; i++) { 
+                for (let i = 0; i < markerPolda.length; i++) {
                     mapContainer.removeLayer(markerPolda[i]);
                 }
-                markerPolda = new Array(); 
-                $("#polda").prop('checked', false); 
+                markerPolda = new Array();
+                $("#polda").prop('checked', false);
                 $("#polda").val();
             }
             serverSideFilter();
         });
-        $("#polresDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#polres").prop('checked', true); 
+        $("#polresDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polres").prop('checked', true);
                 $("#myModalPolresDisplay").modal('show');
-            }else{
+            } else {
                 openDisplay = '';
-                $("#polres").prop('checked', false); 
+                $("#polres").prop('checked', false);
                 $("#polres").val();
             }
             serverSideFilter();
         });
 
-        $("#fasumKhususDisplay").on("change", function (e) {   
-            if($(this).is(':checked')){ 
-                openDisplay = this.value; 
-                $("#fasum_khusus").prop('checked', true);  
+        $("#fasumKhususDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#fasum_khusus").prop('checked', true);
                 $("#myModalFasumKhususDisplay").modal('show');
             } else {
                 openDisplay = '';
@@ -7441,6 +7812,14 @@
         $("#cctvFilterModal").on("click", function(e) {
             $("#myModalCctvDisplay").modal('show');
         });
+
+        $("#samsatFilterModal").on("click", function(e) {
+            $("#myModalSamsatDisplay").modal('show');
+        }); 
+        $("#troubleSpotFilterModal").on("click", function(e) {
+            $("#myModalTroubleSpotDisplay").modal('show');
+        });
+
         $("#fasumFilterModal").on("click", function(e) {
             $("#myModalFasumKhususDisplay").modal('show');
         });
@@ -7464,6 +7843,10 @@
                     $("#myModalJadwalDisplay").modal('show');
                 } else if (openDisplay == 'cctv') {
                     $("#myModalCctvDisplay").modal('show');
+                } else if (openDisplay == 'samsat') {
+                    $("#myModalSamsatDisplay").modal('show');
+                } else if (openDisplay == 'trouble_spot') {
+                    $("#myModalTroubleSpotDisplay").modal('show');
                 } else if (openDisplay == 'titik_laporan') {
                     $("#myModalLaporanDisplay").modal('show');
                 } else if (openDisplay == 'titik_panicButton') {

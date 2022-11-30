@@ -1,4 +1,4 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
+<!-- <div class="head_content" style="background-image: url('assets/fe/hero.png'); background-size:cover;"></div> -->
 
 </div>
 <!-- ======= Breadcrumbs ======= -->
@@ -14,11 +14,15 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
+        </div>
+        </div>
         </div>
     	</nav>
     </div><!-- End Breadcrumbs -->
@@ -28,7 +32,9 @@
 ================================================== -->
 
 <!-- Container -->
-<div class="container margin-top-30">
+<div class="container-fluid margin-top-30">
+<div class="container-fluid">
+<div class="container-fluid">
 	<div class="style-1">
 	<!-- Tabs Navigation -->
 	<ul class="tabs-nav">
@@ -46,13 +52,13 @@
 							<!-- KAKORLANTAS -->
                 <div class="tab-content" id="tab1b">
                     <div class="row">
-											<div class="col-md-4">
+											<div class="col-md-2">
 												<h4 class="text-center"><b>KAKORLANTAS POLRI</b></h4>
 												<div class="d-flex justify-content-center">
 													<img src="<?= base_url()?>assets/fe/profil/KAKOR-PAK-FIRMAN.jpg" alt="" style="border-radius:10px ;" width="150rem" class="d-flex justify-content-center">
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-10">
 												<div class="info-pejabat">
 													<h4>Nama</h4>
 													<p>IRJEN POL Drs. FIRMAN SANTYABUDI, M.Si.</p>
@@ -78,37 +84,35 @@
 													<div class="row">
 														<div class="col-md-6">
 															<ul>
-																<li>KAKORLANTAS POLRI (IB) (31-10-2021)</li>
-																<li>ASLOG KAPOLRI (IA) (16-11-2020)</li>
-																<li>KAPOLDA JAMBI (IB) (03-02-2020)</li>
-																<li>PATI SSDM POLRI (DEPUTI BIDANG PEMBERANTASAN PPATK) (DEPUTI BIDANG PEMBERANTASAN PPATK)   (16-04-2014)</li>
-																<li>KARODALOPS SOPS POLRI (IIA)   (09-09-2013)</li>
-																<li>KABAGRENOPS ROBINOPS SOPS POLRI (IIB1) (30-05-2013)</li>
-																<li>ANALIS KEBIJAKAN MADYA SOPS POLRI (BIDANG DALOPS) (10-07-2012)</li>
-																<li>ANALIS KEBIJAKAN MADYA KORLANTAS POLRI (BIDANG GAKKUM)        (26-01-2012)</li>
-																<li>DIRLANTAS POLDA SUMSEL (IIB2)   (05-08-2010)</li>
-																<li>KASUBDIT JIANMA DIT LANTAS BABINKAM BAHARKAM POLRI<br />
-																(17-10-2009)</li>
-																<li>KAPOLRES METRO JAKSEL POLDA METRO JAYA (IIB2) (13-02-2009)</li>
-																<li>KASPN POLDA METRO JAYA (IIB2) (13-08-2008)</li>
-																<li>WADIRLANTAS POLDA METRO JAYA (IIIA1)  (15-03-2007)</li>
-																<li>KAPOLRESTA DEPOK POLDA METRO JAYA (IIB3)  (15-09-2005)</li>
+																<li>KAKORLANTAS POLRI (IB) - (31-10-2021)</li>
+																<li>ASLOG KAPOLRI (IA) - (16-11-2020)</li>
+																<li>KAPOLDA JAMBI (IB) - (03-02-2020)</li>
+																<li>PATI SSDM POLRI (DEPUTI BIDANG PEMBERANTASAN PPATK) (DEPUTI BIDANG PEMBERANTASAN PPATK) - (16-04-2014)</li>
+																<li>KARODALOPS SOPS POLRI (IIA) - (09-09-2013)</li>
+																<li>KABAGRENOPS ROBINOPS SOPS POLRI (IIB1) - (30-05-2013)</li>
+																<li>ANALIS KEBIJAKAN MADYA SOPS POLRI (BIDANG DALOPS) - (10-07-2012)</li>
+																<li>ANALIS KEBIJAKAN MADYA KORLANTAS POLRI (BIDANG GAKKUM) - (26-01-2012)</li>
+																<li>DIRLANTAS POLDA SUMSEL (IIB2) - (05-08-2010)</li>
+																<li>KASUBDIT JIANMA DIT LANTAS BABINKAM BAHARKAM POLRI - (17-10-2009)</li>
+																<li>KAPOLRES METRO JAKSEL POLDA METRO JAYA (IIB2) - (13-02-2009)</li>
+																<li>KASPN POLDA METRO JAYA (IIB2) - (13-08-2008)</li>
+																<li>WADIRLANTAS POLDA METRO JAYA (IIIA1) - (15-03-2007)</li>
+																<li>KAPOLRESTA DEPOK POLDA METRO JAYA (IIB3) - (15-09-2005)</li>
 															</ul>
 														</div>
 														<div class="col-md-6">
 															<ul>
-																<li>KAPOLRESMETRO BANDARA KOTA POLDA METRO JAYA (IIB2) (28-12-2003)</li>
-																<li>KASUBDIT DIKYASA DITLANTAS POLDA METRO JAYA (IIIA2) (20-05-2003)</li>
-																<li>KABAGDIKLAT PUSDIK LANTAS LEMDIKLAT (IIIA2)  (14-12-2002)</li>
-																<li>PAMEN SESPIM DEDIKLAT LEMDIKLAT POLRI  (08-05-2002)</li>
-																<li>KASATLANTAS POLRESTA BANJARMASIN POLDA KALSEL (IIIB2)              (05-01-2001)</li>
-																<li>KAPOLSEK METRO MENTENG POLRES METRO JAKPUS POLDA METRO JAYA (IIIA2)   (01-05-1997)</li>
-																<li>PS. PJS.KAPUSKODAL OPS POLRES METRO JAKPUS POLDA METRO JAYA<br />
-																(01-04-1997)</li>
-																<li>PAMA POLDA METRO JAYA   (01-09-1996)</li>
-																<li>GADIK MADYA PUSDIK LANTAS LEMDIKLAT POLRI (IIIA2)   (01-02-1994)</li>
-																<li>GADIK MUDA PUSDIK LANTAS LEMDIKLAT POLRI (IIIB2)   (01-08-1991)</li>
-																<li>KAURBINOPSNAL SATRESKRIM POLRES BOGOR POLDA JABAR (IVB)     (01-10-1988)</li>
+																<li>KAPOLRESMETRO BANDARA KOTA POLDA METRO JAYA (IIB2) - (28-12-2003)</li>
+																<li>KASUBDIT DIKYASA DITLANTAS POLDA METRO JAYA (IIIA2) - (20-05-2003)</li>
+																<li>KABAGDIKLAT PUSDIK LANTAS LEMDIKLAT (IIIA2) - (14-12-2002)</li>
+																<li>PAMEN SESPIM DEDIKLAT LEMDIKLAT POLRI - (08-05-2002)</li>
+																<li>KASATLANTAS POLRESTA BANJARMASIN POLDA KALSEL (IIIB2) - (05-01-2001)</li>
+																<li>KAPOLSEK METRO MENTENG POLRES METRO JAKPUS POLDA METRO JAYA (IIIA2) - (01-05-1997)</li>
+																<li>PS. PJS.KAPUSKODAL OPS POLRES METRO JAKPUS POLDA METRO JAYA - (01-04-1997)</li>
+																<li>PAMA POLDA METRO JAYA - (01-09-1996)</li>
+																<li>GADIK MADYA PUSDIK LANTAS LEMDIKLAT POLRI (IIIA2) - (01-02-1994)</li>
+																<li>GADIK MUDA PUSDIK LANTAS LEMDIKLAT POLRI (IIIB2) - (01-08-1991)</li>
+																<li>KAURBINOPSNAL SATRESKRIM POLRES BOGOR POLDA JABAR (IVB) - (01-10-1988)</li>
 															</ul>
 														</div>
 													</div>
@@ -117,27 +121,27 @@
 												<div class="info-pejabat">
 													<h4>Pendidikan Pengembangan &amp; Pelatihan</h4>
 													<ul>
-														<li>DIKJURDAS PERWIRA LANTAS  (1991)</li>
-														<li>ENV LAW ENFORCEMENT LEIDEN  (1991)</li>
-														<li>PENDIDIKAN PERWIRA PERTAMA DASAR BRIMOB  (1988)</li>
+														<li>DIKJURDAS PERWIRA LANTAS - (1991)</li>
+														<li>ENV LAW ENFORCEMENT LEIDEN - (1991)</li>
+														<li>PENDIDIKAN PERWIRA PERTAMA DASAR BRIMOB - (1988)</li>
 													</ul>
 													<hr>
 												</div>
 												<div class="info-pejabat">
 													<h4>Tanda Kehormatan</h4>
 													<ul>
-														<li>SATYALANCANA BHAKTI BUANA   (2021)</li>
-														<li>SATYALANCANA PENGABDIAN 32 TAHUN  (2021)</li>
-														<li>BINTANG BHAYANGKARA PRATAMA  (2019)</li>
-														<li>TANDA KEHORMATAN VETERAN PERDAMAIAN REPUBLIK INDONESIA (2017)</li>
-														<li>BINTANG BHAYANGKARA NARARIYA   (2014)</li>
-														<li>SATYALANCANA PENGABDIAN 24 TAHUN  (2013)</li>
-														<li>SATYALANCANA PENGABDIAN 16 TAHUN  (2005)</li>
-														<li>SATYALANCANA PENGABDIAN 8 TAHUN  (1997)</li>
-														<li>SATYALANCANA SANTI DARMA   (1993)</li>
-														<li>SATYALANCANA DWIDYA SISTHA   (1993)</li>
-														<li>THE UNAMID MEDAL  (1993)</li>
-														<li>THE UNAMID MEDAL   (1992)</li>
+														<li>SATYALANCANA BHAKTI BUANA - (2021)</li>
+														<li>SATYALANCANA PENGABDIAN 32 TAHUN - (2021)</li>
+														<li>BINTANG BHAYANGKARA PRATAMA - (2019)</li>
+														<li>TANDA KEHORMATAN VETERAN PERDAMAIAN REPUBLIK INDONESIA - (2017)</li>
+														<li>BINTANG BHAYANGKARA NARARIYA - (2014)</li>
+														<li>SATYALANCANA PENGABDIAN 24 TAHUN - (2013)</li>
+														<li>SATYALANCANA PENGABDIAN 16 TAHUN - (2005)</li>
+														<li>SATYALANCANA PENGABDIAN 8 TAHUN - (1997)</li>
+														<li>SATYALANCANA SANTI DARMA - (1993)</li>
+														<li>SATYALANCANA DWIDYA SISTHA - (1993)</li>
+														<li>THE UNAMID MEDAL - (1993)</li>
+														<li>THE UNAMID MEDAL - (1992)</li>
 													</ul>
 													<hr>
 												</div>
@@ -1620,6 +1624,8 @@
             </div>
 					</div>
 
+</div>
+</div>
 </div>
 <!-- Container / End -->
 

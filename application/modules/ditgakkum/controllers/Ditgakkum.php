@@ -11,6 +11,8 @@ class Ditgakkum extends MY_Controller
         $this->load->model("M_ditgakkum");
     }
 
+
+
     public function index()
     {
 
@@ -30,9 +32,28 @@ class Ditgakkum extends MY_Controller
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
-        } else if ($this->session->userdata['role'] == 'Kakorlantas') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'KaBagOps') {
             $page_content["title"] = "DITGAKKUM";
             $page_content["page"] = "ditgakkum/korlantas/ditgakkum_view";
+        }
+
+
+
+
+        $page_content["data"] = '';
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function inputData()
+    {
+        $page_content["css"] = '';
+        $page_content["js"] = '';
+        $page_content["title"] = "Input Data Harian Ditgakkum";
+
+        if ($this->session->userdata['role'] == 'G20') {
+            $page_content["page"] = "dashboard/dashboard_g20";
+        } else if ($this->session->userdata['role'] == 'Korlantas') {
+            $page_content["page"] = "ditgakkum/korlantas/inputdata_ditgakkum";
         }
 
 
@@ -68,7 +89,7 @@ class Ditgakkum extends MY_Controller
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
             'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
-            'walpjr' => 0,
+            'walpjr' => 72,
             // 'motor' =>  number_format($totalmotor, 0, '', '.'),
             // 'sim' =>  number_format($totalsim, 0, '', '.'),
         ];

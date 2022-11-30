@@ -1,6 +1,6 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-</div>
+
+
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
     	<nav>
@@ -51,16 +51,18 @@
 <!-- Container -->
 <div class="container margin-top-30">
 
+	<!-- Layanan Aplikasi Satker -->
 	<div class="row">
+		<h3 style="text-transform:uppercase ;">Layanan Aplikasi <?= $breadcrumb?></h3>
 		<div class="col-md-3">
 			<a href="https://rasirosakorlantas.id/" target="_blank" class="img-box" data-background-image="<?php echo base_url();?>assets/fe/bg1.jpg">
 				<div class="img-box-content visible">
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/rarirosa.png" alt=""  width="70px" height="70px">
+							<h5 style="color: white"><b>RASIROSA</b></h5>
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>RASIROSA</b></h5>
 							<p style="color: white; font-size:10px;">Rasirosa adalah portal KORLANTAS POLRI berisi berbagai informasi yang dapat dipelajari dan digunakan baik oleh anggota POLRI maupun masyarakat untuk memahami berbagai hal yang berhubungan dengan lalu lintas pada umumnya dan Keselamatan berkendaraan pada khususnya, juga dikenal sebagai Literasi Road Safety</p>
 						</div>
 					</div>
@@ -74,11 +76,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<img src="<?= base_url()?>assets/fe/client/korlantas.png" alt="" width="70px" height="70px">
+							<h5 style="color: white"><b>Film Pendek</b></h5>
 
 						</div>
 						<div class="col-md-12">
-							<h5 style="color: white"><b>Film Pendek</b></h5>
-							<p style="color: white;">Suatu Portal Korlantas Polri yang berisikan film pendek tentang tertib lalu lintas sebagai sarana sosialisasi dan edukasi pada masyarakat dalam tertib berlalu lintas di jalan agar terwujud KAMSELTIBCARLANTAS</p>
+							<p style="color: white; font-size:10px">Suatu Portal Korlantas Polri yang berisikan film pendek tentang tertib lalu lintas sebagai sarana sosialisasi dan edukasi pada masyarakat dalam tertib berlalu lintas di jalan agar terwujud KAMSELTIBCARLANTAS</p>
 
 						</div>
 					</div>
@@ -87,8 +89,9 @@
 			</a>
 		</div>
 		
+		<!-- Dokumen Peraturan Satker -->
 		<div class="col-md-12">
-			<h3>Dokumen Peraturan</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Peraturan</h3>
 			<div class="card">
 				<div class="card-body">
 					<table id="datatable" class="table dt-responsive w-100 table-striped">
@@ -123,9 +126,10 @@
 	</div>
 	<hr>
 
+	<!-- Media Channel -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Media Channel</h3>
+			<h3 style="text-transform:uppercase ;">Media Channel</h3>
 			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
 		<div class="col-md-8">
@@ -147,9 +151,10 @@
 	</div>
 	<hr>
 
+	<!-- Dokumen Kegiatan Satker -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
+			<h3 style="text-transform:uppercase ;">Dokumen Kegiatan Ditgakkum Korlantas Polri</h3>
 		</div>
 		<div class="col-md-12" style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;">
 			<div class="content-carousel"  >

@@ -7,7 +7,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="card">
+    <div class="card" style="display:none ;">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 ">
@@ -38,15 +38,38 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="main-chart" style="overflow:hidden; overflow-x:scroll">
-                <div id="chart4" style="width: 100vw"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>DATA PERJALANAN</h5>
+                    <p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
+                </div>
+                <div class="card-body">
+                    <div class="main-chart" style="overflow:hidden; overflow-x:scroll">
+                        <div id="chart4" style="width: 100vw"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" style="height: 70vh;">
+                <div class="card-header bg-transparent border-bottom text-uppercase m-3 p-0">
+                    <h5>DATA TRIPON</h5>
+                    <p class="fw-bold" style="text-transform:capitalize">Per Jenis Kendaraan</p>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <div class="main-chart">
+                        <div id="chart3"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="display: none;">
         <div class="card-header bg-primary ">
             <h5 class="modal-title text-white">Filter</h5>
         </div>
@@ -92,7 +115,7 @@
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -103,7 +126,7 @@
 
 
 <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('.dropify').dropify();
 
         userDataTable = $('#dataTable').DataTable({
@@ -196,10 +219,10 @@
                 {
                     data: 'type_vehicle'
                 },
-				{
+                {
                     data: 'brand_vehicle'
                 },
-                
+
                 // {
                 //     data: 'passenger'
                 // },
@@ -223,10 +246,12 @@
 
         });
 
-        
+
+        getPieTripOn();
+
     });
     $(document).ready(function() {
-        
+
 
         var keberangkatan = {
             series: [{
@@ -425,6 +450,39 @@
     });
 
 
+    function getPieTripOn() {
+        $.ajax({
+            url: "<?= base_url() ?>tripon/getTripOn",
+            type: 'POST',
+            dataType: "JSON",
+            success: function(results) {
+                console.log(results);
+                var options_tripon_kendaraan = {
+                    series: results.jumlah,
+                    chart: {
+                        width: 380,
+                        type: 'pie',
+                    },
+                    labels: results.type,
+                    responsive: [{
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 200
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }]
+                };
+
+                var tripon_kendaraan = new ApexCharts(document.querySelector("#chart3"), options_tripon_kendaraan);
+                tripon_kendaraan.render();
+            }
+        })
+    }
+
     function BtnFilter() {
         $('#FilterTripOn').html(`<div class="card">
         <div class="card-body">
@@ -461,6 +519,4 @@
     </div>
         `)
     }
-  
-    
 </script>

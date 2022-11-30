@@ -549,6 +549,7 @@ body #navigation ul ul {
 #navigation.style-1 .current {
   background-color: transparent;
   color: #66676b;
+	
 }
 #navigation.style-1 {
   margin-top: 1px;
@@ -560,7 +561,7 @@ body #navigation ul ul {
   transition: all 0.25s;
 }
 #navigation.style-1 ul li a {
-  color: #444;
+  color: white;
   cursor: pointer;
 }
 body .user-menu ul li a:hover,
@@ -600,8 +601,8 @@ body .user-menu ul li a:hover,
 }
 #navigation.style-1 > ul > li > a.current,
 #navigation.style-1 > ul > li:hover > a {
-  background: rgba(102, 103, 107, 0.06);
-  color: #66676b;
+  background: white;
+  color: white;
 }
 #navigation.style-1 ul li li a {
   background: #fff !important;

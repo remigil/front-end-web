@@ -1,6 +1,5 @@
-<div class="head_content" style="background-image: url('assets/fe/hero.png');">
 
-</div>
+
 <!-- ======= Breadcrumbs ======= -->
     <div class="pagebreadcrumbs">
     	<nav>
@@ -58,21 +57,39 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3>Link Youtube</h3>
-			<img src="<?php echo base_url();?>assets/fe/banner.png" alt="">
 		</div>
+		<h3 class="text-primary" style="text-transform:uppercase ;">KORBINMAS BAHARKAM POLRI</h3>
 		<div class="col-md-8">
-			<iframe width="760" height="450" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/8-avdziYWg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div> 
 		<div class="col-md-4">
 			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/xAYCvUh4-ic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 				</div>
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/6gvKr0Vc2Pc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="col-md-12">
-					<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/glFV_qDSUWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<hr> 
+		<h3 class="text-primary" style="text-transform:uppercase ;">Korpolairud Baharkam Polri</h3>
+		<div class="col-md-8">
+			<iframe width="760" height="450" src="https://www.youtube.com/embed/snaAHXWKP8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> 
+		<div class="col-md-4">
+			<div class="row" style="height: 450px;overflow-y: auto;scrollbar-width: thin;">
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/epY5tpuPhtM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/Nl115hvMIIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-12">
+					<iframe width="360" height="200" src="https://www.youtube.com/embed/aYmfKBF4CLg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div> 

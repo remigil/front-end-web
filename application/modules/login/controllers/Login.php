@@ -100,8 +100,7 @@ class Login extends MX_Controller
                     } else if ($response['user']['data']['user_role']['name'] == "OperatorPolda" || $response['user']['data']['user_role']['name'] == "OperatorPolres" || $response['user']['data']['user_role']['name'] == "OperatorKorlantas" || $response['user']['data']['user_role']['name'] == "Korlantas") {
                         redirect(base_url('inputdata/LaporanHarian'));
                     } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') {
-                        redirect(base_url('dashboard'));
-                        // redirect(base_url('dashboard/Dashboard/Dashboardeksekutif'));
+                        redirect(base_url('dashboard')); 
                     } else {
                         redirect(base_url('dashboard'));
                     }
@@ -116,66 +115,7 @@ class Login extends MX_Controller
                 die;
             }
 
-
-
-            //         $user = $response['user']['data'][0]; 
-
-            //         $area = '';
-            //         for ($i = 0 ; $i < count($user['monitored_area']) ; $i++) { 
-            //             $area .= ''.$user['monitored_area'][$i]['region_id'].',';
-            //         }
-            //         $monitoredArea = substr($area,0,-1); 
-
-            //         $data_session = [
-            //             'token' => $response['token'],
-
-            //             'id' => $user['id'],
-            //             'user_id' => $user['user_id'],
-            //             'access' => $user['access'],
-            //             'browser_type' => $user['browser_type'],
-
-            //             'id_user' => $user['id_user'],
-            //             'id_type' => $user['id_type'],
-            //             'first_name' => $user['first_name'],
-            //             'last_name' => $user['last_name'],
-            //             'alias' => $user['alias'], 
-            //             'pob' => $user['pob'],
-            //             'dob' => $user['dob'],
-            //             'sex' => $user['sex'],
-            //             'status' => $user['status'],
-            //             'location' => $user['location'], 
-            //             'department' => $user['department'],
-            //             'company' => $user['company'],
-            //             'company_name' => $user['company_name'],
-            //             'company_phone' => $user['company_phone'],
-            //             'company_email' => $user['company_email'],
-            //             'company_coordinate' => $user['company_coordinate'],
-            //             'validity_date' => $user['validity_date'],
-            //             'phone1' => $user['phone1'],
-            //             'phone2' => $user['phone2'],
-            //             'phone3' => $user['phone3'],
-            //             'email' => $user['email'], 
-            //             'access_level' => $user['access_level'],
-            //             // 'access_level' => '2',
-            //             'photo' => $user['photo'],
-            //             'notes' => $user['notes'],  
-
-            //             'id_levelLogin' => $user['id_levelLogin'],
-            //             'login_level' => $user['login_level'],
-            //             'login_note' => $user['login_note'],
-            //             'monitored_area' => $monitoredArea,
-            //             'logged' => 1
-            //         ]; 
-
-            //         $this->session->set_userdata($data_session); 
-
-            //         if($user['login_level'] == 0 || $user['login_level'] == 1){
-            //             redirect(base_url('dashboard'));
-            //         }elseif($user['login_level'] == 2){
-            //             redirect(base_url('company/dashboard'));
-            //         }elseif($user['login_level'] == 3){
-            //             redirect(base_url('home'));
-            //         }
+ 
 
         } else {
             $this->session->set_flashdata('error', $response['user']['message']);
