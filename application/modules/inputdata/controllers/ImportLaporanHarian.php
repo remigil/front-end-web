@@ -220,7 +220,7 @@ class ImportLaporanHarian extends MY_Controller
             break;
         }
         
-        $structure = 'files/format/'.$filename;
+        $structure = 'files/format/harian/'.$filename;
 
         if(file_exists($structure)){
             $data = file_get_contents($structure);

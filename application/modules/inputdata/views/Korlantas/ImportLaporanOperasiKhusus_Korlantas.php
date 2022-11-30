@@ -111,16 +111,28 @@
             </div>
             <div class="modal-body">
                 <ul class="list-group">
-                    <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Dakgar Lantas</button></li>
-                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Konvensional</button></li>
-                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
-                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
-                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
-                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran dan Pemasangan</button></li>
-                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import SIM</button></li>
-                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import BPKB</button></li>
-                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import RANMOR</button></li>
-                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import STNK</button></li>
+                    <li class="list-group-item"><button onclick="format(1)" id="btn-format" class="btn btn-xs btn-info">Format Import Barang Bukti</button></li>
+                    <li class="list-group-item"><button onclick="format(2)" id="btn-format" class="btn btn-xs btn-info">Format Import Dikmaslantas</button></li>
+                    <li class="list-group-item"><button onclick="format(3)" id="btn-format" class="btn btn-xs btn-info">Format Import Giat Lantas</button></li>
+                    <li class="list-group-item"><button onclick="format(4)" id="btn-format" class="btn btn-xs btn-info">Format Import Kecelakaan Lalu Lintas</button></li>
+                    <li class="list-group-item"><button onclick="format(5)" id="btn-format" class="btn btn-xs btn-info">Format Import Kendaraan Yang Terlibat</button></li>
+                    <li class="list-group-item"><button onclick="format(6)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Fungsi Jalan</button></li>
+                    <li class="list-group-item"><button onclick="format(7)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Kawasan</button></li>
+                    <li class="list-group-item"><button onclick="format(8)" id="btn-format" class="btn btn-xs btn-info">Format Import Lokasi Status Jalan</button></li>
+                    <li class="list-group-item"><button onclick="format(9)" id="btn-format" class="btn btn-xs btn-info">Format Import Pekerjaan Korban</button></li>
+                    <li class="list-group-item"><button onclick="format(10)" id="btn-format" class="btn btn-xs btn-info">Format Import Pekerjaan Pelaku</button></li>
+                    <li class="list-group-item"><button onclick="format(11)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Lalu Lintas</button></li>
+                    <li class="list-group-item"><button onclick="format(12)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Ranmor Roda 2</button></li>
+                    <li class="list-group-item"><button onclick="format(13)" id="btn-format" class="btn btn-xs btn-info">Format Import Pelanggaran Ranmor Roda 4</button></li>
+                    <li class="list-group-item"><button onclick="format(14)" id="btn-format" class="btn btn-xs btn-info">Format Import Pendidikan Korban</button></li>
+                    <li class="list-group-item"><button onclick="format(15)" id="btn-format" class="btn btn-xs btn-info">Format Import Penyebaran Pemasangan</button></li>
+                    <li class="list-group-item"><button onclick="format(16)" id="btn-format" class="btn btn-xs btn-info">Format Import Profesi Pelaku</button></li>
+                    <li class="list-group-item"><button onclick="format(17)" id="btn-format" class="btn btn-xs btn-info">Format Import Ranmor Terlibat</button></li>
+                    <li class="list-group-item"><button onclick="format(18)" id="btn-format" class="btn btn-xs btn-info">Format Import SIM Pelaku</button></li>
+                    <li class="list-group-item"><button onclick="format(19)" id="btn-format" class="btn btn-xs btn-info">Format Import Turjagwali</button></li>
+                    <li class="list-group-item"><button onclick="format(20)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia Korban</button></li>
+                    <li class="list-group-item"><button onclick="format(21)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia Pelaku</button></li>
+                    <li class="list-group-item"><button onclick="format(22)" id="btn-format" class="btn btn-xs btn-info">Format Import Usia</button></li>
                 </ul>
             </div>
         </div>

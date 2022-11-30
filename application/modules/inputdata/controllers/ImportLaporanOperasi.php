@@ -196,38 +196,74 @@ class ImportLaporanOperasi extends MY_Controller
 		$type = $this->uri->segment('4');
         switch ($type) {
             case '1':
-                $filename = 'Format-Import-Dakgar-Lantas.xlsx';
+                $filename = 'Format-Import-Barang-Bukti.xlsx';
             break;
             case '2':
-                $filename = 'Format-Import-Pelanggaran-Konvensional.xlsx';
-            break;
-            case '3':
-                $filename = 'Format-Import-Kecelakaan-Lalu-Lintas.xlsx';
-            break;
-            case '4':
-                $filename = 'Format-Import-Turjagwali.xlsx';
-            break;
-            case '5':
                 $filename = 'Format-Import-Dikmaslantas.xlsx';
             break;
+            case '3':
+                $filename = 'Format-Import-Giat-Lantas.xlsx';
+            break;
+            case '4':
+                $filename = 'Format-Import-Kecelakaan-Lalu-Lintas.xlsx';
+            break;
+            case '5':
+                $filename = 'Format-Import-Kendaraan-Yang-Terlibat.xlsx';
+            break;
             case '6':
-                $filename = 'Format-Import-Penyebaran-dan-Pemasangan.xlsx';
+                $filename = 'Format-Import-Lokasi-Fungsi-Jalan.xlsx';
             break;
             case '7':
-                $filename = 'Format-Import-SIM.xlsx';
+                $filename = 'Format-Import-Lokasi-Kawasan.xlsx';
             break;
             case '8':
-                $filename = 'Format-Import-BPKB.xlsx';
+                $filename = 'Format-Import-Lokasi-Status-Jalan.xlsx';
             break;
             case '9':
-                $filename = 'Format-Import-RANMOR.xlsx';
+                $filename = 'Format-Import-Pekerjaan-Korban.xlsx';
             break;
             case '10':
-                $filename = 'Format-Import-STNK.xlsx';
+                $filename = 'Format-Import-Pekerjaan-Pelaku.xlsx';
+            break;
+            case '11':
+                $filename = 'Format-Import-Pelanggaran-Lalu-Lintas.xlsx';
+            break;
+            case '12':
+                $filename = 'Format-Import-Pelanggaran-Ranmor-Roda-2.xlsx';
+            break;
+            case '13':
+                $filename = 'Format-Import-Pelanggaran-Ranmor-Roda-4.xlsx';
+            break;
+            case '14':
+                $filename = 'Format-Import-Pendidikan-Korban.xlsx';
+            break;
+            case '15':
+                $filename = 'Format-Import-Penyebaran-Pemasangan.xlsx';
+            break;
+            case '16':
+                $filename = 'Format-Import-Profesi-Pelaku.xlsx';
+            break;
+            case '17':
+                $filename = 'Format-Import-Ranmor-Terlibat.xlsx';
+            break;
+            case '18':
+                $filename = 'Format-Import-SIM-Pelaku.xlsx';
+            break;
+            case '19':
+                $filename = 'Format-Import-Turjagwali.xlsx';
+            break;
+            case '20':
+                $filename = 'Format-Import-Usia-Korban.xlsx';
+            break;
+            case '21':
+                $filename = 'Format-Import-Usia-Pelaku.xlsx';
+            break;
+            case '22':
+                $filename = 'Format-Import-Usia.xlsx';
             break;
         }
         
-        $structure = 'files/format/'.$filename;
+        $structure = 'files/format/operasi/'.$filename;
 
         if(file_exists($structure)){
             $data = file_get_contents($structure);
