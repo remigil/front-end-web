@@ -254,6 +254,9 @@ class Polda_executive extends MY_Controller
 
     public function statistik_polda($id)
     {
+
+
+
         $page_content["css"] = '';
         $page_content["js"] = '';
         $page_content["title"] = "Statistik Polda";
@@ -271,7 +274,11 @@ class Polda_executive extends MY_Controller
         $headers = [
             'Authorization' => $this->session->userdata['token']
         ];
-        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id, [
+        $input      = $this->input->post();
+        // echo json_encode($input);
+        // die;
+
+        $getGakkum = guzzle_request('GET', 'ditgakkum/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getGakkum = $getGakkum["data"];
@@ -287,7 +294,7 @@ class Polda_executive extends MY_Controller
             $totalturjagwali += $getGakkum[$i]['turjagwali'];
         }
 
-        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?polda_id=' . $id, [
+        $getKamsel = guzzle_request('GET', 'ditkamsel/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getKamsel = $getKamsel["data"];
@@ -303,7 +310,7 @@ class Polda_executive extends MY_Controller
             // $totalaudit += $getKamsel[$i]['audit'];
         }
 
-        $getRegident = guzzle_request('GET', 'ditregident/daily?polda_id=' . $id, [
+        $getRegident = guzzle_request('GET', 'ditregident/daily?polda_id=' . $id . 'filter=true&start_date=' . $input['startDate'] . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getRegident = $getRegident["data"];
@@ -335,8 +342,82 @@ class Polda_executive extends MY_Controller
         // $totalsubanev += $getOps[$i]['subanev'];
         // }
 
+        if ($input['type'] == 'day') {
+            $date1 = date('Y-m-d', strtotime("-1 days"));
+        } else if ($input['type'] == 'month') {
+            $date1 = date('Y-m-d', strtotime("-1 month"));
+        } else if ($input['type'] == 'year') {
+            $date1 = date('Y-m-d', strtotime("-1 year"));
+        }
+
+        $getCompareDitgakum = guzzle_request('GET', 'ditgakkum/date?polda_id=' . $id . '&type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
+            'headers' => $headers
+        ]);
+        $getCompareDitgakum = $getCompareDitgakum["data"];
+
+        // var_dump('ditgakkum/date?polda_id=' . $id . 'type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '.');
+        // die;
+        $arrLaka = array_map(function ($value) {
+            return intval($value['lakalantas']);
+        }, $getCompareDitgakum);
+        // $nilaiCompareLaka = max($arrLaka);
+        if ($arrLaka[0] > $arrLaka[1]) {
+            $findCompareLaka = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrLaka[0] == 0 && $arrLaka[1] == 0) {
+            $findCompareLaka = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findCompareLaka = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrgarla = array_map(function ($value) {
+            return intval($value['garlantas']);
+        }, $getCompareDitgakum);
+        // $nilaiComparegarla = max($arrgarla);
+        if ($arrgarla[0] > $arrgarla[1]) {
+            $findComparegarla = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrgarla[0] == 0 && $arrgarla[1] == 0) {
+            $findComparegarla = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findComparegarla = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrturja = array_map(function ($value) {
+            return intval($value['turjagwali']);
+        }, $getCompareDitgakum);
+        // $nilaiCompareturja = max($arrturja);
+        if ($arrturja[0] > $arrturja[1]) {
+            $findCompareturja = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrturja[0] == 0 && $arrturja[1] == 0) {
+            $findCompareturja = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findCompareturja = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
 
         $data = [
+            'date' => $date1,
+            'compare' => [
+                'lakalantas' => $findCompareLaka,
+                'garlantas' => $findComparegarla,
+                'turjagwali' => $findCompareturja,
+                'walpjr' =>  '',
+
+                'bpkb' => '',
+                'stnk' => '',
+                'sim' => '',
+                'sbst' => '',
+
+                'dikmas' => '',
+                'jemenopsrek' => '',
+                'cegah' => '',
+                'audit' => '',
+
+                'subrenop' => '',
+                'subdalops' => '',
+                'subkerma' => '',
+                'subanev' => '',
+
+            ],
             'lakalantas' =>  number_format($totallakalantas, 0, '', '.'),
             'garlantas' => number_format($totalgarlantas, 0, '', '.'),
             'turjagwali' => number_format($totalturjagwali, 0, '', '.'),
@@ -356,6 +437,9 @@ class Polda_executive extends MY_Controller
             'subdalops' =>  number_format($totalsubdalops, 0, '', '.'),
             'subkerma' =>  number_format($totalsubkerma, 0, '', '.'),
             'subanev' => number_format($totalsubanev, 0, '', '.'),
+
+
+
         ];
 
         echo json_encode($data);
