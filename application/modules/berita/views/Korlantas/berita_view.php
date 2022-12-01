@@ -82,7 +82,7 @@
 						<label for="content">Isi Berita</label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="text" id="link" class="form-control" name="link" placeholder="judul">
+						<input type="text" class="form-control" name="link" placeholder="judul">
 						<label for="link">Link Berita</label>
 					</div>
 					<div class="col-md-12">
@@ -140,6 +140,10 @@
                     <div class="form-floating mb-3">
 						<textarea class="form-control" id="content" style="height: 100px" placeholder="isi" name="content"></textarea>
 						<label for="content">Isi Berita</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" id="link" class="form-control" name="link" placeholder="judul">
+						<label for="link">Link Berita</label>
 					</div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary waves-effect float-end" id="btn_edit" style="width: 25%; letter-spacing: 2px;">SIMPAN</button>
@@ -423,6 +427,7 @@
                 $('.UbahBerita,#title').attr('disabled', false)
                 $('.UbahBerita,#category').attr('disabled', false)
                 $('.UbahBerita,#content').attr('disabled', false)
+                $('.UbahBerita,#link').attr('disabled', false)
                 $('.UbahBerita,#photo').attr('disabled', false)
                 $('.UbahBerita,#date').attr('disabled', false)
 
@@ -431,6 +436,7 @@
                 $('.UbahBerita,#title').val(results.title)
                 $('.UbahBerita,#category').val(results.news_category)
                 $('.UbahBerita,#content').val(results.content)
+                $('.UbahBerita,#link').val(results.link)
                 $('.UbahBerita,#photo').val(results.picture)
                 $('.UbahBerita,#date').val(results.date)
             }
