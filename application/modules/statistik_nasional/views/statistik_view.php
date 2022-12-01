@@ -165,7 +165,7 @@
                                          Total<span class="fw-bold"> SIM</span>
                                          </br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></p>
+                                        <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -189,7 +189,7 @@
                                          <span class="fw-bold">Total BPKB</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="bpkb"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailbpkb"></p>
+                                        <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailbpkb"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -213,7 +213,7 @@
                                          <span class="fw-bold">Total STNK</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="stnk"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailstnk"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailstnk"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -237,7 +237,7 @@
                                          <span class="fw-bold">Total FASMAT SBST</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sbst"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -263,7 +263,7 @@
                                          <span class="fw-bold">Total DIKMAS</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="dikmas"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detaildikmas"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detaildikmas"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -287,7 +287,7 @@
                                          <span class="fw-bold">Total JEMENOPSREK</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="jemenopsrek"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailjemenopsrek"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -311,7 +311,7 @@
                                          <span class="fw-bold">Total CEGAH</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="cegah"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailcegah"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -335,7 +335,7 @@
                                          <span class="fw-bold">Total AUDIT</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="audit"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailaudit"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -360,7 +360,7 @@
                                          <span class="fw-bold">Total SUBBAG RENOP</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subrenop"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -384,7 +384,7 @@
                                          <span class="fw-bold">Total SUBBAG DALOPS</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subdalops"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -408,7 +408,7 @@
                                          <span class="fw-bold">Total SUBBAG KERMA</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subkerma"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
@@ -432,7 +432,7 @@
                                          <span class="fw-bold">Total SUBBAG ANEV</span>
                                          <br>
                                          <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="subanev"></span>
-                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubanev"></p>
+                                     <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubanev"></span>
                                      </p>
                                  </div>
                                  <div class=" col-md-2">
