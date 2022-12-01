@@ -38,6 +38,7 @@ class Home extends MX_Controller {
 
 	public function getPolda()
     {
+		
         // $headers = [
         //     'Authorization' => $this->session->userdata['token']
         // ];
@@ -46,9 +47,9 @@ class Home extends MX_Controller {
         $getPolda = guzzle_request('GET', $url, [
             // 'headers' => $headers
         ]);
+		// var_dump($getPolda);die;
         $getPolda = $getPolda['data']['data'];
 
-		// var_dump($getPolda);die;
 
         $dit = [];
         $urldit = 'ditgakkum/daily';
@@ -136,12 +137,16 @@ class Home extends MX_Controller {
 
 	public function getBerita()
 	{
+		// $headers = [
+        //     'Authorization' => $this->session->userdata['token']
+        // ];
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
-        $getBeritaall = $getBerita['data']['datanya'];
+        $getBeritaall = $getBerita['data']['datanya'][0]['data'];
+		// var_dump($getBeritaall);die;
 
-		$getTitle = $getBeritaall['data'][0]['title'];
+		$getTitle = $getBeritaall[0]['title'];
 
 		// var_dump($getTitle);die;
 		$data = [

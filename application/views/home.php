@@ -235,6 +235,7 @@
         </div>
 
         <div class="col-md-12">
+		
 
 
 
@@ -738,8 +739,8 @@
             }
         })
 
-        var initialCenter = [-0.21973, 117.91602];
-        var initialZoom = 5.5;
+        var initialCenter = [-2.0719551,116.5213869];
+        var initialZoom = 5.25;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']

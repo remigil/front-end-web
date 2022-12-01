@@ -11007,12 +11007,17 @@ span.like-icon {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .pagebreadcrumbs {
-  background: #f4f2f2;
+  background-image: url('../hero.png');
+	background-size: cover;
   margin-bottom: 40px;
+	color: white;
+	padding: 20px;
 }
 .pagebreadcrumbs h2 {
   font-size: 28px;
   font-weight: 500;
+	color: white;
+	font-weight: bolder;
 }
 .pagebreadcrumbs ol {
   display: flex;
@@ -11021,15 +11026,20 @@ span.like-icon {
   padding: 0 0 10px 0;
   margin: 0;
   font-size: 14px;
+	color: white;
 }
-.pagebreadcrumbs ol li + li {
+.pagebreadcrumbs ol li + li a{
   padding-left: 10px;
+	color: white;
 }
-.pagebreadcrumbs ol li + li::before {
+.pagebreadcrumbs ol li + li::before{
   display: inline-block;
   padding-right: 10px;
-  color: #635551;
+  color: white;
   content: "/";
+}
+.pagebreadcrumbs .home{
+	color: white !important;
 }
 
 #titlebar.photo-bg #breadcrumbs ul li,

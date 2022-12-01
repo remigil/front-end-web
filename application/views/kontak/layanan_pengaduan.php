@@ -14,14 +14,18 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
         </div>
+        </div>
+        </div>
     	</nav>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d126916.97940835782!2d106.84999300000001!3d-6.243214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa8b81b7b3cc946f!2sPusat%20Kendali%20Koordinasi%20Komunikasi%20dan%20Informasi%20Korlantas%20Polri!5e0!3m2!1sid!2sid!4v1665028541383!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		
     </div><!-- End Breadcrumbs -->
 
 
@@ -31,7 +35,8 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="containter mb-5">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d126916.97940835782!2d106.84999300000001!3d-6.243214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa8b81b7b3cc946f!2sPusat%20Kendali%20Koordinasi%20Komunikasi%20dan%20Informasi%20Korlantas%20Polri!5e0!3m2!1sid!2sid!4v1665028541383!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="containter mb-5 mt-5">
 
 	<section id="contact" class="contact">
 		<div class="container">

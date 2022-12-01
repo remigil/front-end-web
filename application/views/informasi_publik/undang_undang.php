@@ -14,11 +14,15 @@
         </div>
     	</div>
     	<nav>
-        <div class="container" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
+        <div class="container-fluid" >
         	<ol style="list-style: none;">
             <li><a href="<?= base_url()?>home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
+        </div>
+        </div>
         </div>
     	</nav>
     </div><!-- End Breadcrumbs -->
@@ -30,11 +34,13 @@
 <!-- Container -->
 
 <!-- ======= Contact Section ======= -->
-<div class="container">
+<div class="container-fluid mb-5 mt-5">
+<div class="container-fluid">
+<div class="container-fluid">
 
 <div class="page">
     
-	<h3>Undang-undang</h3>
+	<!-- <h3>Undang-undang</h3> -->
     <div class="card">
 
         <div class="card-body">
@@ -54,7 +60,7 @@
         </div>
     </div>
 
-	<h3>Peraturan Pemerintah</h3>
+	<!-- <h3>Peraturan Pemerintah</h3>
     <div class="card">
 
         <div class="card-body">
@@ -172,10 +178,12 @@
             </table>
 
         </div>
-    </div>
+    </div> -->
 </div>
 
 	
+</div>
+</div>
 </div>
 <!-- Container / End -->
 
@@ -185,9 +193,8 @@
 
 
 <script>
-    $(document).ready(function() { 
-
-		$('.dropify').dropify();
+    $(document).ready(function() {
+        $('.dropify').dropify();
 
         userDataTable = $('#datatable').DataTable({
 
@@ -219,7 +226,7 @@
 
                 dataType: 'json',
 
-                url: '<?php echo base_url(); ?>controllers/UU_peraturan/serverSideTable',
+                url: '<?php echo base_url(); ?>Undang_undang/serverSideTable',
 
                 data: function(data) {
 
@@ -299,59 +306,9 @@
 
         });
 
-        var initialCenter = [-2.548926, 118.0148634];
-        var initialZoom = 5;
-        var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleSatelite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        });
-        var googleTerrain = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '&copy; <a href="https://maps.google.com/">Google Map <?= date('Y') ?></a> contributors'
-        }); 
-
-        // StART MAP SECTION
-        var mapContainer = L.map('map', {
-            maxZoom: 20,
-            minZoom: 1,
-            zoomSnap: 0.25,
-            zoomControl: false,
-            layers: [googleStreet]
-        }).setView(initialCenter, initialZoom);  
-
-
-        var icon = L.icon({
-            iconUrl: 'http://tourbanyuwangi.com/wp-content/uploads/2018/05/map.png',
-            iconSize: [80, 80], // size of the icon
-        });
-                        
-                        
-        var baseMaps = {
-            "Google Map Street": googleStreet,
-            "Google Map Satelite": googleSatelite,
-            "Google Map Hybrid": googleHybrid,
-            "Google Map Terrain": googleTerrain,
-        };
-        var overlayMaps = {};
-        // L.control.layers(baseMaps, overlayMaps, {
-        //     position: 'bottomleft'
-        // }).addTo(mapContainer);
-        // L.control.zoom({
-        //     position: 'bottomright'
-        // }).addTo(mapContainer);
     });
+
+    
 
 	
 </script>

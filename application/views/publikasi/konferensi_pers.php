@@ -18,7 +18,7 @@
         <div class="container-fluid" >
         <div class="container-fluid" >
         	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home">Home</a></li>
+            <li><a href="<?= base_url()?>home" class="home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
         </div>
@@ -53,22 +53,22 @@
                 <div class="col-md-12">
 					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/zc_mxp--Ch8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+								
 						
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/T-Z2u5XO5Yo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/Ou_osJM8ct4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/in6RGx0niqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/m7w5BjKujEk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								
 						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/vjoNOsPk9Xg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
 					</div>
                 </div>
@@ -90,25 +90,51 @@
                 
                 <!-- Carousel -->
                 <div class="col-md-12">
-					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
+					<div class="simple-slick-carousel dots-nav">
+						<div class="card" style="width: 10px;">
+							<img src="<?= base_url() ?>assets/fe/konferensi_pers1.jpg" class="card-img-top" alt="..." height="250px">
+							<div class="card-body bg-light rounded">
+								<a href="https://korlantas.polri.go.id/news/satlantas-polres-bitung-jaring-115-pelanggar-saat-gelar-operasi-patuh-sabtu-malam/">
+									<h5 class="card-title fw-bold text-justify">Satlantas Polres Bitung Jaring 115 Pelanggar Saat Gelar Operasi Patuh Sabtu Malam</h5>
+								</a>
+								<hr>
+								
+
+							</div>
+						</div>
+						<div class="card" style="width: 10rem;">
+							<img src="<?= base_url() ?>assets/fe/konferensi_pers2.jpg" class="card-img-top" alt="..." height="250px">
+							<div class="card-body bg-light rounded">
+								<a href="https://korlantas.polri.go.id/news/satlantas-polres-sergai-tilang-mobil-ormas-yang-viral-di-medsos-ini-pelanggarannya/">
+									<h5 class="card-title fw-bold text-justify">Satlantas Polres Sergai Tilang Mobil Ormas yang Viral di Medsos, Ini Pelanggarannya</h5>
+								</a>
+								<hr>
+								
+
+							</div>
+						</div>
+						<div class="card" style="width: 10rem;">
+							<img src="<?= base_url() ?>assets/fe/konferensi_pers3.jpg" class="card-img-top" alt="..." height="250px">
+							<div class="card-body bg-light rounded">
+								<a href="https://korlantas.polri.go.id/lakalantas/catat-satlantas-polres-banjarbaru-berlakukan-satu-arah-di-jalan-pm-noor/">
+									<h5 class="card-title fw-bold text-justify">Catat, Satlantas Polres Banjarbaru Berlakukan Satu Arah Di Jalan PM Noor</h5>
+								</a>
+								<hr>
+								
+
+							</div>
+						</div>
+						<div class="card" style="width: 10rem;">
+							<img src="<?= base_url() ?>assets/fe/konferensi_pers4.jpg" class="card-img-top" alt="..." height="250px">
+							<div class="card-body bg-light rounded">
+								<a href="https://ntmcpolri.info/dialog-interaktif-kadiv-humas-polri-maanfaatkan-digitalisasi-polri/">
+									<h5 class="card-title fw-bold text-justify">Dialog Interaktif, Kadiv Humas Polri: Maanfaatkan Digitalisasi Polri</h5>
+								</a>
+								<hr>
+								
+
+							</div>
+						</div>
 					</div>
                 </div>
                 <!-- Carousel / End -->

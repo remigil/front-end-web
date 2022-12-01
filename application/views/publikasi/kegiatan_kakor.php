@@ -52,23 +52,23 @@
                 <!-- Carousel -->
                 <div class="col-md-12">
 					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
-				
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/SclG0y3UaHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/SclG0y3UaHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 						
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/qHjFoTw6lPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/E1yw_whC1WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/PtXnDn8UPN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/PtXnDn8UPN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/D8srYKXrVWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/nwbXQon7-_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						
-						
-							<iframe width="360" height="200" src="https://www.youtube.com/embed/FzRqixxX4mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								
+							<iframe width="550" height="320" src="https://www.youtube.com/embed/Q0mUVnssABs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						
 					</div>
                 </div>
@@ -92,10 +92,12 @@
                 <div class="col-md-12">
 					<div style="overflow-x: auto;overflow-y:hidden; white-space:nowrap; scrollbar-width: thin;" class="carousel">
 						
-							<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-							<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-							<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
-							<img src="<?= base_url()?>assets/fe/hero.png" alt="" width="360" height="200">
+							<img src="<?= base_url()?>assets/fe/giat_kakor1.jpg" alt="" width="550" height="320">
+							<img src="<?= base_url()?>assets/fe/giat_kakor2.jpg" alt="" width="550" height="320">
+							<img src="<?= base_url()?>assets/fe/giat_kakor3.jpg" alt="" width="550" height="320">
+							<img src="<?= base_url()?>assets/fe/giat_kakor4.jpg" alt="" width="550" height="320">
+							<img src="<?= base_url()?>assets/fe/giat_kakor5.jpg" alt="" width="550" height="320">
+							<img src="<?= base_url()?>assets/fe/giat_kakor6.jpg" alt="" width="550" height="320">
 						
 						
 							
