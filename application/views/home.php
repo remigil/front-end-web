@@ -378,12 +378,12 @@
                     <div class="card" style="width: 18rem;">
                         <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="..." height="250px">
                         <div class="card-body bg-light rounded">
-                            <a href="#">
+                            <a href="<?= $data['link']?>" target="_blank">
                                 <h5 class="card-title fw-bold text-justify"><?= $data['title']; ?></h5>
                             </a>
                             <button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news'] ?></button>
                             <hr>
-                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="#" class="btn btn-primary">Selengkapnya</a>' ?></p>
+                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="'. $data['link'] .'" class="btn btn-primary" target="_blank">Selengkapnya</a>' ?></p>
 
                         </div>
                     </div>
