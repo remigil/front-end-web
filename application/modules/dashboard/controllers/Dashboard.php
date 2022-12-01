@@ -281,46 +281,9 @@ class Dashboard extends MY_Controller
         } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {
             redirect('divtik/div_tik');
             die;
-            // } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-            //     redirect('ditgakkum');
-            //     die;
-            // } else if ($this->session->userdata['role'] == 'Ditregident') {
-            //     redirect('ditregident');
-            //     die;
-            // } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-            //     redirect('ditkamsel');
-            //     die;
-            // } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-            //     redirect('bagrenmin');
-            //     die;
-            //     // } else if ($this->session->userdata['role'] == 'KaBagOps') {
-            //     //     redirect('bagops');
-            //     //     die;
-            // } else if ($this->session->userdata['role'] == 'KaBagTIK') {
-            //     redirect('bagtik');
-            //     die;
-            // } else if ($this->session->userdata['role'] == 'Kapolda') {
-            //     redirect('executive/Polda_executive/' . $this->session->userdata['polda_id'] . '');
-            //     die;
-            // $page_content["page"] = "dashboard/Kapolda/dashboard_view";
-            // // $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
-
-            // // echo json_encode($data['ditgakkum']);
-            // // die;
-
-
-            // $data['ditregident'] =  $this->m_dashboard->ditregident_polda();
-            // $data['tripOn'] = $this->m_dashboard->tripOn_nasional();
-            // $data['troublespot'] = $this->m_dashboard->troublespot_polda();
-            // $data['pelanggaran'] = $this->m_dashboard->pelanggaran_polda();
-            // $data['kecelakaan'] = $this->m_dashboard->kecelakaan_polda();
-            // $data['ranmor'] = $this->m_dashboard->ranmor_polda();
-            // $data['sim'] = $this->m_dashboard->sim_polda();
-            // $data['stnk'] = $this->m_dashboard->stnk_polda();
-            // $data['dikmaslantas'] = $this->m_dashboard->dikmaslantas_polda();
-            // $data['penyebaran_pemasangan'] = $this->m_dashboard->penyebaran_pemasangan_polda();
-
-            // $page_content["data"] = $data;
+        } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $page_content["page"] = "dashboard/Kapolda/dashboard_view";
+            $page_content["data"] = '';
         } else if ($this->session->userdata['role'] == 'Kapolres') {
             $page_content["page"] = "dashboard/Kapolres/dashboard_view";
 

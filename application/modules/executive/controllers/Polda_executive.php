@@ -156,101 +156,101 @@ class Polda_executive extends MY_Controller
         echo json_encode($data);
     }
 
-    public function getChartDitgakkum()
-    {
-        $title = 'DATA DITGAKKUM POLDA';
-        $filter = $this->input->post('filter');
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        if ($filter == 1) {
-            if ($start_date == '' || $end_date == '') {
-                $start_date = date('Y-m-d', strtotime('first day of january this year'));
-                $end_date = date('Y-m-d', strtotime('last day of december this year'));
-                $type = 'month';
-            } else {
-                $type = 'day';
-            }
-        } else {
-            $type = 'month';
-        }
-        $filterbaru = [
-            'filter' => true,
-            'type' => $type,
-            'id' => $this->input->post('id'),
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-        ];
-        $getdata = $this->M_detail_polda->getDitgakkum($filterbaru);
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
+    // public function getChartDitgakkum()
+    // {
+    //     $title = 'DATA DITGAKKUM POLDA';
+    //     $filter = $this->input->post('filter');
+    //     $start_date = $this->input->post('start_date');
+    //     $end_date = $this->input->post('end_date');
+    //     if ($filter == 1) {
+    //         if ($start_date == '' || $end_date == '') {
+    //             $start_date = date('Y-m-d', strtotime('first day of january this year'));
+    //             $end_date = date('Y-m-d', strtotime('last day of december this year'));
+    //             $type = 'month';
+    //         } else {
+    //             $type = 'day';
+    //         }
+    //     } else {
+    //         $type = 'month';
+    //     }
+    //     $filterbaru = [
+    //         'filter' => true,
+    //         'type' => $type,
+    //         'id' => $this->input->post('id'),
+    //         'start_date' => $start_date,
+    //         'end_date' => $end_date,
+    //     ];
+    //     $getdata = $this->M_detail_polda->getDitgakkum($filterbaru);
+    //     $data = [
+    //         'data' => $getdata,
+    //         'title' => $title,
+    //     ];
+    //     echo json_encode($data);
+    // }
 
-    public function getChartDitkamsel()
-    {
-        $title = 'DATA DITKAMSEL POLDA';
-        $filter = $this->input->post('filter');
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        if ($filter == 1) {
-            if ($start_date == '' || $end_date == '') {
-                $start_date = date('Y-m-d', strtotime('first day of january this year'));
-                $end_date = date('Y-m-d', strtotime('last day of december this year'));
-                $type = 'month';
-            } else {
-                $type = 'day';
-            }
-        } else {
-            $type = 'month';
-        }
-        $filterbaru = [
-            'filter' => true,
-            'type' => $type,
-            'id' => $this->input->post('id'),
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-        ];
-        $getdata = $this->M_detail_polda->getDitkamsel($filterbaru);
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
+    // public function getChartDitkamsel()
+    // {
+    //     $title = 'DATA DITKAMSEL POLDA';
+    //     $filter = $this->input->post('filter');
+    //     $start_date = $this->input->post('start_date');
+    //     $end_date = $this->input->post('end_date');
+    //     if ($filter == 1) {
+    //         if ($start_date == '' || $end_date == '') {
+    //             $start_date = date('Y-m-d', strtotime('first day of january this year'));
+    //             $end_date = date('Y-m-d', strtotime('last day of december this year'));
+    //             $type = 'month';
+    //         } else {
+    //             $type = 'day';
+    //         }
+    //     } else {
+    //         $type = 'month';
+    //     }
+    //     $filterbaru = [
+    //         'filter' => true,
+    //         'type' => $type,
+    //         'id' => $this->input->post('id'),
+    //         'start_date' => $start_date,
+    //         'end_date' => $end_date,
+    //     ];
+    //     $getdata = $this->M_detail_polda->getDitkamsel($filterbaru);
+    //     $data = [
+    //         'data' => $getdata,
+    //         'title' => $title,
+    //     ];
+    //     echo json_encode($data);
+    // }
 
-    public function getChartDitregident()
-    {
-        $title = 'DATA DITREGIDENT POLDA';
-        $filter = $this->input->post('filter');
-        $start_date = $this->input->post('start_date');
-        $end_date = $this->input->post('end_date');
-        if ($filter == 1) {
-            if ($start_date == '' || $end_date == '') {
-                $start_date = date('Y-m-d', strtotime('first day of january this year'));
-                $end_date = date('Y-m-d', strtotime('last day of december this year'));
-                $type = 'month';
-            } else {
-                $type = 'day';
-            }
-        } else {
-            $type = 'month';
-        }
-        $filterbaru = [
-            'filter' => true,
-            'type' => $type,
-            'id' => $this->input->post('id'),
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-        ];
-        $getdata = $this->M_detail_polda->getDitregident($filterbaru);
-        $data = [
-            'data' => $getdata,
-            'title' => $title,
-        ];
-        echo json_encode($data);
-    }
+    // public function getChartDitregident()
+    // {
+    //     $title = 'DATA DITREGIDENT POLDA';
+    //     $filter = $this->input->post('filter');
+    //     $start_date = $this->input->post('start_date');
+    //     $end_date = $this->input->post('end_date');
+    //     if ($filter == 1) {
+    //         if ($start_date == '' || $end_date == '') {
+    //             $start_date = date('Y-m-d', strtotime('first day of january this year'));
+    //             $end_date = date('Y-m-d', strtotime('last day of december this year'));
+    //             $type = 'month';
+    //         } else {
+    //             $type = 'day';
+    //         }
+    //     } else {
+    //         $type = 'month';
+    //     }
+    //     $filterbaru = [
+    //         'filter' => true,
+    //         'type' => $type,
+    //         'id' => $this->input->post('id'),
+    //         'start_date' => $start_date,
+    //         'end_date' => $end_date,
+    //     ];
+    //     $getdata = $this->M_detail_polda->getDitregident($filterbaru);
+    //     $data = [
+    //         'data' => $getdata,
+    //         'title' => $title,
+    //     ];
+    //     echo json_encode($data);
+    // }
 
     public function statistik_polda($id)
     {
@@ -350,13 +350,11 @@ class Polda_executive extends MY_Controller
             $date1 = date('Y-m-d', strtotime("-1 year"));
         }
 
-        $getCompareDitgakum = guzzle_request('GET', 'ditgakkum/date?polda_id=' . $id . '&type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
+        $getCompareDitgakum = guzzle_request('GET', 'ditgakkum/date?type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
             'headers' => $headers
         ]);
         $getCompareDitgakum = $getCompareDitgakum["data"];
 
-        // var_dump('ditgakkum/date?polda_id=' . $id . 'type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '.');
-        // die;
         $arrLaka = array_map(function ($value) {
             return intval($value['lakalantas']);
         }, $getCompareDitgakum);
@@ -393,7 +391,76 @@ class Polda_executive extends MY_Controller
             $findCompareturja = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
         }
 
+        $getCompareDitkamsel = guzzle_request('GET', 'ditkamsel/date?type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
+            'headers' => $headers
+        ]);
+        $getCompareDitkamsel = $getCompareDitkamsel["data"];
 
+        $arrdikmas = array_map(function ($value) {
+            return intval($value['dikmaslantas']);
+        }, $getCompareDitkamsel);
+        // $nilaiComparedikmas = max($arrdikmas);
+        if ($arrdikmas[0] > $arrdikmas[1]) {
+            $findComparedikmas = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrdikmas[0] == 0 && $arrdikmas[1] == 0) {
+            $findComparedikmas = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findComparedikmas = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+
+        $getCompareDitregident = guzzle_request('GET', 'ditregident/date?type=' . $input['type'] . '&filter=true&start_date=' . $date1 . '&end_date=' . $input['endDate'] . '', [
+            'headers' => $headers
+        ]);
+        $getCompareDitregident = $getCompareDitregident["data"];
+
+        $arrbpkb = array_map(function ($value) {
+            return intval($value['bpkb']);
+        }, $getCompareDitregident);
+        // $nilaiComparebpkb = max($arrbpkb);
+        if ($arrbpkb[0] > $arrbpkb[1]) {
+            $findComparebpkb = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrbpkb[0] == 0 && $arrbpkb[1] == 0) {
+            $findComparebpkb = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findComparebpkb = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrstnk = array_map(function ($value) {
+            return intval($value['stnk']);
+        }, $getCompareDitregident);
+        // $nilaiComparestnk = max($arrstnk);
+        if ($arrstnk[0] > $arrstnk[1]) {
+            $findComparestnk = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrstnk[0] == 0 && $arrstnk[1] == 0) {
+            $findComparestnk = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findComparestnk = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrsim = array_map(function ($value) {
+            return intval($value['sim']);
+        }, $getCompareDitregident);
+        // $nilaiComparesim = max($arrsim);
+        if ($arrsim[0] > $arrsim[1]) {
+            $findComparesim = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrsim[0] == 0 && $arrsim[1] == 0) {
+            $findComparesim = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findComparesim = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrranmor = array_map(function ($value) {
+            return intval($value['ranmor']);
+        }, $getCompareDitregident);
+        // $nilaiCompareranmor = max($arrranmor);
+        if ($arrranmor[0] > $arrranmor[1]) {
+            $findCompareranmor = '<i class="fa fas fa-arrow-circle-down"></i>';
+        } else if ($arrranmor[0] == 0 && $arrranmor[1] == 0) {
+            $findCompareranmor = '<i class="fa fas fa-minus-circle"></i>';
+        } else {
+            $findCompareranmor = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
         $data = [
             'date' => $date1,
             'compare' => [
@@ -402,12 +469,12 @@ class Polda_executive extends MY_Controller
                 'turjagwali' => $findCompareturja,
                 'walpjr' =>  '',
 
-                'bpkb' => '',
-                'stnk' => '',
-                'sim' => '',
+                'bpkb' => $findComparebpkb,
+                'stnk' => $findComparestnk,
+                'sim' => $findComparesim,
                 'sbst' => '',
 
-                'dikmas' => '',
+                'dikmas' => $findComparedikmas,
                 'jemenopsrek' => '',
                 'cegah' => '',
                 'audit' => '',

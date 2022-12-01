@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -57,7 +57,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route["login"] = "login/index"; //login
 $route["login/auth"] = "login/auth";
 $route["logout"] = "login/logout";
-$route["dashboard"] = "dashboard/dashboard"; 
+$route["dashboard"] = "dashboard/dashboard";
 $route['executive/Polda_executive/(:any)'] = 'executive/Polda_executive/index/$1';
- 
-
+$route['ditgakkum/subditgakkum/(:any)'] = 'ditgakkum/subditgakkum/index/$1';

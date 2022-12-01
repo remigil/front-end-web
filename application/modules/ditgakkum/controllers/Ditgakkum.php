@@ -29,7 +29,7 @@ class Ditgakkum extends MY_Controller
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
-            $page_content["page"] = "dashboard/dashboard_view";
+            $page_content["page"] = "ditagkkum/polda/ditgakkum_view";
         } else if ($this->session->userdata['role'] == 'Polres') {
             $page_content["page"] = "dashboard/dashboard_view";
         } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'KaBagOps') {

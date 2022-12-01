@@ -158,13 +158,12 @@
                     <div class="card" style="border-color: #f3478f; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#f3478f">
                         <div class="card-body">
                             <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
                                 <div class="col-md-10 float-start">
                                     <p class="fs-5 float-start" style="color:#ffffff;">
                                         Total<span class="fw-bold"> SIM</span>
                                         </br>
                                         <span class="fs-6 fw-bold float-start" style="color:#ffffff;" id="sim"></span>
-                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></p>
+                                        <span class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></span>
                                     </p>
                                 </div>
                                 <div class=" col-md-2">
