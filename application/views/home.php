@@ -235,7 +235,7 @@
         </div>
 
         <div class="col-md-12">
-		
+
 
 
 
@@ -374,16 +374,16 @@
         </div>
         <div class="col-md-12">
             <div class="simple-slick-carousel dots-nav">
-                <?php foreach ($databerita['getBerita'] as $data) : ?>
+                <?php foreach ($databerita as $data) : ?>
                     <div class="card" style="width: 18rem;">
-                        <img src="<?= base_url() ?>assets/fe/beritafix1.jpg" class="card-img-top" alt="..." height="250px">
+                        <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="..." height="250px">
                         <div class="card-body bg-light rounded">
-                            <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/">
+                            <a href="#">
                                 <h5 class="card-title fw-bold text-justify"><?= $data['title']; ?></h5>
                             </a>
                             <button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news'] ?></button>
                             <hr>
-                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="https://korlantas.polri.go.id/headlines/kepala-negara-g20-bergerak-pulang-warga-diminta-cari-jalur-alternatif/" class="btn btn-primary">Selengkapnya</a>' ?></p>
+                            <p class="card-text text-justify"><?= substr($data['content'], 0, 250) . '. . . <a href="#" class="btn btn-primary">Selengkapnya</a>' ?></p>
 
                         </div>
                     </div>
@@ -733,13 +733,13 @@
             dataType: "JSON",
             success: function(result) {
                 console.log(result.data)
-
+                console.log(result);
                 $('#title_berita').html(`${results.title}`);
                 $('#isi_berita').val(result.content)
             }
         })
 
-        var initialCenter = [-2.0719551,116.5213869];
+        var initialCenter = [-2.0719551, 116.5213869];
         var initialZoom = 5.25;
         var googleStreet = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 20,
