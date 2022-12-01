@@ -341,7 +341,7 @@
 							<ul>
 								<li>Scan QR Code untuk download ⬇️</li>
 								<!-- <li><img src="<?= base_url()?>assets/logo-k3i.png" alt=""></li>  -->
-								<li><a href="www.qr-code-generator.com/" border="0" style="cursor:default; padding:4px !important;" rel="nofollow"><img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fplay.google.com%2F&chs=180x180&choe=UTF-8&chld=L|2"></a></li> 
+								<li><img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1NyfxEVLlRQsoxMJ49h5hf570LQD8vjTd%2Fview%3Fusp%3Dsharing&chs=180x180&choe=UTF-8&chld=L|2" rel="nofollow" alt="qr code"><a href="www.qr-code-generator.com/" border="0" style="cursor:default" rel="nofollow"></a></li> 
 								<li><a href="https://play.google.com/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-googleplay.png" alt="" width="100%" ></a></li> 
 								<li><a href="https://www.apple.com/id/app-store/" style="padding: 0 !important; " target="_blank"><img src="<?= base_url()?>assets/fe/get-appstore.png" alt="" width="100%" ></a></li> 
 							</ul>

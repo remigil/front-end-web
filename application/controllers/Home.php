@@ -43,7 +43,7 @@ class Home extends MX_Controller {
         //     'Authorization' => $this->session->userdata['token']
         // ];
 
-        $url = 'polda';
+        $url = 'polda_front/get_web';
         $getPolda = guzzle_request('GET', $url, [
             // 'headers' => $headers
         ]);
