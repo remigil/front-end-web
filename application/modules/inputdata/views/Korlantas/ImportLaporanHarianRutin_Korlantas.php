@@ -33,7 +33,7 @@
             </div>
             <div class="modal-body">
                 <form action="" class="form">
-                <input type="hidden" name="<?= $csrf_name;?>" value="<?= $csrf_token;?>" style="display: none">
+                    <input type="hidden" name="<?= $csrf_name; ?>" value="<?= $csrf_token; ?>" style="display: none">
                     <input type="hidden" name="polda_name" id="polda_name">
                     <input type="hidden" name="jenis_satker_name" id="jenis_satker_name">
                     <input type="hidden" name="jenis_laporan_name" id="jenis_laporan_name">
@@ -53,9 +53,10 @@
                             <div class="material-selectfield mb-3">
                                 <select name="jenis_satker" id="jenis_satker">
                                     <option value="">Pilih</option>
-                                    <option value="1">Ditgakkum</option>
-                                    <option value="2">Ditkamsel</option>
-                                    <option value="3">Ditregident</option>
+                                    <option value="1" <?php echo ($data['type'] == 1) ? 'selected' : ''; ?>>Ditgakkum</option>
+                                    <option value="2" <?php echo ($data['type'] == 2) ? 'selected' : ''; ?>>Ditkamsel</option>
+                                    <option value="3" <?php echo ($data['type'] == 3) ? 'selected' : ''; ?>>Ditregident</option>
+
                                 </select>
                                 <label class="labelmui">Satker</label>
                             </div>
@@ -140,26 +141,24 @@
                     data.page = Number(data.start / data.length)
                     // data.page = Number(data.start / data.length) + 1
                 },
-                beforeSend: function(xhr, settings) {
-                },
+                beforeSend: function(xhr, settings) {},
                 "dataSrc": function(result) {
                     result.iTotalRecords = result.iTotalRecords;
                     result.iTotalDisplayRecords = result.iTotalRecords;
                     return result.aaData;
                 }
             },
-            columns: [
-                {
+            columns: [{
                     data: 'id'
                 },
-				{
-					data: 'file_name'
+                {
+                    data: 'file_name'
                 },
-				{
-					data: 'created_at'
-				},
-				{
-					data: 'status'
+                {
+                    data: 'created_at'
+                },
+                {
+                    data: 'status'
                 },
                 {
                     data: 'action',
@@ -173,15 +172,13 @@
                 $("#overlay").fadeOut(300);
             }
         });
-    });
 
-    $('#jenis_satker').on('change', function() {
         const jenis_satker_name = $('#jenis_satker option:selected').text();
         let jenis_satker = $('#jenis_satker').val();
         $('#jenis_laporan').html('')
         if (jenis_satker == 1) {
             $('#jenis_laporan')
-            .append(`
+                .append(`
                     <option value="">Pilih</option>
                     <option value="1">Data Dakgar Lantas</option>
                     <option value="2">Pelanggaran Konvensional</option>
@@ -190,14 +187,14 @@
                 `)
         } else if (jenis_satker == 2) {
             $('#jenis_laporan')
-            .append(`
+                .append(`
                     <option value="">Pilih</option>
                     <option value="5">Dikmaslantas</option>
                     <option value="6">Penyebaran / Pemasangan</option>
                 `)
         } else if (jenis_satker == 3) {
             $('#jenis_laporan')
-            .append(`
+                .append(`
                     <option value="">Pilih</option>
                     <option value="7">SIM</option>
                     <option value="8">BPKB</option>
@@ -206,7 +203,45 @@
                 `)
         } else {
             $('#jenis_laporan')
-            .append(`
+                .append(`
+                    <option value="">Pilih</option>
+                `)
+        }
+        $("#jenis_satker_name").val(jenis_satker_name);
+    });
+
+    $('#jenis_satker').on('change', function() {
+        const jenis_satker_name = $('#jenis_satker option:selected').text();
+        let jenis_satker = $('#jenis_satker').val();
+        $('#jenis_laporan').html('')
+        if (jenis_satker == 1) {
+            $('#jenis_laporan')
+                .append(`
+                    <option value="">Pilih</option>
+                    <option value="1">Data Dakgar Lantas</option>
+                    <option value="2">Pelanggaran Konvensional</option>
+                    <option value="3">Kecelakaan Lalu Lintas</option>
+                    <option value="4">Turjagwali</option>
+                `)
+        } else if (jenis_satker == 2) {
+            $('#jenis_laporan')
+                .append(`
+                    <option value="">Pilih</option>
+                    <option value="5">Dikmaslantas</option>
+                    <option value="6">Penyebaran / Pemasangan</option>
+                `)
+        } else if (jenis_satker == 3) {
+            $('#jenis_laporan')
+                .append(`
+                    <option value="">Pilih</option>
+                    <option value="7">SIM</option>
+                    <option value="8">BPKB</option>
+                    <option value="9">RANMOR</option>
+                    <option value="10">STNK</option>
+                `)
+        } else {
+            $('#jenis_laporan')
+                .append(`
                     <option value="">Pilih</option>
                 `)
         }
@@ -256,8 +291,7 @@
         });
     });
 
-    function rmfile()
-    {
+    function rmfile() {
         id = $('#btn-delete').data('id');
         file_name = $('#btn-delete').data('file_name');
         Swal.fire({
@@ -269,13 +303,15 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type:"POST",
-                    dataType:"json",data:{
-                        id:id,
-                        file_name:file_name
-                    },url:"<?php echo base_url(); ?>inputdata/ImportLaporanHarian/rmfile",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        id: id,
+                        file_name: file_name
+                    },
+                    url: "<?php echo base_url(); ?>inputdata/ImportLaporanHarian/rmfile",
                     success: function(response) {
-                        if (response.status===true) {
+                        if (response.status === true) {
                             Swal.fire(
                                 `Files deleted`,
                                 '',
@@ -290,7 +326,8 @@
                                 'error'
                             ).then(function() {});
                         }
-                    },error: function(response){
+                    },
+                    error: function(response) {
                         Swal.fire(
                             `Failed`,
                             '',
@@ -304,8 +341,7 @@
         });
     }
 
-    function view()
-    {
+    function view() {
         file_name = $('#btn-view').data('file_name');
         Swal.fire({
             title: 'Do you want to view this data?',
@@ -315,23 +351,21 @@
             confirmButtonText: 'Process'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/view/"+file_name+"";
+                window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/view/" + file_name + "";
             }
         });
     }
 
-    function format(type)
-    {
-        window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/format/"+type+"";
+    function format(type) {
+        window.location = "<?php echo site_url(); ?>inputdata/ImportLaporanHarian/format/" + type + "";
     }
 
-	function process(type)
-    {
-		id = $('#btn-process').data('id');
-		// polda_id = $('#btn-process').data('polda_id');
-		tanggal = $('#btn-process').data('tanggal');
-		status = $('#btn-process').data('status');
-		file_name = $('#btn-process').data('file_name');
+    function process(type) {
+        id = $('#btn-process').data('id');
+        // polda_id = $('#btn-process').data('polda_id');
+        tanggal = $('#btn-process').data('tanggal');
+        status = $('#btn-process').data('status');
+        file_name = $('#btn-process').data('file_name');
         Swal.fire({
             title: 'Do you want to process this data?',
             showDenyButton: false,
@@ -341,18 +375,20 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type:"POST",
-                    dataType:"json",data:{
-                        id:id,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        id: id,
                         // polda_id:polda_id,
-                        tanggal:tanggal,
-                        status:status,
-                        file_name:file_name,
+                        tanggal: tanggal,
+                        status: status,
+                        file_name: file_name,
                         type: type
-                    },url:'<?php echo base_url(); ?>inputdata/ImportLaporanHarian/process',
+                    },
+                    url: '<?php echo base_url(); ?>inputdata/ImportLaporanHarian/process',
                     success: function(response) {
                         $("#overlay").fadeOut(300);
-                        if (response.status===true) {
+                        if (response.status === true) {
                             Swal.fire(
                                 `File processed successfully`,
                                 '',
@@ -367,7 +403,8 @@
                                 'error'
                             ).then(function() {});
                         }
-                    },error: function(response){
+                    },
+                    error: function(response) {
                         Swal.fire(
                             `File failed to process`,
                             '',
@@ -379,5 +416,5 @@
                 Swal.fire('Not processed', '', 'info')
             }
         });
-	}
+    }
 </script>

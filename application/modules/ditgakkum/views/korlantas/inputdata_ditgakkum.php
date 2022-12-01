@@ -33,10 +33,7 @@
                         <button class="btn btn-primary" type="button" id="btn_pilih">Pilih</button>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-primary" type="button" id="btn_import">Import Excel</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target=".FormatFile">Download Format Excel</button>
+                        <a href="<?= base_url('inputdata/ImportLaporanHarian?type=1') ?>" class="btn btn-primary" type="button" id="btn_import">Import Excel</a>
                     </div>
                 </div>
 

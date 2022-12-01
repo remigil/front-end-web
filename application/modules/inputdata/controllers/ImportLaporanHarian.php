@@ -25,6 +25,9 @@ class ImportLaporanHarian extends MY_Controller
         if ($this->session->userdata['role'] == 'G20') {
             $page_content["page"] = "dashboard/dashboard_g20";
         } else {
+
+            $data['type'] = $this->input->get('type');
+
             $getPolda = guzzle_request('GET', 'polda', [
                 'headers' => ['Authorization' => $this->session->userdata['token']]
             ]);
