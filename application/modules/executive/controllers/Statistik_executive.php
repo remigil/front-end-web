@@ -790,7 +790,114 @@ class Statistik_executive extends MY_Controller
     }
 
     // END STNK
+    //BPKB
+    public function getDetailStatistikBpkb()
+    {
+        $title = 'TOP DATA BPKB LALU LINTAS';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => '',
+                'end_date' => '',
+                'limit' => $limit,
+                'yesterday' => $yesterday
+            ];
+            $getdata = $this->M_detail_statistik->getBpkbNasional($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'limit' => $limit
+            ];
+            $getdata = $this->M_detail_statistik->getBpkbNasional($filterbaru);
+        }
 
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getLineBpkb()
+    {
+        $title = 'DATA BPKB';
+        $filter = $this->input->post('filter');
+        $limit = $this->input->post('limit');
+        $yesterday = $this->input->post('yesterday');
+        if ($filter == 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getBpkbNasionalDate($filterbaru);
+        } elseif ($filter != 0) {
+            $filterbaru = [
+                'filter' => $filter,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+            ];
+            $getdata = $this->M_detail_statistik->getBpkbNasionalDate($filterbaru);
+        }
+
+        $data = [
+            'data' => $getdata,
+            'title' => $title,
+        ];
+        echo json_encode($data);
+    }
+
+    public function getTopBpkb()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $url = 'bpkb/daily?date=' . $yesterday . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getBpkbMonth()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'bpkb/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+
+    public function getBpkbYear()
+    {
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url = 'bpkb/daily?filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '&topPolda=true';
+        $lakaTopPolda = guzzle_request('GET', $url, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $data['topLaka'] = $lakaTopPolda['data']['rows'];
+        echo json_encode($data['topLaka']);
+    }
+    //END BPKB
 
     // Dikmaslantas
     public function getDetailStatistikDikmaslantas()
