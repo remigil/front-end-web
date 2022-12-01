@@ -155,7 +155,7 @@ class Berita extends MY_Controller
             'headers' => $headers
         ]);
 
-        var_dump($getDetail);
+        var_dump($id);
         die;
         $data['getDetail'] = $getDetail['data']['data'];
 
