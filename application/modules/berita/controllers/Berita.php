@@ -79,6 +79,10 @@ class Berita extends MY_Controller
                     'contents' => $input['content'],
                 ],
                 [
+                    'name' => 'link',
+                    'contents' => $input['link'],
+                ],
+                [
                     'name' => 'author',
                     'contents' => $author,
 				],
@@ -100,6 +104,10 @@ class Berita extends MY_Controller
                 [
                     'name' => 'content',
                     'contents' => $input['content'],
+                ],
+                [
+                    'name' => 'link',
+                    'contents' => $input['link'],
                 ],
                 [
                     'name' => 'author',
@@ -215,6 +223,10 @@ class Berita extends MY_Controller
                     'contents' => $input['content'],
                 ],
                 [
+                    'name' => 'link',
+                    'contents' => $input['link'],
+                ],
+                [
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
@@ -242,6 +254,10 @@ class Berita extends MY_Controller
                 [
                     'name' => 'content',
                     'contents' => $input['content'],
+                ],
+                [
+                    'name' => 'link',
+                    'contents' => $input['link'],
                 ],
                 [
                     'name' => 'author',
