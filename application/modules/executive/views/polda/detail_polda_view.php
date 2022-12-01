@@ -44,12 +44,18 @@
                                 <h4 class="mb-0 text-white">Subsatker Polda</h4>
                             </button>
                             <div class="dropdown-menu" style="width: 100%; z-index: 10000;">
-                                <a class="dropdown-item fs-4" href="../../ditgakkum/subditgakkum/<?= $data['id']; ?>">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subditgakkum Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subditregident Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subdikamsel Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagrenmin Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagops Polda</a>
+                                <a class="dropdown-item fs-4" href="#">Subbagtik Polda</a>
+                                <!-- <a class="dropdown-item fs-4" href="../../ditgakkum/subditgakkum/<?= $data['id']; ?>">Subditgakkum Polda</a>
                                 <a class="dropdown-item fs-4" href="../../ditregident/subdiregident/<?= $data['id']; ?>">Subditregident Polda</a>
                                 <a class="dropdown-item fs-4" href="../../ditkamsel/subditkamsel/<?= $data['id']; ?>">Subdikamsel Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagrenim/subbagrenmin/<?= $data['id']; ?>">Subbagrenmin Polda</a>
                                 <a class="dropdown-item fs-4" href="../../bagops/subbagops/<?= $data['id']; ?>">Subbagops Polda</a>
-                                <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['id']; ?>">Subbagtik Polda</a>
+                                <a class="dropdown-item fs-4" href="../../bagtik/subbagtik/<?= $data['id']; ?>">Subbagtik Polda</a> -->
                             </div>
                         </div>
                     </div>
