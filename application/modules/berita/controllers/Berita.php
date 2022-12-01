@@ -143,21 +143,20 @@ class Berita extends MY_Controller
         echo json_encode($res);
     }
 
-    public function detailBerita($id)
+    public function detailBerita()
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        // $id = $this->input->post('id_berita');
+        $id = $this->input->post('id_berita');
 
         $getDetail = guzzle_request('GET', 'news/getIdweb/' . $id . '', [
             'headers' => $headers
         ]);
 
-        var_dump($id);
-        die;
         $data['getDetail'] = $getDetail['data']['data'];
+        // var_dump($data);
 
         echo json_encode($data['getDetail']);
     }

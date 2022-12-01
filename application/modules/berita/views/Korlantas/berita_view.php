@@ -391,7 +391,7 @@
     function detail(id) {
         // console.log("ok")
         $.ajax({
-            url: '<?= base_url() ?>Berita/detailBerita/' + id,
+            url: '<?= base_url() ?>berita/detailBerita',
             type: 'POST',
             data: {
                 id_berita: id
@@ -416,7 +416,7 @@
 
     function detailEdit(id) {
         $.ajax({
-            url: '<?= base_url() ?>Berita/detailBerita/',
+            url: '<?= base_url() ?>berita/detailBerita/',
             type: 'POST',
             data: {
                 id_berita: id
@@ -455,7 +455,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>Berita/hapusBerita/",
+                    url: "<?php echo base_url(); ?>berita/hapusBerita/",
                     type: "POST",
                     data: {
                         id_berita: id
@@ -489,7 +489,7 @@
         e.preventDefault()
         var formData = new FormData($('#form_edit')[0]);
         $.ajax({
-            url: '<?= base_url() ?>Berita/updateBerita',
+            url: '<?= base_url() ?>berita/updateBerita',
             type: 'POST',
             data: formData,
             dataType: 'JSON',
