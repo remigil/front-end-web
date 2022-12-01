@@ -1426,6 +1426,12 @@
                                                 <span data-key="t-dashboard" style="color: white;">Tahunan</span>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="<?php echo base_url('laporan/Laporan_RisetNTMC'); ?>" data-key="t-register">
+                                                <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                                <span data-key="t-dashboard" style="color: white;">Laporan Riset Media Center</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <!-- <li>
@@ -1899,6 +1905,9 @@
                                         </ul>
                                         <ul class="sub-menu" aria-expanded="false">
                                             <li><a href="<?= base_url('#') ?>" data-key="t-read-email">LapHar Kegiatan Pemerintahan</a></li>
+                                        </ul>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="<?= base_url('inputdata/LaporanRisetNTMC') ?>" data-key="t-read-email">Laporan Riset Media NTMC</a></li>
                                         </ul>
                                     </li>
                                     <li>
