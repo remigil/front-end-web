@@ -3,7 +3,7 @@
                     <div class="col-md-8 align-self-center">
                         <div style="display: flex;">
                             <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
-                                <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                                <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                                 &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditregident</h3>
                             <?php } else { ?>
                                 <h3 style="text-transform: uppercase; color:#007DD8;"> Ditregident</h3>
@@ -45,82 +45,91 @@
                             <div class="col-md-3">
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
+                                        <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+
+                                            <div class="col-md-10 float-start">
+                                                <p class="fs-5 float-start" style="color:#464646;">
+                                                    Total<span class="fw-bold"> SIM</span>
+                                                    </br>
+                                                    <span class="fs-6 fw-bold float-start" style="color:#464646;" id="sim"></span>
+                                                <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsim"></p>
+                                                </p>
                                             </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">Total SIM</span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sim"></span>
+                                            <div class=" col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/SIM.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="col-md-3">
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
+                                        <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+
+                                            <div class="col-md-10 float-start">
+                                                <p class="fs-5 float-start" style="color:#464646;">
                                                     <span class="fw-bold">Total BPKB</span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="bpkb"></span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-start" style="color:#464646;" id="bpkb"></span>
+                                                <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailbpkb"></p>
+                                                </p>
+                                            </div>
+                                            <div class=" col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/BPKB.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
+
                             </div>
 
                             <div class="col-md-3">
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
+                                        <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+
+                                            <div class="col-md-10 float-start">
+                                                <p class="fs-5 float-start" style="color:#464646;">
                                                     <span class="fw-bold">Total STNK</span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="stnk"></span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-start" style="color:#464646;" id="stnk"></span>
+                                                <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailstnk"></p>
+                                                </p>
+                                            </div>
+                                            <div class=" col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/STNK.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
+                                        <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+
+                                            <div class="col-md-10 float-start">
+                                                <p class="fs-5 float-start" style="color:#464646;">
                                                     <span class="fw-bold">Total FASMAT SBST</span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="sbst"></span>
+                                                    <br>
+                                                    <span class="fs-6 fw-bold float-start" style="color:#464646;" id="sbst"></span>
+                                                <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsbst"></p>
+                                                </p>
+                                            </div>
+                                            <div class=" col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/FASMAT_SBST.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
                             </div>
+
                         </div>
                     </div>
                     <!-- end statistik -->

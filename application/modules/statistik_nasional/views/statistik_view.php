@@ -36,7 +36,6 @@
          <div class="row">
              <div class="col-md-3">
                  <a href="<?= base_url('statistik_nasional/Lakalantas'); ?>">
-
                      <div class="card" style="border-color: #10627a; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#10627a">
                          <div class="card-body">
                              <div class="row justify-content-between align-items-center" style="height: 80px;">
@@ -107,7 +106,6 @@
              </div>
              <div class="col-md-3">
                  <a href="<?= base_url('statistik_nasional/Walpjr'); ?>">
-
                      <div class="card" style="border-color: #babf01; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#babf01">
                          <div class="card-body">
                              <div class="row justify-content-between align-items-center" style="height: 80px;">
@@ -357,7 +355,6 @@
                      <div class="card" style="border-color: #33c36c; box-shadow: 5px 10px 18px #0000007a; border-radius: 20px !important; background-color:#33c36c">
                          <div class="card-body">
                              <div class="row justify-content-between align-items-center" style="font-size: 40px;">
-
                                  <div class="col-md-10 float-start">
                                      <p class="fs-5 float-start" style="color:#ffffff;">
                                          <span class="fw-bold">Total SUBBAG RENOP</span>
@@ -642,6 +639,7 @@
                  tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
                  isitype = 'year';
              }
+             //  console.log(tanggal);
              // console.log(tanggal[0]);
              getStatistik();
          });

@@ -1641,6 +1641,34 @@
                                         <span data-key="t-dashboard">IRSMS</span>
                                     </a>
                                 </li>
+                            <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
+                                        <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">DITGAKKUM</span>
+                                    </a>
+                                </li>
+                            <?php } elseif ($this->session->userdata['role'] == 'Ditregident') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('ditregident'); ?>" data-key="t-login">
+                                        <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">DITREGIDENT</span>
+                                    </a>
+                                </li>
+                            <?php } elseif ($this->session->userdata['role'] == 'KaBagRenmin') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('bagrenmin'); ?>" data-key="t-register">
+                                        <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">BAGRENMIN</span>
+                                    </a>
+                                </li>
+                            <?php } elseif ($this->session->userdata['role'] == 'KaBagTIK') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('bagtik'); ?>" data-key="t-register">
+                                        <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">BAGTIK</span>
+                                    </a>
+                                </li>
                             <?php } else { ?>
 
                                 <!-- <li>

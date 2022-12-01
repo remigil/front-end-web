@@ -264,9 +264,9 @@ class Dashboard extends MY_Controller
             //     $page_content["page"] = "dashboard/Bagtik/dashboard_view";
 
             //     $page_content["data"] = '';
-            // } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') {
+        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel' || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') {
 
-        } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
+            // } else if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'KaBagOps') {
 
             $mobile = detect_mobile();
             if ($mobile === true) {
@@ -281,27 +281,27 @@ class Dashboard extends MY_Controller
         } else if ($this->session->userdata['role'] == 'DivTikMabesPolri') {
             redirect('divtik/div_tik');
             die;
-        } else if ($this->session->userdata['role'] == 'Ditgakkum') {
-            redirect('ditgakkum');
-            die;
-        } else if ($this->session->userdata['role'] == 'Ditregident') {
-            redirect('ditregident');
-            die;
-        } else if ($this->session->userdata['role'] == 'Ditkamsel') {
-            redirect('ditkamsel');
-            die;
-        } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
-            redirect('bagrenmin');
-            die;
-            // } else if ($this->session->userdata['role'] == 'KaBagOps') {
-            //     redirect('bagops');
+            // } else if ($this->session->userdata['role'] == 'Ditgakkum') {
+            //     redirect('ditgakkum');
             //     die;
-        } else if ($this->session->userdata['role'] == 'KaBagTIK') {
-            redirect('bagtik');
-            die;
-        } else if ($this->session->userdata['role'] == 'Kapolda') {
-            redirect('executive/Polda_executive/' . $this->session->userdata['polda_id'] . '');
-            die;
+            // } else if ($this->session->userdata['role'] == 'Ditregident') {
+            //     redirect('ditregident');
+            //     die;
+            // } else if ($this->session->userdata['role'] == 'Ditkamsel') {
+            //     redirect('ditkamsel');
+            //     die;
+            // } else if ($this->session->userdata['role'] == 'KaBagRenmin') {
+            //     redirect('bagrenmin');
+            //     die;
+            //     // } else if ($this->session->userdata['role'] == 'KaBagOps') {
+            //     //     redirect('bagops');
+            //     //     die;
+            // } else if ($this->session->userdata['role'] == 'KaBagTIK') {
+            //     redirect('bagtik');
+            //     die;
+            // } else if ($this->session->userdata['role'] == 'Kapolda') {
+            //     redirect('executive/Polda_executive/' . $this->session->userdata['polda_id'] . '');
+            //     die;
             // $page_content["page"] = "dashboard/Kapolda/dashboard_view";
             // // $data['ditgakkum'] = $this->m_dashboard->ditgakkum_polda();
 

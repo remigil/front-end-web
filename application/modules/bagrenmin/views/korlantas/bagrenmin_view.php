@@ -4,7 +4,7 @@
             <div id="nama">
                 <div style="display: flex;">
                     <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
-                        <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                        <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                         &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Bagrenmin</h3>
                     <?php } else { ?>
                         <h3 style="text-transform: uppercase; color:#007DD8;"> Bagrenmin</h3>
@@ -46,81 +46,86 @@
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG REN</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagren"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagren"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubren"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG SDM</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagsdm"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagsdm"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubsdm"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG ADA</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagada"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagada"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubada"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG LOG</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbaglog"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbaglog"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsublog"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
             </div>
         </div>

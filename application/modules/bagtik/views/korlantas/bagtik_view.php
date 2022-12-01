@@ -4,7 +4,7 @@
             <div id="nama">
                 <div style="display: flex;">
                     <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
-                        <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                        <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                         &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> BagTik</h3>
                     <?php } else { ?>
                         <h3 style="text-transform: uppercase; color:#007DD8;"> BagTik</h3>
@@ -48,239 +48,243 @@
                 <div class="col-md-4">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG AMBANGSISTEK</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagambangsistek"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagambangsistek"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-md-4">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG JARSISTEK</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagjarsistek"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagjarsistek"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG HARSISTEK</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagharsistek"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagharsistek"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
             </div>
         </div>
-        <!-- end statistik -->
     </div>
+    <!-- end statistik -->
+</div>
 
-    <ul class="nav nav-pills  mt-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagambangsistekday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagambangsistek">
-                                    </div>
+<ul class="nav nav-pills  mt-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Harian</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bulanan</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tahunan</button>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagambangsistekday"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartdaysubbagambangsistek">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagjarsistekday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagjarsistek">
-                                    </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagjarsistekday"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartdaysubbagjarsistek">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagharsistekday"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartdaysubbagharsistek">
-                                    </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagharsistekday"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartdaysubbagharsistek">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagambangsistekmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagambangsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagjarsistekmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagjarsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagharsistekmonth"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartmonthsubbagharsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagambangsistekyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagambangsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagjarsistekyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagjarsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="shadow-sm mt-5">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div id="titlesubbagharsistekyear"></div>
-                            </div>
-                            <div class="card-body" style="overflow:hidden; overflow-x:scroll">
-                                <div class="main-chart">
-                                    <div id="chartyearsubbagharsistek">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagambangsistekmonth"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartmonthsubbagambangsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagjarsistekmonth"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartmonthsubbagjarsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagharsistekmonth"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartmonthsubbagharsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagambangsistekyear"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartyearsubbagambangsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagjarsistekyear"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartyearsubbagjarsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shadow-sm mt-5">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div id="titlesubbagharsistekyear"></div>
+                        </div>
+                        <div class="card-body" style="overflow:hidden; overflow-x:scroll">
+                            <div class="main-chart">
+                                <div id="chartyearsubbagharsistek">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">

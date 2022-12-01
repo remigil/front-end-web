@@ -4,7 +4,7 @@
                         <div id="nama">
                             <div style="display: flex;">
                                 <?php if ($this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'Kakorlantas') { ?>
-                                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+                                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                                     &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Ditgakkum</h3>
                                 <?php } else { ?>
                                     <h3 style="text-transform: uppercase; color:#007DD8;"> Ditgakkum</h3>
@@ -74,16 +74,59 @@
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
                                         <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">Total WAL & PJR</span>
-                                                    <!-- <span class="fw-bold">Total WAL & PJR Hari ini</span> -->
+
+                                            <div class="col-md-10 float-start">
+                                                <span class="fs-5 float-start" style="color:#464646;">
+                                                    Total<span class="fw-bold "> LAKA </span>
+                                                    </br>
+                                                    <span class="fs-5 fw-bold float-start" style="color:#464646;" id="lakalantas"></span>
+                                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailLaka"></p>
                                                 </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="walpjr"></span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/LAKA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #464646;"></i> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                    <div class="card-body">
+                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
+                                            <div class="col-md-10 float-start">
+                                                <span class="fs-5 float-start" style="color:#464646;">
+                                                    Total<span class="fw-bold"> GARLANTAS </span>
+                                                    </br>
+                                                    <span class="fs-5 fw-bold float-start" style="color:#464646;" id="garlantas"></span>
+                                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailgarlantas"></p>
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/GARLANTAS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 30px; color: #464646;"></iconify-icon> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
+                                    <div class="card-body">
+                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
+
+                                            <div class="col-md-10 float-start">
+                                                <span class="fs-5 float-start" style="color:#464646;">
+                                                    Total <span class="fw-bold"> Turjagwali</span>
+                                                    </br>
+                                                    <span class="fs-5 fw-bold float-start" style="color:#464646;" id="turjagwali"></span>
+                                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailturjagwali"></p>
+                                                </span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/TURJAGWALI.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                             </div>
                                         </div>
                                     </div>
@@ -95,61 +138,27 @@
                                 <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                                     <div class="card-body">
                                         <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="ic:round-car-crash" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">TATIB </span>
+
+                                            <div class="col-md-10 float-start">
+                                                <span class="fs-5 float-start" style="color:#464646;">
+                                                    Total<span class="fw-bold"> WAL & PJR</span>
+                                                    </br>
+                                                    <span class="fs-6 fw-bold float-start" style="color:#464646;" id="walpjr"></span>
+                                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailwalpjr"></p>
                                                 </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="turjagwali"></span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <img src="<?= base_url('assets/icon/dashboard/WAL_PJR.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                                <!-- <i class='bx bxs-car-crash ms-n2' style="font-size: 40px; color: #464646;"></i> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
                             </div>
 
-                            <div class="col-md-3">
-                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                    <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <iconify-icon icon="fa6-solid:motorcycle" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">DAKGAR </span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="garlantas"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
 
-                            <div class="col-md-3">
-                                <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
-                                    <div class="card-body">
-                                        <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                            <div class="col-md-2">
-                                                <i class='bx bxs-car-crash ms-n2' style="font-size: 50px; color: #464646;"></i>
-                                            </div>
-                                            <div class="col-md-10 float-end">
-                                                <span class="fs-6 float-end" style="color:#464646;">
-                                                    <span class="fw-bold">LAKA</span>
-                                                </span>
-                                                <br>
-                                                <span class="fs-6 fw-bold float-end" style="color:#464646;" id="lakalantas"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
+
+
                         </div>
                     </div>
                     <!-- end statistik -->

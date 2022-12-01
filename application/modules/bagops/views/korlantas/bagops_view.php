@@ -1,27 +1,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 align-self-center">
-            <div id="nama"> 
-                <div style="display: flex;"> 
-                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i></a></h3>
+            <div id="nama">
+                <div style="display: flex;">
+                    <h3><a href="<?= base_url('dashboard') ?>" style="color:#007DD8 ;"><i class="fas fa-less-than"></i>|</a></h3>
                     &nbsp;&nbsp; <h3 style="text-transform: uppercase; color:#007DD8;"> Bagops</h3>
-                
+
                 </div>
             </div>
             <p>Today is <?= date('l, j F Y') ?></p>
         </div>
-        <?php $mobile = detect_mobile(); if($mobile === true){ ?>
+        <?php $mobile = detect_mobile();
+        if ($mobile === true) { ?>
             <div class="col-md-12" style="margin-left: -15px;">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
-                </button>  
+                </button>
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
             </div>
         <?php } else { ?>
             <div class="col-md-1 text-end align-self-center">
                 <button type="button" class="btn btn-primary ms-3" style=" border: 0.5px solid #0275d8; height:-20px" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <iconify-icon icon="mdi:file-document-multiple"></iconify-icon>
-                </button> 
+                </button>
             </div>
             <div class="col-md-3 text-end align-self-center">
                 <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a>
@@ -42,81 +43,86 @@
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG RENOP</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagrenop"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagrenop"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 50px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG DALOPS</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagdalops"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagdalops"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubdalops"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:book-rounded" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG KERMA</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbagkerma"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagkerma"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubkerma"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_KERMA.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card" style="border-radius: 20px !important; background-color:#D9D9D9">
                         <div class="card-body">
-                            <div class="row justify-content-between align-items-center" style="height: 80px;">
-                                <div class="col-md-2">
-                                    <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon>
-                                </div>
-                                <div class="col-md-10 float-end">
-                                    <span class="fs-6 float-end" style="color:#464646;">
+                            <div class="row justify-content-between align-items-center" style="font-size: 40px;">
+                                <div class="col-md-10 float-start">
+                                    <p class="fs-5 float-start" style="color:#464646;">
                                         <span class="fw-bold">Total SUBBAG ANEV</span>
-                                    </span>
-                                    <br>
-                                    <span class="fs-6 fw-bold float-end" style="color:#464646;" id="subbaganev"></span>
+                                        <br>
+                                        <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbaganev"></span>
+                                    <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubanev"></p>
+                                    </p>
+                                </div>
+                                <div class=" col-md-2">
+                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </a>
                 </div>
             </div>
         </div>
