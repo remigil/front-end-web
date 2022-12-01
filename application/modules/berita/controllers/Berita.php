@@ -8,7 +8,7 @@ class Berita extends MY_Controller
     {
         parent::__construct();
         $this->load->helper("logged_helper");
-		$this->load->model('berita/m_berita');
+        $this->load->model('berita/m_berita');
     }
 
     public function index()
@@ -32,40 +32,40 @@ class Berita extends MY_Controller
             $page_content["page"] = "berita/Polres/berita_view";
         }
 
-		$getBerita = guzzle_request('GET', 'category_news', [
+        $getBerita = guzzle_request('GET', 'category_news', [
             'headers' => $headers
         ]);
         $data['getBerita'] = $getBerita['data']['rows'];
 
-		// var_dump($data);die;
-		
+        // var_dump($data);die;
+
         // $page_content["data"] = '';
         $page_content["data"] = $data;
         $this->templates->loadTemplate($page_content);
     }
-	public function serverSideTable() 
-    {  
-        $postData = $this->input->post();   
-        $data = $this->m_berita->get_datatables($postData);  
-		echo json_encode($data); 
+    public function serverSideTable()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_berita->get_datatables($postData);
+        echo json_encode($data);
     }
- 
-    public function store() 
-    {  
-		$author = $this->session->userdata['full_name'];
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+
+    public function store()
+    {
+        $author = $this->session->userdata['full_name'];
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $dummy = [
-				[
-					'name' => 'picture',
-					'contents' => fopen($path,'r'),
-					'filename' => $filename,
-				], 
+                [
+                    'name' => 'picture',
+                    'contents' => fopen($path, 'r'),
+                    'filename' => $filename,
+                ],
                 [
                     'name' => 'news_category',
                     'contents' => $input['category'],
@@ -85,11 +85,11 @@ class Berita extends MY_Controller
                 [
                     'name' => 'author',
                     'contents' => $author,
-				],
-				[
+                ],
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
+                ],
             ];
         } else {
             $dummy = [
@@ -112,52 +112,51 @@ class Berita extends MY_Controller
                 [
                     'name' => 'author',
                     'contents' => $author,
-				],
-				[
+                ],
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
+                ],
 
             ];
         }
 
-        $data = guzzle_request('POST', 'news/add', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('POST', 'news/add', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil tambah data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal tambah data.',
                 'data' => $data
             );
         }
-        
+
         echo json_encode($res);
-		
     }
 
-    public function detailBerita()
+    public function detailBerita($id)
     {
         $headers = [
             'Authorization' => $this->session->userdata['token'],
         ];
 
-        $id = $this->input->post('id_berita');
+        // $id = $this->input->post('id_berita');
 
         $getDetail = guzzle_request('GET', 'news/getIdweb/' . $id . '', [
             'headers' => $headers
         ]);
-		
+
         $data['getDetail'] = $getDetail['data']['data'];
-		// var_dump($data);
+        // var_dump($data);
 
         echo json_encode($data['getDetail']);
     }
@@ -230,10 +229,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
-				[
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
+                ],
 
                 [
                     'name' => 'picture',
@@ -263,10 +262,10 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
-				[
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
+                ],
 
             ];
         }
@@ -298,7 +297,7 @@ class Berita extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -315,8 +314,8 @@ class Berita extends MY_Controller
             $page_content["page"] = "operasi/Polres/detail_vip_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'news/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'news/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
         // echo json_encode($data['getDetail']['data']['name']);
@@ -329,7 +328,7 @@ class Berita extends MY_Controller
     {
 
         $headers = [
-            'Authorization' => $this->session->userdata['token'],    
+            'Authorization' => $this->session->userdata['token'],
         ];
 
         $page_content["css"] = '';
@@ -346,8 +345,8 @@ class Berita extends MY_Controller
             $page_content["page"] = "operasi/Polres/edit_vip_polres";
         }
 
-        $getDetail = guzzle_request('GET', 'news/getId/'.$id.'', [  
-            'headers' => $headers 
+        $getDetail = guzzle_request('GET', 'news/getId/' . $id . '', [
+            'headers' => $headers
         ]);
         $data['getDetail'] = $getDetail['data'];
 
@@ -356,16 +355,16 @@ class Berita extends MY_Controller
     }
 
 
-    public function storeEdit() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ]; 
-        $input      = $this->input->post(); 
+    public function storeEdit()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+        $input      = $this->input->post();
 
         $path = $_FILES['photo']['tmp_name'];
         $filename = $_FILES['photo']['name'];
-        if($_FILES['photo']['name']){ 
+        if ($_FILES['photo']['name']) {
             $dummy = [
                 [
                     'name' => 'news_category',
@@ -383,16 +382,16 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
-				[
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
-                
+                ],
+
                 [
                     'name' => 'picture',
-                    'contents' => fopen($path,'r'),
+                    'contents' => fopen($path, 'r'),
                     'filename' => $filename
-                ] 
+                ]
             ];
         } else {
             $dummy = [
@@ -412,73 +411,71 @@ class Berita extends MY_Controller
                     'name' => 'author',
                     'contents' => $this->session->userdata['full_name'],
                 ],
-				[
+                [
                     'name' => 'date',
                     'contents' => $input['date'],
-				],
-				
+                ],
+
             ];
         }
-        $data = guzzle_request('PUT', 'news/edit/'.$input['id'].'', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('PUT', 'news/edit/' . $input['id'] . '', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
         // echo json_encode($data);
         // die;
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil edit data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal edit data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 
 
-    public function delete() 
-    {  
-        $headers = [ 
-            'Authorization' => $this->session->userdata['token'],  
-        ];  
+    public function delete()
+    {
+        $headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
 
-        $input      = $this->input->post(); 
+        $input      = $this->input->post();
         $dummy = [
             [
                 'name' => 'id',
                 'contents' => $input['id'],
-            ] 
+            ]
         ];
 
-        $data = guzzle_request('DELETE', 'news/delete', [ 
-            'multipart' => $dummy, 
-            'headers' => $headers 
+        $data = guzzle_request('DELETE', 'news/delete', [
+            'multipart' => $dummy,
+            'headers' => $headers
         ]);
 
-        if($data['isSuccess'] == true){  
+        if ($data['isSuccess'] == true) {
             $res = array(
                 'status' => true,
                 'message' => 'Berhasil hapus data.',
                 'data' => $data
             );
-        }else{
+        } else {
             $res = array(
                 'status' => false,
                 'message' => 'Gagal hapus data.',
                 'data' => $data
             );
         }
-        
-        echo json_encode($res);
 
+        echo json_encode($res);
     }
 }
