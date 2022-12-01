@@ -300,11 +300,11 @@
 
 
                                         <div class="col-md-6">
-                                            <input type="checkbox" checked name="filter" value="samsat" id="samsat" class="form-input">
+                                            <input type="checkbox" name="filter" value="samsat" id="samsat" class="form-input">
                                             <span>Samsat</span>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="checkbox" checked name="filter" value="trouble_spot" id="trouble_spot" class="form-input">
+                                            <input type="checkbox" name="filter" value="trouble_spot" id="trouble_spot" class="form-input">
                                             <span>Trouble Spot</span>
                                         </div>
 
