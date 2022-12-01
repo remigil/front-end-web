@@ -156,7 +156,77 @@ class Statistik_nasional extends MY_Controller
         }else {
             $findCompareturja = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
         }
+
+        $getCompareDitkamsel = guzzle_request('GET', 'ditkamsel/date?type='.$input['type'].'&filter=true&start_date='.$date1.'&end_date='.$input['endDate'].'', [
+            'headers' => $headers
+        ]);
+        $getCompareDitkamsel = $getCompareDitkamsel["data"];
  
+        $arrdikmas = array_map (function($value){
+            return intval($value['dikmaslantas']);
+        } , $getCompareDitkamsel);
+        // $nilaiComparedikmas = max($arrdikmas);
+        if( $arrdikmas[0] > $arrdikmas[1]){
+            $findComparedikmas = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrdikmas[0] == 0 && $arrdikmas[1] == 0) {
+            $findComparedikmas = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findComparedikmas = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+
+        $getCompareDitregident = guzzle_request('GET', 'ditregident/date?type='.$input['type'].'&filter=true&start_date='.$date1.'&end_date='.$input['endDate'].'', [
+            'headers' => $headers
+        ]);
+        $getCompareDitregident = $getCompareDitregident["data"];
+
+        $arrbpkb = array_map (function($value){
+            return intval($value['bpkb']);
+        } , $getCompareDitregident);
+        // $nilaiComparebpkb = max($arrbpkb);
+        if( $arrbpkb[0] > $arrbpkb[1]){
+            $findComparebpkb = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrbpkb[0] == 0 && $arrbpkb[1] == 0) {
+            $findComparebpkb = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findComparebpkb = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrstnk = array_map (function($value){
+            return intval($value['stnk']);
+        } , $getCompareDitregident);
+        // $nilaiComparestnk = max($arrstnk);
+        if( $arrstnk[0] > $arrstnk[1]){
+            $findComparestnk = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrstnk[0] == 0 && $arrstnk[1] == 0) {
+            $findComparestnk = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findComparestnk = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrsim = array_map (function($value){
+            return intval($value['sim']);
+        } , $getCompareDitregident);
+        // $nilaiComparesim = max($arrsim);
+        if( $arrsim[0] > $arrsim[1]){
+            $findComparesim = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrsim[0] == 0 && $arrsim[1] == 0) {
+            $findComparesim = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findComparesim = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
+
+        $arrranmor = array_map (function($value){
+            return intval($value['ranmor']);
+        } , $getCompareDitregident);
+        // $nilaiCompareranmor = max($arrranmor);
+        if( $arrranmor[0] > $arrranmor[1]){
+            $findCompareranmor = '<i class="fa fas fa-arrow-circle-down"></i>';
+        }else if($arrranmor[0] == 0 && $arrranmor[1] == 0) {
+            $findCompareranmor = '<i class="fa fas fa-minus-circle"></i>';
+        }else {
+            $findCompareranmor = '<i class="fa fas fa-arrow-alt-circle-up"></i>';
+        }
 
         $data = [ 
             'date' => $date1,
@@ -166,12 +236,12 @@ class Statistik_nasional extends MY_Controller
                 'turjagwali' => $findCompareturja,
                 'walpjr' =>  '',
 
-                'bpkb' => '',
-                'stnk' => '',
-                'sim' => '',
+                'bpkb' => $findComparebpkb,
+                'stnk' => $findComparestnk,
+                'sim' => $findComparesim,
                 'sbst' => '',
 
-                'dikmas' => '',
+                'dikmas' => $findComparedikmas,
                 'jemenopsrek' => '',
                 'cegah' => '',
                 'audit' => '',
