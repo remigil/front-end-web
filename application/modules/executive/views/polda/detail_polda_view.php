@@ -2043,7 +2043,7 @@
                         }
                     });
 
-                    // serverSideGet();
+                    serverSideGet();
 
                     function serverSideGet() {
                         $("#overlay").fadeIn(300);

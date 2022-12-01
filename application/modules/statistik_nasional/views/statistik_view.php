@@ -6,17 +6,17 @@
      <div class="row justify-content-center">
          <div class="col-4" style="justify-content: center;display: flex;">
              <div class="grid-example mt-2 mt-sm-0">
-                 <div class="cat">
+                 <div class="cat  ">
                      <label>
                          <input checked type="radio" value="day" name="filter" id="harianDisplay"><span> Harian</span>
                      </label>
                  </div>
-                 <div class="cat">
+                 <div class="cat ">
                      <label>
                          <input type="radio" value="month" name="filter" id="bulananDisplay"><span> Bulanan</span>
                      </label>
                  </div>
-                 <div class="cat">
+                 <div class="cat ">
                      <label>
                          <input type="radio" value="year" name="filter" id="tahunanDisplay"><span> Tahunan</span>
                      </label>
@@ -626,18 +626,18 @@
      var isitype = 'day';
 
 
-
+    //  notSelected
      $('document').ready(function() {
-         $("[name=filter]").on("change", function(e) {
+         $("[name=filter]").on("change", function(e) { 
              if (this.value == 'day') {
                  tanggal = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')];
-                 isitype = 'day';
+                 isitype = 'day'; 
              } else if (this.value == 'month') {
                  tanggal = [moment().startOf('month').format('YYYY-MM-DD'), moment().endOf('month').format('YYYY-MM-DD')];
-                 isitype = 'month';
+                 isitype = 'month'; 
              } else if (this.value == 'year') {
                  tanggal = [moment().startOf('year').format('YYYY-MM-DD'), moment().endOf('year').format('YYYY-MM-DD')];
-                 isitype = 'year';
+                 isitype = 'year'; 
              }
              //  console.log(tanggal);
              // console.log(tanggal[0]);

@@ -1108,7 +1108,8 @@
 
     let data = [];
     let connected = false;
-    var socket = io('http://34.143.227.90:3019/', {
+    // var socket = io('http://34.143.227.90:3019/', {
+    var socket = io('http://103.163.139.100:3005/', { 
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -1121,7 +1122,8 @@
             type: "Admin"
         }
     });
-    var socketKe2 = io('http://34.143.227.90:3019/', {
+    // var socketKe2 = io('http://34.143.227.90:3019/', {
+    var socketKe2 = io('http://103.163.139.100:3001/', { 
         transports: ['websocket'],
         // socketRef.current = io('http://10.10.7.40:3001/', {
         path: '/socket.io',
@@ -2240,7 +2242,7 @@
 
 
 
-        // serverSideGet();
+        serverSideGet();
 
         function serverSideGet() {
             $("#overlay").fadeIn(300);

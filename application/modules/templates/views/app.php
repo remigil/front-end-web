@@ -512,16 +512,16 @@
             line-height: 1.7em;
             width: auto;
             height: 1.5em;
-            padding-left: 10px;
-            padding-right: 10px;
             cursor: pointer;
         }
-
+        
         .cat label span {
             text-align: center;
             padding: 3px 0;
             display: block;
             font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         .cat label input {
@@ -558,8 +558,28 @@
             background-color: #e8f0fe;
         }
 
-        .harianDisplay input:checked+.cat {
-            background-color: red;
+
+        .harianDisplay label input+span {
+            color: white;
+        }
+        .bulananDisplay label input+span {
+            color: white;
+        }
+        .tahunanDisplay label input+span {
+            color: white;
+        }
+
+        .action input:checked + span{background-color: #F75A1B;}
+        .comedy input:checked + span{background-color: #1BB8F7;}
+        .crime input:checked + span{background-color: #D9D65D;}
+
+        .isSelected {
+            background-color: white;  
+        }
+        .notSelected {
+            background-color: transparent; 
+            border: 1px solid transparent;
+            color: white;
         }
 
         <?php if ($this->session->userdata['role'] != 'G20' || $this->session->userdata['role'] != 'Kakor' || $this->session->userdata['role'] != 'PJU'  || $this->session->userdata['role'] != 'Operator') { ?>.mm-active .active {
