@@ -7,7 +7,7 @@
 </nav>
 <!-- </div> -->
 <div class="page">
-    <div class="card">
+    <div class="card" style="display: none;">
         <div class="card-body">
             <div class="row" style="width: 95%;">
                 <div class="col-md-3">
