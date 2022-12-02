@@ -1193,6 +1193,7 @@
     var cctvClusterGroup;
     var samsatClusterGroup;
     var troubleSpotClusterGroup;
+    var blankSpotClusterGroup;
 
     var jadwalClusterGroup;
     var fasumKhususClusterGroup;
@@ -7786,6 +7787,14 @@
             } else {
                 $("#trouble_spotDisplay").prop('checked', false);
                 $("#trouble_spotDisplay").val();
+            }
+
+            if ($("#blank_spot").is(':checked')) {
+                $("#blank_spotDisplay").prop('checked', true);
+                // $("#myModalPanicDisplay").modal('show');
+            } else {
+                $("#blank_spotDisplay").prop('checked', false);
+                $("#blank_spotDisplay").val();
             }
 
             if ($("#polda").is(':checked')) {

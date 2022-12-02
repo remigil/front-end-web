@@ -248,12 +248,12 @@
                             </div>
                         </div>
 
-                        <div class="cat blankspotDisplay" style="margin-left: 10px;">
+                        <div class="cat blank_spotDisplay" style="margin-left: 10px;">
                             <div class="btn-group">
                                 <label>
-                                    <input type="checkbox" value="blankspot" name="filter" id="blankspotDisplay"><span><i class="mdi mdi-chat-alert"></i> Blank Spot</span>
+                                    <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Blank Spot</span>
                                 </label>
-                                <button id="blankspotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <button id="blankSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
                                 </button>
                             </div>
@@ -313,6 +313,10 @@
                                             <input type="checkbox" name="filter" value="trouble_spot" id="trouble_spot" class="form-input">
                                             <span>Trouble Spot</span>
                                         </div>
+                                        <div class="col-md-6">
+                                            <input type="checkbox" name="filter" value="blankspot" id="blank_spot" class="form-input">
+                                            <span>Blank Spot</span>
+                                        </div>
 
                                         <div class="dropdown-divider"></div>
                                         <div class="col-md-12">
@@ -346,11 +350,7 @@
                                         <div class="col-md-6">
                                             <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input">
                                             <span>Kendaraan Listrik</span>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="checkbox" name="filter" value="troublespot" id="troublespot" class="form-input">
-                                            <span>Trouble Spot</span>
-                                        </div>
+                                        </div> 
                                         <div class="col-md-12 mt-3" id="menuKategori">
                                             <p style="font-size: 17px;">Fasilitas Umum Kategori</p>
                                             <div class="row">
@@ -1157,6 +1157,18 @@
             </div>
         </div>
     </div>
+    <div class="modal right fade" id="myModalBlankSpotDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelBlankSpotDisplay" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary ">
+                    <h5 class="modal-title text-white" id="myLargeModalLabelBlankSpotDisplay">Blank Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlankSpotDisplay"></span>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="openModalBlankSpotDisplay" style="width: 550px;">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal right fade" id="myModalLaporanDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelLaporanDisplay" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1226,6 +1238,7 @@
         var markerCCTV = new Array();
         var markerSamsat = new Array();
         var markerTroubleSpot = new Array();
+    var markerBlankSpot = new Array();
 
         var markerLaporanPanic = new Array();
         var markerLaporan = new Array();
@@ -1243,6 +1256,7 @@
         var routingJadwalRenpam4 = new Array();
 
         var routingTroubleSpot = new Array();
+    var routingBlankSpot = new Array();
 
         var routingRenpam = new Array();
         var routingRenpam1 = new Array();
@@ -1255,6 +1269,7 @@
         var cctvClusterGroup;
         var samsatClusterGroup;
         var troubleSpotClusterGroup;
+        var blankSpotClusterGroup;
 
         var jadwalClusterGroup;
         var fasumKhususClusterGroup;
@@ -5728,6 +5743,16 @@
                             });
                         }
                     });
+                    blankSpotClusterGroup = L.markerClusterGroup({
+                        iconCreateFunction: function(cluster) {
+                            return new L.DivIcon({
+                                html: `
+                            <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                            <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                            </div>`
+                            });
+                        }
+                    });
 
                     cctvClusterGroup = L.markerClusterGroup({
                         iconCreateFunction: function(cluster) {
@@ -5824,6 +5849,13 @@
                             troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
                         }
                         markerTroubleSpot = new Array();
+                        for (let i = 0; i < markerBlankSpot.length; i++) {
+                            // mapContainer.removeLayer(markerBlankSpot[i]);
+                            if(markerBlankSpot[i]){
+                                blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
+                            }
+                        }
+                        markerBlankSpot = new Array();
 
                         for (let i = 0; i < markerFasum.length; i++) {
                             mapContainer.removeLayer(markerFasum[i]);
@@ -5883,14 +5915,15 @@
                                 var ressCctv = result['data']['cctv'];
                                 var ressSamsat = result['data']['samsat'];
                                 var ressTroubleSpot = result['data']['trouble_spot'];
+                                var ressBlankSpot = result['data']['blank_spot'];
+
                                 var ressLAP = result['data']['titik_laporan'];
                                 var ressPanic = result['data']['titik_panicButton'];
                                 var ressFasum = result['data']['fasum'];
                                 // var ressFasumKhusus = result['data']['fasum_khusus'];
                                 ressFasumKhusus = result['data']['fasum_khusus'];
 
-                                var ressCluster = result['data']['cluster'];
-                                var ressTroublespot = result['data']['troublespot'];
+                                var ressCluster = result['data']['cluster']; 
                                 var ressSchedule = result['data']['jadwal_kegiatan'];
                                 var ressOperasi = result['data']['operasi'];
                                 console.log(result['data']);
@@ -6461,7 +6494,183 @@
                                 }
 
 
+                                if (ressBlankSpot && ressBlankSpot.length > 0) {
+                                    var filterBlankSpot = ressBlankSpot;
 
+                                    if (filterBlankSpot.length > 0) {
+                                        $('#openModalBlankSpotDisplay').html(`
+                                            <table id="datatableBlankSpotOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Nama</th> 
+                                                        <th>Alamat</th> 
+                                                        <th>Waktu</th> 
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="isiModalBlankSpotDisplay">
+                                                </tbody>
+                                            </table>                     
+                                        `);
+
+                                        var countBlankSpotDisplay = 0;
+                                        var listBlankSpotDisplay = '';
+                                        $('#totalBlankSpotDisplay').html(filterBlankSpot.length);
+                                        var countlistBlankSpot = 0;
+                                        var checkedBlankSpot1 = [];
+
+                                        for (let i = 0; i < filterBlankSpot.length; i++) {
+                                            countBlankSpotDisplay += 1; 
+                                            countlistBlankSpot += 1;
+                                            id = i;
+
+                                            if(filterBlankSpot[i].route == null){
+                                                listBlankSpotDisplay += `
+                                                    <tr>
+                                                        <td>${countBlankSpotDisplay}</td>
+                                                        <td>${filterBlankSpot[i].reporter_name}</td> 
+                                                        <td>${filterBlankSpot[i].location}</td> 
+                                                        <td>${filterBlankSpot[i].desc}</td> 
+                                                        <td>
+                                                            <a class="btn" style="margin-top: -10px;"  
+                                                                id="flyToMapFilterBlankSpot${countBlankSpotDisplay}"
+                                                                data-cord="${filterBlankSpot[i].latitude},${filterBlankSpot[i].longitude}" 
+                                                                href="javascript:void(0)">
+                                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                            </a> 
+                                                        </td>
+                                                    </tr>
+                                                `;
+                                                $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                                
+                                                var latitudeBlankSpot = parseFloat(filterBlankSpot[i].latitude);
+                                                var longitudeBlankSpot = parseFloat(filterBlankSpot[i].longitude); 
+                                                troubleSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
+                                                    icon: L.divIcon({
+                                                        // className: 'location-pin',
+                                                        html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                                        iconSize: [5, 5],
+                                                        iconAnchor: [5, 10]
+                                                        // iconAnchor: [10, 33]
+                                                    })
+                                                }).bindPopup(`
+                                                    <div style="width: 300px;">
+                                                        <div class="row">
+                                                            <div class="col-md-12" style="text-align: center;">
+                                                                <h5>${filterBlankSpot[i].reporter_name}</h5>
+                                                            </div>
+                                                            <div class="col-md-12"> 
+                                                                    
+                                                            </div> 
+                                                        </div>
+                                                    </div> 
+                                                `, {
+                                                    minWidth: 100,
+                                                    maxWidth: 560,
+                                                    width: 400
+                                                })); 
+                                            }else{
+                                                listBlankSpotDisplay += `
+                                                    <tr>
+                                                        <td>${countBlankSpotDisplay}</td>
+                                                        <td>${filterBlankSpot[i].reporter_name}</td> 
+                                                        <td>${filterBlankSpot[i].location}</td> 
+                                                        <td>${filterBlankSpot[i].desc}</td> 
+                                                        <td>
+                                                            <input type="checkbox" class="form-input checkTs" name="selectTs" 
+                                                            id="listTsDisplay${countlistBlankSpot}"  
+                                                            data-name="${filterBlankSpot[i]['reporter_name']}" 
+                                                            data-cord='${JSON.stringify(filterBlankSpot[i]['route'])}'> 
+                                                        </td>
+                                                    </tr>
+                                                `;
+                                                $('#isiModalBlankSpotDisplay').html(listBlankSpotDisplay);
+                                                
+                                                
+                                                checkedBlankSpot1.push({
+                                                    reporter_name: filterBlankSpot[i]['reporter_name'],
+                                                    checked: 0,
+                                                });
+                                            }
+                                        }
+
+                                        for (let i = 0; i < countlistBlankSpot; i++) {
+                                            $(`#listTsDisplay${i+1}`).on("change", function(e) {
+                                                
+                                                var cordRute = $(this).data('cord');
+                                                if (cordRute != null && cordRute[0]['latLng'] != null) {
+                                                    if ($(this).is(':checked')) {
+                                                        routingBlankSpot[i] = null;
+                                                        routingBlankSpot[i] = L.Routing.control({
+                                                            show: false,
+                                                            draggableWaypoints: false,
+                                                            addWaypoints: false,
+                                                            waypoints: cordRute,
+                                                            router: new L.Routing.osrmv1({
+                                                                language: 'en',
+                                                                profile: 'car'
+                                                            }),
+                                                            lineOptions: {
+                                                                styles: [{
+                                                                    color: "#a50000",
+                                                                    weight: 5,
+                                                                    // className: 'animateRoute'
+                                                                }]
+                                                            },
+                                                            createMarker: function(i, wp, nWps) {
+                                                                if (i === 0 || i === nWps + 1) {
+                                                                    // here change the starting and ending icons
+                                                                    // return L.marker(wp.latLng);
+                                                                } else if (i === nWps - 1) {
+                                                                    // return L.marker(wp.latLng);
+                                                                } else {
+                                                                    // here change all the others
+                                                                    // var options = {
+                                                                    //         draggable: this.draggableWaypoints,
+                                                                    //     },
+                                                                    //     marker = L.marker(wp.latLng);
+                
+                                                                    // return marker;
+                                                                }
+                                                            },
+                                                            // geocoder: L.Control.Geocoder.nominatim({})
+                                                        }).addTo(mapContainer);
+                                                        // mapContainer.addControl(routingBlankSpot[i]); 
+                                                    } else {
+                                                        mapContainer.removeControl(routingBlankSpot[i]);
+                                                    }
+                                                }
+                                            });
+                                        }
+
+                                        for (let i = 0; i < countBlankSpotDisplay; i++) {
+
+                                            $(`#flyToMapFilterBlankSpot${i+1}`).on("click", function(e) {
+                                                var latlong = $(this).data('cord').split(',');
+                                                var latitude = parseFloat(latlong[0]);
+                                                var longitude = parseFloat(latlong[1]);
+                                                mapContainer.flyTo([latitude, longitude], 20);
+                                            });
+                                        }
+                                        $('#datatableBlankSpotOnDisplay').DataTable({
+                                            responsive: true,
+
+                                            scrollX: true,
+
+                                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                            buttons: ["excel", "csv", "pdf"],
+                                            processing: true,
+                                            oLanguage: {
+
+                                                sSearch: 'Search:'
+
+                                            },
+                                        });
+                                        mapContainer.addLayer(blankSpotClusterGroup);
+                                    }
+                                }
 
                                 if (ressLAP && ressLAP.length > 0) {
                                     var filterLaporan = ressLAP.filter(function(e) {
@@ -7158,12 +7367,7 @@
 
                                         }
                                     }
-                                }
-                                if (ressTroublespot && ressTroublespot.length > 0) {
-                                    var filterTroublespot = ressTroublespot.filter(function(e) {
-                                        return e.lat_cctv != null && e.lng_cctv != null;
-                                    });
-                                }
+                                } 
 
                                 if (ressSchedule && ressSchedule.length > 0) {
                                     var filterSchedule = ressSchedule.filter(function(e) {
@@ -7360,6 +7564,14 @@
                             $("#trouble_spotDisplay").val();
                         }
 
+                        if ($("#blank_spot").is(':checked')) {
+                            $("#blank_spotDisplay").prop('checked', true);
+                            // $("#myModalPanicDisplay").modal('show');
+                        } else {
+                            $("#blank_spotDisplay").prop('checked', false);
+                            $("#blank_spotDisplay").val();
+                        }
+
                         if ($("#polda").is(':checked')) {
                             $("#poldaDisplay").prop('checked', true);
                             getPolda();
@@ -7473,6 +7685,19 @@
                         serverSideFilter();
                     });
 
+                    $("#blank_spotDisplay").on("change", function(e) {
+                        if ($(this).is(':checked')) {
+                            openDisplay = this.value;
+                            $("#blank_spot").prop('checked', true);
+                            $("#myModalBlankSpotDisplay").modal('show');
+                        } else {
+                            openDisplay = '';
+                            $("#blank_spot").prop('checked', false);
+                            $("#blank_spot").val();
+                        }
+                        serverSideFilter();
+                    });
+                    
                     $("#poldaDisplay").on("change", function(e) {
                         if ($(this).is(':checked')) {
                             openDisplay = this.value;
@@ -7607,6 +7832,9 @@
                     $("#troubleSpotFilterModal").on("click", function(e) {
                         $("#myModalTroubleSpotDisplay").modal('show');
                     });
+                    $("#blankSpotFilterModal").on("click", function(e) {
+                        $("#myModalBlankSpotDisplay").modal('show');
+                    });
 
                     $("#fasumFilterModal").on("click", function(e) {
                         $("#myModalFasumKhususDisplay").modal('show');
@@ -7635,6 +7863,8 @@
                                 $("#myModalSamsatDisplay").modal('show');
                             } else if (openDisplay == 'trouble_spot') {
                                 $("#myModalTroubleSpotDisplay").modal('show');
+                            } else if (openDisplay == 'blank_spot') {
+                                $("#myModalBlankSpotDisplay").modal('show');
                             } else if (openDisplay == 'titik_laporan') {
                                 $("#myModalLaporanDisplay").modal('show');
                             } else if (openDisplay == 'titik_panicButton') {
