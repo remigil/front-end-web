@@ -1841,7 +1841,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url('troublespot/blackspot') ?>">
+                                            <a href="<?= base_url('blankspot/Blankspot') ?>">
                                                 <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
                                                 <span data-key="t-blackspot">BlackSpot</span>
                                             </a>

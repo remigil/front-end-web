@@ -6065,16 +6065,20 @@
                 samsatClusterGroup.removeLayer(markerSamsat[i]);
             }
             markerSamsat = new Array();
-
+ 
             for (let i = 0; i < markerTroubleSpot.length; i++) {
                 // mapContainer.removeLayer(markerTroubleSpot[i]);
-                troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
+                if(markerTroubleSpot[i]){
+                    troubleSpotClusterGroup.removeLayer(markerTroubleSpot[i]);
+                }
             }
             markerTroubleSpot = new Array();
 
             for (let i = 0; i < markerBlankSpot.length; i++) {
                 // mapContainer.removeLayer(markerBlankSpot[i]);
-                blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
+                if(markerBlankSpot[i]){
+                    blankSpotClusterGroup.removeLayer(markerBlankSpot[i]);
+                }
             }
             markerBlankSpot = new Array();
 
