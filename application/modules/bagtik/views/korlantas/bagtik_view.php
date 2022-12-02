@@ -51,14 +51,14 @@
                             <div class="row justify-content-between align-items-center" style="font-size: 40px;">
                                 <div class="col-md-10 float-start">
                                     <p class="fs-5 float-start" style="color:#464646;">
-                                        <span class="fw-bold">Total SUBBAG AMBANGSISTEK</span>
+                                        <span class="fw-bold">Total SUBBAG ANBANGSISTEK</span>
                                         <br>
                                         <span class="fs-6 fw-bold float-start" style="color:#464646;" id="subbagambangsistek"></span>
                                     <p class="float-start m-0 p-0 ms-2" style="font-size: 18px;" id="detailsubrenop"></p>
                                     </p>
                                 </div>
                                 <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_RENOP.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <img src="<?= base_url('assets/icon/dashboard/Anbangsistek.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
                                     <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                     </p>
                                 </div>
                                 <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_DALOPS.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <img src="<?= base_url('assets/icon/dashboard/Jarsistek.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
                                     <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                                     </p>
                                 </div>
                                 <div class=" col-md-2">
-                                    <img src="<?= base_url('assets/icon/dashboard/SUBBAG_ANEV.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
+                                    <img src="<?= base_url('assets/icon/dashboard/Harsistek.png') ?>" alt="" style="width: 60px; margin-left:-25px;">
                                     <!-- <iconify-icon icon="material-symbols:credit-card-outline" class="ms-n2" style="font-size: 40px; color: #464646;"></iconify-icon> -->
                                 </div>
                             </div>
