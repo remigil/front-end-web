@@ -38,7 +38,7 @@ class Undang_undang extends MX_Controller {
 	public function serverSideTable() 
     {  
         $postData = $this->input->post();   
-        $data = $this->m_dokumenperaturan->get_datatables($postData);  
+        $data = $this->m_undang_undang->get_datatables($postData);  
 		echo json_encode($data); 
     }
 
