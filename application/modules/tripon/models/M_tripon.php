@@ -131,7 +131,12 @@ class M_tripon extends CI_Model {
             $row ['no_vehicle']	= $field["public_vehicle"]['no_vehicle'];
             $row ['type_vehicle']	= $field['type_vehicle']['type_name'];
             $row['passanger'] = count($field['passenger_trip_ons']);
-            $row ['brand_vehicle']	= $field['brand_vehicle']['brand_name'];
+
+            if ($field['type_vehicle']['type_name'] == 'Motor') {
+                $row['brand_vehicle']    = 'Sepeda Motor';
+            } else if ($field['type_vehicle']['type_name'] == 'Mobil') {
+                $row['brand_vehicle']    = 'SUV';
+            }
             $row['location_start'] = $field['district_start'] . ' , ' . $field['province_start'];
             $row['location_end'] = $field['district_end'] . ' , ' . $field['province_end'];
 

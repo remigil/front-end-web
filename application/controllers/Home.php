@@ -25,11 +25,17 @@ class Home extends MX_Controller {
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
-		$databerita['getBerita'] = $getBerita['data']['datanya'][0]['data'];
-		// var_dump($databerita['getBerita']);die;
-		
-		
-        $data["databerita"] = $databerita;
+
+        $news = array();
+        foreach ($getBerita['data']['datanya'] as $key) {
+            foreach ($key['data'] as $k) {
+                $news[] = $k;
+            }
+        }
+        // var_dump($databerita['getBerita']);die;
+
+
+        $data["databerita"] = $news;
 		// $postData = $this->input->post();   
         // $data = $this->berita->get_datatables($postData);  
 		// echo json_encode($data); 
@@ -143,6 +149,15 @@ class Home extends MX_Controller {
 		$getBerita = guzzle_request('GET', 'news', [
             // 'headers' => $headers
         ]);
+
+        $news = array();
+        foreach ($getBerita['data']['datanya'] as $key) {
+            foreach ($key['data'] as $k) {
+                $news[] = $k;
+            }
+        }
+
+
         $getBeritaall = $getBerita['data']['datanya'][0]['data'];
 		// var_dump($getBeritaall);die;
 

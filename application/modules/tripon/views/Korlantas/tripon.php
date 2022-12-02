@@ -87,12 +87,12 @@
                         <th>Nama Pengemudi</th>
                         <th>No Polisi Kendaraan</th>
                         <th>Jenis Kendaraan</th>
-                        <th>Merk Kendaraan</th>
+                        <th>Model Kendaraan</th>
                         <!-- <th>Penumpang</th> -->
                         <th>Informasi Lebih Lanjut</th>
                     </tr>
                 </thead>
-                
+
             </table>
 
         </div>
@@ -103,7 +103,7 @@
 
 
 <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('.dropify').dropify();
 
         userDataTable = $('#dataTable').DataTable({
@@ -196,10 +196,10 @@
                 {
                     data: 'type_vehicle'
                 },
-				{
+                {
                     data: 'brand_vehicle'
                 },
-                
+
                 // {
                 //     data: 'passenger'
                 // },
@@ -223,10 +223,10 @@
 
         });
 
-        
+
     });
     $(document).ready(function() {
-        
+
 
         var keberangkatan = {
             series: [{
@@ -461,6 +461,4 @@
     </div>
         `)
     }
-  
-    
 </script>

@@ -124,7 +124,7 @@
                         <th>Nomor Registrasi</th>
                         <th>Jumlah Penumpang</th>
                         <th>Jenis Kendaraan</th>
-                        <th>Merk Kendaraan</th>
+                        <th>Model Kendaraan</th>
                         <th>Lokasi Asal</th>
                         <th>Lokasi Tujuan</th>
 

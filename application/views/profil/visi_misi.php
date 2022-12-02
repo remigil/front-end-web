@@ -18,7 +18,7 @@
         <div class="container-fluid" >
         <div class="container-fluid" >
         	<ol style="list-style: none;">
-            <li><a href="<?= base_url()?>home">Home</a></li>
+            <li><a href="<?= base_url()?>home" class="home">Home</a></li>
             <li><?= $breadcrumb?></li>
         	</ol>
         </div>
