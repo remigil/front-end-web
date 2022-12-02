@@ -36,9 +36,9 @@
 <!-- ======= Contact Section ======= -->
 <div class="container-fluid margin-top-30">
 <div class="container-fluid">
-<div class="container-fluid">
+<div class="container-fluid p-5">
 
-	
+	<div class="p-5">
 			<h3>Profil Korps Lalu Lintas Kepolisian Negara Republik Indonesia</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai Profil Korlantas Polri :</p>
@@ -93,7 +93,8 @@
 				<li>Bagrenmin Korlantas Polri;</li>
 				<li>Bag TIK Korlantas Polri.</li>
 			</ul>
-		
+	</div>
+	<div class="p-5" style="background-color: #EDEDED;">
 			<h3>Profile Pejabat Korlantas Polri</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai Profil Pejabat Korlantas Polri berupa Nama, Jabatan, Sejarah Karir, Sejarah Pendidikan, Penghargaan dan Laporan Kekayaan</p>
@@ -198,7 +199,8 @@
 				</li>
 
 			</ul>
-
+	</div>
+	<div class="p-5">
 			<h3>Kegiatan, Program dan Rencana</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai Ringkasan Program dan Rencana Kegiatan yang di jalankan di lingkungan Korps Lalu Lintas Polri :</p>
@@ -235,7 +237,8 @@
 					</u>
 				</li>
 			</ul>
-
+	</div>
+	<div class="p-5" style="background-color: #EDEDED;">
 			<h3>Laporan Pelaksanaan Kegiatan</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai ringkasan laporan pelaksanaan kegiatan berjalan di lingkungan Korps Lalu Lintas Polri :</p>
@@ -297,7 +300,8 @@
 					</ul>
 				</li>
 			</ul>
-
+	</div>
+	<div class="p-5" style="background-color: #EDEDED;">
 			<h3>Peraturan, Keputusan dan atau Kebijakan</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai Peraturan, Keputusan dan atau Kebijakan yang mengikat bagi publik yang dihasilkan oleh Korlantas Polri dapat diakses melalui korlantas.polri.go.id dan dan www.k3i.korlantas.polri.go.id</p>
@@ -336,7 +340,8 @@
 				</li>
 
 			</ul>
-
+	</div>
+	<div class="p-5">
 			<h3>Layanan Informasi</h3>
 			<p>deskripsi:</p>
 			<p>Informasi mengenai ringkasan laporan layanan informasi Pejabat Pengelola Informasi dan Dokumentasi (PPID) :</p>
@@ -364,7 +369,7 @@
 
 				</div>
 			</div>
-		
+	</div>
 
 </div>
 </div>

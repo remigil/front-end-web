@@ -36,9 +36,9 @@
 <!-- ======= Contact Section ======= -->
 <div class="container-fluid margin-top-30">
 <div class="container-fluid">
-<div class="container-fluid">
+<div class="container-fluid p-5">
 
-	<div class="row">
+	<div class="row p-5">
 		<div class="col-md-6">
 		<h3>Informasi Berkala</h3>
 			<p>deskripsi:</p>
