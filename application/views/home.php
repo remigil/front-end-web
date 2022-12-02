@@ -379,7 +379,7 @@
                         <img src="<?= url_api() ?>news/<?= $data['picture'] ?>" class="card-img-top" alt="..." height="250px">
                         <div class="card-body bg-light rounded">
                             <a href="<?= $data['link']?>" target="_blank">
-                                <h5 class="card-title fw-bold text-justify"><?= $data['title']; ?></h5>
+                                <h5 class="card-title fw-bold text-justify"><?=$data['title']; ?></h5>
                             </a>
                             <button class="btn btn-info active"><?= $data['category_news'][0]['name_category_news'] ?></button>
                             <hr>

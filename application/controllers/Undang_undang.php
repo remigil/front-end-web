@@ -6,7 +6,7 @@ class Undang_undang extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
 		// $this->load->helper("logged_helper");
-		$this->load->model('dokumenperaturan/m_dokumenperaturan');
+		$this->load->model('m_undang_undang');
     }
  
 	public function index()
