@@ -69,10 +69,17 @@ class Login extends MX_Controller
                     $data_session['zoom_level']       = $operationProfile['data']['zoom_level'];
                     $data_session['date_start_operation']       = $operationProfile['data']['date_start_operation'];
                     $data_session['date_end_operation']       = $operationProfile['data']['date_end_operation'];  
-                } else {
-                    $this->session->set_flashdata('error', 'Sedang tidak ada Operasi yang Berjalan!');
-                    redirect('login');
-                    die;
+                }else{
+                    $data_session['id_operation']       = null;
+                    $data_session['banner']       = null;
+                    $data_session['name_operation']       = null;
+                    $data_session['document_sprint']       = null;
+                    $data_session['background_image']       = null;
+                    $data_session['logo']       = null;
+                    $data_session['latlng_center']       = null;
+                    $data_session['zoom_level']       = null;
+                    $data_session['date_start_operation']       = null;
+                    $data_session['date_end_operation']       = null;  
                 }
 
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {

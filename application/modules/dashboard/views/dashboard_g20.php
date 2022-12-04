@@ -5601,7 +5601,7 @@
             for (let i = 0; i < markerRestArea.length; i++) {
                 // mapContainer.removeLayer(markerRestArea[i]);
                 if(markerRestArea[i]){
-                    blankSpotClusterGroup.removeLayer(markerRestArea[i]);
+                    restAreaClusterGroup.removeLayer(markerRestArea[i]);
                 }
             }
             markerRestArea = new Array();
@@ -5609,7 +5609,7 @@
             for (let i = 0; i < markerPosPam.length; i++) {
                 // mapContainer.removeLayer(markerPosPam[i]);
                 if(markerPosPam[i]){
-                    blankSpotClusterGroup.removeLayer(markerPosPam[i]);
+                    posPamClusterGroup.removeLayer(markerPosPam[i]);
                 }
             }
             markerPosPam = new Array();
