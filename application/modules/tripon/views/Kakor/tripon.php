@@ -2,7 +2,8 @@
 <!-- <div class="kotak" style="border-style:solid ;"> -->
 <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/'; margin-left:-15px; ">
     <ol class="breadcrumb shadow-sm">
-        <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
+        <li class="breadcrumb-item"><a href="#"><?= $title; ?> - Data Statistik Perjalanan Masyarakat Pengguna Jalan Secara Real Time Untuk Memantau Kondisi Lalu Lintas </a></li>
+        <!-- <li class="breadcrumb-item"><a href="#"><?= $title; ?> </a></li> -->
     </ol>
 </nav>
 <!-- </div> -->

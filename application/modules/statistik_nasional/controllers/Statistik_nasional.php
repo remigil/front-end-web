@@ -80,6 +80,8 @@ class Statistik_nasional extends MY_Controller
             'headers' => $headers
         ]);
         $getRegident = $getRegident["data"];
+        // var_dump($getRegident);
+        // die;
 
         $totalbpkb = 0;
         $totalstnk = 0;
@@ -90,6 +92,7 @@ class Statistik_nasional extends MY_Controller
             $totalstnk += $getRegident[$i]['stnk'];
             $totalsim += $getRegident[$i]['sim'];
             // $totalsbst += $getRegident[$i]['sbst'];
+            // $totalsim += 0;
         }
 
         // $getOps = guzzle_request('GET', 'bagops/daily', [
