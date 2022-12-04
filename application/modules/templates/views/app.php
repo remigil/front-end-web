@@ -514,7 +514,7 @@
             height: 1.5em;
             cursor: pointer;
         }
-        
+
         .cat label span {
             text-align: center;
             padding: 3px 0;
@@ -562,22 +562,33 @@
         .harianDisplay label input+span {
             color: white;
         }
+
         .bulananDisplay label input+span {
             color: white;
         }
+
         .tahunanDisplay label input+span {
             color: white;
         }
 
-        .action input:checked + span{background-color: #F75A1B;}
-        .comedy input:checked + span{background-color: #1BB8F7;}
-        .crime input:checked + span{background-color: #D9D65D;}
+        .action input:checked+span {
+            background-color: #F75A1B;
+        }
+
+        .comedy input:checked+span {
+            background-color: #1BB8F7;
+        }
+
+        .crime input:checked+span {
+            background-color: #D9D65D;
+        }
 
         .isSelected {
-            background-color: white;  
+            background-color: white;
         }
+
         .notSelected {
-            background-color: transparent; 
+            background-color: transparent;
             border: 1px solid transparent;
             color: white;
         }
@@ -709,13 +720,7 @@
     <?php echo $css ?>
 </head>
 
-<body oncontextmenu="return false"
-<?php if($this->uri->segment(1) == 'statistik_nasional' && $this->uri->segment(2) == ''){?>
-    style="background-image: radial-gradient(#013F9F 10.63%, #0087c4 101.04%); "
-<?php }else{ ?>
-        style="background-color: #f5f3f4;"
-<?php }?>
->
+<body oncontextmenu="return false" <?php if ($this->uri->segment(1) == 'statistik_nasional' && $this->uri->segment(2) == '') { ?> style="background-image: radial-gradient(#013F9F 10.63%, #0087c4 101.04%); " <?php } else { ?> style="background-color: #f5f3f4;" <?php } ?>>
     <div id="overlay">
         <div class="loading">
             <div class="spinner" style="margin-left: 23px;margin-bottom: 10px;"></div>
@@ -783,7 +788,7 @@
 
                     <?php $mobile = detect_mobile();
                     if ($mobile === false) { ?>
-                        <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
+                        <button type="button" style="margin-left: -15px;background-color: #e4dfec;border-radius: 50%;height: 35px;width: 35px;margin-top: 15px; border:1px solid red;" class="btn btn-sm px-3 font-size-16 header-item" style="margin-left: 0px;" id="vertical-menu-btn">
                             <div id="changeicon">
                                 <input type="text" id="statusicon" name="statusicon" value="right" hidden>
                                 <i style="margin-left: -11px;" id="iconleft" class="fa fa-fw fas fa-angle-left"></i>
@@ -800,10 +805,11 @@
                             <?php $mobile = detect_mobile();
                             if ($mobile === true) { ?>
                                 <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
+                                <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                             <?php } else { ?>
                                 <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h3>
+                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h3>
+                                <!-- <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h3> -->
                             <?php } ?>
                         </div>
 
@@ -834,10 +840,10 @@
                     <?php $mobile = detect_mobile();
                     if ($mobile === false) { ?>
                         <p style="text-align: end;position: relative;top: 12px;">
-                            <b style="text-transform: uppercase;font-size: 18px;">
+                            <b style="text-transform: uppercase;font-size: 12px;">
                                 <?php echo format_indoHari(date('Y-m-d')) ?>
                             </b></br>
-                            <span id="jam" style="font-size:15px;font-weight: bold;"></span>
+                            <span id="jam" style="font-size:10px;font-weight: bold;"></span>
                         </p>
                     <?php } ?>
                     <?php if ($this->session->userdata['role'] != 'Korlantas' || $this->session->userdata['role'] != 'Kapolda' || $this->session->userdata['role'] != 'Polres') { ?>
@@ -887,7 +893,7 @@
                             <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK' || $this->session->userdata['role'] == 'DivTikMabesPolri') { ?>
                                 <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile-emas.svg" alt="Header Avatar"> -->
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
-                                <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span> -->
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium">Hi, &nbsp;<?php echo $this->session->userdata['full_name']; ?></span>
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
 
@@ -1240,7 +1246,12 @@
                                                 <p style="color: #969696;">KABAG TIK</p>
                                             <?php } ?>
                                         </div> -->
-
+                                <li>
+                                    <a href="<?php echo base_url(); ?>dashboard">
+                                        <img src="<?= base_url('assets/sidebar/icon-dashboard.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">Beranda</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>statistik_nasional">
                                         <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
@@ -1673,6 +1684,13 @@
                                         <span data-key="t-dashboard">IRSMS</span>
                                     </a>
                                 </li>
+                            <?php } elseif ($this->session->userdata['role'] == 'Ditkamsel') { ?>
+                                <li>
+                                    <a href="<?php echo base_url('ditkamsel'); ?>" data-key="t-login">
+                                        <img src="<?= base_url('assets/sidebar/icon-list.svg') ?>" alt="" style="width: 15px; margin-right:10px">
+                                        <span data-key="t-dashboard" style="color: white;">DITKAMSEL</span>
+                                    </a>
+                                </li>
                             <?php } elseif ($this->session->userdata['role'] == 'Ditgakkum') { ?>
                                 <li>
                                     <a href="<?php echo base_url('ditgakkum'); ?>" data-key="t-login">
@@ -1976,7 +1994,7 @@
                 <div class="main-content">
 
                     <div class="page-content">
-                        <div class="container-fluid" >
+                        <div class="container-fluid">
 
                             <!-- Page Content-->
                             <?php $this->load->view($page_content) ?>
