@@ -2133,28 +2133,28 @@
                         $("#totalPetugasNonDisplay").html(`${filterPetugasNon.length}`);
  
                         // storeEditDayReport
-                        $.ajax({
-                            type : "POST",
-                            url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
-                            data : {
-                                "t_officer_active" : sortRess.length,
-                                "t_officer_active_car" : filterPetugasCarListrik.length + filterPetugasCarFosil.length,
-                                "t_officer_active_carListrik" : filterPetugasCarListrik.length,
-                                "t_officer_active_carFosil" : filterPetugasCarFosil.length,
-                                "t_officer_active_bike" : filterPetugasBikeListrik.length + filterPetugasBikeFosil.length,
-                                "t_officer_active_bikeListrik" : filterPetugasBikeListrik.length,
-                                "t_officer_active_bikeFosil" : filterPetugasBikeFosil.length,
-                                "t_officer_active_not_driving" : filterPetugasNon.length,
-                            }, 
-                            dataType : "JSON",
-                            success : function(result){ 
-                                if(result['status'] == true){
-                                    console.log('update petugas aktif day report');
-                                }else{
-                                    console.log('GAGAL update petugas aktif day report');
-                                }
-                            }
-                        });
+                        // $.ajax({
+                        //     type : "POST",
+                        //     url : "<?php echo base_url();?>dashboard/storeEditDayReport", 
+                        //     data : {
+                        //         "t_officer_active" : sortRess.length,
+                        //         "t_officer_active_car" : filterPetugasCarListrik.length + filterPetugasCarFosil.length,
+                        //         "t_officer_active_carListrik" : filterPetugasCarListrik.length,
+                        //         "t_officer_active_carFosil" : filterPetugasCarFosil.length,
+                        //         "t_officer_active_bike" : filterPetugasBikeListrik.length + filterPetugasBikeFosil.length,
+                        //         "t_officer_active_bikeListrik" : filterPetugasBikeListrik.length,
+                        //         "t_officer_active_bikeFosil" : filterPetugasBikeFosil.length,
+                        //         "t_officer_active_not_driving" : filterPetugasNon.length,
+                        //     }, 
+                        //     dataType : "JSON",
+                        //     success : function(result){ 
+                        //         if(result['status'] == true){
+                        //             console.log('update petugas aktif day report');
+                        //         }else{
+                        //             console.log('GAGAL update petugas aktif day report');
+                        //         }
+                        //     }
+                        // });
           
                         filterPetugasCarListrik.forEach(el => { 
                             if(el.handphone != null && el.handphone != '0'){
