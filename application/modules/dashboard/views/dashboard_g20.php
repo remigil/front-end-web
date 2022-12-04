@@ -200,6 +200,17 @@
                         </div>
                     </div>
 
+                    <div class="cat satPasDisplay" style="margin-left: 10px;">
+                        <div class="btn-group">
+                            <label>
+                                <input type="checkbox" value="sat_pas" name="filter" id="satPasDisplay"><span><i class="mdi mdi-chat-alert"></i> SATPAS</span>
+                            </label>
+                            <button id="satPasFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
                 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
@@ -275,6 +286,10 @@
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="pos_pam" id="pos_pam" class="form-input" >  
                                         <span>POS PAM</span> 
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="sat_pas" id="sat_pas" class="form-input" >  
+                                        <span>SATPAS</span> 
                                     </div> 
 
                                     <div class="col-md-6">
@@ -964,6 +979,18 @@
         </div>
     </div>
 </div>
+<div class="modal right fade" id="myModalSatPasDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelSatPasDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelSatPasDisplay">SATPAS</h5>   &nbsp;<span class="badge bg-danger rounded-pill" id="totalSatPasDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalSatPasDisplay" style="width: 550px;">  
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal right fade" id="myModalClusterDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelClusterDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1149,6 +1176,7 @@
     var markerBlankSpot = new Array();
     var markerRestArea = new Array();
     var markerPosPam = new Array();
+    var markerSatPas = new Array();
 
 
     var routingJadwalRenpam = new Array();
@@ -1179,6 +1207,7 @@
     var blankSpotClusterGroup;
     var restAreaClusterGroup;
     var posPamClusterGroup;
+    var satPasClusterGroup;
 
     var userDataTable;
 
@@ -5498,6 +5527,18 @@
                 });
             }
         });
+
+        satPasClusterGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return new L.DivIcon({
+                    html: `
+                <div style="width: 35px; height: 35px; border-radius: 50%; background-color:#a50000;text-align: center;margin-top: -1px;margin-left: -1px;">
+                <b style="top: 8px;position: relative; font-size: 12px; color:#ffffff;"><i class="mdi mdi-alert"></i>${cluster.getChildCount()}</b>
+                </div>`
+                });
+            }
+        });
+
         cctvClusterGroup = L.markerClusterGroup({
             iconCreateFunction: function(cluster) {
                 return new L.DivIcon({ html: `
@@ -5614,6 +5655,14 @@
             }
             markerPosPam = new Array();
 
+            for (let i = 0; i < markerSatPas.length; i++) {
+                // mapContainer.removeLayer(markerSatPas[i]);
+                if(markerSatPas[i]){
+                    satPasClusterGroup.removeLayer(markerSatPas[i]);
+                }
+            }
+            markerSatPas = new Array();
+
             for (let i = 0; i < markerFasum.length; i++) { 
                 mapContainer.removeLayer(markerFasum[i]);
             }
@@ -5674,6 +5723,7 @@
                     var ressBlankSpot = result['data']['blank_spot'];
                     var ressRestArea = result['data']['rest_area'];
                     var ressPosPam = result['data']['pos_pam'];
+                    var ressSatPas = result['data']['sat_pas'];
 
                     var ressLAP = result['data']['titik_laporan'];
                     var ressPanic = result['data']['titik_panicButton'];
@@ -6608,6 +6658,134 @@
                         mapContainer.addLayer(posPamClusterGroup);
                     }
 
+                    if(ressSatPas && ressSatPas.length > 0){  
+                        $('#openModalSatPasDisplay').html(`
+                            <table id="datatableSatPasOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th> 
+                                        <th>Alamat</th> 
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="isiModalSatPasDisplay">
+                                </tbody>
+                            </table>                     
+                        `);
+                        var countSatPasDisplay = 0;
+                        var listSatPasDisplay = '';
+                        $('#totalSatPasDisplay').html(ressSatPas.length);
+
+                        var logoMarker = '';
+                        var logoBody = '';
+                        for (let i = 0; i < ressSatPas.length; i++) {  
+                            countSatPasDisplay += 1;
+                            listSatPasDisplay += `
+                                <tr>
+                                    <td>${countSatPasDisplay}</td>
+                                    <td><a href="<?= base_url()?>masterdata/Fasilitasumum" target="_blank">${ressSatPas[i].fasum_name}</a></td> 
+                                    <td>${ressSatPas[i].fasum_address}</td> 
+                                    <td>
+                                        <a class="btn" style="margin-top: -10px;"  
+                                            id="flyToMapFilterSatPas${countSatPasDisplay}"
+                                            data-cord="${ressSatPas[i].fasum_lat},${ressSatPas[i].fasum_lng}" 
+                                            href="javascript:void(0)">
+                                            <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                        </a> 
+                                    </td>
+                                </tr>
+                            `;
+                            $('#isiModalSatPasDisplay').html(listSatPasDisplay); 
+ 
+                            
+                                var latitudeFasum = parseFloat(ressSatPas[i].fasum_lat);
+                                var longitudeFasum = parseFloat(ressSatPas[i].fasum_lng); 
+                                satPasClusterGroup.addLayer( markerSatPas[i] = L.marker([latitudeFasum,longitudeFasum], { icon: L.divIcon({
+                                    // className: 'location-pin',
+                                    html: `<img src="<?php echo url_api();?>fasum_khusus/${ressSatPas[i].fasum_logo}" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                    iconSize: [5, 5],
+                                    iconAnchor: [5, 10]
+                                    // iconAnchor: [10, 33]
+                                    }) }).bindPopup(`
+                                        <div class="text-center" style="width: 500px;height: 400px;overflow-x: hidden;scrollbar-width: thin;overflow-y: auto;"> 
+                                            <div class="row mt-3">
+                                                <div class="col-md-12 col-12" style="margin-left: 210px;margin-bottom: 10px;">
+                                                    <div class="avatar-xl me-3">
+                                                    <a href="javascript:void(0);"><img src="<?php echo url_api();?>fasum_khusus/${ressSatPas[i].fasum_logo}" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;"></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-12 mt-3">
+                                                    <h5>${ressSatPas[i].fasum_name}</h5> 
+                                                    <span>- ${ressSatPas[i].category_fasum.name_category_fasum} -</span>
+                                                </div>
+                                                
+
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Kegiatan</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_description != null ? ressSatPas[i].fasum_description.replace(/\n/g, "<br />") : "-"}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12 mt-2">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Alamat</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_address}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">No Telpon</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_phone}</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>  
+                                                <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="row text-start">
+                                                        <div class="col-md-12 col-12">
+                                                            <p style="font-size: 12px;font-weight: bold;">Waktu</p>  
+                                                            <p style="font-size: 12px; margin-top: -15px;">${ressSatPas[i].fasum_open_time != null ? ressSatPas[i].fasum_open_time : '00:00'} - ${ressSatPas[i].fasum_close_time != null ? ressSatPas[i].fasum_close_time : '00:00'} WITA</p>
+                                                        </div> 
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                        </div> 
+                                `,{minWidth : 100,maxWidth : 900,width : 500})
+                                );  
+                        }
+
+                         
+                        for (let i = 0; i < countSatPasDisplay; i++) { 
+                            $(`#flyToMapFilterSatPas${i+1}`).on("click", function (e) {  
+                                var latlong =  $(this).data('cord').split(',');
+                                var latitude = parseFloat(latlong[0]);
+                                var longitude = parseFloat(latlong[1]);  
+                                mapContainer.flyTo([latitude, longitude], 17); 
+                            });
+                        }
+                        $('#datatableSatPasOnDisplay').DataTable({
+                            responsive: true,
+
+                            scrollX: true,
+
+                            sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                            buttons: ["excel", "csv", "pdf"],
+                            processing: true,
+                            oLanguage: {
+
+                                sSearch: 'Search:'
+
+                            },
+                        }); 
+                        mapContainer.addLayer(satPasClusterGroup);
+                    }
+
                     if(ressLAP && ressLAP.length > 0){  
                         var filterLaporan = ressLAP.filter(function (e) {
                             return e.coordinate.latitude != "" && e.coordinate.longitude != "";
@@ -7508,6 +7686,13 @@
                 $("#posPamDisplay").val();
             }
 
+            if($("#sat_pas").is(':checked')){ 
+                $("#satPasDisplay").prop('checked', true);  
+            }else{
+                $("#satPasDisplay").prop('checked', false); 
+                $("#satPasDisplay").val();
+            }
+
             if($("#cluster").is(':checked')){ 
                 $("#clusterDisplay").prop('checked', true); 
                 // $("#myModalClusterDisplay").modal('show');
@@ -7637,6 +7822,19 @@
             serverSideFilter();
         }); 
 
+        $("#satPasDisplay").on("change", function (e) {   
+            if($(this).is(':checked')){ 
+                openDisplay = this.value; 
+                $("#sat_pas").prop('checked', true);  
+                $("#myModalSatPasDisplay").modal('show');
+            }else{
+                openDisplay = '';
+                $("#sat_pas").prop('checked', false); 
+                $("#sat_pas").val();
+            }
+            serverSideFilter();
+        }); 
+
         $("#kegiatanDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
@@ -7735,6 +7933,9 @@
         });  
         $("#posPamFilterModal").on("click", function (e) {   
             $("#myModalPosPamDisplay").modal('show');
+        });  
+        $("#satPasFilterModal").on("click", function (e) {   
+            $("#myModalSatPasDisplay").modal('show');
         }); 
 
         $("#panicFilterModal").on("click", function (e) {   
@@ -7763,7 +7964,17 @@
                     $("#myModalPanicDisplay").modal('show');
                 } else if(openDisplay == 'jalur_beat'){
                     $("#myModalJalurBeatDisplay").modal('show');
-                } 
+                } else if(openDisplay == 'pos_pam'){
+                    $("#myModalPosPamDisplay").modal('show');
+                } else if(openDisplay == 'sat_pas'){
+                    $("#myModalSatPasDisplay").modal('show');
+                } else if(openDisplay == 'rest_area'){
+                    $("#myModalRestAreaDisplay").modal('show');
+                } else if(openDisplay == 'trouble_spot'){
+                    $("#myModalTroubleSpotDisplay").modal('show');
+                } else if(openDisplay == 'blank_spot'){
+                    $("#myModalBlankSpotDisplay").modal('show');
+                }    
             }else{
                 Swal.fire(
                 `Silahkan Pilih Filter Dahulu!`, 
