@@ -11,7 +11,7 @@
 
     <?php if ($this->session->userdata['role'] == 'G20') { ?>
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-g20.svg">
+        <link rel="shortcut icon" href="<?= url_api(); ?>logo/<?= $this->session->userdata['logo']?>">
     <?php } else { ?>
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
@@ -748,20 +748,20 @@
                         <?php if ($this->session->userdata['role'] == 'G20') { ?>
                             <a href="<?php echo base_url() ?>dashboard" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo']?>" alt="" style="margin-left: -9px;" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo']?>" alt="" style="margin-left: 72px;" height="65">
 
                                 </span>
                             </a>
 
                             <a href="<?php echo base_url() ?>dashboard" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: -9px;" height="40">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo']?>" alt="" style="margin-left: -9px;" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/logo-g20.svg" alt="" style="margin-left: 72px;" height="65">
+                                    <img src="<?= url_api(); ?>logo/<?= $this->session->userdata['logo']?>" alt="" style="margin-left: 72px;" height="65">
 
                                 </span>
                             </a>
@@ -808,8 +808,7 @@
                                 <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                             <?php } else { ?>
                                 <p style="margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h3>
-                                <!-- <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI &nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h3> -->
+                                <h3 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">K3I KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?>  <?= $this->session->userdata['name_operation']?></span></h3>
                             <?php } ?>
                         </div>
 
@@ -1005,6 +1004,27 @@
                                             <li><a href="<?php echo base_url(); ?>fasum/KategoriFasum" data-key="t-register">Kategori Fasilitas Umum</a></li>
                                         </ul>
                                     </li> -->
+
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow">
+                                        <img src="<?= base_url('assets/sidebar/icon-laporan.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span data-key="t-laporan">Spot</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li>
+                                            <a href="<?= base_url('troublespot') ?>">
+                                                <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <span data-key="t-troublespot">TroubleSpot</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url('blankspot/Blankspot') ?>">
+                                                <img src="<?= base_url('assets/sidebar/icon-ditregident.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                                <span data-key="t-blackspot">BlackSpot</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
 
                                 <li>
                                     <a href="<?php echo base_url(); ?>masterdata/Cctv">

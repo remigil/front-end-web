@@ -23,9 +23,7 @@ class Troublespot extends MY_Controller
         $page_content["title"] = "Troublespot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            // $page_content["page"] = "troublespot/G20/list_g20";
-            redirect(base_url('404_notfound'));
-            die;
+            $page_content["page"] = "troublespot/Korlantas/list_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/list_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
@@ -181,7 +179,7 @@ class Troublespot extends MY_Controller
         $page_content["title"] = "Troublespot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "troublespot/G20/detail_g20";
+            $page_content["page"] = "troublespot/Korlantas/detail_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/detail_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
@@ -278,7 +276,7 @@ class Troublespot extends MY_Controller
         $page_content["title"] = "Troublespot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "troublespot/G20/edit_G20";
+            $page_content["page"] = "troublespot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "troublespot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {

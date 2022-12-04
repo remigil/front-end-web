@@ -50,6 +50,31 @@ class Login extends MX_Controller
                 $data_session['tokenFcm']       = $tokenNotif;
                 $data_session['logged']       = 1;
 
+                
+                $headers = [
+                    'Authorization' => $response['token'],
+                ];
+                $operationProfile = guzzle_request('GET', 'operation-profile/mobile', [
+                    'headers' => $headers
+                ]); 
+
+                if($response['user']['data']['user_role']['name'] == 'G20' && $operationProfile['isSuccess'] == true){
+                    $data_session['id_operation']       = $operationProfile['data']['id_operation'];
+                    $data_session['banner']       = $operationProfile['data']['banner'];
+                    $data_session['name_operation']       = $operationProfile['data']['name_operation'];
+                    $data_session['document_sprint']       = $operationProfile['data']['document_sprint'];
+                    $data_session['background_image']       = $operationProfile['data']['background_image'];
+                    $data_session['logo']       = $operationProfile['data']['logo'];
+                    $data_session['latlng_center']       = $operationProfile['data']['latlng_center'];
+                    $data_session['zoom_level']       = $operationProfile['data']['zoom_level'];
+                    $data_session['date_start_operation']       = $operationProfile['data']['date_start_operation'];
+                    $data_session['date_end_operation']       = $operationProfile['data']['date_end_operation'];  
+                } else {
+                    $this->session->set_flashdata('error', 'Sedang tidak ada Operasi yang Berjalan!');
+                    redirect('login');
+                    die;
+                }
+
                 if ($response['user']['data']['user_role']['name'] == 'OperatorPolda' || $response['user']['data']['user_role']['name'] == 'Kapolda') {
                     $data_session['polda']       = $response['user']['data']['polda_profile']['polda']['name_polda'];
 

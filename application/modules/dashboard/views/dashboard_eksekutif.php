@@ -187,7 +187,7 @@
                     <div class="cat blank_spotDisplay" style="margin-left: 10px;">
                         <div class="btn-group">
                             <label>
-                                <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Blank Spot</span>
+                                <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Black Spot</span>
                             </label>
                             <button id="blankSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                 <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -272,7 +272,7 @@
                                         <span>Cluster</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <input checked type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input">
+                                        <input type="checkbox" name="filter" value="gpsId" id="gpsId" class="form-input">
                                         <span>Kendaraan Listrik</span>
                                     </div>
                                     <div class="col-md-6">
@@ -281,7 +281,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <input type="checkbox" name="filter" value="blankspot" id="blank_spot" class="form-input">
-                                        <span>Blank Spot</span>
+                                        <span>Black Spot</span>
                                     </div>
                                     <div class="col-md-12 mt-3" id="menuKategori">
                                         <p style="font-size: 17px;">Fasilitas Umum Kategori</p>
@@ -1077,7 +1077,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary ">
-                <h5 class="modal-title text-white" id="myLargeModalLabelBlankSpotDisplay">Blank Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlankSpotDisplay"></span>
+                <h5 class="modal-title text-white" id="myLargeModalLabelBlankSpotDisplay">Black Spot</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalBlankSpotDisplay"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="openModalBlankSpotDisplay" style="width: 550px;">
@@ -1194,6 +1194,8 @@
     var samsatClusterGroup;
     var troubleSpotClusterGroup;
     var blankSpotClusterGroup;
+    var restAreaClusterGroup;
+    var posPamClusterGroup;
 
     var jadwalClusterGroup;
     var fasumKhususClusterGroup;

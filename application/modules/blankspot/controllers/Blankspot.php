@@ -23,9 +23,7 @@ class Blankspot extends MY_Controller
         $page_content["title"] = "Blankspot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            // $page_content["page"] = "blankspot/G20/list_g20";
-            redirect(base_url('404_notfound'));
-            die;
+            $page_content["page"] = "blankspot/Korlantas/list_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "blankspot/Korlantas/list_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
@@ -181,7 +179,7 @@ class Blankspot extends MY_Controller
         $page_content["title"] = "Blankspot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "blankspot/G20/detail_g20";
+            $page_content["page"] = "blankspot/Korlantas/detail_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "blankspot/Korlantas/detail_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'OperatorPolda') {
@@ -250,7 +248,7 @@ class Blankspot extends MY_Controller
         $page_content["title"] = "Blankspot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "blankspot/G20/tambah_G20";
+            $page_content["page"] = "blankspot/Korlantas/tambah_Korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "blankspot/Korlantas/tambah_Korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
@@ -278,7 +276,7 @@ class Blankspot extends MY_Controller
         $page_content["title"] = "Blankspot";
 
         if ($this->session->userdata['role'] == 'G20') {
-            $page_content["page"] = "blankspot/G20/edit_G20";
+            $page_content["page"] = "blankspot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Korlantas') {
             $page_content["page"] = "blankspot/Korlantas/edit_korlantas";
         } else if ($this->session->userdata['role'] == 'Kapolda') {
