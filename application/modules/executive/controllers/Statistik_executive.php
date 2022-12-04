@@ -62,6 +62,72 @@ class Statistik_executive extends MY_Controller
         $this->templates->loadTemplate($page_content);
     }
 
+    public function getLakaDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
+
+        $url_thisDay = 'laka_lantas/date?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'laka_lantas/date?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+        $insiden_kecelakaan = 0;
+        $luka_ringan = 0;
+        $luka_berat = 0;
+        $meninggal_dunia = 0;
+        foreach ($thisYear['data'] as $key) {
+            $insiden_kecelakaan += $key['insiden_kecelakaan'];
+            $luka_ringan += $key['luka_ringan'];
+            $luka_berat += $key['luka_berat'];
+            $meninggal_dunia  += $key['meninggal_dunia'];
+        }
+
+        $data['thisYear'] = [
+            'insiden_kecelakaan' => $insiden_kecelakaan,
+            'luka_ringan' => $luka_ringan,
+            'luka_berat' => $luka_berat,
+            'meninggal_dunia' => $meninggal_dunia
+        ];
+
+        $data['lakaDate'] = [
+            'thisDay' => $thisDay['data'][0]['insiden_kecelakaan'],
+            'thisDayLR' => $thisDay['data'][0]['luka_ringan'],
+            'thisDayLB' => $thisDay['data'][0]['luka_berat'],
+            'thisDayMD' => $thisDay['data'][0]['meninggal_dunia'],
+            'thisMonth' => $thisMonth['data'][0]['insiden_kecelakaan'],
+            'thisMonthLR' => $thisMonth['data'][0]['luka_ringan'],
+            'thisMonthLB' => $thisMonth['data'][0]['luka_berat'],
+            'thisMonthMD' => $thisMonth['data'][0]['meninggal_dunia'],
+            'thisYear' => $insiden_kecelakaan,
+            'thisYearLR' => $luka_ringan,
+            'thisYearLB' => $luka_berat,
+            'thisYearMD' => $meninggal_dunia
+
+        ];
+
+        echo json_encode($data['lakaDate']);
+    }
     public function getDetailStatistikLakaLantas()
     {
         $title = 'TOP DATA KECELAKAAN LALU LINTAS';
@@ -246,7 +312,118 @@ class Statistik_executive extends MY_Controller
         $data['title'] = 'DATA PELANGGARAN LALU LINTAS';
         $this->load->view('executive/statistik/detail_statistik_garlantas', $data);
     }
+    public function getGarlantasDate()
+    {
+        $yesterday = $this->input->post('yesterday');
+        $firstDayMonth = $this->input->post('firstDayMonth');
+        $lastDayMonth = $this->input->post('lastDayMonth');
+        $firstDay = $this->input->post('firstDay');
+        $lastDay = $this->input->post('lastDay');
 
+        $url_thisDay = 'garlantas/daily?type=day&filter=true&start_date=' . $yesterday . '&end_date=' . $yesterday . '';
+        $url_thisMonth = 'garlantas/daily?type=month&filter=true&start_date=' . $firstDayMonth . '&end_date=' . $lastDayMonth . '';
+        $url_thisYear = 'garlantas/daily?type=month&filter=true&start_date=' . $firstDay . '&end_date=' . $lastDay . '';
+
+
+        $thisDay = guzzle_request('GET', $url_thisDay, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisMonth = guzzle_request('GET', $url_thisMonth, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisYear = guzzle_request('GET', $url_thisYear, [
+            'headers' => [
+                'Authorization' => $this->session->userdata['token']
+            ]
+        ]);
+
+        $thisDayPB = 0;
+        $thisDayPS = 0;
+        $thisDayPR = 0;
+        $thisDayT = 0;
+        $thisDayTL = 0;
+        foreach ($thisDay['data']['rows'] as $key) {
+            $thisDayPB += $key['pelanggaran_berat'];
+            $thisDayPS += $key['pelanggaran_sedang'];
+            $thisDayPR += $key['pelanggaran_ringan'];
+            $thisDayT  += $key['teguran'];
+            $thisDayTL  += $key['total'];
+        }
+
+        $data['thisDay'] = [
+            'pelanggaran_berat' => $thisDayPB,
+            'pelanggaran_sedang' => $thisDayPS,
+            'pelanggaran_ringan' => $thisDayPR,
+            'teguran' => $thisDayT,
+            'total' => $thisDayTL,
+        ];
+        $thisMonthPB = 0;
+        $thisMonthPS = 0;
+        $thisMonthPR = 0;
+        $thisMonthT = 0;
+        $thisMonthTL = 0;
+        foreach ($thisMonth['data']['rows'] as $key) {
+            $thisMonthPB += $key['pelanggaran_berat'];
+            $thisMonthPS += $key['pelanggaran_sedang'];
+            $thisMonthPR += $key['pelanggaran_ringan'];
+            $thisMonthT  += $key['teguran'];
+            $thisMonthTL  += $key['total'];
+        }
+
+        $data['thisMonth'] = [
+            'pelanggaran_berat' => $thisMonthPB,
+            'pelanggaran_sedang' => $thisMonthPS,
+            'pelanggaran_ringan' => $thisMonthPR,
+            'teguran' => $thisMonthT,
+            'total' => $thisMonthTL,
+        ];
+        $thisYearPB = 0;
+        $thisYearPS = 0;
+        $thisYearPR = 0;
+        $thisYearT = 0;
+        $thisYearTL = 0;
+        foreach ($thisYear['data']['rows'] as $key) {
+            $thisYearPB += $key['pelanggaran_berat'];
+            $thisYearPS += $key['pelanggaran_sedang'];
+            $thisYearPR += $key['pelanggaran_ringan'];
+            $thisYearT  += $key['teguran'];
+            $thisYearTL  += $key['total'];
+        }
+
+        $data['thisYear'] = [
+            'pelanggaran_berat' => $thisYearPB,
+            'pelanggaran_sedang' => $thisYearPS,
+            'pelanggaran_ringan' => $thisYearPR,
+            'teguran' => $thisYearT,
+            'total' => $thisYearTL,
+        ];
+
+        $data['garlantasDate'] = [
+            'thisDayTotal' => $data['thisDay']['total'],
+            'thisDayPB' => $data['thisDay']['pelanggaran_berat'],
+            'thisDayPS' => $data['thisDay']['pelanggaran_sedang'],
+            'thisDayPR' => $data['thisDay']['pelanggaran_ringan'],
+            'thisDayT' => $data['thisDay']['total'],
+            'thisMonthTotal' => $data['thisMonth']['total'],
+            'thisMonthPB' => $data['thisMonth']['pelanggaran_berat'],
+            'thisMonthPS' => $data['thisMonth']['pelanggaran_sedang'],
+            'thisMonthPR' => $data['thisMonth']['pelanggaran_ringan'],
+            'thisMonthT' => $data['thisMonth']['total'],
+            'thisYearTotal' => $data['thisYear']['total'],
+            'thisYearPB' => $data['thisYear']['pelanggaran_berat'],
+            'thisYearPS' => $data['thisYear']['pelanggaran_sedang'],
+            'thisYearPR' => $data['thisYear']['pelanggaran_ringan'],
+            'thisYearT' => $data['thisYear']['total'],
+        ];
+
+        echo json_encode($data['garlantasDate']);
+    }
     public function getDetailStatistikGarlantas()
     {
         $title = 'TOP DATA PELANGGARAN LALU LINTAS';

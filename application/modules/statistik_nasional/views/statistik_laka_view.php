@@ -10,7 +10,7 @@
              <!-- <a href="http://34.143.227.90:3001/v1/laporan_harian/export_laphar" class="text-center"><button class="btn btn-outline-primary" style="width: 200px; border-color:#007DD8;">Export Laporan</button></a> -->
          </div>
      </div>
-     
+
      <div class="card mt-5 p-1 shadow" style="border-radius:36px !important;">
          <div class="row m-2">
              <div class="col-sm-4 col-md-5 align-self-center">
@@ -23,12 +23,21 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Harian</h4>
+                                         <h5 class="mb-0 ms-3">Hari Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisDay"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-12 ms-n3 mt-1">
+                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayLR"></span></span>
+                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayLB"></span></span>
+                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisDayMD"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -38,12 +47,21 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Bulanan</h4>
+                                         <h5 class="mb-0 ms-3">Bulan Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisMonth"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
                                      </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-12 ms-n3 mt-1">
+                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthLR"></span></span>
+                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthLB"></span></span>
+                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisMonthMD"></span></span>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                              </div>
                          </div>
@@ -53,11 +71,20 @@
                              <div class="card-body p-1">
                                  <div class="row justify-content-between align-items-center" style="height: 80px;">
                                      <div class="col-md-7">
-                                         <h4 class="mb-0 ms-3">Tahunan</h4>
+                                         <h5 class="mb-0 ms-3">Tahun Ini</h5>
                                      </div>
                                      <div class="col-md-5 float-end">
                                          <h1 class="text-center mb-0" style="color:#464646; font-size:25px; color:#2e93e6;" id="lakaThisYear"></h1>
                                          <p class="text-center mb-0">Kejadian</p>
+                                     </div>
+                                     <div class="col-md-12 ms-3">
+                                         <div class="row">
+                                             <div class="col-md-12 ms-n3 mt-1">
+                                                 <span class="fw-bold">LR : <span class="text-success" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearLR"></span></span>
+                                                 <span class="fw-bold">LB : <span class="text-warning" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearLB"></span></span>
+                                                 <span class="fw-bold">MD : <span class="text-danger" style="border-radius:10px;border: solid grey 0.5px; padding:5px" id="lakaThisYearMD"></span></span>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
@@ -68,7 +95,53 @@
          </div>
      </div>
  </div>
+ <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Data Kecelekaan</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <div class="row">
+                     <div class="col-md-12">
+                         <span>Hari Ini</span> <br>
+                         <span>Insiden Kejadian : 10</span> <br>
+                         <span>Korban Luka Berat : 10</span><br>
+                         <span>Korban Luka Ringan : 10</span><br>
+                         <span>Korban Meninggal Dunia : 10</span><br>
+                         <!-- <span>D : 10</span><br> -->
+                     </div>
+                     <!-- <div class="col-md-3">
+                         <span>Perpanjangan</span> <br>
+                         <span>A : 10</span> <br>
+                         <span>AU : 10</span> <br>
+                         <span>C : 10</span><br>
+                         <span>C1 : 10</span><br>
+                         <span>C2 : 10</span><br>
+                         <span>D : 10</span><br>
+                         <span>D1 : 10</span><br>
+                         <span>B1 : 10</span><br>
+                         <span>B1U : 10</span><br>
+                         <span>B2 : 10</span><br>
+                         <span>B2U : 10</span><br>
+                     </div>
+                     <div class="col-md-3">
+                         <span>Peningkatan</span> <br>
+                         <span>AU : 10</span> <br>
+                         <span>B1 : 10</span><br>
+                         <span>B1U : 10</span><br>
+                         <span>B2 : 10</span><br>
+                         <span>B2U : 10</span><br>
+                     </div> -->
+                 </div>
+             </div>
 
+         </div>
+     </div>
+ </div>
 
  <?php $mobile = detect_mobile();
     if ($mobile === true) { ?>
@@ -412,7 +485,7 @@
          topLakaMonth(firstDayMonth, lastDayMonth);
          topLakaYear(firstDay, lastDay)
 
-         ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
+         laka_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay)
 
          LakalineChart(seven_daysAgo, yesterday)
          jam();
@@ -550,10 +623,10 @@
      })
 
 
-     function ditgakkum_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
+     function laka_daily(yesterday, firstDayMonth, lastDayMonth, firstDay, lastDay) {
          $.ajax({
              type: "POST",
-             url: "<?php echo base_url(); ?>executive/statistik_executive/getDitgakkumDate",
+             url: "<?php echo base_url(); ?>executive/statistik_executive/getLakaDate",
              dataType: "JSON",
              data: {
                  yesterday,
@@ -563,11 +636,20 @@
                  lastDay
              },
              success: function(result) {
+                 console.log(result);
                  $("#overlay").fadeOut(300);
-                 $('#lakaThisDay').text(result.thisDay[0].lakalantas)
-                 $('#lakaThisMonth').text(result.thisMonth[0].lakalantas)
-                 $('#lakaThisYear').text(result.thisYear.lakalantas)
-
+                 $('#lakaThisDay').text(result.thisDay)
+                 $('#lakaThisDayLR').text(result.thisDayLR)
+                 $('#lakaThisDayLB').text(result.thisDayLB)
+                 $('#lakaThisDayMD').text(result.thisDayMD)
+                 $('#lakaThisMonth').text(result.thisMonth)
+                 $('#lakaThisMonthLR').text(result.thisMonthLR)
+                 $('#lakaThisMonthLB').text(result.thisMonthLB)
+                 $('#lakaThisMonthMD').text(result.thisMonthMD)
+                 $('#lakaThisYear').text(result.thisYear)
+                 $('#lakaThisYearLR').text(result.thisYearLR)
+                 $('#lakaThisYearLB').text(result.thisYearLB)
+                 $('#lakaThisYearMD').text(result.thisYearMD)
              }
          })
      }
