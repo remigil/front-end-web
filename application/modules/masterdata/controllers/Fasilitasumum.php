@@ -57,22 +57,59 @@ class Fasilitasumum extends MY_Controller
 
         $page_content["css"] = '';
         $page_content["js"] = ''; 
-
-        // if ($this->session->userdata['role'] == 'G20') {
-        //     $page_content["title"] = "Cluster";
-        //     $page_content["page"] = "masterdata/G20/fasum_radius_view";
-        // } else if ($this->session->userdata['role'] == 'Korlantas') {
-        //     $page_content["title"] = "Fasilitas Umum";
-        //     $page_content["page"] = "masterdata/Korlantas/fasum_view";
-        // } else if ($this->session->userdata['role'] == 'Kapolda') {
-        //     $page_content["title"] = "Fasilitas Umum";
-        //     $page_content["page"] = "masterdata/Kapolda/fasum_view";
-        // } else if ($this->session->userdata['role'] == 'Polres') {
-        //     $page_content["title"] = "Fasilitas Umum";
-        //     $page_content["page"] = "masterdata/Polres/fasum_view";
-        // }
+ 
         $page_content["title"] = "Cluster";
         $page_content["page"] = "masterdata/G20/fasum_radius_view";
+
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        if($getCategory['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+        $data['getCategory'] = $getCategory['data']['data'];
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function restArea()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+ 
+        $page_content["title"] = "Rest Area";
+        $page_content["page"] = "masterdata/G20/restArea_view";
+
+        $getCategory = guzzle_request('GET', 'category_fasum', [
+            'headers' => $headers
+        ]);
+        if($getCategory['isSuccess'] == false){
+            redirect(base_url('404_notfound'));
+            die;
+        }
+        
+        $data['getCategory'] = $getCategory['data']['data'];
+        $page_content["data"] = $data;
+        $this->templates->loadTemplate($page_content);
+    }
+
+    public function posPam()
+    {
+		$headers = [
+            'Authorization' => $this->session->userdata['token'],
+        ];
+
+        $page_content["css"] = '';
+        $page_content["js"] = ''; 
+ 
+        $page_content["title"] = "POS PAM";
+        $page_content["page"] = "masterdata/G20/posPam_view";
 
         $getCategory = guzzle_request('GET', 'category_fasum', [
             'headers' => $headers
