@@ -117,7 +117,7 @@
                         <div class="cat cctvDisplay"> 
                             <div class="btn-group">
                                 <label>
-                                <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                                <input type="checkbox" value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
                                 </label>
                                 <button id="cctvFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
                                     <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
@@ -254,7 +254,7 @@
                                         <span>VIP</span> 
                                     </div> 
                                     <div class="col-md-6">
-                                        <input type="checkbox" checked name="filter" value="cctv" id="cctv" class="form-input" >  
+                                        <input type="checkbox" name="filter" value="cctv" id="cctv" class="form-input" >  
                                         <span>CCTV</span> 
                                     </div>  
     
