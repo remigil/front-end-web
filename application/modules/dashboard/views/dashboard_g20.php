@@ -2025,7 +2025,7 @@
                                             </div>
 
                                             <div class="col-md-12 mt-3">
-                                                <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+                                                <button class="btn btn-primary float-end" onClick="mapContainer.flyTo([latitude, longitude], 20);">Selengkapnya</button>
                                             </div>
                                             </div>
                                     </div>
