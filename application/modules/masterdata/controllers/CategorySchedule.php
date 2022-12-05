@@ -188,18 +188,18 @@ class CategorySchedule extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        if( 
-            backdoorCek($input['name']) == 1 ||
-            backdoorCek($input['keterangan']) == 1
-        ){
-            $res = array(
-                'status' => false,
-                'message' => 'Terindikasi inputan tidak sesuai standart!',
-                'data' => []
-            );
-            echo json_encode($res);
-            die;
-        }
+        // if( 
+        //     backdoorCek($input['name']) == 1 ||
+        //     backdoorCek($input['keterangan']) == 1
+        // ){
+        //     $res = array(
+        //         'status' => false,
+        //         'message' => 'Terindikasi inputan tidak sesuai standart!',
+        //         'data' => []
+        //     );
+        //     echo json_encode($res);
+        //     die;
+        // }
 
         $dummy = [
             [
