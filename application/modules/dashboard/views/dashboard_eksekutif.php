@@ -28,173 +28,175 @@
 
                 </div>
 
-                <div style="position: absolute;left: 330px;width: 1500px;top: 6px;">
-
-                    <div class="cat poldaDisplay" style="margin-left: 10px; ">
-                        <div class="btn-group">
-                            <label>
-                                <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
-                            </label>
-                            <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cat polresDisplay" style="margin-left: 10px; ">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
-                            </label>
-                            <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none;">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
-                            </label>
-                            <button id="jalurBeatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cat" style="margin-left: 10px; ">
-                        <label>
-
-                            <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fas fa-user-shield"></i> Petugas
+                <div class="row">
+                    <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
+    
+                        <div class="cat poldaDisplay" style="margin-left: 10px; ">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
+                                </label>
+                                <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
                             </div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span>
+                        </div>
+                        <div class="cat polresDisplay" style="margin-left: 10px; ">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
                                 </label>
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r4Listrik" name="filter" id="r4ListrikDisplay"><span style="text-align: start;" id="loadR4ListrikDisplay">R4 Listrik</span>
-                                </label>
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r2Fosil" name="filter" id="r2FosilDisplay"><span style="text-align: start;" id="loadR2FosilDisplay">R2 Fosil</span>
-                                </label>
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span>
-                                </label>
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span>
-                                </label>
-                                <label class="dropdown-item" style="width: 100%;height: 100%;">
-                                    <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                        List Personil Lantas
-                                    </button>
-                                </label>
-
-
+                                <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
                             </div>
-                        </label>
-                    </div>
-                    <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
-                        <div class="btn-group">
-                            <label>
-                                <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
-                            </label>
-                            <button id="fasumFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
                         </div>
-                    </div>
-                    <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
-                        <div class="btn-group">
-                            <label>
-                                <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
-                            </label>
-                            <button id="clusterFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+                        <div class="cat jalurBeatDisplay" style="margin-left: 10px; display:none;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="jalur_beat" name="filter" id="jalurBeatDisplay"><span><i class="fa fas fa-route"></i> Jalur Beat</span>
+                                </label>
+                                <button id="jalurBeatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
-                        <label>
-                            <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
-                        </label>  
-                    </div> -->
-
-                    <div class="cat kegiatanDisplay" style="display:none">
-                        <div class="btn-group">
+                        <div class="cat" style="margin-left: 10px; ">
                             <label>
-                                <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+    
+                                <div class="dropdown-toggle" id="dropdownMenuButtonDisplay" style="padding-top: 3px;color: #1967d2;" data-bs-toggle="dropdown" aria-expanded="false">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fas fa-user-shield"></i> Petugas&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonDisplay">
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r2Listrik" name="filter" id="r2ListrikDisplay"><span style="text-align: start;" id="loadR2ListrikDisplay">R2 Listrik</span>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r4Listrik" name="filter" id="r4ListrikDisplay"><span style="text-align: start;" id="loadR4ListrikDisplay">R4 Listrik</span>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r2Fosil" name="filter" id="r2FosilDisplay"><span style="text-align: start;" id="loadR2FosilDisplay">R2 Fosil</span>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="r4Fosil" name="filter" id="r4FosilDisplay"><span style="text-align: start;" id="loadR4FosilDisplay">R4 Fosil</span>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <input checked type="checkbox" value="gatur" name="filter" id="gaturDisplay"><span style="text-align: start;" id="loadGaturDisplay">Gatur</span>
+                                    </label>
+                                    <label class="dropdown-item" style="width: 100%;height: 100%;">
+                                        <button id="petugasFilterModal" class="btn" style="color: #5f95df; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                            List Personil Lantas
+                                        </button>
+                                    </label>
+    
+    
+                                </div>
                             </label>
-                            <button id="jadwalFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
                         </div>
-                    </div>
-
-                    <div class="cat cctvDisplay">
-                        <div class="btn-group">
+                        <div class="cat fasumKhususDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="fasum_khusus" name="filter" id="fasumKhususDisplay"><span><i class="fa far fa-building"></i> Fasum Khusus</span>
+                                </label>
+                                <button id="fasumFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat clusterDisplay" style="margin-left: 10px; display:none">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="cluster" name="filter" id="clusterDisplay"><span><i class="fa fas fa-vector-square"></i> Cluster</span>
+                                </label>
+                                <button id="clusterFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- <div class="cat gpsIdDisplay" style="margin-left: 10px;">  
                             <label>
-                                <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
-                            </label>
-                            <button id="cctvFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+                                <input type="checkbox" value="gpsId" name="gpsId" id="gpsIdDisplay"><span><i class="fa fas fa-car-side"></i> Kendaraan Listrik</span>
+                            </label>  
+                        </div> -->
+    
+                        <div class="cat kegiatanDisplay" style="display:none">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="jadwal_kegiatan" name="filter" id="kegiatanDisplay"><span><i class="mdi mdi-card-account-details-star"></i> Jadwal Kegiatan</span>
+                                </label>
+                                <button id="jadwalFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cat operasiDisplay" style="display:none">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
-                            </label>
-                            <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+    
+                        <div class="cat cctvDisplay">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" checked value="cctv" name="filter" id="cctvDisplay"><span><i class="mdi mdi-camera-marker"></i> CCTV</span>
+                                </label>
+                                <button id="cctvFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="cat panicDisplay" style="margin-left: 10px; display:none">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
-                            </label>
-                            <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+                        <div class="cat operasiDisplay" style="display:none">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="titik_laporan" name="filter" id="operasiDisplay"><span><i class="mdi mdi-clipboard-flow"></i> Laporan</span>
+                                </label>
+                                <button id="operasiFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="cat samsatDisplay" style="margin-left: 10px;">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
-                            </label>
-                            <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+    
+                        <div class="cat panicDisplay" style="margin-left: 10px; display:none">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="titik_panicButton" name="filter" id="panicDisplay"><span><i class="mdi mdi-chat-alert"></i> Panic Button</span>
+                                </label>
+                                <button id="panicFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="cat trouble_spotDisplay" style="margin-left: 10px;">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="trouble_spot" name="filter" id="trouble_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
-                            </label>
-                            <button id="troubleSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+    
+                        <div class="cat samsatDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="samsat" name="filter" id="samsatDisplay"><span><i class="mdi mdi-chat-alert"></i> Samsat</span>
+                                </label>
+                                <button id="samsatFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="cat blank_spotDisplay" style="margin-left: 10px;">
-                        <div class="btn-group">
-                            <label>
-                                <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Black Spot</span>
-                            </label>
-                            <button id="blankSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
-                                <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
-                            </button>
+    
+                        <div class="cat trouble_spotDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="trouble_spot" name="filter" id="trouble_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Trouble Spot</span>
+                                </label>
+                                <button id="troubleSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
                         </div>
+    
+                        <div class="cat blank_spotDisplay" style="margin-left: 10px;">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="blank_spot" name="filter" id="blank_spotDisplay"><span><i class="mdi mdi-chat-alert"></i> Black Spot</span>
+                                </label>
+                                <button id="blankSpotFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+    
                     </div>
-
                 </div>
 
                 <div class="dropdown-menu" style="background: transparent; border: transparent; box-shadow: none;">
