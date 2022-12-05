@@ -1972,6 +1972,7 @@
                         
                         var resource = '';
 
+                        countPoldaDisplay += 1;
                         markerPolda[i] = L.marker([latitude, longitude], {
                             icon: L.divIcon({
                                 // className: 'location-pin',
@@ -2024,9 +2025,9 @@
                                                 </div>    
                                             </div>
 
-                                            <div class="col-md-12 mt-3">
-                                                <button class="btn btn-primary float-end" onClick="mapContainer.flyTo([latitude, longitude], 20);">Selengkapnya</button>
-                                            </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <div class="btn btn-primary float-end" id="flyToMapFilterPolda${countPoldaDisplay}" data-cord=${latitude},${longitude}" >Selengkapnya</div>
+                                                </div>
                                             </div>
                                     </div>
                                         
@@ -2039,7 +2040,7 @@
 
 
 
-                        countPoldaDisplay += 1;
+                        
                         listPoldaDisplay += `
                             <tr>
                                 <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
@@ -2050,13 +2051,14 @@
                         $('#isiModalPoldaDisplay').html(listPoldaDisplay);
                     }
 
-                    for (let i = 0; i < countPoldaDisplay; i++) {
-                        // console.log(`${i+1}`);
+                    for (let i = 0; i < countPoldaDisplay; i++) { 
+                        console.log(`flyToMapFilterPolda${i+1}`);
                         $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
-                            var latlong = $(this).data('cord').split(',');
-                            var latitude = parseFloat(latlong[0]);
-                            var longitude = parseFloat(latlong[1]);
-                            mapContainer.flyTo([latitude, longitude], 20);
+                            alert('adaww');
+                            // var latlong = $(this).data('cord').split(',');
+                            // var latitude = parseFloat(latlong[0]);
+                            // var longitude = parseFloat(latlong[1]);
+                            // mapContainer.flyTo([latitude, longitude], 20);
                         });
                     }
 
