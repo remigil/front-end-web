@@ -8098,6 +8098,10 @@
                     $("#myModalPanicDisplay").modal('show');
                 } else if (openDisplay == 'jalur_beat') {
                     $("#myModalJalurBeatDisplay").modal('show');
+                } else if (openDisplay == 'polres') {
+                    $("#myModalPolresDisplay").modal('show');
+                } else if (openDisplay == 'polda') {
+                    $("#myModalPoldaDisplay").modal('show');
                 }
             } else {
                 Swal.fire(

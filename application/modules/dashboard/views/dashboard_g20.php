@@ -31,6 +31,26 @@
                 <div class="row">
                      
                     <div class="col-md-9" style="left: 330px;top: -53px;width: 80%;">
+                        <div class="cat poldaDisplay" style="margin-left: 10px; ">
+                            <div class="btn-group">
+                                <label>
+                                    <input checked type="checkbox" value="polda" name="filter" id="poldaDisplay"><span><i class="fa fas fa-vector-square"></i> Polda</span>
+                                </label>
+                                <button id="poldaFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cat polresDisplay" style="margin-left: 10px; ">
+                            <div class="btn-group">
+                                <label>
+                                    <input type="checkbox" value="polres" name="filter" id="polresDisplay"><span><i class="fa fas fa-vector-square"></i> Polres</span>
+                                </label>
+                                <button id="polresFilterModal" class="btn" style="color: black; background-color: #ffffff;height: 30px;margin-left: -10px;">
+                                    <i class="mdi mdi-chevron-down" style="bottom: 4px;position: relative;"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="cat jalurBeatDisplay" style="margin-left: 10px;"> 
                             <div class="btn-group">
                                 <label>
@@ -232,6 +252,10 @@
 
                                     <div class="col-md-12 mt-1">
                                         <p style="font-size: 17px;">OPERASI</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="filter" value="polda" id="polda" class="form-input">
+                                        <span>Polda</span>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="checkbox"  name="filter" value="polres" id="polres" class="form-input" >  
@@ -841,6 +865,31 @@
 
 
 <!-- MODAL FOR FILTER -->
+<div class="modal right fade" id="myModalPoldaDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPoldaDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPoldaDisplay">Polda</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPoldaDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalPoldaDisplay" style="width: 300px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="myModalPolresDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelPolresDisplay" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary ">
+                <h5 class="modal-title text-white" id="myLargeModalLabelPolresDisplay">Polres</h5> &nbsp;<span class="badge bg-danger rounded-pill" id="totalPolresDisplay"></span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="openModalPolresDisplay" style="width: 550px;">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal right fade" id="myModalJalurBeatDisplay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelJalurBeatDisplay" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -1170,8 +1219,7 @@
     var markerLaporan = new Array(); 
     var markerFasum = new Array();
     var markerFasumKhusus = new Array();
-    var markerCluster = new Array();
-    var markerPolres = new Array();
+    var markerCluster = new Array(); 
     var routingJadwal = new Array();
 
 
@@ -1181,6 +1229,8 @@
     var markerRestArea = new Array();
     var markerPosPam = new Array();
     var markerSatPas = new Array();
+    var markerPolres = new Array();
+    var markerPolda = new Array();
 
 
     var routingJadwalRenpam = new Array();
@@ -1885,8 +1935,153 @@
         }); 
 
 
-        serverSideGet();
 
+
+        
+        getPolda();
+        function getPolda() {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>dashboard/getPolda",
+                dataType: "JSON",
+                success: function(result) {
+                    $("#overlay").fadeOut(300);
+
+                    let ressData = result;
+                    // console.log();
+
+                    $("#openModalPoldaDisplay").html(`
+                        <table id="datatablePoldaOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                            <thead>
+                                <tr>
+                                    <th>Logo</th>
+                                    <th>Nama</th>
+                                </tr>
+                            </thead>
+                            <tbody id="isiModalPoldaDisplay">
+                            </tbody>
+                        </table>
+                    `);
+                    var countPoldaDisplay = 0;
+                    var listPoldaDisplay = '';
+
+                    for (let i = 0; i < ressData.length; i++) {
+                        id = i;
+                        var latitude = parseFloat(ressData[i].latitude);
+                        var longitude = parseFloat(ressData[i].longitude);
+                        
+                        var resource = '';
+
+                        markerPolda[i] = L.marker([latitude, longitude], {
+                            icon: L.divIcon({
+                                // className: 'location-pin',
+                                html: `<img src="<?= base_url('assets/pin.png') ?>" style="width: 50px; margin-top: -35px;margin-left: -21px;">`,
+                                // html: `<img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 25px; margin-top: -35px;margin-left: -14.5px;">`,
+                                iconSize: [5, 5],
+                                iconAnchor: [5, 10]
+                            })
+                        }).bindPopup(
+                            `<div style="width: 450px;">
+                                        <div class="row">
+                                            <div class="col-md-2 text-center">
+                                                <img src="<?= url_api() . 'polda/logo/' ?>${ressData[i].logo_polda}" style="width: 50px;">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <span class="fs-5 text-uppercase">Polda <b>${ressData[i].name_polda}</b></span><br>
+                                                <span>${ressData[i].address}</span>
+                                            </div>
+                                            <div class="col-md-12 mt-3 text-center">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <span class="fs-6">Total <b> Kecelakaan</b> Lalu Lintas</span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fs-6">Total <b>Pelanggaran</b> Lalu Lintas</span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fs-6">Total <b>Turjagwali</b></span>
+                                                    </div>    
+                                                    <div class="col-md-3">
+                                                        <span class="fs-6">Total <b>Kendaraan Bermotor</b></span>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                            
+                                            <div class="col-md-12 mt-3 text-center">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <span class="fs-3"> <b>${ressData[i].lakalantas}</b></span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <span class="fs-3"> <b>${ressData[i].garlantas}</b></span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <span class="fs-3"> <b>${ressData[i].turjagwali}</b></span>
+                                                    </div>    
+                                                    <div class="col-md-3">
+                                                        <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
+                                                    </div>
+                                                </div>    
+                                            </div>
+
+                                            <div class="col-md-12 mt-3">
+                                                <a href=<?= base_url('executive/Polda_executive/') ?>${ressData[i].id}><button class="btn btn-primary float-end">Selengkapnya</button></a>   
+                                            </div>
+                                            </div>
+                                    </div>
+                                        
+                                `, {
+                                minWidth: 100,
+                                maxWidth: 560,
+                                width: 400
+                            }).addTo(mapContainer);
+
+
+
+
+                        countPoldaDisplay += 1;
+                        listPoldaDisplay += `
+                            <tr>
+                                <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
+                                <td>${ressData[i].name_polda}</td>
+                                
+                            </tr>
+                        `;
+                        $('#isiModalPoldaDisplay').html(listPoldaDisplay);
+                    }
+
+                    for (let i = 0; i < countPoldaDisplay; i++) {
+                        // console.log(`${i+1}`);
+                        $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
+                            var latlong = $(this).data('cord').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]);
+                            mapContainer.flyTo([latitude, longitude], 20);
+                        });
+                    }
+
+                    $('#datatablePoldaOnDisplay').DataTable({
+                        // responsive: true,
+
+                        // scrollX: true,
+
+                        // sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                        // buttons: ["excel", "csv", "pdf"],
+                        processing: true,
+                        oLanguage: {
+                            sSearch: 'Search:'
+                        },
+                        sDom: '<"top"f>t<"bottom"p><"clear">'
+                    });
+
+                }
+            });
+        }
+
+
+        
+        serverSideGet();
         function serverSideGet(){
             $("#overlay").fadeIn(300);   
  
@@ -5684,10 +5879,12 @@
             }
             markerCluster = new Array(); 
 
-            for (let i = 0; i < markerPolres.length; i++) { 
+            for (let i = 0; i < markerPolres.length; i++) {
                 mapContainer.removeLayer(markerPolres[i]);
             }
-            markerPolres = new Array(); 
+            markerPolres = new Array();
+
+         
 
             for (let i = 0; i < markerLaporan.length; i++) { 
                 laporanClusterGroup.removeLayer(markerLaporan[i]);
@@ -5745,37 +5942,58 @@
                             return e.latitude != null && e.longitude != null;
                         }); 
                     }
-                    if(ressPolres && ressPolres.length > 0){  
-                        var filterpolres = ressPolres.filter(function (e) {
+                    
+                    if (ressPolres && ressPolres.length > 0) {
+                        var filterpolres = ressPolres.filter(function(e) {
                             return e.latitude != null && e.longitude != null;
-                        }); 
+                        });
 
-                        if(filterpolres.length > 0){  
+                        if (filterpolres.length > 0) {
                             var logoMarker = '';
                             var logoBody = '';
-                            for (let i = 0; i < filterpolres.length; i++) {  
-        
-                                    var latitudePolres = parseFloat(filterpolres[i].latitude);
-                                    var longitudePolres = parseFloat(filterpolres[i].longitude); 
-            
-                                    markerPolres[i] = L.marker([latitudePolres,longitudePolres], { icon: L.divIcon({
+
+                            $('#openModalPolresDisplay').html(`
+                                <table id="datatablePolresOnDisplay" class="table dt-responsive w-100" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Type</th> 
+                                            <th>Nama</th> 
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="isiModalPolresDisplay">
+                                    </tbody>
+                                </table>                     
+                            `);
+                            var countPolresDisplay = 0;
+                            var listPolresDisplay = '';
+
+                            for (let i = 0; i < filterpolres.length; i++) {
+
+                                var latitudePolres = parseFloat(filterpolres[i].latitude);
+                                var longitudePolres = parseFloat(filterpolres[i].longitude);
+
+                                markerPolres[i] = L.marker([latitudePolres, longitudePolres], {
+                                    icon: L.divIcon({
                                         // className: 'location-pin',
-                                        html: `<img src="<?php echo base_url();?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
+                                        html: `<img src="<?php echo base_url(); ?>assets/icon/polres.png" style="width: 22px;margin-top: -45px;margin-left: -18.5px;">`,
                                         iconSize: [5, 5],
                                         iconAnchor: [5, 10]
                                         // iconAnchor: [10, 33]
-                                        }) }).bindPopup(`
+                                    })
+                                }).bindPopup(`
                                             <div class="text-center" style="width: 300px;"> 
                                                 <div class="row mt-3">
                                                     <div class="col-md-12 col-12" style="margin-left: 110px;margin-bottom: 10px;margin-top: 10px;">
                                                         <div class="avatar-xl me-3">
-                                                            <img src="<?php echo base_url();?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
+                                                            <img src="<?php echo base_url(); ?>assets/icon/polres.png" alt="" class="img-fluid rounded-circle d-block  float-center" style="width: 100%;">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 col-12 mt-3">
+                                                    <div class="col-md-12 mt-3">
                                                         <h5>${filterpolres[i].name_polres}</h5> 
                                                     </div>
-                                                    <div class="col-md-12 col-12 mt-3">
+                                                    <div class="col-md-12 mt-3">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Alamat</span>  
@@ -5788,7 +6006,7 @@
                                                             </div>
                                                         </div> 
                                                     </div> 
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="col-md-12">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Kode</span>  
@@ -5801,7 +6019,7 @@
                                                             </div>
                                                         </div> 
                                                     </div>  
-                                                    <div class="col-md-12 col-12"  style="margin-top: -30px;">
+                                                    <div class="col-md-12" >
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">No Telpon</span>  
@@ -5814,7 +6032,7 @@
                                                             </div>
                                                         </div> 
                                                     </div>  
-                                                    <div class="col-md-12 col-12" style="margin-top: -30px;">
+                                                    <div class="col-md-12">
                                                         <div class="row text-start">
                                                             <div class="col-md-5 col-6">
                                                                 <span style="font-size: 12px;font-weight: bold;">Waktu</span>  
@@ -5829,10 +6047,56 @@
                                                     </div>   
                                                 </div>
                                             </div> 
-                                    `,{minWidth : 100,maxWidth : 560,width : 400}).addTo(mapContainer);  
-                                
+                                    `, {
+                                    minWidth: 100,
+                                    maxWidth: 560,
+                                    width: 400
+                                }).addTo(mapContainer);
 
+                                countPolresDisplay += 1;
+                                listPolresDisplay += `
+                                    <tr>
+                                        <td>${countPolresDisplay}</td>
+                                        <td>${filterpolres[i].name_polres}</td> 
+                                        <td>${filterpolres[i].address}</td> 
+                                        <td>
+                                            <a class="btn" style="margin-top: -10px;"  
+                                                id="flyToMapFilterPolres${countPolresDisplay}"
+                                                data-cord="${filterpolres[i].latitude},${filterpolres[i].longitude}" 
+                                                href="javascript:void(0)">
+                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                `;
+                                $('#isiModalPolresDisplay').html(listPolresDisplay);
                             }
+
+                            for (let i = 0; i < countPolresDisplay; i++) {
+                                // console.log(`${i+1}`);
+                                $(`#flyToMapFilterPolres${i+1}`).on("click", function(e) {
+                                    var latlong = $(this).data('cord').split(',');
+                                    var latitude = parseFloat(latlong[0]);
+                                    var longitude = parseFloat(latlong[1]);
+                                    mapContainer.flyTo([latitude, longitude], 20);
+                                });
+                            }
+
+                            $('#datatablePolresOnDisplay').DataTable({
+                                responsive: true,
+
+                                scrollX: true,
+
+                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+
+                                buttons: ["excel", "csv", "pdf"],
+                                processing: true,
+                                oLanguage: {
+
+                                    sSearch: 'Search:'
+
+                                },
+                            });
                         }
                     }
 
@@ -7694,6 +7958,14 @@
                 $("#posPamDisplay").val();
             }
 
+            if ($("#polres").is(':checked')) {
+                $("#polresDisplay").prop('checked', true);
+                $("#myModalClusterDisplay").modal('show');
+            } else {
+                $("#polresDisplay").prop('checked', false);
+                $("#polresDisplay").val();
+            }
+
             if($("#sat_pas").is(':checked')){ 
                 $("#satPasDisplay").prop('checked', true);  
             }else{
@@ -7749,6 +8021,36 @@
         
 
 
+
+        $("#poldaDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polda").prop('checked', true);
+                getPolda();
+                $("#myModalPoldaDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                for (let i = 0; i < markerPolda.length; i++) {
+                    mapContainer.removeLayer(markerPolda[i]);
+                }
+                markerPolda = new Array();
+                $("#polda").prop('checked', false);
+                $("#polda").val();
+            }
+            serverSideFilter();
+        });
+        $("#polresDisplay").on("change", function(e) {
+            if ($(this).is(':checked')) {
+                openDisplay = this.value;
+                $("#polres").prop('checked', true);
+                $("#myModalPolresDisplay").modal('show');
+            } else {
+                openDisplay = '';
+                $("#polres").prop('checked', false);
+                $("#polres").val();
+            }
+            serverSideFilter();
+        });
         $("#fasumKhususDisplay").on("change", function (e) {   
             if($(this).is(':checked')){ 
                 openDisplay = this.value; 
@@ -7906,6 +8208,13 @@
 
 
 
+
+        $("#poldaFilterModal").on("click", function(e) {
+            $("#myModalPoldaDisplay").modal('show');
+        });
+        $("#polresFilterModal").on("click", function(e) {
+            $("#myModalPolresDisplay").modal('show');
+        });
         $("#jalurBeatFilterModal").on("click", function (e) {   
             $("#myModalJalurBeatDisplay").modal('show'); 
         }); 
@@ -7982,6 +8291,10 @@
                     $("#myModalTroubleSpotDisplay").modal('show');
                 } else if(openDisplay == 'blank_spot'){
                     $("#myModalBlankSpotDisplay").modal('show');
+                } else if (openDisplay == 'polres') {
+                    $("#myModalPolresDisplay").modal('show');
+                } else if (openDisplay == 'polda') {
+                    $("#myModalPoldaDisplay").modal('show');
                 }    
             }else{
                 Swal.fire(
