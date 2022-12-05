@@ -282,8 +282,10 @@ class Dashboard extends MY_Controller
             redirect('divtik/div_tik');
             die;
         } else if ($this->session->userdata['role'] == 'Kapolda') {
+            $id = $this->session->userdata('polda_id');
+            $data['poldaid'] = $this->m_dashboard->get_Poldaid($id);
             $page_content["page"] = "dashboard/Kapolda/dashboard_view";
-            $page_content["data"] = '';
+            $page_content["data"] = $data;
         } else if ($this->session->userdata['role'] == 'Kapolres') {
             $page_content["page"] = "dashboard/Kapolres/dashboard_view";
 

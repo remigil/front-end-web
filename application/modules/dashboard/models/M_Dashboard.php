@@ -13,6 +13,19 @@ class M_dashboard extends CI_Model
         parent::__construct();
         $this->load->helper('guzzle_request_helper');
     }
+    public function get_Poldaid($id)
+    {
+        $data = guzzle_request('GET', 'polda/getId/' . $id, [
+
+            'headers' => [
+
+                'Authorization' => $this->session->userdata['token']
+
+            ]
+
+        ]);
+        return $data['data']['data'];
+    }
 
     public function garlantas_topPolda()
     {

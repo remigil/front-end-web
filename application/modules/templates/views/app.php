@@ -810,7 +810,7 @@
                             <?php } else { ?>
                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                                 <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h4>
-                                 
+
                             <?php } ?>
                         </div>
 
@@ -818,12 +818,9 @@
                         <?php if ($this->session->userdata['role'] == 'Kakorlantas' || $this->session->userdata['role'] == 'Ditkamsel'  || $this->session->userdata['role'] == 'Ditgakkum' || $this->session->userdata['role'] == 'Ditregident' || $this->session->userdata['role'] == 'KaBagOps' || $this->session->userdata['role'] == 'KaBagRenmin' || $this->session->userdata['role'] == 'KaBagTIK') { ?>
                             <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:black"><?php echo $title; ?></h5>
                         <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-                            <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 2px; color:white"><?php echo $title; ?></h5>
-                        <?php } else { ?>
-                            <div>
-                                <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI KORLANTAS POLRI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
-                            </div>
+                            <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                            <h4 style="display: flex;align-items: center;margin-left: -230px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:22px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h4>
+
                         <?php } ?>
 
                     <?php } else { ?>
@@ -854,7 +851,9 @@
                                     <!-- <img src="<?= base_url('assets/sidebar/lonceng-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                     <i data-feather="bell" class="icon-lg"></i>
                                 <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-                                    <img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                    <i data-feather="bell" class="icon-lg"></i>
+
+                                    <!-- <img src="<?= base_url('assets/sidebar/icon-notif.svg') ?>" alt="" style="width: 20px; margin-right:10px"> -->
                                 <?php } else { ?>
                                     <i data-feather="bell" class="icon-lg"></i>
                                 <?php } ?>
@@ -896,7 +895,9 @@
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium">Hi, &nbsp;<?php echo $this->session->userdata['full_name']; ?></span>
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar">
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium">Hi, Polda <?= $data['poldaid']['name_polda']; ?></span>
+                                <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/sidebar/icon-profile.svg" alt="Header Avatar"> -->
 
                             <?php } else { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
@@ -1560,9 +1561,23 @@
 
                             <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
+                                    <a href="<?= base_url('dashboard'); ?>" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <span class="" data-key="t-dashboard">Beranda</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url(); ?>" target="_blank">
+                                        <img src="<?= base_url('assets/sidebar/icon-rekapitulasi-grafik.svg') ?>" alt="" style="width: 20px; margin-right:10px">
+                                        <!-- <span class="" data-key="t-dashboard">Statistik Polda&nbsp;<?= $this->session->userdata['polda']; ?></span> -->
+                                        <span data-key="t-authentication" style="color: white;">Statistik Polda&nbsp;<?= $this->session->userdata['polda']; ?></span>
+
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="javascript: void(0);" class="has-arrow">
                                         <img src="<?= base_url('assets/sidebar/Subsatker.svg') ?>" alt="" style="width: 20px; margin-right:10px; fill:#123123">
-                                        <span data-key="t-authentication" style="color: white;">Subsatker Polda&nbsp;<?php echo $this->session->userdata['polda']; ?></span>
+                                        <span data-key="t-authentication" style="color: white;">Subsatker Polda&nbsp;<?= $this->session->userdata['polda']; ?></span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
 
@@ -1605,7 +1620,7 @@
                                     </ul>
                                 </li>
 
-                            <?php } else if ($this->session->userdata['role'] == 'Kapolda' || $this->session->userdata['role'] == 'Kapolres') { ?>
+                            <?php } else if ($this->session->userdata['role'] == 'Kapolres') { ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>dashboard">
                                         <img src="<?= base_url('assets/sidebar/icon-home.svg') ?>" alt="" style="width: 20px; margin-right:10px">
