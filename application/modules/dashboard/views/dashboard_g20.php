@@ -5861,85 +5861,89 @@
                             $('#totalCctvDisplay').html(filterCctv.length);
                             
                             for (let i = 0; i < filterCctv.length; i++) {  
-                                countCctvDisplay += 1;
-                                listCctvDisplay += `
-                                    <tr>
-                                        <td>${countCctvDisplay}</td>
-                                        <td><a href="<?= base_url()?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
-                                        <td>${filterCctv[i].vms_cctv}</td> 
-                                        <td>
-                                            <a class="btn" style="margin-top: -10px;"  
-                                                id="flyToMapFilterCctv${countCctvDisplay}"
-                                                data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
-                                                href="javascript:void(0)">
-                                                <i style="color: #495057;" class="fa fas fa-eye"></i>
-                                            </a> 
-                                        </td>
-                                    </tr>
-                                `;
-                                $('#isiModalCctvDisplay').html(listCctvDisplay); 
+                                setTimeout(() => {
+                                    countCctvDisplay += 1;
+                                    listCctvDisplay += `
+                                        <tr>
+                                            <td>${countCctvDisplay}</td>
+                                            <td><a href="<?= base_url()?>masterdata/Cctv" target="_blank">${filterCctv[i].type_cctv}</a></td> 
+                                            <td>${filterCctv[i].vms_cctv}</td> 
+                                            <td>
+                                                <a class="btn" style="margin-top: -10px;"  
+                                                    id="flyToMapFilterCctv${countCctvDisplay}"
+                                                    data-cord="${filterCctv[i].lat_cctv},${filterCctv[i].lng_cctv}" 
+                                                    href="javascript:void(0)">
+                                                    <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                                </a> 
+                                            </td>
+                                        </tr>
+                                    `;
+                                    $('#isiModalCctvDisplay').html(listCctvDisplay); 
 
-                                
+                                    
 
-                                id = i;  
-                                var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
-                                var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
+                                    id = i;  
+                                    var latitudeCCTV = parseFloat(filterCctv[i].lat_cctv);
+                                    var longitudeCCTV = parseFloat(filterCctv[i].lng_cctv);
 
-                                var resource = '';
-                                if(filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
-                                    resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
-                                }else{
-                                    resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
-                                }
+                                    var resource = '';
+                                    if(filterCctv[i].ip_cctv == 'https://balisatudata.baliprov.go.id/peta-cctv'){
+                                        resource = `<iframe id="myIframe" src="${filterCctv[i].link_cctv}" style="width: 300px; height: 250.25px;"></iframe>`;
+                                    }else{
+                                        resource = `<img style="width: 300px;" src="${filterCctv[i].link_cctv}" />`;
+                                    }
 
-                                cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
-                                    // className: 'location-pin',
-                                    html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
-                                    iconSize: [5, 5],
-                                    iconAnchor: [5, 10]
-                                    // iconAnchor: [10, 33]
-                                    }) }).bindPopup(`
-                                    <div style="width: 300px;">
-                                        <div class="row">
-                                            <div class="col-md-12" style="text-align: center;">
-                                                <h5>${filterCctv[i].address_cctv}</h5>
+                                    cctvClusterGroup.addLayer( markerCCTV[i] = L.marker([latitudeCCTV,longitudeCCTV], { icon: L.divIcon({
+                                        // className: 'location-pin',
+                                        html: `<img src="<?php echo base_url();?>assets/icon/cctv.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                        iconSize: [5, 5],
+                                        iconAnchor: [5, 10]
+                                        // iconAnchor: [10, 33]
+                                        }) }).bindPopup(`
+                                        <div style="width: 300px;">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <h5>${filterCctv[i].address_cctv}</h5>
+                                                </div>
+                                                <div class="col-md-12"> 
+                                                    ${resource}
+                                                </div> 
                                             </div>
-                                            <div class="col-md-12"> 
-                                                ${resource}
-                                            </div> 
                                         </div>
-                                    </div>
-                                        
-                                    `,{minWidth : 100,maxWidth : 560,width : 400})
-                                );
+                                            
+                                        `,{minWidth : 100,maxWidth : 560,width : 400})
+                                    );
+                                }, i * 500);
                             }
 
                              
-                            for (let i = 0; i < countCctvDisplay; i++) { 
-                                // console.log(`${i+1}`);
-                                $(`#flyToMapFilterCctv${i+1}`).on("click", function (e) {  
-                                    var latlong =  $(this).data('cord').split(',');
-                                    var latitude = parseFloat(latlong[0]);
-                                    var longitude = parseFloat(latlong[1]);  
-                                    mapContainer.flyTo([latitude, longitude], 20); 
-                                });
-                            }
-                            $('#datatableCctvOnDisplay').DataTable({
-                                responsive: true,
+                            setTimeout(() => {
+                                for (let i = 0; i < countCctvDisplay; i++) { 
+                                    // console.log(`${i+1}`);
+                                    $(`#flyToMapFilterCctv${i+1}`).on("click", function (e) {  
+                                        var latlong =  $(this).data('cord').split(',');
+                                        var latitude = parseFloat(latlong[0]);
+                                        var longitude = parseFloat(latlong[1]);  
+                                        mapContainer.flyTo([latitude, longitude], 20); 
+                                    });
+                                }
+                                $('#datatableCctvOnDisplay').DataTable({
+                                    responsive: true,
 
-                                scrollX: true,
+                                    scrollX: true,
 
-                                sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
+                                    sDom: '<"dt-panelmenu clearfix"Bflr>t<"dt-panelfooter clearfix"ip>',
 
-                                buttons: ["excel", "csv", "pdf"],
-                                processing: true,
-                                oLanguage: {
+                                    buttons: ["excel", "csv", "pdf"],
+                                    processing: true,
+                                    oLanguage: {
 
-                                    sSearch: 'Search:'
+                                        sSearch: 'Search:'
 
-                                },
-                            }); 
-                            mapContainer.addLayer(cctvClusterGroup);
+                                    },
+                                }); 
+                                mapContainer.addLayer(cctvClusterGroup);
+                            }, countCctvDisplay * 500);
                         }
                     } 
 

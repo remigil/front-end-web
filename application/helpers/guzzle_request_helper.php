@@ -17,7 +17,7 @@ if (!function_exists('guzzle_request')) {
     { 
         try {
             $client = new Client();
-            // $request = $client->request($method, 'http://localhost:3002/v1/' . $uri, $body); 
+            // $request = $client->request($method, 'http://localhost:3020/v1/' . $uri, $body); 
             $request = $client->request($method, 'http://34.143.227.90:3019/v1/' . $uri, $body); 
             $response = $request->getBody();
             $data = json_decode($response, true);
