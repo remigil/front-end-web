@@ -11,7 +11,8 @@
 
     <?php if ($this->session->userdata['role'] == 'G20') { ?>
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>">
+        <!-- <link rel="shortcut icon" href="<?= url_api(); ?>logo/<?= $this->session->userdata['logo'] ?>"> -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
     <?php } else { ?>
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/logo-k3i.png">
