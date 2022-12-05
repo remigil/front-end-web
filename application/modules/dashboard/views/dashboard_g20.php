@@ -1956,6 +1956,7 @@
                                 <tr>
                                     <th>Logo</th>
                                     <th>Nama</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="isiModalPoldaDisplay">
@@ -2023,18 +2024,17 @@
                                                         <span class="fs-3"> <b>${ressData[i].sepeda_motor}</b></span>
                                                     </div>
                                                 </div>    
-                                            </div>
-
-                                                <div class="col-md-12 mt-3">
-                                                    <div class="btn btn-primary float-end" id="flyToMapFilterPolda${countPoldaDisplay}" data-cord=${latitude},${longitude}" >Selengkapnya</div>
-                                                </div>
-                                            </div>
-                                    </div>
+                                            </div> 
+                                        </div>
+                                </div>
                                         
                                 `, {
                                 minWidth: 100,
                                 maxWidth: 560,
                                 width: 400
+                            }).on("click", function(e) {
+                                // console.log(e.latlng.lat);
+                                mapContainer.flyTo([e.latlng.lat, e.latlng.lng], 8);
                             }).addTo(mapContainer);
 
 
@@ -2045,7 +2045,13 @@
                             <tr>
                                 <td><img src="<?= url_api(); ?>polda/logo/${ressData[i].logo_polda}" style="width:35px;"></td>
                                 <td>${ressData[i].name_polda}</td>
-                                
+                                <td>
+                                    <button class="btn" style="margin-left: -13px;margin-top: -13px;"
+                                        id="flyToMapFilterPolda${countPoldaDisplay}"    
+                                        data-cord=${latitude},${longitude}" >
+                                        <i style="color: #495057;" class="fa fas fa-eye"></i>
+                                    </button> 
+                                </td>
                             </tr>
                         `;
                         $('#isiModalPoldaDisplay').html(listPoldaDisplay);
@@ -2053,12 +2059,11 @@
 
                     for (let i = 0; i < countPoldaDisplay; i++) { 
                         console.log(`flyToMapFilterPolda${i+1}`);
-                        $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) {
-                            alert('adaww');
-                            // var latlong = $(this).data('cord').split(',');
-                            // var latitude = parseFloat(latlong[0]);
-                            // var longitude = parseFloat(latlong[1]);
-                            // mapContainer.flyTo([latitude, longitude], 20);
+                        $(`#flyToMapFilterPolda${i+1}`).on("click", function(e) { 
+                            var latlong = $(this).data('cord').split(',');
+                            var latitude = parseFloat(latlong[0]);
+                            var longitude = parseFloat(latlong[1]);
+                            mapContainer.flyTo([latitude, longitude], 8);
                         });
                     }
 
@@ -6377,7 +6382,7 @@
                                     troubleSpotClusterGroup.addLayer(markerTroubleSpot[i] = L.marker([latitudeTroubleSpot, longitudeTroubleSpot], {
                                         icon: L.divIcon({
                                             // className: 'location-pin',
-                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 30px; margin-top: -45px;margin-left: -18.5px;">`,
                                             iconSize: [5, 5],
                                             iconAnchor: [5, 10]
                                             // iconAnchor: [10, 33]
@@ -6555,7 +6560,7 @@
                                     troubleSpotClusterGroup.addLayer(markerBlankSpot[i] = L.marker([latitudeBlankSpot, longitudeBlankSpot], {
                                         icon: L.divIcon({
                                             // className: 'location-pin',
-                                            html: `<img src="<?php echo base_url(); ?>assets/icon/troublespot.png" style="width: 40px; margin-top: -45px;margin-left: -18.5px;">`,
+                                            html: `<img src="<?php echo base_url(); ?>assets/icon/blackspot.png" style="width: 30px; margin-top: -45px;margin-left: -18.5px;">`,
                                             iconSize: [5, 5],
                                             iconAnchor: [5, 10]
                                             // iconAnchor: [10, 33]

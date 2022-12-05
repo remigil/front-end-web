@@ -809,7 +809,11 @@
                                 <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                             <?php } else { ?>
                                 <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
-                                <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI</span> </h4>
+                                <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI 
+                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                    <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
+                                <?php } ?>
+                            </span> </h4>
                                  
                             <?php } ?>
                         </div>
@@ -901,9 +905,7 @@
                             <?php } else { ?>
                                 <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/logo-k3i.png" alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata['full_name']; ?></span>
-                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                                    <span><?= $this->session->userdata['name_operation'] ?></span>
-                                <?php } ?>
+                                 
                             <?php } ?>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
