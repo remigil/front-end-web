@@ -188,18 +188,18 @@ class CategorySchedule extends MY_Controller
         ]; 
         $input      = $this->input->post(); 
 
-        // if( 
-        //     backdoorCek($input['name']) == 1 ||
-        //     backdoorCek($input['keterangan']) == 1
-        // ){
-        //     $res = array(
-        //         'status' => false,
-        //         'message' => 'Terindikasi inputan tidak sesuai standart!',
-        //         'data' => []
-        //     );
-        //     echo json_encode($res);
-        //     die;
-        // }
+        if( 
+            backdoorCek($input['name']) == 1 ||
+            backdoorCek($input['keterangan']) == 1
+        ){
+            $res = array(
+                'status' => false,
+                'message' => 'Terindikasi inputan tidak sesuai standart!',
+                'data' => []
+            );
+            echo json_encode($res);
+            die;
+        }
 
         $dummy = [
             [
@@ -210,6 +210,44 @@ class CategorySchedule extends MY_Controller
                 'name' => 'description_category_schedule',
                 'contents' => $input['keterangan'],
             ],
+            [
+                'name' => 'status_category_schedule',
+                'contents' => $input['status'],
+            ] 
+        ];
+
+        $data = guzzle_request('PUT', 'category_schedule/edit/'.$input['id'].'', [ 
+            'multipart' => $dummy, 
+            'headers' => $headers 
+        ]);
+
+        if($data['isSuccess'] == true){  
+            $res = array(
+                'status' => true,
+                'message' => 'Berhasil edit data.',
+                'data' => $data
+            );
+        }else{
+            $res = array(
+                'status' => false,
+                'message' => 'Gagal edit data.',
+                'data' => $data
+            );
+        }
+        
+        echo json_encode($res);
+
+    }
+
+    public function storeEditSt() 
+    {  
+        $headers = [ 
+            'Authorization' => $this->session->userdata['token'],  
+        ]; 
+        $input      = $this->input->post(); 
+
+         
+        $dummy = [ 
             [
                 'name' => 'status_category_schedule',
                 'contents' => $input['status'],

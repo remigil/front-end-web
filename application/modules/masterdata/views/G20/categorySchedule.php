@@ -204,7 +204,7 @@
 
                                 type : "POST",
 
-                                url : "<?php echo base_url();?>masterdata/categorySchedule/storeEdit",
+                                url : "<?php echo base_url();?>masterdata/categorySchedule/storeEditSt",
 
                                 data : {
 
@@ -277,7 +277,7 @@
 
                                 type : "POST",
 
-                                url : "<?php echo base_url();?>masterdata/categorySchedule/storeEdit",
+                                url : "<?php echo base_url();?>masterdata/categorySchedule/storeEditSt",
 
                                 data : {
 
