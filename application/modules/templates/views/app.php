@@ -815,7 +815,7 @@
                                 <?php }?>
                                 <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI 
                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
-                                    <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
+                                    - <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>
                                 <?php } ?>
                             </span> </h4>
                                  
@@ -967,7 +967,11 @@
                                         <span data-key="t-authentication">Uraian Kegiatan</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi Puri Agung</a></li>
+                                        <li><a href="<?php echo base_url(); ?>operasi/renpam/operasi" data-key="t-login">Operasi 
+                                            <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                                <span> <?= $this->session->userdata['name_operation'] ?></span>
+                                            <?php } ?>
+                                        </a></li>
                                         <li><a href="<?php echo base_url(); ?>operasi/renpam/harian" data-key="t-login">Tidak Terjadwal</a></li>
                                         <li><a href="<?php echo base_url(); ?>operasi/renpam" data-key="t-login">Keseluruhan</a></li>
                                     </ul>
