@@ -808,7 +808,11 @@
                                 <p style="font-size:10px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
                                 <h5 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color: #787878; font-family:MortendBold; font-size:10px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> <?= $this->session->userdata['full_name']; ?></span> </h5>
                             <?php } else { ?>
-                                <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                <?php if ($this->session->userdata['role'] == 'G20') { ?>
+                                    <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Operasi</p>
+                                <?php }else{ ?>
+                                    <p style="font-size:15px; margin-bottom: 0px;margin-top: 10px;">Welcome to Dashboard Executive</p>
+                                <?php }?>
                                 <h4 style="display: flex;align-items: center;margin-left: 0px;margin-top: 5px; color:red; font-family:MortendBold; font-size:18px; margin-top:2px;" class="text-uppercase">PUSAT KENDALI KOORDINASI KOMUNIKASI & INFORMASI -&nbsp; <span style="color:#007DD8 ;"> K3I KORLANTAS POLRI 
                                 <?php if ($this->session->userdata['role'] == 'G20') { ?>
                                     <span>Operasi <?= $this->session->userdata['name_operation'] ?></span>

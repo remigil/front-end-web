@@ -1323,13 +1323,50 @@
           type: "roadmap",
         }).addGoogleLayer("TrafficLayer");
 
+
+        var shpFile = new L.Shapefile(`<?php echo base_url();?>assets/admin/shp/BATAS_PROVINSI_DESEMBER_2019_DUKCAPIL`, {
+            pointToLayer: function(feature, latlng) {
+                
+                var smallIcon = new L.divIcon({
+                    iconAnchor: [20, 51],
+                    popupAnchor: [0, -51],
+                    className: 'listeo-marker-icon',
+                    html: '<div class="marker-container">' +
+                    '<div class="marker-card">' +
+                    '<div class="front face"><i class="im im-icon-Globe"></i></div>' +
+                    '<div class="back face"><i class="im im-icon-Globe"></i></div>' +
+                    '<div class="marker-arrow"></div>' +
+                    '</div>' +
+                    '</div>'
+                });
+                
+           
+                var mark = L.marker(latlng, {icon: smallIcon})
+                cluster.addLayer(mark)
+                return  cluster;
+                
+            },
+            onEachFeature: function(feature, layer) {
+                if (feature.properties) {
+                    layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                        return (`<h5>${k}</h5><div>${feature.properties[k]}</div>`);
+                    }).join("<hr>"), {
+                        maxWidth: 400,
+                        maxHeight: 250, 
+                        scrollbarWidth: 'thin',
+                        className: 'leaflet-infoBox'
+                    });
+                }
+            }
+        });
+
         // StART MAP SECTION
         var mapContainer = L.map('mapG20Dashboard', {
             maxZoom: 20,
             minZoom: 1,
             zoomSnap: 0.25,
             zoomControl: false,
-            layers: [googleHybrid]
+            layers: [googleHybrid, shpFile]
         }).setView(initialCenter, initialZoom); 
 
         var myRenderer = L.canvas({ padding: 0.5 });
@@ -1350,7 +1387,9 @@
             "Google Map Hybrid Traffic": trafficMutant,
             "MappBox Traffic": gl,
         };
-        var overlayMaps = {};
+        var overlayMaps = {
+            "Batas Wilayah" : shpFile,
+        };
         L.control.layers(baseMaps, overlayMaps, {
             position: 'topright'
         }).addTo(mapContainer);
